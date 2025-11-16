@@ -1,0 +1,240 @@
+{
+  "designSystem": {
+    "name": "Portfolio Dashboard Design System",
+    "version": "1.0.0",
+    "colors": {
+      "primary": {
+        "lime": "#d4ff4f",
+        "limeLight": "#e5ff8f",
+        "limeDark": "#b8e03a"
+      },
+      "backgrounds": {
+        "primary": "#1a1a1a",
+        "secondary": "#252525",
+        "card": "#2d2d2d",
+        "cardHover": "#353535",
+        "highlight": "#d4ff4f"
+      },
+      "text": {
+        "primary": "#ffffff",
+        "secondary": "#b0b0b0",
+        "tertiary": "#808080",
+        "accent": "#d4ff4f",
+        "success": "#4ade80",
+        "error": "#ef4444"
+      },
+      "borders": {
+        "subtle": "#3a3a3a",
+        "default": "#4a4a4a",
+        "focus": "#d4ff4f"
+      },
+      "charts": {
+        "bar1": "#6366f1",
+        "bar2": "#8b5cf6",
+        "bar3": "#a855f7",
+        "bar4": "#c084fc",
+        "line": "#d4ff4f",
+        "lineSecondary": "#fbbf24",
+        "lineAccent": "#fb923c",
+        "heatmapLow": "#4c1d95",
+        "heatmapMid": "#7c3aed",
+        "heatmapHigh": "#a78bfa",
+        "heatmapActive": "#d4ff4f"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif",
+        "mono": "'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace"
+      },
+      "fontSizes": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "metric": "2.5rem"
+      },
+      "fontWeights": {
+        "normal": "400",
+        "medium": "500",
+        "semibold": "600",
+        "bold": "700"
+      },
+      "lineHeights": {
+        "tight": "1.2",
+        "normal": "1.5",
+        "relaxed": "1.75"
+      }
+    },
+    "spacing": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "1rem",
+      "lg": "1.5rem",
+      "xl": "2rem",
+      "2xl": "3rem",
+      "3xl": "4rem",
+      "cardPadding": "1.5rem",
+      "sectionGap": "1.5rem"
+    },
+    "borderRadius": {
+      "sm": "0.25rem",
+      "md": "0.5rem",
+      "lg": "0.75rem",
+      "xl": "1rem",
+      "2xl": "1.5rem",
+      "full": "9999px",
+      "card": "1rem",
+      "button": "0.5rem",
+      "icon": "50%"
+    },
+    "shadows": {
+      "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.4)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.5)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.6)",
+      "glow": "0 0 20px rgba(212, 255, 79, 0.3)",
+      "card": "0 4px 12px rgba(0, 0, 0, 0.3)"
+    },
+    "components": {
+      "card": {
+        "background": "#2d2d2d",
+        "borderRadius": "1rem",
+        "padding": "1.5rem",
+        "shadow": "0 4px 12px rgba(0, 0, 0, 0.3)",
+        "hover": {
+          "background": "#353535",
+          "transform": "translateY(-2px)",
+          "shadow": "0 6px 16px rgba(0, 0, 0, 0.4)"
+        }
+      },
+      "metricCard": {
+        "titleSize": "1rem",
+        "valueSize": "2.5rem",
+        "trendSize": "0.875rem",
+        "iconSize": "1.5rem",
+        "spacing": "0.75rem"
+      },
+      "highlightCard": {
+        "background": "#d4ff4f",
+        "color": "#1a1a1a",
+        "shadow": "0 6px 20px rgba(212, 255, 79, 0.4)"
+      },
+      "button": {
+        "primary": {
+          "background": "#d4ff4f",
+          "color": "#1a1a1a",
+          "padding": "0.75rem 1.5rem",
+          "borderRadius": "0.5rem",
+          "fontSize": "1rem",
+          "fontWeight": "600",
+          "hover": {
+            "background": "#e5ff8f",
+            "transform": "translateY(-1px)",
+            "shadow": "0 4px 12px rgba(212, 255, 79, 0.4)"
+          }
+        },
+        "secondary": {
+          "background": "#2d2d2d",
+          "color": "#ffffff",
+          "border": "1px solid #4a4a4a",
+          "hover": {
+            "background": "#353535",
+            "borderColor": "#d4ff4f"
+          }
+        }
+      },
+      "iconCircle": {
+        "size": "2.5rem",
+        "background": "#3a3a3a",
+        "color": "#d4ff4f",
+        "borderRadius": "50%",
+        "highlightBackground": "#d4ff4f",
+        "highlightColor": "#1a1a1a"
+      },
+      "chart": {
+        "barWidth": "2rem",
+        "barRadius": "0.375rem",
+        "lineWidth": "2px",
+        "gridColor": "#3a3a3a",
+        "labelColor": "#808080",
+        "tooltipBackground": "#2d2d2d",
+        "tooltipBorder": "#4a4a4a"
+      },
+      "sidebar": {
+        "width": "4rem",
+        "background": "#1a1a1a",
+        "itemSize": "2.5rem",
+        "itemSpacing": "0.5rem",
+        "activeIndicator": "#d4ff4f"
+      },
+      "searchBar": {
+        "background": "#2d2d2d",
+        "borderRadius": "0.75rem",
+        "padding": "0.75rem 1rem",
+        "fontSize": "1rem",
+        "placeholderColor": "#808080",
+        "focusBorder": "#d4ff4f"
+      }
+    },
+    "grid": {
+      "columns": {
+        "mobile": "1",
+        "tablet": "2",
+        "desktop": "4"
+      },
+      "gap": "1.5rem",
+      "containerPadding": "2rem"
+    },
+    "animations": {
+      "duration": {
+        "fast": "150ms",
+        "normal": "250ms",
+        "slow": "350ms"
+      },
+      "easing": {
+        "default": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+        "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+        "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "transitions": {
+        "all": "all 250ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "background": "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "transform": "transform 250ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "opacity": "opacity 250ms cubic-bezier(0.4, 0, 0.2, 1)"
+      }
+    },
+    "breakpoints": {
+      "mobile": "320px",
+      "tablet": "768px",
+      "desktop": "1024px",
+      "wide": "1440px"
+    },
+    "zIndex": {
+      "base": "0",
+      "dropdown": "100",
+      "modal": "200",
+      "tooltip": "300",
+      "notification": "400"
+    }
+  },
+  "usage": {
+    "notes": [
+      "Primary accent color is lime green (#d4ff4f) - use sparingly for emphasis",
+      "Dark theme with layered grays for depth",
+      "Cards use subtle shadows and hover effects for interactivity",
+      "Typography should maintain clear hierarchy with consistent spacing",
+      "Charts use purple/violet tones with lime highlights",
+      "Icons should be simple, monochrome, and consistent in style",
+      "All interactive elements should have hover states",
+      "Use smooth transitions for state changes (250ms default)"
+    ]
+  }
+}
+

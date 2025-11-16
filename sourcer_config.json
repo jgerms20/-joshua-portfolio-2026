@@ -1,0 +1,100 @@
+{
+  "name": "Joshua German",
+  "full_name": "Joshua McKenzie German",
+  "linkedin_url": "https://linkedin.com/in/joshuamgerman",
+  "portfolio_file": "index.html",
+  "portfolio_url": "https://jgerms20.github.io/-joshua-portfolio-09.02.2025/",
+  "verification_threshold": 3,
+  "known_projects": [
+    {
+      "name": "Levi's REIIMAGINE",
+      "brand": "Levi's",
+      "agency": "TBWA\\Chiat\\Day",
+      "year": "2024-2025",
+      "videos": [
+        "https://www.youtube.com/embed/q40oimgnN00",
+        "https://www.youtube.com/embed/y2o2FuqMtxI",
+        "https://www.youtube.com/embed/CaJCypvWZoQ",
+        "https://www.youtube.com/embed/LwojYvqomhU"
+      ]
+    },
+    {
+      "name": "Sephora Holiday Campaign",
+      "brand": "Sephora",
+      "agency": "TBWA\\Chiat\\Day",
+      "year": "2024"
+    },
+    {
+      "name": "DoorDash All The Ads",
+      "brand": "DoorDash",
+      "agency": "Wieden+Kennedy",
+      "year": "2023",
+      "videos": [
+        "https://www.youtube.com/embed/DTLM5o-9hYg"
+      ]
+    },
+    {
+      "name": "BMW Zeus & Hera",
+      "brand": "BMW",
+      "agency": "Goodby, Silverstein & Partners",
+      "year": "2022",
+      "videos": [
+        "https://www.youtube.com/embed/nUC1QA5gRcU"
+      ]
+    },
+    {
+      "name": "Califia Farms Calilujah",
+      "brand": "Califia Farms",
+      "agency": "Goodby, Silverstein & Partners",
+      "year": "2023"
+    },
+    {
+      "name": "Samuel Adams Brighter Boston",
+      "brand": "Samuel Adams",
+      "agency": "Goodby, Silverstein & Partners",
+      "year": "2023",
+      "videos": [
+        "https://www.youtube.com/embed/sw7FyFix434"
+      ]
+    },
+    {
+      "name": "DIRECTV Emmys OOH Hijack",
+      "brand": "DIRECTV",
+      "agency": "TBWA\\Chiat\\Day LA",
+      "year": "2024-2025"
+    }
+  ],
+  "search_engines": ["google", "bing"],
+  "verification_keywords": [
+    "Joshua German",
+    "Joshua M. German",
+    "Joshua McKenzie German",
+    "Josh German",
+    "J. German"
+  ],
+  "known_agencies": [
+    "TBWA\\Chiat\\Day",
+    "TBWA Chiat Day",
+    "Wieden+Kennedy",
+    "Goodby, Silverstein & Partners",
+    "GS&P"
+  ],
+  "known_brands": [
+    "Levi's",
+    "Sephora",
+    "DoorDash",
+    "BMW",
+    "Califia",
+    "DIRECTV",
+    "Samuel Adams"
+  ],
+  "search_sources": [
+    "linkedin.com",
+    "adweek.com",
+    "campaignlive.com",
+    "shootonline.com",
+    "adage.com",
+    "creativity-online.com"
+  ]
+}
+

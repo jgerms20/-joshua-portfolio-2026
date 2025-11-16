@@ -801,6 +801,76 @@
             opacity: 1;
         }
 
+        /* Dropdown Navigation Styles */
+        .nav-item.has-dropdown > .nav-link {
+            position: relative;
+        }
+        .nav-item.has-dropdown > .nav-link::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+            margin-left: 8px;
+            opacity: 0.5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            top: 2px;
+        }
+        .nav-item.has-dropdown:hover > .nav-link::after {
+            opacity: 1;
+            transform: translateY(2px) rotate(180deg);
+            border-top-color: var(--accent-color);
+        }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 12px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            margin-top: 8px;
+        }
+        .nav-item.has-dropdown:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-dropdown-item {
+            display: block;
+            padding: 10px 24px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        .nav-dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            border-left-color: var(--accent-color);
+            padding-left: 28px;
+        }
+        .nav-dropdown-item:first-child {
+            border-top-left-radius: var(--radius-md);
+            border-top-right-radius: var(--radius-md);
+        }
+        .nav-dropdown-item:last-child {
+            border-bottom-left-radius: var(--radius-md);
+            border-bottom-right-radius: var(--radius-md);
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
@@ -2851,6 +2921,76 @@
         .nav-link:hover::before {
             transform: translateY(0);
             opacity: 1;
+        }
+
+        /* Dropdown Navigation Styles */
+        .nav-item.has-dropdown > .nav-link {
+            position: relative;
+        }
+        .nav-item.has-dropdown > .nav-link::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid currentColor;
+            margin-left: 8px;
+            opacity: 0.5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            top: 2px;
+        }
+        .nav-item.has-dropdown:hover > .nav-link::after {
+            opacity: 1;
+            transform: translateY(2px) rotate(180deg);
+            border-top-color: var(--accent-color);
+        }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 12px 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            margin-top: 8px;
+        }
+        .nav-item.has-dropdown:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-dropdown-item {
+            display: block;
+            padding: 10px 24px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        .nav-dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            border-left-color: var(--accent-color);
+            padding-left: 28px;
+        }
+        .nav-dropdown-item:first-child {
+            border-top-left-radius: var(--radius-md);
+            border-top-right-radius: var(--radius-md);
+        }
+        .nav-dropdown-item:last-child {
+            border-bottom-left-radius: var(--radius-md);
+            border-bottom-right-radius: var(--radius-md);
         }
 
         .header-actions {
@@ -5363,29 +5503,60 @@
                             <span class="nav-text">About</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="#photo-approach" class="nav-link" data-text="Photography">
                             <span class="nav-num">02</span>
                             <span class="nav-text">Photography</span>
                         </a>
+                        <div class="nav-dropdown">
+                            <a href="#photo-approach" class="nav-dropdown-item">All Photography</a>
+                            <a href="#photo-approach" class="nav-dropdown-item" onclick="filterPhotos('portraits'); return false;">Portraits</a>
+                            <a href="#photo-approach" class="nav-dropdown-item" onclick="filterPhotos('fashion'); return false;">Fashion</a>
+                            <a href="#photo-approach" class="nav-dropdown-item" onclick="filterPhotos('landscape'); return false;">Landscape</a>
+                            <a href="#photo-approach" class="nav-dropdown-item" onclick="filterPhotos('events'); return false;">Events</a>
+                            <a href="#photo-approach" class="nav-dropdown-item" onclick="filterPhotos('travel'); return false;">Travel</a>
+                        </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="#campaigns" class="nav-link" data-text="Work">
                             <span class="nav-num">03</span>
                             <span class="nav-text">Brand Work</span>
                         </a>
+                        <div class="nav-dropdown">
+                            <a href="#campaigns" class="nav-dropdown-item">All Brands</a>
+                            <a href="#gatorade" class="nav-dropdown-item">Gatorade</a>
+                            <a href="#directv" class="nav-dropdown-item">DIRECTV</a>
+                            <a href="#levis" class="nav-dropdown-item">Levi's</a>
+                            <a href="#sephora" class="nav-dropdown-item">Sephora</a>
+                            <a href="#doordash" class="nav-dropdown-item">DoorDash</a>
+                            <a href="#bmw" class="nav-dropdown-item">BMW</a>
+                            <a href="#califia" class="nav-dropdown-item">Califia Farms</a>
+                            <a href="#samueladams" class="nav-dropdown-item">Samuel Adams</a>
+                        </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="#podcast" class="nav-link" data-text="Podcast">
                             <span class="nav-num">04</span>
                             <span class="nav-text">Podcasts</span>
                         </a>
+                        <div class="nav-dropdown">
+                            <a href="#podcast" class="nav-dropdown-item">All Podcasts</a>
+                            <a href="#podcast-dtd" class="nav-dropdown-item">Dominate the Decade</a>
+                            <a href="#podcast" class="nav-dropdown-item" onclick="showPodcastCard('approachable-ai'); return false;">Approachable AI</a>
+                            <a href="#podcast" class="nav-dropdown-item" onclick="showPodcastCard('curious-creative'); return false;">Curious & Creative</a>
+                        </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="#writing" class="nav-link" data-text="Writing">
                             <span class="nav-num">05</span>
                             <span class="nav-text">Writing</span>
                         </a>
+                        <div class="nav-dropdown">
+                            <a href="#writing" class="nav-dropdown-item">All Writing</a>
+                            <a href="#writing" class="nav-dropdown-item" onclick="switchWritingTab('dg'); return false;">The Daily Gamecock</a>
+                            <a href="#writing" class="nav-dropdown-item" onclick="switchWritingTab('lbx'); return false;">Letterboxd</a>
+                            <a href="#writing" class="nav-dropdown-item" onclick="switchWritingTab('substack'); return false;">Substack</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="#ai-projects" class="nav-link" data-text="AI Projects">
@@ -5468,7 +5639,7 @@
                 <div class="mobile-social-links">
                     <a href="https://instagram.com/dominatethedecade" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="mobile-social-link">Instagram</a>
                     <a href="https://twitter.com/dominate_decade" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="mobile-social-link">Twitter</a>
-                    <a href="https://linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="mobile-social-link">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="mobile-social-link">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -5911,9 +6082,27 @@
                     <button class="filter-btn" data-filter="califia">Califia</button>
                     <button class="filter-btn" data-filter="samadams">Sam Adams</button>
                             <button class="filter-btn" data-filter="directv">DIRECTV</button>
+                    <button class="filter-btn" data-filter="gatorade">Gatorade</button>
                 </div>
                 
                 <div class="grid col-3 stagger-children">
+                    <!-- Gatorade Brand Card (Most Recent - 2025) -->
+                    <a href="#gatorade" class="brand-card card hover-lift gatorade">
+                        <div class="brand-image-container img-hover-zoom" style="background: #ffffff; display: flex; align-items: center; justify-content: center;">
+                            <img src="Brand Imagery/Gatorade/Brand Logo/gatorade-logo-png_seeklogo-369610.png" alt="Gatorade Logo" class="brand-image" loading="lazy" style="max-width: 80%; max-height: 80%; object-fit: contain; padding: 20px;">
+                            <div class="brand-overlay"></div>
+                        </div>
+                        <h3 class="brand-title card-title text-center mt-sm p-sm">Gatorade</h3>
+                    </a>
+                    <!-- DIRECTV Brand Card (2025) -->
+                    <a href="#directv" class="brand-card card hover-lift directv">
+                        <div class="brand-image-container img-hover-zoom">
+                            <img src="Brand Imagery/Directv/directv-rebranding-bringing-flexibility-2025.webp" alt="DIRECTV" class="brand-image" loading="lazy">
+                            <div class="brand-overlay"></div>
+                        </div>
+                        <h3 class="brand-title card-title text-center mt-sm p-sm">DIRECTV</h3>
+                    </a>
+                    <!-- Levi's Brand Card -->
                     <a href="#levis" class="brand-card card hover-lift levis">
                         <div class="brand-image-container img-hover-zoom">
                             <img src="Brand Imagery/Levi's/Brand Logo/1-preview.jpg" alt="Levi's x Beyoncé Campaign" class="brand-image" loading="lazy">
@@ -5921,6 +6110,7 @@
                         </div>
                         <h3 class="brand-title card-title text-center mt-sm p-sm">Levi's</h3>
                     </a>
+                    <!-- Sephora Brand Card -->
                     <a href="#sephora" class="brand-card card hover-lift sephora">
                         <div class="brand-image-container img-hover-zoom">
                             <img src="Brand Imagery/Sephora/Brand Logo/Sephora-Emblem.png" alt="Sephora Brand Logo" class="brand-image" loading="lazy">
@@ -5928,6 +6118,7 @@
                         </div>
                          <h3 class="brand-title card-title text-center mt-sm p-sm">Sephora</h3>
                     </a>
+                    <!-- DoorDash Brand Card -->
                     <a href="#doordash" class="brand-card card hover-lift doordash">
                         <div class="brand-image-container img-hover-zoom">
                             <img src="Brand Imagery/Doordash/Brand Logo/DoorDash-logo.jpg" alt="DoorDash All The Ads Hero" class="brand-image" loading="lazy">
@@ -5935,6 +6126,7 @@
                         </div>
                         <h3 class="brand-title card-title text-center mt-sm p-sm">DoorDash</h3>
                     </a>
+                    <!-- BMW Brand Card -->
                     <a href="#bmw" class="brand-card card hover-lift bmw">
                         <div class="brand-image-container img-hover-zoom">
                             <img src="Brand Imagery/BMW/Brand Logo/bmw_2020_logo_before_after.jpg" alt="BMW Zeus & Hera Campaign" class="brand-image" loading="lazy">
@@ -5942,6 +6134,7 @@
                         </div>
                         <h3 class="brand-title card-title text-center mt-sm p-sm">BMW</h3>
                     </a>
+                    <!-- Califia Farms Brand Card -->
                     <a href="#califia" class="brand-card card hover-lift califia">
                         <div class="brand-image-container img-hover-zoom">
                             <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" alt="Califia Farms Calilujah Campaign" class="brand-image" loading="lazy">
@@ -5949,20 +6142,13 @@
                         </div>
                         <h3 class="brand-title card-title text-center mt-sm p-sm">Califia Farms</h3>
                     </a>
+                    <!-- Samuel Adams Brand Card -->
                     <a href="#samueladams" class="brand-card card hover-lift samadams">
                         <div class="brand-image-container img-hover-zoom">
                             <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" alt="Samuel Adams Brighter Boston Campaign" class="brand-image" loading="lazy">
                             <div class="brand-overlay"></div>
                         </div>
                         <h3 class="brand-title card-title text-center mt-sm p-sm">Samuel Adams</h3>
-                    </a>
-                    <!-- DIRECTV Draft Card -->
-                    <a href="#directv" class="brand-card card hover-lift directv">
-                        <div class="brand-image-container img-hover-zoom">
-                            <img src="Brand Imagery/Directv/directv-rebranding-bringing-flexibility-2025.webp" alt="DIRECTV" class="brand-image" loading="lazy">
-                            <div class="brand-overlay"></div>
-                        </div>
-                        <h3 class="brand-title card-title text-center mt-sm p-sm">DIRECTV</h3>
                     </a>
                 </div>
                 
@@ -6259,14 +6445,14 @@
                                 <!-- Skin Obsessed Campaign Videos -->
                                 <div class="video-gallery grid col-2 cs-section">
                                     <div class="video-card">
-                                        <div class="video-container">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Sephora Skin Obsessed - Security Spot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div class="video-container" style="background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; min-height: 315px;">
+                                            <p style="color: var(--darker-text); text-align: center; padding: 2rem;">Video coming soon</p>
                                     </div>
                                         <div class="video-caption">"Security" - TSA Traveler Spot (30s)</div>
                                 </div>
                                     <div class="video-card">
-                                        <div class="video-container">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Sephora Skin Obsessed - The Hunt Spot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <div class="video-container" style="background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; min-height: 315px;">
+                                            <p style="color: var(--darker-text); text-align: center; padding: 2rem;">Video coming soon</p>
                             </div>
                                         <div class="video-caption">"The Hunt" - Online Research Spot (30s)</div>
                                     </div>
@@ -6381,7 +6567,14 @@
                 <div class="case-study-container">
                     <p class="cs-paragraph">For Califia Farms, I contributed to the "Calilujah!" campaign at Goodby, Silverstein & Partners, a vibrant celebration of plant-based goodness. We crafted a visual and emotional experience that feels like a hallelujah moment for every sip. My role focused on ensuring the campaign resonated with eco-conscious consumers, using a multi-channel strategy that brought the plant-based movement to life.</p>
                     <div class="video-gallery grid col-1 cs-section">
-                        <div class="video-card"><div class="video-container"><iframe src="https://player.vimeo.com/video/73346632?h=765599fa40" title="Califia Farms Calilujah Campaign Video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Calilujah! - A joyful celebration of plant-based living.</div></div>
+                        <div class="video-card">
+                            <div class="video-container">
+                                <div style="position:relative; width:100%; padding-top:56.25%; padding-bottom:40px;">
+                                    <iframe src="https://www.ispot.tv/share/OUR8" style="position:absolute; top:0; right:0; left:0; bottom:0; width:100%; height:100%;" frameborder="0" scrolling="no" allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                            <div class="video-caption">Calilujah! - A joyful celebration of plant-based living.</div>
+                        </div>
                     </div>
                     <div class="photo-gallery-cs grid col-1 cs-section">
                         <div class="photo-card-cs gallery-item" data-src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" data-title="Plant-Based Joy" data-caption="A vibrant scene from the Calilujah! campaign.">
@@ -6429,12 +6622,169 @@
                             <img src="https://wp-shoot.s3.amazonaws.com/wp-content/uploads/2023/07/vlcsnap-2023-01-31-06h58m56s225.jpg" alt="Kevin Garnett in Brighter Boston Campaign" loading="lazy">
                             <div class="photo-caption-cs"><h5>Kevin Garnett</h5><p>KG brings Boston pride.</p></div>
                         </div>
-                        <div class="photo-card-cs gallery-item" data-src="https://www.shootonline.com/wp-content/uploads/2023/01/Samuel-Adams-Brighter-Boston-Billboard.jpg" data-title="Brighter Billboard" data-caption="Brighter Boston campaign billboard.">
-                            <img src="https://www.shootonline.com/wp-content/uploads/2023/01/Samuel-Adams-Brighter-Boston-Billboard.jpg" alt="Samuel Adams Brighter Boston Billboard" loading="lazy">
-                            <div class="photo-caption-cs"><h5>Brighter Billboard</h5><p>Campaign billboard in Boston.</p></div>
+                        </div>
+                    
+                    </div>
+            </div>
+        </section>
+        
+        <!-- Gatorade Case Study (Multi-campaign like Sephora) -->
+        <section id="gatorade" class="case-study">
+            <div class="case-study-hero">
+                <div class="parallax-bg" style="background: linear-gradient(135deg, #FFC72C 0%, #FF6B00 100%); background-image: url('Brand Imagery/Gatorade/Brand Logo/download.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-blend-mode: overlay; opacity: 0.3;"></div>
+                <div class="case-study-hero-overlay"></div>
+                <div class="case-study-hero-content">
+                    <div class="breadcrumb"><a href="#campaigns">Brand Work</a> <span>/</span> Gatorade</div>
+                    <h2 class="case-study-title">Gatorade <span class="highlight">Campaigns</span></h2>
+                    <div class="case-study-meta">
+                        <div class="meta-item"><span class="meta-label">Agency</span><span class="meta-value">TBWA\Chiat\Day LA</span></div>
+                        <div class="meta-item"><span class="meta-label">Years</span><span class="meta-value">2025</span></div>
+                    </div>
+                    <div class="scroll-prompt"><span>Scroll to explore</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg></div>
+                </div>
+            </div>
+            <div class="case-study-content">
+                <div class="case-study-container">
+                    <div class="cs-section">
+                        <div class="cs-section-header">
+                            <h3>Campaign Portfolio</h3>
+                            <div class="section-divider"></div>
+                        </div>
+
+                        <!-- Folder Navigation -->
+                        <div class="folder-navigation">
+                            <button class="folder-tab active" data-folder="stranger-things">
+                                <span class="folder-icon">📁</span>
+                                <span class="folder-title">No Ordinary Athlete</span>
+                                <span class="folder-subtitle">Stranger Things x Gatorade</span>
+                                <div class="folder-indicator"></div>
+                            </button>
+                            <button class="folder-tab" data-folder="columbia-high">
+                                <span class="folder-icon">📁</span>
+                                <span class="folder-title">All the Reasons Not to Quit</span>
+                                <span class="folder-subtitle">Columbia High Football</span>
+                                <div class="folder-indicator"></div>
+                            </button>
+                        </div>
+
+                        <!-- Folder Content -->
+                        <div class="folder-content-container">
+                            <!-- Stranger Things Campaign Folder -->
+                            <div class="folder-content active" id="stranger-things">
+                                <div class="folder-header">
+                                    <h4>"No Ordinary Athlete" — Stranger Things Collaboration</h4>
+                                    <p>Gatorade teamed up with Netflix to give a vintage jingle new life in Stranger Things' Upside Down. "No Ordinary Athlete" is a play on the brand's iconic "No Ordinary Thirst Quencher" campaign from the '80s. Narrated by Myles Garrett—defensive end for the Cleveland Browns and Stranger Things super-fan—the :30 spot from TBWA\Chiat\Day L.A. shows the role Gatorade plays in both real-world performance and the Upside Down, where they're hoping to save the world.</p>
+                                    <p>The campaign celebrates Gatorade's authentic 1980s heritage by reviving iconic products and ads from the vault, pulling them into the 'Upside Down.' When the final season of Stranger Things dropped, the brand launched a 1987 Hawkins Capsule and Upside Down Capsule, with vintage apparel, retro Gatorade towels and more.</p>
+                                </div>
+
+                                <div class="campaign-highlights">
+                                    <div class="highlight-grid">
+                                        <div class="highlight-card">
+                                            <h5>Campaign Focus</h5>
+                                            <p>Vintage 1987 theme celebrating Gatorade's heritage through Stranger Things collaboration</p>
+                                        </div>
+                                        <div class="highlight-card">
+                                            <h5>Key Elements</h5>
+                                            <p>Glass bottles, retro jingle, Stranger Things Upside Down, Myles Garrett narration</p>
+                                        </div>
+                                        <div class="highlight-card">
+                                            <h5>Market Impact</h5>
+                                            <p>Running on social, digital, and Netflix's Christmas Day NFL games</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Video -->
+                                <div class="video-gallery grid col-1 cs-section">
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <div style="position:relative; width:100%; padding-top:56.25%; padding-bottom:40px;">
+                                                <iframe allow="fullscreen *" sandbox="allow-same-origin allow-scripts allow-top-navigation" scrolling="no" src="https://notube.lbbonline.com/media/690b2ff5d2c18209bbf732a7" style="position:absolute; top:0; right:0; left:0; bottom:0; width:100%; height:100%;" frameborder="0"></iframe>
+                                            </div>
+                                        </div>
+                                        <div class="video-caption">"No Ordinary Athlete" - Stranger Things x Gatorade (:30)</div>
+                                    </div>
+                                </div>
+
+                                <div class="cs-section">
+                                    <div class="cs-section-header">
+                                        <h4>Campaign Details</h4>
+                                        <div class="section-divider"></div>
+                                    </div>
+                                    <p class="cs-paragraph">For over 60 years, Gatorade, the OG sports drink, has fueled the world's greatest athletes. Now in 1987 Hawkins, the crew is gearing up for the final battle with Gatorade—choosing no ordinary thirst quencher to fuel the extraordinary. The collaboration celebrates our authentic 1980s heritage by reviving iconic products and ads from our vault and pulling them into the 'Upside Down.'</p>
+                                    <p class="cs-paragraph">The work is running on social and digital and during Netflix's Christmas Day NFL games. When the final season of Stranger Things dropped, the brand launched a 1987 Hawkins Capsule and Upside Down Capsule, with vintage apparel, retro Gatorade towels and more.</p>
+                                </div>
+                            </div>
+
+                            <!-- Columbia High Campaign Folder -->
+                            <div class="folder-content" id="columbia-high">
+                                <div class="folder-header">
+                                    <h4>"All the Reasons Not to Quit" — Columbia High School Football</h4>
+                                    <p>Gatorade's powerful campaign celebrating resilience and determination through the story of Columbia High School's football team. After losing for 10 years straight, the team's unwavering commitment to showing up, working hard, and never giving up embodies what it truly means to be an athlete—not just when you win, but especially when you don't.</p>
+                                    <p>This campaign from TBWA\Chiat\Day L.A. highlights the real stories of perseverance that happen off the field, celebrating the moments that define character and grit. It's about finding strength in struggle, unity in adversity, and the unbreakable spirit that keeps athletes coming back, game after game, season after season.</p>
+                                </div>
+
+                                <div class="campaign-highlights">
+                                    <div class="highlight-grid">
+                                        <div class="highlight-card">
+                                            <h5>Campaign Focus</h5>
+                                            <p>Celebrating resilience and determination through the story of Columbia High's football team</p>
+                                        </div>
+                                        <div class="highlight-card">
+                                            <h5>Key Message</h5>
+                                            <p>True athletes don't quit—they show up, work hard, and find strength even in the face of defeat</p>
+                                        </div>
+                                        <div class="highlight-card">
+                                            <h5>Emotional Impact</h5>
+                                            <p>Inspiring story of perseverance and the unbreakable spirit that defines real athletes</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Campaign Videos -->
+                                <div class="cs-section">
+                                    <div class="cs-section-header">
+                                        <h4>Campaign Videos</h4>
+                                        <div class="section-divider"></div>
+                                    </div>
+                                    <p class="cs-paragraph">"All the Reasons Not to Quit" follows Columbia High School's football team as they continue to show up, work hard, and never quit—even after 10 consecutive losing seasons. This powerful documentary series captures the real stories of perseverance, dedication, and the unbreakable spirit that defines true athletes.</p>
+                                </div>
+
+                                <div class="video-gallery grid col-2 cs-section">
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/S8FHZ6Gtu94?si=GC4saBBibB3soa2S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-caption">All the Reasons Not to Quit — Episode 1</div>
+                                    </div>
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/lBqIkhY_0Bc?si=eNKqFjz77uSGuwO2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-caption">All the Reasons Not to Quit — Episode 2</div>
+                                    </div>
+                                </div>
+
+                                <div class="video-gallery grid col-1 cs-section">
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/tzqrNBSrC_4?si=NjeKnoo02ThqdL0V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-caption">Today Show Coverage — All the Reasons Not to Quit</div>
+                                    </div>
+                                </div>
+
+                                <div class="cs-section">
+                                    <div class="cs-section-header">
+                                        <h4>Campaign Details</h4>
+                                        <div class="section-divider"></div>
+                                    </div>
+                                    <p class="cs-paragraph">"All the Reasons Not to Quit" tells the authentic story of Columbia High School's football team—a team that faced 10 consecutive losing seasons but never stopped showing up. This campaign celebrates what it truly means to be an athlete: the commitment, the work ethic, the camaraderie, and the unshakeable determination that exists beyond the scoreboard.</p>
+                                    <p class="cs-paragraph">Through this powerful narrative, Gatorade honors the moments that build character—the early morning practices, the late-night film sessions, the bonds forged in adversity, and the simple act of never giving up. It's a reminder that victory isn't just measured in wins and losses, but in the courage to keep fighting, keep improving, and keep believing.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </section>
@@ -6494,7 +6844,7 @@
                                         <div class="section-divider"></div>
                             </div>
                                     <p class="cs-paragraph"><strong>Los Angeles’ Dustin May, Chicago’s Dansby Swanson, and Milwaukee’s Christian Yelich</strong> star in a music‑infused twist on baseball’s iconic 7th‑inning stretch. Remixing “Take Me Out to the Ball Game” into “<em>Take Me Out to the Bald Game</em>,” the spot highlights DIRECTV’s satellite‑free offerings and leadership in sports.</p>
-                                    <p class="cs-paragraph">Building on the success of <a href="https://www.directv.com/insider/directv-launches-nothing-on-your-roof-with-george-kittle/" target="_blank" rel="noopener">Nothing On Your Roof 1.0</a> (George Kittle), Version 2.0 swaps the “footbald” helmet gag for playful bald caps and a boy‑band performance. Activated across social, a bespoke Snapchat lens, CTV, and digital out‑of‑home.</p>
+                                    <p class="cs-paragraph">Building on the success of Nothing On Your Roof 1.0 (George Kittle), Version 2.0 swaps the "footbald" helmet gag for playful bald caps and a boy‑band performance. Activated across social, a bespoke Snapchat lens, CTV, and digital out‑of‑home.</p>
                                 </div>
 
                                 <div class="video-gallery grid col-1 cs-section">
@@ -6662,7 +7012,7 @@
                     </a>
                     <a class="podcast-card card" href="javascript:void(0)" data-target="approachable-ai">
                         <div class="card-media" style="height:160px;overflow:hidden;border-top-left-radius:12px;border-top-right-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;">
-                            <img src="" alt="Approachable AI" style="max-height:120px;max-width:90%;object-fit:contain;"
+                            <img src="Images/Podcasts/approachable-ai-logo.png" alt="Approachable AI" style="max-height:120px;max-width:90%;object-fit:contain;"
                                  onerror="this.style.display='none'; this.parentElement.querySelector('.podcast-card-fallback').style.display='flex';">
                             <div class="podcast-card-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;color:#9bd1ff;font-weight:700;">
                                 Approachable AI
@@ -6670,12 +7020,12 @@
                         </div>
                         <div class="card-content">
                             <h4 class="card-title">Approachable AI</h4>
-                            <p class="small-text">New show — practical AI, made human. Coming soon.</p>
+                            <p class="small-text">Demystifying artificial intelligence through practical conversations, real-world applications, and accessible insights that make AI understandable for everyone.</p>
                         </div>
                     </a>
                     <a class="podcast-card card" href="javascript:void(0)" data-target="curious-creative">
                         <div class="card-media" style="height:160px;overflow:hidden;border-top-left-radius:12px;border-top-right-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;">
-                            <img src="" alt="Curious & Creative" style="max-height:120px;max-width:90%;object-fit:contain;"
+                            <img src="Images/Podcasts/curious-creative-logo.png" alt="Curious & Creative" style="max-height:120px;max-width:90%;object-fit:contain;"
                                  onerror="this.style.display='none'; this.parentElement.querySelector('.podcast-card-fallback').style.display='flex';">
                             <div class="podcast-card-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;color:#e2b8ff;font-weight:700;">
                                 Curious & Creative
@@ -6683,7 +7033,7 @@
                         </div>
                         <div class="card-content">
                             <h4 class="card-title">Curious & Creative</h4>
-                            <p class="small-text">In partnership — curiosity meets craft. Coming soon.</p>
+                            <p class="small-text">Exploring the intersection of curiosity and creativity through engaging conversations with makers, thinkers, and innovators who are shaping culture.</p>
                         </div>
                     </a>
                 </div>
@@ -6698,9 +7048,6 @@
                 <div class="podcast-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin:24px auto 0;">
                     <a class="podcast-card card" href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" rel="noopener noreferrer">
                         <div class="card-content"><h4 class="card-title">Listen on Spotify</h4><p class="small-text">Browse all published episodes on Spotify.</p></div>
-                    </a>
-                    <a class="podcast-card card" href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1516038266" target="_blank" rel="noopener noreferrer">
-                        <div class="card-content"><h4 class="card-title">Listen on Apple Podcasts</h4><p class="small-text">Stream on Apple; leave a rating to support the show.</p></div>
                     </a>
                             </div>
 
@@ -6794,12 +7141,12 @@
                     <!-- Daily Gamecock Grid -->
                     <div class="folder-content active" id="dg" role="tabpanel">
                         <div class="grid col-3 stagger-children">
-                            <a href="https://www.dailygamecock.com/staff/josh-german" class="card hover-lift" target="_blank" rel="noopener noreferrer" aria-label="The Daily Gamecock">
-                                <div class="card-media" style="aspect-ratio: 16/9; background: url('Images/Logos/daily-gamecock-logo.png') center/contain no-repeat, linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border-radius: var(--radius-md);"></div>
+                            <a href="https://www.dailygamecock.com/staff/josh-german" class="card hover-lift" target="_blank" rel="noopener noreferrer" aria-label="The Daily Gamecock - All Articles">
+                                <div class="card-media" style="aspect-ratio: 16/9; background: url('Brand Imagery/Daily Gamecock/download.jpg') center/contain no-repeat #f5f5f5; background-size: 80% auto; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; padding: 20px;"></div>
                                 <div class="card-body">
-                                    <h3 class="card-title">Author Page</h3>
-                                    <p class="card-text">Browse all articles and reporting.</p>
-                                    <span class="card-cta">Open →</span>
+                                    <h3 class="card-title">All Daily Gamecock Articles</h3>
+                                    <p class="card-text">Complete collection of my writing and reporting for The Daily Gamecock at the University of South Carolina.</p>
+                                    <span class="card-cta">View All Articles →</span>
                                 </div>
                             </a>
                         </div>
@@ -6908,7 +7255,7 @@
                             <div class="social-links">
                                 <a href="https://instagram.com/dominatethedecade" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                                 <a href="https://twitter.com/dominate_decade" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-                                <a href="https://linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>LinkedIn</a>
+                                <a href="https://www.linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>LinkedIn</a>
                                 <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Spotify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14.5a6 6 0 0 1 8 0M6.32 12.5a8 8 0 0 1 11.36 0M4.73 10.5a10 10 0 0 1 14.54 0"></path></svg>Spotify</a>
                             </div>
                         </div>
@@ -6979,7 +7326,7 @@
                     <div class="social-icons">
                         <a href="https://instagram.com/dominatethedecade" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                         <a href="https://twitter.com/dominate_decade" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-                        <a href="https://linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="https://www.linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                         <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Spotify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14.5a6 6 0 0 1 8 0M6.32 12.5a8 8 0 0 1 11.36 0M4.73 10.5a10 10 0 0 1 14.54 0"></path></svg></a>
                     </div>
                 </div>
@@ -7513,12 +7860,14 @@
                 // Resolve logos even if extensions/paths differ
                 const logoCandidates = {
                     'approachable-ai': [
+                        'Images/Podcasts/approachable-ai-logo.png',
                         'Brand Imagery/Podcasts/Approachable-AI-Logo.png',
                         'Brand Imagery/Podcasts/Approachable-AI-Logo.jpg',
                         'Brand Imagery/Podcasts/Approachable AI Logo.png',
                         'Brand Imagery/Podcasts/Approachable AI Logo.jpg'
                     ],
                     'curious-creative': [
+                        'Images/Podcasts/curious-creative-logo.png',
                         'Brand Imagery/Podcasts/Curious-and-Creative-Logo.png',
                         'Brand Imagery/Podcasts/Curious-and-Creative-Logo.jpg',
                         'Brand Imagery/Podcasts/Curious & Creative.png',
@@ -7538,13 +7887,13 @@
                 const meta = {
                     'approachable-ai': {
                         title: 'Approachable AI',
-                        logo: '',
-                        desc: 'Practical AI, made human. Conversations, demos, and workflows.'
+                        logo: 'Images/Podcasts/approachable-ai-logo.png',
+                        desc: 'Demystifying artificial intelligence through practical conversations, real-world applications, and accessible insights that make AI understandable for everyone.'
                     },
                     'curious-creative': {
                         title: 'Curious & Creative',
-                        logo: '',
-                        desc: 'In partnership — curiosity meets craft. Interviews and experiments.'
+                        logo: 'Images/Podcasts/curious-creative-logo.png',
+                        desc: 'Exploring the intersection of curiosity and creativity through engaging conversations with makers, thinkers, and innovators who are shaping culture.'
                     }
                 };
 
@@ -8052,6 +8401,31 @@
             });
 
         });
+
+        // Dropdown navigation helper functions
+        function filterPhotos(group) {
+            window.location.href = '#photo-approach';
+            setTimeout(() => {
+                const filterBtn = document.querySelector(`button[data-filter="${group}"]`);
+                if (filterBtn) filterBtn.click();
+            }, 100);
+        }
+
+        function showPodcastCard(target) {
+            window.location.href = '#podcast';
+            setTimeout(() => {
+                const card = document.querySelector(`.podcast-card[data-target="${target}"]`);
+                if (card) card.click();
+            }, 100);
+        }
+
+        function switchWritingTab(tabId) {
+            window.location.href = '#writing';
+            setTimeout(() => {
+                const tab = document.querySelector(`.folder-tab[data-folder="${tabId}"]`);
+                if (tab) tab.click();
+            }, 100);
+        }
     </script>
     <script>
         // Progressive image loading fallback for browsers without native lazy-loading

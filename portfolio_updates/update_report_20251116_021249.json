@@ -1,0 +1,150 @@
+{
+  "timestamp": "2025-11-16T02:12:49.933927",
+  "summary": {
+    "total_verified_projects": 0,
+    "new_projects_found": 0,
+    "broken_links_count": 6,
+    "broken_images_count": 0,
+    "broken_videos_count": 0,
+    "total_issues": 6
+  },
+  "verified_projects": [],
+  "validation_results": {
+    "broken_links": [
+      {
+        "url": "https://twitter.com/dominate_decade",
+        "element": "<a aria-label=\"Twitter\" class=\"mobile-social-link\" href=\"https://twitter.com/dominate_decade\" rel=\"noopener noreferrer\" target=\"_blank\">Twitter</a>",
+        "text": "Twitter",
+        "type": "link"
+      },
+      {
+        "url": "https://www.linkedin.com/in/joshuamgerman",
+        "element": "<a aria-label=\"LinkedIn\" class=\"mobile-social-link\" href=\"https://www.linkedin.com/in/joshuamgerman\" rel=\"noopener noreferrer\" target=\"_blank\">LinkedIn</a>",
+        "text": "LinkedIn",
+        "type": "link"
+      },
+      {
+        "url": "https://twitter.com/dominate_decade",
+        "element": "<a aria-label=\"Twitter\" class=\"social-link\" href=\"https://twitter.com/dominate_decade\" rel=\"noopener noreferrer\" target=\"_blank\"><svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2",
+        "text": "",
+        "type": "link"
+      },
+      {
+        "url": "https://www.linkedin.com/in/joshuamgerman",
+        "element": "<a aria-label=\"LinkedIn\" class=\"social-link\" href=\"https://www.linkedin.com/in/joshuamgerman\" rel=\"noopener noreferrer\" target=\"_blank\"><svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><pat",
+        "text": "LinkedIn",
+        "type": "link"
+      },
+      {
+        "url": "https://twitter.com/dominate_decade",
+        "element": "<a aria-label=\"Twitter\" class=\"social-icon\" href=\"https://twitter.com/dominate_decade\" rel=\"noopener noreferrer\" target=\"_blank\"><svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2",
+        "text": "",
+        "type": "link"
+      },
+      {
+        "url": "https://www.linkedin.com/in/joshuamgerman",
+        "element": "<a aria-label=\"LinkedIn\" class=\"social-icon\" href=\"https://www.linkedin.com/in/joshuamgerman\" rel=\"noopener noreferrer\" target=\"_blank\"><svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><pat",
+        "text": "",
+        "type": "link"
+      }
+    ],
+    "broken_images": [],
+    "broken_videos": []
+  },
+  "new_projects": [],
+  "recommendations": [
+    "Fix 6 broken link(s). Check URLs for updates or replacements."
+  ],
+  "portfolio_structure": {
+    "sections": [
+      {
+        "id": "hero",
+        "title": "Joshua McKenzie German"
+      },
+      {
+        "id": "about-me",
+        "title": "About Me"
+      },
+      {
+        "id": "photo-approach",
+        "title": "My Photographic Approach"
+      },
+      {
+        "id": "photography",
+        "title": ""
+      },
+      {
+        "id": "campaigns",
+        "title": "Brand Work"
+      },
+      {
+        "id": "levis",
+        "title": "Levi's x BeyoncéREIIMAGINECampaign"
+      },
+      {
+        "id": "sephora",
+        "title": "SephoraCampaigns"
+      },
+      {
+        "id": "doordash",
+        "title": "DoorDash\"All the Ads\"Super Bowl Campaign"
+      },
+      {
+        "id": "bmw",
+        "title": "BMW\"Zeus & Hera\"Campaign"
+      },
+      {
+        "id": "califia",
+        "title": "Califia Farms\"Calilujah!\"Campaign"
+      },
+      {
+        "id": "samueladams",
+        "title": "Samuel Adams\"Your Cousin's Brighter Boston\"Campaign"
+      },
+      {
+        "id": "gatorade",
+        "title": "GatoradeCampaigns"
+      },
+      {
+        "id": "directv",
+        "title": "DIRECTVCampaigns"
+      },
+      {
+        "id": "podcast",
+        "title": "Podcasts"
+      },
+      {
+        "id": "writing",
+        "title": "Writing"
+      },
+      {
+        "id": "ai-projects",
+        "title": "AI Projects"
+      },
+      {
+        "id": "contact",
+        "title": "Contact"
+      }
+    ],
+    "total_links": 63,
+    "total_projects": 8,
+    "brands": [
+      "Fashion",
+      "DIRECTV",
+      "Califia Farms",
+      "Sephora",
+      "DoorDash",
+      "Gatorade",
+      "Headshots",
+      "Portraits",
+      "Landscape",
+      "Samuel Adams",
+      "Califia",
+      "Levi's",
+      "Events",
+      "Sam Adams",
+      "Travel",
+      "BMW"
+    ]
+  }
+}
