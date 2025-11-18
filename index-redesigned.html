@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Joshua McKenzie German — Creative Strategist, Visual Storyteller, and Futurist. Explore work in branding, photography, and culture.">
     <meta name="keywords" content="Joshua McKenzie German, creative strategist, polymath, branding, podcast, photography, TBWA Chiat Day, Dominate the Decade">
     <meta name="author" content="Joshua McKenzie German">
@@ -29,6 +29,7 @@
             --darker-text: #b0b0b0;
             
             /* Animation Speeds */
+            
             --transition-speed: 0.3s;
             --transition-medium: 0.5s;
             --transition-slow: 0.8s;
@@ -587,11 +588,13 @@
         .section {
             padding: var(--space-xl) 0;
             position: relative;
+            overflow-x: hidden;
         }
         .section-container { /* Used inside sections for content max-width and padding */
             max-width: 1200px; /* Default max-width, can be overridden */
             margin: 0 auto;
             padding: 0 var(--space-md);
+            overflow-x: hidden;
         }
         .section-header {
             text-align: center;
@@ -877,7 +880,8 @@
             gap: 20px;
         }
 
-        .theme-toggle {
+        /* Theme toggle removed - keeping dark mode only */
+        .theme-toggle-removed {
             background: none;
             border: none;
             color: #e0e0e0;
@@ -1420,6 +1424,18 @@
         .skill-progress { height: 100%; background-color: var(--accent-color); border-radius: 3px; width: 0; transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
 
         /* Brand Work Section - Card Styling from Gemini, adapted for Claude */
+        .brand-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(212, 255, 79, 0.3);
+            border-color: var(--accent-color);
+        }
+        .brand-card:active {
+            transform: translateY(-2px);
+        }
         .brand-card .brand-image-container {
             position: relative;
             overflow: hidden; /* For img-hover-zoom */
@@ -1594,6 +1610,9 @@
             transform: translateY(-1px);
             box-shadow: 0 6px 18px rgba(212,255,79,0.4);
             font-weight: 600;
+        }
+        .filter-btn:active {
+            transform: translateY(0);
         }
 
         /* Enhanced Case Study Styles from Claude */
@@ -2427,6 +2446,16 @@
             flex: 0 0 300px; /* Fixed width for cards, adjust as needed */
             scroll-snap-align: start; /* Snap to start of card */
             padding: var(--space-md); /* Use Claude's card padding */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .podcast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(212, 255, 79, 0.3);
+            border-color: var(--accent-color);
+        }
+        .podcast-card:active {
+            transform: translateY(-2px);
         }
         .podcast-card .card-title { font-size: 1.2rem; }
         .podcast-card .card-subtitle { font-size: 0.8rem; margin-bottom: var(--space-xs); }
@@ -2712,11 +2741,13 @@
         .section {
             padding: var(--space-xl) 0;
             position: relative;
+            overflow-x: hidden;
         }
         .section-container { /* Used inside sections for content max-width and padding */
             max-width: 1200px; /* Default max-width, can be overridden */
             margin: 0 auto;
             padding: 0 var(--space-md);
+            overflow-x: hidden;
         }
         .section-header {
             text-align: center;
@@ -3000,7 +3031,8 @@
             gap: 20px;
         }
 
-        .theme-toggle {
+        /* Theme toggle removed - keeping dark mode only */
+        .theme-toggle-removed {
             background: none;
             border: none;
             color: #e0e0e0;
@@ -3541,6 +3573,18 @@
         .skill-progress { height: 100%; background-color: var(--accent-color); border-radius: 3px; width: 0; transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
 
         /* Brand Work Section - Card Styling from Gemini, adapted for Claude */
+        .brand-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(212, 255, 79, 0.3);
+            border-color: var(--accent-color);
+        }
+        .brand-card:active {
+            transform: translateY(-2px);
+        }
         .brand-card .brand-image-container {
             position: relative;
             overflow: hidden; /* For img-hover-zoom */
@@ -4511,6 +4555,16 @@
             flex: 0 0 300px; /* Fixed width for cards, adjust as needed */
             scroll-snap-align: start; /* Snap to start of card */
             padding: var(--space-md); /* Use Claude's card padding */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .podcast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(212, 255, 79, 0.3);
+            border-color: var(--accent-color);
+        }
+        .podcast-card:active {
+            transform: translateY(-2px);
         }
         .podcast-card .card-title { font-size: 1.2rem; }
         .podcast-card .card-subtitle { font-size: 0.8rem; margin-bottom: var(--space-xs); }
@@ -4876,14 +4930,17 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.15);
         }
         .photo-filter-btn:hover { color: white; border-color: var(--accent-color); box-shadow: 0 8px 20px rgba(92,225,230,0.22); transform: translateY(-2px); }
+        .photo-filter-btn:active { transform: translateY(0); }
         .photo-filter-btn.active { background: var(--accent-color); color: #1a1a1a !important; border-color: transparent; box-shadow: 0 10px 24px rgba(212,255,79,0.4); font-weight: 600; }
 
         .photography-gallery { column-count: 3; column-gap: 16px; max-height: 1500px; overflow: clip; transition: max-height 400ms ease; }
         .photography-gallery.expanded { max-height: 9999px; }
         .gallery-more { text-align: center; padding: 8px 0 24px; }
-        .gallery-more button { padding: 0.6rem 1.2rem; border-radius: var(--radius-round); border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #e0e0e0; cursor:pointer; }
+        .gallery-more button { padding: 0.6rem 1.2rem; border-radius: var(--radius-round); border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #e0e0e0; cursor:pointer; transition: all 0.3s ease; }
+        .gallery-more button:hover { background: rgba(212, 255, 79, 0.2); border-color: var(--accent-color); color: var(--accent-color); transform: translateY(-2px); }
+        .gallery-more button:active { transform: translateY(0); }
         .photo-tile { display: inline-block; width: 100%; margin: 0 0 16px; break-inside: avoid; border-radius: var(--radius-md); overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.03); opacity: 1; transform: translateY(0); transition: opacity 200ms ease, transform 200ms ease; }
-        .photo-tile img { width: 100%; height: auto; display: block; filter: saturate(1.05) contrast(1.02); }
+        .photo-tile img { width: 100%; height: auto; display: block; filter: saturate(1.05) contrast(1.02); max-width: 100%; }
         .photo-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.22)); opacity: 0; transition: opacity 200ms ease; }
         .photo-tile:hover::after { opacity: 1; }
         .photo-tile .tile-caption { position: absolute; left: 12px; bottom: 10px; color: #fff; font-size: 0.9rem; letter-spacing: .2px; opacity: .9; }
@@ -5220,8 +5277,11 @@
         .folder-tab:hover {
             background: rgba(255,255,255,0.1);
             transform: translateY(-2px);
+            border-color: var(--accent-color);
         }
-
+        .folder-tab:active {
+            transform: translateY(0);
+        }
         .folder-tab.active {
             background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
             border-color: var(--accent-color);
@@ -5499,9 +5559,9 @@
             <nav class="main-nav" id="main-nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#about-me" class="nav-link" data-text="About">
+                        <a href="#about-me" class="nav-link" data-text="About Me">
                             <span class="nav-num">01</span>
-                            <span class="nav-text">About</span>
+                            <span class="nav-text">About Me</span>
                         </a>
                     </li>
                     <li class="nav-item has-dropdown">
@@ -5575,10 +5635,6 @@
             </nav>
             
             <div class="header-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
                 <a href="#contact" class="contact-btn" aria-label="Contact Me">Get in Touch</a>
             </div>
         </div>
@@ -5638,8 +5694,8 @@
             
             <div class="mobile-nav-footer">
                 <div class="mobile-social-links">
-                    <a href="https://instagram.com/dominatethedecade" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="mobile-social-link">Instagram</a>
-                    <a href="https://twitter.com/dominate_decade" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="mobile-social-link">Twitter</a>
+                    <a href="https://instagram.com/jgerms20" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="mobile-social-link">Instagram</a>
+                    <a href="https://twitter.com/jgerms20" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="mobile-social-link">Twitter</a>
                     <a href="https://www.linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="mobile-social-link">LinkedIn</a>
                 </div>
             </div>
@@ -5715,8 +5771,8 @@
                                 <div class="about-photo-slide"><img src="Images/Photos of Self/JoshuaG1030am(3of7).jpg" alt="Joshua studio portrait" loading="lazy"></div>
                             </div>
                         </div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
                         
                 <!-- Skills & Expertise (full width) -->
                 <div class="skills-expertise" style="margin-top: var(--space-lg);">
@@ -6301,7 +6357,7 @@
                                             </div>
                                             <div class="detail-item">
                                                 <span class="detail-label">Director</span>
-                                            </div>
+                                                <span class="detail-value">Melina Matsoukas</span>
                                             </div>
                                             <div class="detail-item">
                                                 <span class="detail-label">Special Guest</span>
@@ -6321,7 +6377,7 @@
                                     </div>
                                     <div class="chapter-info">
                                         <h4>Chapter 4: The Denim Cowboy</h4>
-                                        <p class="chapter-description">Final installment of the year‑long Levi’s REIIMAGINE campaign — weaving together prior chapters and introducing the BEYONCÉ x LEVI’S® denim collection.</p>
+                                        <p class="chapter-description">Final installment of the year‑long Levi's REIIMAGINE campaign — weaving together prior chapters and introducing the BEYONCÉ x LEVI'S® denim collection.</p>
                                         <div class="chapter-details">
                                             <div class="detail-item">
                                                 <span class="detail-label">Published</span>
@@ -6335,7 +6391,7 @@
                                     </div>
                                 </div>
                                 
-                                        </div>
+                            </div>
                         </div>
                     </div>
                     
@@ -7090,6 +7146,49 @@
                                 <a href="https://open.spotify.com/episode/40f1FtPaW2TMo5pxt5YdQG?si=lGC-1Ya_SCCqWFP-M3Ma8g" target="_blank" rel="noopener noreferrer" class="small-text">Open</a>
                     </div>
                 </div>
+
+                <!-- Approachable AI Section -->
+                <div id="approachable-ai-section" style="display:none;">
+                    <div class="dtde-hero" style="display:grid;gap:16px;grid-template-columns:1fr;max-width:900px;margin:0 auto 24px;">
+                        <div style="width:100%;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:40px;">
+                            <img src="Images/Podcasts/approachable-ai-logo.png" alt="Approachable AI" style="max-height:200px;max-width:90%;object-fit:contain;" onerror="this.style.display='none';">
+                        </div>
+                    </div>
+                    <p class="large-text text-center">Demystifying artificial intelligence through practical conversations, real-world applications, and accessible insights that make AI understandable for everyone.</p>
+                    <div class="podcast-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin:24px auto 0;">
+                        <a class="podcast-card card" href="#" target="_blank" rel="noopener noreferrer">
+                            <div class="card-content"><h4 class="card-title">Listen on Spotify</h4><p class="small-text">Browse all published episodes on Spotify.</p></div>
+                        </a>
+                    </div>
+                    <h3 class="text-center mt-lg">Episodes</h3>
+                    <div class="episode-browser" style="max-width:1100px;margin:16px auto;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25)">
+                        <div style="padding:60px;text-align:center;color:#e0e0e0;">
+                            <p>Spotify embed will appear here. Add your Spotify show ID to display episodes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curious & Creative Section -->
+                <div id="curious-creative-section" style="display:none;">
+                    <div class="dtde-hero" style="display:grid;gap:16px;grid-template-columns:1fr;max-width:900px;margin:0 auto 24px;">
+                        <div style="width:100%;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:40px;">
+                            <img src="Images/Podcasts/curious-creative-logo.png" alt="Curious & Creative" style="max-height:200px;max-width:90%;object-fit:contain;" onerror="this.style.display='none';">
+                        </div>
+                    </div>
+                    <p class="large-text text-center">Exploring the intersection of curiosity and creativity through engaging conversations with makers, thinkers, and innovators who are shaping culture.</p>
+                    <div class="podcast-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin:24px auto 0;">
+                        <a class="podcast-card card" href="#" target="_blank" rel="noopener noreferrer">
+                            <div class="card-content"><h4 class="card-title">Listen on Spotify</h4><p class="small-text">Browse all published episodes on Spotify.</p></div>
+                        </a>
+                    </div>
+                    <h3 class="text-center mt-lg">Episodes</h3>
+                    <div class="episode-browser" style="max-width:1100px;margin:16px auto;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25)">
+                        <div style="padding:60px;text-align:center;color:#e0e0e0;">
+                            <p>Spotify embed will appear here. Add your Spotify show ID to display episodes.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Coming Soon placeholder (hidden by default) -->
                 <div id="podcastComingSoon" style="display:none;max-width:900px;margin:16px auto 24px;text-align:center;">
                     <div style="border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);padding:24px;border-radius:12px;">
@@ -7254,10 +7353,19 @@
                         <div class="social-connections">
                             <h3>Connect With Me</h3>
                             <div class="social-links">
-                                <a href="https://instagram.com/dominatethedecade" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                                <a href="https://twitter.com/dominate_decade" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                                <a href="https://instagram.com/jgerms20" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                                <a href="https://twitter.com/jgerms20" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
                                 <a href="https://www.linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>LinkedIn</a>
                                 <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Spotify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14.5a6 6 0 0 1 8 0M6.32 12.5a8 8 0 0 1 11.36 0M4.73 10.5a10 10 0 0 1 14.54 0"></path></svg>Spotify</a>
+                            </div>
+                        </div>
+                        <div class="info-card" style="margin-top: 24px;">
+                            <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+                            <h3>Quick Contact</h3>
+                            <p style="margin-bottom: 12px;">Prefer to reach out directly?</p>
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <a href="https://www.linkedin.com/messaging/compose/?recipient=joshuamgerman" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex: 1; min-width: 140px; text-align: center; text-decoration: none;">LinkedIn Message</a>
+                                <a href="mailto:Jgerms20@gmail.com?subject=Portfolio%20Inquiry" class="btn btn-secondary" style="flex: 1; min-width: 140px; text-align: center; text-decoration: none;">Email Me</a>
                             </div>
                         </div>
                     </div>
@@ -7325,8 +7433,8 @@
                 <div class="footer-social">
                     <h3>Follow Me</h3>
                     <div class="social-icons">
-                        <a href="https://instagram.com/dominatethedecade" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                        <a href="https://twitter.com/dominate_decade" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://instagram.com/jgerms20" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://twitter.com/jgerms20" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
                         <a href="https://www.linkedin.com/in/joshuamgerman" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                         <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Spotify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14.5a6 6 0 0 1 8 0M6.32 12.5a8 8 0 0 1 11.36 0M4.73 10.5a10 10 0 0 1 14.54 0"></path></svg></a>
                     </div>
@@ -7435,7 +7543,6 @@
             const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
             const mainNavLinks = document.querySelectorAll('.main-nav .nav-link');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            const themeToggle = document.getElementById('theme-toggle');
             const scrollProgress = document.getElementById('scroll-progress');
 
             function updateActiveNavLink() {
@@ -7497,23 +7604,6 @@
                     });
                 });
             }
-            // Swap positions of theme toggle and hamburger on small screens by DOM order
-            (function() {
-                const isSmall = window.matchMedia('(max-width: 768px)');
-                function reorderHeader() {
-                    if (!header) return;
-                    const headerActions = header.querySelector('.header-actions');
-                    if (!headerActions) return;
-                    if (isSmall.matches) {
-                        if (themeToggle && navToggle && themeToggle.nextSibling !== navToggle) {
-                            headerActions.appendChild(navToggle);
-                        }
-                    }
-                }
-                reorderHeader();
-                isSmall.addEventListener('change', reorderHeader);
-            })();
-            
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -7534,31 +7624,9 @@
                 });
             });
             
-            if (themeToggle) {
-                function setTheme(isDark) {
-                    if (isDark) {
-                        document.documentElement.classList.remove('light-theme');
-                        themeToggle.classList.remove('light-mode');
-                        themeToggle.setAttribute('aria-label', 'Switch to light theme');
-                    } else {
-                        document.documentElement.classList.add('light-theme');
-                        themeToggle.classList.add('light-mode');
-                        themeToggle.setAttribute('aria-label', 'Switch to dark theme');
-                    }
-                }
-                themeToggle.addEventListener('click', function() {
-                    const isLight = document.documentElement.classList.toggle('light-theme');
-                    this.classList.toggle('light-mode', isLight);
-                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-                     this.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
-                });
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    setTheme(savedTheme === 'dark');
-                } else {
-                    setTheme(true);
-                }
-            }
+            // Theme toggle removed - keeping dark mode only
+            // Ensure dark theme is always active
+            document.documentElement.classList.remove('light-theme');
             
             // Brand Work Filter
             // Photo Gallery Lightbox
@@ -7852,6 +7920,8 @@
                 const catalog = document.querySelector('.podcast-catalog');
                 if (!catalog) return;
                 const dtdSection = document.getElementById('dtdSection');
+                const approachableAISection = document.getElementById('approachable-ai-section');
+                const curiousCreativeSection = document.getElementById('curious-creative-section');
                 const coming = document.getElementById('podcastComingSoon');
                 const logo = document.getElementById('podcastSoonLogo');
                 const title = document.getElementById('podcastSoonTitle');
@@ -7913,18 +7983,36 @@
                 catalog.querySelectorAll('.podcast-card').forEach(card => {
                     card.addEventListener('click', (e) => {
                         const target = card.getAttribute('data-target');
+                        // Hide all sections first
+                        if (dtdSection) dtdSection.style.display = 'none';
+                        if (approachableAISection) approachableAISection.style.display = 'none';
+                        if (curiousCreativeSection) curiousCreativeSection.style.display = 'none';
+                        if (coming) coming.style.display = 'none';
+                        
                         if (target === 'dtd') {
                             e.preventDefault();
-                            if (coming) coming.style.display = 'none';
                             if (dtdSection) dtdSection.style.display = '';
                             if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
                             return false;
+                        } else if (target === 'approachable-ai') {
+                            e.preventDefault();
+                            if (approachableAISection) {
+                                approachableAISection.style.display = '';
+                                approachableAISection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                            return false;
+                        } else if (target === 'curious-creative') {
+                            e.preventDefault();
+                            if (curiousCreativeSection) {
+                                curiousCreativeSection.style.display = '';
+                                curiousCreativeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                            return false;
                         }
                         e.preventDefault();
-                        if (dtdSection) dtdSection.style.display = 'none';
+                        // Fallback to coming soon for unknown targets
                         if (coming) {
                             const m = meta[target] || {};
-                            // Resolve coming-soon logo too
                             tryLoadSequential(logoCandidates[target] || [], (src) => {
                                 if (logo) logo.src = src || '';
                             });
@@ -7972,6 +8060,10 @@
                     gallery.classList.toggle('expanded', expanded);
                     toggleBtn.textContent = expanded ? 'See less' : 'See more';
                     toggleBtn.setAttribute('aria-expanded', String(expanded));
+                    // Always show the button after first click
+                    if (expanded) {
+                        toggleBtn.style.display = 'inline-block';
+                    }
                 }
                 toggleBtn.addEventListener('click', () => {
                     const expanded = !gallery.classList.contains('expanded');
