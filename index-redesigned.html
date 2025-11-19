@@ -1489,6 +1489,18 @@
             /* text-align: left; */
         }
         .filter-btn { /* From Claude's brand-work section */
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border: 1px solid var(--darker-text);
+            background-color: transparent;
+            color: #e0e0e0;
+            border-radius: var(--radius-round);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            visibility: visible;
+            opacity: 1;
+        }
         /* Photo Lightbox */
         .photo-lightbox { 
             position: fixed; 
@@ -1594,14 +1606,6 @@
             .lightbox-nav { width: 40px; height: 40px; }
             .lightbox-nav.prev { left: 10px; }
             .lightbox-nav.next { right: 10px; }
-        }             padding: 0.5rem 1rem;
-            margin: 0 0.25rem;
-            border: 1px solid var(--darker-text);
-            background-color: transparent;
-            color: #e0e0e0;
-            border-radius: var(--radius-round);
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
         .filter-btn.active, .filter-btn:hover {
             background-color: var(--accent-color);
@@ -3638,6 +3642,18 @@
             /* text-align: left; */
         }
         .filter-btn { /* From Claude's brand-work section */
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border: 1px solid var(--darker-text);
+            background-color: transparent;
+            color: #e0e0e0;
+            border-radius: var(--radius-round);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            visibility: visible;
+            opacity: 1;
+        }
         /* Photo Lightbox */
         .photo-lightbox { 
             position: fixed; 
@@ -3743,14 +3759,6 @@
             .lightbox-nav { width: 40px; height: 40px; }
             .lightbox-nav.prev { left: 10px; }
             .lightbox-nav.next { right: 10px; }
-        }             padding: 0.5rem 1rem;
-            margin: 0 0.25rem;
-            border: 1px solid var(--darker-text);
-            background-color: transparent;
-            color: #e0e0e0;
-            border-radius: var(--radius-round);
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
         .filter-btn.active, .filter-btn:hover {
             background-color: var(--accent-color);
@@ -4702,7 +4710,10 @@
         .testimonial-content p { font-size:1.2rem; line-height:1.7; color:#ffffff; font-style:italic; }
         .testimonial-author { display:flex; align-items:center; gap:15px; }
         .author-avatar { width:60px; height:60px; border-radius:50%; object-fit:cover; }
-        .author-info { /* Container for name and position */ }
+        .author-info { /* Container for name and position */
+            display: flex;
+            flex-direction: column;
+        }
         .author-name { font-weight:600; margin-bottom:5px; }
         .author-position { font-size:.9rem; color:#e0e0e0; }
         .slider-controls { display:flex; justify-content:center; align-items:center; margin-top:var(--space-md); }
@@ -4935,7 +4946,7 @@
 
         .photography-gallery { column-count: 3; column-gap: 16px; max-height: 1500px; overflow: clip; transition: max-height 400ms ease; }
         .photography-gallery.expanded { max-height: 9999px; }
-        .gallery-more { text-align: center; padding: 8px 0 24px; }
+        .gallery-more { text-align: center; padding: 8px 0 0; margin-top: 0; }
         .gallery-more button { padding: 0.6rem 1.2rem; border-radius: var(--radius-round); border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #e0e0e0; cursor:pointer; transition: all 0.3s ease; }
         .gallery-more button:hover { background: rgba(212, 255, 79, 0.2); border-color: var(--accent-color); color: var(--accent-color); transform: translateY(-2px); }
         .gallery-more button:active { transform: translateY(0); }
@@ -6132,14 +6143,14 @@
                 
                 <div style="text-align:center; margin:30px 0;" class="fade-in">
                     <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="gatorade">Gatorade</button>
+                    <button class="filter-btn" data-filter="directv">DIRECTV</button>
                     <button class="filter-btn" data-filter="levis">Levi's</button>
                     <button class="filter-btn" data-filter="sephora">Sephora</button>
                     <button class="filter-btn" data-filter="doordash">DoorDash</button>
                     <button class="filter-btn" data-filter="bmw">BMW</button>
                     <button class="filter-btn" data-filter="califia">Califia</button>
                     <button class="filter-btn" data-filter="samadams">Sam Adams</button>
-                            <button class="filter-btn" data-filter="directv">DIRECTV</button>
-                    <button class="filter-btn" data-filter="gatorade">Gatorade</button>
                 </div>
                 
                 <div class="grid col-3 stagger-children">
@@ -6206,13 +6217,6 @@
                             <div class="brand-overlay"></div>
                         </div>
                         <h3 class="brand-title card-title text-center mt-sm p-sm">Samuel Adams</h3>
-                    </a>
-                </div>
-                
-                <div class="text-center mt-lg fade-in">
-                    <a href="#contact" class="btn btn-primary">
-                        <span>Let's Create Something Together</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
             </div>
@@ -6395,8 +6399,8 @@
                         </div>
                     </div>
                     
-                    <div class="cs-section">
-                        <div class="cs-section-header">
+                    <div class="cs-section" style="margin-top: 0; padding-top: 0;">
+                        <div class="cs-section-header" style="margin-top: 0;">
                             <h3>Campaign Market Impact</h3>
                             <div class="section-divider"></div>
                         </div>
@@ -6473,17 +6477,42 @@
                                 <div class="folder-header">
                                     <h4>"Don't Overthink It" Holiday Campaign</h4>
                                     <p>I contributed to the connections strategy for Sephora's holiday campaign, focusing on relatable, clever human stories with director Taika Waititi. Named one of <a href="https://www.adweek.com/creativity/the-best-holiday-ads-of-2024/#" target="_blank" rel="noopener noreferrer">AdWeek's Best Holiday Ads of 2024</a>.</p>
-                    <div class="video-gallery grid col-2 cs-section">
-                        <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223e0eadbe4e001a9343c0" title="Sephora Aunt Aya Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Aunt Aya (15s)</div></div>
-                        <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223d0e4a06c6001a4e549a" title="Sephora Husband Dan Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Husband Dan (15s)</div></div>
-                        <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223d9e4a06c6001a4e549b" title="Sephora Your BFF's Kid Xander Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Your BFF's Kid Xander (15s)</div></div>
-                        <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223cadadbe4e001a9343be" title="Sephora Your Co-worker Sandra Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Your Co-worker Sandra (15s)</div></div>
                                 </div>
+                                
+                                <div class="video-gallery grid col-2 cs-section">
+                                    <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223e0eadbe4e001a9343c0" title="Sephora Aunt Aya Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Aunt Aya (15s)</div></div>
+                                    <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223d0e4a06c6001a4e549a" title="Sephora Husband Dan Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Husband Dan (15s)</div></div>
+                                    <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223d9e4a06c6001a4e549b" title="Sephora Your BFF's Kid Xander Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Your BFF's Kid Xander (15s)</div></div>
+                                    <div class="video-card"><div class="video-container"><iframe src="https://notube.lbbonline.com/media/67223cadadbe4e001a9343be" title="Sephora Your Co-worker Sandra Spot" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="video-caption">Your Co-worker Sandra (15s)</div></div>
+                                </div>
+                            </div>
                             <!-- Skincare Campaign Folder -->
                             <div class="folder-content" id="skincare">
                                 <div class="folder-header">
                                     <h4>"Skin Obsessed" Campaign</h4>
-                                    <p>I contributed to Sephora's "Skin Obsessed" campaign, directed by Taika Waititi, which stakes Sephora's claim as a top skin care destination. The campaign features two 30-second spots - "Security" and "The Hunt" - that tap into the realities consumers face when navigating complex skin care routines and searching for reliable products. Created with TBWA\Chiat\Day LA, this multichannel effort spans connected TV, online video, paid social, and streaming audio.</p>                                 </div>
+                                </div>
+                                
+                                <!-- Skin Obsessed Campaign Videos -->
+                                <div class="video-gallery grid col-2 cs-section">
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/dMD94-fjyAQ" title="Sephora Skin Obsessed - Security" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-caption">"Security" - TSA Traveler Spot (30s)</div>
+                                    </div>
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/l8RRLQiTEks" title="Sephora Skin Obsessed - The Hunt" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                        <div class="video-caption">"The Hunt" - Online Research Spot (30s)</div>
+                                    </div>
+                                </div>
+
+                                <div class="cs-section">
+                                    <p class="cs-paragraph">Sephora is asserting itself as a top skin care destination with the "Skin Obsessed" campaign, directed by award-winning filmmaker Taika Waititi. The campaign features two 30-second spots that tap into the realities faced by consumers, from navigating complex skin care routines to searching for reliable products.</p>
+                                    <p class="cs-paragraph">The first spot, "Security," follows a traveler at TSA who is held up due to an endless supply of skin care products before a Sephora storefront appears to help the traveler put together a carry-on-friendly routine. The second spot, "The Hunt," sees a woman scrolling through online product reviews while trying to decide on a skin care routine, before Sephora again steps in to do the heavy lifting.</p>
+                                    <p class="cs-paragraph">Made with creative agency TBWA\Chiat\Day LA, the campaign spans connected TV, online video, paid social, and streaming audio. The effort arrives as Sephora continues to be a point of growth for parent LVMH, positioning the brand in the growing global skin care market projected to reach over $194 billion by 2032.</p>
+                                </div>
                                 
                                 <div class="campaign-highlights">
                                     <div class="highlight-grid">
@@ -6493,27 +6522,18 @@
                                         </div>
                                         <div class="highlight-card">
                                             <h5>Key Spots</h5>
-                                </div>                                         </div>
-                                        <div class="highlight-card">
-                                            <h5>Market Impact</h5>
-                                            <p>Positioned Sephora in the growing $194B global skin care market</p>
+                                            <p>"Security" (TSA traveler) and "The Hunt" (online research)</p>
                                         </div>
-                                
-                                <!-- Skin Obsessed Campaign Videos -->
-                                <div class="video-gallery grid col-2 cs-section">
-                                    <div class="video-card">
-                                        <div class="video-container" style="background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; min-height: 315px;">
-                                            <p style="color: #e0e0e0; text-align: center; padding: 2rem;">Video coming soon</p>
+                                        <div class="highlight-card">
+                                            <h5>Director</h5>
+                                            <p>Taika Waititi</p>
+                                        </div>
+                                        <div class="highlight-card">
+                                            <h5>Distribution</h5>
+                                            <p>Connected TV, online video, paid social, streaming audio</p>
+                                        </div>
                                     </div>
-                                        <div class="video-caption">"Security" - TSA Traveler Spot (30s)</div>
                                 </div>
-                                    <div class="video-card">
-                                        <div class="video-container" style="background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; min-height: 315px;">
-                                            <p style="color: #e0e0e0; text-align: center; padding: 2rem;">Video coming soon</p>
-                            </div>
-                                        <div class="video-caption">"The Hunt" - Online Research Spot (30s)</div>
-                                    </div>
-                                </div>                                 </div>
                             </div>
                         </div>
                     </div>
@@ -6651,7 +6671,7 @@
                 <div class="case-study-hero-overlay"></div>
                 <div class="case-study-hero-content">
                     <div class="breadcrumb"><a href="#campaigns">Brand Work</a> <span>/</span> Samuel Adams "Brighter Boston"</div>
-                    <h2 class="case-study-title">Samuel Adams <span class="highlight">"Your Cousin's Brighter Boston"</span> Campaign</h2>
+                    <h2 class="case-study-title">Samuel Adams <span class="highlight">"Brighter Boston"</span> Campaign</h2>
                     <div class="case-study-meta">
                         <div class="meta-item"><span class="meta-label">Agency</span><span class="meta-value">Goodby, Silverstein & Partners</span></div>
                         <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2023</span></div>
@@ -6730,8 +6750,23 @@
                             <div class="folder-content active" id="stranger-things">
                                 <div class="folder-header">
                                     <h4>"No Ordinary Athlete" — Stranger Things Collaboration</h4>
-                                    <p>Gatorade teamed up with Netflix to give a vintage jingle new life in Stranger Things' Upside Down. "No Ordinary Athlete" is a play on the brand's iconic "No Ordinary Thirst Quencher" campaign from the '80s. Narrated by Myles Garrett—defensive end for the Cleveland Browns and Stranger Things super-fan—the :30 spot from TBWA\Chiat\Day L.A. shows the role Gatorade plays in both real-world performance and the Upside Down, where they're hoping to save the world.</p>
-                                    <p>The campaign celebrates Gatorade's authentic 1980s heritage by reviving iconic products and ads from the vault, pulling them into the 'Upside Down.' When the final season of Stranger Things dropped, the brand launched a 1987 Hawkins Capsule and Upside Down Capsule, with vintage apparel, retro Gatorade towels and more.</p>
+                                </div>
+
+                                <!-- Video -->
+                                <div class="video-gallery grid col-1 cs-section">
+                                    <div class="video-card">
+                                        <div class="video-container">
+                                            <div style="position:relative; width:100%; padding-top:56.25%; padding-bottom:40px;">
+                                                <iframe allow="fullscreen *" sandbox="allow-same-origin allow-scripts allow-top-navigation" scrolling="no" src="https://notube.lbbonline.com/media/690b2ff5d2c18209bbf732a7" style="position:absolute; top:0; right:0; left:0; bottom:0; width:100%; height:100%;" frameborder="0"></iframe>
+                                            </div>
+                                        </div>
+                                        <div class="video-caption">"No Ordinary Athlete" - Stranger Things x Gatorade (:30)</div>
+                                    </div>
+                                </div>
+
+                                <div class="cs-section">
+                                    <p class="cs-paragraph">Gatorade teamed up with Netflix to give a vintage jingle new life in Stranger Things' Upside Down. "No Ordinary Athlete" is a play on the brand's iconic "No Ordinary Thirst Quencher" campaign from the '80s. Narrated by Myles Garrett—defensive end for the Cleveland Browns and Stranger Things super-fan—the :30 spot from TBWA\Chiat\Day L.A. shows the role Gatorade plays in both real-world performance and the Upside Down, where they're hoping to save the world.</p>
+                                    <p class="cs-paragraph">The campaign celebrates Gatorade's authentic 1980s heritage by reviving iconic products and ads from the vault, pulling them into the 'Upside Down.' When the final season of Stranger Things dropped, the brand launched a 1987 Hawkins Capsule and Upside Down Capsule, with vintage apparel, retro Gatorade towels and more.</p>
                                 </div>
 
                                 <div class="campaign-highlights">
@@ -6749,27 +6784,6 @@
                                             <p>Running on social, digital, and Netflix's Christmas Day NFL games</p>
                                         </div>
                                     </div>
-                                </div>
-
-                                <!-- Video -->
-                                <div class="video-gallery grid col-1 cs-section">
-                                    <div class="video-card">
-                                        <div class="video-container">
-                                            <div style="position:relative; width:100%; padding-top:56.25%; padding-bottom:40px;">
-                                                <iframe allow="fullscreen *" sandbox="allow-same-origin allow-scripts allow-top-navigation" scrolling="no" src="https://notube.lbbonline.com/media/690b2ff5d2c18209bbf732a7" style="position:absolute; top:0; right:0; left:0; bottom:0; width:100%; height:100%;" frameborder="0"></iframe>
-                                            </div>
-                                        </div>
-                                        <div class="video-caption">"No Ordinary Athlete" - Stranger Things x Gatorade (:30)</div>
-                                    </div>
-                                </div>
-
-                                <div class="cs-section">
-                                    <div class="cs-section-header">
-                                        <h4>Campaign Details</h4>
-                                        <div class="section-divider"></div>
-                                    </div>
-                                    <p class="cs-paragraph">For over 60 years, Gatorade, the OG sports drink, has fueled the world's greatest athletes. Now in 1987 Hawkins, the crew is gearing up for the final battle with Gatorade—choosing no ordinary thirst quencher to fuel the extraordinary. The collaboration celebrates our authentic 1980s heritage by reviving iconic products and ads from our vault and pulling them into the 'Upside Down.'</p>
-                                    <p class="cs-paragraph">The work is running on social and digital and during Netflix's Christmas Day NFL games. When the final season of Stranger Things dropped, the brand launched a 1987 Hawkins Capsule and Upside Down Capsule, with vintage apparel, retro Gatorade towels and more.</p>
                                 </div>
                             </div>
 
@@ -6853,7 +6867,7 @@
                 <div class="case-study-hero-overlay"></div>
                 <div class="case-study-hero-content">
                     <div class="breadcrumb"><a href="#campaigns">Brand Work</a> <span>/</span> DIRECTV</div>
-                    <h2 class="case-study-title">DIRECTV <span class="highlight">Campaigns</span></h2>
+                    <h2 class="case-study-title" style="font-size: 2.5rem;">DIRECTV <span class="highlight">Campaigns</span></h2>
                     <div class="case-study-meta">
                         <div class="meta-item"><span class="meta-label">Agency</span><span class="meta-value">TBWA\Chiat\Day LA</span></div>
                         <div class="meta-item"><span class="meta-label">Years</span><span class="meta-value">2024–2025</span></div>
@@ -6900,8 +6914,6 @@
                                         <h4>Nothing On Your Roof 2.0</h4>
                                         <div class="section-divider"></div>
                             </div>
-                                    <p class="cs-paragraph"><strong>Los Angeles’ Dustin May, Chicago’s Dansby Swanson, and Milwaukee’s Christian Yelich</strong> star in a music‑infused twist on baseball’s iconic 7th‑inning stretch. Remixing “Take Me Out to the Ball Game” into “<em>Take Me Out to the Bald Game</em>,” the spot highlights DIRECTV’s satellite‑free offerings and leadership in sports.</p>
-                                    <p class="cs-paragraph">Building on the success of Nothing On Your Roof 1.0 (George Kittle), Version 2.0 swaps the "footbald" helmet gag for playful bald caps and a boy‑band performance. Activated across social, a bespoke Snapchat lens, CTV, and digital out‑of‑home.</p>
                                 </div>
 
                                 <div class="video-gallery grid col-1 cs-section">
@@ -6912,6 +6924,11 @@
                                         <div class="video-caption">"Take Me Out to the Bald Game" — May, Swanson, Yelich</div>
                                 </div>
                             </div>
+
+                                <div class="cs-section">
+                                    <p class="cs-paragraph"><strong>Los Angeles' Dustin May, Chicago's Dansby Swanson, and Milwaukee's Christian Yelich</strong> star in a music‑infused twist on baseball's iconic 7th‑inning stretch. Remixing "Take Me Out to the Ball Game" into "<em>Take Me Out to the Bald Game</em>," the spot highlights DIRECTV's satellite‑free offerings and leadership in sports.</p>
+                                    <p class="cs-paragraph">Building on the success of Nothing On Your Roof 1.0 (George Kittle), Version 2.0 swaps the "footbald" helmet gag for playful bald caps and a boy‑band performance. Activated across social, a bespoke Snapchat lens, CTV, and digital out‑of‑home.</p>
+                                </div>
 
                                 <div class="campaign-highlights cs-section">
                                     <div class="highlight-grid">
@@ -6934,11 +6951,20 @@
                             <div class="folder-content" id="gothot">
                                 <div class="cs-section overview-section">
                                     <div class="cs-section-header">
-                                        <h4>"Got Hot" — DIRECTV Like You’ve Never Seen It</h4>
+                                        <h4>"Got Hot" — DIRECTV Like You've Never Seen It</h4>
                                         <div class="section-divider"></div>
                     </div>
-                                    <p class="cs-paragraph">Directed by <strong>Taika Waititi</strong> and starring <strong>Kumail Nanjiani</strong> and <strong>Rob McElhenney</strong>, this campaign showcases DIRECTV’s feature‑rich streaming transformation — easier satellite‑free streaming, flexible packages, and a unified experience across live TV, on‑demand, and top streaming apps.</p>
-                            </div>
+                                </div>
+
+                                <div class="video-gallery grid col-3 cs-section">
+                                    <div class="video-card"><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/-xYYHOXzUeY" title="DIRECTV — Got Hot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Got Hot</div></div>
+                                    <div class="video-card"><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/nXzgUdtmBQE" title="DIRECTV — Major Range" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Major Range</div></div>
+                                    <div class="video-card"><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/Be2pf8kXAKw" title="DIRECTV — Game Day Fit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Game Day Fit</div></div>
+                                </div>
+
+                                <div class="cs-section">
+                                    <p class="cs-paragraph">Directed by <strong>Taika Waititi</strong> and starring <strong>Kumail Nanjiani</strong> and <strong>Rob McElhenney</strong>, this campaign showcases DIRECTV's feature‑rich streaming transformation — easier satellite‑free streaming, flexible packages, and a unified experience across live TV, on‑demand, and top streaming apps.</p>
+                                </div>
 
                                 <div class="campaign-highlights cs-section">
                                     <div class="highlight-grid">
@@ -6948,12 +6974,6 @@
                                         <div class="highlight-card"><h5>Distribution</h5><p>TV, OTT/OLV, Social, Influencers, OOH, Partnerships</p></div>
                                 </div>
                             </div>
-
-                                <div class="video-gallery grid col-3 cs-section">
-                                    <div class="video-card"><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/-xYYHOXzUeY" title="DIRECTV — Got Hot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Got Hot</div></div>
-                                    <div class="video-card"><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/nXzgUdtmBQE" title="DIRECTV — Major Range" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Major Range</div></div>
-                                    <div class="video-card"><div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/Be2pf8kXAKw" title="DIRECTV — Game Day Fit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="video-caption">Game Day Fit</div></div>
-                                </div>
 
                                 <div class="photo-gallery-cs grid col-1 cs-section">
                                     <div class="photo-card-cs gallery-item" data-src="https://images-cdn4.welcomesoftware.com/assets/Rob+%26+Kumail+for+DIRECTV+Got+Hot.jpg/Zz0wMmI3MGQ2YzY4YzIxMWYwODk0MDA2NzA5OTZmOTdlYg==?width=1536&height=860" data-title="Got Hot — Hero" data-caption="Kumail Nanjiani and Rob McElhenney for DIRECTV">
@@ -6970,14 +6990,7 @@
                                     <h4>Emmys OOH Hijack — Awards Night Takeover</h4>
                                     <div class="section-divider"></div>
                     </div>
-                                <!-- Hero image: Hollywood Creative, also remains in carousel below -->
-                                <div class="cs-hero" style="max-width:1200px;margin:0 auto var(--space-md);">
-                                    <img src="https://d3q27bh1u24u2o.cloudfront.net/wysiwyg/news/2025-10/DIRECTV-3.kWa9h-I6.png" alt="DIRECTV Emmys OOH — Hollywood Creative" style="width:100%;border-radius:12px;display:block;">
-                                </div>
-                                <p class="cs-paragraph">A real‑time Emmys takeover built around DIRECTV’s Universal Search tool. We placed DIRECTV’s search UI alongside award‑season IP — from Andor and Only Murders in the Building to The White Lotus, The Penguin and The Pitt — to make a simple point at a maximal moment: open DIRECTV, type what you want, and watch across partners without the hunt.</p>
-                                <p class="cs-paragraph">I led connections orchestration: mapping high‑impact sites and projection surfaces, sequencing flights directly after the Emmys broadcast, and aligning paid/organic social with our OOH creative. I authored briefs, coordinated rapid approvals, and synced Creative, PR and Media so every touchpoint reinforced the same product truth. We extended the stunt with a Rotten Tomatoes homepage takeover to capture curiosity and drive exploration.</p>
-                                <p class="cs-paragraph">The activation ran across Hollywood, West Hollywood, Santa Monica and Downtown LA in the days surrounding the show — celebrating winners while reminding people where to find the most talked‑about series. Channels spanned print OOH, digital OOH, projections and social; content was captured and published in‑flight.</p>
-                </div>
+                            </div>
 
                             <!-- Move video to the top and make larger -->
                             <div class="video-gallery cs-section" style="max-width:1200px;margin:0 auto;">
@@ -6991,6 +7004,18 @@
                                     <div class="video-caption">Emmys OOH Hijack — Recap Reel</div>
                                 </div>
                             </div>
+                            
+                            <!-- Hero image: Hollywood Creative, also remains in carousel below -->
+                            <div class="cs-hero cs-section" style="max-width:1200px;margin:0 auto;">
+                                <img src="https://d3q27bh1u24u2o.cloudfront.net/wysiwyg/news/2025-10/DIRECTV-3.kWa9h-I6.png" alt="DIRECTV Emmys OOH — Hollywood Creative" style="width:100%;border-radius:12px;display:block;">
+                            </div>
+                            
+                            <div class="cs-section">
+                                <p class="cs-paragraph">A real‑time Emmys takeover built around DIRECTV's Universal Search tool. We placed DIRECTV's search UI alongside award‑season IP — from Andor and Only Murders in the Building to The White Lotus, The Penguin and The Pitt — to make a simple point at a maximal moment: open DIRECTV, type what you want, and watch across partners without the hunt.</p>
+                                <p class="cs-paragraph">I led connections orchestration: mapping high‑impact sites and projection surfaces, sequencing flights directly after the Emmys broadcast, and aligning paid/organic social with our OOH creative. I authored briefs, coordinated rapid approvals, and synced Creative, PR and Media so every touchpoint reinforced the same product truth. We extended the stunt with a Rotten Tomatoes homepage takeover to capture curiosity and drive exploration.</p>
+                                <p class="cs-paragraph">The activation ran across Hollywood, West Hollywood, Santa Monica and Downtown LA in the days surrounding the show — celebrating winners while reminding people where to find the most talked‑about series. Channels spanned print OOH, digital OOH, projections and social; content was captured and published in‑flight.</p>
+                            </div>
+                            
                             <div class="campaign-highlights cs-section">
                                 <div class="highlight-grid">
                                     <div class="highlight-card"><h5>Objective</h5><p>Culture hijack to boost consideration in real time</p></div>
@@ -7359,40 +7384,23 @@
                                 <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Spotify"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14.5a6 6 0 0 1 8 0M6.32 12.5a8 8 0 0 1 11.36 0M4.73 10.5a10 10 0 0 1 14.54 0"></path></svg>Spotify</a>
                             </div>
                         </div>
-                        <div class="info-card" style="margin-top: 24px;">
-                            <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
-                            <h3>Quick Contact</h3>
-                            <p style="margin-bottom: 12px;">Prefer to reach out directly?</p>
-                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                                <a href="https://www.linkedin.com/messaging/compose/?recipient=joshuamgerman" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex: 1; min-width: 140px; text-align: center; text-decoration: none;">LinkedIn Message</a>
-                                <a href="mailto:Jgerms20@gmail.com?subject=Portfolio%20Inquiry" class="btn btn-secondary" style="flex: 1; min-width: 140px; text-align: center; text-decoration: none;">Email Me</a>
-                            </div>
-                        </div>
                     </div>
                     <div class="contact-form-container">
-                        <div class="form-card">
-                            <div class="form-header"><h3>Send Me a Message</h3><p>Fill out the form below and I'll get back to you ASAP.</p></div>
-                            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgegjqqe" method="POST">
-                                <div class="form-step active" data-step="1">
-                                    <div class="form-group"><label for="name">What's your name?</label><input type="text" id="name" name="name" required class="form-input" placeholder="Your name"></div>
-                                    <div class="form-group"><label for="email">Where can I reach you?</label><input type="email" id="email" name="email" required class="form-input" placeholder="Your email address"></div>
-                                    <div class="form-nav"><button type="button" class="form-next" data-goto="2"><span>Next Step</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
+                        <div class="info-card">
+                            <div class="info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+                            <h3>Quick Contact</h3>
+                            <p style="margin-bottom: 16px;">Prefer to reach out directly? Choose your preferred method:</p>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <a href="mailto:Jgerms20@gmail.com?subject=Portfolio%20Inquiry" class="btn btn-primary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px 20px;">Email Me</a>
+                                <a href="https://www.linkedin.com/messaging/compose/?recipient=joshuamgerman" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px 20px;">LinkedIn Message</a>
+                                <a href="tel:+18033919850" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px 20px;">Give Me a Call</a>
+                                <a href="https://instagram.com/jgerms20" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px 20px;">Send Me a DM</a>
+                                <div class="btn btn-secondary" style="width: 100%; text-align: center; padding: 12px 20px; cursor: default; opacity: 0.6;">
+                                    Send Me a Letter <span style="font-size: 0.85em; opacity: 0.7;">(PO box coming soon)</span>
                                 </div>
-                                <div class="form-step" data-step="2">
-                                    <div class="form-group"><label for="project-type">What type of project are you interested in?</label><select id="project-type" name="project-type" class="form-input"><option value="">Select a project type</option><option value="brand-strategy">Brand Strategy</option><option value="photography">Photography</option><option value="podcast-guest">Podcast Guest</option><option value="other">Other</option></select></div>
-                                    <div class="form-group"><label for="budget">What's your approximate budget?</label><select id="budget" name="budget" class="form-input"><option value="">Select budget range</option><option value="< $5k">&lt; $5,000</option><option value="$5k - $25k">$5k - $25k</option><option value="$25k+">$25,000+</option></select></div>
-                                    <div class="form-nav"><button type="button" class="form-prev" data-goto="1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Previous</span></button><button type="button" class="form-next" data-goto="3"><span>Next Step</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
-                                </div>
-                                <div class="form-step" data-step="3">
-                                    <div class="form-group"><label for="message">Tell me more about your project</label><textarea id="message" name="message" rows="5" class="form-input" placeholder="Share some details..."></textarea></div>
-                                    <div class="form-group"><label for="timeline">What's your timeline?</label><select id="timeline" name="timeline" class="form-input"><option value="">Select timeline</option><option value="asap">ASAP</option><option value="1-month">Within 1 month</option><option value="flexible">Flexible</option></select></div>
-                                    <div class="form-nav"><button type="button" class="form-prev" data-goto="2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg><span>Previous</span></button><button type="submit" class="form-submit"><span>Send Message</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div>
-                                </div>
-                                <div class="form-success">
-                                    <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                                    <h3>Message Sent!</h3><p>Thank you for reaching out. I'll get back to you within 48 hours.</p><button type="button" class="reset-form">Send Another Message</button>
-                                </div>
-                            </form>
+                                <a href="tel:+18033919850" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px 20px;">Fax</a>
+                                <a href="https://www.pigeongram.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px 20px;">Send Me a Carrier Pigeon 🐦</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -7445,7 +7453,7 @@
                 <div class="footer-legal"><a href="#" class="legal-link">Privacy Policy</a><a href="#" class="legal-link">Terms of Use</a></div>
                 <a href="#hero" class="back-to-top" aria-label="Back to Top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></a>
                 <div class="footer-disclaimer" style="flex-basis:100%; opacity:.75; font-size:.9rem; margin-top:8px; text-align:center;">
-                    <p>If anything on this site doesn’t work, forgive me — I coded this site from scratch.</p>
+                    <p>If anything on this site doesn't work properly, please forgive me; I vibe coded this site from scratch 🙃</p>
                 </div>
             </div>
         </div>
@@ -8056,12 +8064,18 @@
                 // Randomize order on load to keep variety
                 const tiles = Array.from(gallery.querySelectorAll('.photo-tile'));
                 tiles.sort(() => Math.random() - 0.5).forEach(t => gallery.appendChild(t));
+                let hasBeenExpanded = false;
                 function setExpanded(expanded){
                     gallery.classList.toggle('expanded', expanded);
                     toggleBtn.textContent = expanded ? 'See less' : 'See more';
                     toggleBtn.setAttribute('aria-expanded', String(expanded));
                     // Always show the button after first click
                     if (expanded) {
+                        hasBeenExpanded = true;
+                        toggleBtn.style.display = 'inline-block';
+                    }
+                    // Always show button if it has been expanded at least once
+                    if (hasBeenExpanded) {
                         toggleBtn.style.display = 'inline-block';
                     }
                 }
