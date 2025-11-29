@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gatorade Campaigns - Case Study by Joshua McKenzie German">
+    <title>Gatorade Campaigns | Joshua McKenzie German</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
+            --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
+            --neon: #D4FF4F; --gatorade-orange: #FF6B00; --gatorade-green: #00B140;
+            --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7); --text-muted: rgba(255, 255, 255, 0.35);
+            --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
+            --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px; --radius-pill: 9999px;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); --max-width: 1400px; --content-width: 900px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; }
+        ::selection { background: var(--gatorade-orange); color: var(--void); }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        .back-nav {
+            position: fixed; top: 32px; left: 32px; z-index: 1000;
+            display: flex; align-items: center; gap: 12px; padding: 14px 24px;
+            background: rgba(10, 10, 12, 0.9); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
+            font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .back-nav:hover { color: var(--text-primary); background: var(--glass-hover); transform: translateX(-4px); }
+        .back-nav svg { width: 18px; height: 18px; }
+
+        .case-hero {
+            position: relative; min-height: 70vh;
+            display: flex; align-items: flex-end;
+            padding: var(--edge); padding-bottom: 60px; overflow: hidden;
+            background: linear-gradient(135deg, #1a0a00 0%, #000 50%, #001a0a 100%);
+        }
+        .case-hero::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+            background: radial-gradient(circle at center, var(--gatorade-orange) 0%, transparent 70%);
+            opacity: 0.1; pointer-events: none;
+        }
+        .case-hero-content { position: relative; z-index: 1; max-width: var(--max-width); width: 100%; }
+        .case-tag {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            background: rgba(255, 107, 0, 0.2); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 0, 0.4); border-radius: var(--radius-pill);
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--gatorade-orange); margin-bottom: 24px;
+        }
+        .case-title {
+            font-family: var(--font-display); font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px;
+        }
+        .case-title .accent {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--gatorade-orange), var(--gatorade-green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .case-subtitle { font-size: 1.35rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6; }
+
+        /* Campaign Toggle */
+        .campaign-toggle {
+            display: flex; gap: 8px; margin: 40px 0 0;
+            padding: 6px; background: var(--surface);
+            border-radius: var(--radius-pill); width: fit-content;
+        }
+        .toggle-btn {
+            padding: 12px 24px; font-size: 0.9rem; font-weight: 600;
+            background: transparent; color: var(--text-secondary);
+            border: none; border-radius: var(--radius-pill);
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .toggle-btn.active {
+            background: var(--gatorade-orange); color: white;
+        }
+        .toggle-btn:hover:not(.active) {
+            color: var(--text-primary); background: var(--glass-hover);
+        }
+
+        .case-meta {
+            display: flex; flex-wrap: wrap; gap: 48px; padding: 48px var(--edge);
+            border-bottom: 1px solid var(--glass-border); max-width: var(--max-width); margin: 0 auto;
+        }
+        .meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .meta-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+        .meta-value { font-size: 1.1rem; font-weight: 500; color: var(--text-primary); }
+
+        .case-content { max-width: var(--content-width); margin: 0 auto; padding: 80px var(--edge); }
+        
+        /* Campaign Panels */
+        .campaign-panel { display: none; }
+        .campaign-panel.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .case-section { margin-bottom: 64px; }
+        .case-section-title { font-family: var(--font-display); font-size: 2rem; font-weight: 400; margin-bottom: 24px; }
+        .case-section p { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
+        .case-section p:last-child { margin-bottom: 0; }
+
+        .case-quote {
+            padding: 48px; background: var(--surface);
+            border-left: 4px solid var(--gatorade-orange); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 48px 0;
+        }
+        .case-quote blockquote {
+            font-family: var(--font-display); font-size: 1.75rem; font-style: italic;
+            line-height: 1.5; color: var(--text-primary); margin-bottom: 20px;
+        }
+        .case-quote cite { font-size: 0.9rem; font-style: normal; color: var(--text-muted); }
+
+        .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0; }
+        .video-card {
+            background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .video-card .video-wrapper { position: relative; padding-bottom: 56.25%; }
+        .video-card iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-card .video-label { padding: 16px; font-size: 0.9rem; color: var(--text-secondary); }
+
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0; }
+        .result-card {
+            background: var(--surface); border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl); padding: 40px; text-align: center;
+        }
+        .result-value { font-size: 3rem; font-weight: 700; color: var(--gatorade-orange); margin-bottom: 8px; }
+        .result-label { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .next-project { padding: 80px var(--edge); border-top: 1px solid var(--glass-border); text-align: center; }
+        .next-project-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 16px; }
+        .next-project-link { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 4rem); font-weight: 400; color: var(--text-primary); transition: color 0.3s ease; }
+        .next-project-link:hover { color: var(--neon); }
+
+        @media (max-width: 768px) {
+            .case-meta { gap: 32px; } 
+            .results-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
+            .campaign-toggle { flex-direction: column; width: 100%; }
+            .toggle-btn { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html#work" class="back-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Work
+    </a>
+
+    <section class="case-hero">
+        <div class="case-hero-content">
+            <span class="case-tag">Global Entertainment Partnerships</span>
+            <h1 class="case-title">
+                Gatorade<br>
+                <span class="accent">Campaigns</span>
+            </h1>
+            <p class="case-subtitle">
+                Fueling athletes and culture. Two campaigns that expanded Gatorade's reach beyond the playing field.
+            </p>
+            
+            <!-- Campaign Toggle -->
+            <div class="campaign-toggle">
+                <button class="toggle-btn active" data-campaign="stranger-things">Stranger Things</button>
+                <button class="toggle-btn" data-campaign="nfl">NFL</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="case-meta">
+        <div class="meta-item">
+            <span class="meta-label">Client</span>
+            <span class="meta-value">Gatorade / PepsiCo</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Agency</span>
+            <span class="meta-value">TBWA\Chiat\Day LA</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Communication Strategist</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2024-2025</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Scope</span>
+            <span class="meta-value" id="scopeValue">Global Entertainment Partnership</span>
+        </div>
+    </div>
+
+    <div class="case-content">
+        <!-- Stranger Things Campaign -->
+        <div class="campaign-panel active" id="stranger-things">
+            <section class="case-section">
+                <h2 class="case-section-title">No Ordinary Athlete</h2>
+                <p>Gatorade owns sports. But to stay relevant with younger consumers, the brand needed to expand its cultural footprint beyond the playing field. With Stranger Things Season 4 approaching, we saw an opportunity to connect athletic performance with one of the most-watched shows on the planet.</p>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Insight</h2>
+                <p>Stranger Things' heroes aren't typical athletes—but they're athletes nonetheless. Eleven's psychic powers require intense mental and physical exertion. The kids spend the entire series running, fighting, and pushing their limits. They're performing at their peak when it matters most.</p>
+                <p>That's exactly what Gatorade fuels.</p>
+            </section>
+
+            <div class="case-quote">
+                <blockquote>
+                    "No Ordinary Athlete."
+                </blockquote>
+                <cite>— Campaign Tagline</cite>
+            </div>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Execution</h2>
+                <p>We developed limited-edition Stranger Things Gatorade bottles featuring the Upside Down aesthetic—flickering lights, demogorgon shadows, and that signature red-and-black color palette. The packaging became a collector's item.</p>
+                <p>The campaign extended across digital, social, and in-store, with content that positioned the Stranger Things cast as athletes performing extraordinary feats. We created "training" content showing the kids preparing for their battles against the Mind Flayer—all fueled by Gatorade.</p>
+            </section>
+
+            <!-- Campaign Videos -->
+            <section class="case-section">
+                <h2 class="case-section-title">Campaign Spots</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/S8FHZ6Gtu94" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-label">No Ordinary Athlete</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/lBqIkhY_0Bc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-label">Behind the Scenes</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">4.2B</div>
+                    <div class="result-label">Campaign Impressions</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">#1</div>
+                    <div class="result-label">Beverage Partnership</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">34%</div>
+                    <div class="result-label">Sales Lift During Campaign</div>
+                </div>
+            </div>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Impact</h2>
+                <p>The partnership became one of the most successful entertainment collaborations in Gatorade's history. Limited-edition bottles sold out within days. The campaign drove significant conversation among Gen Z consumers who saw Gatorade as more than just a sports drink—it became a cultural artifact.</p>
+                <p>Most importantly, it proved that Gatorade's "fuel the best" positioning could extend beyond traditional athletics into any arena where performance matters.</p>
+            </section>
+        </div>
+
+        <!-- NFL Campaign -->
+        <div class="campaign-panel" id="nfl">
+            <section class="case-section">
+                <h2 class="case-section-title">All The Reasons Not to Quit</h2>
+                <p>In partnership with NFL Films, we told the story of resilience, determination, and the will to keep going when everything says you should stop. This campaign focused on the teams and players who embody the never-give-up spirit that Gatorade has always championed.</p>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Insight</h2>
+                <p>There's a team that lost for 10 years straight. Season after season of heartbreak. But they never stopped showing up. They never stopped believing. They never stopped fighting for that next win.</p>
+                <p>Their story is Gatorade's story: fuel the fight, not just the victory.</p>
+            </section>
+
+            <div class="case-quote">
+                <blockquote>
+                    "The hardest thing isn't winning. It's deciding to keep going when you haven't."
+                </blockquote>
+                <cite>— Campaign Insight</cite>
+            </div>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Execution</h2>
+                <p>Working closely with NFL Films, we crafted a documentary-style campaign that followed players through their lowest moments—and their comeback. The cinematic quality brought authenticity and emotion that typical sports marketing lacks.</p>
+                <p>The partnership extended beyond advertising into content, with behind-the-scenes features, player profiles, and real stories of perseverance that resonated across platforms.</p>
+            </section>
+
+            <!-- Campaign Videos -->
+            <section class="case-section">
+                <h2 class="case-section-title">Campaign Spots</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/placeholder1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-label">All The Reasons Not to Quit</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/placeholder2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-label">The Comeback</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">2.8B</div>
+                    <div class="result-label">Campaign Impressions</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">87%</div>
+                    <div class="result-label">Positive Sentiment</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">23%</div>
+                    <div class="result-label">Brand Lift</div>
+                </div>
+            </div>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Impact</h2>
+                <p>This campaign reinforced Gatorade's position as more than a hydration brand—it's a symbol of perseverance. The NFL Films partnership brought unmatched credibility and storytelling depth, resonating with sports fans who appreciate authentic narratives.</p>
+                <p>The campaign won recognition for its emotional impact and genuine portrayal of athletic struggle and triumph.</p>
+            </section>
+        </div>
+    </div>
+
+    <div class="next-project">
+        <p class="next-project-label">Next Project</p>
+        <a href="work-samadams.html" class="next-project-link">Samuel Adams: Brighter Boston →</a>
+    </div>
+
+    <script>
+        // Campaign Toggle Functionality
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const campaignPanels = document.querySelectorAll('.campaign-panel');
+        const scopeValue = document.getElementById('scopeValue');
+        
+        const scopeTexts = {
+            'stranger-things': 'Global Entertainment Partnership',
+            'nfl': 'NFL Films Documentary Partnership'
+        };
+
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const campaign = btn.dataset.campaign;
+                
+                // Update active button
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show corresponding panel
+                campaignPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                    if (panel.id === campaign) {
+                        panel.classList.add('active');
+                    }
+                });
+                
+                // Update scope
+                scopeValue.textContent = scopeTexts[campaign] || 'Global Partnership';
+            });
+        });
+    </script>
+
+</body>
+</html>

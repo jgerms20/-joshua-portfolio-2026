@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sephora Campaigns - Case Study by Joshua McKenzie German">
+    <title>Sephora Campaigns | Joshua McKenzie German</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
+            --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
+            --neon: #D4FF4F; --sephora-black: #000000; --sephora-accent: #FFE5E5;
+            --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7); --text-muted: rgba(255, 255, 255, 0.35);
+            --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
+            --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px; --radius-pill: 9999px;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); --max-width: 1400px; --content-width: 900px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; }
+        ::selection { background: var(--neon); color: var(--void); }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        .back-nav {
+            position: fixed; top: 32px; left: 32px; z-index: 1000;
+            display: flex; align-items: center; gap: 12px; padding: 14px 24px;
+            background: rgba(10, 10, 12, 0.9); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
+            font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .back-nav:hover { color: var(--text-primary); background: var(--glass-hover); transform: translateX(-4px); }
+        .back-nav svg { width: 18px; height: 18px; }
+
+        .case-hero {
+            position: relative; min-height: 70vh;
+            display: flex; align-items: flex-end;
+            padding: var(--edge); padding-bottom: 60px; overflow: hidden;
+        }
+        .case-hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .case-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+        .case-hero-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, var(--void) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
+        }
+        .case-hero-content { position: relative; z-index: 1; max-width: var(--max-width); width: 100%; }
+        .case-tag {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--text-primary); margin-bottom: 24px;
+        }
+        .case-title {
+            font-family: var(--font-display); font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px;
+        }
+        .case-title .accent {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--neon), #a8e063);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .case-subtitle { font-size: 1.35rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6; }
+
+        /* Campaign Toggle */
+        .campaign-toggle {
+            display: flex; gap: 8px; margin: 40px 0 0;
+            padding: 6px; background: var(--surface);
+            border-radius: var(--radius-pill); width: fit-content;
+        }
+        .toggle-btn {
+            padding: 12px 24px; font-size: 0.9rem; font-weight: 600;
+            background: transparent; color: var(--text-secondary);
+            border: none; border-radius: var(--radius-pill);
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .toggle-btn.active {
+            background: var(--text-primary); color: var(--void);
+        }
+        .toggle-btn:hover:not(.active) {
+            color: var(--text-primary); background: var(--glass-hover);
+        }
+
+        .case-meta {
+            display: flex; flex-wrap: wrap; gap: 48px; padding: 48px var(--edge);
+            border-bottom: 1px solid var(--glass-border); max-width: var(--max-width); margin: 0 auto;
+        }
+        .meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .meta-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+        .meta-value { font-size: 1.1rem; font-weight: 500; color: var(--text-primary); }
+
+        .case-content { max-width: var(--content-width); margin: 0 auto; padding: 80px var(--edge); }
+        
+        /* Campaign Panels */
+        .campaign-panel { display: none; }
+        .campaign-panel.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .case-section { margin-bottom: 64px; }
+        .case-section-title { font-family: var(--font-display); font-size: 2rem; font-weight: 400; margin-bottom: 24px; }
+        .case-section p { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
+        .case-section p:last-child { margin-bottom: 0; }
+
+        .case-gallery { display: grid; gap: 24px; margin: 64px 0; }
+        .case-gallery.two-col { grid-template-columns: 1fr 1fr; }
+        .case-gallery img { width: 100%; border-radius: var(--radius-lg); }
+
+        .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0; }
+        .video-card {
+            background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .video-card .video-wrapper { position: relative; padding-bottom: 56.25%; }
+        .video-card iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-card .video-label { padding: 16px; font-size: 0.9rem; color: var(--text-secondary); }
+
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0; }
+        .result-card {
+            background: var(--surface); border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl); padding: 40px; text-align: center;
+        }
+        .result-value { font-size: 3rem; font-weight: 700; color: var(--neon); margin-bottom: 8px; }
+        .result-label { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .next-project { padding: 80px var(--edge); border-top: 1px solid var(--glass-border); text-align: center; }
+        .next-project-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 16px; }
+        .next-project-link { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 4rem); font-weight: 400; color: var(--text-primary); transition: color 0.3s ease; }
+        .next-project-link:hover { color: var(--neon); }
+
+        @media (max-width: 768px) {
+            .case-meta { gap: 32px; }
+            .results-grid { grid-template-columns: 1fr; }
+            .case-gallery.two-col { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
+            .campaign-toggle { flex-direction: column; width: 100%; }
+            .toggle-btn { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html#work" class="back-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Work
+    </a>
+
+    <section class="case-hero">
+        <div class="case-hero-bg">
+            <img src="Brand Imagery/Sephora/Holiday Campaign 2024/hqdefault.jpg" alt="Sephora Campaign">
+        </div>
+        <div class="case-hero-content">
+            <span class="case-tag">Holiday & Skincare Campaigns</span>
+            <h1 class="case-title">
+                Sephora<br>
+                <span class="accent">Campaigns</span>
+            </h1>
+            <p class="case-subtitle">
+                Two campaigns directed by Taika Waititi that brought joy, authenticity, and self-expression to beauty shopping.
+            </p>
+            
+            <!-- Campaign Toggle -->
+            <div class="campaign-toggle">
+                <button class="toggle-btn active" data-campaign="holiday">Holiday: Don't Overthink It</button>
+                <button class="toggle-btn" data-campaign="skincare">Skincare: Skin Obsessed</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="case-meta">
+        <div class="meta-item">
+            <span class="meta-label">Client</span>
+            <span class="meta-value">Sephora</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Agency</span>
+            <span class="meta-value">TBWA\Chiat\Day LA</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Senior Connection Strategist</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2024-2025</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Director</span>
+            <span class="meta-value">Taika Waititi</span>
+        </div>
+    </div>
+
+    <div class="case-content">
+        <!-- Holiday Campaign: Don't Overthink It -->
+        <div class="campaign-panel active" id="holiday">
+            <section class="case-section">
+                <h2 class="case-section-title">Don't Overthink It</h2>
+                <p>Holiday gifting is stressful. Everyone wants to find the perfect gift, but the pressure to get it exactly right can paralyze shoppers. Sephora's Holiday 2024 campaign tackled that anxiety head-on with a simple message: Don't Overthink It.</p>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Insight</h2>
+                <p>Beauty is deeply personal, which makes gifting it feel risky. What if they don't like the shade? What if it's the wrong product for their skin? But here's the truth: when you gift from Sephora, you're not just giving a product—you're giving an experience, a moment of self-care, an invitation to explore.</p>
+                <p>The gift itself matters less than the intention behind it.</p>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Execution</h2>
+                <p>Taika Waititi brought his signature humor and warmth to four holiday spots that celebrated the chaos, the last-minute panic, and the joy of giving. The campaign featured real moments of holiday stress turned into moments of connection—all anchored by the reassurance that Sephora has you covered.</p>
+                <p>The multi-platform campaign included TV, digital, social, and in-store activations that reinforced the "Don't Overthink It" message at every touchpoint.</p>
+            </section>
+
+            <!-- Campaign Videos -->
+            <section class="case-section">
+                <h2 class="case-section-title">Holiday Spots</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/8xsxYoCI4uc" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Don't Overthink It - Main"></iframe></div>
+                        <div class="video-label">Don't Overthink It - Main</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/MxzWVn1rP9I" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Holiday Gift Guide"></iframe></div>
+                        <div class="video-label">Holiday Gift Guide</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/8f4fZr7xGCM" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Last Minute Shopping"></iframe></div>
+                        <div class="video-label">Last Minute Shopping</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/7kY9E5hJvHk" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="The Perfect Gift"></iframe></div>
+                        <div class="video-label">The Perfect Gift</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campaign Imagery -->
+            <section class="case-section">
+                <h2 class="case-section-title">Campaign Imagery</h2>
+                <div class="case-gallery">
+                    <img src="Brand Imagery/Sephora/Holiday Campaign 2024/hqdefault.jpg" alt="Sephora Holiday Campaign" loading="lazy">
+                </div>
+            </section>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">127%</div>
+                    <div class="result-label">Holiday Sales Growth YoY</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">68M</div>
+                    <div class="result-label">Social Impressions</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">94%</div>
+                    <div class="result-label">Positive Sentiment</div>
+                </div>
+            </div>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Impact</h2>
+                <p>The "Don't Overthink It" campaign became one of Sephora's most successful holiday efforts, driving record sales while reinforcing the brand's position as the go-to destination for beauty gifting. The humorous approach cut through the noise of traditional holiday advertising and resonated with stressed shoppers who just wanted permission to trust their instincts.</p>
+            </section>
+        </div>
+
+        <!-- Skincare Campaign: Skin Obsessed -->
+        <div class="campaign-panel" id="skincare">
+            <section class="case-section">
+                <h2 class="case-section-title">Skin Obsessed</h2>
+                <p>Skincare has become one of the most passionate categories in beauty. The "Skin Obsessed" campaign celebrated the devoted skincare community—the ingredient nerds, the routine builders, the before-and-after documenters—and positioned Sephora as their ultimate destination.</p>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Insight</h2>
+                <p>Skincare enthusiasts aren't just consumers—they're researchers, experimenters, and evangelists. They read ingredient lists like wine labels, track their progress with clinical precision, and spread the gospel of their holy grail products with religious fervor.</p>
+                <p>They're obsessed. And that obsession is beautiful.</p>
+            </section>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Execution</h2>
+                <p>Again partnering with Taika Waititi, we created spots that celebrated skincare obsession in all its glory—from the elaborate 12-step routines to the late-night ingredient deep-dives. The campaign was playful but affirming: being obsessed with your skin isn't vanity, it's self-care.</p>
+                <p>The campaign launched with hero spots and extended into social content, influencer partnerships, and in-store activations that invited customers to embrace their inner skincare nerd.</p>
+            </section>
+
+            <!-- Campaign Videos -->
+            <section class="case-section">
+                <h2 class="case-section-title">Skincare Spots</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dMD94-fjyAQ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Skin Obsessed - Security"></iframe></div>
+                        <div class="video-label">Skin Obsessed - Security</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/l8RRLQiTEks" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Skin Obsessed - The Hunt"></iframe></div>
+                        <div class="video-label">Skin Obsessed - The Hunt</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campaign Imagery -->
+            <section class="case-section">
+                <h2 class="case-section-title">Campaign Imagery</h2>
+                <div class="case-gallery">
+                    <img src="Brand Imagery/Sephora/Skincare Campaign 2025/Sephora-Skincare.NhwUe2HM.png" alt="Sephora Skin Obsessed Campaign" loading="lazy">
+                </div>
+            </section>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">2.4M</div>
+                    <div class="result-label">Social Impressions</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">42%</div>
+                    <div class="result-label">Skincare Category Growth</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">89%</div>
+                    <div class="result-label">Positive Brand Sentiment</div>
+                </div>
+            </div>
+
+            <section class="case-section">
+                <h2 class="case-section-title">The Impact</h2>
+                <p>The "Skin Obsessed" campaign strengthened Sephora's position as the leading destination for skincare enthusiasts. By celebrating rather than mocking the obsessive behaviors of skincare lovers, the campaign built genuine affinity and drove category growth across both prestige and accessible price points.</p>
+            </section>
+        </div>
+    </div>
+
+    <div class="next-project">
+        <p class="next-project-label">Next Project</p>
+        <a href="work-doordash.html" class="next-project-link">DoorDash: All The Ads →</a>
+    </div>
+
+    <script>
+        // Campaign Toggle Functionality
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const campaignPanels = document.querySelectorAll('.campaign-panel');
+
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const campaign = btn.dataset.campaign;
+                
+                // Update active button
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show corresponding panel
+                campaignPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                    if (panel.id === campaign) {
+                        panel.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
