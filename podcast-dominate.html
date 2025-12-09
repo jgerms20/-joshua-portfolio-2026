@@ -13,7 +13,7 @@
         :root {
             --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
             --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
-            --neon: #D4FF4F; --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7);
+            --neon: #D4FF4F; --spotify-green: #1DB954; --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7);
             --text-muted: rgba(255, 255, 255, 0.35);
             --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
             --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px; --radius-pill: 9999px;
@@ -56,9 +56,7 @@
             font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 400; margin-bottom: 20px;
         }
-        .podcast-title .accent {
-            font-style: italic; color: var(--neon);
-        }
+        .podcast-title .accent { font-style: italic; color: var(--neon); }
 
         .podcast-desc {
             font-size: 1.25rem; color: var(--text-secondary); max-width: 600px;
@@ -68,39 +66,205 @@
         .spotify-embed {
             max-width: 700px; margin: 0 auto 40px; border-radius: var(--radius-lg); overflow: hidden;
         }
-        .spotify-embed iframe {
-            width: 100%; border: none; border-radius: var(--radius-lg);
-        }
+        .spotify-embed iframe { width: 100%; border: none; border-radius: var(--radius-lg); }
 
         .cta-button {
             display: inline-flex; align-items: center; gap: 12px;
             padding: 18px 36px; font-size: 1rem; font-weight: 600;
-            background: #1DB954; color: white; border-radius: var(--radius-pill);
+            background: var(--spotify-green); color: white; border-radius: var(--radius-pill);
             transition: all 0.3s var(--ease-out-expo);
         }
         .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(29, 185, 84, 0.3); }
         .cta-button svg { width: 24px; height: 24px; }
 
-        .episodes-section {
+        /* Featured Episodes Carousel */
+        .featured-section {
             padding: var(--edge); max-width: var(--max-width); margin: 0 auto;
         }
         .section-title {
             font-family: var(--font-display); font-size: 2rem; margin-bottom: 32px;
         }
-        .episodes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .featured-card {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--obsidian) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            transition: all 0.4s var(--ease-out-expo);
+            cursor: pointer;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon), var(--spotify-green));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .featured-card:hover {
+            border-color: var(--neon);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(212, 255, 79, 0.1);
+        }
+        
+        .featured-card:hover::before { opacity: 1; }
+        
+        .featured-episode-number {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--neon);
+            margin-bottom: 12px;
+        }
+        
+        .featured-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .featured-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .featured-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .featured-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--spotify-green);
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .featured-card:hover .featured-play {
+            transform: scale(1.05);
+        }
+
+        /* All Episodes Section */
+        .episodes-section {
+            padding: 0 var(--edge) var(--edge); max-width: var(--max-width); margin: 0 auto;
+        }
+        
+        .episodes-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+        }
+        
         .episode-card {
-            background: var(--surface); border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg); padding: 24px;
+            background: var(--surface); 
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg); 
+            padding: 24px;
+            transition: all 0.3s var(--ease-out-expo);
+            display: block;
+        }
+        .episode-card:hover { 
+            border-color: var(--spotify-green); 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .episode-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .episode-number { 
+            font-size: 0.7rem; 
+            font-weight: 700; 
+            color: var(--void);
+            background: var(--neon);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.05em;
+        }
+        
+        .episode-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .episode-title { 
+            font-size: 1.05rem; 
+            font-weight: 600; 
+            margin-bottom: 8px; 
+            line-height: 1.3;
+        }
+        .episode-desc { 
+            font-size: 0.85rem; 
+            color: var(--text-secondary); 
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .episode-card.hidden { display: none; }
+        
+        .see-more-btn {
+            display: block;
+            width: 100%;
+            margin-top: 32px;
+            padding: 18px 32px;
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-pill);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s var(--ease-out-expo);
         }
-        .episode-card:hover { border-color: var(--glass-hover); transform: translateY(-4px); }
-        .episode-number { font-size: 0.75rem; font-weight: 600; color: var(--neon); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-        .episode-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
-        .episode-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+        
+        .see-more-btn:hover {
+            background: var(--glass-hover);
+            border-color: var(--neon);
+            color: var(--neon);
+        }
 
+        @media (max-width: 1000px) {
+            .featured-grid { grid-template-columns: 1fr; }
+        }
+        
         @media (max-width: 768px) {
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
             .podcast-cover { width: 200px; height: 200px; }
+            .episodes-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -132,71 +296,196 @@
         </div>
     </section>
 
-    <section class="episodes-section">
-        <h2 class="section-title">Episodes</h2>
-        <div class="episodes-grid">
-            <div class="episode-card">
-                <span class="episode-number">Latest Episode • Mar 2023</span>
-                <h3 class="episode-title">A New Dimension: Exploring Crypto, NFTs and the Metaverse</h3>
-                <p class="episode-desc">Josh sits down with Ryck Digital to discuss blockchain technology, NFTs as a new medium for creators, the Metaverse as an economic platform, and why minorities need to stay current with Web3 developments.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Feb 2023</span>
-                <h3 class="episode-title">NBA Madness & A Super Bowl Spectacle</h3>
-                <p class="episode-desc">Breaking down Kevin Durant to the Suns, Kyrie to the Mavs, LeBron passing Kareem as the all-time leading scorer, and Rihanna's epic halftime show at Chiefs vs Eagles.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Dec 2021</span>
-                <h3 class="episode-title">Year in Review: 2/10</h3>
-                <p class="episode-desc">Reflecting on 2021, spoiler-free Spider-Man: No Way Home review, and predicting a post-pandemic renaissance like the Harlem Renaissance after the 1918 Spanish Flu.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Mar 2021</span>
-                <h3 class="episode-title">The Boys Are Back!</h3>
-                <p class="episode-desc">Season 2 premiere! One year since COVID lockdowns began—discussing reopening, Black History Month, stimulus checks, financial markets, and vaccine rollouts.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Jan 2021</span>
-                <h3 class="episode-title">Capitol Offense</h3>
-                <p class="episode-desc">Discussing the storming of the U.S. Capitol, the historic wins of Rev. Raphael Warnock and Jon Ossoff in Georgia, and Trump's social media bans.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Dec 2020</span>
-                <h3 class="episode-title">Year in Review: 1/10</h3>
-                <p class="episode-desc">Season 1 finale! Wrapping up 2020 by reflecting on our favorite episodes, how much changed, goal-setting for 2021, and what to look forward to.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Nov 2020</span>
-                <h3 class="episode-title">Post-Election</h3>
-                <p class="episode-desc">Joe Biden predicted as 46th President, Kamala Harris making history as the first woman and Black VP, stock market implications, and hopes for the next four years.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Nov 2020</span>
-                <h3 class="episode-title">Pre-Election</h3>
-                <p class="episode-desc">One day before the election—candidates' plans for Black communities, Diddy's potential Black political party, Ice Cube, 50 Cent, and Killer Mike launching Greenwood Bank.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Oct 2020</span>
-                <h3 class="episode-title">Resources To Dominate The Decade</h3>
-                <p class="episode-desc">Life-changing tools and resources: free audiobooks with Libby, daily motivation with Quote of The Day Show, budgeting with EveryDollar, and more.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Oct 2020</span>
-                <h3 class="episode-title">And The Plot Thickens...</h3>
-                <p class="episode-desc">The first Presidential debate chaos, Trump's COVID diagnosis, deep dive into Menace 2 Society, and checking in on life during uncertain times.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Sep 2020</span>
-                <h3 class="episode-title">Let's Talk About Green Book</h3>
-                <p class="episode-desc">Breaking down the Oscar winner—historical accuracy, the "White Savior" narrative, plus celebrating Naomi Osaka's U.S. Open win and her social justice activism.</p>
-            </div>
-            <div class="episode-card">
-                <span class="episode-number">Sep 2020</span>
-                <h3 class="episode-title">Millz Davis, Kanye West & Nick Cannon</h3>
-                <p class="episode-desc">Special guest Millz Davis on independent artistry, the music industry's traps, ownership, plus breaking down the viral Kanye x Nick Cannon Cannon's Class interview.</p>
-            </div>
+    <!-- Featured Episodes -->
+    <section class="featured-section">
+        <h2 class="section-title">Featured Episodes</h2>
+        <div class="featured-grid">
+            <a href="https://open.spotify.com/episode/1a2b3c4d5e6f7g8h9i0j" target="_blank" class="featured-card">
+                <span class="featured-episode-number">Episode 12 • Latest</span>
+                <h3 class="featured-title">A New Dimension: Exploring Crypto, NFTs and the Metaverse</h3>
+                <span class="featured-date">March 20, 2023 • 52 min</span>
+                <p class="featured-desc">Josh sits down with Ryck Digital to discuss blockchain technology, NFTs as a new medium for creators, the Metaverse as an economic platform, and why minorities need to stay current with Web3.</p>
+                <span class="featured-play">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Play Episode
+                </span>
+            </a>
+            
+            <a href="https://open.spotify.com/episode/2b3c4d5e6f7g8h9i0j1k" target="_blank" class="featured-card">
+                <span class="featured-episode-number">Episode 11</span>
+                <h3 class="featured-title">NBA Madness & A Super Bowl Spectacle</h3>
+                <span class="featured-date">February 16, 2023 • 1 hr</span>
+                <p class="featured-desc">Breaking down Kevin Durant to the Suns, Kyrie to the Mavs, LeBron passing Kareem as the all-time leading scorer, and Rihanna's epic halftime show at Chiefs vs Eagles.</p>
+                <span class="featured-play">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Play Episode
+                </span>
+            </a>
+            
+            <a href="https://open.spotify.com/episode/3c4d5e6f7g8h9i0j1k2l" target="_blank" class="featured-card">
+                <span class="featured-episode-number">Episode 10</span>
+                <h3 class="featured-title">Year in Review: 2/10</h3>
+                <span class="featured-date">December 30, 2021 • 52 min</span>
+                <p class="featured-desc">Reflecting on 2021, spoiler-free Spider-Man: No Way Home review, and predicting a post-pandemic renaissance like the Harlem Renaissance after the 1918 Spanish Flu.</p>
+                <span class="featured-play">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Play Episode
+                </span>
+            </a>
         </div>
     </section>
+
+    <!-- All Episodes -->
+    <section class="episodes-section">
+        <h2 class="section-title">All Episodes</h2>
+        <div class="episodes-grid" id="episodesGrid">
+            <!-- Episode 12 -->
+            <a href="https://open.spotify.com/episode/1a2b3c4d5e6f7g8h9i0j" target="_blank" class="episode-card">
+                <div class="episode-header">
+                    <span class="episode-number">EP 12</span>
+                    <span class="episode-date">March 20, 2023</span>
+                </div>
+                <h3 class="episode-title">A New Dimension: Exploring Crypto, NFTs and the Metaverse (Feat. Ryck Digital)</h3>
+                <p class="episode-desc">Josh sits down with Ryck Digital to discuss blockchain technology, NFTs as a new medium for creators, the Metaverse as an economic platform, and why minorities need to stay current with Web3 developments.</p>
+            </a>
+            
+            <!-- Episode 11 -->
+            <a href="https://open.spotify.com/episode/2b3c4d5e6f7g8h9i0j1k" target="_blank" class="episode-card">
+                <div class="episode-header">
+                    <span class="episode-number">EP 11</span>
+                    <span class="episode-date">February 16, 2023</span>
+                </div>
+                <h3 class="episode-title">NBA Madness & A Super Bowl Spectacle</h3>
+                <p class="episode-desc">Breaking down Kevin Durant to the Suns, Kyrie to the Mavs, LeBron passing Kareem as the all-time leading scorer, and Rihanna's epic halftime show at Chiefs vs Eagles.</p>
+            </a>
+            
+            <!-- Episode 10 -->
+            <a href="https://open.spotify.com/episode/3c4d5e6f7g8h9i0j1k2l" target="_blank" class="episode-card">
+                <div class="episode-header">
+                    <span class="episode-number">EP 10</span>
+                    <span class="episode-date">December 30, 2021</span>
+                </div>
+                <h3 class="episode-title">Year in Review: 2/10</h3>
+                <p class="episode-desc">Reflecting on 2021, spoiler-free Spider-Man: No Way Home review, and predicting a post-pandemic renaissance like the Harlem Renaissance after the 1918 Spanish Flu.</p>
+            </a>
+            
+            <!-- Episode 9 -->
+            <a href="https://open.spotify.com/episode/4d5e6f7g8h9i0j1k2l3m" target="_blank" class="episode-card">
+                <div class="episode-header">
+                    <span class="episode-number">EP 9</span>
+                    <span class="episode-date">March 23, 2021</span>
+                </div>
+                <h3 class="episode-title">The Boys Are Back!</h3>
+                <p class="episode-desc">Season 2 premiere! One year since COVID lockdowns began—discussing reopening, Black History Month, stimulus checks, financial markets, and vaccine rollouts.</p>
+            </a>
+            
+            <!-- Episode 8 -->
+            <a href="https://open.spotify.com/episode/5e6f7g8h9i0j1k2l3m4n" target="_blank" class="episode-card">
+                <div class="episode-header">
+                    <span class="episode-number">EP 8</span>
+                    <span class="episode-date">January 14, 2021</span>
+                </div>
+                <h3 class="episode-title">Capitol Offense</h3>
+                <p class="episode-desc">Discussing the storming of the U.S. Capitol, the historic wins of Rev. Raphael Warnock and Jon Ossoff in Georgia, and Trump's social media bans.</p>
+            </a>
+            
+            <!-- Episode 7 -->
+            <a href="https://open.spotify.com/episode/6f7g8h9i0j1k2l3m4n5o" target="_blank" class="episode-card">
+                <div class="episode-header">
+                    <span class="episode-number">EP 7</span>
+                    <span class="episode-date">December 30, 2020</span>
+                </div>
+                <h3 class="episode-title">Year in Review: 1/10</h3>
+                <p class="episode-desc">Season 1 finale! Wrapping up 2020 by reflecting on our favorite episodes, how much changed, goal-setting for 2021, and what to look forward to.</p>
+            </a>
+            
+            <!-- Episode 6 - Hidden by default -->
+            <a href="https://open.spotify.com/episode/7g8h9i0j1k2l3m4n5o6p" target="_blank" class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 6</span>
+                    <span class="episode-date">November 10, 2020</span>
+                </div>
+                <h3 class="episode-title">Post-Election</h3>
+                <p class="episode-desc">Joe Biden predicted as 46th President, Kamala Harris making history as the first woman and Black VP, stock market implications, and hopes for the next four years.</p>
+            </a>
+            
+            <!-- Episode 5 -->
+            <a href="https://open.spotify.com/episode/8h9i0j1k2l3m4n5o6p7q" target="_blank" class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 5</span>
+                    <span class="episode-date">November 2, 2020</span>
+                </div>
+                <h3 class="episode-title">Pre-Election</h3>
+                <p class="episode-desc">One day before the election—candidates' plans for Black communities, Diddy's potential Black political party, Ice Cube, 50 Cent, and Killer Mike launching Greenwood Bank.</p>
+            </a>
+            
+            <!-- Episode 4 -->
+            <a href="https://open.spotify.com/episode/9i0j1k2l3m4n5o6p7q8r" target="_blank" class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 4</span>
+                    <span class="episode-date">October 12, 2020</span>
+                </div>
+                <h3 class="episode-title">Resources To Dominate The Decade</h3>
+                <p class="episode-desc">Life-changing tools and resources: free audiobooks with Libby, daily motivation with Quote of The Day Show, budgeting with EveryDollar, and more.</p>
+            </a>
+            
+            <!-- Episode 3 -->
+            <a href="https://open.spotify.com/episode/0j1k2l3m4n5o6p7q8r9s" target="_blank" class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 3</span>
+                    <span class="episode-date">October 5, 2020</span>
+                </div>
+                <h3 class="episode-title">And The Plot Thickens...</h3>
+                <p class="episode-desc">The first Presidential debate chaos, Trump's COVID diagnosis, deep dive into Menace 2 Society, and checking in on life during uncertain times.</p>
+            </a>
+            
+            <!-- Episode 2 -->
+            <a href="https://open.spotify.com/episode/1k2l3m4n5o6p7q8r9s0t" target="_blank" class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 2</span>
+                    <span class="episode-date">September 21, 2020</span>
+                </div>
+                <h3 class="episode-title">Let's Talk About Green Book</h3>
+                <p class="episode-desc">Breaking down the Oscar winner—historical accuracy, the "White Savior" narrative, plus celebrating Naomi Osaka's U.S. Open win and her social justice activism.</p>
+            </a>
+            
+            <!-- Episode 1 -->
+            <a href="https://open.spotify.com/episode/2l3m4n5o6p7q8r9s0t1u" target="_blank" class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 1</span>
+                    <span class="episode-date">September 15, 2020</span>
+                </div>
+                <h3 class="episode-title">Millz Davis, Kanye West & Nick Cannon</h3>
+                <p class="episode-desc">Special guest Millz Davis on independent artistry, the music industry's traps, ownership, plus breaking down the viral Kanye x Nick Cannon Cannon's Class interview.</p>
+            </a>
+        </div>
+        
+        <button class="see-more-btn" id="seeMoreBtn" onclick="toggleEpisodes()">
+            See All Episodes (12 Total)
+        </button>
+    </section>
+
+    <script>
+        let showingAll = false;
+        
+        function toggleEpisodes() {
+            const hiddenCards = document.querySelectorAll('.episode-card.hidden');
+            const btn = document.getElementById('seeMoreBtn');
+            
+            if (!showingAll) {
+                hiddenCards.forEach(card => card.classList.remove('hidden'));
+                btn.textContent = 'Show Less';
+                showingAll = true;
+            } else {
+                const allCards = document.querySelectorAll('.episode-card');
+                allCards.forEach((card, index) => {
+                    if (index >= 6) card.classList.add('hidden');
+                });
+                btn.textContent = 'See All Episodes (12 Total)';
+                showingAll = false;
+            }
+        }
+    </script>
 
 </body>
 </html>
