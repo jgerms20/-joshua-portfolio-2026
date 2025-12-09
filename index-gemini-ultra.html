@@ -1178,17 +1178,90 @@
             gap: var(--space-xl);
         }
         
-        .header-nav a {
+        .header-nav > a,
+        .nav-dropdown > .nav-trigger {
             font-size: 0.75rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-tertiary);
             transition: color 0.3s ease;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         
-        .header-nav a:hover {
+        .header-nav > a:hover,
+        .nav-dropdown:hover > .nav-trigger {
             color: var(--neon);
+        }
+        
+        /* Dropdown Container */
+        .nav-dropdown {
+            position: relative;
+        }
+        
+        .nav-trigger svg {
+            width: 10px;
+            height: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-dropdown:hover .nav-trigger svg {
+            transform: rotate(180deg);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            min-width: 200px;
+            background: rgba(10, 10, 12, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-sm);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s var(--ease-out-expo);
+            z-index: 1001;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(12px);
+        }
+        
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        
+        .nav-dropdown-menu a:hover {
+            background: var(--glass-hover);
+            color: var(--neon);
+            transform: translateX(4px);
+        }
+        
+        .nav-dropdown-menu .dropdown-divider {
+            height: 1px;
+            background: var(--glass-border);
+            margin: var(--space-xs) 0;
         }
         
         /* Back to Top Button */
@@ -1362,10 +1435,66 @@
         </div>
         <nav class="header-nav">
             <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#ai">AI Projects</a>
-            <a href="#podcasts">Podcasts</a>
-            <a href="#photography">Photography</a>
+            
+            <!-- Work Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-trigger">Work <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="work-levis.html">Levi's x Beyoncé</a>
+                    <a href="work-sephora.html">Sephora</a>
+                    <a href="work-doordash.html">DoorDash</a>
+                    <a href="work-bmw.html">BMW</a>
+                    <a href="work-directv.html">DIRECTV</a>
+                    <a href="work-gatorade.html">Gatorade</a>
+                    <a href="work-samadams.html">Samuel Adams</a>
+                    <a href="work-califia.html">Califia Farms</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#work">View All Work</a>
+                </div>
+            </div>
+            
+            <!-- AI Projects Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-trigger">AI Projects <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="#ai">Archive</a>
+                    <a href="#ai">Memento</a>
+                    <a href="#ai">Ætheria</a>
+                    <a href="#ai">Moments Finder</a>
+                    <a href="#ai">Influencer</a>
+                    <a href="#ai">Jukeboxd</a>
+                    <a href="#ai">Veritas</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#ai">View All Projects</a>
+                </div>
+            </div>
+            
+            <!-- Podcasts Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-trigger">Podcasts <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="podcast-approachable-ai.html">Approachable AI</a>
+                    <a href="podcast-dominate.html">Dominate The Decade</a>
+                    <a href="podcast-curious-creative.html">Curious & Creative</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#podcasts">View All Podcasts</a>
+                </div>
+            </div>
+            
+            <!-- Photography Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-trigger">Photography <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="#photography" onclick="filterPhotos('landscape')">Landscape</a>
+                    <a href="#photography" onclick="filterPhotos('portraits')">Portraits</a>
+                    <a href="#photography" onclick="filterPhotos('fashion')">Fashion</a>
+                    <a href="#photography" onclick="filterPhotos('events')">Events</a>
+                    <a href="#photography" onclick="filterPhotos('travel')">Travel</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#photography">View All Photos</a>
+                </div>
+            </div>
+            
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -1529,52 +1658,67 @@
                     <div class="timeline-stops">
                         
                         <!-- Columbia -->
-                        <div class="timeline-stop" data-location="columbia">
+                        <div class="timeline-stop expandable" data-location="columbia">
                             <div class="stop-dot active"></div>
                             <div class="stop-content">
                                 <span class="stop-year">Origin</span>
                                 <h4 class="stop-city">Columbia, SC</h4>
                                 <p class="stop-detail">University of South Carolina</p>
+                                <div class="stop-expanded">
+                                    <p>Born and raised in the capital of South Carolina. Studied Journalism & Mass Communications with a minor in Information Science. Served as assistant sports editor for The Daily Gamecock. This is where my curiosity for storytelling first took root.</p>
+                                </div>
                             </div>
                         </div>
                         
                         <!-- San Francisco (Remote) -->
-                        <div class="timeline-stop remote" data-location="sf">
+                        <div class="timeline-stop remote expandable" data-location="sf">
                             <div class="stop-dot"></div>
                             <div class="stop-content">
                                 <span class="stop-year">2021–23 <em style="color: var(--orange);">(Remote)</em></span>
                                 <h4 class="stop-city">San Francisco</h4>
                                 <p class="stop-detail">Goodby Silverstein & Partners</p>
+                                <div class="stop-expanded">
+                                    <p>Worked remotely with one of the most legendary agencies in advertising. Contributed to campaigns for BMW, Pepsi, and more. Learned the craft of cultural strategy from the best in the business—all while working from Charlotte.</p>
+                                </div>
                             </div>
                         </div>
                         
                         <!-- Charlotte -->
-                        <div class="timeline-stop" data-location="charlotte">
+                        <div class="timeline-stop expandable" data-location="charlotte">
                             <div class="stop-dot"></div>
                             <div class="stop-content">
                                 <span class="stop-year">2021–23</span>
                                 <h4 class="stop-city">Charlotte, NC</h4>
                                 <p class="stop-detail">Home Base (Working Remote)</p>
+                                <div class="stop-expanded">
+                                    <p>My physical home during the remote era. Charlotte served as my base while I worked with agencies across the country. Built a home studio, explored the city's growing food scene, and stayed close to family in South Carolina.</p>
+                                </div>
                             </div>
                         </div>
                         
                         <!-- Portland -->
-                        <div class="timeline-stop" data-location="portland">
+                        <div class="timeline-stop expandable" data-location="portland">
                             <div class="stop-dot"></div>
                             <div class="stop-content">
                                 <span class="stop-year">2023–24</span>
                                 <h4 class="stop-city">Portland, OR</h4>
                                 <p class="stop-detail">Wieden+Kennedy</p>
+                                <div class="stop-expanded">
+                                    <p>Joined the legendary Wieden+Kennedy as Media & Comms Supervisor. Worked on the Cannes Grand Prix-winning DoorDash "All The Ads" Super Bowl campaign. Experienced the Pacific Northwest's creative energy and coffee culture.</p>
+                                </div>
                             </div>
                         </div>
                         
                         <!-- Los Angeles -->
-                        <div class="timeline-stop current" data-location="la">
+                        <div class="timeline-stop current expandable" data-location="la">
                             <div class="stop-dot pulse"></div>
                             <div class="stop-content">
                                 <span class="stop-year">2024–Present</span>
                                 <h4 class="stop-city">Los Angeles, CA</h4>
                                 <p class="stop-detail">TBWA\Chiat\Day</p>
+                                <div class="stop-expanded">
+                                    <p>Currently serving as Senior Connection Strategist at the Disruption Company. Leading work on Levi's x Beyoncé, Sephora, and DIRECTV. Living the California dream while building the next chapter of my career in the entertainment capital of the world.</p>
+                                </div>
                             </div>
                         </div>
                         
@@ -1709,6 +1853,63 @@
                         font-style: italic;
                     }
                     
+                    /* Expandable Timeline */
+                    .timeline-stop.expandable {
+                        cursor: pointer;
+                    }
+                    
+                    .stop-expanded {
+                        max-height: 0;
+                        overflow: hidden;
+                        opacity: 0;
+                        margin-top: 0;
+                        transition: all 0.4s var(--ease-out-expo);
+                    }
+                    
+                    .timeline-stop.expanded .stop-expanded {
+                        max-height: 200px;
+                        opacity: 1;
+                        margin-top: 12px;
+                    }
+                    
+                    .stop-expanded p {
+                        font-size: 0.8rem;
+                        color: var(--text-secondary);
+                        line-height: 1.6;
+                        padding: 12px;
+                        background: var(--glass);
+                        border-radius: var(--radius-sm);
+                        border-left: 2px solid var(--neon);
+                        max-width: 280px;
+                        margin: 0 auto;
+                    }
+                    
+                    .timeline-stop.expanded .stop-dot {
+                        background: var(--neon);
+                        border-color: var(--neon);
+                        box-shadow: 0 0 20px var(--neon-glow);
+                    }
+                    
+                    .timeline-stop.expandable::after {
+                        content: '+';
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-size: 0.7rem;
+                        color: var(--text-muted);
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+                    
+                    .timeline-stop.expandable:hover::after {
+                        opacity: 1;
+                    }
+                    
+                    .timeline-stop.expanded::after {
+                        content: '−';
+                    }
+
                     @media (max-width: 900px) {
                         .timeline-stops {
                             flex-direction: column;
@@ -1729,6 +1930,9 @@
                         }
                         .stop-dot {
                             margin-bottom: 0;
+                        }
+                        .stop-expanded p {
+                            max-width: 100%;
                         }
                     }
                 </style>
@@ -1868,29 +2072,113 @@
                 </p>
             </div>
 
-            <div class="bento-grid">
-                <!-- Memento -->
-                <div class="bento-card span-6 app-card reveal" data-app="memento">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #FFB700 0%, transparent 60%), var(--obsidian); background-size: cover; background-position: center;">
-                        <img src="Images/AI Projects/memento-preview.jpg" alt="Memento App" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;" onerror="this.style.display='none'">
+            <div class="bento-grid" style="grid-template-columns: repeat(12, 1fr);">
+                <!-- Archive - Digital Closet -->
+                <div class="bento-card span-4 app-card reveal" data-app="archive">
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #8A2BE2 0%, transparent 60%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">👗</span>
+                        </div>
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Memory Architecture</span>
-                        <h3 class="bento-title">Memento</h3>
-                        <p class="bento-desc">An AI-powered memory and note-taking application. Capture, organize, and recall your thoughts with intelligent assistance.</p>
+                        <span class="bento-tag">Digital Closet</span>
+                        <h3 class="bento-title">Archive</h3>
+                        <p class="bento-desc">AI-powered wardrobe organizer. Catalog, style, and manage your closet with intelligent outfit recommendations.</p>
                         <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                     </div>
                 </div>
 
-                <!-- Archive -->
-                <div class="bento-card span-6 app-card reveal reveal-delay-1" data-app="archive">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #8A2BE2 0%, transparent 60%), var(--obsidian); background-size: cover; background-position: center;">
-                        <img src="Images/AI Projects/archive-preview.jpg" alt="Archive App" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;" onerror="this.style.display='none'">
+                <!-- Memento -->
+                <div class="bento-card span-4 app-card reveal reveal-delay-1" data-app="memento">
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #FFB700 0%, transparent 60%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">🧠</span>
+                        </div>
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Digital Vault</span>
-                        <h3 class="bento-title">Archive</h3>
-                        <p class="bento-desc">A semantic search layer for your digital life. Organize, search, and interact with your personal archive using AI.</p>
+                        <span class="bento-tag">Memory Architecture</span>
+                        <h3 class="bento-title">Memento</h3>
+                        <p class="bento-desc">AI-powered memory and note-taking. Capture, organize, and recall your thoughts with intelligent assistance.</p>
+                        <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+
+                <!-- Ætheria - Binaural Beats -->
+                <div class="bento-card span-4 app-card reveal reveal-delay-2" data-app="aetheria">
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #00CED1 0%, #191970 100%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">🎧</span>
+                        </div>
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Sound Therapy</span>
+                        <h3 class="bento-title">Ætheria</h3>
+                        <p class="bento-desc">AI-generated binaural beats for focus, relaxation, and meditation. Custom soundscapes tailored to your mental state.</p>
+                        <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+
+                <!-- Moments Finder -->
+                <div class="bento-card span-4 app-card reveal" data-app="moments">
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #FF6B6B 0%, transparent 60%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">📸</span>
+                        </div>
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Photo Intelligence</span>
+                        <h3 class="bento-title">Moments Finder</h3>
+                        <p class="bento-desc">Search your photo library with natural language. Find memories by describing moments, faces, places, or feelings.</p>
+                        <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+
+                <!-- Influencer App -->
+                <div class="bento-card span-4 app-card reveal reveal-delay-1" data-app="influencer">
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #E4405F 0%, #833AB4 100%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">📱</span>
+                        </div>
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Creator Tools</span>
+                        <h3 class="bento-title">Influencer</h3>
+                        <p class="bento-desc">AI-powered content planning and analytics for creators. Optimize your social presence with intelligent insights.</p>
+                        <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+
+                <!-- Jukeboxd -->
+                <div class="bento-card span-4 app-card reveal reveal-delay-2" data-app="jukeboxd">
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #1DB954 0%, #191414 100%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">🎵</span>
+                        </div>
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Music Social</span>
+                        <h3 class="bento-title">Jukeboxd</h3>
+                        <p class="bento-desc">Letterboxd for music. Track, rate, and review albums. Share your musical journey and discover new sounds.</p>
+                        <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </div>
+
+                <!-- Veritas -->
+                <div class="bento-card span-12 app-card reveal" data-app="veritas">
+                    <div class="bento-media" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); aspect-ratio: 21/6;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 24px;">
+                            <span style="font-size: 5rem;">⚖️</span>
+                            <div style="text-align: left;">
+                                <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--cyan); margin-bottom: 8px;">FEATURED PROJECT</div>
+                                <div style="font-size: 2rem; font-weight: 700; color: white;">Veritas</div>
+                                <div style="font-size: 1rem; color: var(--text-secondary);">Uncover bias in media with AI-powered analysis</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Media Intelligence</span>
+                        <h3 class="bento-title">Veritas: Bias Detection</h3>
+                        <p class="bento-desc">AI-powered tool for analyzing news articles and media content for bias, perspective, and journalistic integrity. Compare coverage across sources and understand the full picture.</p>
                         <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                     </div>
                 </div>
@@ -2010,7 +2298,7 @@
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1520.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1430.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1371.jpg" alt="Portrait" loading="lazy"></div>
-                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8928.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8929.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8044.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_9553.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_6968.jpg" alt="Portrait" loading="lazy"></div>
@@ -2018,7 +2306,26 @@
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_0879.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1723.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_2744.jpg" alt="Portrait" loading="lazy"></div>
-                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8929.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_0436.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1547.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1742.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1759.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1763.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1787.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1789.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1790.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1820.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1835.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_2914.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_5476.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8011.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8074.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8078.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8318.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8386.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8611.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8714.jpg" alt="Portrait" loading="lazy"></div>
+                <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_8750.jpg" alt="Portrait" loading="lazy"></div>
 
                 <!-- Fashion -->
                 <div class="photo-tile" data-category="fashion"><img src="Images/Fashion Photos/JMG_1601.jpg" alt="Fashion" loading="lazy"></div>
@@ -2058,6 +2365,15 @@
                 <div class="photo-tile" data-category="events"><img src="Images/Event Photo/JMG_2854.jpg" alt="Event" loading="lazy"></div>
                 <div class="photo-tile" data-category="events"><img src="Images/Event Photo/JMG_7787.jpg" alt="Event" loading="lazy"></div>
                 <div class="photo-tile" data-category="events"><img src="Images/Event Photo/IMG_6986_jpg.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/DSC00006.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/DSC00007.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/DSC00021.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/DSC00028.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/DSC01053.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/JMG_2228.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/JMG_2437.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/JMG_2560.jpg" alt="Event" loading="lazy"></div>
+                <div class="photo-tile" data-category="events"><img src="Images/Event Photo/JMG_7895.jpg" alt="Event" loading="lazy"></div>
 
                 <!-- Travel -->
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_7419.jpg" alt="Travel" loading="lazy"></div>
@@ -2065,6 +2381,10 @@
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_7535.jpg" alt="Travel" loading="lazy"></div>
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_3086.jpg" alt="Travel" loading="lazy"></div>
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_5784.jpg" alt="Travel" loading="lazy"></div>
+                <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_6742.jpg" alt="Travel" loading="lazy"></div>
+                <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/DSC00870.jpg" alt="Travel" loading="lazy"></div>
+                <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/DSC00873.jpg" alt="Travel" loading="lazy"></div>
+                <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_5570.jpg" alt="Travel" loading="lazy"></div>
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_6742.jpg" alt="Travel" loading="lazy"></div>
             </div>
         </div>
@@ -2569,6 +2889,49 @@
                 updatePhotoVisibility();
             });
         });
+
+        // =====================================================
+        // EXPANDABLE TIMELINE
+        // =====================================================
+        document.querySelectorAll('.timeline-stop.expandable').forEach(stop => {
+            stop.addEventListener('click', () => {
+                // Close other expanded stops
+                document.querySelectorAll('.timeline-stop.expanded').forEach(s => {
+                    if (s !== stop) s.classList.remove('expanded');
+                });
+                // Toggle current stop
+                stop.classList.toggle('expanded');
+            });
+        });
+
+        // =====================================================
+        // PHOTOGRAPHY FILTER FROM NAV
+        // =====================================================
+        function filterPhotos(category) {
+            const btn = document.querySelector(`.photo-filter-btn[data-filter="${category}"]`);
+            if (btn) {
+                document.querySelectorAll('.photo-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                showingAll = false;
+                updatePhotoVisibility();
+            }
+        }
+
+        // =====================================================
+        // UPDATE APP MODAL FOR NEW APPS
+        // =====================================================
+        const appsExtended = {
+            archive: { title: 'Archive', github: 'https://github.com/jgerms20/Archive', url: 'https://jgerms20.github.io/Archive/' },
+            memento: { title: 'Memento', github: 'https://github.com/jgerms20/Memento', url: 'https://jgerms20.github.io/Memento/' },
+            aetheria: { title: 'Ætheria', github: '', url: '' },
+            moments: { title: 'Moments Finder', github: '', url: '' },
+            influencer: { title: 'Influencer', github: '', url: '' },
+            jukeboxd: { title: 'Jukeboxd', github: '', url: '' },
+            veritas: { title: 'Veritas', github: '', url: '' }
+        };
+        
+        // Merge with existing apps
+        Object.assign(apps, appsExtended);
     </script>
 
 </body>
