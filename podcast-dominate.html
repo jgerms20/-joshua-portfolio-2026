@@ -95,12 +95,12 @@
         }
         
         .platform-btn.apple {
-            background: linear-gradient(135deg, #FC3C44, #FA57C1);
+            background: linear-gradient(135deg, #9933FF 0%, #FC3C44 50%, #FA57C1 100%);
             color: white;
         }
         .platform-btn.apple:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(252, 60, 68, 0.4);
+            box-shadow: 0 10px 30px rgba(153, 51, 255, 0.4);
         }
         
         .platform-btn.other {
@@ -286,6 +286,46 @@
         
         .episode-card.hidden { display: none; }
         
+        .episode-platforms {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .ep-platform-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: var(--radius-pill);
+            transition: all 0.2s ease;
+        }
+        
+        .ep-platform-btn svg { width: 14px; height: 14px; }
+        
+        .ep-platform-btn.spotify {
+            background: rgba(29, 185, 84, 0.2);
+            color: var(--spotify-green);
+            border: 1px solid rgba(29, 185, 84, 0.3);
+        }
+        .ep-platform-btn.spotify:hover {
+            background: var(--spotify-green);
+            color: white;
+        }
+        
+        .ep-platform-btn.apple {
+            background: rgba(153, 51, 255, 0.2);
+            color: #B366FF;
+            border: 1px solid rgba(153, 51, 255, 0.3);
+        }
+        .ep-platform-btn.apple:hover {
+            background: linear-gradient(135deg, #9933FF, #FC3C44);
+            color: white;
+            border-color: transparent;
+        }
+        
         .see-more-btn {
             display: block;
             width: 100%;
@@ -404,40 +444,70 @@
         <h2 class="section-title">All Episodes (23)</h2>
         <div class="episodes-grid" id="episodesGrid">
             <!-- Episode 23 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card">
+            <div class="episode-card">
                 <div class="episode-header">
                     <span class="episode-number">EP 23</span>
                     <span class="episode-date">March 20, 2023</span>
                     <span class="episode-duration">52 min</span>
                 </div>
                 <h3 class="episode-title">A New Dimension: Exploring Crypto, NFTs and the Metaverse (Feat. Ryck Digital)</h3>
-                <p class="episode-desc">Josh sits down with Ryck Digital to discuss blockchain technology, NFTs as a new medium for creators, the Metaverse as an economic platform, and why minorities need to stay current with Web3 developments.</p>
-            </a>
+                <p class="episode-desc">Josh sits down with Ryck Digital to discuss blockchain technology, NFTs as a new medium for creators, the Metaverse as an economic platform, and why minorities need to stay current with Web3.</p>
+                <div class="episode-platforms">
+                    <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" class="ep-platform-btn spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Spotify
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
             <!-- Episode 22 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card">
+            <div class="episode-card">
                 <div class="episode-header">
                     <span class="episode-number">EP 22</span>
                     <span class="episode-date">February 16, 2023</span>
                     <span class="episode-duration">1 hr 1 min</span>
                 </div>
                 <h3 class="episode-title">NBA Madness & A Super Bowl Spectacle</h3>
-                <p class="episode-desc">Breaking down Kevin Durant to the Suns, Kyrie to the Mavs, LeBron passing Kareem as the all-time leading scorer, and Rihanna's epic halftime show at Chiefs vs Eagles.</p>
-            </a>
+                <p class="episode-desc">Breaking down Kevin Durant to the Suns, Kyrie to the Mavs, LeBron passing Kareem as the all-time leading scorer, and Rihanna's epic halftime show.</p>
+                <div class="episode-platforms">
+                    <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" class="ep-platform-btn spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Spotify
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
             <!-- Episode 21 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card">
+            <div class="episode-card">
                 <div class="episode-header">
                     <span class="episode-number">EP 21</span>
                     <span class="episode-date">December 30, 2021</span>
                     <span class="episode-duration">52 min</span>
                 </div>
                 <h3 class="episode-title">Year in Review: 2/10</h3>
-                <p class="episode-desc">Reflecting on 2021, spoiler-free Spider-Man: No Way Home review, and predicting a post-pandemic renaissance like the Harlem Renaissance after the 1918 Spanish Flu.</p>
-            </a>
+                <p class="episode-desc">Reflecting on 2021, spoiler-free Spider-Man: No Way Home review, and predicting a post-pandemic renaissance like the Harlem Renaissance.</p>
+                <div class="episode-platforms">
+                    <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" class="ep-platform-btn spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Spotify
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
             <!-- Episode 20 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card">
+            <div class="episode-card">
                 <div class="episode-header">
                     <span class="episode-number">EP 20</span>
                     <span class="episode-date">March 23, 2021</span>
@@ -445,10 +515,20 @@
                 </div>
                 <h3 class="episode-title">The Boys Are Back!</h3>
                 <p class="episode-desc">Season 2 premiere! One year since COVID lockdowns began—discussing reopening, Black History Month, stimulus checks, financial markets, and vaccine rollouts.</p>
-            </a>
+                <div class="episode-platforms">
+                    <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" class="ep-platform-btn spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Spotify
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
             <!-- Episode 19 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card">
+            <div class="episode-card">
                 <div class="episode-header">
                     <span class="episode-number">EP 19</span>
                     <span class="episode-date">January 14, 2021</span>
@@ -456,10 +536,20 @@
                 </div>
                 <h3 class="episode-title">Capitol Offense</h3>
                 <p class="episode-desc">Discussing the storming of the U.S. Capitol, the historic wins of Rev. Raphael Warnock and Jon Ossoff in Georgia, and Trump's social media bans.</p>
-            </a>
+                <div class="episode-platforms">
+                    <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" class="ep-platform-btn spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Spotify
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
             <!-- Episode 18 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card">
+            <div class="episode-card">
                 <div class="episode-header">
                     <span class="episode-number">EP 18</span>
                     <span class="episode-date">December 30, 2020</span>
@@ -467,194 +557,238 @@
                 </div>
                 <h3 class="episode-title">Year in Review: 1/10</h3>
                 <p class="episode-desc">Season 1 finale! Wrapping up 2020 by reflecting on our favorite episodes, how much changed, goal-setting for 2021, and what to look forward to.</p>
-            </a>
+                <div class="episode-platforms">
+                    <a href="https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp" target="_blank" class="ep-platform-btn spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Spotify
+                    </a>
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
             <!-- Episode 17 - Hidden by default -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
+            <div class="episode-card hidden">
                 <div class="episode-header">
                     <span class="episode-number">EP 17</span>
-                    <span class="episode-date">December 14, 2020</span>
-                    <span class="episode-duration">40 min</span>
-                </div>
-                <h3 class="episode-title">The Vaccine Is Here</h3>
-                <p class="episode-desc">Breaking down the first COVID-19 vaccines, discussing vaccine hesitancy in the Black community, and looking ahead to post-pandemic life.</p>
-            </a>
-            
-            <!-- Episode 16 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 16</span>
-                    <span class="episode-date">November 30, 2020</span>
-                    <span class="episode-duration">38 min</span>
-                </div>
-                <h3 class="episode-title">Thanksgiving Reflections</h3>
-                <p class="episode-desc">Discussing gratitude during challenging times, what we're thankful for, and reimagining holiday traditions during a pandemic.</p>
-            </a>
-            
-            <!-- Episode 15 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 15</span>
-                    <span class="episode-date">November 16, 2020</span>
-                    <span class="episode-duration">42 min</span>
-                </div>
-                <h3 class="episode-title">Biden's Cabinet Takes Shape</h3>
-                <p class="episode-desc">Analyzing the incoming Biden administration, key cabinet picks, and what it means for the Black community going forward.</p>
-            </a>
-            
-            <!-- Episode 14 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 14</span>
-                    <span class="episode-date">November 10, 2020</span>
-                    <span class="episode-duration">55 min</span>
-                </div>
-                <h3 class="episode-title">Post-Election</h3>
-                <p class="episode-desc">Joe Biden as the 46th President, Kamala Harris making history as the first woman and Black VP, stock market implications, and hopes for the next four years.</p>
-            </a>
-            
-            <!-- Episode 13 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 13</span>
-                    <span class="episode-date">November 2, 2020</span>
-                    <span class="episode-duration">48 min</span>
-                </div>
-                <h3 class="episode-title">Pre-Election</h3>
-                <p class="episode-desc">One day before the election—candidates' plans for Black communities, Diddy's potential Black political party, Ice Cube, 50 Cent, and Killer Mike launching Greenwood Bank.</p>
-            </a>
-            
-            <!-- Episode 12 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 12</span>
-                    <span class="episode-date">October 26, 2020</span>
-                    <span class="episode-duration">35 min</span>
-                </div>
-                <h3 class="episode-title">Early Voting & Final Debate</h3>
-                <p class="episode-desc">Breaking down the final presidential debate, record-breaking early voting numbers, and making sure your voice is heard.</p>
-            </a>
-            
-            <!-- Episode 11 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 11</span>
-                    <span class="episode-date">October 19, 2020</span>
-                    <span class="episode-duration">44 min</span>
-                </div>
-                <h3 class="episode-title">Town Halls & The Stakes</h3>
-                <p class="episode-desc">Analyzing the dueling town halls, the stakes of the 2020 election, and what this moment means for the future of America.</p>
-            </a>
-            
-            <!-- Episode 10 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 10</span>
-                    <span class="episode-date">October 12, 2020</span>
-                    <span class="episode-duration">50 min</span>
-                </div>
-                <h3 class="episode-title">Resources To Dominate The Decade</h3>
-                <p class="episode-desc">Life-changing tools and resources: free audiobooks with Libby, daily motivation with Quote of The Day Show, budgeting with EveryDollar, and more.</p>
-            </a>
-            
-            <!-- Episode 9 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 9</span>
-                    <span class="episode-date">October 5, 2020</span>
-                    <span class="episode-duration">58 min</span>
-                </div>
-                <h3 class="episode-title">And The Plot Thickens...</h3>
-                <p class="episode-desc">The first Presidential debate chaos, Trump's COVID diagnosis, deep dive into Menace 2 Society, and checking in on life during uncertain times.</p>
-            </a>
-            
-            <!-- Episode 8 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 8</span>
-                    <span class="episode-date">September 28, 2020</span>
-                    <span class="episode-duration">46 min</span>
-                </div>
-                <h3 class="episode-title">RBG & The Supreme Court</h3>
-                <p class="episode-desc">Honoring Justice Ruth Bader Ginsburg, the implications of her passing, and the fight over the Supreme Court vacancy.</p>
-            </a>
-            
-            <!-- Episode 7 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 7</span>
                     <span class="episode-date">September 21, 2020</span>
-                    <span class="episode-duration">52 min</span>
+                    <span class="episode-duration">47 min</span>
                 </div>
                 <h3 class="episode-title">Let's Talk About Green Book</h3>
-                <p class="episode-desc">Breaking down the Oscar winner—historical accuracy, the "White Savior" narrative, plus celebrating Naomi Osaka's U.S. Open win and her social justice activism.</p>
-            </a>
+                <p class="episode-desc">Breaking down the 2019 Academy Award Best Picture winner Green Book, historical accuracy, the "White Savior" narrative, plus celebrating Naomi Osaka's U.S. Open win.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
-            <!-- Episode 6 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
+            <!-- Episode 16 -->
+            <div class="episode-card hidden">
                 <div class="episode-header">
-                    <span class="episode-number">EP 6</span>
-                    <span class="episode-date">September 15, 2020</span>
-                    <span class="episode-duration">55 min</span>
+                    <span class="episode-number">EP 16</span>
+                    <span class="episode-date">September 14, 2020</span>
+                    <span class="episode-duration">1 hr 4 min</span>
                 </div>
                 <h3 class="episode-title">Millz Davis, Kanye West & Nick Cannon</h3>
-                <p class="episode-desc">Special guest Millz Davis on independent artistry, the music industry's traps, ownership, plus breaking down the viral Kanye x Nick Cannon Cannon's Class interview.</p>
-            </a>
-            
-            <!-- Episode 5 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 5</span>
-                    <span class="episode-date">September 8, 2020</span>
-                    <span class="episode-duration">48 min</span>
+                <p class="episode-desc">Music artist and entrepreneur Millz Davis joins to discuss being an independent artist, making an album, ownership, and the viral Kanye x Nick Cannon interview.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
                 </div>
-                <h3 class="episode-title">Labor Day Special</h3>
-                <p class="episode-desc">Celebrating Labor Day, discussing the importance of rest and work-life balance, and sharing updates on our personal journeys.</p>
-            </a>
+            </div>
             
-            <!-- Episode 4 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
+            <!-- Episode 15 -->
+            <div class="episode-card hidden">
                 <div class="episode-header">
-                    <span class="episode-number">EP 4</span>
-                    <span class="episode-date">August 31, 2020</span>
-                    <span class="episode-duration">50 min</span>
+                    <span class="episode-number">EP 15</span>
+                    <span class="episode-date">September 7, 2020</span>
+                    <span class="episode-duration">1 hr 3 min</span>
                 </div>
-                <h3 class="episode-title">Chadwick Boseman Tribute</h3>
-                <p class="episode-desc">Honoring the legacy of Chadwick Boseman, reflecting on Black Panther's cultural impact, and what his passing means to the Black community.</p>
-            </a>
+                <h3 class="episode-title">Message To My Younger Self (feat. David Daniels)</h3>
+                <p class="episode-desc">David Daniels, an engineer, real estate investor, project manager, husband, and Josh's Uncle shares tips for young adults in real estate, investing, budgeting, and building an empire.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
             
-            <!-- Episode 3 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
+            <!-- Episode 14 -->
+            <div class="episode-card hidden">
                 <div class="episode-header">
-                    <span class="episode-number">EP 3</span>
-                    <span class="episode-date">August 24, 2020</span>
+                    <span class="episode-number">EP 14</span>
+                    <span class="episode-date">August 17, 2020</span>
+                    <span class="episode-duration">41 min</span>
+                </div>
+                <h3 class="episode-title">Road to Glory (feat. Khris Pam)</h3>
+                <p class="episode-desc">Newberry College defensive back and former Blythewood Bengal Khris Pam discusses dominance on the gridiron, the Gamecocks, injuries, JuCo at Georgia Military Academy.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 13 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 13</span>
+                    <span class="episode-date">August 10, 2020</span>
+                    <span class="episode-duration">55 min</span>
+                </div>
+                <h3 class="episode-title">No Limit Chronicles</h3>
+                <p class="episode-desc">Centering around Percy Miller aka "Master P" and the 5-part BET documentary about his rise to mogul status: No Limit Chronicles. Master P's upbringing, the Romeo Show, vertical integration.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 12 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 12</span>
+                    <span class="episode-date">July 27, 2020</span>
+                    <span class="episode-duration">34 min</span>
+                </div>
+                <h3 class="episode-title">THE Aspiring Abolitionist (feat. Janel Moore)</h3>
+                <p class="episode-desc">Janel Moore, host of The Aspiring Abolitionist Podcast, discusses politics at the local and national level, pivotal moments, starting a podcast, and being a black woman in politics.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 11 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 11</span>
+                    <span class="episode-date">July 20, 2020</span>
                     <span class="episode-duration">42 min</span>
                 </div>
-                <h3 class="episode-title">The DNC & Kamala's Historic Moment</h3>
-                <p class="episode-desc">Breaking down the Democratic National Convention, Kamala Harris accepting the VP nomination, and the path forward for the Biden campaign.</p>
-            </a>
-            
-            <!-- Episode 2 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
-                <div class="episode-header">
-                    <span class="episode-number">EP 2</span>
-                    <span class="episode-date">August 17, 2020</span>
-                    <span class="episode-duration">45 min</span>
+                <h3 class="episode-title">Good Trouble & Golden Wings</h3>
+                <p class="episode-desc">Visiting Irmo, SC to chop it up with Golden Wings owners Jason and James. Starting a business, opening a restaurant, building a black-owned economy, recognizing John Lewis's legacy.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
                 </div>
-                <h3 class="episode-title">Biden Picks Kamala</h3>
-                <p class="episode-desc">Joe Biden announces Kamala Harris as his VP pick, what this means for Black America, and our thoughts on this historic decision.</p>
-            </a>
+            </div>
             
-            <!-- Episode 1 -->
-            <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="episode-card hidden">
+            <!-- Episode 10 -->
+            <div class="episode-card hidden">
                 <div class="episode-header">
-                    <span class="episode-number">EP 1</span>
-                    <span class="episode-date">August 10, 2020</span>
-                    <span class="episode-duration">38 min</span>
+                    <span class="episode-number">EP 10</span>
+                    <span class="episode-date">July 13, 2020</span>
+                    <span class="episode-duration">53 min</span>
                 </div>
-                <h3 class="episode-title">Welcome to Dominate The Decade</h3>
-                <p class="episode-desc">The premiere episode! Meet the hosts, learn our mission to dominate this decade, and get ready for conversations about culture, success, and growth.</p>
-            </a>
+                <h3 class="episode-title">A Kid From Coney Island</h3>
+                <p class="episode-desc">Discussing the Netflix documentary about Stephon Marbury—expectations, stardom, pressure, depression, reinvention, self-mastery. Plus Matt's class on the Black Quarterback in NFL history.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 9 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 9</span>
+                    <span class="episode-date">July 6, 2020</span>
+                    <span class="episode-duration">57 min</span>
+                </div>
+                <h3 class="episode-title">Man of the Streets vs. Man of the People</h3>
+                <p class="episode-desc">Current events surrounding the "holiday" weekend, Kanye running for president, the two-party system, plus the life and legacy of the great Eldridge Cleaver.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 8 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 8</span>
+                    <span class="episode-date">June 29, 2020</span>
+                    <span class="episode-duration">57 min</span>
+                </div>
+                <h3 class="episode-title">Land of the Free?</h3>
+                <p class="episode-desc">Discussing the Netflix documentary "13th" and the film "Just Mercy" which both raise the question... is America really the land of the free?</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 7 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 7</span>
+                    <span class="episode-date">June 15, 2020</span>
+                    <span class="episode-duration">47 min</span>
+                </div>
+                <h3 class="episode-title">Seven7h Ward's Finest (feat. Malik Brazile)</h3>
+                <p class="episode-desc">Malik Brazile (@ayeitsleek) chops it up about longevity in the YouTube game, entrepreneurship and his clothing brand Seven7h (@seven7h_co), making the leap into acting.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 6 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 6</span>
+                    <span class="episode-date">June 8, 2020</span>
+                    <span class="episode-duration">1 hr 9 min</span>
+                </div>
+                <h3 class="episode-title">Crash Course</h3>
+                <p class="episode-desc">Discussing the 2005 film "Crash" and its relevance today. Killer Mike's views on culture, Melissa Chen on the American Dream, the NFL's BLM statement, Dabo Swinney, and much more.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Episode 5 -->
+            <div class="episode-card hidden">
+                <div class="episode-header">
+                    <span class="episode-number">EP 5</span>
+                    <span class="episode-date">June 1, 2020</span>
+                    <span class="episode-duration">1 hr 8 min</span>
+                </div>
+                <h3 class="episode-title">The Intro</h3>
+                <p class="episode-desc">The inaugural episode! Hosted by Adarius Simpkins, Matthew Anderson, and Josh German. Topics: Protests surrounding George Floyd, Breonna Taylor, Ahmaud Arbery, Dr. Umar Johnson, and building a media empire.</p>
+                <div class="episode-platforms">
+                    <a href="https://podcasts.apple.com/us/podcast/dominate-the-decade/id1517223875" target="_blank" class="ep-platform-btn apple">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0H5.34zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.26 1.912 2.715 2.096 4.422.043.394-.263.745-.66.765a.717.717 0 01-.737-.684c-.14-1.32-.657-2.461-1.584-3.42-1.328-1.39-2.969-2.125-4.933-2.208-1.95-.027-3.685.628-5.137 1.972-.915.844-1.53 1.848-1.868 3.045-.351 1.243-.342 2.478.003 3.73.473 1.711 1.477 3.039 3.033 3.989 1.103.675 2.323.981 3.627.96 1.095-.019 2.108-.267 3.054-.757a.716.716 0 01.973.277.717.717 0 01-.26.97c-1.153.606-2.403.907-3.705.925-.012 0-.026.002-.04.002-1.565 0-3.021-.396-4.39-1.198-1.893-1.104-3.168-2.66-3.78-4.694-.446-1.478-.459-2.963-.05-4.437.414-1.478 1.178-2.734 2.305-3.774C7.666 3.502 9.835 2.568 11.865 2.568z"/></svg>
+                        Apple
+                    </a>
+                </div>
+            </div>
         </div>
         
         <button class="see-more-btn" id="seeMoreBtn" onclick="toggleEpisodes()">
