@@ -1380,11 +1380,13 @@
         @media (max-width: 768px) {
             :root { --edge: 20px; }
             
+            /* Make top header scroll with page on mobile instead of fixed */
             .top-header {
+                position: relative;
                 flex-direction: column;
                 gap: var(--space-md);
                 padding: 16px var(--edge);
-                background: rgba(3,3,4,0.98);
+                background: var(--void);
             }
             
             .header-nav {
@@ -1406,6 +1408,19 @@
                 font-size: 0.8rem;
             }
 
+            /* On mobile, put photo rotator BEFORE the text (order: -1) */
+            .hero-grid {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-xl);
+            }
+
+            .photo-rotator {
+                order: -1; /* Photo appears first on mobile */
+                margin: 0 auto !important;
+                max-width: 280px;
+            }
+
             .hero-stats {
                 flex-wrap: wrap;
                 gap: var(--space-xl);
@@ -1422,9 +1437,17 @@
                 line-height: 1.05;
             }
 
+            /* Keep "I am" and rotating text on ONE line */
             .rotating-text-container {
-                flex-direction: column;
+                flex-direction: row;
+                align-items: baseline;
                 gap: var(--space-sm);
+                white-space: nowrap;
+            }
+
+            .rotating-text-prefix,
+            .rotating-text {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
             }
 
             .section { padding: var(--space-3xl) var(--edge); }
@@ -1432,8 +1455,13 @@
             .contact-grid { grid-template-columns: 1fr !important; gap: var(--space-2xl) !important; }
             
             .back-to-top {
-                bottom: 90px;
+                bottom: 30px;
                 right: 16px;
+            }
+
+            /* Remove extra padding from hero since header is no longer fixed */
+            .hero {
+                padding-top: var(--space-2xl);
             }
         }
     </style>
