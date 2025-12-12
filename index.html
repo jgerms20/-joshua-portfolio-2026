@@ -363,7 +363,8 @@
 
         .photo-slide {
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 0s 1s;
             position: absolute;
             top: 0;
             left: 0;
@@ -373,7 +374,10 @@
 
         .photo-slide.active {
             opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease-in-out, visibility 0s 0s;
             position: relative;
+            z-index: 2;
         }
 
         .photo-slide img {
@@ -392,13 +396,22 @@
             z-index: 1;
         }
 
+        /* Hero Bottom - Stats and Scroll centered */
+        .hero-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid var(--glass-border);
+        }
+
         /* Hero Stats */
         .hero-stats {
             display: flex;
+            justify-content: center;
             gap: var(--space-3xl);
-            margin-top: var(--space-2xl);
-            padding-top: var(--space-2xl);
-            border-top: 1px solid var(--glass-border);
+            flex-wrap: nowrap;
         }
 
         .stat {
@@ -463,10 +476,8 @@
 
         /* Scroll Indicator */
         .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            margin-top: var(--space-xl);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1350,6 +1361,11 @@
             margin-top: var(--space-3xl);
         }
 
+        /* Hamburger - Hidden on desktop */
+        .hamburger-btn {
+            display: none;
+        }
+
         /* =====================================================
            RESPONSIVE
            ===================================================== */
@@ -1380,19 +1396,72 @@
         @media (max-width: 768px) {
             :root { --edge: 20px; }
             
-            /* Make top header scroll with page on mobile instead of fixed */
+            /* Mobile header with hamburger menu */
             .top-header {
                 position: relative;
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
                 gap: var(--space-md);
                 padding: 16px var(--edge);
                 background: var(--void);
             }
             
-            .header-nav {
-                gap: var(--space-md);
-                flex-wrap: wrap;
+            .header-left .descriptor {
+                font-size: 0.7rem;
+                white-space: nowrap;
+            }
+            
+            /* Hamburger menu button */
+            .hamburger-btn {
+                display: flex !important;
+                flex-direction: column;
                 justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .hamburger-btn span {
+                display: block;
+                width: 24px;
+                height: 2px;
+                background: var(--text-primary);
+                margin: 3px 0;
+                transition: all 0.3s ease;
+            }
+            
+            .hamburger-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            
+            /* Hide nav by default on mobile */
+            .header-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--void);
+                padding: var(--space-lg) var(--edge);
+                flex-direction: column;
+                gap: var(--space-md);
+                border-bottom: 1px solid var(--glass-border);
+                z-index: 1000;
+            }
+            
+            .header-nav.open {
+                display: flex;
             }
             
             .bento-card { grid-column: span 12 !important; }
@@ -1400,7 +1469,7 @@
             .podcast-grid { grid-template-columns: 1fr; }
             
             .nav-dock {
-                display: none; /* Hide bottom nav on mobile since top header is always visible */
+                display: none;
             }
             
             .nav-link {
@@ -1416,39 +1485,61 @@
             }
 
             .photo-rotator {
-                order: -1; /* Photo appears first on mobile */
+                order: -1;
                 margin: 0 auto !important;
                 max-width: 280px;
             }
 
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: var(--space-xl);
+            /* Center name and I am text on mobile */
+            .hero-text {
+                text-align: center;
             }
-
-            .hero-ctas {
-                flex-direction: column;
-            }
-
-            .btn { width: 100%; justify-content: center; }
 
             .display-massive {
-                font-size: clamp(2.5rem, 11vw, 5rem);
+                font-size: clamp(2.2rem, 10vw, 4rem);
                 line-height: 1.05;
             }
 
-            /* Keep "I am" and rotating text on ONE line */
+            /* Keep "I am" and rotating text on ONE line, centered */
             .rotating-text-container {
                 flex-direction: row;
                 align-items: baseline;
+                justify-content: center;
                 gap: var(--space-sm);
                 white-space: nowrap;
             }
 
             .rotating-text-prefix,
             .rotating-text {
-                font-size: clamp(1.2rem, 5vw, 1.8rem);
+                font-size: clamp(1.1rem, 4.5vw, 1.6rem);
             }
+
+            /* Stats on ONE line with tighter gap */
+            .hero-stats {
+                flex-wrap: nowrap;
+                gap: var(--space-lg);
+                justify-content: center;
+            }
+
+            .stat {
+                text-align: center;
+            }
+
+            .stat-value {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+                white-space: nowrap;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn { width: 100%; justify-content: center; }
 
             .section { padding: var(--space-3xl) var(--edge); }
 
@@ -1459,9 +1550,19 @@
                 right: 16px;
             }
 
-            /* Remove extra padding from hero since header is no longer fixed */
+            /* Adjust hero padding since header is no longer fixed */
             .hero {
-                padding-top: var(--space-2xl);
+                padding-top: var(--space-xl);
+            }
+
+            /* Hero bottom on mobile */
+            .hero-bottom {
+                margin-top: var(--space-xl);
+                padding-top: var(--space-lg);
+            }
+
+            .scroll-indicator {
+                margin-top: var(--space-lg);
             }
         }
     </style>
@@ -1475,7 +1576,12 @@
         <div class="header-left">
             <span class="descriptor">Creative Strategist • Photographer • Futurist</span>
         </div>
-        <nav class="header-nav">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="header-nav" id="headerNav">
             <a href="#about">About</a>
             
             <!-- Work Dropdown -->
@@ -1588,20 +1694,6 @@
                         <a href="#contact" class="btn btn-secondary btn-glow">Get in Touch</a>
                     </div>
 
-                    <div class="hero-stats reveal reveal-delay-4">
-                        <div class="stat">
-                            <span class="stat-value">8+</span>
-                            <span class="stat-label">Years of Strategy</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">50+</span>
-                            <span class="stat-label">Campaigns Executed</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">12+</span>
-                            <span class="stat-label">Major Brands</span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="photo-rotator reveal reveal-delay-2" style="margin-left: 40px; margin-top: -60px;">
@@ -1617,12 +1709,30 @@
                     <div class="photo-rotator-frame"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="scroll-indicator" style="bottom: 60px;">
-            <span style="font-size: 0.85rem; letter-spacing: 0.2em;">SCROLL</span>
-            <div class="scroll-line" style="height: 80px;"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: bounce 2s infinite;"><path d="M7 13l5 5 5-5"/></svg>
+            
+            <!-- Centered Stats and Scroll Indicator -->
+            <div class="hero-bottom reveal reveal-delay-4">
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">8+</span>
+                        <span class="stat-label">Years of Strategy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">12+</span>
+                        <span class="stat-label">Major Brands</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">50+</span>
+                        <span class="stat-label">Campaigns</span>
+                    </div>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <span style="font-size: 0.85rem; letter-spacing: 0.2em;">SCROLL</span>
+                    <div class="scroll-line" style="height: 60px;"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: bounce 2s infinite;"><path d="M7 13l5 5 5-5"/></svg>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2630,6 +2740,27 @@
         }
 
         setInterval(rotateText, 3000);
+
+        // =====================================================
+        // HAMBURGER MENU TOGGLE
+        // =====================================================
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const headerNav = document.getElementById('headerNav');
+        
+        if (hamburgerBtn && headerNav) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                headerNav.classList.toggle('open');
+            });
+            
+            // Close menu when clicking a link
+            headerNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    headerNav.classList.remove('open');
+                });
+            });
+        }
 
         // =====================================================
         // PHOTO ROTATOR
