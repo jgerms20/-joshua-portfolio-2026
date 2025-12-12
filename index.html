@@ -139,7 +139,9 @@
         
         .display-massive {
             font-family: var(--font-display);
-            font-size: clamp(4rem, 15vw, 14rem);
+            font-size: clamp(3.5rem, 10vw, 12rem);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
             font-weight: 400;
             line-height: 0.85;
             letter-spacing: -0.04em;
@@ -1364,6 +1366,16 @@
             .podcast-grid { grid-template-columns: 1fr 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .header-nav { gap: var(--space-lg); }
+            
+            .display-massive {
+                font-size: clamp(3rem, 9vw, 8rem);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .display-massive {
+                font-size: clamp(2.8rem, 10vw, 6rem);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1407,7 +1419,8 @@
             .btn { width: 100%; justify-content: center; }
 
             .display-massive {
-                font-size: clamp(3rem, 12vw, 6rem);
+                font-size: clamp(2.5rem, 11vw, 5rem);
+                line-height: 1.05;
             }
 
             .rotating-text-container {
@@ -1526,7 +1539,7 @@
         <div class="hero-content">
             <div class="hero-grid">
                 <div class="hero-text">
-                    <h1 class="display-massive reveal reveal-delay-1" style="font-size: clamp(5rem, 18vw, 16rem);">
+                    <h1 class="display-massive reveal reveal-delay-1">
                         Joshua<br>McKenzie<br>
                         <span class="accent-text">German</span>
                     </h1>
