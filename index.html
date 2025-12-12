@@ -350,44 +350,37 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Photo Rotator */
+        /* Photo Rotator - Reactive Dimensions */
         .photo-rotator {
             position: relative;
             width: 100%;
             max-width: 420px;
-            height: 520px;
             border-radius: var(--radius-2xl);
             overflow: hidden;
             box-shadow: var(--shadow-xl);
-            background: var(--obsidian);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.6s var(--ease-out-expo);
         }
 
         .photo-slide {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .photo-slide.active {
             opacity: 1;
+            position: relative;
         }
 
         .photo-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
+            width: 100%;
             height: auto;
-            object-fit: contain;
+            display: block;
+            border-radius: var(--radius-2xl);
         }
 
         .photo-rotator-frame {
@@ -396,6 +389,7 @@
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-2xl);
             pointer-events: none;
+            z-index: 1;
         }
 
         /* Hero Stats */
@@ -1186,6 +1180,7 @@
         
         .header-nav {
             display: flex;
+            align-items: center;
             gap: var(--space-xl);
         }
         
@@ -1204,6 +1199,8 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            padding: 0;
+            line-height: 1;
         }
         
         .header-nav > a:hover,
@@ -1214,6 +1211,8 @@
         /* Dropdown Container */
         .nav-dropdown {
             position: relative;
+            display: flex;
+            align-items: center;
         }
         
         .nav-trigger svg {
@@ -1564,11 +1563,11 @@
                     <div class="hero-stats reveal reveal-delay-4">
                         <div class="stat">
                             <span class="stat-value">8+</span>
-                            <span class="stat-label">Years Strategy</span>
+                            <span class="stat-label">Years of Strategy</span>
                         </div>
                         <div class="stat">
                             <span class="stat-value">50+</span>
-                            <span class="stat-label">Campaigns</span>
+                            <span class="stat-label">Campaigns Executed</span>
                         </div>
                         <div class="stat">
                             <span class="stat-value">12+</span>
@@ -1618,7 +1617,7 @@
                 <!-- Right: About Text -->
                 <div class="about-content">
                     <div class="about-text body-large">
-                        <p>Born and raised in South Carolina, I've always been a curious cat. Whether it's a book in my hand, a podcast in my ears, or a camera at my side, I've always taken joy in learning more about the world around me and what makes it go round.</p>
+                        <p>Born and raised in Columbia, South Carolina, I've always been a curious cat. Whether it's a book in my hand, a podcast in my ears, or a camera at my side, I've always taken joy in learning more about the world around me and what makes it go round.</p>
                         <p>This curiosity has guided me through every stage of my life; from being an active member of the newspaper club in high school, to studying Journalism & Mass Communications at the University of South Carolina, where I minored in Information Science and served as assistant sports editor for The Daily Gamecock. It eventually led me into the world of advertising, where I've built a career in Strategy at some of the top agencies in the United States.</p>
                         <p>Now, living in Los Angeles, California, my curiosity fuels each of my creative pursuits: photography, podcasting, creative writing, movies & TV and building with Artificial Intelligence. I'm drawn to authentic storytelling that captures the present moment while honoring the past and building the future.</p>
                     </div>
@@ -1701,15 +1700,15 @@
                             </div>
                         </div>
                         
-                        <!-- San Francisco (Remote) -->
-                        <div class="timeline-stop remote expandable" data-location="sf">
+                        <!-- San Francisco -->
+                        <div class="timeline-stop expandable" data-location="sf">
                             <div class="stop-dot"></div>
                             <div class="stop-content">
-                                <span class="stop-year">2021–23 <em style="color: var(--orange);">(Remote)</em></span>
+                                <span class="stop-year">2021–23</span>
                                 <h4 class="stop-city">San Francisco</h4>
                                 <p class="stop-detail">Goodby Silverstein & Partners</p>
                                 <div class="stop-expanded">
-                                    <p>Worked remotely with one of the most legendary agencies in advertising. Contributed to campaigns for BMW, Pepsi, and more. Learned the craft of cultural strategy from the best in the business—all while working from Charlotte.</p>
+                                    <p>Joined one of the most legendary agencies in advertising. Contributed to campaigns for BMW, Samuel Adams, and Califia Farms. Learned the craft of cultural strategy from the best in the business.</p>
                                 </div>
                             </div>
                         </div>
@@ -1720,9 +1719,9 @@
                             <div class="stop-content">
                                 <span class="stop-year">2021–23</span>
                                 <h4 class="stop-city">Charlotte, NC</h4>
-                                <p class="stop-detail">Home Base (Working Remote)</p>
+                                <p class="stop-detail">Home Base</p>
                                 <div class="stop-expanded">
-                                    <p>My physical home during the remote era. Charlotte served as my base while I worked with agencies across the country. Built a home studio, explored the city's growing food scene, and stayed close to family in South Carolina.</p>
+                                    <p>Made Charlotte my home while building my career in advertising. Built a home studio, explored the city's growing food scene, and stayed close to family in South Carolina.</p>
                                 </div>
                             </div>
                         </div>
@@ -1982,12 +1981,20 @@
         <div class="container" style="max-width: 1600px;">
             <div class="section-header reveal">
                 <span class="label">Brand Work</span>
-                <h2 class="display-medium" style="margin-top: var(--space-md);">Campaign</h2>
+<h2 class="display-medium" style="margin-top: var(--space-md);">Campaigns</h2>
             </div>
 
-            <div class="bento-grid">
+            <!-- Agency Filter Buttons -->
+            <div class="agency-filters reveal" style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-bottom: var(--space-2xl); justify-content: center;">
+                <button class="agency-filter-btn active" data-agency="all" style="padding: 12px 24px; border-radius: var(--radius-pill); border: 1px solid var(--glass-border); background: var(--text-primary); color: var(--void); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: inherit;">All Agencies</button>
+                <button class="agency-filter-btn" data-agency="tbwa" style="padding: 12px 24px; border-radius: var(--radius-pill); border: 1px solid var(--glass-border); background: transparent; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: inherit;">TBWA\Chiat\Day</button>
+                <button class="agency-filter-btn" data-agency="wk" style="padding: 12px 24px; border-radius: var(--radius-pill); border: 1px solid var(--glass-border); background: transparent; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: inherit;">Wieden+Kennedy</button>
+                <button class="agency-filter-btn" data-agency="gsp" style="padding: 12px 24px; border-radius: var(--radius-pill); border: 1px solid var(--glass-border); background: transparent; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: inherit;">Goodby Silverstein</button>
+            </div>
+
+            <div class="bento-grid" id="work-grid">
                 <!-- Levi's - Featured Full Width -->
-                <a href="work-levis.html" class="bento-card span-12 reveal">
+                <a href="work-levis.html" class="bento-card span-12 reveal" data-agency="tbwa">
                     <div class="bento-media" style="aspect-ratio: 21/9;">
                         <img src="https://www.levistrauss.com/wp-content/uploads/2024/09/240930_Blu_Hero.jpg" alt="Levi's REIIMAGINE Campaign" style="object-position: center 20%;">
                     </div>
@@ -2000,7 +2007,7 @@
                 </a>
 
                 <!-- Sephora -->
-                <a href="work-sephora.html" class="bento-card reveal reveal-delay-1">
+                <a href="work-sephora.html" class="bento-card reveal reveal-delay-1" data-agency="tbwa">
                     <div class="bento-media" style="background: #fff; display: flex; align-items: center; justify-content: center; padding: 40px;">
                         <img src="Brand Imagery/Sephora/Brand Logo/Sephora-Emblem.png" alt="Sephora" style="max-height: 100px; width: auto; object-fit: contain;">
                     </div>
@@ -2013,7 +2020,7 @@
                 </a>
 
                 <!-- DoorDash -->
-                <a href="work-doordash.html" class="bento-card reveal">
+                <a href="work-doordash.html" class="bento-card reveal" data-agency="wk">
                     <div class="bento-media">
                         <img src="Brand Imagery/Doordash/Supporting Images/Hero.webp" alt="DoorDash All The Ads">
                     </div>
@@ -2026,12 +2033,12 @@
                 </a>
 
                 <!-- BMW -->
-                <a href="work-bmw.html" class="bento-card reveal reveal-delay-1">
+                <a href="work-bmw.html" class="bento-card reveal reveal-delay-1" data-agency="gsp">
                     <div class="bento-media">
                         <img src="Brand Imagery/BMW/Supporting Images/Hero alt.jpg" alt="BMW Zeus & Hera">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Communication Strategist • GS&P</span>
+                        <span class="bento-tag">Communications Strategist • GS&P</span>
                         <h3 class="bento-title">BMW: Zeus & Hera</h3>
                         <p class="bento-desc">Arnold & Salma. The ultimate electric driving machine.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2039,12 +2046,12 @@
                 </a>
 
                 <!-- DIRECTV -->
-                <a href="work-directv.html" class="bento-card reveal reveal-delay-2">
+                <a href="work-directv.html" class="bento-card reveal reveal-delay-2" data-agency="tbwa">
                     <div class="bento-media">
                         <img src="Brand Imagery/Directv/directv-rebranding-bringing-flexibility-2025.webp" alt="DIRECTV">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Connection Strategist • TBWA\Chiat\Day</span>
+                        <span class="bento-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="bento-title">DIRECTV Campaigns</h3>
                         <p class="bento-desc">Emmys Hijack & Nothing On Your Roof.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2052,12 +2059,12 @@
                 </a>
 
                 <!-- Gatorade -->
-                <a href="work-gatorade.html" class="bento-card reveal reveal-delay-3">
+                <a href="work-gatorade.html" class="bento-card reveal reveal-delay-3" data-agency="tbwa">
                     <div class="bento-media">
                         <img src="Brand Imagery/Gatorade/Brand Logo/gatorade-logo-png_seeklogo-369610.png" alt="Gatorade" style="background: #000; padding: 30px;">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Connection Strategist • TBWA\Chiat\Day</span>
+                        <span class="bento-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="bento-title">Gatorade Campaigns</h3>
                         <p class="bento-desc">Stranger Things & NFL Films partnerships.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2065,12 +2072,12 @@
                 </a>
 
                 <!-- Samuel Adams -->
-                <a href="work-samadams.html" class="bento-card reveal">
+                <a href="work-samadams.html" class="bento-card reveal" data-agency="gsp">
                     <div class="bento-media">
                         <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" alt="Samuel Adams Brighter Boston">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Communication Strategist • GS&P</span>
+                        <span class="bento-tag">Communications Strategist • GS&P</span>
                         <h3 class="bento-title">Samuel Adams: Brighter Boston</h3>
                         <p class="bento-desc">Kevin Garnett. Super Bowl LVII. Boston pride.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2078,12 +2085,12 @@
                 </a>
 
                 <!-- Califia Farms -->
-                <a href="work-califia.html" class="bento-card reveal reveal-delay-1">
+                <a href="work-califia.html" class="bento-card reveal reveal-delay-1" data-agency="gsp">
                     <div class="bento-media">
                         <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" alt="Califia Farms Calilujah">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Communication Strategist • GS&P</span>
+                        <span class="bento-tag">Communications Strategist • GS&P</span>
                         <h3 class="bento-title">Califia Farms: Calilujah!</h3>
                         <p class="bento-desc">A joyful celebration of plant-based living.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2372,8 +2379,8 @@
 
                 <!-- Landscape -->
                 <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_6629.jpg" alt="Landscape" loading="lazy"></div>
-                <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_6631.jpg" alt="Landscape" loading="lazy"></div>
-                <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_6632.jpg" alt="Landscape" loading="lazy"></div>
+                <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_7535.jpg" alt="Landscape" loading="lazy"></div>
+                <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_7943.jpg" alt="Landscape" loading="lazy"></div>
                 <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_6986.jpg" alt="Landscape" loading="lazy"></div>
                 <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/DSC00659.jpg" alt="Landscape" loading="lazy"></div>
                 <div class="photo-tile" data-category="landscape"><img src="Images/Landscape Photos/JMG_7654.jpg" alt="Landscape" loading="lazy"></div>
@@ -2513,7 +2520,7 @@
             If anything on this site doesn't work properly, please forgive me; I vibe coded this site from scratch with the help of AI. It's a work in progress, just like me. 🙃
         </p>
         <p class="footer-text">
-            © 2025 Joshua McKenzie German. Crafted with curiosity in Los Angeles, California.
+            © 2025 Curious and Creative LLC. Crafted with curiosity in Los Angeles, California.
         </p>
         <p class="footer-text" style="margin-top: var(--space-sm); opacity: 0.6; font-size: 0.85rem;">
             🌴 From Columbia, South Carolina to the world.
@@ -2945,6 +2952,43 @@
                 updatePhotoVisibility();
             }
         }
+
+        // =====================================================
+        // AGENCY FILTER FOR BRAND WORK
+        // =====================================================
+        const agencyFilterBtns = document.querySelectorAll('.agency-filter-btn');
+        const workGrid = document.getElementById('work-grid');
+        
+        agencyFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const agency = btn.dataset.agency;
+                
+                // Update active button
+                agencyFilterBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'transparent';
+                    b.style.color = 'var(--text-secondary)';
+                });
+                btn.classList.add('active');
+                btn.style.background = 'var(--text-primary)';
+                btn.style.color = 'var(--void)';
+                
+                // Filter cards
+                const cards = workGrid.querySelectorAll('.bento-card');
+                cards.forEach(card => {
+                    const cardAgency = card.dataset.agency;
+                    if (agency === 'all' || cardAgency === agency) {
+                        card.style.display = '';
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    } else {
+                        card.style.display = 'none';
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                    }
+                });
+            });
+        });
 
         // =====================================================
         // UPDATE APP MODAL FOR NEW APPS
