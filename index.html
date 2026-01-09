@@ -1476,17 +1476,20 @@
                 width: 100%;
             }
             
-            .photo-rotator { 
+            .hero-ctas {
                 order: 2;
+            }
+            
+            .photo-rotator { 
+                order: 3;
                 max-width: 100% !important;
                 width: 100% !important;
                 margin: var(--space-xl) 0 0 0 !important;
                 margin-left: 0 !important;
-                margin-top: var(--space-xl) !important;
             }
             
             .hero-stats {
-                order: 3;
+                order: 4;
                 margin-top: var(--space-xl);
                 width: 100%;
             }
@@ -1557,13 +1560,30 @@
                 padding: var(--space-xl) var(--edge);
                 z-index: 1000;
                 overflow-y: auto;
-                gap: var(--space-lg);
-                align-items: flex-start;
+                gap: var(--space-md);
+                align-items: stretch;
+                justify-content: flex-start;
             }
             
-            .header-nav.mobile-active > a,
+            .header-nav.mobile-active > a {
+                width: 100%;
+                padding: var(--space-md);
+                font-size: 1rem;
+                border-bottom: 1px solid var(--glass-border);
+                text-align: left;
+            }
+            
             .header-nav.mobile-active .nav-dropdown {
                 width: 100%;
+            }
+            
+            .header-nav.mobile-active .nav-trigger {
+                width: 100%;
+                padding: var(--space-md);
+                font-size: 1rem;
+                border-bottom: 1px solid var(--glass-border);
+                text-align: left;
+                justify-content: space-between;
             }
             
             .header-nav.mobile-active .nav-dropdown-menu {
@@ -1571,17 +1591,24 @@
                 transform: none;
                 opacity: 1;
                 visibility: visible;
-                margin-top: var(--space-sm);
-                margin-left: var(--space-lg);
+                margin-top: 0;
+                margin-left: 0;
                 box-shadow: none;
                 border: none;
                 background: transparent;
-                padding: 0;
+                padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+                display: block;
             }
             
             .header-nav.mobile-active .nav-dropdown-menu a {
                 padding: var(--space-sm) var(--space-md);
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+                display: block;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+            
+            .header-nav.mobile-active .nav-dropdown-menu a:last-child {
+                border-bottom: none;
             }
             
             .bento-card { grid-column: span 12 !important; }
@@ -1995,28 +2022,39 @@
                     
                     .timeline-stops {
                         display: flex;
-                        justify-content: space-between;
+                        flex-direction: column;
+                        gap: var(--space-xl);
                         position: relative;
                         z-index: 1;
-                        flex-wrap: wrap;
+                    }
+                    
+                    .timeline-track {
+                        width: 2px;
+                        height: 100%;
+                        left: 20px;
+                        right: auto;
+                        top: 0;
+                        transform: none;
                     }
                     
                     .timeline-stop {
                         display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-                        flex: 1;
-                        min-width: 150px;
+                        flex-direction: row;
+                        text-align: left;
+                        gap: var(--space-lg);
                         cursor: pointer;
                         transition: all 0.4s var(--ease-out-expo);
                         position: relative;
+                        align-items: flex-start;
                     }
                     
                     .timeline-stop.branch {
-                        flex: 0 0 auto;
                         margin-left: var(--space-xl);
-                        margin-top: var(--space-lg);
+                    }
+                    
+                    .stop-dot {
+                        margin-bottom: 0;
+                        flex-shrink: 0;
                     }
                     
                     .timeline-stop:hover .stop-dot {
