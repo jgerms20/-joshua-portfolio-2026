@@ -1510,7 +1510,7 @@
                 </div>
             </div>
             
-            <a href="#media-diet">My Media Diet</a>
+            <a href="#media-diet">Media Consumption</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -1717,9 +1717,9 @@
                         
                         <!-- San Francisco (Branch) -->
                         <div class="timeline-stop branch expandable" data-location="sf">
+                            <div class="stop-dot branch-dot"></div>
                             <div class="stop-content">
                                 <span class="stop-year">2021–23</span>
-                                <div class="stop-dot branch-dot"></div>
                                 <h4 class="stop-city">San Francisco</h4>
                                 <p class="stop-detail">Goodby Silverstein & Partners</p>
                                 <div class="stop-expanded">
@@ -1843,6 +1843,7 @@
                         margin-bottom: var(--space-lg);
                         transition: all 0.3s ease;
                         position: relative;
+                        flex-shrink: 0;
                     }
                     
                     .timeline-stop.current .stop-dot {
@@ -1873,21 +1874,14 @@
                         z-index: -1;
                     }
                     
-                    .timeline-stop.branch .stop-content {
-                        margin-top: 0;
-                        padding-top: 0;
-                    }
-                    
-                    .timeline-stop.branch .stop-year {
-                        color: var(--orange);
-                        margin-bottom: var(--space-md);
-                    }
-                    
                     .timeline-stop.branch .stop-dot.branch-dot {
                         border-color: var(--orange);
                         border-style: dashed;
                         background: var(--surface);
-                        margin-bottom: var(--space-lg);
+                    }
+                    
+                    .timeline-stop.branch .stop-year {
+                        color: var(--orange);
                     }
                     
                     .timeline-stop.branch .stop-city {
