@@ -413,10 +413,12 @@
         /* Hero Stats */
         .hero-stats {
             display: flex;
+            justify-content: center;
             gap: var(--space-3xl);
             margin-top: var(--space-2xl);
             padding-top: var(--space-2xl);
             border-top: 1px solid var(--glass-border);
+            width: 100%;
         }
 
         .stat {
@@ -1185,6 +1187,8 @@
             padding: 20px var(--edge);
             background: linear-gradient(180deg, rgba(3,3,4,0.95) 0%, rgba(3,3,4,0.7) 70%, transparent 100%);
             pointer-events: none;
+            min-height: 70px;
+            box-sizing: border-box;
         }
         
         .top-header .header-left,
@@ -1813,8 +1817,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="scroll-indicator" style="bottom: 60px;">
             <span style="font-size: 0.85rem; letter-spacing: 0.2em;">SCROLL</span>
             <div class="scroll-line" style="height: 80px;"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: bounce 2s infinite;"><path d="M7 13l5 5 5-5"/></svg>
@@ -2029,12 +2031,7 @@
                         position: relative;
                         z-index: 1;
                         max-width: 50%;
-                    }
-                    
-                    .journey-timeline {
-                        display: flex;
-                        position: relative;
-                        min-height: 600px;
+                        min-width: 300px;
                     }
                     
                     .timeline-track {
@@ -2071,6 +2068,8 @@
                         transition: all 0.3s ease;
                         position: relative;
                         flex-shrink: 0;
+                        margin-left: -9px;
+                        margin-top: 0;
                     }
                     
                     .timeline-stop:hover .stop-dot {
@@ -2204,7 +2203,7 @@
                     }
                     
                     .timeline-stop.expanded .stop-expanded {
-                        max-width: 400px;
+                        max-width: 340px;
                         opacity: 1;
                         margin-left: var(--space-xl);
                         white-space: normal;
@@ -2219,7 +2218,7 @@
                         border-radius: var(--radius-lg);
                         border: 1px solid var(--glass-border);
                         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-                        width: 380px;
+                        width: 320px;
                         position: relative;
                         margin: 0;
                     }
