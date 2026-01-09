@@ -2053,7 +2053,14 @@
                     }
                     
                     .stop-dot {
+                        width: 18px;
+                        height: 18px;
+                        background: var(--surface);
+                        border: 3px solid var(--text-tertiary);
+                        border-radius: 50%;
                         margin-bottom: 0;
+                        transition: all 0.3s ease;
+                        position: relative;
                         flex-shrink: 0;
                     }
                     
@@ -2063,19 +2070,7 @@
                     }
                     
                     .timeline-stop:hover .stop-content {
-                        transform: translateY(-8px);
-                    }
-                    
-                    .stop-dot {
-                        width: 18px;
-                        height: 18px;
-                        background: var(--surface);
-                        border: 3px solid var(--text-tertiary);
-                        border-radius: 50%;
-                        margin-bottom: var(--space-lg);
-                        transition: all 0.3s ease;
-                        position: relative;
-                        flex-shrink: 0;
+                        transform: translateX(8px);
                     }
                     
                     .timeline-stop.current .stop-dot {
@@ -2097,11 +2092,11 @@
                     .timeline-stop.branch::before {
                         content: '';
                         position: absolute;
-                        top: 50%;
-                        left: -50%;
-                        width: 50%;
+                        top: 9px;
+                        left: -var(--space-xl);
+                        width: var(--space-xl);
                         height: 2px;
-                        background: var(--glass-border);
+                        background: var(--orange);
                         transform: translateY(-50%);
                         z-index: -1;
                     }
