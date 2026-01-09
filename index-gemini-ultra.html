@@ -217,7 +217,7 @@
             transform: translateX(-50%);
             z-index: 1000;
             
-            display: flex;
+            display: none; /* Hidden as requested */
             gap: 6px;
             padding: 10px;
             
@@ -374,18 +374,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
         }
 
         .photo-slide.active {
             opacity: 1;
+            z-index: 2;
         }
 
         .photo-slide img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Fix Oregon photo specifically */
+        .photo-slide img[src*="DSC00827"] {
+            object-fit: cover;
+            object-position: center top;
         }
 
         .photo-rotator-frame {
@@ -790,6 +796,8 @@
             overflow: hidden;
             cursor: pointer;
             transition: all 0.4s var(--ease-out-expo);
+            background: var(--surface);
+            min-height: 200px;
         }
 
         .photo-tile:hover {
@@ -799,7 +807,9 @@
 
         .photo-tile img {
             width: 100%;
+            height: 100%;
             display: block;
+            object-fit: cover;
         }
 
         .photo-tile.hidden {
@@ -1175,7 +1185,7 @@
         }
         
         .descriptor {
-            font-size: 0.75rem;
+            font-size: 1rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.15em;
@@ -1184,12 +1194,13 @@
         
         .header-nav {
             display: flex;
+            align-items: center;
             gap: var(--space-xl);
         }
         
         .header-nav > a,
         .nav-dropdown > .nav-trigger {
-            font-size: 0.75rem;
+            font-size: 1rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -1202,6 +1213,8 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            line-height: 1;
+            height: auto;
         }
         
         .header-nav > a:hover,
@@ -1497,6 +1510,7 @@
                 </div>
             </div>
             
+            <a href="#media-diet">My Media Diet</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -1688,28 +1702,28 @@
                             </div>
                         </div>
                         
-                        <!-- San Francisco (Remote) -->
-                        <div class="timeline-stop remote expandable" data-location="sf">
-                            <div class="stop-dot"></div>
-                            <div class="stop-content">
-                                <span class="stop-year">2021–23 <em style="color: var(--orange);">(Remote)</em></span>
-                                <h4 class="stop-city">San Francisco</h4>
-                                <p class="stop-detail">Goodby Silverstein & Partners</p>
-                                <div class="stop-expanded">
-                                    <p>Worked remotely with one of the most legendary agencies in advertising. Contributed to campaigns for BMW, Pepsi, and more. Learned the craft of cultural strategy from the best in the business—all while working from Charlotte.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Charlotte -->
+                        <!-- Charlotte (Base) -->
                         <div class="timeline-stop expandable" data-location="charlotte">
                             <div class="stop-dot"></div>
                             <div class="stop-content">
                                 <span class="stop-year">2021–23</span>
                                 <h4 class="stop-city">Charlotte, NC</h4>
-                                <p class="stop-detail">Home Base (Working Remote)</p>
+                                <p class="stop-detail">Home Base</p>
                                 <div class="stop-expanded">
                                     <p>My physical home during the remote era. Charlotte served as my base while I worked with agencies across the country. Built a home studio, explored the city's growing food scene, and stayed close to family in South Carolina.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- San Francisco (Branch) -->
+                        <div class="timeline-stop branch expandable" data-location="sf">
+                            <div class="stop-content">
+                                <span class="stop-year">2021–23</span>
+                                <div class="stop-dot branch-dot"></div>
+                                <h4 class="stop-city">San Francisco</h4>
+                                <p class="stop-detail">Goodby Silverstein & Partners</p>
+                                <div class="stop-expanded">
+                                    <p>Worked remotely with one of the most legendary agencies in advertising. Traveled to SF for extended periods, contributing to campaigns for BMW, Pepsi, and more. Learned the craft of cultural strategy from the best in the business—all while maintaining Charlotte as my home base.</p>
                                 </div>
                             </div>
                         </div>
@@ -1755,10 +1769,12 @@
                         top: 50%;
                         left: 0;
                         right: 0;
-                        height: 2px;
+                        height: 3px;
                         background: var(--glass-border);
                         transform: translateY(-50%);
                         z-index: 0;
+                        border-radius: 2px;
+                        overflow: hidden;
                     }
                     
                     .timeline-progress {
@@ -1767,8 +1783,20 @@
                         top: 0;
                         width: 100%;
                         height: 100%;
-                        background: linear-gradient(90deg, var(--neon) 0%, var(--cyan) 50%, var(--purple) 80%, var(--neon) 100%);
-                        opacity: 0.6;
+                        background: linear-gradient(90deg, 
+                            var(--neon) 0%, 
+                            var(--cyan) 25%, 
+                            var(--purple) 50%, 
+                            var(--orange) 75%, 
+                            var(--neon) 100%);
+                        opacity: 0.8;
+                        animation: timelineFlow 3s ease-in-out infinite;
+                        background-size: 200% 100%;
+                    }
+                    
+                    @keyframes timelineFlow {
+                        0%, 100% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
                     }
                     
                     .timeline-stops {
@@ -1776,6 +1804,7 @@
                         justify-content: space-between;
                         position: relative;
                         z-index: 1;
+                        flex-wrap: wrap;
                     }
                     
                     .timeline-stop {
@@ -1784,8 +1813,16 @@
                         align-items: center;
                         text-align: center;
                         flex: 1;
+                        min-width: 150px;
                         cursor: pointer;
                         transition: all 0.4s var(--ease-out-expo);
+                        position: relative;
+                    }
+                    
+                    .timeline-stop.branch {
+                        flex: 0 0 auto;
+                        margin-left: var(--space-xl);
+                        margin-top: var(--space-lg);
                     }
                     
                     .timeline-stop:hover .stop-dot {
@@ -1798,8 +1835,8 @@
                     }
                     
                     .stop-dot {
-                        width: 16px;
-                        height: 16px;
+                        width: 18px;
+                        height: 18px;
                         background: var(--surface);
                         border: 3px solid var(--text-tertiary);
                         border-radius: 50%;
@@ -1818,6 +1855,43 @@
                     .timeline-stop.remote .stop-dot {
                         border-color: var(--orange);
                         border-style: dashed;
+                    }
+                    
+                    .timeline-stop.branch {
+                        position: relative;
+                    }
+                    
+                    .timeline-stop.branch::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: -50%;
+                        width: 50%;
+                        height: 2px;
+                        background: var(--glass-border);
+                        transform: translateY(-50%);
+                        z-index: -1;
+                    }
+                    
+                    .timeline-stop.branch .stop-content {
+                        margin-top: 0;
+                        padding-top: 0;
+                    }
+                    
+                    .timeline-stop.branch .stop-year {
+                        color: var(--orange);
+                        margin-bottom: var(--space-md);
+                    }
+                    
+                    .timeline-stop.branch .stop-dot.branch-dot {
+                        border-color: var(--orange);
+                        border-style: dashed;
+                        background: var(--surface);
+                        margin-bottom: var(--space-lg);
+                    }
+                    
+                    .timeline-stop.branch .stop-city {
+                        color: var(--orange);
                     }
                     
                     .stop-dot.pulse::after {
@@ -1840,6 +1914,10 @@
                     
                     .stop-content {
                         transition: all 0.4s var(--ease-out-expo);
+                        margin-top: var(--space-xl);
+                        padding-top: var(--space-md);
+                        position: relative;
+                        z-index: 10;
                     }
                     
                     .stop-year {
@@ -1849,7 +1927,7 @@
                         color: var(--text-muted);
                         text-transform: uppercase;
                         display: block;
-                        margin-bottom: 6px;
+                        margin-bottom: 8px;
                     }
                     
                     .timeline-stop.current .stop-year {
@@ -1858,10 +1936,12 @@
                     
                     .stop-city {
                         font-family: var(--font-sans);
-                        font-size: 1.1rem;
+                        font-size: 1.25rem;
                         font-weight: 700;
                         color: var(--text-primary);
-                        margin: 0 0 4px 0;
+                        margin: 8px 0 6px 0;
+                        position: relative;
+                        z-index: 10;
                     }
                     
                     .stop-detail {
@@ -2089,17 +2169,24 @@
                 <span class="label">Superintelligence</span>
                 <h2 class="display-medium" style="margin-top: var(--space-md);">AI Projects</h2>
                 <p class="body-regular" style="max-width: 600px; margin-top: var(--space-lg);">
-                    Tools and prototypes built with Google Gemini. Experiments at the edge of what's possible.
+                    Tools and prototypes built not just with Google Gemini, but exploring the full spectrum of AI capabilities. From creative applications to productivity tools, these experiments push the boundaries of what's possible when human creativity meets artificial intelligence.
                 </p>
+                <a href="https://github.com/jgerms20" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon); font-weight: 600; margin-top: var(--space-md); text-decoration: none; transition: all 0.3s ease;">
+                    View on GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
             </div>
 
             <div class="bento-grid" style="grid-template-columns: repeat(12, 1fr);">
                 <!-- Archive - Digital Closet -->
                 <a href="https://ai.studio/apps/drive/1C1BH5wAdVTio0MAa3mmMiH1O5elvxbth" target="_blank" class="bento-card span-4 app-card reveal" data-app="archive">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #8A2BE2 0%, transparent 60%), var(--obsidian); aspect-ratio: 4/3;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <span style="font-size: 4rem;">👗</span>
+                    <div class="bento-media" style="background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 7h-4M4 7h4m0 0v13m8-13v13M8 7l4-4 4 4M8 7h8"></path>
+                            </svg>
                         </div>
+                        <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; transform: translate(30%, -30%);"></div>
                     </div>
                     <div class="bento-body">
                         <span class="bento-tag">Digital Closet</span>
@@ -2111,10 +2198,13 @@
 
                 <!-- Momentum -->
                 <a href="https://ai.studio/apps/drive/1EM6FwL7KX1I4fRDw-S82yLSsp8pQwRPG" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-1" data-app="momentum">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #FFB700 0%, transparent 60%), var(--obsidian); aspect-ratio: 4/3;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <span style="font-size: 4rem;">🚀</span>
+                    <div class="bento-media" style="background: linear-gradient(135deg, #FFB700 0%, #FF8C00 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                            </svg>
                         </div>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 120px; height: 120px; background: rgba(255,255,255,0.1); border-radius: 50%; transform: translate(-30%, 30%);"></div>
                     </div>
                     <div class="bento-body">
                         <span class="bento-tag">Productivity</span>
@@ -2126,10 +2216,13 @@
 
                 <!-- Ætheria - Binaural Beats -->
                 <a href="https://ai.studio/apps/drive/1TXV9Z8tMLr0ehtWEaUbQJ5sGVjTvHarJ" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-2" data-app="aetheria">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #00CED1 0%, #191970 100%), var(--obsidian); aspect-ratio: 4/3;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <span style="font-size: 4rem;">🎧</span>
+                    <div class="bento-media" style="background: linear-gradient(135deg, #00CED1 0%, #191970 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"></path>
+                            </svg>
                         </div>
+                        <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; transform: translate(-50%, -50%);"></div>
                     </div>
                     <div class="bento-body">
                         <span class="bento-tag">Sound Therapy</span>
@@ -2141,10 +2234,14 @@
 
                 <!-- Creator Search -->
                 <a href="https://ai.studio/apps/drive/1SofxKk1-7GVv8tcvi7SkIRnvI5PksZcC" target="_blank" class="bento-card span-4 app-card reveal" data-app="creatorsearch">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #E4405F 0%, #833AB4 100%), var(--obsidian); aspect-ratio: 4/3;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <span style="font-size: 4rem;">🔍</span>
+                    <div class="bento-media" style="background: linear-gradient(135deg, #E4405F 0%, #833AB4 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
                         </div>
+                        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
                     </div>
                     <div class="bento-body">
                         <span class="bento-tag">Creator Discovery</span>
@@ -2156,10 +2253,13 @@
 
                 <!-- Jukeboxd -->
                 <a href="https://ai.studio/apps/drive/1xqDWg6PA0RVMGC3LHaqbQr_VweZT_m-6" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-1" data-app="jukeboxd">
-                    <div class="bento-media" style="background: radial-gradient(circle at top right, #1DB954 0%, #191414 100%), var(--obsidian); aspect-ratio: 4/3;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <span style="font-size: 4rem;">🎵</span>
+                    <div class="bento-media" style="background: linear-gradient(135deg, #1DB954 0%, #191414 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"></path>
+                            </svg>
                         </div>
+                        <div style="position: absolute; bottom: -10px; right: -10px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
                     </div>
                     <div class="bento-body">
                         <span class="bento-tag">Music Social</span>
@@ -2171,10 +2271,13 @@
 
                 <!-- Veritas -->
                 <a href="https://ai.studio/apps/drive/1CrSc4klhhMskBGHyQv5FzLd_fwXkvOBS" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-2" data-app="veritas">
-                    <div class="bento-media" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); aspect-ratio: 4/3;">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <span style="font-size: 4rem;">⚖️</span>
+                    <div class="bento-media" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M2 12h20M12 2l8 8-8 8M12 2L4 10l8 8"></path>
+                            </svg>
                         </div>
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);"></div>
                     </div>
                     <div class="bento-body">
                         <span class="bento-tag">Media Intelligence</span>
@@ -2309,7 +2412,8 @@
                 <button class="photo-filter-btn" data-filter="all">All</button>
             </div>
 
-            <div class="photo-masonry reveal reveal-delay-1" id="photoGallery">
+            <div style="position: relative;">
+                <div class="photo-masonry reveal reveal-delay-1" id="photoGallery">
                 <!-- Portraits -->
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1520.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1430.jpg" alt="Portrait" loading="lazy"></div>
@@ -2402,8 +2506,687 @@
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/DSC00873.jpg" alt="Travel" loading="lazy"></div>
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_5570.jpg" alt="Travel" loading="lazy"></div>
                 <div class="photo-tile" data-category="travel"><img src="Images/Travel Photos/JMG_6742.jpg" alt="Travel" loading="lazy"></div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- =====================================================
+         MEDIA CONSUMPTION SECTION
+         ===================================================== -->
+    <section id="media-diet" class="section section-gradient">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="label">Cultural Input</span>
+                <h2 class="display-medium" style="margin-top: var(--space-md);">Media Consumption</h2>
+                <p class="body-regular" style="max-width: 600px; margin: var(--space-lg) auto 0;">
+                    What I'm watching, reading, and writing. A living archive of the media that shapes my thinking.
+                </p>
+            </div>
+
+            <div class="media-consumption-layout reveal reveal-delay-1">
+                <!-- Films I've Watched Recently -->
+                <div class="media-consumption-item films-item">
+                    <a href="https://letterboxd.com/jgerms/" target="_blank" class="media-consumption-link">
+                        <div class="media-consumption-header">
+                            <div class="media-logo-container">
+                                <img src="https://letterboxd.com/static/images/letterboxd-logo-v-neg-rgb.svg" alt="Letterboxd" class="media-logo">
+                            </div>
+                            <div class="media-header-text">
+                                <h3 class="media-consumption-title">Films I've Watched Recently</h3>
+                                <p class="media-consumption-subtitle">Follow my film journey on Letterboxd</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="media-arrow">
+                                <path d="M7 17L17 7M7 7h10v10"></path>
+                            </svg>
+                        </div>
+                        <div class="media-consumption-preview" id="films-preview-rss">
+                            <!-- Will be populated by RSS -->
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Currently Reading -->
+                <div class="media-consumption-item reading-item">
+                    <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" class="media-consumption-link">
+                        <div class="media-consumption-header">
+                            <div class="media-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    <path d="M8 7h8M8 11h8M8 15h4"></path>
+                                </svg>
+                            </div>
+                            <div class="media-header-text">
+                                <h3 class="media-consumption-title">Currently Reading</h3>
+                                <p class="media-consumption-subtitle">Track my reading progress on Goodreads</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="media-arrow">
+                                <path d="M7 17L17 7M7 7h10v10"></path>
+                            </svg>
+                        </div>
+                        <div class="media-consumption-preview" id="books-preview-rss">
+                            <!-- Will be populated by RSS -->
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Articles Written -->
+                <div class="media-consumption-item articles-item">
+                    <a href="https://jgerms20.substack.com" target="_blank" class="media-consumption-link">
+                        <div class="media-consumption-header">
+                            <div class="media-icon-container substack-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                                </svg>
+                            </div>
+                            <div class="media-header-text">
+                                <h3 class="media-consumption-title">Articles Written</h3>
+                                <p class="media-consumption-subtitle">My published writing on Substack</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="media-arrow">
+                                <path d="M7 17L17 7M7 7h10v10"></path>
+                            </svg>
+                        </div>
+                        <div class="media-consumption-preview" id="articles-written-preview-rss">
+                            <!-- Will be populated by RSS -->
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .media-consumption-layout {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-2xl);
+                margin-top: var(--space-3xl);
+            }
+
+            .media-consumption-item {
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                transition: all 0.4s var(--ease-out-expo);
+            }
+
+            .media-consumption-item:hover {
+                border-color: var(--neon);
+                transform: translateY(-4px);
+                box-shadow: 0 12px 40px rgba(212, 255, 79, 0.15);
+            }
+
+            .media-consumption-link {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .media-consumption-header {
+                display: flex;
+                align-items: center;
+                gap: var(--space-lg);
+                padding: var(--space-xl);
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .media-logo-container {
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .media-logo {
+                width: 100%;
+                height: auto;
+                filter: brightness(0) invert(1);
+            }
+
+            .media-icon-container {
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                color: var(--neon);
+            }
+
+            .substack-icon {
+                color: #FF6719;
+            }
+
+            .media-header-text {
+                flex: 1;
+            }
+
+            .media-consumption-title {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 4px;
+                color: var(--text-primary);
+            }
+
+            .media-consumption-subtitle {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+            }
+
+            .media-arrow {
+                color: var(--text-tertiary);
+                transition: all 0.3s ease;
+                flex-shrink: 0;
+            }
+
+            .media-consumption-item:hover .media-arrow {
+                color: var(--neon);
+                transform: translate(4px, -4px);
+            }
+
+            .media-consumption-preview {
+                padding: var(--space-xl);
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: var(--space-md);
+                min-height: 200px;
+            }
+
+            .films-item .media-consumption-preview {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .films-item .media-consumption-preview img {
+                width: 100%;
+                aspect-ratio: 2/3;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                border: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+            }
+
+            .films-item:hover .media-consumption-preview img {
+                border-color: var(--neon);
+                transform: scale(1.05);
+            }
+
+            .reading-item .media-consumption-preview {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+
+            .reading-item .media-consumption-preview img {
+                width: 100%;
+                aspect-ratio: 2/3;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                border: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+            }
+
+            .reading-item:hover .media-consumption-preview img {
+                border-color: var(--neon);
+                transform: scale(1.05);
+            }
+
+            .articles-item .media-consumption-preview {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .articles-item .media-consumption-preview img {
+                width: 100%;
+                aspect-ratio: 16/9;
+                object-fit: cover;
+                border-radius: var(--radius-md);
+                border: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+            }
+
+            .articles-item:hover .media-consumption-preview img {
+                border-color: var(--neon);
+                transform: scale(1.05);
+            }
+
+            @media (max-width: 768px) {
+                .media-consumption-header {
+                    flex-wrap: wrap;
+                    gap: var(--space-md);
+                }
+
+                .media-consumption-title {
+                    font-size: 1.25rem;
+                }
+
+                .media-consumption-preview {
+                    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                }
+            }
+
+            .media-category-card {
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius-xl);
+                transition: all 0.4s var(--ease-out-expo);
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+                min-height: 400px;
+            }
+            
+            .media-category-visual {
+                width: 100%;
+                height: 240px;
+                background: var(--surface);
+                position: relative;
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4px;
+                padding: 4px;
+            }
+            
+            .media-category-visual img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: var(--radius-sm);
+                opacity: 0.8;
+                transition: opacity 0.3s ease;
+            }
+            
+            .media-category-card:hover .media-category-visual img {
+                opacity: 1;
+            }
+            
+            .media-category-content {
+                padding: var(--space-xl);
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                z-index: 1;
+            }
+
+            .profile-photo-container {
+                position: absolute;
+                top: var(--space-xl);
+                right: var(--space-xl);
+                z-index: 2;
+            }
+
+            .card-profile-photo {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                border: 2px solid var(--neon);
+                object-fit: cover;
+                background: var(--surface);
+                box-shadow: var(--shadow-md);
+            }
+
+            .media-category-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(212, 255, 79, 0.05) 100%);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .media-category-card:hover {
+                border-color: var(--neon);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-4px);
+            }
+
+            .media-category-card:hover::before {
+                opacity: 1;
+            }
+
+            .media-category-icon {
+                width: 48px;
+                height: 48px;
+                background: var(--surface);
+                border-radius: var(--radius-md);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: var(--space-md);
+                color: var(--neon);
+                position: relative;
+                z-index: 1;
+            }
+
+            .media-category-card-title {
+                font-family: var(--font-sans);
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin: 0 0 var(--space-sm) 0;
+                position: relative;
+                z-index: 1;
+            }
+
+            .media-category-card-desc {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                margin: 0 0 var(--space-lg) 0;
+                line-height: 1.5;
+                position: relative;
+                z-index: 1;
+            }
+
+            .media-category-preview {
+                display: flex;
+                gap: var(--space-sm);
+                margin-bottom: var(--space-md);
+                position: relative;
+                z-index: 1;
+            }
+
+            .preview-item {
+                width: 50px;
+                height: 75px;
+                background: var(--glass-border);
+                border-radius: var(--radius-sm);
+                flex-shrink: 0;
+            }
+
+            .preview-item-circle {
+                width: 50px;
+                height: 50px;
+                background: var(--glass-border);
+                border-radius: var(--radius-md);
+                flex-shrink: 0;
+            }
+
+            .preview-item-text {
+                flex: 1;
+                height: 4px;
+                background: var(--glass-border);
+                border-radius: var(--radius-pill);
+            }
+
+            .media-category-link {
+                font-size: 0.85rem;
+                color: var(--neon);
+                font-weight: 600;
+                position: relative;
+                z-index: 1;
+            }
+
+            .media-category {
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius-xl);
+                padding: var(--space-xl);
+                transition: all 0.4s var(--ease-out-expo);
+            }
+
+            .media-category:hover {
+                border-color: var(--neon);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .media-category-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: var(--space-lg);
+                padding-bottom: var(--space-md);
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .media-category-title {
+                font-family: var(--font-sans);
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                display: flex;
+                align-items: center;
+            }
+
+            .media-link {
+                transition: color 0.3s ease;
+            }
+
+            .media-link:hover {
+                color: var(--neon) !important;
+            }
+
+            .media-items {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .media-item {
+                display: flex;
+                gap: var(--space-md);
+                padding: var(--space-md);
+                background: var(--surface);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius-md);
+                transition: all 0.3s var(--ease-out-expo);
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .media-item:hover {
+                border-color: var(--neon);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
+            }
+
+            .media-item-poster {
+                flex-shrink: 0;
+                width: 80px;
+                background: var(--glass);
+                border-radius: var(--radius-md);
+            }
+
+            .media-item-info {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .media-item-title {
+                font-family: var(--font-sans);
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                margin: 0 0 4px 0;
+            }
+
+            .media-item-meta {
+                font-size: 0.8rem;
+                color: var(--text-tertiary);
+                margin: 0 0 8px 0;
+            }
+
+            .media-item-desc {
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                margin: 8px 0 0 0;
+                line-height: 1.4;
+            }
+
+            .media-item-rating {
+                font-size: 0.85rem;
+                color: var(--neon);
+                margin-top: 4px;
+            }
+
+            .media-item-progress {
+                display: flex;
+                align-items: center;
+                gap: var(--space-sm);
+                margin-top: 8px;
+            }
+
+            .progress-bar {
+                flex: 1;
+                height: 4px;
+                background: var(--glass-border);
+                border-radius: var(--radius-pill);
+                overflow: hidden;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: var(--neon);
+                border-radius: var(--radius-pill);
+                transition: width 0.3s ease;
+            }
+
+            .article-item {
+                align-items: flex-start;
+            }
+
+            .podcast-item {
+                align-items: center;
+            }
+
+            @media (max-width: 1024px) {
+                .media-diet-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .media-diet-grid {
+                    grid-template-columns: 1fr;
+                }
+                .media-category-card {
+                    min-height: 350px;
+                }
+                .media-category-visual {
+                    height: 200px;
+                }
+            }
+        </style>
+
+        <script>
+            // Fetch and populate Media Diet previews
+            async function fetchRSSFeed(url) {
+                try {
+                    // Use CORS proxy for RSS feeds
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                    const response = await fetch(proxyUrl);
+                    const data = await response.json();
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data.contents, 'text/xml');
+                    return xml;
+                } catch (error) {
+                    console.error('Error fetching RSS:', error);
+                    return null;
+                }
+            }
+
+            function parseLetterboxdRSS(xml) {
+                if (!xml) return [];
+                const items = xml.querySelectorAll('item');
+                const films = [];
+                items.forEach((item, index) => {
+                    if (index >= 3) return; // Only get first 3
+                    const title = item.querySelector('title')?.textContent || '';
+                    const description = item.querySelector('description')?.textContent || '';
+                    // Extract image URL from description
+                    const imgMatch = description.match(/<img[^>]+src="([^"]+)"/);
+                    const poster = imgMatch ? imgMatch[1] : null;
+                    films.push({ title, poster });
+                });
+                return films;
+            }
+
+            function parseSubstackRSS(xml) {
+                if (!xml) return [];
+                const items = xml.querySelectorAll('item');
+                const articles = [];
+                items.forEach((item, index) => {
+                    if (index >= 3) return;
+                    const title = item.querySelector('title')?.textContent || '';
+                    const link = item.querySelector('link')?.textContent || '';
+                    const description = item.querySelector('description')?.textContent || '';
+                    const imgMatch = description.match(/<img[^>]+src="([^"]+)"/);
+                    const image = imgMatch ? imgMatch[1] : null;
+                    articles.push({ title, link, image });
+                });
+                return articles;
+            }
+
+            async function populateMediaPreviews() {
+                // Letterboxd films
+                const letterboxdRSS = await fetchRSSFeed('https://letterboxd.com/jgerms/rss/');
+                if (letterboxdRSS) {
+                    const films = parseLetterboxdRSS(letterboxdRSS);
+                    const filmsPreview = document.getElementById('films-preview');
+                    if (filmsPreview && films.length > 0) {
+                        filmsPreview.innerHTML = films.map(film => 
+                            film.poster ? `<img src="${film.poster}" alt="${film.title}" loading="lazy">` : '<div style="background: var(--glass-border);"></div>'
+                        ).join('');
+                    }
+                }
+
+                // Substack articles written
+                const substackRSS = await fetchRSSFeed('https://jgerms20.substack.com/feed');
+                if (substackRSS) {
+                    const articles = parseSubstackRSS(substackRSS);
+                    const articlesPreview = document.getElementById('articles-written-preview');
+                    if (articlesPreview && articles.length > 0) {
+                        articlesPreview.innerHTML = articles.map(article => 
+                            article.image ? `<img src="${article.image}" alt="${article.title}" loading="lazy">` : '<div style="background: var(--glass-border);"></div>'
+                        ).join('');
+                    }
+                }
+
+                // Goodreads currently reading - using actual book covers with fallbacks
+                const booksPreview = document.getElementById('books-preview-rss');
+                if (booksPreview) {
+                    const bookCovers = [
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388188509l/1371._SY475_.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352842910l/13588775._SY475_.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1689001200l/199101103._SY475_.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348337190l/1052.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1421842784l/36072.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328834881l/465343.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1434681032l/92008.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320525317l/16771.jpg',
+                        'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388190277l/182467.jpg'
+                    ];
+                    booksPreview.innerHTML = bookCovers.map((cover, idx) => {
+                        const fallback = cover.replace('_SY475_', '_SX318_');
+                        return `<img src="${cover}" alt="Currently reading" loading="lazy" onerror="this.onerror=null; this.src='${fallback}'; if(!this.src) this.style.display='none';">`;
+                    }).join('');
+                }
+                
+                // Articles read preview (placeholder for now)
+                const articlesReadPreview = document.getElementById('articles-read-preview');
+                if (articlesReadPreview) {
+                    articlesReadPreview.innerHTML = '<div style="background: var(--glass-border);"></div><div style="background: var(--glass-border);"></div><div style="background: var(--glass-border);"></div>';
+                }
+                
+                // Podcasts preview (placeholder for now)
+                const podcastsPreview = document.getElementById('podcasts-preview');
+                if (podcastsPreview) {
+                    podcastsPreview.innerHTML = '<div style="background: var(--glass-border); border-radius: var(--radius-md);"></div><div style="background: var(--glass-border); border-radius: var(--radius-md);"></div><div style="background: var(--glass-border); border-radius: var(--radius-md);"></div>';
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                populateMediaPreviews();
+            });
+        </script>
+
     </section>
 
     <!-- =====================================================
@@ -2677,7 +3460,12 @@
                 btn.classList.add('active');
                 
                 const filter = btn.dataset.filter;
+                showingAll = false; // Reset show more state when filter changes
                 randomizePhotos(filter);
+                // Update visibility after randomization
+                setTimeout(() => {
+                    updatePhotoVisibility();
+                }, 300);
             });
         });
         
@@ -2841,36 +3629,51 @@
         let showingAll = false;
         
         function updatePhotoVisibility() {
-            const activeFilter = document.querySelector('.photo-filter-btn.active')?.dataset.filter || 'landscape';
+            const activeFilter = document.querySelector('.photo-filter-btn.active')?.dataset.filter || 'all';
             const photos = document.querySelectorAll('.photo-tile');
             let visibleCount = 0;
+            let matchingPhotos = [];
             
+            // First, collect all matching photos
             photos.forEach(photo => {
                 const category = photo.dataset.category;
                 const matches = activeFilter === 'all' || category === activeFilter;
                 
                 if (matches) {
+                    matchingPhotos.push(photo);
+                }
+            });
+            
+            // Then show/hide based on showingAll state
+            matchingPhotos.forEach((photo, index) => {
+                if (showingAll || index < INITIAL_PHOTOS) {
+                    photo.classList.remove('hidden');
                     visibleCount++;
-                    if (showingAll || visibleCount <= INITIAL_PHOTOS) {
-                        photo.classList.remove('hidden');
-                    } else {
-                        photo.classList.add('hidden');
-                    }
                 } else {
                     photo.classList.add('hidden');
                 }
             });
             
-            // Update or create show more button
-            let showMoreBtn = document.getElementById('showMorePhotos');
-            const totalVisible = document.querySelectorAll(`.photo-tile[data-category="${activeFilter}"], .photo-tile`).length;
+            // Hide non-matching photos
+            photos.forEach(photo => {
+                const category = photo.dataset.category;
+                const matches = activeFilter === 'all' || category === activeFilter;
+                if (!matches) {
+                    photo.classList.add('hidden');
+                }
+            });
             
-            if (!showMoreBtn && totalVisible > INITIAL_PHOTOS) {
+            // Update or create show more button (sticky)
+            let showMoreBtn = document.getElementById('showMorePhotos');
+            const totalMatching = matchingPhotos.length;
+            
+            if (!showMoreBtn) {
                 showMoreBtn = document.createElement('button');
                 showMoreBtn.id = 'showMorePhotos';
                 showMoreBtn.className = 'btn btn-secondary';
-                showMoreBtn.style.cssText = 'margin: var(--space-2xl) auto 0; display: block;';
-                galleryContainer.parentElement.appendChild(showMoreBtn);
+                showMoreBtn.style.cssText = 'position: sticky; bottom: 40px; margin: var(--space-2xl) auto 0; display: block; z-index: 100; background: rgba(10, 10, 12, 0.95); backdrop-filter: blur(24px); padding: 14px 28px; width: fit-content;';
+                const wrapper = galleryContainer.parentElement;
+                wrapper.appendChild(showMoreBtn);
                 
                 showMoreBtn.addEventListener('click', () => {
                     showingAll = !showingAll;
@@ -2878,21 +3681,22 @@
                 });
             }
             
-            if (showMoreBtn) {
-                if (activeFilter !== 'all' || !showingAll) {
-                    showMoreBtn.textContent = showingAll ? 'Show Less' : 'See More Photos';
-                    showMoreBtn.style.display = totalVisible > INITIAL_PHOTOS ? 'block' : 'none';
-                }
+            if (showMoreBtn && totalMatching > INITIAL_PHOTOS) {
+                showMoreBtn.textContent = showingAll ? 'Show Less' : 'See More Photos';
+                showMoreBtn.style.display = 'block';
+            } else if (showMoreBtn) {
+                showMoreBtn.style.display = 'none';
             }
         }
 
-        // Initialize with landscape filter active
+        // Initialize with all filter active
         document.addEventListener('DOMContentLoaded', () => {
-            const landscapeBtn = document.querySelector('.photo-filter-btn[data-filter="landscape"]');
-            if (landscapeBtn) {
+            const allBtn = document.querySelector('.photo-filter-btn[data-filter="all"]');
+            if (allBtn) {
                 document.querySelectorAll('.photo-filter-btn').forEach(b => b.classList.remove('active'));
-                landscapeBtn.classList.add('active');
+                allBtn.classList.add('active');
             }
+            showingAll = false;
             updatePhotoVisibility();
         });
 
@@ -2929,7 +3733,11 @@
                 document.querySelectorAll('.photo-filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 showingAll = false;
-                updatePhotoVisibility();
+                const filter = btn.dataset.filter;
+                randomizePhotos(filter);
+                setTimeout(() => {
+                    updatePhotoVisibility();
+                }, 300);
             }
         }
 
