@@ -1190,6 +1190,95 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--neon);
+            white-space: nowrap;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            pointer-events: auto;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--neon);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(3, 3, 4, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding-top: 80px;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+        }
+        
+        .mobile-nav a,
+        .mobile-nav .nav-trigger {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--glass-border);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--neon);
+        }
+        
+        .mobile-nav-dropdown {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            padding-left: var(--space-lg);
+            margin-top: var(--space-sm);
+        }
+        
+        .mobile-nav-dropdown a {
+            font-size: 0.95rem;
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: none;
+            text-transform: none;
+            letter-spacing: 0;
         }
         
         .header-nav {
@@ -1383,16 +1472,65 @@
             :root { --edge: 20px; }
             
             .top-header {
-                flex-direction: column;
-                gap: var(--space-md);
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
                 padding: 16px var(--edge);
                 background: rgba(3,3,4,0.98);
+                backdrop-filter: blur(20px);
+            }
+            
+            .header-left {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .descriptor {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
             }
             
             .header-nav {
-                gap: var(--space-md);
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
+            }
+            
+            .header-nav.mobile-active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                flex-direction: column;
+                background: rgba(3,3,4,0.98);
+                backdrop-filter: blur(20px);
+                padding: 80px var(--edge) var(--edge);
+                z-index: 1000;
+                overflow-y: auto;
+                gap: var(--space-lg);
+            }
+            
+            .header-nav.mobile-active > a,
+            .header-nav.mobile-active .nav-dropdown {
+                width: 100%;
+            }
+            
+            .header-nav.mobile-active .nav-dropdown-menu {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                margin-top: var(--space-sm);
+                margin-left: var(--space-lg);
+                box-shadow: none;
+                border: none;
+                background: transparent;
             }
             
             .bento-card { grid-column: span 12 !important; }
@@ -1448,7 +1586,12 @@
         <div class="header-left">
             <span class="descriptor">Creative Strategist • Photographer • Futurist</span>
         </div>
-        <nav class="header-nav">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="header-nav" id="mainNav">
             <a href="#about">About</a>
             
             <!-- Work Dropdown -->
@@ -1510,7 +1653,7 @@
                 </div>
             </div>
             
-            <a href="#media-diet">Media Consumption</a>
+            <a href="#media-diet" onclick="document.getElementById('media-diet').scrollIntoView({behavior: 'smooth'}); return false;">Media Consumption</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -2516,7 +2659,7 @@
             <div class="section-header reveal">
                 <span class="label">Cultural Input</span>
                 <h2 class="display-medium" style="margin-top: var(--space-md);">Media Consumption</h2>
-                <p class="body-regular" style="max-width: 600px; margin: var(--space-lg) auto 0;">
+                <p class="body-regular" style="max-width: 600px; margin: var(--space-lg) 0 0 0; text-align: left;">
                     What I'm watching, reading, and writing. A living archive of the media that shapes my thinking.
                 </p>
             </div>
@@ -3179,9 +3322,30 @@
                 }
             }
 
-            document.addEventListener('DOMContentLoaded', () => {
-                populateMediaPreviews();
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+            populateMediaPreviews();
+            
+            // Mobile menu toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const headerNav = document.getElementById('mainNav');
+            
+            if (mobileMenuToggle && headerNav) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenuToggle.classList.toggle('active');
+                    headerNav.classList.toggle('mobile-active');
+                    document.body.style.overflow = headerNav.classList.contains('mobile-active') ? 'hidden' : '';
+                });
+                
+                // Close menu when clicking nav links
+                headerNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuToggle.classList.remove('active');
+                        headerNav.classList.remove('mobile-active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
         </script>
 
     </section>
