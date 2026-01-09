@@ -3860,9 +3860,11 @@
             matchingPhotos.forEach((photo, index) => {
                 if (showingAll || index < INITIAL_PHOTOS) {
                     photo.classList.remove('hidden');
+                    photo.style.display = '';
                     visibleCount++;
                 } else {
                     photo.classList.add('hidden');
+                    photo.style.display = 'none';
                 }
             });
             
@@ -3872,6 +3874,12 @@
                 const matches = activeFilter === 'all' || category === activeFilter;
                 if (!matches) {
                     photo.classList.add('hidden');
+                    photo.style.display = 'none';
+                } else {
+                    // Ensure matching photos are visible (unless hidden by show more logic)
+                    if (!photo.classList.contains('hidden') || showingAll || matchingPhotos.indexOf(photo) < INITIAL_PHOTOS) {
+                        photo.style.display = '';
+                    }
                 }
             });
             
