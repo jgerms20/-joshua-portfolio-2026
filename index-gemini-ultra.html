@@ -483,10 +483,7 @@
 
         /* Scroll Indicator */
         .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -495,6 +492,8 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
+            margin-top: var(--space-xl);
+            width: 100%;
         }
 
         .scroll-line {
@@ -1823,10 +1822,6 @@
                 </div>
             </div>
         </div>
-            <span style="font-size: 0.85rem; letter-spacing: 0.2em;">SCROLL</span>
-            <div class="scroll-line" style="height: 80px;"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: bounce 2s infinite;"><path d="M7 13l5 5 5-5"/></svg>
-        </div>
     </section>
 
     <!-- =====================================================
@@ -2161,7 +2156,8 @@
                     
                     .stop-content {
                         transition: all 0.4s var(--ease-out-expo);
-                        margin-top: var(--space-lg);
+                        margin-top: 0;
+                        margin-left: var(--space-xl);
                         position: relative;
                         z-index: 10;
                         flex: 1;
