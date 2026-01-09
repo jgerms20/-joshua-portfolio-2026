@@ -21,7 +21,7 @@
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; }
         ::selection { background: var(--purple); color: white; }
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
@@ -37,25 +37,21 @@
         .back-nav:hover { color: var(--text-primary); background: var(--glass-hover); transform: translateX(-4px); }
         .back-nav svg { width: 18px; height: 18px; }
 
-        .page-content {
-            text-align: center; padding: var(--edge); max-width: var(--max-width);
+        .page-hero {
+            min-height: 60vh; display: flex; align-items: center; justify-content: center;
+            padding: 120px var(--edge) 60px; text-align: center;
+            background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(168, 85, 247, 0.1), transparent);
         }
 
+        .hero-content { max-width: 800px; }
+
         .podcast-cover {
-            width: 280px; height: 280px; margin: 0 auto 40px;
+            width: 200px; height: 200px; margin: 0 auto 32px;
             border-radius: var(--radius-xl); overflow: hidden;
-            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.2);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
             position: relative;
         }
         .podcast-cover img { width: 100%; height: 100%; object-fit: cover; }
-        .podcast-cover::after {
-            content: 'COMING SOON';
-            position: absolute; inset: 0;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1rem; font-weight: 700; letter-spacing: 0.2em;
-            color: var(--purple);
-        }
 
         .show-title {
             font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem);
@@ -76,6 +72,7 @@
             background: linear-gradient(135deg, var(--purple), #7C3AED);
             color: white; border-radius: var(--radius-pill);
             text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 40px;
         }
         .coming-soon-badge::before {
             content: '';
@@ -87,15 +84,30 @@
             50% { opacity: 0.5; transform: scale(1.2); }
         }
 
-        .teaser-text {
-            margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--glass-border);
+        .topics-section {
+            padding: var(--edge); max-width: var(--max-width); margin: 0 auto;
         }
-        .teaser-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; }
-        .teaser-desc { font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
+        .section-title {
+            font-family: var(--font-display); font-size: 2rem; margin-bottom: 32px; text-align: center;
+        }
+        .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        @media (max-width: 900px) { .topics-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .topics-grid { grid-template-columns: 1fr; } }
+        .topic-card {
+            background: var(--surface); border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg); padding: 24px;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .topic-card:hover { border-color: var(--purple); transform: translateY(-4px); }
+        .topic-icon { font-size: 2rem; margin-bottom: 16px; }
+        .topic-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .topic-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
 
         @media (max-width: 768px) {
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
             .podcast-cover { width: 200px; height: 200px; }
+            .show-icon { width: 80px; height: 80px; }
+            .show-icon span { font-size: 2rem; }
         }
     </style>
 </head>
@@ -106,24 +118,40 @@
         Back to Podcasts
     </a>
 
-    <div class="page-content">
-        <div class="podcast-cover">
-            <img src="Curious&Creative1.0.png" alt="Curious & Creative">
-        </div>
-        <h1 class="show-title">Curious <span class="accent">& Creative</span></h1>
-        <p class="show-desc">
-            A deep dive into the minds of artists, creators, and innovators. Exploring the intersection of curiosity and creativity that drives meaningful work—and the stories behind the people who make it.
-        </p>
-
-        <div class="coming-soon-badge">Coming Soon</div>
-
-        <div class="teaser-text">
-            <h2 class="teaser-title">What to Expect</h2>
-            <p class="teaser-desc">
-                Long-form conversations about creativity, inspiration, and the messy process of making things. Subscribe to get notified when we launch.
+    <section class="page-hero">
+        <div class="hero-content">
+            <div class="podcast-cover">
+                <img src="../Images/Podcasts/curious-creative-logo.png" alt="Curious & Creative" onerror="this.onerror=null; this.src='../Curious&Creative1.0.png';">
+            </div>
+            <h1 class="show-title">Curious <span class="accent">& Creative</span></h1>
+            <p class="show-desc">
+                A deep dive into the minds of artists, creators, and innovators. Exploring the intersection of curiosity and creativity that drives meaningful work—and the stories behind the people who make it.
             </p>
+
+            <div class="coming-soon-badge">Coming Soon 2026</div>
         </div>
-    </div>
+    </section>
+
+    <section class="topics-section">
+        <h2 class="section-title">What to Expect</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <div class="topic-icon">🎨</div>
+                <h3 class="topic-title">Creative Process</h3>
+                <p class="topic-desc">Deep conversations about how artists and creators bring their visions to life.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">💡</div>
+                <h3 class="topic-title">Inspiration & Ideas</h3>
+                <p class="topic-desc">Exploring where great ideas come from and how they evolve into meaningful work.</p>
+            </div>
+            <div class="topic-card">
+                <div class="topic-icon">🚀</div>
+                <h3 class="topic-title">Innovation Stories</h3>
+                <p class="topic-desc">The messy, beautiful journey of turning curiosity into creative breakthroughs.</p>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
