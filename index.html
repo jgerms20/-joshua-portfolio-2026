@@ -1801,6 +1801,12 @@
                             <span class="stat-label">Major Brands</span>
                         </div>
                     </div>
+                    
+                    <div class="scroll-indicator">
+                        <span style="font-size: 0.85rem; letter-spacing: 0.2em;">SCROLL</span>
+                        <div class="scroll-line" style="height: 80px;"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: bounce 2s infinite;"><path d="M7 13l5 5 5-5"/></svg>
+                    </div>
                 </div>
 
                 <div class="photo-rotator reveal reveal-delay-2" style="margin-left: 40px; margin-top: -60px;">
@@ -2043,6 +2049,17 @@
                         transform: none;
                     }
                     
+                    .timeline-track::before {
+                        content: '';
+                        position: absolute;
+                        left: -1px;
+                        top: 0;
+                        width: 4px;
+                        height: 100%;
+                        background: var(--glass-border);
+                        z-index: 0;
+                    }
+                    
                     .timeline-stop {
                         display: flex;
                         flex-direction: row;
@@ -2066,10 +2083,11 @@
                         border-radius: 50%;
                         margin-bottom: 0;
                         transition: all 0.3s ease;
-                        position: relative;
+                        position: absolute;
+                        left: 11px;
+                        top: 0;
                         flex-shrink: 0;
-                        margin-left: -9px;
-                        margin-top: 0;
+                        z-index: 2;
                     }
                     
                     .timeline-stop:hover .stop-dot {
