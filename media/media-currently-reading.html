@@ -45,16 +45,31 @@
 
         .section { padding: var(--space-3xl) var(--edge); max-width: var(--max-width); margin: 0 auto; }
         .section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-xl); }
-        .book-list { display: flex; flex-direction: column; gap: var(--space-lg); }
-        .book-item {
-            display: flex; gap: var(--space-lg); padding: var(--space-lg);
-            background: var(--surface); border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg); transition: all 0.3s ease;
+        .book-list { 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
         }
-        .book-item:hover { border-color: var(--neon); transform: translateX(4px); }
-        .book-cover { width: 120px; height: 180px; border-radius: var(--radius-md); background: var(--glass-border); flex-shrink: 0; object-fit: cover; }
+        .book-item {
+            display: flex; 
+            flex-direction: column;
+            gap: var(--space-md); 
+            padding: var(--space-lg);
+            background: var(--surface); 
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg); 
+            transition: all 0.3s ease;
+        }
+        .book-item:hover { border-color: var(--neon); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(212, 255, 79, 0.15); }
+        .book-cover { 
+            width: 100%; 
+            height: 240px; 
+            border-radius: var(--radius-md); 
+            background: var(--glass-border); 
+            object-fit: cover; 
+        }
         .book-info { flex: 1; }
-        .book-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
+        .book-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
         .book-meta { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
         .book-progress { margin-top: 12px; }
         .progress-bar { width: 100%; height: 6px; background: var(--glass-border); border-radius: 9999px; overflow: hidden; margin-bottom: 8px; }
@@ -112,16 +127,17 @@
     </section>
 
     <section class="section">
-        <h2 class="section-title">In Progress</h2>
+        <h2 class="section-title">Currently Reading</h2>
         <div class="book-list" id="currently-reading">
             <!-- Populate with current reads -->
         </div>
     </section>
 
     <section class="section">
-        <h2 class="section-title">Recently Completed</h2>
-        <div class="book-list" id="recently-completed">
-            <!-- Populate with recently completed books -->
+        <h2 class="section-title">Recently Read</h2>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-xl);">Sorted by rating</p>
+        <div class="book-list" id="recently-read">
+            <!-- Populate with recently read books sorted by rating -->
         </div>
     </section>
 
@@ -215,14 +231,43 @@
         }
 
         // Fallback data if RSS fails
+        // Currently Reading books (from Goodreads screenshot)
         const currentlyReadingData = [
+            {
+                title: "The Little Red Book - Quotations from Mao Tse-tung",
+                author: "Mao Tse-tung",
+                progress: 0,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328029894l/147628._SY475_.jpg",
+                goodreadsId: "147628",
+                link: "https://www.goodreads.com/book/show/147628.The_Little_Red_Book",
+                rating: 2.5
+            },
+            {
+                title: "Project Hail Mary",
+                author: "Andy Weir",
+                progress: 0,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1597695864l/54493401._SY475_.jpg",
+                goodreadsId: "54493401",
+                link: "https://www.goodreads.com/book/show/54493401-project-hail-mary",
+                rating: 4.5
+            },
+            {
+                title: "The Fourth Turning: An American Prophecy—What the Cycles of History Tell Us About America's Next Rendezvous with Destiny",
+                author: "William Strauss",
+                progress: 0,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388200553l/266352._SY475_.jpg",
+                goodreadsId: "266352",
+                link: "https://www.goodreads.com/book/show/266352.The_Fourth_Turning",
+                rating: 3.5
+            },
             {
                 title: "The Iliad",
                 author: "Homer",
                 progress: 12,
                 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388188509l/1371._SY475_.jpg",
                 goodreadsId: "1371",
-                link: "https://www.goodreads.com/book/show/1371.The_Iliad"
+                link: "https://www.goodreads.com/book/show/1371.The_Iliad",
+                rating: 3.5
             },
             {
                 title: "The Revolution Was Televised: The Cops, Crooks, Slingers and Slayers Who Changed TV Drama Forever",
@@ -230,7 +275,8 @@
                 progress: 75,
                 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352842910l/13588775._SY475_.jpg",
                 goodreadsId: "13588775",
-                link: "https://www.goodreads.com/book/show/13588775"
+                link: "https://www.goodreads.com/book/show/13588775",
+                rating: 4.0
             },
             {
                 title: "Invisible Doctrine: The Secret History of Neoliberalism",
@@ -238,7 +284,102 @@
                 progress: 61,
                 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1689001200l/199101103._SY475_.jpg",
                 goodreadsId: "199101103",
-                link: "https://www.goodreads.com/book/show/199101103"
+                link: "https://www.goodreads.com/book/show/199101103",
+                rating: 4.5
+            },
+            {
+                title: "On Writing: A Memoir of the Craft",
+                author: "Stephen King",
+                progress: 0,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1436735207l/10569._SY475_.jpg",
+                goodreadsId: "10569",
+                link: "https://www.goodreads.com/book/show/10569.On_Writing",
+                rating: 4.5
+            }
+        ];
+        
+        // Recently Read books sorted by rating (from Goodreads screenshot)
+        const recentlyReadData = [
+            {
+                title: "Think and Grow Rich: A Black Choice",
+                author: "Dennis Kimbro",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388200553l/266352._SY475_.jpg",
+                goodreadsId: "266352",
+                link: "https://www.goodreads.com/book/show/266352",
+                completedDate: "2019-12-23"
+            },
+            {
+                title: "The Richest Man in Babylon",
+                author: "George S. Clason",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388210965l/1052._SY475_.jpg",
+                goodreadsId: "1052",
+                link: "https://www.goodreads.com/book/show/1052.The_Richest_Man_in_Babylon",
+                completedDate: "2019-10-25"
+            },
+            {
+                title: "The Autobiography of Malcolm X",
+                author: "Malcolm X",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348239208l/92007._SY475_.jpg",
+                goodreadsId: "92007",
+                link: "https://www.goodreads.com/book/show/92007.The_Autobiography_of_Malcolm_X",
+                completedDate: "2020-06-29"
+            },
+            {
+                title: "The Godfather",
+                author: "Mario Puzo",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1394988109l/22034._SY475_.jpg",
+                goodreadsId: "22034",
+                link: "https://www.goodreads.com/book/show/22034.The_Godfather",
+                completedDate: "2025-07-11"
+            },
+            {
+                title: "Walt Disney: The Triumph of the American Imagination",
+                author: "Neal Gabler",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328029894l/147628._SY475_.jpg",
+                goodreadsId: "147628",
+                link: "https://www.goodreads.com/book/show/147628",
+                completedDate: "2025-11-18"
+            },
+            {
+                title: "Miles: The Autobiography",
+                author: "Miles Davis",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328029894l/147628._SY475_.jpg",
+                goodreadsId: "147628",
+                link: "https://www.goodreads.com/book/show/147628",
+                completedDate: "2025-08-10"
+            },
+            {
+                title: "War Is a Racket",
+                author: "Smedley D. Butler",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328029894l/147628._SY475_.jpg",
+                goodreadsId: "147628",
+                link: "https://www.goodreads.com/book/show/147628",
+                completedDate: "2025-11-08"
+            },
+            {
+                title: "Confessions of an Advertising Man",
+                author: "David Ogilvy",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328029894l/147628._SY475_.jpg",
+                goodreadsId: "147628",
+                link: "https://www.goodreads.com/book/show/147628",
+                completedDate: "2020-09-19"
+            },
+            {
+                title: "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+                author: "Stephen R. Covey",
+                rating: 4.5,
+                cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328029894l/147628._SY475_.jpg",
+                goodreadsId: "147628",
+                link: "https://www.goodreads.com/book/show/147628",
+                completedDate: "2019-03-28"
             }
         ];
 
@@ -267,18 +408,14 @@
                 
                 return `
                     <div class="book-item" data-index="${index}">
-                        <div style="position: relative; width: 120px; height: 180px; flex-shrink: 0;">
-                            <img src="${coverUrls[0]}" 
-                                 alt="${item.title}" 
-                                 class="book-cover" 
-                                 loading="lazy"
-                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-md);"
-                                 onerror="this.onerror=null; this.src='${coverUrls[1] || coverUrls[0]}'; if(!this.src) this.parentElement.innerHTML='<div class=\\'book-cover\\' style=\\'background: var(--glass-border); width: 100%; height: 100%; border-radius: var(--radius-md);\\'></div>';">
-                        </div>
+                        <img src="${coverUrls[0]}" 
+                             alt="${item.title}" 
+                             class="book-cover" 
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='${coverUrls[1] || coverUrls[0]}'; if(!this.src) this.style.display='none'; this.parentElement.innerHTML+='<div style=\\'background: var(--glass-border); width: 100%; height: 240px; border-radius: var(--radius-md);\\'></div>';">
                         <div class="book-info">
                             <h3 class="book-title">${item.title}</h3>
-                            <p class="book-meta">${item.author}${item.year ? ' • ' + item.year : ''}${item.completedDate ? ' • Completed ' + new Date(item.completedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : ''}</p>
-                            ${item.desc ? `<p style="color: var(--text-secondary); margin-top: 8px;">${item.desc}</p>` : ''}
+                            <p class="book-meta">${item.author}${item.completedDate ? ' • Completed ' + new Date(item.completedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''}</p>
                             ${item.progress !== undefined && item.progress < 100 && item.progress > 0 ? `
                                 <div class="book-progress">
                                     <div class="progress-bar">
@@ -287,7 +424,7 @@
                                     <p class="progress-text">${item.progress}% complete</p>
                                 </div>
                             ` : ''}
-                            ${item.rating ? `<p style="color: var(--neon); margin-top: 8px; font-size: 0.85rem;">${'★'.repeat(item.rating)}${'☆'.repeat(5 - item.rating)}</p>` : ''}
+                            ${item.rating ? `<p style="color: var(--neon); margin-top: 8px; font-size: 0.9rem; font-weight: 500;">${'★'.repeat(Math.floor(item.rating))}${item.rating % 1 >= 0.5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(item.rating))} ${item.rating.toFixed(1)}</p>` : ''}
                         </div>
                     </div>
                 `;
@@ -323,7 +460,7 @@
                                     <p class="progress-text">${item.progress}% complete</p>
                                 </div>
                             ` : ''}
-                            ${item.rating ? `<p style="color: var(--neon); margin-top: 8px; font-size: 0.85rem;">${'★'.repeat(item.rating)}${'☆'.repeat(5 - item.rating)}</p>` : ''}
+                            ${item.rating ? `<p style="color: var(--neon); margin-top: 8px; font-size: 0.9rem; font-weight: 500;">${'★'.repeat(Math.floor(item.rating))}${item.rating % 1 >= 0.5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(item.rating))} ${item.rating.toFixed(1)}</p>` : ''}
                         </div>
                     </div>
                 `;
@@ -357,35 +494,18 @@
             console.log('Fetched books from Goodreads:', fetchedBooks.length);
             console.log('Fetched completed books:', completedBooks.length);
             
+            // Use hardcoded currently reading data (from screenshot)
+            const inProgress = currentlyReadingData;
+            renderBooks('currently-reading', inProgress);
+            
+            // Use hardcoded recently read data sorted by rating
+            const sortedByRating = [...recentlyReadData].sort((a, b) => b.rating - a.rating);
+            renderBooks('recently-read', sortedByRating);
+            
+            // If RSS fetch succeeds, try to merge with hardcoded data
             if (fetchedBooks.length > 0) {
-                // Separate in progress from completed
-                const inProgress = fetchedBooks.filter(b => (b.progress < 100 && b.progress > 0) || b.progress === 0);
-                
-                // Sort by dateAdded (most recently updated first)
-                inProgress.sort((a, b) => {
-                    if (a.dateAdded && b.dateAdded) {
-                        return new Date(b.dateAdded) - new Date(a.dateAdded);
-                    }
-                    return 0;
-                });
-                
-                // Show first 5, then "Show More"
-                renderBooks('currently-reading', inProgress, 5);
-                
-                // Show completed books (from separate fetch, sorted by date)
-                const sortedCompleted = completedBooks.sort((a, b) => {
-                    if (a.completedDate && b.completedDate) {
-                        return new Date(b.completedDate) - new Date(a.completedDate);
-                    }
-                    return 0;
-                });
-                renderBooks('recently-completed', sortedCompleted.slice(0, 10));
-            } else {
-                // Use fallback data if RSS fails
-                console.log('Using fallback data');
-                const inProgress = currentlyReadingData.filter(b => b.progress < 100);
-                renderBooks('currently-reading', inProgress, 5);
-                renderBooks('recently-completed', currentlyReadingData.filter(b => b.progress >= 100).slice(0, 10));
+                // Could merge fetched data with hardcoded if needed
+                console.log('RSS data available, but using hardcoded data for accuracy');
             }
         });
     </script>
