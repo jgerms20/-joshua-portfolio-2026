@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Written | My Media Diet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
+            --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
+            --neon: #D4FF4F; --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7);
+            --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
+            --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); --max-width: 1400px;
+            --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; }
+        ::selection { background: var(--neon); color: var(--void); }
+        a { color: inherit; text-decoration: none; }
+
+        .back-nav {
+            position: fixed; top: 32px; left: 32px; z-index: 1000;
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 24px; background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(24px); border: 1px solid var(--glass-border);
+            border-radius: 9999px; color: var(--text-primary);
+            font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease;
+        }
+        .back-nav:hover { border-color: var(--neon); transform: translateX(-4px); }
+
+        .page-hero {
+            padding: calc(var(--edge) + 80px) var(--edge) var(--space-3xl);
+            text-align: center; max-width: var(--max-width); margin: 0 auto;
+        }
+        .page-title { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; line-height: 0.9; margin-bottom: var(--space-lg); }
+        .page-desc { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto var(--space-2xl); }
+        .letterboxd-link { display: inline-flex; align-items: center; gap: 8px; color: var(--neon); font-weight: 600; margin-top: var(--space-lg); transition: opacity 0.3s ease; }
+        .letterboxd-link:hover { opacity: 0.8; }
+
+        .section { padding: var(--space-3xl) var(--edge); max-width: var(--max-width); margin: 0 auto; }
+        .section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-xl); }
+        .article-list { display: flex; flex-direction: column; gap: var(--space-md); }
+        .article-item {
+            display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-lg);
+            padding: var(--space-lg); background: var(--surface); border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg); transition: all 0.3s ease;
+        }
+        .article-item:hover { border-color: var(--neon); transform: translateX(4px); }
+        .article-info { flex: 1; }
+        .article-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .article-meta { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; }
+        .article-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+        .article-link { flex-shrink: 0; opacity: 0.5; transition: opacity 0.3s ease; }
+        .article-item:hover .article-link { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index-gemini-ultra.html#media-diet" class="back-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to My Media Diet
+    </a>
+
+    <section class="page-hero">
+        <h1 class="page-title">Articles Written</h1>
+        <p class="page-desc">My published writing. Articles, essays, and pieces I've contributed to various publications.</p>
+        <a href="https://jgerms20.substack.com" target="_blank" class="letterboxd-link" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neon); font-weight: 600; margin-top: var(--space-lg);">
+            View My Substack
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Published Articles</h2>
+        <div class="article-list" id="articles-written">
+            <!-- Populate with articles -->
+        </div>
+    </section>
+
+    <script>
+        async function fetchRSSFeed(url) {
+            try {
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const response = await fetch(proxyUrl);
+                const data = await response.json();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data.contents, 'text/xml');
+                return xml;
+            } catch (error) {
+                console.error('Error fetching RSS:', error);
+                return null;
+            }
+        }
+
+        function parseSubstackItem(item) {
+            const title = item.querySelector('title')?.textContent || '';
+            const link = item.querySelector('link')?.textContent || '';
+            const pubDate = item.querySelector('pubDate')?.textContent || '';
+            const description = item.querySelector('description')?.textContent || '';
+            
+            // Extract description text (remove HTML tags)
+            const descText = description.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
+            
+            // Format date
+            const date = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+            
+            return { title, url: link, date, desc: descText, publication: 'Substack' };
+        }
+
+        function renderArticles(containerId, items) {
+            const container = document.getElementById(containerId);
+            if (!container || !items || items.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-secondary);">Loading articles...</p>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <a href="${item.url || '#'}" class="article-item" target="_blank">
+                    <div class="article-info">
+                        <h3 class="article-title">${item.title}</h3>
+                        <p class="article-meta">${item.publication}${item.date ? ' • ' + item.date : ''}</p>
+                        ${item.desc ? `<p class="article-desc">${item.desc}</p>` : ''}
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="article-link">
+                        <path d="M7 17L17 7M7 7h10v10"></path>
+                    </svg>
+                </a>
+            `).join('');
+        }
+
+        async function loadSubstackArticles() {
+            const rss = await fetchRSSFeed('https://jgerms20.substack.com/feed');
+            if (!rss) {
+                document.getElementById('articles-written').innerHTML = '<p style="color: var(--text-secondary);">Unable to load articles. Please check your Substack RSS feed.</p>';
+                return;
+            }
+
+            const items = Array.from(rss.querySelectorAll('item'));
+            const articles = items.map(parseSubstackItem);
+            renderArticles('articles-written', articles);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSubstackArticles();
+        });
+    </script>
+
+</body>
+</html>
+

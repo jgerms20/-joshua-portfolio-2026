@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recently Watched Film and TV | My Media Diet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index-gemini-ultra.html">
+    <style>
+        :root {
+            --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
+            --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
+            --neon: #D4FF4F; --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7);
+            --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
+            --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); --max-width: 1400px;
+            --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; }
+        ::selection { background: var(--neon); color: var(--void); }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        .back-nav {
+            position: fixed; top: 32px; left: 32px; z-index: 1000;
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 24px; background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(24px); border: 1px solid var(--glass-border);
+            border-radius: 9999px; color: var(--text-primary);
+            font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease;
+        }
+        .back-nav:hover { border-color: var(--neon); transform: translateX(-4px); }
+
+        .page-hero {
+            padding: calc(var(--edge) + 80px) var(--edge) var(--space-3xl);
+            text-align: center; max-width: var(--max-width); margin: 0 auto;
+        }
+        .page-title { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 6rem); font-weight: 400; line-height: 0.9; margin-bottom: var(--space-lg); }
+        .page-desc { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto var(--space-2xl); }
+        .letterboxd-link { display: inline-flex; align-items: center; gap: 8px; color: var(--neon); font-weight: 600; margin-top: var(--space-lg); }
+        .letterboxd-link:hover { opacity: 0.8; }
+
+        .section { padding: var(--space-3xl) var(--edge); max-width: var(--max-width); margin: 0 auto; }
+        .section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-xl); }
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-lg); }
+        .media-card { background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .media-card:hover { border-color: var(--neon); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(212, 255, 79, 0.2); }
+        .media-poster { width: 100%; aspect-ratio: 2/3; background: var(--glass-border); object-fit: cover; }
+        .media-info { padding: var(--space-md); flex: 1; display: flex; flex-direction: column; }
+        .media-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+        .media-meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px; }
+        .media-rating { font-size: 0.85rem; color: var(--neon); margin-bottom: 8px; }
+        .media-review-snippet { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; font-style: italic; border-left: 2px solid var(--neon); padding-left: 12px; margin-top: auto; }
+        .media-card-link { margin-top: var(--space-md); font-size: 0.8rem; color: var(--neon); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+
+        @media (max-width: 768px) {
+            .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
+            .media-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-md); }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../index-gemini-ultra.html#media-diet" class="back-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to My Media Diet
+    </a>
+
+    <section class="page-hero" style="background: linear-gradient(135deg, rgba(0, 215, 53, 0.1) 0%, rgba(0, 160, 40, 0.1) 100%); border-radius: var(--radius-xl); margin: calc(var(--edge) + 80px) var(--edge) var(--space-3xl); padding: var(--space-3xl);">
+        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-xl); margin-bottom: var(--space-xl); flex-wrap: wrap;">
+            <img src="https://a.ltrbxd.com/resized/avatar/upload/1/0/2/4/6/5/3/2/shard/avtr-0-220-0-220-crop.jpg?v=1" alt="Joshua German" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--neon); object-fit: cover; box-shadow: 0 8px 32px rgba(212, 255, 79, 0.3);" onerror="this.src='https://a.ltrbxd.com/resized/avatar/upload/1/0/2/4/6/5/3/2/shard/avtr-0-220-0-220-crop.jpg?v=1';">
+            <div style="text-align: left; flex: 1; min-width: 300px;">
+                <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+                    <img src="https://letterboxd.com/static/images/letterboxd-logo-v-neg-rgb.svg" alt="Letterboxd" style="height: 32px; filter: brightness(0) invert(1);">
+                </div>
+                <h1 class="page-title" style="margin-bottom: 0; font-size: clamp(2.5rem, 6vw, 4.5rem);">jgerms</h1>
+                <p class="page-desc" style="margin: var(--space-sm) 0 0 0; font-size: 1.1rem; color: var(--text-secondary);">Film & TV Diary</p>
+                <p class="page-desc" style="margin-top: var(--space-lg); max-width: 600px;">A curated collection of films and shows I've watched, reviewed, and loved. Click through to explore deeper on Letterboxd.</p>
+                <a href="https://letterboxd.com/jgerms/" target="_blank" class="letterboxd-link" style="display: inline-flex; align-items: center; gap: 8px; color: #00D735; font-weight: 600; margin-top: var(--space-lg); background: rgba(0, 215, 53, 0.1); padding: 12px 24px; border-radius: var(--radius-md); border: 1px solid rgba(0, 215, 53, 0.3);">
+                    View Full Profile on Letterboxd
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+            <h2 class="section-title" style="margin: 0;">My 4 Favorites</h2>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Essential viewing</span>
+        </div>
+        <div class="media-grid" id="favorites" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <!-- Interstellar, Speed Racer, Babylon, Knives Out -->
+        </div>
+    </section>
+
+    <section class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+            <h2 class="section-title" style="margin: 0;">Recently Watched</h2>
+            <a href="https://letterboxd.com/jgerms/films/" target="_blank" style="color: var(--neon); font-size: 0.9rem; font-weight: 600;">View All →</a>
+        </div>
+        <div class="media-grid" id="recently-watched">
+            <!-- Populate with recent films/TV -->
+        </div>
+    </section>
+
+    <section class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+            <h2 class="section-title" style="margin: 0;">Reviews & Logs</h2>
+            <a href="https://letterboxd.com/jgerms/reviews/" target="_blank" style="color: var(--neon); font-size: 0.9rem; font-weight: 600;">View All Reviews →</a>
+        </div>
+        <div class="media-grid" id="logged-items">
+            <!-- Populate with all logged items -->
+        </div>
+    </section>
+
+    <section class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xl);">
+            <h2 class="section-title" style="margin: 0;">Must Watches</h2>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Highly rated picks</span>
+        </div>
+        <div class="media-grid" id="must-watches">
+            <!-- Populate with must-watch recommendations -->
+        </div>
+    </section>
+
+    <script>
+        async function fetchRSSFeed(url) {
+            try {
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const response = await fetch(proxyUrl);
+                const data = await response.json();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data.contents, 'text/xml');
+                return xml;
+            } catch (error) {
+                console.error('Error fetching RSS:', error);
+                return null;
+            }
+        }
+
+        function parseLetterboxdItem(item) {
+            const title = item.querySelector('title')?.textContent || '';
+            const description = item.querySelector('description')?.textContent || '';
+            const link = item.querySelector('link')?.textContent || '';
+            const pubDate = item.querySelector('pubDate')?.textContent || '';
+            
+            // Extract poster image - try multiple patterns
+            let poster = null;
+            const imgMatch = description.match(/<img[^>]+src="([^"]+)"/);
+            if (imgMatch) {
+                poster = imgMatch[1];
+                // Ensure we get the full-size poster
+                poster = poster.replace(/-\d+-\d+-crop\.jpg/, '-0-230-0-345-crop.jpg');
+            }
+            
+            // Extract rating from description - Letterboxd uses star ratings
+            let rating = null;
+            // Look for "★" characters or "rated X/5"
+            const starMatch = description.match(/([★☆]+)/);
+            if (starMatch) {
+                const stars = starMatch[1];
+                rating = (stars.match(/★/g) || []).length;
+                // Check for half stars
+                if (stars.includes('½') || stars.includes('half')) {
+                    rating += 0.5;
+                }
+            } else {
+                const ratingMatch = description.match(/rated\s+(\d+(?:\.\d+)?)\s*(?:out of|/)\s*5/i);
+                if (ratingMatch) {
+                    rating = parseFloat(ratingMatch[1]);
+                }
+            }
+            
+            // Extract review text - improved parsing
+            let review = '';
+            // Try to get text content from description, removing HTML tags
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = description;
+            const textContent = tempDiv.textContent || tempDiv.innerText || '';
+            
+            // Look for review text after the poster image
+            const reviewMatch = textContent.match(/(?:watched|reviewed|logged).*?(?:\n|$)(.*?)(?:\n|$)/i);
+            if (reviewMatch && reviewMatch[1].trim().length > 10) {
+                review = reviewMatch[1].trim();
+            } else {
+                // Fallback: get all paragraph text
+                const paragraphs = tempDiv.querySelectorAll('p');
+                paragraphs.forEach(p => {
+                    const text = p.textContent.trim();
+                    if (text.length > 20 && !text.includes('http') && !text.includes('letterboxd')) {
+                        review = text;
+                    }
+                });
+            }
+            
+            // Extract year from title
+            const yearMatch = title.match(/\((\d{4})\)/);
+            const year = yearMatch ? yearMatch[1] : null;
+            
+            // Extract director/genre from description if available
+            const directorMatch = description.match(/directed by[^<]+/i);
+            const director = directorMatch ? directorMatch[0].replace(/directed by/i, '').trim() : null;
+            
+            return { title, poster, rating, year, link, pubDate, review, director };
+        }
+
+        function renderMedia(gridId, items, showReview = false) {
+            const grid = document.getElementById(gridId);
+            if (!grid || !items || items.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary);">Loading...</p>';
+                return;
+            }
+            grid.innerHTML = items.map(item => {
+                const stars = item.rating ? '★'.repeat(item.rating) + '☆'.repeat(5 - item.rating) : '';
+                const posterUrls = [
+                    item.poster,
+                    item.poster?.replace('https://a.ltrbxd.com/resized/', 'https://s.ltrbxd.com/photo/'),
+                    item.poster?.replace('https://s.ltrbxd.com/photo/', 'https://a.ltrbxd.com/resized/')
+                ].filter(Boolean);
+                
+                return `
+                    <div class="media-card">
+                        ${posterUrls.length > 0 ? `
+                            <img src="${posterUrls[0]}" 
+                                 alt="${item.title}" 
+                                 class="media-poster" 
+                                 loading="lazy"
+                                 onerror="this.onerror=null; this.src='${posterUrls[1] || ''}'; if(!this.src) this.parentElement.innerHTML='<div class=\\'media-poster\\' style=\\'background: var(--glass-border);\\'></div>';">
+                        ` : '<div class="media-poster" style="background: var(--glass-border);"></div>'}
+                        <div class="media-info">
+                            <h3 class="media-title">${item.title}</h3>
+                            <p class="media-meta">${[item.year, item.director].filter(Boolean).join(' • ')}</p>
+                            ${stars ? `<div class="media-rating">${stars}</div>` : ''}
+                            ${showReview && item.review ? `<div class="media-review-snippet">${item.review.substring(0, 150)}${item.review.length > 150 ? '...' : ''}</div>` : ''}
+                            <a href="${item.link || 'https://letterboxd.com/jgerms/'}" target="_blank" class="media-card-link">
+                                ${item.review ? 'Read Full Review' : 'View Log'} on Letterboxd 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function loadLetterboxdData() {
+            // Show loading states
+            document.getElementById('recently-watched').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">Loading films...</p>';
+            document.getElementById('logged-items').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">Loading reviews...</p>';
+            document.getElementById('must-watches').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">Loading recommendations...</p>';
+            
+            // Hardcoded favorites as requested
+            const favoritesData = [
+                { title: "Interstellar", year: "2014", poster: "https://a.ltrbxd.com/resized/film-poster/1/1/7/6/2/1/117621-interstellar-0-230-0-345-crop.jpg", rating: 5, director: "Christopher Nolan", link: "https://letterboxd.com/film/interstellar/" },
+                { title: "Speed Racer", year: "2008", poster: "https://a.ltrbxd.com/resized/sm/upload/09/be/yt/wi/speed-racer-0-230-0-345-crop.jpg", rating: 5, director: "Lana Wachowski, Lilly Wachowski", link: "https://letterboxd.com/film/speed-racer/" },
+                { title: "Babylon", year: "2022", poster: "https://a.ltrbxd.com/resized/film-poster/5/0/0/4/1/4/500414-babylon-0-230-0-345-crop.jpg", rating: 5, director: "Damien Chazelle", link: "https://letterboxd.com/film/babylon-2022/" },
+                { title: "Knives Out", year: "2019", poster: "https://a.ltrbxd.com/resized/film-poster/4/6/8/3/0/1/468301-knives-out-0-230-0-345-crop.jpg", rating: 5, director: "Rian Johnson", link: "https://letterboxd.com/film/knives-out/" }
+            ];
+            renderMedia('favorites', favoritesData, false);
+
+            // Fetch RSS feed for all logged films (always fetch fresh)
+            const rss = await fetchRSSFeed('https://letterboxd.com/jgerms/rss/');
+            
+            if (!rss) {
+                document.getElementById('recently-watched').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">Unable to load films. <a href="https://letterboxd.com/jgerms/" target="_blank" style="color: var(--neon);">Visit my Letterboxd profile</a> to see all my films.</p>';
+                document.getElementById('logged-items').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">Visit <a href="https://letterboxd.com/jgerms/reviews/" target="_blank" style="color: var(--neon);">my reviews page</a> to see all my reviews.</p>';
+                document.getElementById('must-watches').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">Visit <a href="https://letterboxd.com/jgerms/" target="_blank" style="color: var(--neon);">my Letterboxd profile</a> for recommendations.</p>';
+                return;
+            }
+
+            const items = Array.from(rss.querySelectorAll('item'));
+            const films = items.map(parseLetterboxdItem).filter(f => f.title);
+            
+            if (films.length === 0) {
+                document.getElementById('recently-watched').innerHTML = '<p style="grid-column: 1/-1; color: var(--text-secondary); text-align: center;">No films found. <a href="https://letterboxd.com/jgerms/" target="_blank" style="color: var(--neon);">Visit my Letterboxd profile</a>.</p>';
+                return;
+            }
+            
+            // Sort by date (most recent first)
+            films.sort((a, b) => {
+                const dateA = new Date(a.pubDate);
+                const dateB = new Date(b.pubDate);
+                return dateB - dateA;
+            });
+            
+            // Recently watched (first 24, most recent)
+            renderMedia('recently-watched', films.slice(0, 24), false);
+            
+            // All logged items with reviews (show all films with reviews)
+            const filmsWithReviews = films.filter(f => f.review && f.review.length > 10);
+            if (filmsWithReviews.length > 0) {
+                renderMedia('logged-items', filmsWithReviews.slice(0, 24), true);
+            } else {
+                // If no reviews found, show all films
+                renderMedia('logged-items', films.slice(0, 24), false);
+            }
+            
+            // Must watches (curated from highly rated)
+            const highlyRated = films.filter(f => f.rating && f.rating >= 4);
+            renderMedia('must-watches', highlyRated.length > 0 ? highlyRated.slice(0, 24) : films.slice(0, 24), true);
+        }
+
+        // Load data immediately and on page visibility change (refresh)
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLetterboxdData();
+        });
+        
+        // Refresh data when page becomes visible again
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                loadLetterboxdData();
+            }
+        });
+    </script>
+
+</body>
+</html>
+

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DoorDash All The Ads Super Bowl Campaign - Case Study by Joshua McKenzie German">
-    <title>DoorDash: All The Ads | Joshua McKenzie German</title>
+    <meta name="description" content="BMW Zeus & Hera Electric Vehicle Campaign - Case Study by Joshua McKenzie German">
+    <title>BMW: Zeus & Hera | Joshua McKenzie German</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
         :root {
             --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
             --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
-            --neon: #D4FF4F; --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.35);
+            --neon: #D4FF4F; --bmw-blue: #0066B1;
+            --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7); --text-muted: rgba(255, 255, 255, 0.35);
             --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
             --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px; --radius-pill: 9999px;
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); --max-width: 1400px; --content-width: 900px;
@@ -41,13 +41,18 @@
             position: relative; min-height: 90vh;
             display: flex; align-items: flex-end;
             padding: var(--edge); padding-bottom: 80px; overflow: hidden;
-            background: linear-gradient(135deg, #FF3008 0%, #C72000 100%);
+        }
+        .case-hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .case-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+        .case-hero-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, var(--void) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
         }
         .case-hero-content { position: relative; z-index: 1; max-width: var(--max-width); width: 100%; }
         .case-tag {
             display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
             font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
             letter-spacing: 0.12em; color: var(--text-primary); margin-bottom: 24px;
         }
@@ -55,7 +60,12 @@
             font-family: var(--font-display); font-size: clamp(3rem, 10vw, 7rem);
             font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px;
         }
-        .case-subtitle { font-size: 1.35rem; color: rgba(255,255,255,0.9); max-width: 600px; line-height: 1.6; }
+        .case-title .accent {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--bmw-blue), #00A2E8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .case-subtitle { font-size: 1.35rem; color: var(--text-secondary); max-width: 600px; line-height: 1.6; }
 
         .case-meta {
             display: flex; flex-wrap: wrap; gap: 48px; padding: 48px var(--edge);
@@ -71,22 +81,12 @@
         .case-section p { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
         .case-section p:last-child { margin-bottom: 0; }
 
-        .case-quote {
-            padding: 48px; background: var(--surface);
-            border-left: 4px solid #FF3008; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 48px 0;
-        }
-        .case-quote blockquote {
-            font-family: var(--font-display); font-size: 1.75rem; font-style: italic;
-            line-height: 1.5; color: var(--text-primary); margin-bottom: 20px;
-        }
-        .case-quote cite { font-size: 0.9rem; font-style: normal; color: var(--text-muted); }
-
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0; }
         .result-card {
             background: var(--surface); border: 1px solid var(--glass-border);
             border-radius: var(--radius-xl); padding: 40px; text-align: center;
         }
-        .result-value { font-size: 3rem; font-weight: 700; color: #FF3008; margin-bottom: 8px; }
+        .result-value { font-size: 3rem; font-weight: 700; color: var(--bmw-blue); margin-bottom: 8px; }
         .result-label { font-size: 0.9rem; color: var(--text-secondary); }
 
         .next-project { padding: 80px var(--edge); border-top: 1px solid var(--glass-border); text-align: center; }
@@ -102,20 +102,23 @@
 </head>
 <body>
 
-    <a href="index.html#work" class="back-nav">
+    <a href="../index.html#work" class="back-nav">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Back to Work
     </a>
 
     <section class="case-hero">
+        <div class="case-hero-bg">
+            <img src="Brand Imagery/BMW/Supporting Images/Arnold & Selma.jpg" alt="BMW iX - Arnold Schwarzenegger & Salma Hayek">
+        </div>
         <div class="case-hero-content">
-            <span class="case-tag">Super Bowl LVIII</span>
+            <span class="case-tag">Case Study</span>
             <h1 class="case-title">
-                DoorDash:<br>
-                All The Ads
+                BMW:<br>
+                <span class="accent">Zeus & Hera</span>
             </h1>
             <p class="case-subtitle">
-                Win everything from every Super Bowl ad. The campaign that broke the internet.
+                The Ultimate Electric Driving Machine. Mythology meets the future of mobility.
             </p>
         </div>
     </section>
@@ -123,94 +126,84 @@
     <div class="case-meta">
         <div class="meta-item">
             <span class="meta-label">Client</span>
-            <span class="meta-value">DoorDash</span>
+            <span class="meta-value">BMW North America</span>
         </div>
         <div class="meta-item">
             <span class="meta-label">Agency</span>
-            <span class="meta-value">Wieden+Kennedy</span>
+            <span class="meta-value">Goodby Silverstein & Partners</span>
         </div>
         <div class="meta-item">
             <span class="meta-label">Role</span>
-            <span class="meta-value">Media & Communications Strategist</span>
+            <span class="meta-value">Communications Strategist</span>
         </div>
         <div class="meta-item">
             <span class="meta-label">Year</span>
-            <span class="meta-value">2023 – 2024</span>
-        </div>
-        <div class="meta-item">
-            <span class="meta-label">Awards</span>
-            <span class="meta-value" style="color: #FFD700;">🏆 Cannes Grand Prix</span>
+            <span class="meta-value">2022</span>
         </div>
         <div class="meta-item">
             <span class="meta-label">Scope</span>
-            <span class="meta-value">Super Bowl Activation</span>
+            <span class="meta-value">Super Bowl Campaign</span>
         </div>
     </div>
 
     <div class="case-content">
         <section class="case-section">
             <h2 class="case-section-title">The Challenge</h2>
-            <p>Super Bowl advertising is the ultimate brand flexing arena. With 30-second spots costing $7 million+, every brand brings their A-game. The challenge? DoorDash needed to stand out in the most crowded advertising moment of the year—with a budget fraction of the competition.</p>
+            <p>BMW was entering the electric vehicle market with the iX. But the EV space was crowded with tech-first messaging from Tesla and new entrants. BMW needed to reassert its brand DNA—"The Ultimate Driving Machine"—in an electric context.</p>
+            <p>The question: How do you prove that BMW hasn't lost its soul in the transition to electric?</p>
         </section>
 
         <section class="case-section">
             <h2 class="case-section-title">The Insight</h2>
-            <p>Everyone watches Super Bowl ads. But no one remembers them all. What if instead of competing for attention, we created the ultimate reason to pay attention to every single ad?</p>
-            <p>DoorDash delivers everything. Why not prove it by delivering everything from every Super Bowl ad?</p>
+            <p>For centuries, lightning has been synonymous with power, awe, and the divine. Zeus wielded it. Now BMW harnesses it. The parallel was irresistible: if Zeus had to give up his thunderbolt, where would all that power go?</p>
+            <p>Into the BMW iX.</p>
         </section>
-
-        <div class="case-quote">
-            <blockquote>
-                "We're giving away literally everything advertised in every Super Bowl commercial. Yes, all of it."
-            </blockquote>
-            <cite>— DoorDash All The Ads</cite>
-        </div>
 
         <section class="case-section">
             <h2 class="case-section-title">The Execution</h2>
-            <p>We partnered with every brand advertising during the Super Bowl to include their products in one massive giveaway. Viewers had to spot a special promo code hidden in DoorDash's own spot, enter it, and they'd be entered to win everything—from cars to snacks to streaming subscriptions.</p>
-            <p>The result was a campaign that made people watch every single ad with fresh eyes, transformed the passive Super Bowl viewing experience into an active hunt, and positioned DoorDash as the ultimate delivery platform.</p>
+            <p>We recruited Arnold Schwarzenegger and Salma Hayek to play Zeus and Hera—Greek gods forced into retirement in a world that's gone electric. The spot premiered during Super Bowl LVI and featured Zeus discovering his new source of power: the all-electric BMW iX.</p>
+            <p>The campaign extended across digital, social, and experiential, with Zeus "taking over" BMW's social channels and appearing at key automotive events.</p>
         </section>
 
         <section class="case-section">
             <h2 class="case-section-title">My Role</h2>
-            <p>As Media & Communications Strategist at Wieden+Kennedy, I was embedded in the war room that made this audacious idea a reality. I helped coordinate outreach to the dozens of brands advertising during Super Bowl LVIII, pitching our concept and securing the prize partnerships that would fuel the sweepstakes. It was like running a diplomatic mission across the advertising industry—convincing competitors to collaborate for something bigger than any single brand.</p>
-            <p>On game day, I helped orchestrate our real-time social response, monitoring every commercial break and ensuring we capitalized on each ad moment with timely, relevant content. I contributed to the media strategy that amplified the spot's brilliant meta-commentary across platforms, and I helped develop the post-game PR push that kept DoorDash in headlines for days after the final whistle. The result? A Cannes Grand Prix, $50M+ in earned media, and the satisfaction of being part of the team that broke the internet.</p>
+            <p>As Communications Strategist at Goodby, Silverstein & Partners, I contributed to the cultural strategy that amplified "Zeus & Hera" beyond the Super Bowl broadcast. I helped map the pre-launch buzz strategy—identifying teaser moments and earned media opportunities that would build anticipation before the big game.</p>
+            <p>I developed social listening frameworks that allowed our team to respond in real-time to viewer reactions, turning organic conversation into amplification opportunities. I also contributed to the post-game strategy, ensuring we extended the campaign's momentum across digital platforms in the days following the Super Bowl. The spot became a viral sensation with over 50 million views in its first week—proving BMW's electric future is just as thrilling as its legendary past.</p>
         </section>
 
         <!-- Campaign Video -->
         <section class="case-section">
             <h2 class="case-section-title">The Spot</h2>
             <div style="background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; max-width: 700px; margin: 32px auto;">
-                <div style="position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/DTLM5o-9hYg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <div style="padding: 16px; text-align: center;"><p style="font-size: 0.9rem; color: var(--text-secondary);">"All The Ads" Super Bowl Spot</p></div>
+                <div style="position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/nUC1QA5gRcU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <div style="padding: 16px; text-align: center;"><p style="font-size: 0.9rem; color: var(--text-secondary);">"Zeus & Hera" Super Bowl LVI Spot</p></div>
             </div>
         </section>
 
         <div class="results-grid">
             <div class="result-card">
-                <div class="result-value">6.8B</div>
-                <div class="result-label">Impressions</div>
+                <div class="result-value">5.2B</div>
+                <div class="result-label">Total Impressions</div>
             </div>
             <div class="result-card">
-                <div class="result-value">$50M+</div>
-                <div class="result-label">Earned Media</div>
+                <div class="result-value">Top 5</div>
+                <div class="result-label">Super Bowl Ad Ranking</div>
             </div>
             <div class="result-card">
-                <div class="result-value">#1</div>
-                <div class="result-label">Most Talked About Ad</div>
+                <div class="result-value">48%</div>
+                <div class="result-label">Lift in iX Consideration</div>
             </div>
         </div>
 
         <section class="case-section">
             <h2 class="case-section-title">The Impact</h2>
-            <p>All The Ads became the most talked-about campaign of Super Bowl LVIII. It won the AdMeter. It crashed X (Twitter). It proved that smart strategy can beat big budgets. And most importantly, it reinforced DoorDash's core value proposition in the most memorable way possible: we deliver everything.</p>
+            <p>Zeus & Hera became one of the most memorable Super Bowl campaigns of 2022. More importantly, it successfully repositioned BMW's electric offerings as worthy successors to the brand's legendary performance heritage—proof that going electric doesn't mean going boring.</p>
         </section>
     </div>
 
     <div class="next-project">
         <p class="next-project-label">Next Project</p>
-        <a href="work-bmw.html" class="next-project-link">BMW: Zeus & Hera →</a>
+        <a href="work-directv.html" class="next-project-link">DIRECTV: Emmys Hijack →</a>
     </div>
 
 </body>
