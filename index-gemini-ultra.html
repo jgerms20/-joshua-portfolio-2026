@@ -1981,8 +1981,10 @@
                 
                 <style>
                     .journey-timeline {
+                        display: flex;
                         position: relative;
                         padding: var(--space-2xl) 0;
+                        min-height: 600px;
                     }
                     
                     .timeline-track {
@@ -2026,6 +2028,13 @@
                         gap: var(--space-xl);
                         position: relative;
                         z-index: 1;
+                        max-width: 50%;
+                    }
+                    
+                    .journey-timeline {
+                        display: flex;
+                        position: relative;
+                        min-height: 600px;
                     }
                     
                     .timeline-track {
@@ -2138,6 +2147,7 @@
                         margin-top: var(--space-lg);
                         position: relative;
                         z-index: 10;
+                        flex: 1;
                     }
                     
                     .timeline-stop.branch .stop-content {
@@ -2181,33 +2191,61 @@
                     }
                     
                     .stop-expanded {
-                        max-height: 0;
+                        max-width: 0;
                         overflow: hidden;
                         opacity: 0;
-                        margin-top: 0;
+                        margin-left: 0;
                         transition: all 0.4s var(--ease-out-expo);
-                        position: relative;
-                        z-index: 10;
+                        position: absolute;
+                        left: 100%;
+                        top: 0;
+                        z-index: 20;
+                        white-space: nowrap;
                     }
                     
                     .timeline-stop.expanded .stop-expanded {
-                        max-height: 250px;
+                        max-width: 400px;
                         opacity: 1;
-                        margin-top: 16px;
+                        margin-left: var(--space-xl);
+                        white-space: normal;
                     }
                     
                     .stop-expanded p {
-                        font-size: 0.8rem;
+                        font-size: 0.85rem;
                         color: var(--text-secondary);
                         line-height: 1.6;
-                        padding: 16px;
+                        padding: 20px;
                         background: var(--surface);
-                        border-radius: var(--radius-md);
+                        border-radius: var(--radius-lg);
                         border: 1px solid var(--glass-border);
-                        box-shadow: var(--shadow-md);
-                        max-width: 260px;
-                        margin: 0 auto;
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+                        width: 380px;
                         position: relative;
+                        margin: 0;
+                    }
+                    
+                    .stop-expanded p::before {
+                        content: '';
+                        position: absolute;
+                        left: -8px;
+                        top: 24px;
+                        width: 0;
+                        height: 0;
+                        border-top: 8px solid transparent;
+                        border-bottom: 8px solid transparent;
+                        border-right: 8px solid var(--glass-border);
+                    }
+                    
+                    .stop-expanded p::after {
+                        content: '';
+                        position: absolute;
+                        left: -7px;
+                        top: 24px;
+                        width: 0;
+                        height: 0;
+                        border-top: 8px solid transparent;
+                        border-bottom: 8px solid transparent;
+                        border-right: 8px solid var(--surface);
                     }
                     
                     .timeline-stop.expanded .stop-dot {
@@ -2239,6 +2277,10 @@
                         .timeline-stops {
                             flex-direction: column;
                             gap: var(--space-xl);
+                            max-width: 100%;
+                        }
+                        .journey-timeline {
+                            flex-direction: column;
                         }
                         .timeline-track {
                             width: 2px;
@@ -2256,8 +2298,24 @@
                         .stop-dot {
                             margin-bottom: 0;
                         }
-                        .stop-expanded p {
+                        .stop-expanded {
+                            position: static;
                             max-width: 100%;
+                            margin-left: 0;
+                            margin-top: 16px;
+                        }
+                        .timeline-stop.expanded .stop-expanded {
+                            max-width: 100%;
+                            margin-left: 0;
+                            margin-top: 16px;
+                        }
+                        .stop-expanded p {
+                            width: 100%;
+                            max-width: 100%;
+                        }
+                        .stop-expanded p::before,
+                        .stop-expanded p::after {
+                            display: none;
                         }
                     }
                 </style>
@@ -2565,7 +2623,7 @@
                 </a>
 
                 <!-- Curious & Creative - Coming Soon -->
-                <div class="podcast-card reveal reveal-delay-2" style="position: relative; cursor: default;">
+                <a href="podcasts/podcast-curious-creative.html" class="podcast-card reveal reveal-delay-2" style="position: relative;">
                     <div class="coming-soon-overlay">
                         <span class="coming-soon-badge">Coming Soon</span>
                         <span class="coming-soon-year">2026</span>
@@ -2581,6 +2639,10 @@
                 </div>
                 
                 <style>
+                    .podcast-card .coming-soon-overlay {
+                        pointer-events: none;
+                    }
+                    
                     .coming-soon-overlay {
                         position: absolute;
                         inset: 0;
