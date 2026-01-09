@@ -348,23 +348,41 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-            // Fetch from Goodreads RSS (always fetch fresh data)
+            // Always fetch fresh data from Goodreads RSS
             const [fetchedBooks, completedBooks] = await Promise.all([
                 fetchGoodreadsCurrentlyReading(),
                 fetchGoodreadsCompleted()
             ]);
             
+            console.log('Fetched books from Goodreads:', fetchedBooks.length);
+            console.log('Fetched completed books:', completedBooks.length);
+            
             if (fetchedBooks.length > 0) {
                 // Separate in progress from completed
-                const inProgress = fetchedBooks.filter(b => b.progress < 100 || b.progress === 0);
+                const inProgress = fetchedBooks.filter(b => (b.progress < 100 && b.progress > 0) || b.progress === 0);
+                
+                // Sort by dateAdded (most recently updated first)
+                inProgress.sort((a, b) => {
+                    if (a.dateAdded && b.dateAdded) {
+                        return new Date(b.dateAdded) - new Date(a.dateAdded);
+                    }
+                    return 0;
+                });
                 
                 // Show first 5, then "Show More"
                 renderBooks('currently-reading', inProgress, 5);
                 
-                // Show completed books (from separate fetch)
-                renderBooks('recently-completed', completedBooks.length > 0 ? completedBooks : fetchedBooks.filter(b => b.progress >= 100).slice(0, 10));
+                // Show completed books (from separate fetch, sorted by date)
+                const sortedCompleted = completedBooks.sort((a, b) => {
+                    if (a.completedDate && b.completedDate) {
+                        return new Date(b.completedDate) - new Date(a.completedDate);
+                    }
+                    return 0;
+                });
+                renderBooks('recently-completed', sortedCompleted.slice(0, 10));
             } else {
-                // Use fallback data
+                // Use fallback data if RSS fails
+                console.log('Using fallback data');
                 const inProgress = currentlyReadingData.filter(b => b.progress < 100);
                 renderBooks('currently-reading', inProgress, 5);
                 renderBooks('recently-completed', currentlyReadingData.filter(b => b.progress >= 100).slice(0, 10));

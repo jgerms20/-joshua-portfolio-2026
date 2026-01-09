@@ -263,6 +263,14 @@
             position: relative;
             overflow: hidden;
         }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: calc(var(--edge) + 90px);
+                min-height: auto;
+                padding-bottom: var(--space-3xl);
+            }
+        }
 
         /* Gradient Orbs Background */
         .hero::before {
@@ -1456,8 +1464,32 @@
            ===================================================== */
         
         @media (max-width: 1200px) {
-            .hero-grid { grid-template-columns: 1fr; gap: var(--space-3xl); }
-            .photo-rotator { max-width: 400px; margin: 0 auto; }
+            .hero-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: var(--space-2xl);
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            
+            .hero-text {
+                order: 1;
+                width: 100%;
+            }
+            
+            .photo-rotator { 
+                order: 2;
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: var(--space-xl) 0 0 0 !important;
+                margin-left: 0 !important;
+                margin-top: var(--space-xl) !important;
+            }
+            
+            .hero-stats {
+                order: 3;
+                margin-top: var(--space-xl);
+                width: 100%;
+            }
             .about-layout { grid-template-columns: 1fr; }
             .about-photo-placeholder { max-width: 400px; margin: 0 auto; }
             .bento-card { grid-column: span 6; }
@@ -1471,29 +1503,40 @@
         @media (max-width: 768px) {
             :root { --edge: 20px; }
             
+            body {
+                padding-top: 70px; /* Add padding to prevent content from being hidden under fixed header */
+            }
+            
             .top-header {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                padding: 16px var(--edge);
+                padding: 12px var(--edge);
                 background: rgba(3,3,4,0.98);
                 backdrop-filter: blur(20px);
+                height: 70px;
+                box-sizing: border-box;
             }
             
             .header-left {
                 flex: 1;
                 min-width: 0;
+                margin-right: var(--space-md);
             }
             
             .descriptor {
-                font-size: 0.75rem;
-                letter-spacing: 0.1em;
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                line-height: 1.3;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
                 overflow: hidden;
-                text-overflow: ellipsis;
             }
             
             .mobile-menu-toggle {
                 display: flex;
+                flex-shrink: 0;
             }
             
             .header-nav {
@@ -1503,17 +1546,18 @@
             .header-nav.mobile-active {
                 display: flex;
                 position: fixed;
-                top: 0;
+                top: 70px;
                 left: 0;
                 right: 0;
                 bottom: 0;
                 flex-direction: column;
                 background: rgba(3,3,4,0.98);
                 backdrop-filter: blur(20px);
-                padding: 80px var(--edge) var(--edge);
+                padding: var(--space-xl) var(--edge);
                 z-index: 1000;
                 overflow-y: auto;
                 gap: var(--space-lg);
+                align-items: flex-start;
             }
             
             .header-nav.mobile-active > a,
@@ -1531,6 +1575,12 @@
                 box-shadow: none;
                 border: none;
                 background: transparent;
+                padding: 0;
+            }
+            
+            .header-nav.mobile-active .nav-dropdown-menu a {
+                padding: var(--space-sm) var(--space-md);
+                font-size: 0.9rem;
             }
             
             .bento-card { grid-column: span 12 !important; }
@@ -1653,7 +1703,7 @@
                 </div>
             </div>
             
-            <a href="#media-diet" onclick="document.getElementById('media-diet').scrollIntoView({behavior: 'smooth'}); return false;">Media Consumption</a>
+            <a href="#media-diet">Media Consumption</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
