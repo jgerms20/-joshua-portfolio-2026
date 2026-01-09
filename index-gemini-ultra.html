@@ -3129,9 +3129,9 @@
                 const letterboxdRSS = await fetchRSSFeed('https://letterboxd.com/jgerms/rss/');
                 if (letterboxdRSS) {
                     const films = parseLetterboxdRSS(letterboxdRSS);
-                    const filmsPreview = document.getElementById('films-preview');
+                    const filmsPreview = document.getElementById('films-preview-rss');
                     if (filmsPreview && films.length > 0) {
-                        filmsPreview.innerHTML = films.map(film => 
+                        filmsPreview.innerHTML = films.slice(0, 12).map(film => 
                             film.poster ? `<img src="${film.poster}" alt="${film.title}" loading="lazy">` : '<div style="background: var(--glass-border);"></div>'
                         ).join('');
                     }
@@ -3141,9 +3141,9 @@
                 const substackRSS = await fetchRSSFeed('https://jgerms20.substack.com/feed');
                 if (substackRSS) {
                     const articles = parseSubstackRSS(substackRSS);
-                    const articlesPreview = document.getElementById('articles-written-preview');
+                    const articlesPreview = document.getElementById('articles-written-preview-rss');
                     if (articlesPreview && articles.length > 0) {
-                        articlesPreview.innerHTML = articles.map(article => 
+                        articlesPreview.innerHTML = articles.slice(0, 6).map(article => 
                             article.image ? `<img src="${article.image}" alt="${article.title}" loading="lazy">` : '<div style="background: var(--glass-border);"></div>'
                         ).join('');
                     }
