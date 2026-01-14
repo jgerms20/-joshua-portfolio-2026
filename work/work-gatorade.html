@@ -107,14 +107,77 @@
         .case-section p:last-child { margin-bottom: 0; }
 
         .case-quote {
-            padding: 48px; background: var(--surface);
-            border-left: 4px solid var(--gatorade-orange); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 48px 0;
+            position: relative;
+            padding: 32px;
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            margin: 48px 0;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s var(--ease-out-expo);
         }
+
+        .case-quote.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .case-quote.right {
+            margin-left: auto;
+            transform: translateX(50px);
+        }
+
+        .case-quote.right.visible {
+            transform: translateX(0);
+        }
+
+        .case-quote::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--gatorade-orange);
+            border-radius: 50%;
+            top: -20px;
+            left: -20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .case-quote.right::before {
+            left: auto;
+            right: -20px;
+        }
+
         .case-quote blockquote {
-            font-family: var(--font-display); font-size: 1.75rem; font-style: italic;
-            line-height: 1.5; color: var(--text-primary); margin-bottom: 20px;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            position: relative;
         }
-        .case-quote cite { font-size: 0.9rem; font-style: normal; color: var(--text-muted); }
+
+        .case-quote blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            font-size: 4rem;
+            color: var(--gatorade-orange);
+            opacity: 0.3;
+            font-family: var(--font-display);
+            line-height: 1;
+        }
+
+        .case-quote cite {
+            font-size: 0.9rem;
+            font-style: normal;
+            color: var(--text-muted);
+        }
 
         .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0; }
         .video-card {

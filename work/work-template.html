@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Levi's x Beyoncé REIIMAGINE Campaign - Case Study by Joshua McKenzie German">
+    <title>Levi's: REIIMAGINE | Joshua McKenzie German</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --void: #030304;
+            --abyss: #0a0a0c;
+            --obsidian: #111114;
+            --surface: #18181c;
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --glass-hover: rgba(255, 255, 255, 0.1);
+            --neon: #D4FF4F;
+            --neon-glow: rgba(212, 255, 79, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.35);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --edge: clamp(24px, 6vw, 80px);
+            --radius-lg: 20px;
+            --radius-xl: 32px;
+            --radius-pill: 9999px;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --max-width: 1400px;
+            --content-width: 900px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--void);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        ::selection { background: var(--neon); color: var(--void); }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        /* Back Button */
+        .back-nav {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            background: rgba(10, 10, 12, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .back-nav:hover {
+            color: var(--text-primary);
+            background: var(--glass-hover);
+            transform: translateX(-4px);
+        }
+
+        .back-nav svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Hero */
+        .case-hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: flex-end;
+            padding: var(--edge);
+            padding-bottom: 80px;
+            overflow: hidden;
+        }
+
+        .case-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .case-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .case-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--void) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .case-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: var(--max-width);
+            width: 100%;
+        }
+
+        .case-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-pill);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .case-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 400;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .case-title .accent {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--neon), #a8e063);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Metadata Bar */
+        .case-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            padding: 48px var(--edge);
+            border-bottom: 1px solid var(--glass-border);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .case-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Content */
+        .case-content {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 80px var(--edge);
+        }
+
+        .case-section {
+            margin-bottom: 64px;
+        }
+
+        .case-section-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .case-section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .case-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Image Gallery */
+        .case-gallery {
+            display: grid;
+            gap: 24px;
+            margin: 64px 0;
+        }
+
+        .case-gallery.two-col {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .case-gallery img { aspect-ratio: 1; object-fit: cover;
+            width: 100%;
+            border-radius: var(--radius-lg);
+        }
+
+        .case-gallery-full {
+            margin: 64px calc(-1 * var(--edge));
+        }
+
+        .case-gallery-full img {
+            width: 100%;
+            border-radius: 0;
+        }
+
+        /* Results */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin: 48px auto;
+            max-width: var(--max-width);
+            padding: 0 var(--edge);
+        }
+
+        .result-card {
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .results-grid {
+            max-width: var(--max-width);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--neon);
+            margin-bottom: 8px;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Quote */
+        .case-quote {
+            position: relative;
+            padding: 32px;
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            margin: 48px 0;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        .case-quote.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .case-quote.right {
+            margin-left: auto;
+            transform: translateX(50px);
+        }
+
+        .case-quote.right.visible {
+            transform: translateX(0);
+        }
+
+        .case-quote::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--neon);
+            border-radius: 50%;
+            top: -20px;
+            left: -20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .case-quote.right::before {
+            left: auto;
+            right: -20px;
+        }
+
+        .case-quote blockquote {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .case-quote blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            font-size: 4rem;
+            color: var(--neon);
+            opacity: 0.3;
+            font-family: var(--font-display);
+            line-height: 1;
+        }
+
+        .case-quote cite {
+            font-size: 0.9rem;
+            font-style: normal;
+            color: var(--text-muted);
+        }
+
+        /* Next Project */
+        .next-project {
+            padding: 80px var(--edge);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .next-project-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .next-project-link {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .next-project-link:hover {
+            color: var(--neon);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-meta { gap: 32px; }
+            .results-grid { grid-template-columns: 1fr; }
+            .case-gallery.two-col { grid-template-columns: 1fr; }
+            .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
+            .case-quote { max-width: 100%; margin-left: 0 !important; }
+            .case-quote.right { margin-left: 0; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quotes = document.querySelectorAll('.case-quote');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            quotes.forEach(quote => observer.observe(quote));
+        });
+    </script>
+</head>
+<body>
+
+    <a href="../index.html#work" class="back-nav">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Work
+    </a>
+
+    <section class="case-hero">
+        <div class="case-hero-bg">
+            <img src="https://www.levistrauss.com/wp-content/uploads/2024/09/240930_Blu_Hero.jpg" alt="Levi's REIIMAGINE Campaign with Beyoncé">
+        </div>
+        <div class="case-hero-content">
+            <span class="case-tag">
+                <span>Featured Case Study</span>
+            </span>
+            <h1 class="case-title">
+                Levi's x Beyoncé:<br>
+                <span class="accent">REIIMAGINE</span>
+            </h1>
+            <p class="case-subtitle">
+                Redefining American heritage through a modern lens. A cultural reset for the denim icon.
+            </p>
+        </div>
+    </section>
+
+    <div class="case-meta">
+        <div class="meta-item">
+            <span class="meta-label">Client</span>
+            <span class="meta-value">Levi Strauss & Co.</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Agency</span>
+            <span class="meta-value">TBWA\Chiat\Day LA</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Senior Connection Strategist</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">2024 – 2025</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Scope</span>
+            <span class="meta-value">Global Campaign</span>
+        </div>
+    </div>
+
+    <div class="case-content">
+        <section class="case-section">
+            <h2 class="case-section-title">The Challenge</h2>
+            <p>Levi's is an American icon. But even icons can lose their edge. In a market flooded with denim brands chasing trends, Levi's needed to reassert its cultural relevance—not by chasing the zeitgeist, but by defining it.</p>
+            <p>The question was: How do you honor 170+ years of heritage while speaking to a new generation that demands authenticity and cultural resonance?</p>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">The Insight</h2>
+            <p>American heritage isn't static. It's constantly being rewritten, reimagined, and reclaimed. The stories we tell about who we are as a nation are living documents—and the most powerful voices are the ones redefining them.</p>
+            <p>Beyoncé's "Cowboy Carter" wasn't just an album; it was a cultural statement. A reclamation of country music's Black roots. A reimagining of Americana. The perfect partner to help Levi's tell a new story about what American heritage means today.</p>
+        </section>
+
+        <div class="case-quote" data-quote="challenge">
+            <blockquote>
+                We are excited to partner with Beyoncé to create new interpretations of some of our brand's most iconic images. For almost 150 years, our jeans have been worn by people who change culture.
+            </blockquote>
+            <cite>— Kenny Mitchell, Global Chief Marketing Officer, Levi's</cite>
+        </div>
+        
+        <div class="case-quote right" data-quote="insight" style="margin-top: 32px;">
+            <blockquote>
+                Beyoncé is a visionary creative who continues to shape culture by challenging conventions. REIIMAGINE is a celebration of the Levi's brand, building on those heritage moments and making them feel relevant for today.
+            </blockquote>
+            <cite>— Kenny Mitchell, CMO, Levi Strauss & Co.</cite>
+        </div>
+
+        <section class="case-section">
+            <h2 class="case-section-title">The Strategy</h2>
+            <p>Rather than a traditional celebrity endorsement, we positioned the partnership as a cultural conversation. Beyoncé wasn't just wearing Levi's—she was helping rewrite what the brand represents.</p>
+            <p>REIIMAGINE became the creative platform: an invitation for everyone to reimagine American heritage through their own lens. The double "I" represented both the individual and the collective—personal identity and shared culture.</p>
+        </section>
+
+        <section class="case-section">
+            <h2 class="case-section-title">My Role</h2>
+            <p>As Senior Connections Strategist at TBWA\Chiat\Day LA, I architected the channel strategy that brought REIIMAGINE to life across a global, multi-platform ecosystem. I led the strategic sequencing of our content rollout—carefully timing each chapter reveal (Launderette, Pool Hall, Refrigerator, Denim Cowboy) to build anticipation and sustain cultural conversation for weeks, not just moments.</p>
+            <p>I developed the media framework that balanced reaching the BeyHive's fervent engagement with broader audience acquisition. I identified key cultural tentpole moments to amplify our message, coordinated with PR to maximize earned media potential, and worked with our social team to develop real-time response playbooks for when the internet inevitably lost its mind. My connections strategy helped spark $65M+ in earned media within 48 hours and drove a 19.87% increase in U.S. store traffic—proving that when you pair an icon with an icon, magic happens.</p>
+        </section>
+
+        <!-- Campaign Videos -->
+        <section class="case-section">
+            <h2 class="case-section-title">The Work</h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0;">
+                <div style="background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/q40oimgnN00" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <div style="padding: 16px;"><p style="font-size: 0.9rem; color: var(--text-secondary);">Launderette</p></div>
+                </div>
+                <div style="background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/y2o2FuqMtxI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <div style="padding: 16px;"><p style="font-size: 0.9rem; color: var(--text-secondary);">Pool Hall</p></div>
+                </div>
+                <div style="background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/CaJCypvWZoQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <div style="padding: 16px;"><p style="font-size: 0.9rem; color: var(--text-secondary);">Refrigerator</p></div>
+                </div>
+                <div style="background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/LwojYvqomhU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <div style="padding: 16px;"><p style="font-size: 0.9rem; color: var(--text-secondary);">The Denim Cowboy</p></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-value">$65M+</div>
+                <div class="result-label">Earned Media Value (48 hours)</div>
+            </div>
+            <div class="result-card">
+                <div class="result-value">4.3B+</div>
+                <div class="result-label">Total Impressions</div>
+            </div>
+            <div class="result-card">
+                <div class="result-value">19.87%</div>
+                <div class="result-label">US Store Traffic Increase</div>
+            </div>
+            <div class="result-card">
+                <div class="result-value">8%</div>
+                <div class="result-label">Global Sales Increase</div>
+            </div>
+        </div>
+
+        <section class="case-section">
+            <h2 class="case-section-title">The Impact</h2>
+            <p>REIIMAGINE became more than a campaign—it became a cultural moment. Within 48 hours of launch, the campaign generated over $65M in earned media value and 4.3 billion impressions worldwide.</p>
+            <p>The partnership drove an 8% increase in global sales and a nearly 20% spike in US store traffic. Most importantly, it repositioned Levi's as a brand that doesn't just reflect culture but actively shapes it—proving that 170+ years of heritage can feel as fresh as tomorrow.</p>
+        </section>
+        
+        <section class="case-section">
+            <h2 class="case-section-title">In The Press</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px;">
+                <a href="https://www.adweek.com/brand-marketing/beyonce-is-the-ultimate-canvas-for-levis-reimagine-campaign/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius-pill); font-size: 0.85rem; color: var(--text-secondary); transition: all 0.3s ease;">
+                    <span>AdWeek</span> →
+                </a>
+                <a href="https://www.levistrauss.com/2024/09/30/levis-and-beyonce-reiimagine-campaign/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius-pill); font-size: 0.85rem; color: var(--text-secondary); transition: all 0.3s ease;">
+                    <span>Levi Strauss & Co.</span> →
+                </a>
+                <a href="https://www.nytimes.com/2024/09/30/style/beyonce-levis-ads.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius-pill); font-size: 0.85rem; color: var(--text-secondary); transition: all 0.3s ease;">
+                    <span>New York Times</span> →
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="next-project">
+        <p class="next-project-label">Next Project</p>
+        <a href="work-sephora.html" class="next-project-link">Sephora: We Belong →</a>
+    </div>
+
+</body>
+</html>
