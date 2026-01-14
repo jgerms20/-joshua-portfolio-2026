@@ -4239,10 +4239,12 @@
             let currentIndex = 0;
             let autoRotateInterval;
             
-            // Create indicators
+            // Create numbered indicators
             slides.forEach((_, index) => {
                 const indicator = document.createElement('div');
                 indicator.className = 'carousel-indicator';
+                indicator.textContent = index + 1;
+                indicator.setAttribute('aria-label', `Go to project ${index + 1}`);
                 if (index === 0) indicator.classList.add('active');
                 indicator.addEventListener('click', () => goToSlide(index));
                 indicatorsContainer.appendChild(indicator);
