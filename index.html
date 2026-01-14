@@ -329,11 +329,24 @@
             display: flex;
             flex-direction: column;
             gap: var(--space-xl);
-            text-align: left;
+            text-align: center;
+            align-items: center;
         }
         
         .hero-text h1 {
-            text-align: left;
+            text-align: center;
+        }
+        
+        .rotating-text-container {
+            justify-content: center;
+        }
+        
+        .hero-text p {
+            text-align: center;
+        }
+        
+        .hero-ctas {
+            justify-content: center;
         }
         
 
@@ -379,10 +392,12 @@
             overflow: hidden;
             box-shadow: var(--shadow-xl);
             background: var(--obsidian);
-            display: flex;
+            display: flex !important;
             align-items: center;
             justify-content: center;
             align-self: start;
+            visibility: visible;
+            opacity: 1;
         }
 
         .photo-rotator-mobile {
@@ -515,6 +530,7 @@
             letter-spacing: 0.15em;
             margin-top: var(--space-xl);
             width: 100%;
+            text-align: center;
         }
 
         .scroll-line {
@@ -1242,18 +1258,33 @@
         }
         
         .carousel-indicator {
-            width: 10px;
-            height: 10px;
+            min-width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--glass-border);
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .carousel-indicator:hover {
+            background: var(--glass-hover);
+            color: var(--text-primary);
+            transform: scale(1.1);
         }
         
         .carousel-indicator.active {
             background: var(--neon);
-            width: 30px;
-            border-radius: 5px;
+            color: var(--void);
+            border-color: var(--neon);
+            min-width: 50px;
+            transform: scale(1.15);
         }
         
         @media (max-width: 768px) {
@@ -1353,10 +1384,11 @@
             border: none;
             cursor: pointer;
             padding: 8px;
-            z-index: 1003;
-            pointer-events: auto;
+            z-index: 1003 !important;
+            pointer-events: auto !important;
             position: relative;
             -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         
         .mobile-menu-toggle span {
@@ -2625,7 +2657,7 @@
                         <img src="Brand Imagery/BMW/Supporting Images/Hero alt.jpg" alt="BMW Zeus & Hera">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Communication Strategist • Goldstein and Partners</span>
+                        <span class="bento-tag">Communication Strategist • Goodby, Silverstein & Partners</span>
                         <h3 class="bento-title">BMW: Zeus & Hera</h3>
                         <p class="bento-desc">Arnold & Salma. The ultimate electric driving machine.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2664,7 +2696,7 @@
                         <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" alt="Samuel Adams Brighter Boston">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Communication Strategist • Goldstein and Partners</span>
+                        <span class="bento-tag">Communication Strategist • Goodby, Silverstein & Partners</span>
                         <h3 class="bento-title">Samuel Adams: Brighter Boston</h3>
                         <p class="bento-desc">Kevin Garnett. Super Bowl LVII. Boston pride.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -2677,7 +2709,7 @@
                         <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" alt="Califia Farms Calilujah">
                     </div>
                     <div class="bento-body">
-                        <span class="bento-tag">Communication Strategist • Goldstein and Partners</span>
+                        <span class="bento-tag">Communication Strategist • Goodby, Silverstein & Partners</span>
                         <h3 class="bento-title">Califia Farms: Calilujah!</h3>
                         <p class="bento-desc">A joyful celebration of plant-based living.</p>
                         <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -3089,8 +3121,8 @@
     <section id="media-diet" class="section section-gradient">
         <div class="container">
             <div class="section-header reveal" style="text-align: center;">
-                <span class="label">Find Me Elsewhere</span>
-                <h2 class="display-medium" style="margin-top: var(--space-md);">Check Me Out</h2>
+                <span class="label">Follow Along</span>
+                <h2 class="display-medium" style="margin-top: var(--space-md);">My Media Consumption</h2>
             </div>
 
             <div class="media-links-grid reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-top: var(--space-3xl); max-width: 1000px; margin-left: auto; margin-right: auto;">
@@ -3107,11 +3139,7 @@
                 <!-- Goodreads -->
                 <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" class="media-link-card">
                     <div class="media-link-icon" style="background: linear-gradient(135deg, #8B6F47, #5C4A2E); width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg); color: white;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                            <path d="M8 7h8M8 11h8M8 15h4"></path>
-                        </svg>
+                        <img src="https://www.goodreads.com/favicon.ico" alt="Goodreads" style="width: 48px; height: 48px; border-radius: var(--radius-sm);" onerror="this.style.display='none'; this.parentElement.innerHTML='<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M4 19.5A2.5 2.5 0 0 1 6.5 17H20\'></path><path d=\'M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z\'></path><path d=\'M8 7h8M8 11h8M8 15h4\'></path></svg>';">
                     </div>
                     <h3 class="media-link-title" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Books I'm Reading</h3>
                     <p class="media-link-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-lg); line-height: 1.6;">Track my reading progress on Goodreads</p>
