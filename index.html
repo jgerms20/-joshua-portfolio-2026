@@ -375,6 +375,10 @@
             justify-content: center;
         }
 
+        .photo-rotator-mobile {
+            display: none;
+        }
+
         .photo-slide {
             position: absolute;
             top: 0;
@@ -1216,8 +1220,9 @@
             border: none;
             cursor: pointer;
             padding: 8px;
-            z-index: 1001;
+            z-index: 1002;
             pointer-events: auto;
+            position: relative;
         }
         
         .mobile-menu-toggle span {
@@ -1545,6 +1550,59 @@
             .mobile-menu-toggle {
                 display: flex;
                 flex-shrink: 0;
+                z-index: 1002;
+            }
+
+            .photo-rotator {
+                display: none !important;
+            }
+
+            .photo-rotator-mobile {
+                display: flex !important;
+                position: relative;
+                width: 100%;
+                max-width: 300px;
+                height: 380px;
+                border-radius: var(--radius-2xl);
+                overflow: hidden;
+                box-shadow: var(--shadow-xl);
+                background: var(--obsidian);
+                align-items: center;
+                justify-content: center;
+                margin: var(--space-xl) auto;
+            }
+
+            .photo-rotator-mobile .photo-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1;
+            }
+
+            .photo-rotator-mobile .photo-slide.active {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            .photo-rotator-mobile .photo-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .photo-rotator-mobile .photo-rotator-frame {
+                position: absolute;
+                inset: 0;
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius-2xl);
+                pointer-events: none;
             }
             
             .header-nav {
@@ -1740,7 +1798,6 @@
                 </div>
             </div>
             
-            <a href="#around-the-web">Around the Web</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -1775,7 +1832,7 @@
                         <span class="accent-text">German</span>
                     </h1>
 
-                    <div class="photo-rotator reveal reveal-delay-2" style="margin: var(--space-xl) 0;">
+                    <div class="photo-rotator-mobile reveal reveal-delay-2" style="margin: var(--space-xl) 0;">
                         <div class="photo-slide active"><img src="Images/Photos of Self/000070270013.JPEG" alt="Joshua McKenzie German"></div>
                         <div class="photo-slide"><img src="Images/Photos of Self/DSC01484.JPG" alt="Joshua McKenzie German"></div>
                         <div class="photo-slide"><img src="Images/Photos of Self/IMG_0680.JPG" alt="Joshua McKenzie German"></div>
@@ -1817,15 +1874,23 @@
                         <div class="stat">
                             <span class="stat-value">12+</span>
                             <span class="stat-label">Major Brands</span>
-                        </div>
-                    </div>
-                    
-                    <div class="scroll-indicator">
-                        <span style="font-size: 0.85rem; letter-spacing: 0.2em;">SCROLL</span>
-                        <div class="scroll-line" style="height: 80px;"></div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: bounce 2s infinite;"><path d="M7 13l5 5 5-5"/></svg>
                     </div>
                 </div>
+
+                <div class="photo-rotator reveal reveal-delay-2" style="margin-left: 40px; margin-top: -60px;">
+                    <div class="photo-slide active"><img src="Images/Photos of Self/000070270013.JPEG" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/DSC01484.JPG" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/IMG_0680.JPG" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/IMG_1912.jpg" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/JMG_7456.jpg" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/JMG_8976.jpg" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/DSC00827.jpg" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/JMG_6784.jpg" alt="Joshua McKenzie German"></div>
+                    <div class="photo-slide"><img src="Images/Photos of Self/JMG_7538.jpg" alt="Joshua McKenzie German"></div>
+                    <div class="photo-rotator-frame"></div>
+                </div>
+            </div>
+        </div>
 
             </div>
         </div>
@@ -1952,9 +2017,9 @@
                             <div class="stop-content">
                                 <span class="stop-year">2021–23</span>
                                 <h4 class="stop-city">San Francisco</h4>
-                                <p class="stop-detail">Goldstein and Partners</p>
+                                <p class="stop-detail">Goodby, Silverstein & Partners</p>
                                 <div class="stop-expanded">
-                                    <p>Worked remotely with one of the most legendary agencies in advertising. Traveled to SF for extended periods, contributing to campaigns for BMW, Pepsi, and more. Learned the craft of cultural strategy from the best in the business—all while maintaining Charlotte as my home base at Goldstein and Partners.</p>
+                                    <p>Worked remotely with one of the most legendary agencies in advertising. Traveled to SF for extended periods, contributing to campaigns for BMW, Pepsi, and more. Learned the craft of cultural strategy from the best in the business—all while maintaining Charlotte as my home base at Goodby, Silverstein & Partners.</p>
                                 </div>
                             </div>
                         </div>
@@ -2502,7 +2567,7 @@
                 </a>
 
                 <!-- Momentum -->
-                <a href="https://ai.studio/apps/drive/1EM6FwL7KX1I4fRDw-S82yLSsp8pQwRPG" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-1" data-app="momentum">
+                <a href="https://ai.studio/apps/drive/1EM6FwL7KX1I4fRDw-S82yLSsp8pQwRPG" target="_blank" class="ai-project-card reveal reveal-delay-1" data-app="momentum">
                     <div class="bento-media" style="background: linear-gradient(135deg, #FFB700 0%, #FF8C00 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2520,7 +2585,7 @@
                 </a>
 
                 <!-- Ætheria - Binaural Beats -->
-                <a href="https://ai.studio/apps/drive/1TXV9Z8tMLr0ehtWEaUbQJ5sGVjTvHarJ" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-2" data-app="aetheria">
+                <a href="https://ai.studio/apps/drive/1TXV9Z8tMLr0ehtWEaUbQJ5sGVjTvHarJ" target="_blank" class="ai-project-card reveal reveal-delay-2" data-app="aetheria">
                     <div class="bento-media" style="background: linear-gradient(135deg, #00CED1 0%, #191970 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2538,7 +2603,7 @@
                 </a>
 
                 <!-- Creator Search -->
-                <a href="https://ai.studio/apps/drive/1SofxKk1-7GVv8tcvi7SkIRnvI5PksZcC" target="_blank" class="bento-card span-4 app-card reveal" data-app="creatorsearch">
+                <a href="https://ai.studio/apps/drive/1SofxKk1-7GVv8tcvi7SkIRnvI5PksZcC" target="_blank" class="ai-project-card reveal reveal-delay-3" data-app="creatorsearch">
                     <div class="bento-media" style="background: linear-gradient(135deg, #E4405F 0%, #833AB4 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2557,7 +2622,7 @@
                 </a>
 
                 <!-- Jukeboxd -->
-                <a href="https://ai.studio/apps/drive/1xqDWg6PA0RVMGC3LHaqbQr_VweZT_m-6" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-1" data-app="jukeboxd">
+                <a href="https://ai.studio/apps/drive/1xqDWg6PA0RVMGC3LHaqbQr_VweZT_m-6" target="_blank" class="ai-project-card reveal reveal-delay-4" data-app="jukeboxd">
                     <div class="bento-media" style="background: linear-gradient(135deg, #1DB954 0%, #191414 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2575,7 +2640,7 @@
                 </a>
 
                 <!-- Veritas -->
-                <a href="https://ai.studio/apps/drive/1CrSc4klhhMskBGHyQv5FzLd_fwXkvOBS" target="_blank" class="bento-card span-4 app-card reveal reveal-delay-2" data-app="veritas">
+                <a href="https://ai.studio/apps/drive/1CrSc4klhhMskBGHyQv5FzLd_fwXkvOBS" target="_blank" class="ai-project-card reveal reveal-delay-5" data-app="veritas">
                     <div class="bento-media" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2593,7 +2658,7 @@
                 </a>
 
                 <!-- Perfect Day Crafter -->
-                <a href="https://ai.studio/apps/drive/1UpeX-jONjncy41Putdc_YGg_9qYHlQcD" target="_blank" class="bento-card span-4 app-card reveal" data-app="perfectday">
+                <a href="https://ai.studio/apps/drive/1UpeX-jONjncy41Putdc_YGg_9qYHlQcD" target="_blank" class="ai-project-card reveal reveal-delay-6" data-app="perfectday">
                     <div class="bento-media" style="background: radial-gradient(circle at top right, #FF6B6B 0%, #FFA500 100%), var(--obsidian); aspect-ratio: 4/3;">
                         <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                             <span style="font-size: 4rem;">☀️</span>
@@ -2722,7 +2787,7 @@
             </div>
 
             <div style="position: relative;">
-                <div class="photo-masonry reveal reveal-delay-1" id="photoGallery">
+            <div class="photo-masonry reveal reveal-delay-1" id="photoGallery">
                 <!-- Portraits -->
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1520.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1430.jpg" alt="Portrait" loading="lazy"></div>
@@ -4059,11 +4124,11 @@
             // Then show/hide based on showingAll state
             matchingPhotos.forEach((photo, index) => {
                 if (showingAll || index < INITIAL_PHOTOS) {
-                    photo.classList.remove('hidden');
+                        photo.classList.remove('hidden');
                     photo.style.display = '';
                     visibleCount++;
-                } else {
-                    photo.classList.add('hidden');
+                    } else {
+                        photo.classList.add('hidden');
                     photo.style.display = 'none';
                 }
             });
@@ -4102,7 +4167,7 @@
             }
             
             if (showMoreBtn && totalMatching > INITIAL_PHOTOS) {
-                showMoreBtn.textContent = showingAll ? 'Show Less' : 'See More Photos';
+                    showMoreBtn.textContent = showingAll ? 'Show Less' : 'See More Photos';
                 showMoreBtn.style.display = 'block';
             } else if (showMoreBtn) {
                 showMoreBtn.style.display = 'none';
@@ -4156,7 +4221,7 @@
                 const filter = btn.dataset.filter;
                 randomizePhotos(filter);
                 setTimeout(() => {
-                    updatePhotoVisibility();
+                updatePhotoVisibility();
                 }, 300);
             }
         }

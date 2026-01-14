@@ -249,9 +249,10 @@
         /* Results */
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
             margin: 48px 0;
+            max-width: 100%;
         }
 
         .result-card {
@@ -276,20 +277,70 @@
 
         /* Quote */
         .case-quote {
-            padding: 48px;
+            position: relative;
+            padding: 32px;
             background: var(--surface);
-            border-left: 4px solid var(--neon);
-            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
             margin: 48px 0;
+            max-width: 500px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        .case-quote.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .case-quote.right {
+            margin-left: auto;
+            transform: translateX(50px);
+        }
+
+        .case-quote.right.visible {
+            transform: translateX(0);
+        }
+
+        .case-quote::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--neon);
+            border-radius: 50%;
+            top: -20px;
+            left: -20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .case-quote.right::before {
+            left: auto;
+            right: -20px;
         }
 
         .case-quote blockquote {
             font-family: var(--font-display);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-style: italic;
             line-height: 1.5;
             color: var(--text-primary);
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        .case-quote blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            font-size: 4rem;
+            color: var(--neon);
+            opacity: 0.3;
+            font-family: var(--font-display);
+            line-height: 1;
         }
 
         .case-quote cite {
@@ -332,8 +383,24 @@
             .results-grid { grid-template-columns: 1fr; }
             .case-gallery.two-col { grid-template-columns: 1fr; }
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
+            .case-quote { max-width: 100%; margin-left: 0 !important; }
+            .case-quote.right { margin-left: 0; }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quotes = document.querySelectorAll('.case-quote');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            quotes.forEach(quote => observer.observe(quote));
+        });
+    </script>
 </head>
 <body>
 
@@ -396,16 +463,16 @@
             <p>Beyoncé's "Cowboy Carter" wasn't just an album; it was a cultural statement. A reclamation of country music's Black roots. A reimagining of Americana. The perfect partner to help Levi's tell a new story about what American heritage means today.</p>
         </section>
 
-        <div class="case-quote">
+        <div class="case-quote" data-quote="challenge">
             <blockquote>
-                "We are excited to partner with Beyoncé to create new interpretations of some of our brand's most iconic images. For almost 150 years, our jeans have been worn by people who change culture."
+                We are excited to partner with Beyoncé to create new interpretations of some of our brand's most iconic images. For almost 150 years, our jeans have been worn by people who change culture.
             </blockquote>
             <cite>— Kenny Mitchell, Global Chief Marketing Officer, Levi's</cite>
         </div>
         
-        <div class="case-quote" style="margin-top: 32px;">
+        <div class="case-quote right" data-quote="insight" style="margin-top: 32px;">
             <blockquote>
-                "Beyoncé is a visionary creative who continues to shape culture by challenging conventions. REIIMAGINE is a celebration of the Levi's brand, building on those heritage moments and making them feel relevant for today."
+                Beyoncé is a visionary creative who continues to shape culture by challenging conventions. REIIMAGINE is a celebration of the Levi's brand, building on those heritage moments and making them feel relevant for today.
             </blockquote>
             <cite>— Kenny Mitchell, CMO, Levi Strauss & Co.</cite>
         </div>
