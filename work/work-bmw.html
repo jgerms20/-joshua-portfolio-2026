@@ -81,7 +81,7 @@
         .case-section p { font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
         .case-section p:last-child { margin-bottom: 0; }
 
-        .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 48px 0; }
+        .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 48px auto; max-width: var(--max-width); padding: 0 var(--edge); }
         .result-card {
             background: var(--surface); border: 1px solid var(--glass-border);
             border-radius: var(--radius-xl); padding: 40px; text-align: center;
@@ -99,6 +99,19 @@
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quotes = document.querySelectorAll('.case-quote');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            quotes.forEach(quote => observer.observe(quote));
+        });
+    </script>
 </head>
 <body>
 

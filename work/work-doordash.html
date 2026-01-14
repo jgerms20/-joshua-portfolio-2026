@@ -72,7 +72,13 @@
         .case-section p:last-child { margin-bottom: 0; }
 
         .case-quote {
-            padding: 48px; background: var(--surface);
+        .case-quote.visible { opacity: 1; transform: translateX(0); }
+        .case-quote.right { margin-left: auto; transform: translateX(50px); }
+        .case-quote.right.visible { transform: translateX(0); }
+        .case-quote::before { content: ''; position: absolute; width: 60px; height: 60px; background: var(--neon); border-radius: 50%; top: -20px; left: -20px; opacity: 0.2; z-index: -1; }
+        .case-quote.right::before { left: auto; right: -20px; }
+        .case-quote blockquote::before { content: '"'; position: absolute; top: -20px; left: -15px; font-size: 4rem; color: var(--neon); opacity: 0.3; font-family: var(--font-display); line-height: 1; }
+            position: relative; padding: 32px; background: var(--surface); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); margin: 48px 0; max-width: 500px; opacity: 0; transform: translateX(-50px); transition: all 0.6s var(--ease-out-expo);
             border-left: 4px solid #FF3008; border-radius: 0 var(--radius-lg) var(--radius-lg) 0; margin: 48px 0;
         }
         .case-quote blockquote {
@@ -81,7 +87,7 @@
         }
         .case-quote cite { font-size: 0.9rem; font-style: normal; color: var(--text-muted); }
 
-        .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 48px 0; }
+        .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 48px auto; max-width: var(--max-width); padding: 0 var(--edge); }
         .result-card {
             background: var(--surface); border: 1px solid var(--glass-border);
             border-radius: var(--radius-xl); padding: 40px; text-align: center;
@@ -99,6 +105,19 @@
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quotes = document.querySelectorAll('.case-quote');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            quotes.forEach(quote => observer.observe(quote));
+        });
+    </script>
 </head>
 <body>
 
