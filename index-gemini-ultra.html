@@ -439,7 +439,7 @@
             justify-content: center;
             z-index: 1;
         }
-        
+
         .photo-slide {
             position: absolute;
             top: 0;
@@ -1762,9 +1762,12 @@
             }
             
             .mobile-menu-toggle {
-                display: flex;
+                display: flex !important;
                 flex-shrink: 0;
-                z-index: 1002;
+                z-index: 1003 !important;
+                position: relative;
+                pointer-events: auto !important;
+                touch-action: manipulation;
             }
 
             .photo-rotator {
@@ -1848,7 +1851,7 @@
             }
             
             .header-nav.mobile-active {
-                display: flex;
+                display: flex !important;
                 position: fixed;
                 top: 70px;
                 left: 0;
@@ -1858,8 +1861,9 @@
                 background: rgba(3,3,4,0.98);
                 backdrop-filter: blur(20px);
                 padding: var(--space-xl) var(--edge);
-                z-index: 999;
+                z-index: 1001 !important;
                 overflow-y: auto;
+                width: 100%;
                 overflow-x: hidden;
                 gap: var(--space-md);
                 align-items: stretch;
@@ -2127,9 +2131,9 @@
                     <div class="photo-slide"><img src="Images/Photos of Self/JMG_6784.jpg" alt="Joshua McKenzie German"></div>
                     <div class="photo-slide"><img src="Images/Photos of Self/JMG_7538.jpg" alt="Joshua McKenzie German"></div>
                     <div class="photo-rotator-frame"></div>
-                </div>
             </div>
-            
+        </div>
+
             <!-- Scroll Indicator -->
             <div class="scroll-indicator reveal reveal-delay-4">
                 <div class="scroll-line"></div>
@@ -2793,7 +2797,7 @@
             <div class="ai-projects-carousel reveal reveal-delay-1">
                 <div class="carousel-container">
                     <div class="carousel-track">
-                        <!-- Archive - Digital Closet -->
+                <!-- Archive - Digital Closet -->
                         <div class="carousel-slide active">
                             <a href="https://ai.studio/apps/drive/1C1BH5wAdVTio0MAa3mmMiH1O5elvxbth" target="_blank" class="ai-project-card-carousel" data-app="archive">
                     <div class="bento-media" style="background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
@@ -2814,8 +2818,8 @@
 
                         </a>
                         </div>
-                        
-                        <!-- Momentum -->
+
+                <!-- Momentum -->
                         <div class="carousel-slide">
                             <a href="https://ai.studio/apps/drive/1EM6FwL7KX1I4fRDw-S82yLSsp8pQwRPG" target="_blank" class="ai-project-card-carousel" data-app="momentum">
                     <div class="bento-media" style="background: linear-gradient(135deg, #FFB700 0%, #FF8C00 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
@@ -2836,8 +2840,8 @@
 
                             </a>
                         </div>
-                        
-                        <!-- Ætheria - Binaural Beats -->
+
+                <!-- Ætheria - Binaural Beats -->
                         <div class="carousel-slide">
                             <a href="https://ai.studio/apps/drive/1TXV9Z8tMLr0ehtWEaUbQJ5sGVjTvHarJ" target="_blank" class="ai-project-card-carousel" data-app="aetheria">
                     <div class="bento-media" style="background: linear-gradient(135deg, #00CED1 0%, #191970 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
@@ -2858,8 +2862,8 @@
 
                             </a>
                         </div>
-                        
-                        <!-- Creator Search -->
+
+                <!-- Creator Search -->
                         <div class="carousel-slide">
                             <a href="https://ai.studio/apps/drive/1SofxKk1-7GVv8tcvi7SkIRnvI5PksZcC" target="_blank" class="ai-project-card-carousel" data-app="creatorsearch">
                     <div class="bento-media" style="background: linear-gradient(135deg, #E4405F 0%, #833AB4 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
@@ -2881,8 +2885,8 @@
 
                             </a>
                         </div>
-                        
-                        <!-- Jukeboxd -->
+
+                <!-- Jukeboxd -->
                         <div class="carousel-slide">
                             <a href="https://ai.studio/apps/drive/1xqDWg6PA0RVMGC3LHaqbQr_VweZT_m-6" target="_blank" class="ai-project-card-carousel" data-app="jukeboxd">
                     <div class="bento-media" style="background: linear-gradient(135deg, #1DB954 0%, #191414 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
@@ -2903,8 +2907,8 @@
 
                             </a>
                         </div>
-                        
-                        <!-- Veritas -->
+
+                <!-- Veritas -->
                         <div class="carousel-slide">
                             <a href="https://ai.studio/apps/drive/1CrSc4klhhMskBGHyQv5FzLd_fwXkvOBS" target="_blank" class="ai-project-card-carousel" data-app="veritas">
                     <div class="bento-media" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); aspect-ratio: 4/3; position: relative; overflow: hidden;">
@@ -2925,22 +2929,22 @@
 
                             </a>
                         </div>
-                        
-                        <!-- Perfect Day Crafter -->
+
+                <!-- Perfect Day Crafter -->
                         <div class="carousel-slide">
                             <a href="https://ai.studio/apps/drive/1UpeX-jONjncy41Putdc_YGg_9qYHlQcD" target="_blank" class="ai-project-card-carousel" data-app="perfectday">
-                                <div class="bento-media" style="background: radial-gradient(circle at top right, #FF6B6B 0%, #FFA500 100%), var(--obsidian); aspect-ratio: 4/3;">
-                                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                        <span style="font-size: 4rem;">☀️</span>
-                                    </div>
-                                </div>
-                                <div class="bento-body">
-                                    <span class="bento-tag">Life Design</span>
-                                    <h3 class="bento-title">Perfect Day Crafter</h3>
-                                    <p class="bento-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</p>
-                                    <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                                </div>
-                            </a>
+                    <div class="bento-media" style="background: radial-gradient(circle at top right, #FF6B6B 0%, #FFA500 100%), var(--obsidian); aspect-ratio: 4/3;">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 4rem;">☀️</span>
+                        </div>
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Life Design</span>
+                        <h3 class="bento-title">Perfect Day Crafter</h3>
+                        <p class="bento-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</p>
+                        <span class="bento-cta">Launch App <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </a>
                         </div>
                     </div>
                     
@@ -3071,7 +3075,7 @@
             </div>
 
             <div style="position: relative;">
-            <div class="photo-masonry reveal reveal-delay-1" id="photoGallery">
+                <div class="photo-masonry reveal reveal-delay-1" id="photoGallery">
                 <!-- Portraits -->
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1520.jpg" alt="Portrait" loading="lazy"></div>
                 <div class="photo-tile" data-category="portraits"><img src="Images/Portraits/JMG_1430.jpg" alt="Portrait" loading="lazy"></div>
@@ -3182,9 +3186,15 @@
             <div class="media-links-grid reveal reveal-delay-1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-top: var(--space-3xl); max-width: 1000px; margin-left: auto; margin-right: auto;">
                 <!-- Letterboxd -->
                 <a href="https://letterboxd.com/jgerms/" target="_blank" class="media-link-card">
-                    <div class="media-link-icon" style="background: linear-gradient(135deg, #00D735, #00B028); width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg);">
-                        <img src="https://letterboxd.com/static/images/letterboxd-logo-v-neg-rgb.svg" alt="Letterboxd" style="width: 48px; height: auto; filter: brightness(0) invert(1);">
-                    </div>
+                    <div class="media-link-icon" style="background: linear-gradient(135deg, #00D735, #00B028); width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg); box-shadow: 0 4px 12px rgba(0, 215, 53, 0.3);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 200 200" fill="white">
+                            <rect x="20" y="20" width="160" height="160" rx="8" fill="white" opacity="0.2"/>
+                            <rect x="40" y="40" width="120" height="120" rx="4" fill="none" stroke="white" stroke-width="3"/>
+                            <rect x="60" y="60" width="80" height="80" rx="2" fill="white" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="25" fill="white"/>
+                            <text x="100" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#00D735" text-anchor="middle" dominant-baseline="middle">LB</text>
+                            </svg>
+                        </div>
                     <h3 class="media-link-title" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Films I've Watched Recently</h3>
                     <p class="media-link-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-lg); line-height: 1.6;">Check out my film journey on Letterboxd</p>
                     <span class="media-link-url" style="font-size: 0.85rem; color: var(--neon); font-weight: 600; text-transform: lowercase;">letterboxd.com/jgerms</span>
@@ -3194,7 +3204,7 @@
                 <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" class="media-link-card">
                     <div class="media-link-icon" style="background: linear-gradient(135deg, #8B6F47, #5C4A2E); width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg); color: white;">
                         <img src="https://www.goodreads.com/favicon.ico" alt="Goodreads" style="width: 48px; height: 48px; border-radius: var(--radius-sm);" onerror="this.style.display='none'; this.parentElement.innerHTML='<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M4 19.5A2.5 2.5 0 0 1 6.5 17H20\'></path><path d=\'M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z\'></path><path d=\'M8 7h8M8 11h8M8 15h4\'></path></svg>';">
-                    </div>
+                            </div>
                     <h3 class="media-link-title" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Books I'm Reading</h3>
                     <p class="media-link-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-lg); line-height: 1.6;">Track my reading progress on Goodreads</p>
                     <span class="media-link-url" style="font-size: 0.85rem; color: var(--neon); font-weight: 600; text-transform: lowercase;">goodreads.com/joshua-german</span>
@@ -3203,10 +3213,10 @@
                 <!-- Substack -->
                 <a href="https://jgerms20.substack.com" target="_blank" class="media-link-card">
                     <div class="media-link-icon" style="background: linear-gradient(135deg, #FF6719, #E5551A); width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-lg); color: white;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
-                        </svg>
-                    </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                                </svg>
+                            </div>
                     <h3 class="media-link-title" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">Articles Written</h3>
                     <p class="media-link-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-lg); line-height: 1.6;">Read my latest thoughts and essays on Substack</p>
                     <span class="media-link-url" style="font-size: 0.85rem; color: var(--neon); font-weight: 600; text-transform: lowercase;">jgerms20.substack.com</span>
@@ -3242,30 +3252,6 @@
             }
         </style>
 
-        <script>
-            // Mobile menu toggle
-            document.addEventListener('DOMContentLoaded', () => {
-                const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-                const headerNav = document.getElementById('mainNav');
-                
-                if (mobileMenuToggle && headerNav) {
-                    mobileMenuToggle.addEventListener('click', () => {
-                        mobileMenuToggle.classList.toggle('active');
-                        headerNav.classList.toggle('mobile-active');
-                        document.body.style.overflow = headerNav.classList.contains('mobile-active') ? 'hidden' : '';
-                    });
-                    
-                    // Close menu when clicking nav links
-                    headerNav.querySelectorAll('a').forEach(link => {
-                        link.addEventListener('click', () => {
-                            mobileMenuToggle.classList.remove('active');
-                            headerNav.classList.remove('mobile-active');
-                            document.body.style.overflow = '';
-                        });
-                    });
-                }
-            });
-        </script>
 
     </section>
 
@@ -3848,19 +3834,25 @@
                 }
             }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            populateMediaPreviews();
+            document.addEventListener('DOMContentLoaded', () => {
+                populateMediaPreviews();
             
-            // Mobile menu toggle
+            // Mobile menu toggle - consolidated and fixed
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const headerNav = document.getElementById('mainNav');
             
             if (mobileMenuToggle && headerNav) {
-                mobileMenuToggle.addEventListener('click', () => {
-                    mobileMenuToggle.classList.toggle('active');
-                    headerNav.classList.toggle('mobile-active');
-                    document.body.style.overflow = headerNav.classList.contains('mobile-active') ? 'hidden' : '';
-                });
+                // Use both click and touchstart for better mobile support
+                const toggleMenu = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isActive = mobileMenuToggle.classList.toggle('active');
+                    headerNav.classList.toggle('mobile-active', isActive);
+                    document.body.style.overflow = isActive ? 'hidden' : '';
+                };
+                
+                mobileMenuToggle.addEventListener('click', toggleMenu);
+                mobileMenuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
                 
                 // Close menu when clicking nav links
                 headerNav.querySelectorAll('a').forEach(link => {
@@ -3870,8 +3862,19 @@
                         document.body.style.overflow = '';
                     });
                 });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (headerNav.classList.contains('mobile-active') && 
+                        !headerNav.contains(e.target) && 
+                        !mobileMenuToggle.contains(e.target)) {
+                        mobileMenuToggle.classList.remove('active');
+                        headerNav.classList.remove('mobile-active');
+                        document.body.style.overflow = '';
+                    }
+                });
             }
-        });
+            });
         </script>
 
     </section>
@@ -4476,11 +4479,11 @@
             // Then show/hide based on showingAll state
             matchingPhotos.forEach((photo, index) => {
                 if (showingAll || index < INITIAL_PHOTOS) {
-                        photo.classList.remove('hidden');
+                    photo.classList.remove('hidden');
                     photo.style.display = '';
                     visibleCount++;
-                    } else {
-                        photo.classList.add('hidden');
+                } else {
+                    photo.classList.add('hidden');
                     photo.style.display = 'none';
                 }
             });
@@ -4519,7 +4522,7 @@
             }
             
             if (showMoreBtn && totalMatching > INITIAL_PHOTOS) {
-                    showMoreBtn.textContent = showingAll ? 'Show Less' : 'See More Photos';
+                showMoreBtn.textContent = showingAll ? 'Show Less' : 'See More Photos';
                 showMoreBtn.style.display = 'block';
             } else if (showMoreBtn) {
                 showMoreBtn.style.display = 'none';
@@ -4573,7 +4576,7 @@
                 const filter = btn.dataset.filter;
                 randomizePhotos(filter);
                 setTimeout(() => {
-                updatePhotoVisibility();
+                    updatePhotoVisibility();
                 }, 300);
             }
         }
