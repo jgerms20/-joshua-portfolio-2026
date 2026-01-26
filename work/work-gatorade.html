@@ -191,9 +191,87 @@
         .result-card {
             background: var(--surface); border: 1px solid var(--glass-border);
             border-radius: var(--radius-xl); padding: 40px; text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .result-value { font-size: 3rem; font-weight: 700; color: var(--gatorade-orange); margin-bottom: 8px; }
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(255, 107, 0, 0.2);
+        }
+        .result-value { font-size: 3rem; font-weight: 700; color: var(--gatorade-orange); margin-bottom: 8px; line-height: 1; }
         .result-label { font-size: 0.9rem; color: var(--text-secondary); }
+        
+        .campaign-timeline {
+            display: flex; flex-direction: column; gap: 24px; margin: 48px 0;
+            padding: 32px; background: var(--surface); border-radius: var(--radius-xl);
+            border: 1px solid var(--glass-border);
+        }
+        .timeline-item {
+            display: flex; gap: 24px; align-items: flex-start;
+        }
+        .timeline-date {
+            font-weight: 700; color: var(--gatorade-orange); min-width: 100px;
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .timeline-content {
+            flex: 1; padding-left: 24px; border-left: 2px solid var(--glass-border);
+        }
+        .timeline-title {
+            font-weight: 600; color: var(--text-primary); margin-bottom: 8px;
+        }
+        .timeline-desc {
+            color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;
+        }
+        
+        .ecosystem-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin: 32px 0;
+        }
+        .ecosystem-item {
+            padding: 20px; background: var(--surface); border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border); text-align: center;
+        }
+        .ecosystem-item-title {
+            font-weight: 600; color: var(--gatorade-orange); margin-bottom: 8px;
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .ecosystem-item-list {
+            font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8;
+        }
+        
+        .media-logos {
+            display: flex; flex-wrap: wrap; gap: 24px; align-items: center;
+            margin: 32px 0; padding: 32px; background: var(--surface);
+            border-radius: var(--radius-xl); border: 1px solid var(--glass-border);
+        }
+        .media-logo {
+            font-weight: 600; color: var(--text-secondary); font-size: 0.9rem;
+            padding: 8px 16px; background: rgba(255, 107, 0, 0.1);
+            border-radius: var(--radius-sm);
+        }
+        
+        .stat-highlight {
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(0, 177, 64, 0.15));
+            padding: 32px; border-radius: var(--radius-xl); margin: 32px 0;
+            border: 1px solid var(--glass-border);
+        }
+        .stat-highlight-title {
+            font-size: 1.1rem; font-weight: 600; color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .stat-highlight-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
+        }
+        .stat-highlight-item {
+            text-align: center;
+        }
+        .stat-highlight-value {
+            font-size: 2rem; font-weight: 700; color: var(--gatorade-orange);
+            margin-bottom: 4px;
+        }
+        .stat-highlight-label {
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
 
         .next-project { padding: 80px var(--edge); border-top: 1px solid var(--glass-border); text-align: center; }
         .next-project-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 16px; }
@@ -277,14 +355,102 @@
         <div class="campaign-panel active" id="stranger-things">
             <section class="case-section">
                 <h2 class="case-section-title">No Ordinary Athlete</h2>
-                <p>Gatorade owns sports. But to stay relevant with younger consumers, the brand needed to expand its cultural footprint beyond the playing field. With Stranger Things Season 4 approaching, we saw an opportunity to connect athletic performance with one of the most-watched shows on the planet.</p>
+                <p>Gatorade owns sports. But to stay relevant with younger consumers, the brand needed to expand its cultural footprint beyond the playing field. With Stranger Things Season 5 approaching, we saw an opportunity to connect athletic performance with one of the most-watched shows on the planet—and celebrate the brand's authentic 1980s heritage by reviving iconic products and ads from the vault.</p>
+                <p>The campaign perfectly captured the retro Hawkins vibe full of neon, nostalgia, and the supernatural Upside Down. We gave a vintage jingle new life in Stranger Things' Upside Down, with "No Ordinary Athlete" as a play on the brand's iconic "No Ordinary Thirst Quencher" campaign from the '80s.</p>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Campaign Rollout</h2>
+                <div class="campaign-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Oct 30</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">ST5 Trailer Drop</div>
+                            <div class="timeline-desc">Campaign launch with Stranger Things Season 5 trailer</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Nov 4</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Nike Collab Drop</div>
+                            <div class="timeline-desc">Strategic partnership activation</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Nov 17</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Drop 1: 1987 Hawkins Capsule</div>
+                            <div class="timeline-desc">Limited-edition merchandise launch with vintage apparel, retro Gatorade towels, and glass bottles</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Nov 29-30</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Drop 2: Upside Down Capsule</div>
+                            <div class="timeline-desc">Second merchandise drop with numbered glass bottles and exclusive items</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Dec 25</div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Christmas Day NFL Game</div>
+                            <div class="timeline-desc">Historic :30 spot airing during Vikings vs Lions game on Netflix—most-streamed NFL game in US history with 27.5M average viewers</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Full Campaign Ecosystem</h2>
+                <div class="ecosystem-grid">
+                    <div class="ecosystem-item">
+                        <div class="ecosystem-item-title">Films</div>
+                        <div class="ecosystem-item-list">
+                            Radio :15s Teaser<br>
+                            Bolt Gate :15<br>
+                            80's Retro Ads<br>
+                            No Ordinary Athlete :30
+                        </div>
+                    </div>
+                    <div class="ecosystem-item">
+                        <div class="ecosystem-item-title">OOH</div>
+                        <div class="ecosystem-item-list">
+                            Lenticular OOH (NYC + LA)<br>
+                            Myles Garrett Mobile Billboards<br>
+                            (CLE v SF)
+                        </div>
+                    </div>
+                    <div class="ecosystem-item">
+                        <div class="ecosystem-item-title">Social</div>
+                        <div class="ecosystem-item-list">
+                            Eleven Moment Reactive Social<br>
+                            NFL Christmas Day Lockers<br>
+                            Glass Bottle Teaser<br>
+                            Reddit Category & Keyword Takeovers
+                        </div>
+                    </div>
+                    <div class="ecosystem-item">
+                        <div class="ecosystem-item-title">Merch</div>
+                        <div class="ecosystem-item-list">
+                            Drop 1: T-Shirt, Towel, Glass Bottle<br>
+                            Drop 2: Towel, Jacket, Numbered Glass Bottle (Upside Down)
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section class="case-section">
                 <h2 class="case-section-title">The Insight</h2>
                 <p>Stranger Things' heroes aren't typical athletes—but they're athletes nonetheless. Eleven's psychic powers require intense mental and physical exertion. The kids spend the entire series running, fighting, and pushing their limits. They're performing at their peak when it matters most.</p>
-                <p>That's exactly what Gatorade fuels.</p>
+                <p>That's exactly what Gatorade fuels. Narrated by Myles Garrett—defensive end for the Cleveland Browns and Stranger Things super-fan—the campaign shows the role Gatorade plays in both real-world performance and the Upside Down, where they're hoping to save the world.</p>
             </section>
+            
+            <div class="case-quote right">
+                <blockquote>
+                    "Grab your scrunchies and tube socks because Gatorade is going full-on '80s in collaboration with Stranger Things ahead of its fifth and final season. The collab — complete with the return of the discontinued Citrus Cooler flavor and two vintage-inspired merch capsules — perfectly captures the retro Hawkins vibe full of neon, nostalgia, and the supernatural Upside Down."
+                </blockquote>
+                <cite>— Lyda Cosgrove, Her Campus</cite>
+            </div>
 
             <div class="case-quote">
                 <blockquote>
@@ -295,14 +461,72 @@
 
             <section class="case-section">
                 <h2 class="case-section-title">The Execution</h2>
-                <p>We developed limited-edition Stranger Things Gatorade bottles featuring the Upside Down aesthetic—flickering lights, demogorgon shadows, and that signature red-and-black color palette. The packaging became a collector's item.</p>
-                <p>The campaign extended across digital, social, and in-store, with content that positioned the Stranger Things cast as athletes performing extraordinary feats. We created "training" content showing the kids preparing for their battles against the Mind Flayer—all fueled by Gatorade.</p>
+                <p>We developed limited-edition Stranger Things Gatorade bottles featuring the Upside Down aesthetic—flickering lights, demogorgon shadows, and that signature red-and-black color palette. The packaging became a collector's item, with the return of glass bottles becoming a centerpiece of the campaign.</p>
+                <p>The campaign extended across digital, social, TV, OOH, and in-store, with content that positioned the Stranger Things cast as athletes performing extraordinary feats. We created "training" content showing the kids preparing for their battles—all fueled by Gatorade. The phased rollout kept fans engaged with every drop, analyzing our content for potential easter eggs and connections to the show, making the brand an essential part of the Stranger Things universe.</p>
+                <p>We also brought back the discontinued Citrus Cooler flavor as a Limited Time Offering (LTO), tapping into nostalgia and re-engaging previously interested media who amplified the news across food & beverage outlets.</p>
             </section>
+            
+            <div class="case-quote">
+                <blockquote>
+                    "The [glass bottle] comeback is a centerpiece of Gatorade's "No Ordinary Athlete" campaign, a modern revival of its classic 1987 "No Ordinary Thirst Quencher" ads. With an Upside Down twist, the campaign merges sports culture, retro design, and Stranger Things nostalgia."
+                </blockquote>
+                <cite>— Shawn Grant, The Source</cite>
+            </div>
 
             <section class="case-section">
                 <h2 class="case-section-title">My Role</h2>
                 <p>As Senior Connections Strategist at TBWA\Chiat\Day LA, I led the connections strategy that brought this nostalgic partnership to life. I developed the channel approach that maximized the Netflix partnership—strategically timing our content to run during Netflix's historic Christmas Day NFL games, a moment where sports fans and Stranger Things enthusiasts overlapped perfectly.</p>
-                <p>I orchestrated the coordination between our paid media flights and the limited-edition merchandise launches (the 1987 Hawkins Capsule and Upside Down Capsule), ensuring fans encountered a cohesive experience across every touchpoint. I also identified social amplification opportunities with cast members and developed the influencer seeding strategy that got the collectible bottles into the hands of superfans who would organically spread the word. The partnership became a case study in how entertainment collabs can extend a sports brand's cultural relevance.</p>
+                <p>I orchestrated the coordination between our paid media flights and the limited-edition merchandise launches (the 1987 Hawkins Capsule and Upside Down Capsule), ensuring fans encountered a cohesive experience across every touchpoint. I worked closely with our PR team to drive compelling storytelling across priority marketing and trade outlets, leveraging the campaign's nostalgia and pop-culture relevance to secure coverage from outlets like Marketing Dive and Food & Beverage Magazine.</p>
+                <p>I also identified social amplification opportunities with cast members and developed the influencer seeding strategy that got the collectible bottles into the hands of superfans who would organically spread the word. By engaging Stranger Things superfans across sports and culture media, we seeded the capsule drops timed to episode airings, with social amplification from Megan Behnke (PopCulture) and Rebecca Lobo (ESPN).</p>
+                <p>The partnership became a case study in how entertainment collabs can extend a sports brand's cultural relevance—driving the strongest positive sentiment and largest volume of mentions across similar Stranger Things partnerships.</p>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Earned Media & PR</h2>
+                <p>Our PR approach drove compelling storytelling across priority marketing and trade outlets beyond the TVC by leveraging the campaign's nostalgia and pop-culture relevance. This resulted in coverage from outlets such as Marketing Dive and Food & Beverage Magazine without direct executive access.</p>
+                <p>We expanded the campaign to a consumer audience by targeting snack/food & lifestyle media with the Citrus Cooler LTO seeding, with Delish, Allrecipes, and Her Campus sharing excitement for the return of Citrus Cooler across .com and social.</p>
+                <p>We extended reach to a sports and culture audience by leveraging Myles Garrett's authentic Stranger Things fandom, resulting in interview coverage from Yahoo! Sports, Sports Illustrated, and NBC.</p>
+                <div class="media-logos">
+                    <span class="media-logo">COMPLEX</span>
+                    <span class="media-logo">Yahoo!</span>
+                    <span class="media-logo">ADWEEK</span>
+                    <span class="media-logo">Deadline</span>
+                    <span class="media-logo">Delish</span>
+                    <span class="media-logo">Parade</span>
+                    <span class="media-logo">Food & Beverage</span>
+                    <span class="media-logo">Sporked</span>
+                    <span class="media-logo">Sports Illustrated</span>
+                    <span class="media-logo">The Source</span>
+                </div>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Launch Social Conversation</h2>
+                <p>Gatorade saw the strongest positive sentiment and largest volume of mentions across similar Stranger Things partnerships. At launch, we generated 5.3K mentions with 1B potential impressions and 96% net positive sentiment—outperforming competitors like KFC (74%), Coke (92%), Eggo (80%), Tide (66%), Doritos (78%), and Discover (69%).</p>
+                <div class="stat-highlight">
+                    <div class="stat-highlight-title">Launch Performance vs. Competitors</div>
+                    <div class="stat-highlight-grid">
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">96%</div>
+                            <div class="stat-highlight-label">Net Pos. Sentiment</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">5.1K</div>
+                            <div class="stat-highlight-label">Est. Mentions</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">#1</div>
+                            <div class="stat-highlight-label">vs. Competitors</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Conversation Themes</h2>
+                <p><strong>Phased rollout kept fans engaged:</strong> Releasing our content in phases, beginning with a teaser before Volume 1 dropped, had fans hungry for each drop after, analyzing our content for potential easter eggs and connections to the show, making the brand an essential part of the Stranger Things universe.</p>
+                <p><strong>Authentic 80s branding induced nostalgia:</strong> Fans of all ages showed a feverish desire to get their hands on the glass bottles. Older fans reminisced on the products that remind them of their youth, while younger fans wanted to get a taste of the retro aesthetic.</p>
+                <p><strong>Exclusive drops sustained momentum:</strong> The limited-edition nature of the capsules created urgency and FOMO, driving record traffic and sign-ups. The Hawkins Drop saw the single highest hour of traffic ever recorded on Gatorade.com with 22.5K sessions hitting the site between 9-10am CT.</p>
             </section>
 
             <!-- Campaign Videos -->
@@ -322,23 +546,105 @@
 
             <div class="results-grid">
                 <div class="result-card">
-                    <div class="result-value">4.2B</div>
-                    <div class="result-label">Campaign Impressions</div>
+                    <div class="result-value">635M</div>
+                    <div class="result-label">Total Impressions<br>(Organic + Paid)</div>
                 </div>
                 <div class="result-card">
-                    <div class="result-value">#1</div>
-                    <div class="result-label">Beverage Partnership</div>
+                    <div class="result-value">4M</div>
+                    <div class="result-label">Total Engagements<br>(Organic + Paid)</div>
                 </div>
                 <div class="result-card">
-                    <div class="result-value">34%</div>
-                    <div class="result-label">Sales Lift During Campaign</div>
+                    <div class="result-value">2.38B+</div>
+                    <div class="result-label">Potential Earned Reach</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">297K</div>
+                    <div class="result-label">Saves & Shares<br>(Organic + Paid)</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">95%</div>
+                    <div class="result-label">Positive/Neutral<br>Sentiment</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">830</div>
+                    <div class="result-label">Volume of Earned<br>Mentions</div>
                 </div>
             </div>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Influencer Performance</h2>
+                <p>Our influencer strategy delivered authentic storytelling within the Stranger Things universe. Khleo Thomas emerged as the top performer for Drop 1, generating 180K views across TikTok and IG with high-production editing and visual effects that created an immersive, cinematic moment while seamlessly integrating glass bottles and merchandise.</p>
+                <p>Valentino stood out for Drop 2 with his fashion-forward take on the kit, spotlighting apparel and accessories—a non-traditional Gatorade product—resulting in fresh, unexpected, and highly engaging content.</p>
+                <div class="stat-highlight">
+                    <div class="stat-highlight-title">Influencer Highlights</div>
+                    <div class="stat-highlight-grid">
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">692K+</div>
+                            <div class="stat-highlight-label">Total Impressions</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">31.2K+</div>
+                            <div class="stat-highlight-label">Total Engagements</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">18</div>
+                            <div class="stat-highlight-label">Total Posts</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">15</div>
+                            <div class="stat-highlight-label">Seeding Kits</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">TV & OOH Performance</h2>
+                <p>Gatorade secured a :30s unit in the Vikings vs Lions Christmas Day game in a unique 80's themed pod that ran during halftime. Brands alongside Gatorade with Stranger Things creative included Discover, Tide, and Target. The Netflix desk commentator set the stage: "Stranger Things fans, rewind your clocks to 1987, because things are about to get very strange..."</p>
+                <p>The game became the most-streamed NFL game in US history, averaging 27.5 million viewers, with US viewership peaking at over 30M viewers during the halftime show. Snoop's Holiday Halftime Party brought in an average of 29M viewers in the US.</p>
+                <div class="stat-highlight">
+                    <div class="stat-highlight-title">Christmas Day NFL Game</div>
+                    <div class="stat-highlight-grid">
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">27.5M</div>
+                            <div class="stat-highlight-label">Average Viewers<br>(Most-Streamed NFL Game)</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">30M+</div>
+                            <div class="stat-highlight-label">Peak Viewers<br>(During Halftime)</div>
+                        </div>
+                        <div class="stat-highlight-item">
+                            <div class="stat-highlight-value">29M</div>
+                            <div class="stat-highlight-label">Halftime Show<br>Average Viewers</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="case-section">
+                <h2 class="case-section-title">Drop Performance</h2>
+                <p>Drop 1 and Drop 2 combined to be the most successful drops in Gatorade history with the most saves on any post, the most sign ups, the fastest sellouts AND the highest price point.</p>
+                <p><strong>Traffic Stats:</strong></p>
+                <ul style="color: var(--text-secondary); line-height: 2; margin: 20px 0;">
+                    <li>The Hawkins Drop PDP page was visited by 386K users while the Upside Down Drop page had 132K users</li>
+                    <li>The Hawkins Drop saw the single highest hour of traffic ever recorded on Gatorade.com with 22.5K sessions hitting site between 9-10am CT</li>
+                    <li>The Hawkins and Upside Down Drops saw the highest and 2nd highest Organic Search traffic days of all time on Gatorade.com</li>
+                    <li>30,019 organic search sessions on Hawkins Drop Day (+531% higher than FY25 Daily Average)</li>
+                    <li>14,114 organic search sessions on Upside Down Drop Day (+204% higher than FY25 Daily Average)</li>
+                </ul>
+                <p><strong>GiD Sign Up Stats:</strong></p>
+                <ul style="color: var(--text-secondary); line-height: 2; margin: 20px 0;">
+                    <li>19,715 GiD Sign-ups generated from both capsules (pre and post-drop state)</li>
+                    <li>14,363 from the Hawkins Drop #1 (4,738 on Drop Day)</li>
+                    <li>5,316 from the Upside Down Drop #2 (1,514 on Drop Day)</li>
+                </ul>
+            </section>
 
             <section class="case-section">
                 <h2 class="case-section-title">The Impact</h2>
                 <p>The partnership became one of the most successful entertainment collaborations in Gatorade's history. Limited-edition bottles sold out within days. The campaign drove significant conversation among Gen Z consumers who saw Gatorade as more than just a sports drink—it became a cultural artifact.</p>
-                <p>Most importantly, it proved that Gatorade's "fuel the best" positioning could extend beyond traditional athletics into any arena where performance matters.</p>
+                <p>Most importantly, it proved that Gatorade's "fuel the best" positioning could extend beyond traditional athletics into any arena where performance matters. The campaign's nostalgia-led storytelling and athlete interviews drove cross-cultural conversation, while exclusive drops and the glass bottle return sustained campaign momentum and cultural buzz.</p>
+                <p>Posts featuring Gatorade appeared across the Stranger Things & Myles Garrett social accounts, bringing in millions more views from superfans. The 'El's Battery' Video alone was seen almost 6 million times on Instagram, with high engagement on TikTok including almost 10k shares.</p>
             </section>
         </div>
 
