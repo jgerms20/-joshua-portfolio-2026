@@ -223,30 +223,83 @@
         }
         
         .ecosystem-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; margin: 32px 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px; margin: 48px 0;
         }
         .ecosystem-item {
-            padding: 20px; background: var(--surface); border-radius: var(--radius-lg);
-            border: 1px solid var(--glass-border); text-align: center;
+            padding: 32px; background: var(--surface); border-radius: var(--radius-xl);
+            border: 1px solid var(--glass-border); text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .ecosystem-item::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--gatorade-orange), var(--gatorade-green));
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .ecosystem-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(255, 107, 0, 0.15);
+            border-color: rgba(255, 107, 0, 0.3);
+        }
+        .ecosystem-item:hover::before {
+            opacity: 1;
+        }
+        .ecosystem-item-header {
+            display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+        }
+        .ecosystem-icon {
+            width: 48px; height: 48px; border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(0, 177, 64, 0.2));
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .ecosystem-icon svg {
+            width: 24px; height: 24px; stroke: var(--gatorade-orange);
         }
         .ecosystem-item-title {
-            font-weight: 600; color: var(--gatorade-orange); margin-bottom: 8px;
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;
+            font-weight: 700; color: var(--gatorade-orange); margin: 0;
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;
         }
         .ecosystem-item-list {
-            font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8;
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 2;
+        }
+        .ecosystem-item-list a {
+            color: var(--text-secondary); text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+        .ecosystem-item-list a:hover {
+            color: var(--gatorade-orange);
         }
         
         .media-logos {
-            display: flex; flex-wrap: wrap; gap: 24px; align-items: center;
+            display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
             margin: 32px 0; padding: 32px; background: var(--surface);
             border-radius: var(--radius-xl); border: 1px solid var(--glass-border);
         }
         .media-logo {
             font-weight: 600; color: var(--text-secondary); font-size: 0.9rem;
-            padding: 8px 16px; background: rgba(255, 107, 0, 0.1);
-            border-radius: var(--radius-sm);
+            padding: 10px 20px; background: rgba(255, 107, 0, 0.1);
+            border-radius: var(--radius-sm); text-decoration: none;
+            transition: all 0.3s ease; display: inline-block;
+        }
+        .media-logo:hover {
+            background: rgba(255, 107, 0, 0.2);
+            color: var(--gatorade-orange);
+            transform: translateY(-2px);
+        }
+        
+        .quote-link {
+            color: var(--gatorade-orange); text-decoration: none;
+            font-weight: 600; transition: opacity 0.3s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .quote-link:hover {
+            opacity: 0.8;
+        }
+        .quote-link svg {
+            width: 14px; height: 14px;
         }
         
         .stat-highlight {
@@ -404,16 +457,34 @@
                 <h2 class="case-section-title">Full Campaign Ecosystem</h2>
                 <div class="ecosystem-grid">
                     <div class="ecosystem-item">
-                        <div class="ecosystem-item-title">Films</div>
+                        <div class="ecosystem-item-header">
+                            <div class="ecosystem-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <h3 class="ecosystem-item-title">Films</h3>
+                        </div>
                         <div class="ecosystem-item-list">
                             Radio :15s Teaser<br>
                             Bolt Gate :15<br>
                             80's Retro Ads<br>
-                            No Ordinary Athlete :30
+                            <a href="https://www.youtube.com/watch?v=S8FHZ6Gtu94" target="_blank">No Ordinary Athlete :30 →</a>
                         </div>
                     </div>
                     <div class="ecosystem-item">
-                        <div class="ecosystem-item-title">OOH</div>
+                        <div class="ecosystem-item-header">
+                            <div class="ecosystem-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                            </div>
+                            <h3 class="ecosystem-item-title">OOH</h3>
+                        </div>
                         <div class="ecosystem-item-list">
                             Lenticular OOH (NYC + LA)<br>
                             Myles Garrett Mobile Billboards<br>
@@ -421,7 +492,14 @@
                         </div>
                     </div>
                     <div class="ecosystem-item">
-                        <div class="ecosystem-item-title">Social</div>
+                        <div class="ecosystem-item-header">
+                            <div class="ecosystem-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="ecosystem-item-title">Social</h3>
+                        </div>
                         <div class="ecosystem-item-list">
                             Eleven Moment Reactive Social<br>
                             NFL Christmas Day Lockers<br>
@@ -430,7 +508,16 @@
                         </div>
                     </div>
                     <div class="ecosystem-item">
-                        <div class="ecosystem-item-title">Merch</div>
+                        <div class="ecosystem-item-header">
+                            <div class="ecosystem-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                            </div>
+                            <h3 class="ecosystem-item-title">Merch</h3>
+                        </div>
                         <div class="ecosystem-item-list">
                             Drop 1: T-Shirt, Towel, Glass Bottle<br>
                             Drop 2: Towel, Jacket, Numbered Glass Bottle (Upside Down)
@@ -449,7 +536,7 @@
                 <blockquote>
                     "Grab your scrunchies and tube socks because Gatorade is going full-on '80s in collaboration with Stranger Things ahead of its fifth and final season. The collab — complete with the return of the discontinued Citrus Cooler flavor and two vintage-inspired merch capsules — perfectly captures the retro Hawkins vibe full of neon, nostalgia, and the supernatural Upside Down."
                 </blockquote>
-                <cite>— Lyda Cosgrove, Her Campus</cite>
+                <cite>— Lyda Cosgrove, <a href="https://www.hercampus.com" target="_blank" class="quote-link">Her Campus<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></cite>
             </div>
 
             <div class="case-quote">
@@ -470,7 +557,7 @@
                 <blockquote>
                     "The [glass bottle] comeback is a centerpiece of Gatorade's "No Ordinary Athlete" campaign, a modern revival of its classic 1987 "No Ordinary Thirst Quencher" ads. With an Upside Down twist, the campaign merges sports culture, retro design, and Stranger Things nostalgia."
                 </blockquote>
-                <cite>— Shawn Grant, The Source</cite>
+                <cite>— Shawn Grant, <a href="https://thesource.com" target="_blank" class="quote-link">The Source<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></cite>
             </div>
 
             <section class="case-section">
@@ -487,16 +574,16 @@
                 <p>We expanded the campaign to a consumer audience by targeting snack/food & lifestyle media with the Citrus Cooler LTO seeding, with Delish, Allrecipes, and Her Campus sharing excitement for the return of Citrus Cooler across .com and social.</p>
                 <p>We extended reach to a sports and culture audience by leveraging Myles Garrett's authentic Stranger Things fandom, resulting in interview coverage from Yahoo! Sports, Sports Illustrated, and NBC.</p>
                 <div class="media-logos">
-                    <span class="media-logo">COMPLEX</span>
-                    <span class="media-logo">Yahoo!</span>
-                    <span class="media-logo">ADWEEK</span>
-                    <span class="media-logo">Deadline</span>
-                    <span class="media-logo">Delish</span>
-                    <span class="media-logo">Parade</span>
-                    <span class="media-logo">Food & Beverage</span>
-                    <span class="media-logo">Sporked</span>
-                    <span class="media-logo">Sports Illustrated</span>
-                    <span class="media-logo">The Source</span>
+                    <a href="https://www.complex.com" target="_blank" class="media-logo">COMPLEX</a>
+                    <a href="https://www.yahoo.com" target="_blank" class="media-logo">Yahoo!</a>
+                    <a href="https://www.adweek.com" target="_blank" class="media-logo">ADWEEK</a>
+                    <a href="https://deadline.com" target="_blank" class="media-logo">Deadline</a>
+                    <a href="https://www.delish.com" target="_blank" class="media-logo">Delish</a>
+                    <a href="https://parade.com" target="_blank" class="media-logo">Parade</a>
+                    <a href="https://www.foodandbeverage.com" target="_blank" class="media-logo">Food & Beverage</a>
+                    <a href="https://www.sporked.com" target="_blank" class="media-logo">Sporked</a>
+                    <a href="https://www.si.com" target="_blank" class="media-logo">Sports Illustrated</a>
+                    <a href="https://thesource.com" target="_blank" class="media-logo">The Source</a>
                 </div>
             </section>
             
@@ -534,11 +621,25 @@
                 <h2 class="case-section-title">Campaign Spots</h2>
                 <div class="video-grid">
                     <div class="video-card">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/S8FHZ6Gtu94" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                        <div class="video-label">No Ordinary Athlete</div>
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/S8FHZ6Gtu94?rel=0&modestbranding=1" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-label">No Ordinary Athlete :30</div>
                     </div>
                     <div class="video-card">
-                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/lBqIkhY_0Bc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/lBqIkhY_0Bc?rel=0&modestbranding=1" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
                         <div class="video-label">Behind the Scenes</div>
                     </div>
                 </div>
