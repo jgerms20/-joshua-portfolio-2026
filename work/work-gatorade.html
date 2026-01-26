@@ -390,9 +390,9 @@
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
             .campaign-toggle { flex-direction: column; width: 100%; }
             .toggle-btn { text-align: center; }
-            .case-hero-content { grid-template-columns: 1fr; gap: 40px; }
-            .case-hero-visual { grid-column: 1; order: -1; }
-            .case-hero-text { grid-column: 1; }
+            .case-hero-content { flex-direction: column; gap: 40px; }
+            .case-hero-visual { display: none; }
+            .case-hero-text { width: 100%; }
         }
     </style>
     <script>
@@ -440,10 +440,10 @@
             
             <div class="case-hero-visual">
                 <div class="hero-campaign-image active" id="stranger-things-hero-img">
-                    <img src="Brand Imagery/Gatorade/Merchandise Locker Room.jpg" alt="Gatorade Stranger Things Merchandise - Locker Room" onerror="this.src='https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80'">
+                    <img src="Brand Imagery/Gatorade/Merchandise Locker Room.jpg" alt="Gatorade Stranger Things Merchandise - Locker Room" onerror="this.style.display='none'">
                 </div>
-                <div class="hero-campaign-image" id="nfl-hero-img">
-                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80" alt="Gatorade NFL Campaign">
+                <div class="hero-campaign-image" id="nfl-hero-img" style="display: none;">
+                    <!-- NFL campaign visual - hidden by default, will show when NFL is selected -->
                 </div>
             </div>
         </div>
@@ -909,7 +909,7 @@
         
         const heroBgImages = {
             'stranger-things': 'Brand Imagery/Gatorade/No Ordinary Athlete Hero.jpg',
-            'nfl': 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1920&q=80'
+            'nfl': 'Brand Imagery/Gatorade/NFL Campaign Hero.jpg'
         };
         
         // Set initial hero background to Stranger Things "No Ordinary Athlete" image
@@ -949,20 +949,20 @@
                 if (campaign === 'stranger-things') {
                     if (strangerThingsImg) {
                         strangerThingsImg.classList.add('active');
-                        strangerThingsImg.classList.remove('not-active');
+                        strangerThingsImg.style.display = 'block';
                     }
                     if (nflImg) {
                         nflImg.classList.remove('active');
-                        nflImg.classList.add('not-active');
+                        nflImg.style.display = 'none';
                     }
                 } else {
-                    if (nflImg) {
-                        nflImg.classList.add('active');
-                        nflImg.classList.remove('not-active');
-                    }
+                    // Hide visual images for NFL - just show background
                     if (strangerThingsImg) {
                         strangerThingsImg.classList.remove('active');
-                        strangerThingsImg.classList.add('not-active');
+                        strangerThingsImg.style.display = 'none';
+                    }
+                    if (nflImg) {
+                        nflImg.style.display = 'none';
                     }
                 }
             });

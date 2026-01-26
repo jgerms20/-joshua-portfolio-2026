@@ -318,9 +318,10 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr;
             gap: var(--space-4xl);
-            align-items: start;
+            align-items: center;
+            justify-items: center;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -383,22 +384,7 @@
 
         /* Photo Rotator */
         .photo-rotator {
-            position: sticky;
-            top: 100px;
-            width: 100%;
-            max-width: 420px;
-            height: 520px;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            background: var(--obsidian);
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            align-self: start;
-            visibility: visible;
-            opacity: 1 !important;
-            z-index: 1;
+            display: none !important; /* Hidden on desktop */
         }
         
         /* Override reveal animation for photo rotator - ensure it's always visible */
@@ -407,18 +393,10 @@
             transform: translateY(0) !important;
         }
         
-        /* Ensure photo rotator is visible on desktop */
+        /* Hide photo rotator on desktop */
         @media (min-width: 1201px) {
             .photo-rotator {
-                display: flex !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                position: sticky !important;
-            }
-            
-            .photo-rotator.reveal {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
+                display: none !important;
             }
         }
 
