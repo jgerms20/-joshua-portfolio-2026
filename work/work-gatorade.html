@@ -56,13 +56,11 @@
         }
         .case-hero-content { 
             position: relative; z-index: 2; max-width: var(--max-width); width: 100%;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+            display: flex; flex-direction: column; align-items: flex-start;
         }
-        .case-hero-text { grid-column: 1; }
+        .case-hero-text { width: 100%; }
         .case-hero-visual { 
-            grid-column: 2; 
-            display: flex; flex-direction: column; gap: 24px;
-            position: relative;
+            display: none !important; /* Hide visual images completely */
         }
         .hero-campaign-image {
             width: 100%; border-radius: var(--radius-xl); overflow: hidden;
@@ -438,14 +436,6 @@
                 </div>
             </div>
             
-            <div class="case-hero-visual">
-                <div class="hero-campaign-image active" id="stranger-things-hero-img">
-                    <img src="Brand Imagery/Gatorade/Merchandise Locker Room.jpg" alt="Gatorade Stranger Things Merchandise - Locker Room" onerror="this.style.display='none'">
-                </div>
-                <div class="hero-campaign-image" id="nfl-hero-img" style="display: none;">
-                    <!-- NFL campaign visual - hidden by default, will show when NFL is selected -->
-                </div>
-            </div>
         </div>
     </section>
 
