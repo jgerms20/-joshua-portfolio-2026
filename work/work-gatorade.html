@@ -877,10 +877,18 @@
         const toggleBtns = document.querySelectorAll('.toggle-btn');
         const campaignPanels = document.querySelectorAll('.campaign-panel');
         const scopeValue = document.getElementById('scopeValue');
+        const heroBgImage = document.getElementById('heroBgImage');
+        const strangerThingsImg = document.getElementById('stranger-things-hero-img');
+        const nflImg = document.getElementById('nfl-hero-img');
         
         const scopeTexts = {
             'stranger-things': 'Global Entertainment Partnership',
             'nfl': 'NFL Films Documentary Partnership'
+        };
+        
+        const heroBgImages = {
+            'stranger-things': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80',
+            'nfl': 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1920&q=80'
         };
 
         toggleBtns.forEach(btn => {
@@ -901,8 +909,43 @@
                 
                 // Update scope
                 scopeValue.textContent = scopeTexts[campaign] || 'Global Partnership';
+                
+                // Update hero background image
+                if (heroBgImage && heroBgImages[campaign]) {
+                    heroBgImage.style.opacity = '0';
+                    setTimeout(() => {
+                        heroBgImage.src = heroBgImages[campaign];
+                        heroBgImage.style.opacity = '1';
+                    }, 250);
+                }
+                
+                // Update campaign visual images
+                if (campaign === 'stranger-things') {
+                    if (strangerThingsImg) {
+                        strangerThingsImg.classList.add('active');
+                        strangerThingsImg.classList.remove('not-active');
+                    }
+                    if (nflImg) {
+                        nflImg.classList.remove('active');
+                        nflImg.classList.add('not-active');
+                    }
+                } else {
+                    if (nflImg) {
+                        nflImg.classList.add('active');
+                        nflImg.classList.remove('not-active');
+                    }
+                    if (strangerThingsImg) {
+                        strangerThingsImg.classList.remove('active');
+                        strangerThingsImg.classList.add('not-active');
+                    }
+                }
             });
         });
+        
+        // Add transition to hero background
+        if (heroBgImage) {
+            heroBgImage.style.transition = 'opacity 0.5s ease';
+        }
     </script>
 
 </body>
