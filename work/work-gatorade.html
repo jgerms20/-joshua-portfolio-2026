@@ -889,8 +889,6 @@
         const campaignPanels = document.querySelectorAll('.campaign-panel');
         const scopeValue = document.getElementById('scopeValue');
         const heroBgImage = document.getElementById('heroBgImage');
-        const strangerThingsImg = document.getElementById('stranger-things-hero-img');
-        const nflImg = document.getElementById('nfl-hero-img');
         
         const scopeTexts = {
             'stranger-things': 'Global Entertainment Partnership',
@@ -933,27 +931,6 @@
                         heroBgImage.src = heroBgImages[campaign];
                         heroBgImage.style.opacity = '1';
                     }, 250);
-                }
-                
-                // Update campaign visual images
-                if (campaign === 'stranger-things') {
-                    if (strangerThingsImg) {
-                        strangerThingsImg.classList.add('active');
-                        strangerThingsImg.style.display = 'block';
-                    }
-                    if (nflImg) {
-                        nflImg.classList.remove('active');
-                        nflImg.style.display = 'none';
-                    }
-                } else {
-                    // Hide visual images for NFL - just show background
-                    if (strangerThingsImg) {
-                        strangerThingsImg.classList.remove('active');
-                        strangerThingsImg.style.display = 'none';
-                    }
-                    if (nflImg) {
-                        nflImg.style.display = 'none';
-                    }
                 }
             });
         });
