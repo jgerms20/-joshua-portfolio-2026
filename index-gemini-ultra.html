@@ -397,15 +397,28 @@
             justify-content: center;
             align-self: start;
             visibility: visible;
-            opacity: 1;
+            opacity: 1 !important;
             z-index: 1;
         }
         
+        /* Override reveal animation for photo rotator - ensure it's always visible */
+        .photo-rotator.reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Ensure photo rotator is visible on desktop */
         @media (min-width: 1201px) {
             .photo-rotator {
                 display: flex !important;
                 visibility: visible !important;
                 opacity: 1 !important;
+                position: sticky !important;
+            }
+            
+            .photo-rotator.reveal {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
             }
         }
 
@@ -443,8 +456,14 @@
 
         .photo-rotator .photo-slide.active,
         .photo-slide.active {
-            opacity: 1;
+            opacity: 1 !important;
             z-index: 2;
+        }
+        
+        /* Ensure first slide is visible on load */
+        .photo-rotator .photo-slide:first-child.active {
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
         .photo-slide img {
@@ -4039,36 +4058,87 @@
         // =====================================================
         // Desktop photo rotator
         const desktopRotator = document.querySelector('.photo-rotator');
-        const desktopSlides = desktopRotator ? desktopRotator.querySelectorAll('.photo-slide') : [];
-        let desktopSlideIndex = 0;
-
-        function rotateDesktopPhotos() {
+        if (desktopRotator) {
+            // Ensure rotator container is visible immediately
+            desktopRotator.style.opacity = '1';
+            desktopRotator.style.visibility = 'visible';
+            desktopRotator.classList.add('visible');
+            
+            const desktopSlides = desktopRotator.querySelectorAll('.photo-slide');
+            let desktopSlideIndex = 0;
+            
+            // Ensure first slide is active and visible on load
             if (desktopSlides.length > 0) {
-                desktopSlides[desktopSlideIndex].classList.remove('active');
-                desktopSlideIndex = (desktopSlideIndex + 1) % desktopSlides.length;
-                desktopSlides[desktopSlideIndex].classList.add('active');
+                desktopSlides.forEach((slide, index) => {
+                    if (index === 0) {
+                        slide.classList.add('active');
+                        slide.style.opacity = '1';
+                        slide.style.visibility = 'visible';
+                        slide.style.zIndex = '2';
+                    } else {
+                        slide.classList.remove('active');
+                        slide.style.opacity = '0';
+                        slide.style.zIndex = '1';
+                    }
+                });
             }
+
+            function rotateDesktopPhotos() {
+                if (desktopSlides.length > 0) {
+                    desktopSlides[desktopSlideIndex].classList.remove('active');
+                    desktopSlides[desktopSlideIndex].style.opacity = '0';
+                    desktopSlides[desktopSlideIndex].style.zIndex = '1';
+                    desktopSlideIndex = (desktopSlideIndex + 1) % desktopSlides.length;
+                    desktopSlides[desktopSlideIndex].classList.add('active');
+                    desktopSlides[desktopSlideIndex].style.opacity = '1';
+                    desktopSlides[desktopSlideIndex].style.visibility = 'visible';
+                    desktopSlides[desktopSlideIndex].style.zIndex = '2';
+                }
+            }
+
+            // Start rotation after a short delay to ensure initial display
+            setTimeout(() => {
+                if (desktopSlides.length > 0) {
+                    setInterval(rotateDesktopPhotos, 4000);
+                }
+            }, 500);
         }
 
         // Mobile photo rotator
         const mobileRotator = document.querySelector('.photo-rotator-mobile');
-        const mobileSlides = mobileRotator ? mobileRotator.querySelectorAll('.photo-slide') : [];
-        let mobileSlideIndex = 0;
-
-        function rotateMobilePhotos() {
+        if (mobileRotator) {
+            const mobileSlides = mobileRotator.querySelectorAll('.photo-slide');
+            let mobileSlideIndex = 0;
+            
+            // Ensure first slide is active and visible on load
             if (mobileSlides.length > 0) {
-                mobileSlides[mobileSlideIndex].classList.remove('active');
-                mobileSlideIndex = (mobileSlideIndex + 1) % mobileSlides.length;
-                mobileSlides[mobileSlideIndex].classList.add('active');
+                mobileSlides.forEach((slide, index) => {
+                    if (index === 0) {
+                        slide.classList.add('active');
+                        slide.style.opacity = '1';
+                    } else {
+                        slide.classList.remove('active');
+                        slide.style.opacity = '0';
+                    }
+                });
             }
-        }
 
-        // Start rotations
-        if (desktopSlides.length > 0) {
-            setInterval(rotateDesktopPhotos, 4000);
-        }
-        if (mobileSlides.length > 0) {
-            setInterval(rotateMobilePhotos, 4000);
+            function rotateMobilePhotos() {
+                if (mobileSlides.length > 0) {
+                    mobileSlides[mobileSlideIndex].classList.remove('active');
+                    mobileSlides[mobileSlideIndex].style.opacity = '0';
+                    mobileSlideIndex = (mobileSlideIndex + 1) % mobileSlides.length;
+                    mobileSlides[mobileSlideIndex].classList.add('active');
+                    mobileSlides[mobileSlideIndex].style.opacity = '1';
+                }
+            }
+
+            // Start rotation after a short delay
+            setTimeout(() => {
+                if (mobileSlides.length > 0) {
+                    setInterval(rotateMobilePhotos, 4000);
+                }
+            }, 500);
         }
 
         // =====================================================
