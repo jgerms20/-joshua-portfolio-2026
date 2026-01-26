@@ -398,12 +398,35 @@
             align-self: start;
             visibility: visible;
             opacity: 1;
+            z-index: 1;
+        }
+        
+        @media (min-width: 1201px) {
+            .photo-rotator {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
         }
 
         .photo-rotator-mobile {
             display: none;
         }
 
+        .photo-rotator .photo-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
         .photo-slide {
             position: absolute;
             top: 0;
@@ -418,6 +441,7 @@
             z-index: 1;
         }
 
+        .photo-rotator .photo-slide.active,
         .photo-slide.active {
             opacity: 1;
             z-index: 2;
@@ -1745,6 +1769,16 @@
             
             .rotating-text-container {
                 text-align: center;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .rotating-text-prefix {
+                white-space: nowrap;
+            }
+            
+            .rotating-text {
+                white-space: nowrap;
             }
             
             .hero-text p {
@@ -1929,11 +1963,11 @@
                 <button class="nav-trigger">Work <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
                 <div class="nav-dropdown-menu">
                     <a href="work/work-levis.html">Levi's x Beyoncé</a>
+                    <a href="work/work-gatorade.html">Gatorade</a>
                     <a href="work/work-sephora.html">Sephora</a>
                     <a href="work/work-doordash.html">DoorDash</a>
                     <a href="work/work-bmw.html">BMW</a>
                     <a href="work/work-directv.html">DIRECTV</a>
-                    <a href="work/work-gatorade.html">Gatorade</a>
                     <a href="work/work-samadams.html">Samuel Adams</a>
                     <a href="work/work-califia.html">Califia Farms</a>
                     <div class="dropdown-divider"></div>
@@ -2625,6 +2659,19 @@
                     </div>
                 </a>
 
+                <!-- Gatorade -->
+                <a href="work/work-gatorade.html" class="bento-card reveal reveal-delay-1">
+                    <div class="bento-media">
+                        <img src="Brand Imagery/Gatorade/Brand Logo/gatorade-logo-png_seeklogo-369610.png" alt="Gatorade" style="background: #000; padding: 30px;">
+                    </div>
+                    <div class="bento-body">
+                        <span class="bento-tag">Connection Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="bento-title">Gatorade Campaigns</h3>
+                        <p class="bento-desc">Stranger Things & NFL Films partnerships.</p>
+                        <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </div>
+                </a>
+
                 <!-- Sephora -->
                 <a href="work/work-sephora.html" class="bento-card reveal reveal-delay-1">
                     <div class="bento-media" style="background: #fff; display: flex; align-items: center; justify-content: center; padding: 40px;">
@@ -2677,18 +2724,6 @@
                     </div>
                 </a>
 
-                <!-- Gatorade -->
-                <a href="work/work-gatorade.html" class="bento-card reveal reveal-delay-3">
-                    <div class="bento-media">
-                        <img src="Brand Imagery/Gatorade/Brand Logo/gatorade-logo-png_seeklogo-369610.png" alt="Gatorade" style="background: #000; padding: 30px;">
-                    </div>
-                    <div class="bento-body">
-                        <span class="bento-tag">Connection Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="bento-title">Gatorade Campaigns</h3>
-                        <p class="bento-desc">Stranger Things & NFL Films partnerships.</p>
-                        <span class="bento-cta">View Case Study <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                    </div>
-                </a>
 
                 <!-- Samuel Adams -->
                 <a href="work/work-samadams.html" class="bento-card reveal">
@@ -4002,16 +4037,39 @@
         // =====================================================
         // PHOTO ROTATOR
         // =====================================================
-        const photoSlides = document.querySelectorAll('.photo-slide');
-        let slideIndex = 0;
+        // Desktop photo rotator
+        const desktopRotator = document.querySelector('.photo-rotator');
+        const desktopSlides = desktopRotator ? desktopRotator.querySelectorAll('.photo-slide') : [];
+        let desktopSlideIndex = 0;
 
-        function rotatePhotos() {
-            photoSlides[slideIndex].classList.remove('active');
-            slideIndex = (slideIndex + 1) % photoSlides.length;
-            photoSlides[slideIndex].classList.add('active');
+        function rotateDesktopPhotos() {
+            if (desktopSlides.length > 0) {
+                desktopSlides[desktopSlideIndex].classList.remove('active');
+                desktopSlideIndex = (desktopSlideIndex + 1) % desktopSlides.length;
+                desktopSlides[desktopSlideIndex].classList.add('active');
+            }
         }
 
-        setInterval(rotatePhotos, 4000);
+        // Mobile photo rotator
+        const mobileRotator = document.querySelector('.photo-rotator-mobile');
+        const mobileSlides = mobileRotator ? mobileRotator.querySelectorAll('.photo-slide') : [];
+        let mobileSlideIndex = 0;
+
+        function rotateMobilePhotos() {
+            if (mobileSlides.length > 0) {
+                mobileSlides[mobileSlideIndex].classList.remove('active');
+                mobileSlideIndex = (mobileSlideIndex + 1) % mobileSlides.length;
+                mobileSlides[mobileSlideIndex].classList.add('active');
+            }
+        }
+
+        // Start rotations
+        if (desktopSlides.length > 0) {
+            setInterval(rotateDesktopPhotos, 4000);
+        }
+        if (mobileSlides.length > 0) {
+            setInterval(rotateMobilePhotos, 4000);
+        }
 
         // =====================================================
         // NAVIGATION ACTIVE STATE
