@@ -356,6 +356,27 @@
         .stat-highlight-label {
             font-size: 0.85rem; color: var(--text-secondary);
         }
+        
+        .case-gallery {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px; margin: 48px 0;
+        }
+        .case-gallery img {
+            width: 100%; height: auto; border-radius: var(--radius-lg);
+            aspect-ratio: 4/3; object-fit: cover;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .case-gallery img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(255, 107, 0, 0.2);
+        }
+        .case-gallery.two-col {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .case-gallery.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         .next-project { padding: 80px var(--edge); border-top: 1px solid var(--glass-border); text-align: center; }
         .next-project-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 16px; }
@@ -397,29 +418,29 @@
 
     <section class="case-hero">
         <div class="case-hero-bg">
-            <img id="heroBgImage" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80" alt="Gatorade Campaign">
+            <img id="heroBgImage" src="Brand Imagery/Gatorade/No Ordinary Athlete Hero.jpg" alt="Gatorade No Ordinary Athlete Campaign" onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80'">
         </div>
         <div class="case-hero-content">
             <div class="case-hero-text">
-            <span class="case-tag">Global Entertainment Partnerships</span>
-            <h1 class="case-title">
-                Gatorade<br>
-                <span class="accent">Campaigns</span>
-            </h1>
-            <p class="case-subtitle">
-                Fueling athletes and culture. Two campaigns that expanded Gatorade's reach beyond the playing field.
-            </p>
-            
-            <!-- Campaign Toggle -->
-            <div class="campaign-toggle">
-                <button class="toggle-btn active" data-campaign="stranger-things">Stranger Things</button>
-                <button class="toggle-btn" data-campaign="nfl">NFL</button>
+                <span class="case-tag">Global Entertainment Partnerships</span>
+                <h1 class="case-title">
+                    Gatorade<br>
+                    <span class="accent">Campaigns</span>
+                </h1>
+                <p class="case-subtitle">
+                    Fueling athletes and culture. Two campaigns that expanded Gatorade's reach beyond the playing field.
+                </p>
+                
+                <!-- Campaign Toggle -->
+                <div class="campaign-toggle">
+                    <button class="toggle-btn active" data-campaign="stranger-things">Stranger Things</button>
+                    <button class="toggle-btn" data-campaign="nfl">NFL</button>
                 </div>
             </div>
             
             <div class="case-hero-visual">
                 <div class="hero-campaign-image active" id="stranger-things-hero-img">
-                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80" alt="Gatorade Stranger Things Campaign">
+                    <img src="Brand Imagery/Gatorade/Merchandise Locker Room.jpg" alt="Gatorade Stranger Things Merchandise - Locker Room" onerror="this.src='https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80'">
                 </div>
                 <div class="hero-campaign-image" id="nfl-hero-img">
                     <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80" alt="Gatorade NFL Campaign">
@@ -887,9 +908,14 @@
         };
         
         const heroBgImages = {
-            'stranger-things': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80',
+            'stranger-things': 'Brand Imagery/Gatorade/No Ordinary Athlete Hero.jpg',
             'nfl': 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1920&q=80'
         };
+        
+        // Set initial hero background to Stranger Things "No Ordinary Athlete" image
+        if (heroBgImage) {
+            heroBgImage.src = heroBgImages['stranger-things'];
+        }
 
         toggleBtns.forEach(btn => {
             btn.addEventListener('click', () => {
