@@ -314,15 +314,19 @@
             z-index: 2;
             max-width: var(--max-width);
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-4xl);
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-items: center;
-            max-width: 1400px;
+            justify-content: center;
+            gap: var(--space-4xl);
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -332,25 +336,39 @@
             gap: var(--space-xl);
             text-align: center;
             align-items: center;
+            justify-content: center;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
         .hero-text h1 {
             text-align: center;
+            width: 100%;
+            margin: 0 auto;
         }
         
         .rotating-text-container {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-md);
             justify-content: center;
+            width: 100%;
         }
         
         .hero-text p {
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-ctas {
+            display: flex;
+            gap: var(--space-md);
             justify-content: center;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
         
 
@@ -471,12 +489,13 @@
         .hero-stats {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: var(--space-3xl);
             margin-top: var(--space-2xl);
             padding-top: var(--space-2xl);
             border-top: 1px solid var(--glass-border);
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
