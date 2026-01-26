@@ -38,17 +38,48 @@
         .back-nav svg { width: 18px; height: 18px; }
 
         .case-hero {
-            position: relative; min-height: 70vh;
+            position: relative; min-height: 85vh;
             display: flex; align-items: flex-end;
-            padding: var(--edge); padding-bottom: 60px; overflow: hidden;
+            padding: var(--edge); padding-bottom: 80px; overflow: hidden;
             background: linear-gradient(135deg, #1a0a00 0%, #000 50%, #001a0a 100%);
         }
-        .case-hero::before {
-            content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
-            background: radial-gradient(circle at center, var(--gatorade-orange) 0%, transparent 70%);
-            opacity: 0.1; pointer-events: none;
+        .case-hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+            transition: opacity 0.5s ease;
         }
-        .case-hero-content { position: relative; z-index: 1; max-width: var(--max-width); width: 100%; }
+        .case-hero-bg img {
+            width: 100%; height: 100%; object-fit: cover; object-position: center;
+        }
+        .case-hero-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, var(--void) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+        }
+        .case-hero-content { 
+            position: relative; z-index: 2; max-width: var(--max-width); width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+        }
+        .case-hero-text { grid-column: 1; }
+        .case-hero-visual { 
+            grid-column: 2; 
+            display: flex; flex-direction: column; gap: 24px;
+            position: relative;
+        }
+        .hero-campaign-image {
+            width: 100%; border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+            aspect-ratio: 16/9; background: var(--surface);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            position: absolute; top: 0; left: 0;
+        }
+        .hero-campaign-image img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .hero-campaign-image.active {
+            opacity: 1; transform: scale(1); position: relative;
+        }
+        .hero-campaign-image:not(.active) {
+            opacity: 0; transform: scale(0.95); position: absolute;
+        }
         .case-tag {
             display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
             background: rgba(255, 107, 0, 0.2); backdrop-filter: blur(10px);
@@ -338,6 +369,9 @@
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
             .campaign-toggle { flex-direction: column; width: 100%; }
             .toggle-btn { text-align: center; }
+            .case-hero-content { grid-template-columns: 1fr; gap: 40px; }
+            .case-hero-visual { grid-column: 1; order: -1; }
+            .case-hero-text { grid-column: 1; }
         }
     </style>
     <script>
@@ -362,7 +396,11 @@
     </a>
 
     <section class="case-hero">
+        <div class="case-hero-bg">
+            <img id="heroBgImage" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80" alt="Gatorade Campaign">
+        </div>
         <div class="case-hero-content">
+            <div class="case-hero-text">
             <span class="case-tag">Global Entertainment Partnerships</span>
             <h1 class="case-title">
                 Gatorade<br>
@@ -376,6 +414,16 @@
             <div class="campaign-toggle">
                 <button class="toggle-btn active" data-campaign="stranger-things">Stranger Things</button>
                 <button class="toggle-btn" data-campaign="nfl">NFL</button>
+                </div>
+            </div>
+            
+            <div class="case-hero-visual">
+                <div class="hero-campaign-image active" id="stranger-things-hero-img">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=80" alt="Gatorade Stranger Things Campaign">
+                </div>
+                <div class="hero-campaign-image" id="nfl-hero-img">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&q=80" alt="Gatorade NFL Campaign">
+                </div>
             </div>
         </div>
     </section>
