@@ -209,12 +209,22 @@
         }
 
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 32px 0; }
+        .video-grid.featured-layout {
+            display: flex; flex-direction: column; gap: 24px;
+        }
         .video-card {
             background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
         }
+        .video-card.featured {
+            width: 100%;
+        }
         .video-card .video-wrapper { position: relative; padding-bottom: 56.25%; }
+        .video-card.featured .video-wrapper { padding-bottom: 50%; }
         .video-card iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .video-card .video-label { padding: 16px; font-size: 0.9rem; color: var(--text-secondary); }
+        .video-grid-small {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+        }
 
         .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 48px auto; max-width: var(--max-width); padding: 0 var(--edge); }
         .result-card {
@@ -385,6 +395,7 @@
             .case-meta { gap: 32px; } 
             .results-grid { grid-template-columns: 1fr; }
             .video-grid { grid-template-columns: 1fr; }
+            .video-grid-small { grid-template-columns: 1fr; }
             .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
             .campaign-toggle { flex-direction: column; width: 100%; }
             .toggle-btn { text-align: center; }
@@ -469,30 +480,9 @@
                 <h2 class="case-section-title">No Ordinary Athlete</h2>
                 
                 <!-- Campaign Videos -->
-                <div class="video-grid" style="margin-bottom: 48px;">
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/S8FHZ6Gtu94?rel=0&modestbranding=1" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
-                        </div>
-                        <div class="video-label">No Ordinary Athlete :30</div>
-                    </div>
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/lBqIkhY_0Bc?rel=0&modestbranding=1" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
-                        </div>
-                        <div class="video-label">Behind the Scenes</div>
-                    </div>
-                    <div class="video-card">
+                <div class="video-grid featured-layout" style="margin-bottom: 48px;">
+                    <!-- Featured Video: Stranger Things Campaign -->
+                    <div class="video-card featured">
                         <div class="video-wrapper">
                             <iframe 
                                 width="560" 
@@ -507,6 +497,32 @@
                             </iframe>
                         </div>
                         <div class="video-label">Stranger Things Campaign</div>
+                    </div>
+                    
+                    <!-- Smaller Videos Below -->
+                    <div class="video-grid-small">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/S8FHZ6Gtu94?rel=0&modestbranding=1" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <div class="video-label">No Ordinary Athlete :30</div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/lBqIkhY_0Bc?rel=0&modestbranding=1" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <div class="video-label">Behind the Scenes</div>
+                        </div>
                     </div>
                 </div>
                 
