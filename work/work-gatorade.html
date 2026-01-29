@@ -208,7 +208,7 @@
             color: var(--text-muted);
         }
 
-        .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 32px 0; }
         .video-card {
             background: var(--surface); border-radius: var(--radius-lg); overflow: hidden;
         }
@@ -578,8 +578,12 @@
                             <h3 class="ecosystem-item-title">Merch</h3>
                         </div>
                         <div class="ecosystem-item-list">
-                            Drop 1: T-Shirt, Towel, Glass Bottle<br>
-                            Drop 2: Towel, Jacket, Numbered Glass Bottle (Upside Down)
+                            <strong>Drop 1: 1987 Hawkins Capsule</strong><br>
+                            T-Shirt, Towel, Glass Bottle<br><br>
+                            <strong>Drop 2: Upside Down Capsule</strong><br>
+                            Vintage Satin Jacket (80s-inspired with Hawkins High School patch & Upside Down interior lining)<br>
+                            Sideline Towel (multicolored string lights, co-branded details)<br>
+                            Collectible Glass Bottle (Lemon-Lime, Upside Down label, individually numbered #1–1,100)
                         </div>
                     </div>
                 </div>
@@ -700,6 +704,22 @@
                             </iframe>
                         </div>
                         <div class="video-label">Behind the Scenes</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe 
+                                width="560" 
+                                height="315" 
+                                src="https://www.youtube.com/embed/at9irMNtI2g?rel=0&modestbranding=1" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-label">Stranger Things Campaign</div>
                     </div>
                 </div>
             </section>
