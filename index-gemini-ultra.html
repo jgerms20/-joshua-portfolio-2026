@@ -2016,6 +2016,18 @@
                 </div>
             </div>
             
+            <!-- Podcasts Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-trigger">Podcasts <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="podcasts/podcast-approachable-ai.html">Approachable AI</a>
+                    <a href="podcasts/podcast-dominate.html">Dominate The Decade</a>
+                    <a href="podcasts/podcast-curious-creative.html">Curious & Creative</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#podcasts">View All Podcasts</a>
+                </div>
+            </div>
+            
             <!-- AI Projects Dropdown -->
             <div class="nav-dropdown">
                 <button class="nav-trigger">AI Projects <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -2029,18 +2041,6 @@
                     <a href="https://ai.studio/apps/drive/1UpeX-jONjncy41Putdc_YGg_9qYHlQcD" target="_blank">Perfect Day Crafter</a>
                     <div class="dropdown-divider"></div>
                     <a href="#ai">View All Projects</a>
-                </div>
-            </div>
-            
-            <!-- Podcasts Dropdown -->
-            <div class="nav-dropdown">
-                <button class="nav-trigger">Podcasts <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-                <div class="nav-dropdown-menu">
-                    <a href="podcasts/podcast-approachable-ai.html">Approachable AI</a>
-                    <a href="podcasts/podcast-dominate.html">Dominate The Decade</a>
-                    <a href="podcasts/podcast-curious-creative.html">Curious & Creative</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#podcasts">View All Podcasts</a>
                 </div>
             </div>
             
@@ -2069,8 +2069,8 @@
         <a href="#hero" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#work" class="nav-link">Work</a>
-        <a href="#ai" class="nav-link">AI Projects</a>
         <a href="#podcasts" class="nav-link">Podcasts</a>
+        <a href="#ai" class="nav-link">AI Projects</a>
         <a href="#photography" class="nav-link">Photography</a>
         <a href="#contact" class="nav-link">Contact</a>
     </nav>
@@ -2796,6 +2796,95 @@
     </section>
 
     <!-- =====================================================
+         PODCASTS SECTION
+         ===================================================== -->
+    <section id="podcasts" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="label">My Voice</span>
+                <h2 class="display-medium" style="margin-top: var(--space-md);">Podcasts</h2>
+            </div>
+
+            <div class="podcast-grid">
+                <!-- Approachable AI (First - Current) -->
+                <a href="podcasts/podcast-approachable-ai.html" class="podcast-card reveal">
+                    <div class="podcast-cover">
+                        <img src="Approachable AI Logo 1.png" alt="Approachable AI" onerror="this.parentElement.style.background='linear-gradient(135deg, #4ECDC4, #2C9E8F)'; this.parentElement.innerHTML='<span style=&quot;font-size:2rem;color:white;font-weight:700;&quot;>AI</span>';">
+                    </div>
+                    <div class="podcast-info">
+                        <span class="bento-tag">2026 – Present</span>
+                        <h3 class="podcast-title">Approachable AI</h3>
+                        <p class="podcast-desc">Demystifying artificial intelligence—one episode at a time. Breaking down the latest in AI to make it understandable, relatable, and actionable for everyone.</p>
+                    </div>
+                </a>
+
+                <!-- Dominate The Decade -->
+                <a href="podcasts/podcast-dominate.html" class="podcast-card reveal reveal-delay-1">
+                    <div class="podcast-cover">
+                        <img src="Dominate The Decade/Hero Image.jpeg" alt="Dominate The Decade">
+                    </div>
+                    <div class="podcast-info">
+                        <span class="bento-tag">2020 – 2023</span>
+                        <h3 class="podcast-title">Dominate The Decade</h3>
+                        <p class="podcast-desc">Weekly conversations about growth, culture, and building a meaningful decade. Exploring what it means to live intentionally and dominate your own path.</p>
+                    </div>
+                </a>
+
+                <!-- Curious & Creative - Coming Soon -->
+                <a href="podcasts/podcast-curious-creative.html" class="podcast-card reveal reveal-delay-2" style="position: relative;">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <span class="coming-soon-year">2026</span>
+                    </div>
+                    <div class="podcast-cover" style="filter: grayscale(0.5); opacity: 0.7;">
+                        <img src="Curious&Creative1.0.png" alt="Curious & Creative">
+                    </div>
+                    <div class="podcast-info">
+                        <span class="bento-tag" style="color: var(--text-muted);">2026 – Coming Soon</span>
+                        <h3 class="podcast-title">Curious & Creative</h3>
+                        <p class="podcast-desc">A deep dive into the minds of artists, creators, and innovators. Exploring the intersection of curiosity and creativity that drives meaningful work.</p>
+                    </div>
+                </a>
+                
+                <style>
+                    .podcast-card .coming-soon-overlay {
+                        pointer-events: none;
+                    }
+                    
+                    .coming-soon-overlay {
+                        position: absolute;
+                        inset: 0;
+                        background: rgba(0, 0, 0, 0.7);
+                        backdrop-filter: blur(4px);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 10;
+                        border-radius: var(--radius-xl);
+                        gap: 12px;
+                    }
+                    .coming-soon-badge {
+                        font-size: 1.5rem;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        letter-spacing: 0.2em;
+                        color: var(--neon);
+                        text-shadow: 0 0 20px rgba(212, 255, 79, 0.5);
+                    }
+                    .coming-soon-year {
+                        font-size: 4rem;
+                        font-weight: 900;
+                        font-family: var(--font-display);
+                        color: var(--text-primary);
+                        opacity: 0.3;
+                    }
+                </style>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
          AI PROJECTS SECTION (Moved Before Photography)
          ===================================================== -->
     <section id="ai" class="section section-gradient">
@@ -2977,95 +3066,6 @@
                     <!-- Carousel Indicators -->
                     <div class="carousel-indicators"></div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         PODCASTS SECTION
-         ===================================================== -->
-    <section id="podcasts" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="label">My Voice</span>
-                <h2 class="display-medium" style="margin-top: var(--space-md);">Podcasts</h2>
-            </div>
-
-            <div class="podcast-grid">
-                <!-- Approachable AI (First - Current) -->
-                <a href="podcasts/podcast-approachable-ai.html" class="podcast-card reveal">
-                    <div class="podcast-cover">
-                        <img src="Approachable AI Logo 1.png" alt="Approachable AI" onerror="this.parentElement.style.background='linear-gradient(135deg, #4ECDC4, #2C9E8F)'; this.parentElement.innerHTML='<span style=&quot;font-size:2rem;color:white;font-weight:700;&quot;>AI</span>';">
-                    </div>
-                    <div class="podcast-info">
-                        <span class="bento-tag">2026 – Present</span>
-                        <h3 class="podcast-title">Approachable AI</h3>
-                        <p class="podcast-desc">Demystifying artificial intelligence—one episode at a time. Breaking down the latest in AI to make it understandable, relatable, and actionable for everyone.</p>
-                    </div>
-                </a>
-
-                <!-- Dominate The Decade -->
-                <a href="podcasts/podcast-dominate.html" class="podcast-card reveal reveal-delay-1">
-                    <div class="podcast-cover">
-                        <img src="Dominate The Decade/Hero Image.jpeg" alt="Dominate The Decade">
-                    </div>
-                    <div class="podcast-info">
-                        <span class="bento-tag">2020 – 2023</span>
-                        <h3 class="podcast-title">Dominate The Decade</h3>
-                        <p class="podcast-desc">Weekly conversations about growth, culture, and building a meaningful decade. Exploring what it means to live intentionally and dominate your own path.</p>
-                    </div>
-                </a>
-
-                <!-- Curious & Creative - Coming Soon -->
-                <a href="podcasts/podcast-curious-creative.html" class="podcast-card reveal reveal-delay-2" style="position: relative;">
-                    <div class="coming-soon-overlay">
-                        <span class="coming-soon-badge">Coming Soon</span>
-                        <span class="coming-soon-year">2026</span>
-                    </div>
-                    <div class="podcast-cover" style="filter: grayscale(0.5); opacity: 0.7;">
-                        <img src="Curious&Creative1.0.png" alt="Curious & Creative">
-                    </div>
-                    <div class="podcast-info">
-                        <span class="bento-tag" style="color: var(--text-muted);">2026 – Coming Soon</span>
-                        <h3 class="podcast-title">Curious & Creative</h3>
-                        <p class="podcast-desc">A deep dive into the minds of artists, creators, and innovators. Exploring the intersection of curiosity and creativity that drives meaningful work.</p>
-                    </div>
-                </a>
-                
-                <style>
-                    .podcast-card .coming-soon-overlay {
-                        pointer-events: none;
-                    }
-                    
-                    .coming-soon-overlay {
-                        position: absolute;
-                        inset: 0;
-                        background: rgba(0, 0, 0, 0.7);
-                        backdrop-filter: blur(4px);
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        z-index: 10;
-                        border-radius: var(--radius-xl);
-                        gap: 12px;
-                    }
-                    .coming-soon-badge {
-                        font-size: 1.5rem;
-                        font-weight: 800;
-                        text-transform: uppercase;
-                        letter-spacing: 0.2em;
-                        color: var(--neon);
-                        text-shadow: 0 0 20px rgba(212, 255, 79, 0.5);
-                    }
-                    .coming-soon-year {
-                        font-size: 4rem;
-                        font-weight: 900;
-                        font-family: var(--font-display);
-                        color: var(--text-primary);
-                        opacity: 0.3;
-                    }
-                </style>
             </div>
         </div>
     </section>
