@@ -285,7 +285,7 @@
         <div class="wrap">
             <div class="shop-kicker rv">Fine-Art Prints</div>
             <h1 class="shop-title rv rv-d1">Prints from the <span class="it accent">Darkroom.</span></h1>
-            <p class="shop-intro rv rv-d2">A small, changing selection from the archive — landscapes, travel, and city work, printed true to the frame I shot it in. No crops, no filters, no upscaling beyond the original file.</p>
+            <p class="shop-intro rv rv-d2">The first set: four frames from Rio de Janeiro — a foggy bay under a full moon, Dois Irmãos over the lagoon at dusk, the trams of Santa Teresa, and a quiet corner bar. Printed true to the frame I shot it in. No crops, no filters, no upscaling beyond the original file.</p>
             <p class="shop-note rv rv-d3">This shop is new. Orders are confirmed by email before anything is printed — see checkout for how that works.</p>
         </div>
     </header>
@@ -294,9 +294,8 @@
         <!-- Filters -->
         <div class="filter-row rv">
             <button class="filter-pill active" data-filter="all">All Prints</button>
-            <button class="filter-pill" data-filter="landscape">Landscape</button>
-            <button class="filter-pill" data-filter="travel">Travel</button>
-            <button class="filter-pill" data-filter="city">City</button>
+            <button class="filter-pill" data-filter="places">Places</button>
+            <button class="filter-pill" data-filter="gatherings">Street Life</button>
         </div>
 
         <!-- Grid -->
@@ -397,29 +396,35 @@
 
     <script>
         // =====================================================
-        // CATALOG — pulled from the real archive in /photos
-        // Every source photo is native 3:2, so sizes below are
-        // true crops of the original frame — nothing is stretched
-        // or force-cropped to fit.
+        // CATALOG — the Rio de Janeiro set from Images/Shop upload.
+        // Sizes are keyed per photo to its own native ratio (see
+        // SIZE_SETS below) so nothing is stretched or force-cropped —
+        // the three landscape shots are native 3:2, the corner-bar
+        // shot is a portrait frame and gets its own true-to-ratio sizes.
         // =====================================================
         const CATALOG = [
-            { id: 'red-sun', name: 'Red Sun', cat: 'landscape', img: 'photos/landscape/DSC00659.jpg', desc: 'A red sun hangs low over a hazy coastline lined with palm trees.' },
-            { id: 'mountain-mist', name: 'Mountain Mist', cat: 'landscape', img: 'photos/landscape/JMG_5693.jpg', desc: 'Mist moving through a pine forest and mountain valley at dawn.' },
-            { id: 'the-overlook', name: 'The Overlook', cat: 'landscape', img: 'photos/landscape/JMG_6799.jpg', desc: 'A lone walker crosses a mountain overlook as sunlight breaks through cloud.' },
-            { id: 'offshore', name: 'Offshore', cat: 'landscape', img: 'photos/landscape/JMG_6109.jpg', desc: 'Rock formations sit offshore beneath a pale band of ocean haze.' },
-            { id: 'harbor-line', name: 'Harbor Line', cat: 'landscape', img: 'photos/landscape/JMG_6986.jpg', desc: 'Sailboats fill a marina with a city skyline rising beyond them.' },
-            { id: 'old-growth', name: 'Old Growth', cat: 'landscape', img: 'photos/landscape/JMG_7100.jpg', desc: 'A moss-covered cedar leans across a trail through Pacific Northwest old growth.' },
-            { id: 'big-sur', name: 'Big Sur', cat: 'landscape', img: 'photos/landscape/JMG_6033.jpg', desc: 'Fog rolls over the cliffs and rock stacks along the Big Sur coastline.' },
-            { id: 'dusk-umbrellas', name: 'Dusk Umbrellas', cat: 'travel', img: 'photos/travel/JMG_3086.jpg', desc: 'Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky.' },
-            { id: 'pastel-sea', name: 'Pastel Sea', cat: 'travel', img: 'photos/travel/DSC00870.jpg', desc: 'Swimmers appear as small figures in a calm sea beneath a pastel sky.' },
-            { id: 'downtown-sprawl', name: 'Downtown Sprawl', cat: 'city', img: 'photos/travel/JMG_6742.jpg', desc: 'Rooftops and water towers stretch toward the Manhattan skyline under a clouded sky.' },
+            { id: 'brahma-corner', name: 'Brahma Corner', cat: 'gatherings', sizeSet: 'portrait', img: 'photos/shop/rio-brahma-corner.jpg', desc: 'Two men share a conversation outside a corner bar in Rio, a golden dog resting at their feet and a mural of a painted face on the wall behind them.' },
+            { id: 'fog-islands-moon', name: 'Fog, Islands, Moon', cat: 'places', sizeSet: 'landscape', img: 'photos/shop/rio-fog-islands-moon.jpg', desc: 'A full moon rises over fog-shrouded islands in Guanabara Bay.' },
+            { id: 'two-brothers', name: 'Two Brothers', cat: 'places', sizeSet: 'landscape', img: 'photos/shop/rio-two-brothers.jpg', desc: 'The peak of Dois Irmãos rises over a lagoon and the Rio skyline at dusk.' },
+            { id: 'santa-teresa-trams', name: 'Santa Teresa Trams', cat: 'places', sizeSet: 'landscape', img: 'photos/shop/rio-santa-teresa-trams.jpg', desc: 'Two yellow trams meet on the tracks in Santa Teresa, passengers and pedestrians filling the street.' },
         ];
 
-        const SIZES = [
-            { id: 's', label: '12 × 18"', sub: 'Standard', price: 65 },
-            { id: 'm', label: '16 × 24"', sub: 'Statement', price: 95 },
-            { id: 'l', label: '24 × 36"', sub: 'Gallery', price: 165 },
-        ];
+        // Two size sets, each a true crop of that orientation's native
+        // ratio — landscape prints are 3:2, portrait prints are ~5:7.
+        const SIZE_SETS = {
+            landscape: [
+                { id: 's', label: '12 × 18"', sub: 'Standard', price: 65 },
+                { id: 'm', label: '16 × 24"', sub: 'Statement', price: 95 },
+                { id: 'l', label: '24 × 36"', sub: 'Gallery', price: 165 },
+            ],
+            portrait: [
+                { id: 's', label: '10 × 14"', sub: 'Standard', price: 65 },
+                { id: 'm', label: '14 × 20"', sub: 'Statement', price: 95 },
+                { id: 'l', label: '20 × 28"', sub: 'Gallery', price: 165 },
+            ],
+        };
+        function sizesFor(product) { return SIZE_SETS[product.sizeSet] || SIZE_SETS.landscape; }
+
         const FRAMES = [
             { id: 'unframed', label: 'Unframed', sub: 'Print only', price: 0 },
             { id: 'framed', label: 'Framed', sub: '+ solid wood', price: 85 },
@@ -439,7 +444,7 @@
                             <div class="shop-card-name">${p.name}</div>
                             <span class="shop-card-cat">${p.cat}</span>
                         </div>
-                        <div class="shop-card-price">From $${SIZES[0].price}</div>
+                        <div class="shop-card-price">From $${sizesFor(p)[0].price}</div>
                     </div>
                 </div>
             `).join('');
@@ -466,12 +471,12 @@
         // =====================================================
         const modalVeil = document.getElementById('modalVeil');
         const productModal = document.getElementById('productModal');
-        let currentProduct = null, selSize = SIZES[0].id, selFrame = FRAMES[0].id, selFrameColor = FRAME_COLORS[0];
+        let currentProduct = null, selSize = null, selFrame = FRAMES[0].id, selFrameColor = FRAME_COLORS[0];
 
         function openProduct(id) {
             currentProduct = CATALOG.find(p => p.id === id);
             if (!currentProduct) return;
-            selSize = SIZES[0].id; selFrame = FRAMES[0].id; selFrameColor = FRAME_COLORS[0];
+            selSize = sizesFor(currentProduct)[0].id; selFrame = FRAMES[0].id; selFrameColor = FRAME_COLORS[0];
 
             document.getElementById('modalImg').src = currentProduct.img;
             document.getElementById('modalImg').alt = currentProduct.name;
@@ -493,7 +498,7 @@
 
         function buildSizePills() {
             const el = document.getElementById('sizePills');
-            el.innerHTML = SIZES.map(s => `<button class="opt-pill${s.id===selSize?' active':''}" data-size="${s.id}">${s.label}<span class="opt-pill-sub">${s.sub} · $${s.price}</span></button>`).join('');
+            el.innerHTML = sizesFor(currentProduct).map(s => `<button class="opt-pill${s.id===selSize?' active':''}" data-size="${s.id}">${s.label}<span class="opt-pill-sub">${s.sub} · $${s.price}</span></button>`).join('');
             el.querySelectorAll('.opt-pill').forEach(btn => btn.addEventListener('click', () => { selSize = btn.dataset.size; buildSizePills(); updatePrice(); }));
         }
         function buildFramePills() {
@@ -511,7 +516,7 @@
             el.querySelectorAll('.opt-pill').forEach(btn => btn.addEventListener('click', () => { selFrameColor = btn.dataset.color; buildFrameColorPills(); }));
         }
         function currentPrice() {
-            const size = SIZES.find(s => s.id === selSize);
+            const size = sizesFor(currentProduct).find(s => s.id === selSize);
             const frame = FRAMES.find(f => f.id === selFrame);
             return size.price + frame.price;
         }
@@ -527,7 +532,7 @@
         document.getElementById('modalCloseBtn').addEventListener('click', closeProduct);
 
         document.getElementById('addToCartBtn').addEventListener('click', () => {
-            const size = SIZES.find(s => s.id === selSize);
+            const size = sizesFor(currentProduct).find(s => s.id === selSize);
             const frame = FRAMES.find(f => f.id === selFrame);
             addToCart({
                 pid: currentProduct.id,
