@@ -223,7 +223,10 @@ def run_reminder_fallback():
             pass
 
     if should_remind:
-        print(f"\n🎙️  [Eclectic Polymath] {current} episode(s) in portfolio.")
+        if current:
+            print(f"\n🎙️  [Eclectic Polymath] {current} episode(s) in portfolio.")
+        else:
+            print(f"\n🎙️  [Eclectic Polymath] Site shows Spotify's live feed (no hardcoded count).")
         print(f"   Add SPOTIFY_CLIENT_ID + SPOTIFY_CLIENT_SECRET for full auto-sync.")
         print(f"   Get free credentials → https://developer.spotify.com/dashboard")
         print(f"   Or add an episode manually: /add-eclectic-episode")

@@ -1,0 +1,105 @@
+/* =====================================================
+   Shared media layer — film facades + image fallbacks.
+   Loaded by the homepage and every case study. Relies on
+   the Paper Edition tokens (--ink, --paper, --mono, ...)
+   each page already defines.
+   ===================================================== */
+
+/* ---- Click-to-play film -------------------------------------- */
+.mv-frame {
+    position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+    background: #0d0b09;
+}
+.mv-film {
+    position: absolute; inset: 0;
+    display: block; width: 100%; height: 100%;
+    padding: 0; border: 0; margin: 0;
+    background: #0d0b09; color: #F5F1E8;
+    cursor: pointer; overflow: hidden;
+    font: inherit; text-align: left;
+}
+.mv-film:focus-visible { outline: 2px solid var(--blue, #1F1DDB); outline-offset: 3px; }
+.mv-film .mv-poster {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.9s var(--exp, ease), filter 0.5s ease;
+    filter: saturate(0.96) brightness(0.9);
+}
+.mv-film:hover .mv-poster { transform: scale(1.03); filter: saturate(1.05) brightness(0.95); }
+.mv-film::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to top, rgba(10,8,6,0.78) 0%, rgba(10,8,6,0.12) 48%, rgba(10,8,6,0) 70%);
+}
+.mv-play {
+    position: absolute; left: 50%; top: 50%; z-index: 2;
+    width: clamp(56px, 7vw, 84px); aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(245,241,232,0.94); color: #171512;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 18px 40px -14px rgba(0,0,0,0.6);
+    transition: transform 0.35s var(--spring, ease), background 0.3s ease;
+}
+.mv-play svg { width: 34%; height: 34%; margin-left: 8%; }
+.mv-film:hover .mv-play { transform: translate(-50%, -50%) scale(1.08); background: #fff; }
+.mv-cap {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+    padding: clamp(14px, 2.2vw, 26px);
+}
+.mv-cap-title {
+    font-family: var(--serif, Georgia, serif); font-weight: 500;
+    font-size: clamp(1rem, 1.9vw, 1.45rem); line-height: 1.15;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+}
+.mv-cap-src {
+    font-family: var(--mono, monospace); font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; opacity: 0.78; white-space: nowrap;
+}
+/* No poster could load: a deliberate title card, still clearly a player */
+.mv-film.mv-noposter { background: radial-gradient(120% 90% at 30% 20%, #2a241c 0%, #0d0b09 70%); }
+.mv-film.mv-noposter .mv-poster { display: none; }
+.mv-film.mv-noposter .mv-cap-title { font-size: clamp(1.3rem, 3vw, 2.2rem); }
+/* Letterboxed YouTube thumbnails (sd/hq are 4:3 with baked-in bars) */
+img.mv-letterbox { transform: scale(1.34); }
+.mv-film:hover img.mv-letterbox { transform: scale(1.37); }
+
+.mv-frame-live { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+
+.mv-out {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono, monospace); font-size: 0.6rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-mid, #777);
+    margin-top: 10px; border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+.mv-out:hover { color: var(--ink, #171512); border-color: currentColor; }
+
+/* ---- Image that could not load from any source ---------------- */
+.mv-empty { position: relative; background: var(--ink, #171512) !important; }
+.mv-empty > img { visibility: hidden; }
+.mv-empty::before {
+    content: attr(data-mv-label);
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 8%;
+    font-family: var(--serif, Georgia, serif); font-style: italic; font-weight: 400;
+    font-size: clamp(1.2rem, 2.4vw, 2rem); line-height: 1.1;
+    color: var(--paper, #F5F1E8);
+}
+/* Figures that are purely decorative collapse instead */
+.mv-collapse { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    .mv-film .mv-poster, .mv-play { transition: none; }
+}
+
+/* Inside a hero plate the escape link rides on the frame as a chip */
+.plate-media > .mv-out {
+    position: absolute; top: 14px; right: 14px; z-index: 3; margin: 0;
+    padding: 7px 12px; border-radius: 999px; border: 0;
+    background: rgba(13,11,9,0.55); color: #F5F1E8;
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.plate-media > .mv-out:hover { background: rgba(13,11,9,0.8); color: #fff; }
+.plate-media:has(.mv-frame)::after { display: none; }

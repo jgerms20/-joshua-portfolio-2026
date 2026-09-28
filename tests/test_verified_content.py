@@ -9,7 +9,9 @@ class VerifiedContentTests(unittest.TestCase):
     def test_xfinity_uses_verified_campaign_embed_and_fallback(self):
         page = (ROOT / "work/work-xfinity.html").read_text(encoding="utf-8")
 
-        self.assertIn('src="https://www.ispot.tv/share/tBI3"', page)
+        # Click-to-play YouTube film (reliable poster + playback), with the
+        # verified iSpot listing kept as the source link.
+        self.assertIn('data-yt="63o9tgPK9r8"', page)
         self.assertIn('href="https://www.ispot.tv/ad/tBI3/', page)
         self.assertNotIn("R4MkK-9fJ9M", page)
 

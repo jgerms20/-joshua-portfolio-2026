@@ -132,12 +132,25 @@
         .filter-pill.active { background: var(--ink); color: var(--paper); }
 
         /* ---- Grid ---- */
-        .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); padding-bottom: var(--s8); }
+        /* Every card keeps its photo's native ratio. Portrait prints take
+           two rows so a vertical frame is never cropped into a landscape box. */
+        .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: row dense; align-items: start; gap: var(--s5) var(--s4); padding-bottom: var(--s8); }
         @media (max-width: 980px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 620px) { .shop-grid { grid-template-columns: 1fr; } }
-        .shop-card { cursor: pointer; }
+        .shop-card { cursor: pointer; border-radius: 2px; }
+        .shop-card.is-portrait { grid-row: span 2; }
+        @media (max-width: 620px) { .shop-card.is-portrait { grid-row: auto; } }
+        .shop-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
         .shop-card.hide { display: none; }
-        .shop-card-media { position: relative; aspect-ratio: 3/2; overflow: hidden; background: var(--paper-dim); }
+        .shop-card-media { position: relative; aspect-ratio: var(--ratio, 3/2); overflow: hidden; background: var(--paper-dim); }
+        .shop-card-orient { position: absolute; left: 10px; bottom: 10px; z-index: 1; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px; background: rgba(23,21,18,0.55); color: #f4efe6; backdrop-filter: blur(6px); }
+        .shop-aside { grid-column: span 1; border: 1px solid var(--rule); padding: var(--s4); display: flex; flex-direction: column; gap: var(--s2); align-self: stretch; justify-content: center; }
+        .shop-aside h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; }
+        .shop-aside ol { list-style: none; counter-reset: step; display: grid; gap: 10px; }
+        .shop-aside li { counter-increment: step; font-size: 0.86rem; line-height: 1.5; color: var(--ink-soft); display: grid; grid-template-columns: 28px 1fr; }
+        .shop-aside li::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 0.62rem; color: var(--blue); padding-top: 3px; }
+        .shop-aside a { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 4px; margin-top: var(--s1); }
+        .shop-empty { grid-column: 1 / -1; padding: var(--s6) 0; text-align: center; color: var(--ink-mid); font-size: 0.92rem; }
         .shop-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--exp); }
         .shop-card:hover .shop-card-media img { transform: scale(1.045); }
         .shop-card-media::after {
@@ -166,8 +179,14 @@
         .modal-close button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; transition: border-color 0.25s, transform 0.25s; }
         .modal-close button:hover { border-color: var(--ink); transform: rotate(90deg); }
         .modal-close svg { width: 15px; height: 15px; }
-        .modal-media { aspect-ratio: 3/2; background: var(--paper-dim); margin: var(--s2) var(--s4) 0; }
-        .modal-media img { width: 100%; height: 100%; object-fit: contain; background: var(--dark); }
+        /* Sized to the print's own ratio, capped so portrait frames fit on screen */
+        .modal-media { --ratio: 3/2; aspect-ratio: var(--ratio); background: var(--paper-dim); margin: var(--s2) auto 0; width: calc(100% - var(--s4) * 2); max-width: var(--max-w, none); position: relative; overflow: hidden; }
+        .modal-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; }
+        .modal-media img.is-loaded { opacity: 1; }
+        .modal-dims { display: block; text-align: center; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); margin-top: 10px; }
+        .modal-share { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); text-decoration: underline; text-underline-offset: 4px; margin-top: var(--s2); }
+        .modal-share:hover { color: var(--ink); }
+        .opt-pill:focus-visible, .add-btn:focus-visible, .modal-close button:focus-visible, .filter-pill:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
         .modal-body { padding: var(--s4) var(--s4) var(--s6); }
         .modal-cat { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); }
         .modal-title { font-family: var(--serif); font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 500; margin: var(--s1) 0 var(--s3); }
@@ -249,6 +268,7 @@
             .rv { transition: none; opacity: 1; transform: none; }
         }
     </style>
+<link rel="stylesheet" href="assets/media.css">
 </head>
 <body>
 
@@ -293,9 +313,9 @@
     <div class="wrap">
         <!-- Filters -->
         <div class="filter-row rv">
-            <button class="filter-pill active" data-filter="all">All Prints</button>
-            <button class="filter-pill" data-filter="places">Places</button>
-            <button class="filter-pill" data-filter="gatherings">Street Life</button>
+            <button class="filter-pill active" data-filter="all" aria-pressed="true">All Prints</button>
+            <button class="filter-pill" data-filter="places" aria-pressed="false">Places</button>
+            <button class="filter-pill" data-filter="gatherings" aria-pressed="false">Street Life</button>
         </div>
 
         <!-- Grid -->
@@ -335,9 +355,10 @@
          PRODUCT MODAL
          ===================================================== -->
     <div class="modal-veil" id="modalVeil"></div>
-    <aside class="product-modal" id="productModal" aria-hidden="true">
+    <aside class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" tabindex="-1">
         <div class="modal-close"><button id="modalCloseBtn" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div>
-        <div class="modal-media"><img id="modalImg" src="" alt=""></div>
+        <div class="modal-media" id="modalMedia"><img id="modalImg" alt=""></div>
+        <span class="modal-dims" id="modalDims"></span>
         <div class="modal-body">
             <span class="modal-cat" id="modalCat"></span>
             <h3 class="modal-title" id="modalTitle"></h3>
@@ -363,6 +384,7 @@
                 <span class="price-value" id="modalPrice">$65</span>
             </div>
             <button class="add-btn" id="addToCartBtn">Add to Cart</button>
+            <button class="modal-share" id="shareBtn" type="button">Copy link to this print</button>
             <p class="modal-fineprint">Printed on archival cotton-rag matte via a print-on-demand partner. Ships in 3–5 days unframed, 7–10 days framed. Orders are confirmed by email before printing — nothing is charged automatically yet.</p>
         </div>
     </aside>
@@ -370,7 +392,7 @@
     <!-- =====================================================
          CART DRAWER
          ===================================================== -->
-    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Your cart" aria-hidden="true" tabindex="-1">
         <div class="cart-head">
             <h3>Your Cart</h3>
             <button id="cartCloseBtn" aria-label="Close cart"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
@@ -403,10 +425,10 @@
         // shot is a portrait frame and gets its own true-to-ratio sizes.
         // =====================================================
         const CATALOG = [
-            { id: 'brahma-corner', name: 'Brahma Corner', cat: 'gatherings', sizeSet: 'portrait', img: 'photos/shop/rio-brahma-corner.jpg', desc: 'Two men share a conversation outside a corner bar in Rio, a golden dog resting at their feet and a mural of a painted face on the wall behind them.' },
-            { id: 'fog-islands-moon', name: 'Fog, Islands, Moon', cat: 'places', sizeSet: 'landscape', img: 'photos/shop/rio-fog-islands-moon.jpg', desc: 'A full moon rises over fog-shrouded islands in Guanabara Bay.' },
-            { id: 'two-brothers', name: 'Two Brothers', cat: 'places', sizeSet: 'landscape', img: 'photos/shop/rio-two-brothers.jpg', desc: 'The peak of Dois Irmãos rises over a lagoon and the Rio skyline at dusk.' },
-            { id: 'santa-teresa-trams', name: 'Santa Teresa Trams', cat: 'places', sizeSet: 'landscape', img: 'photos/shop/rio-santa-teresa-trams.jpg', desc: 'Two yellow trams meet on the tracks in Santa Teresa, passengers and pedestrians filling the street.' },
+            { id: 'brahma-corner', name: 'Brahma Corner', cat: 'gatherings', sizeSet: 'portrait', ratio: [1404, 2000], img: 'photos/shop/rio-brahma-corner.jpg', desc: 'Two men share a conversation outside a corner bar in Rio, a golden dog resting at their feet and a mural of a painted face on the wall behind them.' },
+            { id: 'fog-islands-moon', name: 'Fog, Islands, Moon', cat: 'places', sizeSet: 'landscape', ratio: [3, 2], img: 'photos/shop/rio-fog-islands-moon.jpg', desc: 'A full moon rises over fog-shrouded islands in Guanabara Bay.' },
+            { id: 'two-brothers', name: 'Two Brothers', cat: 'places', sizeSet: 'landscape', ratio: [3, 2], img: 'photos/shop/rio-two-brothers.jpg', desc: 'The peak of Dois Irmãos rises over a lagoon and the Rio skyline at dusk.' },
+            { id: 'santa-teresa-trams', name: 'Santa Teresa Trams', cat: 'places', sizeSet: 'landscape', ratio: [3, 2], img: 'photos/shop/rio-santa-teresa-trams.jpg', desc: 'Two yellow trams meet on the tracks in Santa Teresa, passengers and pedestrians filling the street.' },
         ];
 
         // Two size sets, each a true crop of that orientation's native
@@ -435,21 +457,38 @@
         // RENDER GRID
         // =====================================================
         const grid = document.getElementById('shopGrid');
+        const isPortrait = p => p.ratio[1] > p.ratio[0];
+        const ASIDE = `
+                <aside class="shop-aside" data-cat="all">
+                    <h4>How an order works</h4>
+                    <ol>
+                        <li>Pick a print, a size, and framing.</li>
+                        <li>Request the order &mdash; it drafts an email to me.</li>
+                        <li>I confirm final price and shipping. Nothing is charged or printed until you say yes.</li>
+                    </ol>
+                    <a href="mailto:jgerms20@gmail.com?subject=Print%20question">Ask a question first</a>
+                </aside>`;
         function renderGrid() {
             grid.innerHTML = CATALOG.map(p => `
-                <div class="shop-card rv in" data-cat="${p.cat}" data-id="${p.id}">
-                    <div class="shop-card-media"><img loading="lazy" src="${p.img}" alt="${p.name} — fine-art print"></div>
+                <div class="shop-card rv in${isPortrait(p) ? ' is-portrait' : ''}" data-cat="${p.cat}" data-id="${p.id}" role="button" tabindex="0" aria-label="${p.name} — ${isPortrait(p) ? 'portrait' : 'landscape'} print, from $${sizesFor(p)[0].price}">
+                    <div class="shop-card-media" style="--ratio:${p.ratio[0]}/${p.ratio[1]}">
+                        <img loading="lazy" decoding="async" src="${p.img}" width="${p.ratio[0]}" height="${p.ratio[1]}" alt="${p.name} — fine-art print" data-label="${p.name}">
+                        <span class="shop-card-orient">${isPortrait(p) ? 'Portrait' : 'Landscape'}</span>
+                    </div>
                     <div class="shop-card-body">
                         <div>
                             <div class="shop-card-name">${p.name}</div>
-                            <span class="shop-card-cat">${p.cat}</span>
+                            <span class="shop-card-cat">${p.cat === 'gatherings' ? 'Street Life' : 'Places'}</span>
                         </div>
                         <div class="shop-card-price">From $${sizesFor(p)[0].price}</div>
                     </div>
                 </div>
-            `).join('');
+            `).join('') + ASIDE + '<p class="shop-empty" hidden>No prints in this set yet.</p>';
             grid.querySelectorAll('.shop-card').forEach(card => {
                 card.addEventListener('click', () => openProduct(card.dataset.id));
+                card.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProduct(card.dataset.id); }
+                });
             });
         }
         renderGrid();
@@ -457,14 +496,29 @@
         // Filters
         document.querySelectorAll('.filter-pill').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                document.querySelectorAll('.filter-pill').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
                 const f = btn.dataset.filter;
+                let shown = 0;
                 document.querySelectorAll('.shop-card').forEach(card => {
-                    card.classList.toggle('hide', f !== 'all' && card.dataset.cat !== f);
+                    const hide = f !== 'all' && card.dataset.cat !== f;
+                    card.classList.toggle('hide', hide);
+                    if (!hide) shown++;
                 });
+                grid.querySelector('.shop-empty').hidden = shown > 0;
             });
         });
+
+        // Focus handling shared by the product panel and the cart drawer
+        const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+        function trapFocus(panel, e) {
+            const items = [...panel.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+            if (!items.length) return;
+            const first = items[0], last = items[items.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+        let returnFocus = null;
 
         // =====================================================
         // PRODUCT MODAL
@@ -473,14 +527,24 @@
         const productModal = document.getElementById('productModal');
         let currentProduct = null, selSize = null, selFrame = FRAMES[0].id, selFrameColor = FRAME_COLORS[0];
 
-        function openProduct(id) {
+        function openProduct(id, opts) {
             currentProduct = CATALOG.find(p => p.id === id);
             if (!currentProduct) return;
             selSize = sizesFor(currentProduct)[0].id; selFrame = FRAMES[0].id; selFrameColor = FRAME_COLORS[0];
 
-            document.getElementById('modalImg').src = currentProduct.img;
-            document.getElementById('modalImg').alt = currentProduct.name;
-            document.getElementById('modalCat').textContent = currentProduct.cat;
+            const [rw, rh] = currentProduct.ratio;
+            const media = document.getElementById('modalMedia');
+            media.style.setProperty('--ratio', rw + '/' + rh);
+            // Portrait frames are capped by viewport height so the whole print is visible
+            media.style.setProperty('--max-w', isPortrait(currentProduct) ? `calc(62vh * ${rw / rh})` : 'none');
+            const mImg = document.getElementById('modalImg');
+            mImg.classList.remove('is-loaded');
+            mImg.onload = () => mImg.classList.add('is-loaded');
+            mImg.src = currentProduct.img;
+            if (mImg.complete && mImg.naturalWidth) mImg.classList.add('is-loaded');
+            mImg.alt = currentProduct.desc;
+            document.getElementById('modalDims').textContent = isPortrait(currentProduct) ? 'Portrait · 5:7 print sizes' : 'Landscape · 3:2 print sizes';
+            document.getElementById('modalCat').textContent = currentProduct.cat === 'gatherings' ? 'Street Life' : 'Places';
             document.getElementById('modalTitle').textContent = currentProduct.name;
             document.getElementById('modalDesc').textContent = currentProduct.desc;
 
@@ -490,10 +554,14 @@
             updatePrice();
             resetAddBtn();
 
+            if (!productModal.classList.contains('open')) returnFocus = document.activeElement;
             modalVeil.classList.add('open');
             productModal.classList.add('open');
             productModal.setAttribute('aria-hidden', 'false');
+            productModal.scrollTop = 0;
             document.body.classList.add('lock');
+            if (!(opts && opts.fromHash)) history.replaceState(null, '', '#print=' + currentProduct.id);
+            setTimeout(() => document.getElementById('modalCloseBtn').focus({ preventScroll: true }), 60);
         }
 
         function buildSizePills() {
@@ -524,12 +592,22 @@
         function resetAddBtn() { const b = document.getElementById('addToCartBtn'); b.textContent = 'Add to Cart'; b.classList.remove('added'); }
 
         function closeProduct() {
-            modalVeil.classList.remove('open');
+            if (!productModal.classList.contains('open')) return;
             productModal.classList.remove('open');
             productModal.setAttribute('aria-hidden', 'true');
-            if (!cartDrawer.classList.contains('open')) document.body.classList.remove('lock');
+            if (!cartDrawer.classList.contains('open')) { modalVeil.classList.remove('open'); document.body.classList.remove('lock'); }
+            if (location.hash.startsWith('#print=')) history.replaceState(null, '', location.pathname + location.search);
+            if (returnFocus && document.contains(returnFocus)) returnFocus.focus({ preventScroll: true });
+            returnFocus = null;
         }
         document.getElementById('modalCloseBtn').addEventListener('click', closeProduct);
+        document.getElementById('shareBtn').addEventListener('click', () => {
+            const url = location.origin + location.pathname + '#print=' + currentProduct.id;
+            const btn = document.getElementById('shareBtn');
+            const done = () => { btn.textContent = 'Link copied'; setTimeout(() => { btn.textContent = 'Copy link to this print'; }, 1600); };
+            if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt('Copy this link:', url));
+            else prompt('Copy this link:', url);
+        });
 
         document.getElementById('addToCartBtn').addEventListener('click', () => {
             const size = sizesFor(currentProduct).find(s => s.id === selSize);
@@ -552,18 +630,37 @@
         // CART — persisted to localStorage
         // =====================================================
         const CART_KEY = 'jmg-print-cart';
-        function loadCart() { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { return []; } }
+        const MAX_QTY = 10;
+        // Saved carts are re-checked against the live catalog so a renamed,
+        // repriced, or removed print can never check out at a stale price.
+        function loadCart() {
+            let raw;
+            try { raw = JSON.parse(localStorage.getItem(CART_KEY)); } catch (e) { raw = null; }
+            if (!Array.isArray(raw)) return [];
+            return raw.map(l => {
+                const p = l && CATALOG.find(c => c.id === l.pid);
+                const size = p && sizesFor(p).find(s => s.label === l.size);
+                if (!size) return null;
+                const framed = typeof l.frame === 'string' && l.frame.startsWith('Framed');
+                const color = framed && FRAME_COLORS.find(c => l.frame.endsWith(c));
+                if (framed && !color) return null;
+                const qty = Math.min(MAX_QTY, Math.max(1, parseInt(l.qty, 10) || 1));
+                return { pid: p.id, name: p.name, img: p.img, size: size.label,
+                         frame: framed ? `Framed — ${color}` : 'Unframed',
+                         price: size.price + (framed ? FRAMES[1].price : 0), qty };
+            }).filter(Boolean);
+        }
         function saveCart(cart) { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {} }
         let cart = loadCart();
 
         function addToCart(line) {
             const existing = cart.find(l => l.pid === line.pid && l.size === line.size && l.frame === line.frame);
-            if (existing) existing.qty += 1; else cart.push(line);
+            if (existing) existing.qty = Math.min(MAX_QTY, existing.qty + 1); else cart.push(line);
             saveCart(cart);
             renderCart();
         }
         function updateQty(idx, delta) {
-            cart[idx].qty += delta;
+            cart[idx].qty = Math.min(MAX_QTY, cart[idx].qty + delta);
             if (cart[idx].qty <= 0) cart.splice(idx, 1);
             saveCart(cart);
             renderCart();
@@ -591,14 +688,14 @@
                     <div>
                         <div class="cart-line-name">${l.name}</div>
                         <div class="cart-line-meta">${l.size}<br>${l.frame}</div>
-                        <div class="cart-line-remove" data-remove="${i}">Remove</div>
+                        <button type="button" class="cart-line-remove" data-remove="${i}" aria-label="Remove ${l.name}">Remove</button>
                     </div>
                     <div class="cart-line-right">
                         <div class="cart-line-price">$${l.price * l.qty}</div>
                         <div class="qty-stepper">
-                            <button data-minus="${i}">−</button>
-                            <span>${l.qty}</span>
-                            <button data-plus="${i}">+</button>
+                            <button data-minus="${i}" aria-label="Decrease quantity">−</button>
+                            <span aria-live="polite">${l.qty}</span>
+                            <button data-plus="${i}" aria-label="Increase quantity"${l.qty >= MAX_QTY ? ' disabled' : ''}>+</button>
                         </div>
                     </div>
                 </div>
@@ -618,16 +715,21 @@
             document.getElementById('checkoutView').classList.remove('show');
             document.getElementById('cartItems').style.display = 'block';
             document.getElementById('cartFoot').style.display = cart.length ? 'block' : 'none';
+            cartReturnFocus = document.activeElement;
             modalVeil.classList.add('open');
             cartDrawer.classList.add('open');
             cartDrawer.setAttribute('aria-hidden', 'false');
             document.body.classList.add('lock');
+            setTimeout(() => document.getElementById('cartCloseBtn').focus({ preventScroll: true }), 60);
         }
+        let cartReturnFocus = null;
         function closeCart() {
+            if (!cartDrawer.classList.contains('open')) return;
             cartDrawer.classList.remove('open');
             cartDrawer.setAttribute('aria-hidden', 'true');
-            if (!productModal.classList.contains('open')) modalVeil.classList.remove('open');
-            document.body.classList.remove('lock');
+            if (!productModal.classList.contains('open')) { modalVeil.classList.remove('open'); document.body.classList.remove('lock'); }
+            if (cartReturnFocus && document.contains(cartReturnFocus)) cartReturnFocus.focus({ preventScroll: true });
+            cartReturnFocus = null;
         }
         document.getElementById('cartOpenBtn').addEventListener('click', openCart);
         document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
@@ -641,6 +743,7 @@
         // =====================================================
         document.getElementById('checkoutBtn').addEventListener('click', () => {
             const subtotal = cart.reduce((sum, l) => sum + l.price * l.qty, 0);
+            if (!cart.length) return;
             const lines = cart.map(l => `• ${l.name} — ${l.size}, ${l.frame} × ${l.qty} = $${l.price * l.qty}`).join('%0D%0A');
             const subject = encodeURIComponent('Print order — ' + cart.length + ' item' + (cart.length > 1 ? 's' : ''));
             const body = 'Hi Joshua,%0D%0A%0D%0AI\'d like to order:%0D%0A%0D%0A' + lines + '%0D%0A%0D%0ASubtotal: $' + subtotal + ' (shipping not yet included)%0D%0A%0D%0AShip to:%0D%0A[name / address]%0D%0A%0D%0AThanks!';
@@ -676,7 +779,23 @@
         })();
 
         // Escape key closes overlays
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeProduct(); closeCart(); } });
+        // Escape closes the top-most panel; Tab stays inside whichever is open.
+        document.addEventListener('keydown', (e) => {
+            const top = cartDrawer.classList.contains('open') ? cartDrawer
+                      : productModal.classList.contains('open') ? productModal : null;
+            if (!top) return;
+            if (e.key === 'Escape') { top === cartDrawer ? closeCart() : closeProduct(); }
+            else if (e.key === 'Tab') trapFocus(top, e);
+        });
+
+        // Deep links: shop.html#print=brahma-corner opens that print directly
+        function openFromHash() {
+            const m = location.hash.match(/^#print=([\w-]+)$/);
+            if (m && CATALOG.some(p => p.id === m[1])) openProduct(m[1], { fromHash: true });
+        }
+        window.addEventListener('hashchange', openFromHash);
+        openFromHash();
     </script>
+<script src="assets/media.js" defer></script>
 </body>
 </html>

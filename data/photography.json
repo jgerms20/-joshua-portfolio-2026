@@ -1,6 +1,10 @@
 {
   "version": 1,
   "entries": [
+    {"id":"rio-brahma-corner","src":"photos/shop/rio-brahma-corner.jpg","alt":"Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them.","chapter":"gatherings","published":true,"sequence":null,"layout":"archive"},
+    {"id":"rio-fog-islands-moon","src":"photos/shop/rio-fog-islands-moon.jpg","alt":"A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro.","chapter":"places","published":true,"sequence":null,"layout":"archive"},
+    {"id":"rio-two-brothers","src":"photos/shop/rio-two-brothers.jpg","alt":"The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk.","chapter":"places","published":true,"sequence":null,"layout":"archive"},
+    {"id":"rio-santa-teresa-trams","src":"photos/shop/rio-santa-teresa-trams.jpg","alt":"Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street.","chapter":"places","published":true,"sequence":null,"layout":"archive"},
     {"id":"father-and-child","src":"photos/portraits/JMG_1520.jpg","alt":"Black-and-white portrait of a father holding a baby outdoors.","chapter":"people","published":true,"sequence":1,"layout":"hero"},
     {"id":"red-coat-studio","src":"photos/fashion/JMG_1601.jpg","alt":"Fashion portrait of a model in a red coat and knit hat against a pale studio wall.","chapter":"people","published":true,"sequence":2,"layout":"pair-left"},
     {"id":"safelight-sun","src":"photos/landscape/DSC00659.jpg","alt":"A red sun hangs over a hazy landscape lined with palm trees.","chapter":"places","published":true,"sequence":3,"layout":"pair-right"},

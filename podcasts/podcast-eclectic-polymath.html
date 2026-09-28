@@ -56,9 +56,14 @@
             border-radius: var(--radius-xl); overflow: hidden;
             box-shadow: 0 24px 60px rgba(200, 168, 75, 0.25), 0 0 0 1px rgba(200, 168, 75, 0.15);
         }
-        .show-artwork img { width: 100%; height: 100%; object-fit: cover; }
+        .show-artwork { position: relative; }
+        .show-artwork img {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            opacity: 0; transition: opacity .5s ease;
+        }
+        .show-artwork img.is-loaded { opacity: 1; }
         .show-artwork-fallback {
-            width: 100%; height: 100%;
+            width: 100%; height: 100%; flex-direction: column; gap: 2px;
             background: linear-gradient(135deg, #8B5E1A 0%, #C8A84B 50%, #6B4411 100%);
             display: flex; align-items: center; justify-content: center;
             font-family: var(--font-display); font-size: 2.8rem; font-weight: 700;
@@ -154,9 +159,29 @@
         .episode-embed:hover {
             box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(200, 168, 75, 0.2);
         }
+        .episode-embed {
+            position: relative; min-height: 352px;
+            background: linear-gradient(100deg, rgba(255,255,255,0.03) 30%, rgba(200,168,75,0.08) 50%, rgba(255,255,255,0.03) 70%) 0 0 / 300% 100%;
+            animation: embedShimmer 1.6s linear infinite;
+        }
+        .episode-embed.is-ready, .episode-embed.is-failed { animation: none; background: rgba(255,255,255,0.02); }
+        @keyframes embedShimmer { to { background-position: -300% 0; } }
         .episode-embed iframe {
             display: block; border: none; border-radius: 16px;
+            opacity: 0; transition: opacity .5s ease;
         }
+        .episode-embed.is-ready iframe { opacity: 1; }
+        .embed-status {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px;
+            color: var(--text-muted); font-size: .9rem; pointer-events: none; transition: opacity .3s ease;
+        }
+        .embed-status a { color: var(--gold); font-weight: 600; pointer-events: auto; }
+        .embed-status .embed-failed { display: none; }
+        .episode-embed.is-ready .embed-status { opacity: 0; visibility: hidden; }
+        .episode-embed.is-failed:not(.is-ready) .embed-status .embed-loading { display: none; }
+        .episode-embed.is-failed:not(.is-ready) .embed-status .embed-failed { display: block; }
+        @media (prefers-reduced-motion: reduce) { .episode-embed { animation: none; } }
 
         /* Subjects — major editorial section */
         .subjects-section {
@@ -233,9 +258,8 @@
         <div class="hero-content">
 
             <div class="show-artwork">
-                <img id="show-cover-img" alt="The Eclectic Polymath Podcast"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="show-artwork-fallback" style="display:none;">EP</div>
+                <div class="show-artwork-fallback" style="display:flex;" aria-hidden="true"><span style="font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;">The</span>EP</div>
+                <img id="show-cover-img" alt="The Eclectic Polymath Podcast">
             </div>
 
             <div class="show-tag">
@@ -275,9 +299,13 @@
         <div class="episode-embed" style="margin-bottom: 0;">
             <iframe data-testid="embed-iframe" style="border-radius:16px"
                 src="https://open.spotify.com/embed/show/3dlagzJ0jiWLTB9mF3y069?utm_source=generator"
-                width="100%" height="800" frameBorder="0" allowfullscreen=""
+                width="100%" height="632" frameBorder="0" allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy" title="Spotify show: The Eclectic Polymath Podcast"></iframe>
+                title="Spotify show: The Eclectic Polymath Podcast"></iframe>
+            <div class="embed-status" aria-live="polite">
+                <span class="embed-loading">Loading the live feed from Spotify&hellip;</span>
+                <span class="embed-failed">The Spotify player didn&rsquo;t load here. <a href="https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069" target="_blank" rel="noopener">Listen on Spotify &rarr;</a></span>
+            </div>
         </div>
     </section>
 
@@ -345,24 +373,27 @@
         </a>
     </section>
 
-    <!-- Live show artwork via Spotify's public oEmbed — always shows the current cover -->
+    <!-- Live show artwork via Spotify's public oEmbed — fades over the designed fallback -->
     <script>
         (function () {
             const img = document.getElementById('show-cover-img');
             if (!img) return;
+            img.addEventListener('load', () => img.classList.add('is-loaded'));
+            img.addEventListener('error', () => img.remove());
             fetch('https://open.spotify.com/oembed?url=https%3A%2F%2Fopen.spotify.com%2Fshow%2F3dlagzJ0jiWLTB9mF3y069')
                 .then(r => r.ok ? r.json() : Promise.reject())
-                .then(data => {
-                    if (data && data.thumbnail_url) {
-                        img.src = data.thumbnail_url;
-                        img.style.display = '';
-                        img.nextElementSibling.style.display = 'none';
-                    } else { throw new Error(); }
-                })
-                .catch(() => {
-                    img.style.display = 'none';
-                    img.nextElementSibling.style.display = 'flex';
-                });
+                .then(data => { if (data && data.thumbnail_url) img.src = data.thumbnail_url; else img.remove(); })
+                .catch(() => img.remove());
+        })();
+
+        // Spotify player: skeleton until the iframe paints, clean fallback if it never does
+        (function () {
+            const box = document.querySelector('.episode-embed');
+            const frame = box && box.querySelector('iframe');
+            if (!frame) return;
+            let done = false;
+            frame.addEventListener('load', () => { done = true; box.classList.add('is-ready'); });
+            setTimeout(() => { if (!done) box.classList.add('is-failed'); }, 12000);
         })();
     </script>
 

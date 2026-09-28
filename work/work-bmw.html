@@ -496,6 +496,7 @@
             .rv { transition: none; opacity: 1; transform: none; }
         }
     </style>
+<link rel="stylesheet" href="../assets/media.css">
 </head>
 <body>
 
@@ -609,9 +610,7 @@
                 <h2 class="cs-h">The Spot</h2>
 
                 <figure style="margin-top: var(--s4);">
-                    <div class="film-frame">
-                        <iframe src="https://www.youtube.com/embed/nUC1QA5gRcU" title="BMW — Zeus &amp; Hera" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="nUC1QA5gRcU" data-title="BMW — Zeus &amp; Hera"></div>
                     <figcaption class="film-caption">
                         <span>"Zeus &amp; Hera" · Super Bowl LVI Spot</span>
                         <span>16:9 — Reel A</span>
@@ -697,5 +696,6 @@
         })();
     </script>
 
+<script src="../assets/media.js" defer></script>
 </body>
 </html>

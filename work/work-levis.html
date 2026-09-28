@@ -521,6 +521,7 @@
             .rv { transition: none; opacity: 1; transform: none; }
         }
     </style>
+<link rel="stylesheet" href="../assets/media.css">
 </head>
 <body>
 
@@ -565,7 +566,7 @@
                 </p>
             </div>
             <figure class="plate-media rv">
-                <img loading="lazy" src="https://www.levistrauss.com/wp-content/uploads/2024/09/240930_Blu_Hero.jpg" alt="Levi's REIIMAGINE Campaign with Beyoncé">
+                <img src="https://www.levistrauss.com/wp-content/uploads/2024/09/240930_Blu_Hero.jpg" alt="Levi's REIIMAGINE Campaign with Beyoncé" data-fallbacks="yt:q40oimgnN00" data-label="Levi's × Beyoncé — REIIMAGINE">
             </figure>
 
             <div class="meta-index rv">
@@ -654,27 +655,19 @@
             <h2 class="cs-heading">The Work</h2>
             <div class="films">
                 <div class="film">
-                    <div class="film-frame">
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/q40oimgnN00" title="Levi's x Beyoncé — Launderette" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="q40oimgnN00" data-title="Levi&#x27;s x Beyoncé — Launderette"></div>
                     <div class="film-meta"><div class="film-title">Launderette</div></div>
                 </div>
                 <div class="film">
-                    <div class="film-frame">
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/y2o2FuqMtxI" title="Levi's x Beyoncé — Pool Hall" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="y2o2FuqMtxI" data-title="Levi&#x27;s x Beyoncé — Pool Hall"></div>
                     <div class="film-meta"><div class="film-title">Pool Hall</div></div>
                 </div>
                 <div class="film">
-                    <div class="film-frame">
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/CaJCypvWZoQ" title="Levi's x Beyoncé — Refrigerator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="CaJCypvWZoQ" data-title="Levi&#x27;s x Beyoncé — Refrigerator"></div>
                     <div class="film-meta"><div class="film-title">Refrigerator</div></div>
                 </div>
                 <div class="film">
-                    <div class="film-frame">
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/LwojYvqomhU" title="Levi's x Beyoncé — The Denim Cowboy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="LwojYvqomhU" data-title="Levi&#x27;s x Beyoncé — The Denim Cowboy"></div>
                     <div class="film-meta"><div class="film-title">The Denim Cowboy</div></div>
                 </div>
             </div>
@@ -812,5 +805,6 @@
             document.querySelectorAll('.rv').forEach(el => obs.observe(el));
         })();
     </script>
+<script src="../assets/media.js" defer></script>
 </body>
 </html>

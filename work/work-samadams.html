@@ -496,6 +496,7 @@
             .rv { transition: none; opacity: 1; transform: none; }
         }
     </style>
+<link rel="stylesheet" href="../assets/media.css">
 </head>
 <body>
 
@@ -538,7 +539,7 @@
             <p class="t-lede cs-sub rv rv-d1">Kevin Garnett brings Boston pride to the Super Bowl. A celebration of the city that brews it all.</p>
 
             <figure class="plate-media hero-plate rv rv-d2">
-                <img loading="lazy" src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" alt="Samuel Adams Brighter Boston Campaign">
+                <img src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" alt="Samuel Adams Brighter Boston Campaign" data-fallbacks="../brand/sam-adams/hero/Samuel-Adams-Kevin-Garnett.jpg" data-label="Samuel Adams — Your Cousin From Boston">
             </figure>
 
             <!-- Credits -->
@@ -574,9 +575,7 @@
             <div class="cs-body">
                 <h2 class="cs-h">The Film</h2>
                 <figure style="margin-top: var(--s3);">
-                    <div class="film-frame">
-                        <iframe src="https://www.youtube.com/embed/sw7FyFix434" title="Samuel Adams — Your Cousin's Brighter Boston" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="sw7FyFix434" data-title="Samuel Adams — Your Cousin&#x27;s Brighter Boston"></div>
                     <figcaption class="film-caption">
                         <span>Your Cousin's Brighter Boston · Dir. Aaron Stoller · Super Bowl LVII</span>
                         <span>16:9 — Reel A</span>
@@ -719,5 +718,6 @@
         })();
     </script>
 
+<script src="../assets/media.js" defer></script>
 </body>
 </html>

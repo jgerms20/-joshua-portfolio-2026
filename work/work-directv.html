@@ -514,6 +514,7 @@
         .campaign-panel.active { display: block; animation: panelIn 0.45s var(--exp); }
         @keyframes panelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+<link rel="stylesheet" href="../assets/media.css">
 </head>
 <body>
 
@@ -600,12 +601,7 @@
                 <h2 class="cs-h">The Emmys Hijack</h2>
 
                 <figure style="margin-top: var(--s4);">
-                    <div class="film-frame">
-                        <video controls playsinline preload="metadata" aria-label="DIRECTV Emmys OOH Hijack campaign video">
-                            <source src="../brand/directv/ooh-hijack/directv-emmys-ooh-hijack.mp4" type="video/mp4">
-                            <a href="../brand/directv/ooh-hijack/directv-emmys-ooh-hijack.mp4">Watch the DIRECTV campaign video</a>
-                        </video>
-                    </div>
+                    <div class="film-frame mv-frame" data-mp4="../brand/directv/ooh-hijack/directv-emmys-ooh-hijack.mp4" data-poster="../brand/directv/ooh-hijack/LA-48_DIRECTV_9.16.2025-2.jpg" data-title="The Emmys Hijack — real-time OOH across Hollywood"></div>
                     <figcaption class="film-caption">
                         <span>DIRECTV Emmys Hijack Campaign</span>
                         <span>16:9 — Reel A</span>
@@ -737,21 +733,15 @@
 
                 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s4); margin-top: var(--s4);">
                     <figure>
-                        <div class="film-frame">
-                            <iframe src="https://www.youtube.com/embed/-xYYHOXzUeY" title="Got Hot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                        </div>
+                        <div class="film-frame mv-frame" data-yt="-xYYHOXzUeY" data-title="Got Hot"></div>
                         <figcaption class="film-caption"><span>Got Hot</span></figcaption>
                     </figure>
                     <figure>
-                        <div class="film-frame">
-                            <iframe src="https://www.youtube.com/embed/nXzgUdtmBQE" title="Major Range" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                        </div>
+                        <div class="film-frame mv-frame" data-yt="nXzgUdtmBQE" data-title="Major Range"></div>
                         <figcaption class="film-caption"><span>Major Range</span></figcaption>
                     </figure>
                     <figure>
-                        <div class="film-frame">
-                            <iframe src="https://www.youtube.com/embed/Be2pf8kXAKw" title="Game Day Fit" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                        </div>
+                        <div class="film-frame mv-frame" data-yt="Be2pf8kXAKw" data-title="Game Day Fit"></div>
                         <figcaption class="film-caption"><span>Game Day Fit</span></figcaption>
                     </figure>
                 </div>
@@ -787,7 +777,7 @@
         <div class="campaign-panel" id="nothing-on-roof">
 
         <figure class="plate-media rv" style="margin-bottom: var(--s5);">
-            <img loading="lazy" src="../brand/directv/nothing-on-your-roof.jpg" alt="DIRECTV — Nothing On Your Roof 2.0">
+            <img loading="lazy" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4" alt="DIRECTV — Nothing On Your Roof 2.0" data-label="DIRECTV — Nothing On Your Roof">
         </figure>
 
         <section class="cs-sec rv">
@@ -796,9 +786,7 @@
                 <h2 class="cs-h">Campaign Spot</h2>
 
                 <figure style="margin-top: var(--s4);">
-                    <div class="film-frame">
-                        <iframe src="https://www.youtube.com/embed/9PhxP53igb4" title="DIRECTV — Nothing on Your Roof V2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="9PhxP53igb4" data-title="DIRECTV — Nothing on Your Roof V2"></div>
                     <figcaption class="film-caption"><span>Nothing On Your Roof 2.0</span><span>:44 — Reel A</span></figcaption>
                 </figure>
 
@@ -935,7 +923,13 @@
                 if (plateIdx) plateIdx.textContent = m.plate;
 
                 const plateImg = document.querySelector('.plate-media img');
-                if (plateImg) { plateImg.src = m.img; plateImg.alt = 'DIRECTV — ' + m.name; }
+                if (plateImg) {
+                    plateImg._mvQueue = null;
+                    const box = plateImg.closest('.plate-media'); if (box) box.classList.remove('mv-empty');
+                    const yt = (m.img.match(/vi\/([A-Za-z0-9_-]+)\//) || [])[1];
+                    plateImg.setAttribute('data-fallbacks', yt ? 'yt:' + yt : '');
+                    plateImg.src = m.img; plateImg.alt = 'DIRECTV — ' + m.name;
+                }
 
                 document.title = 'DIRECTV: ' + m.name + ' | Joshua McKenzie German';
 
@@ -1003,5 +997,6 @@
         })();
     </script>
 
+<script src="../assets/media.js" defer></script>
 </body>
 </html>

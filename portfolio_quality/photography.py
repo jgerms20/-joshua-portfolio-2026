@@ -7,6 +7,10 @@ from PIL import Image, ImageOps
 
 
 CHAPTERS = ("people", "places", "gatherings")
+# How many sequence frames show before "Continue the sequence". The rest of
+# the edit and the full archive sit behind buttons so the chapter stays short.
+SEQUENCE_PREVIEW = 9
+
 LAYOUTS = {"hero", "wide", "inset", "pair-left", "pair-right", "archive"}
 REQUIRED_FIELDS = {"id", "src", "alt", "chapter", "published", "sequence", "layout"}
 
@@ -146,6 +150,7 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
         key=lambda photo: int(photo["sequence"]),
     )
     sequence_parts: list[str] = []
+    more_parts: list[str] = []
     index = 0
     while index < len(selected):
         photo = selected[index]
@@ -154,7 +159,8 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
             and index + 1 < len(selected)
             and selected[index + 1]["layout"] == "pair-right"
         ):
-            sequence_parts.append(
+            target = sequence_parts if index < SEQUENCE_PREVIEW else more_parts
+            target.append(
                 '<div class="sequence-pair">\n                    '
                 + _photo_figure(photo, sequence=True)
                 + "\n                    "
@@ -163,12 +169,26 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
             )
             index += 2
             continue
-        sequence_parts.append(_photo_figure(photo, sequence=True))
+        (sequence_parts if index < SEQUENCE_PREVIEW else more_parts).append(
+            _photo_figure(photo, sequence=True)
+        )
         index += 1
 
     sequence_markup = "\n                ".join(sequence_parts)
+    more_count = len(selected) - min(len(selected), SEQUENCE_PREVIEW)
+    if more_parts:
+        sequence_markup += (
+            '\n                <div class="sequence-more" id="sequenceMore">\n                '
+            + "\n                ".join(more_parts)
+            + "\n                </div>"
+        )
     archive = "\n                ".join(
         _photo_figure(photo, sequence=False) for photo in photos
+    )
+    more_button = (
+        f'''<button type="button" class="darkroom-more" data-reveal="sequenceMore" aria-controls="sequenceMore" aria-expanded="false" data-open-label="Show the short edit" data-closed-label="Continue the sequence"><span class="darkroom-more__label">Continue the sequence</span><span class="darkroom-more__count">{more_count} more frames</span></button>'''
+        if more_parts
+        else ""
     )
     count = len(photos)
     return f'''<section id="photography" class="chapter chapter-dark">
@@ -190,19 +210,22 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
 
             <div class="sequence-heading rv">
                 <span>Selected sequence</span>
-                <span>Scroll slowly</span>
+                <span>Tap any frame to view full size</span>
             </div>
             <div class="photo-sequence rv">
                 {sequence_markup}
             </div>
+            {more_button}
 
             <div class="archive-heading rv">
                 <div>
                     <span class="archive-kicker">The archive</span>
                     <h3>People, places, gatherings.</h3>
                 </div>
-                <p>Browse the edit by subject. Every frame remains visible below if scripts are unavailable.</p>
+                <p>Every photograph, browsable by subject.</p>
             </div>
+            <button type="button" class="darkroom-more" data-reveal="archiveBody" aria-controls="archiveBody" aria-expanded="false" data-open-label="Close the archive" data-closed-label="Open the full archive"><span class="darkroom-more__label">Open the full archive</span><span class="darkroom-more__count">{count} photographs</span></button>
+            <div class="archive-body" id="archiveBody">
             <div class="photo-chapters rv" aria-label="Filter photography archive">
                 <button class="photo-chapter active" data-filter="all" aria-pressed="true">All work</button>
                 <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
@@ -211,6 +234,7 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
             </div>
             <div class="photo-archive rv" id="photoGallery">
                 {archive}
+            </div>
             </div>
         </div>
     </section>'''

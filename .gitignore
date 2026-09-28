@@ -50,3 +50,7 @@ __pycache__/
 
 # Generated health reports
 reports/*.json
+
+# Full-res image originals written by scripts/optimize-images.py.
+# The committed history (before the optimization commit) keeps them too.
+media-originals/

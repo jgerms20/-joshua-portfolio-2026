@@ -532,6 +532,7 @@
             .rv { transition: none; opacity: 1; transform: none; }
         }
     </style>
+<link rel="stylesheet" href="../assets/media.css">
 </head>
 <body>
 
@@ -574,7 +575,7 @@
             <p class="t-lede cs-sub rv rv-d1">A concept car fully equipped to survive racial profiling. The world's first car designed not for speed — but for survival.</p>
 
             <figure class="plate-media hero-plate rv rv-d2">
-                <img id="dwb-hero-img" src="https://goodbysilverstein.com/public/upload/work/images/desktop/6512134d778b5.jpg" alt="DWB Concept Car — Driving While Black" onerror="this.onerror=null;this.src='../brand/dwb/CAR 3_0.jpg';">
+                <img id="dwb-hero-img" src="https://goodbysilverstein.com/public/upload/work/images/desktop/6512134d778b5.jpg" alt="DWB Concept Car — Driving While Black" data-fallbacks="../brand/dwb/CAR%203_0.jpg" data-label="Driving While Black">
             </figure>
 
             <!-- Stats band -->
@@ -719,9 +720,7 @@
 
                 <!-- Campaign film -->
                 <figure style="margin-top: var(--s4);">
-                    <div class="film-frame">
-                        <iframe src="https://www.youtube-nocookie.com/embed/bOhjdpQ9cEA?rel=0&modestbranding=1" title="The World's First DWB — Campaign Film" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                    </div>
+                    <div class="film-frame mv-frame" data-yt="bOhjdpQ9cEA" data-title="The World&#x27;s First DWB — Campaign Film"></div>
                     <figcaption class="film-caption">
                         <span>DWB — World Premiere Film · Dir. Andrew Proctor, The Mill · Built in Unreal Engine 5</span>
                         <span>16:9 — Reel A</span>
@@ -871,5 +870,6 @@
         })();
     </script>
 
+<script src="../assets/media.js" defer></script>
 </body>
 </html>
