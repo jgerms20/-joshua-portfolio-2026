@@ -3,7 +3,7 @@
 import glob, html, os, re, sys
 from urllib.parse import unquote
 bad = []
-pages = ['index.html', 'shop.html'] + glob.glob('work/*.html') + glob.glob('podcasts/*.html')
+pages = ['index.html', 'shop.html', 'photography/index.html'] + glob.glob('work/*.html') + glob.glob('podcasts/*.html')
 for p in pages:
     c = open(p, encoding='utf-8', errors='ignore').read(); b = os.path.dirname(p)
     for attr, val in re.findall(r'\b(src|href|poster|data-poster|data-mp4|data-fallbacks)\s*=\s*"([^"]+)"', c):
