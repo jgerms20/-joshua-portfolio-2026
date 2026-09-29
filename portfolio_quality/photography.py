@@ -195,12 +195,13 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
-                    <span class="ch-num">CH. 06</span>
+                    <span class="ch-num">CH. 03</span>
                     <h2 class="ch-title">The <span class="it">Darkroom</span></h2>
                 </div>
                 <div class="ch-meta">Selected Sequence<br>{len(selected):02d} Frames</div>
             </div>
             <p class="ch-intro rv" style="color: var(--paper-on-dark-soft);">I photograph the instant a person drops the pose, a crowd becomes one body, or a landscape makes time feel larger. This is an edit about presence—not a catalogue of everything I have shot.</p>
+            {_darkroom_cta()}
 
             <div class="darkroom-note rv">
                 <span class="darkroom-note__label">The edit</span>
@@ -236,5 +237,31 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
                 {archive}
             </div>
             </div>
+            <p class="darkroom-site-link rv" style="margin-top: clamp(40px, 5vw, 64px); padding-top: var(--s3); border-top: 1px solid var(--dark-rule); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-dark-mid);">Full sets, services and booking live on the photography site: <a href="photography/" style="color: var(--paper-on-dark); border-bottom: 1px solid var(--vermilion); padding-bottom: 2px;">joshuamgerman.com/photography &rarr;</a></p>
         </div>
     </section>'''
+
+
+def _darkroom_cta() -> str:
+    """Booking links inside the homepage Darkroom.
+
+    The homepage stylesheet belongs to another file, so the few rules these
+    links need ride along as inline styles built on the page's own tokens.
+    """
+    shared = (
+        "display: inline-flex; align-items: center; gap: 10px; min-height: 48px; "
+        "padding: 14px 26px; border-radius: 999px; font-family: var(--mono); "
+        "font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; "
+        "text-transform: uppercase; text-decoration: none;"
+    )
+    return (
+        '<div class="darkroom-cta rv" style="display: flex; flex-wrap: wrap; align-items: center; '
+        'gap: 12px; margin: calc(-1 * var(--s4)) 0 var(--s6);">'
+        f'<a class="darkroom-cta__book" href="photography/#book" style="{shared} '
+        'background: var(--vermilion); color: var(--dark); border: 1.5px solid var(--vermilion);">'
+        "Book a shoot &rarr;</a>"
+        f'<a class="darkroom-cta__site" href="photography/" style="{shared} '
+        'color: var(--paper-on-dark); border: 1.5px solid var(--dark-rule);">'
+        "Visit the photography site</a>"
+        "</div>"
+    )
