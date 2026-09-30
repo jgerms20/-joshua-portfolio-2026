@@ -8,10 +8,6 @@ from PIL import Image, ImageOps
 
 
 CHAPTERS = ("people", "places", "gatherings")
-# How many sequence frames show before "Continue the sequence". The rest of
-# the edit and the full archive sit behind buttons so the chapter stays short.
-SEQUENCE_PREVIEW = 9
-
 LAYOUTS = {"hero", "wide", "inset", "pair-left", "pair-right", "archive"}
 REQUIRED_FIELDS = {"id", "src", "alt", "chapter", "published", "sequence", "layout"}
 
@@ -126,152 +122,81 @@ def import_photography_inbox(root: Path) -> list[dict[str, object]]:
     return imported
 
 
-def _photo_figure(photo: dict[str, object], *, sequence: bool) -> str:
-    number = int(photo["sequence"]) if sequence else None
-    classes = ["photo-item"]
-    if sequence:
-        classes.extend(["sequence-frame", f"sequence-frame--{photo['layout']}"])
-    else:
-        classes.append("archive-frame")
-    label = f"Open photograph {number:02d}: {photo['alt']}" if number else f"Open photograph: {photo['alt']}"
-    loading = "eager" if number == 1 else "lazy"
-    # Real dimensions let the browser reserve space before lazy photos load,
-    # so anchor jumps to later chapters land where they should.
+# How many photos the homepage gallery shows before "See more".
+GALLERY_PREVIEW = 14
+
+
+def _gallery_tile(photo: dict[str, object], index: int, *, extra: bool) -> str:
     width, height = _image_size(str(Path(__file__).resolve().parents[1]), str(photo["src"]))
-    caption = (
-        f'<figcaption><span>{number:02d}</span><span>{escape(str(photo["chapter"]))}</span></figcaption>'
-        if sequence
-        else ""
-    )
+    chapter = escape(str(photo["chapter"]))
+    classes = "photo-item gallery-tile" + (" is-extra" if extra else "")
+    loading = "eager" if index < 3 else "lazy"
     return (
-        f'<figure class="{" ".join(classes)}" data-cat="{escape(str(photo["chapter"]))}" '
-        f'data-chapter="{escape(str(photo["chapter"]))}" '
-        f'tabindex="0" role="button" aria-label="{escape(label)}">'
-        f'<img loading="{loading}" src="{escape(str(photo["src"]))}" alt="{escape(str(photo["alt"]))}" '
-        f'width="{width}" height="{height}" decoding="async">'
-        f"{caption}</figure>"
+        f'<figure class="{classes}" data-cat="{chapter}" data-chapter="{chapter}" '
+        f'style="--r:{width / height:.4f}" tabindex="0" role="button" '
+        f'aria-label="{escape("Open photograph: " + str(photo["alt"]))}">'
+        f'<img loading="{loading}" decoding="async" src="{escape(str(photo["src"]))}" '
+        f'alt="{escape(str(photo["alt"]))}" width="{width}" height="{height}"></figure>'
     )
 
 
 def render_darkroom(photos: list[dict[str, object]]) -> str:
-    selected = sorted(
+    """Homepage photography chapter: straight to the pictures.
+
+    One justified grid (every frame keeps its own ratio), curated sequence
+    first, then the rest of the archive behind "See more".
+    """
+    curated = sorted(
         (photo for photo in photos if photo.get("sequence") is not None),
         key=lambda photo: int(photo["sequence"]),
     )
-    sequence_parts: list[str] = []
-    more_parts: list[str] = []
-    index = 0
-    while index < len(selected):
-        photo = selected[index]
-        if (
-            photo["layout"] == "pair-left"
-            and index + 1 < len(selected)
-            and selected[index + 1]["layout"] == "pair-right"
-        ):
-            target = sequence_parts if index < SEQUENCE_PREVIEW else more_parts
-            target.append(
-                '<div class="sequence-pair">\n                    '
-                + _photo_figure(photo, sequence=True)
-                + "\n                    "
-                + _photo_figure(selected[index + 1], sequence=True)
-                + "\n                </div>"
-            )
-            index += 2
-            continue
-        (sequence_parts if index < SEQUENCE_PREVIEW else more_parts).append(
-            _photo_figure(photo, sequence=True)
-        )
-        index += 1
-
-    sequence_markup = "\n                ".join(sequence_parts)
-    more_count = len(selected) - min(len(selected), SEQUENCE_PREVIEW)
-    if more_parts:
-        sequence_markup += (
-            '\n                <div class="sequence-more" id="sequenceMore">\n                '
-            + "\n                ".join(more_parts)
-            + "\n                </div>"
-        )
-    archive = "\n                ".join(
-        _photo_figure(photo, sequence=False) for photo in photos
+    ordered = curated + [photo for photo in photos if photo.get("sequence") is None]
+    tiles = "\n                ".join(
+        _gallery_tile(photo, i, extra=i >= GALLERY_PREVIEW) for i, photo in enumerate(ordered)
     )
+    hidden = max(0, len(ordered) - GALLERY_PREVIEW)
     more_button = (
-        f'''<button type="button" class="darkroom-more" data-reveal="sequenceMore" aria-controls="sequenceMore" aria-expanded="false" data-open-label="Show the short edit" data-closed-label="Continue the sequence" data-open-count="{SEQUENCE_PREVIEW:02d} frames" data-closed-count="{more_count} more frames"><span class="darkroom-more__label">Continue the sequence</span><span class="darkroom-more__count">{more_count} more frames</span></button>'''
-        if more_parts
+        '<button type="button" class="darkroom-more gallery-more" data-reveal="photoGallery" '
+        'aria-controls="photoGallery" aria-expanded="false" data-open-label="See less" '
+        f'data-closed-label="See more" data-open-count="All {len(ordered)} photos" '
+        f'data-closed-count="{hidden} more photos"><span class="darkroom-more__label">See more</span>'
+        f'<span class="darkroom-more__count">{hidden} more photos</span></button>'
+        if hidden
         else ""
     )
-    count = len(photos)
     return f'''<section id="photography" class="chapter chapter-dark">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
                     <span class="ch-num">CH. 03</span>
-                    <h2 class="ch-title">The <span class="it">Darkroom</span></h2>
+                    <h2 class="ch-title"><span class="it">Photography</span></h2>
                 </div>
-                <div class="ch-meta">Selected Sequence<br>{len(selected):02d} Frames</div>
+                <div class="ch-meta">People · Places<br>Gatherings</div>
             </div>
-            <p class="ch-intro rv" style="color: var(--paper-on-dark-soft);">I photograph the instant a person drops the pose, a crowd becomes one body, or a landscape makes time feel larger. This is an edit about presence—not a catalogue of everything I have shot.</p>
-            {_darkroom_cta()}
-
-            <div class="darkroom-note rv">
-                <span class="darkroom-note__label">The edit</span>
-                <p>People lead. Places let the story breathe. Gatherings return the noise. The sequence moves between all three the way memory does.</p>
-                <span class="darkroom-note__count">{count:02d} photographs in the archive</span>
+            <div class="gallery-bar rv">
+                <div class="photo-chapters" aria-label="Filter photographs">
+                    <button class="photo-chapter active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
+                    <button class="photo-chapter" data-filter="places" aria-pressed="false">Places</button>
+                    <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
+                </div>
+                {_darkroom_cta()}
             </div>
-
-            <div class="sequence-heading rv">
-                <span>Selected sequence</span>
-                <span>Tap any frame to view full size</span>
-            </div>
-            <div class="photo-sequence rv">
-                {sequence_markup}
+            <div class="photo-grid rv" id="photoGallery">
+                {tiles}
+                <span class="gallery-filler" aria-hidden="true"></span>
             </div>
             {more_button}
-
-            <div class="archive-heading rv">
-                <div>
-                    <span class="archive-kicker">The archive</span>
-                    <h3>People, places, gatherings.</h3>
-                </div>
-                <p>Every photograph, browsable by subject.</p>
-            </div>
-            <button type="button" class="darkroom-more" data-reveal="archiveBody" aria-controls="archiveBody" aria-expanded="false" data-open-label="Close the archive" data-closed-label="Open the full archive"><span class="darkroom-more__label">Open the full archive</span><span class="darkroom-more__count">{count} photographs</span></button>
-            <div class="archive-body" id="archiveBody">
-            <div class="photo-chapters rv" aria-label="Filter photography archive">
-                <button class="photo-chapter active" data-filter="all" aria-pressed="true">All work</button>
-                <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
-                <button class="photo-chapter" data-filter="places" aria-pressed="false">Places</button>
-                <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
-            </div>
-            <div class="photo-archive rv" id="photoGallery">
-                {archive}
-            </div>
-            </div>
-            <p class="darkroom-site-link rv" style="margin-top: clamp(40px, 5vw, 64px); padding-top: var(--s3); border-top: 1px solid var(--dark-rule); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-dark-soft);">Full sets, services and booking live on the photography site: <a href="photography/" style="color: var(--paper-on-dark); border-bottom: 1px solid var(--vermilion); padding-bottom: 2px; white-space: nowrap;">joshuamgerman.com/photography&nbsp;&rarr;</a></p>
         </div>
     </section>'''
 
 
 def _darkroom_cta() -> str:
-    """Booking links inside the homepage Darkroom.
-
-    The homepage stylesheet belongs to another file, so the few rules these
-    links need ride along as inline styles built on the page's own tokens.
-    """
-    shared = (
-        "display: inline-flex; align-items: center; gap: 10px; min-height: 48px; "
-        "padding: 14px 26px; border-radius: 999px; font-family: var(--mono); "
-        "font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; "
-        "text-transform: uppercase; text-decoration: none;"
-    )
+    """Two quiet links beside the filters: book, or open the full photo site."""
     return (
-        '<div class="darkroom-cta rv" style="display: flex; flex-wrap: wrap; align-items: center; '
-        'gap: 12px; margin: calc(-1 * var(--s4)) 0 var(--s6);">'
-        f'<a class="darkroom-cta__book" href="photography/#book" style="{shared} '
-        'background: var(--vermilion); color: var(--dark); border: 1.5px solid var(--vermilion);">'
-        "Book a shoot &rarr;</a>"
-        f'<a class="darkroom-cta__site" href="photography/" style="{shared} '
-        'color: var(--paper-on-dark); border: 1.5px solid var(--dark-rule);">'
-        "Visit the photography site</a>"
+        '<div class="gallery-links">'
+        '<a class="gallery-link gallery-link--book" href="photography/#book">Book a shoot&nbsp;&rarr;</a>'
+        '<a class="gallery-link" href="photography/">Full photography site&nbsp;&rarr;</a>'
         "</div>"
     )
 

@@ -26,6 +26,7 @@ from portfolio_quality.photography import (
     load_photography_manifest,
     missing_sized_images,
     render_darkroom,
+    GALLERY_PREVIEW,
     render_photo_site,
 )
 
@@ -62,37 +63,41 @@ class PhotographyManifestTests(unittest.TestCase):
         )
         self.assertEqual(selected[0]["layout"], "hero")
 
-    def test_darkroom_is_chapter_three_and_sends_people_to_the_photo_site(self):
-        markup = render_darkroom(load_photography_manifest(MANIFEST))
-
-        # the sequence toggle carries the right count for each state
-        self.assertRegex(markup, r'data-open-count="\d+ frames" data-closed-count="\d+ more frames"')
-        # the site link never breaks before its arrow
-        self.assertIn("joshuamgerman.com/photography&nbsp;&rarr;", markup)
+    def test_homepage_photography_goes_straight_to_the_photos(self):
+        photos = load_photography_manifest(MANIFEST)
+        markup = render_darkroom(photos)
 
         self.assertIn('<span class="ch-num">CH. 03</span>', markup)
-        self.assertNotIn("CH. 06", markup)
+        self.assertIn("Photography", markup)
+        # no Darkroom preamble: header, filters, then pictures
+        for gone in ("Darkroom", "darkroom-note", "Selected sequence", "Continue the sequence", "The archive"):
+            self.assertNotIn(gone, markup)
         self.assertIn('href="photography/#book"', markup)
         self.assertIn('href="photography/"', markup)
-        self.assertIn("Visit the photography site", markup)
+        self.assertIn("Full photography site&nbsp;&rarr;", markup)
 
-    def test_renderer_outputs_story_and_three_accessible_chapters(self):
-        markup = render_darkroom(load_photography_manifest(MANIFEST))
+    def test_gallery_shows_a_preview_and_a_see_more_toggle(self):
+        photos = load_photography_manifest(MANIFEST)
+        markup = render_darkroom(photos)
 
-        self.assertIn('class="photo-sequence rv"', markup)
-        self.assertIn('data-chapter="people"', markup)
-        self.assertIn('data-chapter="places"', markup)
-        self.assertIn('data-chapter="gatherings"', markup)
+        self.assertIn('class="photo-grid rv" id="photoGallery"', markup)
+        self.assertEqual(markup.count('class="photo-item gallery-tile'), len(photos))
+        self.assertEqual(markup.count(" is-extra"), max(0, len(photos) - GALLERY_PREVIEW))
+        self.assertIn('data-closed-label="See more"', markup)
+        self.assertRegex(markup, r'<span class="darkroom-more__count">\d+ more photos</span>')
+        for chapter in ("people", "places", "gatherings"):
+            self.assertIn(f'data-chapter="{chapter}"', markup)
         self.assertIn('aria-pressed="true"', markup)
-        self.assertIn("Selected sequence", markup)
-        self.assertNotIn("photo-masonry", markup)
+        # every tile carries its real ratio and dimensions (no layout shift)
+        self.assertEqual(markup.count("--r:"), len(photos))
+        self.assertNotRegex(markup, r"<img(?![^>]*width=)[^>]*>")
 
-    def test_homepage_contains_rendered_darkroom_markers(self):
+    def test_homepage_contains_rendered_gallery_markers(self):
         page = (ROOT / "index.html").read_text(encoding="utf-8")
 
         self.assertIn("<!-- PHOTOGRAPHY:START -->", page)
         self.assertIn("<!-- PHOTOGRAPHY:END -->", page)
-        self.assertIn('class="photo-sequence rv"', page)
+        self.assertIn('class="photo-grid rv" id="photoGallery"', page)
 
     def test_inbox_import_creates_an_unpublished_metadata_stripped_webp_once(self):
         with TemporaryDirectory() as directory:

@@ -1,0 +1,9 @@
+{
+  "_note": "Feeds for scripts/sync-episodes.py. Give each show an 'rss' URL or an Apple Podcasts 'apple_id'. Shows with neither are skipped.",
+  "shows": [
+    { "slug": "dominate", "name": "Dominate The Decade", "apple_id": "1517223875", "rss": null },
+    { "slug": "eclectic-polymath", "name": "The Eclectic Polymath", "apple_id": null, "rss": null },
+    { "slug": "curious-creative", "name": "Curious & Creative", "apple_id": null, "rss": null },
+    { "slug": "approachable-ai", "name": "Approachable AI", "apple_id": null, "rss": null }
+  ]
+}

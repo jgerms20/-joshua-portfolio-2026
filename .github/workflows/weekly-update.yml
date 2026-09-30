@@ -11,6 +11,8 @@ on:
       - "scripts/**"
       - "tests/**"
       - "requirements.txt"
+      - "assets/**"
+      - "photos/**"
       - ".github/workflows/weekly-update.yml"
   pull_request:
     paths:
@@ -20,10 +22,12 @@ on:
       - "scripts/**"
       - "tests/**"
       - "requirements.txt"
+      - "assets/**"
+      - "photos/**"
       - ".github/workflows/weekly-update.yml"
   schedule:
-    - cron: "0 17 * * 1"
-    - cron: "0 17 * * 5"
+    # Every day at 9:13am Pacific (16:13 UTC)
+    - cron: "13 16 * * *"
   workflow_dispatch:
 
 permissions:
@@ -48,6 +52,25 @@ jobs:
 
       - name: Run quality tests
         run: python3 -m unittest discover -s tests -v
+
+      - name: Check local links and assets
+        run: python3 scripts/check-refs.py
+
+      - name: Check generated photo pages are current
+        run: python3 scripts/render-photography.py --check
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Browser smoke test (every page, phone + desktop, key interactions)
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+          python3 -m http.server 8765 >/dev/null 2>&1 &
+          sleep 2
+          node tests/browser/smoke.js
 
       - name: Check production files
         id: static
