@@ -3,166 +3,1043 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Curious & Creative - A podcast exploring the intersection of creativity and life.">
-    <title>Curious & Creative | Joshua McKenzie German</title>
+    <title>Curious &amp; Creative | A podcast by Joshua McKenzie German</title>
+    <meta name="description" content="Curious &amp; Creative is a podcast by Joshua McKenzie German. Where creative strategy meets real conversation: the ideas, decisions, and cultural moments that shape how we see, and sell, the world.">
+    <link rel="canonical" href="https://joshuamgerman.com/podcasts/podcast-curious-creative.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Joshua McKenzie German">
+    <meta property="og:title" content="Curious &amp; Creative | A podcast by Joshua McKenzie German">
+    <meta property="og:description" content="Where creative strategy meets real conversation. A deep dive into the minds of artists, creators, and innovators.">
+    <meta property="og:url" content="https://joshuamgerman.com/podcasts/podcast-curious-creative.html">
+    <meta property="og:image" content="https://joshuamgerman.com/photos/podcasts/curious-creative-logo.jpg">
+    <meta property="og:image:alt" content="Curious &amp; Creative podcast logo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Curious &amp; Creative | A podcast by Joshua McKenzie German">
+    <meta name="twitter:description" content="Where creative strategy meets real conversation.">
+    <meta name="twitter:image" content="https://joshuamgerman.com/photos/podcasts/curious-creative-logo.jpg">
+    <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "PodcastSeries",
+        "name": "Curious & Creative",
+        "description": "Where creative strategy meets real conversation. A deep dive into the minds of artists, creators, and innovators.",
+        "url": "https://joshuamgerman.com/podcasts/podcast-curious-creative.html",
+        "image": "https://joshuamgerman.com/photos/podcasts/curious-creative-logo.jpg",
+        "sameAs": ["https://jgerms20.github.io/curious-and-creative/"],
+        "author": { "@type": "Person", "name": "Joshua McKenzie German", "url": "https://joshuamgerman.com" }
+    }
+    </script>
+
     <style>
+        /* =====================================================
+           THE PAPER EDITION: Curious & Creative show page
+           Site tokens (Ink & Paper) + the show's own violet.
+           ===================================================== */
         :root {
-            --void: #030304; --abyss: #0a0a0c; --obsidian: #111114; --surface: #18181c;
-            --glass-border: rgba(255, 255, 255, 0.06); --glass-hover: rgba(255, 255, 255, 0.1);
-            --neon: #D4FF4F; --purple: #A855F7; --text-primary: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.35);
-            --font-display: 'Playfair Display', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif;
-            --edge: clamp(24px, 6vw, 80px); --radius-lg: 20px; --radius-xl: 32px; --radius-pill: 9999px;
-            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); --max-width: 1000px;
+            --paper: #F5F1E8; --paper-warm: #EFEADF; --paper-raised: #FBF8F1; --paper-dim: #E9E3D5;
+            --ink: #171512; --ink-soft: rgba(23,21,18,0.74); --ink-mid: rgba(23,21,18,0.62);
+            --ink-faint: rgba(23,21,18,0.34); --ink-ghost: rgba(23,21,18,0.1);
+            --rule: rgba(23,21,18,0.16); --rule-soft: rgba(23,21,18,0.09);
+            --blue: #1F1DDB; --vermilion: #E8380D;
+            --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --mono: 'Space Mono', 'SF Mono', Menlo, monospace;
+            --s-1: 4px; --s0: 8px; --s1: 12px; --s2: 16px; --s3: 24px;
+            --s4: 32px; --s5: 48px; --s6: 64px; --s7: 96px; --s8: 144px;
+            --edge: clamp(20px, 5vw, 72px);
+            --max: 1320px;
+            --exp: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* The show's own mark: deep violet, with the logo's magenta as a spark */
+            --violet: #7C3AED;          /* rules, large type, fills */
+            --violet-ink: #5B21B6;      /* violet text on paper (AA) */
+            --violet-wash: rgba(124,58,237,0.08);
+            --spark: #C8327A;
+            --band: #170C24; --band-raised: #221334;
+            --band-rule: rgba(245,241,232,0.12);
+            --on-band: #F5F1E8; --on-band-soft: rgba(245,241,232,0.74); --on-band-mid: rgba(245,241,232,0.56);
+            --band-violet: #C9AEFF;
+            --bar: 60px;
+            color-scheme: light;
         }
+        :root[data-theme="dark"] {
+            --paper: #121016; --paper-warm: #17141C; --paper-raised: #1B1822; --paper-dim: #0C0A10;
+            --ink: #EFEAF3; --ink-soft: rgba(239,234,243,0.76); --ink-mid: rgba(239,234,243,0.58);
+            --ink-faint: rgba(239,234,243,0.34); --ink-ghost: rgba(239,234,243,0.1);
+            --rule: rgba(239,234,243,0.17); --rule-soft: rgba(239,234,243,0.09);
+            --blue: #8E8CFF; --vermilion: #FF5C33;
+            --violet: #B394FF; --violet-ink: #C9AEFF; --violet-wash: rgba(179,148,255,0.10);
+            --spark: #F0609F;
+            --band: #0B0612; --band-raised: #170E24; --band-rule: rgba(201,174,255,0.18);
+            color-scheme: dark;
+        }
+
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        body { font-family: var(--font-sans); background: var(--void); color: var(--text-primary); line-height: 1.6; }
-        ::selection { background: var(--purple); color: white; }
+        html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: clip; }
+        ::selection { background: var(--violet); color: var(--paper); }
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+        em { font-style: italic; }
+        [hidden] { display: none !important; }
+        :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
 
-        .back-nav {
-            position: fixed; top: 32px; left: 32px; z-index: 1000;
-            display: flex; align-items: center; gap: 12px; padding: 14px 24px;
-            background: rgba(10, 10, 12, 0.9); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: var(--radius-pill);
-            font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);
-            transition: all 0.3s var(--ease-out-expo);
+        .sr-only {
+            position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
         }
-        .back-nav:hover { color: var(--text-primary); background: var(--glass-hover); transform: translateX(-4px); }
-        .back-nav svg { width: 18px; height: 18px; }
+        .skip {
+            position: absolute; left: 12px; top: -60px; z-index: 3000; padding: 10px 16px; border-radius: 999px;
+            background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 0.7rem;
+            letter-spacing: 0.12em; text-transform: uppercase; transition: top 0.2s;
+        }
+        .skip:focus { top: 12px; }
 
-        .page-hero {
-            min-height: 60vh; display: flex; align-items: center; justify-content: center;
-            padding: 120px var(--edge) 60px; text-align: center;
-            background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(168, 85, 247, 0.1), transparent);
+        .grain {
+            position: fixed; inset: 0; pointer-events: none; z-index: 2000; opacity: 0.28;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.24'/%3E%3C/svg%3E");
+        }
+        :root[data-theme="dark"] .grain { opacity: 0.2; }
+
+        .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--edge); padding-right: var(--edge); }
+
+        /* ---- Shared type ---- */
+        .label {
+            display: flex; align-items: center; gap: 12px;
+            font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--ink-mid);
+        }
+        .label-num { color: var(--violet-ink); }
+        .label::after { content: ''; width: 28px; height: 1px; background: var(--violet); }
+        .h2 {
+            font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+            line-height: 1; letter-spacing: -0.02em; margin-top: var(--s3);
+        }
+        .h2 em { color: var(--violet); }
+        .sub { font-size: 1.02rem; line-height: 1.7; color: var(--ink-soft); margin-top: var(--s3); max-width: 30em; }
+
+        /* ---- Buttons ---- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            min-height: 50px; padding: 0 24px; border-radius: 999px;
+            font-family: var(--sans); font-size: 0.95rem; font-weight: 600; letter-spacing: -0.005em; white-space: nowrap;
+            transition: background 0.3s var(--exp), color 0.3s var(--exp), border-color 0.3s var(--exp), transform 0.3s var(--exp);
+        }
+        .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-ink { background: var(--ink); color: var(--paper); }
+        .btn-ink:hover { background: var(--violet-ink); }
+        :root[data-theme="dark"] .btn-ink:hover { color: var(--band); }
+        .btn-line { border: 1px solid var(--rule); color: var(--ink); }
+        .btn-line:hover { border-color: var(--ink); }
+        .btn-line svg { width: 16px; height: 16px; }
+        .btn-violet { background: var(--band-violet); color: #170C24; }
+        .btn-violet:hover { background: #DCCBFF; }
+        .actions { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s5); }
+
+        /* =====================================================
+           Top bar
+           ===================================================== */
+        .bar {
+            position: sticky; top: 0; z-index: 1400;
+            background: color-mix(in srgb, var(--paper) 88%, transparent);
+            -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--rule-soft);
+        }
+        .bar-row { height: var(--bar); display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+        .bar-left, .bar-right { display: flex; align-items: center; min-width: 0; }
+        .bar-right { gap: 10px; }
+        .back {
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 0;
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ink-mid); transition: color 0.25s;
+        }
+        .back svg { width: 15px; height: 15px; transition: transform 0.3s var(--exp); }
+        .back:hover { color: var(--ink); }
+        .back:hover svg { transform: translateX(-3px); }
+        .back-short { display: none; }
+        .bar-sep { width: 1px; height: 18px; background: var(--rule); margin: 0 16px; flex-shrink: 0; }
+        .brand { font-family: var(--serif); font-weight: 500; font-size: 1.02rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; }
+        .brand .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+        .brand-short { display: none; }
+        .theme-toggle {
+            width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--rule);
+            display: inline-flex; align-items: center; justify-content: center; color: var(--ink-soft); flex-shrink: 0;
+            transition: border-color 0.3s var(--exp), color 0.3s, transform 0.3s var(--exp);
+        }
+        .theme-toggle:hover { border-color: var(--ink); color: var(--ink); transform: rotate(15deg); }
+        .theme-toggle svg { width: 15px; height: 15px; }
+        .theme-toggle .sun { display: none; }
+        :root[data-theme="dark"] .theme-toggle .sun { display: block; }
+        :root[data-theme="dark"] .theme-toggle .moon { display: none; }
+        .bar-link {
+            display: inline-flex; align-items: center; height: 38px; padding: 0 8px; margin-right: 6px;
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--ink-soft); white-space: nowrap; transition: color 0.25s;
+        }
+        .bar-link:hover { color: var(--violet-ink); }
+        @media (max-width: 900px) { .bar-link { display: none; } }
+        .bar-cta {
+            display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 16px 0 12px; border-radius: 999px;
+            background: var(--ink); color: var(--paper);
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap;
+            transition: background 0.3s var(--exp), color 0.3s;
+        }
+        .bar-cta svg { width: 16px; height: 16px; color: var(--band-violet); flex-shrink: 0; }
+        :root[data-theme="dark"] .bar-cta svg { color: #5B21B6; }
+        .bar-cta:hover { background: var(--violet-ink); }
+        .bar-cta:hover svg { color: var(--paper); }
+        :root[data-theme="dark"] .bar-cta:hover { color: var(--band); }
+        :root[data-theme="dark"] .bar-cta:hover svg { color: var(--band); }
+        @media (max-width: 600px) {
+            .back-full, .brand-full { display: none; }
+            .back-short, .brand-short { display: inline; }
+            .bar-sep { margin: 0 12px; }
+            .bar-cta .xs-hide { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
         }
 
-        .hero-content { max-width: 800px; }
-
-        .podcast-cover {
-            width: 200px; height: 200px; margin: 0 auto 32px;
-            border-radius: var(--radius-xl); overflow: hidden;
-            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
-            position: relative;
+        /* =====================================================
+           Hero
+           ===================================================== */
+        .hero { padding: clamp(40px, 7vw, 104px) 0 0; position: relative; }
+        .hero::before {
+            content: ''; position: absolute; top: -10%; left: -10%; width: 60%; height: 90%; pointer-events: none;
+            background: radial-gradient(closest-side, var(--violet-wash), transparent);
         }
-        .podcast-cover img { width: 100%; height: 100%; object-fit: cover; }
-
-        .show-title {
-            font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 400; margin-bottom: 20px;
-        }
-        .show-title .accent {
-            font-style: italic; color: var(--purple);
+        .hero-grid {
+            position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            gap: clamp(40px, 6vw, 104px); align-items: center;
         }
 
-        .show-desc {
-            font-size: 1.25rem; color: var(--text-secondary); max-width: 600px;
-            margin: 0 auto 40px; line-height: 1.7;
+        /* Cover: a sleeve with the record peeking out */
+        .sleeve { position: relative; width: 86%; }
+        .disc {
+            position: absolute; top: 4%; left: 17%; width: 92%; aspect-ratio: 1; border-radius: 50%;
+            background:
+                radial-gradient(circle, #0d0914 0 2.2%, var(--band-violet) 2.4% 15%, #0d0914 15.3% 16.5%, transparent 16.8%),
+                repeating-radial-gradient(circle, #1a1522 0 1px, #0b0910 1.2px 3px);
+            box-shadow: 0 24px 50px -24px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.05);
+            transition: transform 0.9s var(--exp);
+        }
+        :root[data-theme="dark"] .disc {
+            background:
+                radial-gradient(circle, #0d0914 0 2.2%, var(--band-violet) 2.4% 15%, #0d0914 15.3% 16.5%, transparent 16.8%),
+                radial-gradient(circle, transparent 0 60%, rgba(239,234,243,0.07) 64%, transparent 68%, rgba(239,234,243,0.05) 82%, transparent 86%),
+                repeating-radial-gradient(circle, #29233a 0 1px, #14111c 1.2px 3px);
+            box-shadow: 0 24px 50px -24px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(201,174,255,0.5), inset 0 0 0 5px rgba(201,174,255,0.08);
+        }
+        .sleeve:hover .disc { transform: translateX(7%) rotate(50deg); }
+        .cover {
+            position: relative; z-index: 1; aspect-ratio: 1; overflow: hidden;
+            background: var(--band); container-type: inline-size;
+            box-shadow: 0 34px 70px -34px rgba(23,21,18,0.55), 0 0 0 1px var(--rule-soft);
+        }
+        :root[data-theme="dark"] .cover { box-shadow: 0 34px 70px -30px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,174,255,0.22); }
+        .cover-live {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            opacity: 0; transition: opacity 0.7s ease;
+        }
+        .is-live > .cover-live { opacity: 1; }
+
+        /* Designed typographic cover (shown until/unless the logo loads) */
+        .art {
+            position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; color: var(--on-band);
+            background:
+                radial-gradient(120% 90% at 30% 15%, rgba(201,174,255,0.18), transparent 60%),
+                radial-gradient(90% 80% at 80% 100%, rgba(200,50,122,0.14), transparent 70%),
+                var(--band);
+        }
+        .art::before {
+            content: ''; position: absolute; inset: 5.5%; border: 1px solid rgba(201,174,255,0.42); pointer-events: none;
+        }
+        .art-top, .art-foot {
+            position: absolute; left: 0; right: 0; font-family: var(--mono); font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.32em; color: var(--band-violet); font-size: 0.6rem; font-size: 2.5cqi;
+        }
+        .art-top { top: 10%; }
+        .art-foot { bottom: 10%; color: var(--on-band-mid); }
+        .art-rule { width: 16%; height: 1px; background: var(--band-violet); margin: 3.2cqi 0; opacity: 0.8; }
+        .art-amp { font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--band-violet); font-size: 1.4rem; font-size: 9cqi; line-height: 1; margin: 1.5cqi 0; }
+        .art-big { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; line-height: 0.95; font-size: 2.6rem; font-size: 15.5cqi; }
+        .art-big.it { font-style: italic; color: var(--band-violet); }
+
+        .hero-copy { min-width: 0; }
+        .kicker {
+            display: flex; align-items: center; flex-wrap: wrap; gap: 10px 12px;
+            font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid);
+        }
+        .kicker .on-air { display: inline-flex; align-items: center; gap: 7px; color: var(--violet-ink); }
+        .kicker .on-air::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--spark); box-shadow: 0 0 0 3px color-mix(in srgb, var(--spark) 18%, transparent); }
+        .title {
+            font-family: var(--serif); font-weight: 400; letter-spacing: -0.028em; line-height: 0.9;
+            font-size: clamp(3.1rem, 7.6vw, 7.4rem); margin-top: var(--s3);
+        }
+        .title .line { display: block; }
+        .title em { color: var(--violet); font-weight: 300; }
+        .tagline {
+            font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--ink);
+            font-size: clamp(1.3rem, 2.1vw, 1.75rem); line-height: 1.3; margin-top: var(--s4); max-width: 22em;
+        }
+        .lede { font-size: 1.05rem; line-height: 1.75; color: var(--ink-soft); margin-top: var(--s3); max-width: 33em; }
+
+        /* Facts strip */
+        .facts {
+            display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: clamp(56px, 7vw, 96px); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+        }
+        .facts > div { padding: 20px 20px 22px; border-left: 1px solid var(--rule-soft); min-width: 0; }
+        .facts > div:first-child { border-left: 0; padding-left: 0; }
+        .facts dt { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); }
+        .facts dd { font-family: var(--serif); font-size: 1.12rem; line-height: 1.3; margin-top: 8px; }
+        .facts dd a { border-bottom: 1px solid var(--violet); transition: color 0.25s; }
+        .facts dd a:hover { color: var(--violet-ink); }
+
+        /* =====================================================
+           Latest episodes
+           ===================================================== */
+        .section { padding: clamp(72px, 9vw, 128px) 0; scroll-margin-top: var(--bar); }
+        .split { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 5vw, 88px); align-items: start; }
+        .split-head { position: sticky; top: calc(var(--bar) + 32px); }
+        .text-link {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: var(--s4);
+            font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--ink); padding-bottom: 4px; border-bottom: 1px solid var(--violet);
+            transition: color 0.25s, gap 0.3s var(--exp);
+        }
+        .text-link:hover { color: var(--violet-ink); gap: 12px; }
+        .text-link svg { width: 13px; height: 13px; }
+        .ep-updated { margin-top: var(--s3); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
+
+        /* Featured (newest) episode */
+        .ep-feature {
+            display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(20px, 3vw, 36px); align-items: center;
+            padding: clamp(18px, 2.4vw, 28px); background: var(--band); color: var(--on-band);
+            box-shadow: 0 30px 70px -40px rgba(23,21,18,0.6);
+            transition: transform 0.4s var(--exp), box-shadow 0.4s var(--exp);
+        }
+        :root[data-theme="dark"] .ep-feature { box-shadow: 0 0 0 1px var(--band-rule), 0 30px 70px -40px rgba(0,0,0,0.9); }
+        .ep-feature:hover { transform: translateY(-3px); }
+        .ep-feature > span, .ep-row > span, .ep-title, .ep-desc { display: block; min-width: 0; }
+        .ep-art { display: block; position: relative; aspect-ratio: 1; overflow: hidden; background: var(--paper-dim); }
+        .ep-feature .ep-art { background: var(--band-raised); box-shadow: 0 20px 40px -22px rgba(0,0,0,0.7); }
+        .ep-art img { width: 100%; height: 100%; object-fit: cover; }
+        .ep-art::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(128,128,128,0.14); pointer-events: none; }
+        .ep-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--on-band-mid); }
+        .ep-kicker .new { color: var(--band-violet); display: inline-flex; align-items: center; gap: 7px; }
+        .ep-kicker .new::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--spark); }
+        .ep-kicker .sep { width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: 0.6; }
+        .ep-feature .ep-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1.08; letter-spacing: -0.015em; margin-top: 12px; overflow-wrap: anywhere; }
+        .ep-feature .ep-desc { font-size: 0.95rem; line-height: 1.6; color: var(--on-band-soft); margin-top: 12px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+        .ep-go {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--band-violet); padding-bottom: 4px; border-bottom: 1px solid rgba(201,174,255,0.5);
+            transition: gap 0.3s var(--exp);
+        }
+        .ep-go svg { width: 13px; height: 13px; }
+        .ep-feature:hover .ep-go { gap: 12px; }
+
+        /* The rest: a track list */
+        .ep-list { list-style: none; margin-top: var(--s3); border-top: 1px solid var(--rule); }
+        .ep-row {
+            display: grid; grid-template-columns: 36px 84px minmax(0, 1fr) 20px; gap: 18px; align-items: center;
+            padding: 18px 4px; border-bottom: 1px solid var(--rule-soft);
+            transition: background 0.3s var(--exp);
+        }
+        .ep-row:hover { background: var(--violet-wash); }
+        .ep-num { font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.18em; color: var(--violet-ink); }
+        .ep-row .ep-kicker { color: var(--ink-mid); }
+        .ep-row .ep-title { font-family: var(--serif); font-weight: 400; font-size: 1.22rem; line-height: 1.2; letter-spacing: -0.01em; margin-top: 6px; overflow-wrap: anywhere; transition: color 0.25s; }
+        .ep-row:hover .ep-title { color: var(--violet-ink); }
+        .ep-row .ep-desc { font-size: 0.88rem; line-height: 1.55; color: var(--ink-soft); margin-top: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .ep-arrow { width: 16px; height: 16px; color: var(--ink-mid); transition: transform 0.3s var(--exp), color 0.3s; }
+        .ep-row:hover .ep-arrow { transform: translate(2px, -2px); color: var(--ink); }
+        .ep-more { margin-top: var(--s4); }
+
+        /* Loading: a quiet sketch of the list, not a spinner */
+        .sk { display: grid; gap: var(--s3); }
+        .sk i, .sk b { display: block; background: var(--ink-ghost); border-radius: 3px; animation: skPulse 1.8s ease-in-out infinite; }
+        .sk-feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px; align-items: center; padding: 24px; border: 1px solid var(--rule-soft); }
+        .sk-feature b { aspect-ratio: 1; }
+        .sk-lines { display: grid; gap: 12px; }
+        .sk-lines i { height: 12px; }
+        .sk-lines i:nth-child(1) { width: 30%; } .sk-lines i:nth-child(2) { width: 80%; height: 22px; } .sk-lines i:nth-child(3) { width: 90%; } .sk-lines i:nth-child(4) { width: 64%; }
+        .sk-row { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 18px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--rule-soft); }
+        .sk-row b { aspect-ratio: 1; }
+        .sk-row span { display: grid; gap: 10px; }
+        .sk-row i { height: 10px; }
+        .sk-row i:first-child { width: 24%; } .sk-row i:last-child { width: 66%; height: 14px; }
+        @keyframes skPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+        /* Empty: a designed card, never a dead box */
+        .ep-empty {
+            position: relative; overflow: hidden; color: var(--on-band);
+            padding: clamp(28px, 5vw, 64px);
+            background:
+                radial-gradient(90% 70% at 15% 0%, rgba(201,174,255,0.16), transparent 60%),
+                radial-gradient(70% 60% at 100% 100%, rgba(200,50,122,0.14), transparent 65%),
+                var(--band);
+            box-shadow: 0 30px 70px -40px rgba(23,21,18,0.6);
+        }
+        :root[data-theme="dark"] .ep-empty { box-shadow: 0 0 0 1px var(--band-rule), 0 30px 70px -40px rgba(0,0,0,0.9); }
+        .ep-empty::before {
+            content: ''; position: absolute; right: -14%; bottom: -46%; width: 62%; aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+            background: repeating-radial-gradient(circle, transparent 0 7px, rgba(201,174,255,0.07) 7px 8px);
+        }
+        .ee-inner { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(22px, 4vw, 48px); align-items: center; }
+        .ee-cover { position: relative; width: clamp(120px, 15vw, 184px); aspect-ratio: 1; overflow: hidden; background: #fff; box-shadow: 0 22px 44px -20px rgba(0,0,0,0.75); transform: rotate(-3deg); }
+        .ee-cover img { width: 100%; height: 100%; object-fit: cover; }
+        .ee-kicker { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--band-violet); display: inline-flex; align-items: center; gap: 8px; }
+        .ee-kicker::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--spark); animation: blink 2.4s ease-in-out infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+        .ee-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3.4vw, 2.8rem); line-height: 1.02; letter-spacing: -0.02em; margin-top: 12px; }
+        .ee-title em { color: var(--band-violet); font-weight: 300; }
+        .ee-text { font-size: 0.98rem; line-height: 1.65; color: var(--on-band-soft); margin-top: 14px; max-width: 30em; }
+        .ee-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 26px; }
+        .ee-actions .btn { min-height: 46px; padding: 0 20px; font-size: 0.9rem; }
+        .ee-mail {
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--on-band-soft); min-height: 44px; display: inline-flex; align-items: center; padding: 0 2px;
+            transition: color 0.25s;
+        }
+        .ee-mail span { padding-bottom: 3px; border-bottom: 1px solid rgba(245,241,232,0.3); transition: border-color 0.25s; }
+        .ee-mail:hover { color: var(--on-band); }
+        .ee-mail:hover span { border-color: var(--on-band); }
+
+        /* =====================================================
+           Territory: the subject index (darkroom band)
+           ===================================================== */
+        .band { background: var(--band); color: var(--on-band); padding: clamp(80px, 10vw, 140px) 0; position: relative; scroll-margin-top: var(--bar); }
+        :root[data-theme="dark"] .band { border-top: 1px solid var(--band-rule); border-bottom: 1px solid var(--band-rule); }
+        .band .label { color: var(--on-band-mid); }
+        .band .label-num { color: var(--band-violet); }
+        .band .label::after { background: var(--band-violet); }
+        .band .h2 em { color: var(--band-violet); }
+        .band .sub { color: var(--on-band-soft); }
+        .band-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s4) clamp(32px, 5vw, 88px); align-items: end; }
+        .band-head .sub { margin-top: 0; justify-self: end; max-width: 26em; }
+        .index {
+            list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px; background: var(--band-rule); border: 1px solid var(--band-rule);
+            margin-top: clamp(48px, 6vw, 80px);
+        }
+        .ix {
+            background: var(--band); padding: clamp(22px, 2.6vw, 36px); min-height: 300px;
+            display: flex; flex-direction: column; transition: background 0.4s var(--exp);
+        }
+        .ix:hover { background: var(--band-raised); }
+        .ix-num { font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; color: var(--band-violet); }
+        .ix-name {
+            font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 2.4vw, 2.2rem); line-height: 1.04;
+            letter-spacing: -0.015em; margin-top: auto; padding-top: 72px; transition: color 0.3s;
+        }
+        .ix:hover .ix-name { color: var(--band-violet); }
+        .ix-desc { font-size: 0.92rem; line-height: 1.6; color: var(--on-band-soft); margin-top: 12px; max-width: 24em; }
+
+        /* =====================================================
+           From the host
+           ===================================================== */
+        .host-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 104px); align-items: center; }
+        .host-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-dim); }
+        .host-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+        .host-photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--rule-soft); pointer-events: none; }
+        .host-cap { margin-top: 12px; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
+        .pull {
+            font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1.08;
+            letter-spacing: -0.02em; margin-top: var(--s4); max-width: 15em;
+        }
+        .pull em { color: var(--violet); font-weight: 300; }
+        .host-body { margin-top: var(--s4); max-width: 34em; }
+        .host-body p { font-size: 1.05rem; line-height: 1.78; color: var(--ink-soft); }
+        .host-body p + p { margin-top: var(--s2); }
+        .sig { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; margin-top: var(--s5); padding-top: var(--s3); border-top: 1px solid var(--rule); max-width: 34em; }
+        .sig-name { font-family: var(--serif); font-style: italic; font-size: 1.3rem; }
+        .sig-role { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
+
+        /* =====================================================
+           Closing call
+           ===================================================== */
+        .cta { padding: 0 0 clamp(80px, 10vw, 140px); }
+        .cta-card {
+            position: relative; overflow: hidden; border: 1px solid var(--rule); background: var(--paper-raised);
+            padding: clamp(40px, 7vw, 96px) clamp(24px, 6vw, 88px);
+            display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s4) clamp(32px, 5vw, 80px); align-items: end;
+        }
+        .cta-card::before {
+            content: ''; position: absolute; right: -8%; top: -40%; width: 60%; aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+            background: repeating-radial-gradient(circle, transparent 0 7px, var(--violet-wash) 7px 8px);
+        }
+        .cta-title { position: relative; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8vw, 6.6rem); line-height: 0.9; letter-spacing: -0.03em; }
+        .cta-title em { color: var(--violet); font-weight: 300; }
+        .cta-side { position: relative; }
+        .cta-side p { font-size: 1.02rem; line-height: 1.7; color: var(--ink-soft); }
+        .cta-side .actions { margin-top: var(--s4); }
+
+        /* =====================================================
+           Footer + other shows
+           ===================================================== */
+        .foot { border-top: 1px solid var(--rule); padding: clamp(48px, 6vw, 80px) 0 var(--s4); }
+        .shows { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s2); margin-top: var(--s4); }
+        .show {
+            display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 16px; align-items: center;
+            padding: 14px; border: 1px solid var(--rule-soft); background: var(--paper-raised);
+            transition: border-color 0.3s var(--exp), transform 0.3s var(--exp);
+        }
+        .show:hover { border-color: var(--ink-faint); transform: translateY(-2px); }
+        .show img { width: 64px; height: 64px; object-fit: cover; background: var(--paper-dim); }
+        .show-mark {
+            width: 64px; height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #12100C; color: #C9A84C; font-family: var(--serif); line-height: 0.95; text-align: center;
+            box-shadow: inset 0 0 0 3px #12100C, inset 0 0 0 4px rgba(201,168,76,0.45);
+        }
+        .show-mark span { font-size: 0.62rem; letter-spacing: -0.01em; color: #F5F1E8; }
+        .show-mark em { font-size: 0.62rem; }
+        .show-name { display: block; font-family: var(--serif); font-size: 1.12rem; line-height: 1.15; }
+        .show-line { display: block; font-size: 0.82rem; line-height: 1.45; color: var(--ink-mid); margin-top: 4px; }
+        .show svg { width: 16px; height: 16px; color: var(--ink-mid); transition: transform 0.3s var(--exp), color 0.3s; }
+        .show:hover svg { transform: translateX(3px); color: var(--ink); }
+        .foot-base {
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s2) var(--s4);
+            margin-top: clamp(48px, 6vw, 72px); padding-top: var(--s3); border-top: 1px solid var(--rule-soft);
+            font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid);
+        }
+        .foot-base a { color: var(--ink); transition: color 0.25s; }
+        .foot-base a:hover { color: var(--violet-ink); }
+        .foot-links { display: flex; flex-wrap: wrap; gap: 6px var(--s3); }
+        .foot-links a { display: inline-flex; align-items: center; min-height: 32px; }
+        .foot-links .foot-hire { color: var(--violet-ink); border-bottom: 1px solid var(--violet); min-height: 0; padding: 4px 0 3px; align-self: center; }
+        .foot-links .foot-hire:hover { color: var(--ink); border-color: var(--ink); }
+
+        /* =====================================================
+           Responsive
+           ===================================================== */
+        @media (max-width: 1100px) {
+            .shows { grid-template-columns: 1fr; max-width: 560px; }
+        }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: minmax(0, 1fr); }
+            .sleeve { width: min(78%, 420px); }
+            .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .facts > div:nth-child(3) { border-left: 0; padding-left: 0; }
+            .facts > div:nth-child(n+3) { border-top: 1px solid var(--rule-soft); }
+            .split, .host-grid, .band-head, .cta-card { grid-template-columns: minmax(0, 1fr); }
+            .split-head { position: static; }
+            .band-head .sub { justify-self: start; }
+            .host-photo { max-width: 460px; }
+            .index { grid-template-columns: minmax(0, 1fr); }
+            .ix { min-height: 0; display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: 8px; padding: 26px 24px; }
+            .ix-num { grid-row: 1 / 3; padding-top: 8px; }
+            .ix-name { padding-top: 0; margin-top: 0; }
+        }
+        @media (max-width: 640px) {
+            .ix { grid-template-columns: 40px minmax(0, 1fr); padding: 22px 20px; }
+            .ix-name { font-size: 1.45rem; }
+            .ix-desc { margin-top: 8px; }
+            .ep-feature { grid-template-columns: minmax(0, 1fr); }
+            .ep-feature .ep-art { width: min(100%, 320px); }
+            .ep-row { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; padding: 16px 0; }
+            .ep-row .ep-num, .ep-row .ep-arrow { display: none; }
+            .ep-row .ep-title { font-size: 1.1rem; }
+            .sk-feature { grid-template-columns: minmax(0, 1fr); }
+            .sk-feature b { width: min(100%, 320px); }
+            .sk-row { grid-template-columns: 64px minmax(0, 1fr); }
+            .ee-inner { grid-template-columns: minmax(0, 1fr); }
+            .ee-cover { width: 132px; }
+            .actions .btn { flex: 1 1 auto; }
+            .foot-base { flex-direction: column; align-items: flex-start; }
+        }
+        @media (max-width: 400px) {
+            .kicker .by-xs { display: none; }
+            .kicker { flex-wrap: nowrap; }
+            .kicker > span { white-space: nowrap; }
+            .sleeve { width: 68%; }
+            .facts > div { padding: 16px 12px 18px; }
+            .facts dd { font-size: 1rem; }
+            .ee-actions .btn { width: 100%; }
         }
 
-        .coming-soon-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 12px 24px; font-size: 0.85rem; font-weight: 600;
-            background: linear-gradient(135deg, var(--purple), #7C3AED);
-            color: white; border-radius: var(--radius-pill);
-            text-transform: uppercase; letter-spacing: 0.1em;
-            margin-bottom: 40px;
-        }
-        .coming-soon-badge::before {
-            content: '';
-            width: 8px; height: 8px; background: white;
-            border-radius: 50%; animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        .topics-section {
-            padding: var(--edge); max-width: var(--max-width); margin: 0 auto;
-        }
-        .section-title {
-            font-family: var(--font-display); font-size: 2rem; margin-bottom: 32px; text-align: center;
-        }
-        .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        @media (max-width: 900px) { .topics-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .topics-grid { grid-template-columns: 1fr; } }
-        .topic-card {
-            background: var(--surface); border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg); padding: 24px;
-            transition: all 0.3s var(--ease-out-expo);
-        }
-        .topic-card:hover { border-color: var(--purple); transform: translateY(-4px); }
-        .topic-icon { font-size: 2rem; margin-bottom: 16px; }
-        .topic-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
-        .topic-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
-
-        @media (max-width: 768px) {
-            .back-nav { top: 16px; left: 16px; padding: 12px 18px; }
-            .podcast-cover { width: 200px; height: 200px; }
-            .show-icon { width: 80px; height: 80px; }
-            .show-icon span { font-size: 2rem; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
+            .sleeve:hover .disc, .btn:hover, .show:hover, .ep-feature:hover { transform: none; }
         }
     </style>
 </head>
 <body>
+    <div class="grain" aria-hidden="true"></div>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <a href="../index.html#podcasts" class="back-nav">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to Podcasts
-    </a>
-
-    <section class="page-hero">
-        <div class="hero-content">
-            <div class="podcast-cover">
-                <img src="../photos/podcasts/curious-creative-logo.jpg" alt="Curious & Creative" onerror="this.onerror=null; this.src='../Curious&Creative1.0.png';">
-            </div>
-            <h1 class="show-title">Curious <span class="accent">& Creative</span></h1>
-            <p class="show-desc">
-                A deep dive into the minds of artists, creators, and innovators. Exploring the intersection of curiosity and creativity that drives meaningful work — and the stories behind the people who make it.
-            </p>
-
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;">
-                <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:0.9rem;font-weight:600;background:linear-gradient(135deg,#a855f7,#7c3aed);color:white;border-radius:9999px;text-transform:uppercase;letter-spacing:0.08em;transition:all 0.3s;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-                    Visit the Site
+    <!-- ===================== TOP BAR ===================== -->
+    <header class="bar" id="top">
+        <div class="wrap bar-row">
+            <div class="bar-left">
+                <a href="../index.html#podcasts" class="back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    <span class="back-full">All shows</span><span class="back-short">Shows</span>
                 </a>
-                <!-- TODO: replace href with the real Spotify show URL once available.
-                     Was pointing at the literal placeholder ".../show/your-show-id", which 404s. -->
-                <span style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:0.9rem;font-weight:600;background:rgba(168,85,247,0.06);border:1px solid rgba(168,85,247,0.18);color:rgba(168,85,247,0.5);border-radius:9999px;text-transform:uppercase;letter-spacing:0.08em;cursor:default;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                    Listen on Spotify
-                </span>
+                <span class="bar-sep" aria-hidden="true"></span>
+                <a href="../index.html" class="brand" aria-label="Joshua McKenzie German, home">
+                    <span class="dot" aria-hidden="true"></span><span class="brand-full">Joshua McKenzie German</span><span class="brand-short" aria-hidden="true">JMG</span>
+                </a>
+            </div>
+            <div class="bar-right">
+                <a href="../index.html#contact" class="bar-link">Work with me</a>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="#episodes" class="bar-cta">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1H3v1a9 9 0 0 0 8 8.94V23h2v-3.06A9 9 0 0 0 21 11v-1z"/></svg>
+                    <span>Latest<span class="xs-hide"> episodes</span></span>
+                </a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section class="topics-section">
-        <h2 class="section-title">What We Cover</h2>
-        <div class="topics-grid">
-            <div class="topic-card">
-                <div class="topic-icon">🎨</div>
-                <h3 class="topic-title">Creative Process</h3>
-                <p class="topic-desc">Deep conversations about how artists and creators bring their visions to life.</p>
+    <main id="main">
+
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" aria-labelledby="show-title">
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div class="sleeve">
+                        <div class="disc" aria-hidden="true"></div>
+                        <div class="cover" id="cover">
+                            <div class="art" aria-hidden="true">
+                                <span class="art-top">A Podcast</span>
+                                <span class="art-big">Curious</span>
+                                <span class="art-amp">&amp;</span>
+                                <span class="art-big it">Creative</span>
+                                <span class="art-rule"></span>
+                                <span class="art-foot">2026 &ndash; Present</span>
+                            </div>
+                            <img class="cover-live" src="../photos/podcasts/curious-creative-logo.jpg" alt="Curious &amp; Creative podcast logo" width="1024" height="1024" decoding="async">
+                        </div>
+                    </div>
+
+                    <div class="hero-copy">
+                        <p class="kicker"><span class="on-air">2026 &ndash; Present</span><span><span class="by-xs">A podcast by </span>Joshua McKenzie German</span></p>
+                        <h1 class="title" id="show-title"><span class="line">Curious</span> <em class="line">&amp; Creative</em></h1>
+                        <p class="tagline">Where creative strategy meets real conversation.</p>
+                        <p class="lede">A deep dive into the minds of artists, creators, and innovators. Exploring the ideas, decisions, and cultural moments that shape how we see &mdash; and sell &mdash; the world.</p>
+                        <div class="actions">
+                            <a href="#episodes" class="btn btn-ink">
+                                Latest episodes
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                            </a>
+                            <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-line">
+                                Visit the show site
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <dl class="facts">
+                    <div><dt>Host</dt><dd>Joshua McKenzie German</dd></div>
+                    <div><dt>Based in</dt><dd>Los Angeles, CA</dd></div>
+                    <div><dt>On air</dt><dd>2026 &ndash; Present</dd></div>
+                    <div><dt>Show site</dt><dd><a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Curious &amp; Creative</a></dd></div>
+                </dl>
             </div>
-            <div class="topic-card">
-                <div class="topic-icon">💡</div>
-                <h3 class="topic-title">Inspiration & Ideas</h3>
-                <p class="topic-desc">Exploring where great ideas come from and how they evolve into meaningful work.</p>
+        </section>
+
+        <!-- ===================== LATEST EPISODES ===================== -->
+        <section class="section" id="episodes" aria-labelledby="episodes-title">
+            <div class="wrap split">
+                <div class="split-head">
+                    <p class="label"><span class="label-num">01</span> Episodes</p>
+                    <h2 class="h2" id="episodes-title">Latest <em>episodes.</em></h2>
+                    <p class="sub">New conversations land here as they drop. The full archive lives on the show site.</p>
+                    <a class="text-link" href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">
+                        Visit the show site
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                    </a>
+                    <p class="ep-updated" id="epUpdated" hidden></p>
+                </div>
+
+                <div id="episodesRoot" data-state="loading" aria-busy="true">
+                    <div class="sk" id="epLoading" aria-hidden="true">
+                        <div class="sk-feature"><b></b><span class="sk-lines"><i></i><i></i><i></i><i></i></span></div>
+                        <div>
+                            <div class="sk-row"><b></b><span><i></i><i></i></span></div>
+                            <div class="sk-row"><b></b><span><i></i><i></i></span></div>
+                        </div>
+                    </div>
+
+                    <div id="epList" hidden></div>
+
+                    <div class="ep-empty" id="epEmpty" hidden>
+                        <div class="ee-inner">
+                            <div class="ee-cover">
+                                <img src="../photos/podcasts/curious-creative-logo.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async">
+                            </div>
+                            <div>
+                                <p class="ee-kicker">On the way</p>
+                                <h3 class="ee-title">First episodes <em>dropping soon.</em></h3>
+                                <p class="ee-text">New conversations with artists, creators, and innovators are on the way. Visit the show site, or send a note to hear the moment they land.</p>
+                                <div class="ee-actions">
+                                    <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-violet">
+                                        Visit the show site
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                                    </a>
+                                    <a href="mailto:jgerms20@gmail.com?subject=Curious%20%26%20Creative" class="ee-mail"><span>Get notified / suggest a guest</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="sr-only" id="epStatus" aria-live="polite"></p>
+                </div>
             </div>
-            <div class="topic-card">
-                <div class="topic-icon">🚀</div>
-                <h3 class="topic-title">Innovation Stories</h3>
-                <p class="topic-desc">The messy, beautiful journey of turning curiosity into creative breakthroughs.</p>
+        </section>
+
+        <!-- ===================== TERRITORY ===================== -->
+        <section class="band" id="subjects" aria-labelledby="subjects-title">
+            <div class="wrap">
+                <div class="band-head">
+                    <div>
+                        <p class="label"><span class="label-num">02</span> What we cover</p>
+                        <h2 class="h2" id="subjects-title">Curiosity, <em>made into work.</em></h2>
+                    </div>
+                    <p class="sub">Exploring the intersection of curiosity and creativity that drives meaningful work.</p>
+                </div>
+
+                <ol class="index">
+                    <li class="ix">
+                        <span class="ix-num">01</span>
+                        <h3 class="ix-name">Creative Process</h3>
+                        <p class="ix-desc">Deep conversations about how artists and creators bring their visions to life.</p>
+                    </li>
+                    <li class="ix">
+                        <span class="ix-num">02</span>
+                        <h3 class="ix-name">Inspiration &amp; Ideas</h3>
+                        <p class="ix-desc">Exploring where great ideas come from and how they evolve into meaningful work.</p>
+                    </li>
+                    <li class="ix">
+                        <span class="ix-num">03</span>
+                        <h3 class="ix-name">Innovation Stories</h3>
+                        <p class="ix-desc">The messy, beautiful journey of turning curiosity into creative breakthroughs.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===================== FROM THE HOST ===================== -->
+        <section class="section" id="host" aria-labelledby="host-title">
+            <div class="wrap host-grid">
+                <figure>
+                    <div class="host-photo">
+                        <img src="../photos/self/IMG_0680.JPG" alt="Joshua McKenzie German raising a camera to his eye on a city street" width="1650" height="2200" loading="lazy" decoding="async">
+                    </div>
+                    <figcaption class="host-cap">Joshua McKenzie German · Host</figcaption>
+                </figure>
+                <div>
+                    <h2 class="label" id="host-title"><span class="label-num">03</span> From the host</h2>
+                    <p class="pull">The stories behind the people <em>who make it.</em></p>
+                    <div class="host-body">
+                        <p>Curious &amp; Creative is where creative strategy meets real conversation. A deep dive into the minds of artists, creators, and innovators, and the curiosity that drives meaningful work.</p>
+                        <p>How the vision comes to life. Where the idea came from. The messy, beautiful journey from a question to a creative breakthrough.</p>
+                    </div>
+                    <p class="sig"><span class="sig-name">Joshua McKenzie German</span><span class="sig-role">Los Angeles, CA</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CLOSING CALL ===================== -->
+        <section class="cta" aria-labelledby="cta-title">
+            <div class="wrap">
+                <div class="cta-card">
+                    <h2 class="cta-title" id="cta-title">Stay <em>curious.</em></h2>
+                    <div class="cta-side">
+                        <p>Want a heads-up when new episodes land? Know an artist, creator, or innovator whose story deserves the conversation? Send it my way.</p>
+                        <div class="actions">
+                            <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-ink">
+                                Visit the show site
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                            </a>
+                            <a href="mailto:jgerms20@gmail.com?subject=Guest%20idea%20for%20Curious%20%26%20Creative" class="btn btn-line">Suggest a guest</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="foot">
+        <div class="wrap">
+            <p class="label">More from On Air</p>
+            <ul class="shows">
+                <li>
+                    <a class="show" href="podcast-eclectic-polymath.html">
+                        <span class="show-mark" aria-hidden="true"><span>Eclectic</span><em>Polymath</em></span>
+                        <span><span class="show-name">The Eclectic Polymath</span><span class="show-line">Everything is interesting when you dig deep enough.</span></span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="show" href="podcast-approachable-ai.html">
+                        <img src="../photos/podcasts/approachable-ai-logo.jpg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <span><span class="show-name">Approachable AI</span><span class="show-line">AI without the jargon.</span></span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="show" href="podcast-dominate.html">
+                        <img src="../brand/dominate-the-decade/Hero%20Image.jpeg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <span><span class="show-name">Dominate The Decade</span><span class="show-line">Growth and culture. The archive, 2020 &ndash; 2023.</span></span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </li>
+            </ul>
+            <div class="foot-base">
+                <span>Joshua McKenzie German · Los Angeles, CA</span>
+                <nav class="foot-links" aria-label="More from Joshua">
+                    <a href="../index.html">Home</a>
+                    <a href="../photography/">Photography</a>
+                    <a href="../index.html#work">Brand Work</a>
+                    <a href="../index.html#contact" class="foot-hire">Work with me &rarr;</a>
+                    <a href="#top">Top &uarr;</a>
+                </nav>
             </div>
         </div>
-    </section>
+    </footer>
 
+    <script>
+    (function () {
+        'use strict';
+        var SHOW_SITE = 'https://jgerms20.github.io/curious-and-creative/';
+        var EPISODES_URL = '../data/episodes/curious-creative.json';
+        var LOGO = '../photos/podcasts/curious-creative-logo.jpg';
+        var MAX_EPISODES = 6;
+
+        // ---- Theme toggle (shared 'jmg-theme' key with the rest of the site) ----
+        var root = document.documentElement;
+        var toggle = document.getElementById('themeToggle');
+        function syncToggleLabel() {
+            var dark = root.getAttribute('data-theme') === 'dark';
+            toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        syncToggleLabel();
+        toggle.addEventListener('click', function () {
+            var dark = root.getAttribute('data-theme') === 'dark';
+            if (dark) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'dark');
+            try { localStorage.setItem('jmg-theme', dark ? 'light' : 'dark'); } catch (e) {}
+            syncToggleLabel();
+        });
+
+        // ---- Cover: the designed sleeve shows until the logo has loaded ----
+        var cover = document.getElementById('cover');
+        var logo = cover && cover.querySelector('.cover-live');
+        if (logo) {
+            var live = function () { cover.classList.add('is-live'); };
+            if (logo.complete && logo.naturalWidth) live();
+            else {
+                logo.addEventListener('load', live);
+                logo.addEventListener('error', function () { logo.remove(); });
+            }
+        }
+
+        // ---- Latest episodes (from the generated feed file) ----
+        var box = document.getElementById('episodesRoot');
+        var list = document.getElementById('epList');
+        var empty = document.getElementById('epEmpty');
+        var loading = document.getElementById('epLoading');
+        var status = document.getElementById('epStatus');
+        var updated = document.getElementById('epUpdated');
+
+        function el(tag, cls, text) {
+            var n = document.createElement(tag);
+            if (cls) n.className = cls;
+            if (text != null) n.textContent = text;
+            return n;
+        }
+        function svg(pathD, cls) {
+            var ns = 'http://www.w3.org/2000/svg';
+            var s = document.createElementNS(ns, 'svg');
+            s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor');
+            s.setAttribute('stroke-width', '2'); s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round');
+            s.setAttribute('aria-hidden', 'true');
+            if (cls) s.setAttribute('class', cls);
+            var p = document.createElementNS(ns, 'path'); p.setAttribute('d', pathD); s.appendChild(p);
+            return s;
+        }
+        function safeUrl(u) {
+            if (typeof u !== 'string' || !u.trim()) return '';
+            try {
+                var x = new URL(u.trim(), location.href);
+                return (x.protocol === 'https:' || x.protocol === 'http:') ? x.href : '';
+            } catch (e) { return ''; }
+        }
+        // Feed descriptions often carry markup: parse it inertly, keep only the text.
+        function plain(s, max) {
+            if (typeof s !== 'string') return '';
+            var t = s;
+            if (/[<&]/.test(s) && window.DOMParser) {
+                try { t = new DOMParser().parseFromString(s, 'text/html').body.textContent || ''; } catch (e) { t = s; }
+            }
+            t = t.replace(/\s+/g, ' ').trim();
+            if (max && t.length > max) t = t.slice(0, max).replace(/\s+\S*$/, '') + '…';
+            return t;
+        }
+        function parseDate(s) {
+            if (typeof s !== 'string' || !s.trim()) return null;
+            var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s.trim());
+            var d = m ? new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])) : new Date(s);
+            if (isNaN(d.getTime())) return null;
+            return { d: d, utc: !!m };
+        }
+        function fmtDate(s) {
+            var p = parseDate(s);
+            if (!p) return null;
+            var opts = { month: 'short', day: 'numeric', year: 'numeric' };
+            if (p.utc) opts.timeZone = 'UTC';
+            return { label: p.d.toLocaleDateString('en-US', opts), iso: p.d.toISOString().slice(0, 10) };
+        }
+        function fmtDuration(v) {
+            if (v == null || v === '') return '';
+            var s = String(v).trim(), secs = null, m;
+            if (/^\d+$/.test(s)) secs = +s;
+            else if (/^\d{1,2}(:\d{1,2}){1,2}$/.test(s)) {
+                var p = s.split(':').map(Number);
+                secs = p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1];
+            } else if ((m = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/i.exec(s))) {
+                secs = (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+            }
+            if (secs == null) return s.length <= 16 ? s : '';
+            var mins = Math.round(secs / 60);
+            if (mins < 1) return '1 min';
+            if (mins < 60) return mins + ' min';
+            var h = Math.floor(mins / 60), r = mins % 60;
+            return h + ' hr' + (r ? ' ' + r + ' min' : '');
+        }
+        function artFor(ep) {
+            var wrap = el('span', 'ep-art');
+            var img = el('img');
+            img.alt = '';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.width = 600; img.height = 600;
+            var src = safeUrl(ep.image);
+            img.addEventListener('error', function () {
+                if (img.getAttribute('data-fell') === '1') { img.remove(); return; }
+                img.setAttribute('data-fell', '1');
+                img.src = LOGO;
+            });
+            img.src = src || LOGO;
+            wrap.appendChild(img);
+            return wrap;
+        }
+        function metaFor(ep, isNew) {
+            var k = el('span', 'ep-kicker');
+            var parts = [];
+            if (isNew) parts.push(el('span', 'new', 'Latest'));
+            var d = fmtDate(ep.date);
+            if (d) { var t = el('time', null, d.label); t.dateTime = d.iso; parts.push(t); }
+            var dur = fmtDuration(ep.duration);
+            if (dur) parts.push(el('span', null, dur));
+            parts.forEach(function (p, i) {
+                if (i) k.appendChild(el('span', 'sep'));
+                k.appendChild(p);
+            });
+            return parts.length ? k : null;
+        }
+        function linkFor(ep, cls) {
+            var a = el('a', cls);
+            a.href = safeUrl(ep.url) || SHOW_SITE;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            return a;
+        }
+        var ARROW_UP_RIGHT = 'M7 17 17 7M8 7h9v9';
+
+        function renderFeature(ep) {
+            var a = linkFor(ep, 'ep-feature');
+            a.appendChild(artFor(ep));
+            var body = el('span');
+            var meta = metaFor(ep, true);
+            if (meta) body.appendChild(meta);
+            body.appendChild(el('span', 'ep-title', ep.title));
+            var desc = plain(ep.description, 280);
+            if (desc) body.appendChild(el('span', 'ep-desc', desc));
+            var go = el('span', 'ep-go', 'Listen now');
+            go.appendChild(svg(ARROW_UP_RIGHT));
+            body.appendChild(go);
+            a.appendChild(body);
+            a.setAttribute('aria-label', 'Latest episode: ' + ep.title + ' (opens in a new tab)');
+            return a;
+        }
+        function renderRow(ep, n) {
+            var li = el('li');
+            var a = linkFor(ep, 'ep-row');
+            a.appendChild(el('span', 'ep-num', (n < 10 ? '0' : '') + n));
+            a.appendChild(artFor(ep));
+            var body = el('span');
+            var meta = metaFor(ep, false);
+            if (meta) body.appendChild(meta);
+            body.appendChild(el('span', 'ep-title', ep.title));
+            var desc = plain(ep.description, 180);
+            if (desc) body.appendChild(el('span', 'ep-desc', desc));
+            a.appendChild(body);
+            a.appendChild(svg(ARROW_UP_RIGHT, 'ep-arrow'));
+            a.setAttribute('aria-label', ep.title + ' (opens in a new tab)');
+            li.appendChild(a);
+            return li;
+        }
+
+        function finish(state) {
+            box.setAttribute('data-state', state);
+            box.setAttribute('aria-busy', 'false');
+            loading.hidden = true;
+        }
+        function showEmpty() {
+            if (box.getAttribute('data-state') !== 'loading') return;
+            finish('empty');
+            empty.hidden = false;
+        }
+        function render(data) {
+            if (box.getAttribute('data-state') !== 'loading') return;
+            var eps = (data && Array.isArray(data.episodes) ? data.episodes : [])
+                .filter(function (ep) { return ep && typeof ep.title === 'string' && ep.title.trim(); })
+                .map(function (ep) { var c = {}; for (var k in ep) c[k] = ep[k]; c.title = plain(ep.title, 160); return c; })
+                .slice(0, MAX_EPISODES);
+            if (!eps.length) { showEmpty(); return; }
+
+            var frag = document.createDocumentFragment();
+            frag.appendChild(renderFeature(eps[0]));
+            if (eps.length > 1) {
+                var ol = el('ol', 'ep-list');
+                ol.setAttribute('aria-label', 'More recent episodes');
+                for (var i = 1; i < eps.length; i++) ol.appendChild(renderRow(eps[i], i + 1));
+                frag.appendChild(ol);
+            }
+            var more = el('a', 'text-link ep-more', 'All episodes on the show site');
+            more.href = SHOW_SITE; more.target = '_blank'; more.rel = 'noopener';
+            more.appendChild(svg(ARROW_UP_RIGHT));
+            frag.appendChild(more);
+            list.appendChild(frag);
+
+            var u = data && fmtDate(data.updated);
+            if (u) { updated.textContent = 'Updated ' + u.label; updated.hidden = false; }
+
+            finish('ready');
+            list.hidden = false;
+            status.textContent = eps.length === 1 ? 'Showing the latest episode.' : 'Showing the ' + eps.length + ' latest episodes.';
+        }
+
+        if (!window.fetch) { showEmpty(); return; }
+        var giveUp = setTimeout(showEmpty, 10000);
+        fetch(EPISODES_URL, { cache: 'no-cache' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (data) { clearTimeout(giveUp); render(data); })
+            .catch(function () { clearTimeout(giveUp); showEmpty(); });
+    })();
+    </script>
 </body>
 </html>
