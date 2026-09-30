@@ -74,13 +74,37 @@ class PodcastFreshnessTests(unittest.TestCase):
         self.assertEqual(findings[0].severity, "broken")
         self.assertEqual(findings[0].code, "podcast-feed-stale")
 
-    def test_eclectic_page_uses_live_language_without_fixed_episode_counts(self):
+    def test_eclectic_page_is_visitor_facing_with_live_player_and_no_fixed_counts(self):
         page = (ROOT / "podcasts/podcast-eclectic-polymath.html").read_text(encoding="utf-8")
+        lowered = page.lower()
 
-        self.assertIn("Live catalog", page)
-        self.assertIn("Newest first", page)
-        self.assertNotIn("56 Episodes", page)
-        self.assertNotIn('id="ep-count">99', page)
+        # Joshua asked for the operational notes to come off the public page,
+        # and for the show not to be framed as solo / no-guest.
+        for internal_phrase in (
+            "live catalog",
+            "newest first",
+            "twice weekly",
+            "no guest",
+            "no-guest",
+            "live spotify feed",
+            "appears here the moment it drops",
+        ):
+            self.assertNotIn(internal_phrase, lowered)
+        self.assertNotRegex(lowered, r"\bsolo\b")
+
+        # No hardcoded episode total anywhere on the page: Spotify's player is the catalog.
+        self.assertNotIn('id="ep-count"', page)
+        self.assertNotRegex(lowered, r"\b\d+\s+episodes\b")
+        self.assertNotIn("open.spotify.com/embed/episode/", page)
+
+        # The live show player and a plain Listen on Spotify link are both there,
+        # so the page still works when the embed is blocked.
+        self.assertIn('src="https://open.spotify.com/embed/show/3dlagzJ0jiWLTB9mF3y069', page)
+        self.assertRegex(
+            page,
+            r'(?s)<a[^>]+href="https://open\.spotify\.com/show/3dlagzJ0jiWLTB9mF3y069"[^>]*>'
+            r'(?:(?!</a>).)*Listen on Spotify(?:(?!</a>).)*</a>',
+        )
 
 
 if __name__ == "__main__":

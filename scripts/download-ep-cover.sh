@@ -1,9 +1,10 @@
 #!/bin/bash
 # Run this locally to download the Eclectic Polymath cover art from Spotify
-# Usage: bash scripts/download-ep-cover.sh
+# Usage: SPOTIFY_CLIENT_ID=... SPOTIFY_CLIENT_SECRET=... bash scripts/download-ep-cover.sh
+# Credentials come from the environment only; never hardcode them here.
 
-CLIENT_ID="${SPOTIFY_CLIENT_ID:-305dc054851a42d09c194cdb04e19c07}"
-CLIENT_SECRET="${SPOTIFY_CLIENT_SECRET:-60142a5ef9e54ca19ae0cd80fd15bb7c}"
+CLIENT_ID="${SPOTIFY_CLIENT_ID:?Set SPOTIFY_CLIENT_ID (from developer.spotify.com/dashboard)}"
+CLIENT_SECRET="${SPOTIFY_CLIENT_SECRET:?Set SPOTIFY_CLIENT_SECRET (never commit it)}"
 SHOW_ID="3dlagzJ0jiWLTB9mF3y069"
 OUT="Images/Podcasts/eclectic-polymath-cover.jpg"
 

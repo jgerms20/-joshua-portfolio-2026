@@ -39,6 +39,17 @@ def portfolio_episode_ids() -> list:
     return re.findall(r'open\.spotify\.com/embed/episode/([A-Za-z0-9]+)', PODCAST_HTML.read_text())
 
 
+def uses_live_show_embed() -> bool:
+    """True when the show page embeds Spotify's full show player.
+
+    That player lists every episode on its own, so the page has no
+    per-episode cards (and no "<!-- Episode" insertion marker) to patch.
+    """
+    if not PODCAST_HTML.exists():
+        return False
+    return f"open.spotify.com/embed/show/{SHOW_ID}" in PODCAST_HTML.read_text()
+
+
 def portfolio_count() -> int:
     """Current episode total as displayed on the site.
 
@@ -251,6 +262,13 @@ def main() -> int:
     except Exception as e:
         print(f"  [sync] ERROR fetching episodes: {e}")
         return 1
+
+    if uses_live_show_embed():
+        print(f"  [sync] Show page embeds Spotify's live show player ({len(all_episodes)} episode(s) on Spotify). Nothing to insert.")
+        tracker = load_tracker()
+        tracker["last_checked"] = datetime.now().isoformat()
+        save_tracker(tracker)
+        return 0
 
     known_ids = set(portfolio_episode_ids())
     # Spotify returns newest-first; reverse so we add oldest-new first (correct numbering)

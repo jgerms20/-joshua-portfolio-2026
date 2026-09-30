@@ -364,6 +364,7 @@
             letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid);
             transition: color 0.25s;
             position: relative; padding: 4px 0;
+            white-space: nowrap;
         }
         .nav-links a::after {
             content: ''; position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0%;
@@ -504,6 +505,7 @@
             max-width: 460px;
             font-size: 1.02rem; line-height: 1.75; color: var(--ink-soft);
         }
+        .hero-booking { color: var(--ink); font-weight: 500; }
         .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
         .hero-scroll {
             position: absolute; bottom: var(--s3); left: 50%; transform: translateX(-50%);
@@ -746,13 +748,18 @@
         }
         .pod-live .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--leaf); animation: podPulse 2s infinite; }
         @keyframes podPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-        /* EP fallback cover */
+        /* EP cover: designed fallback underneath, live Spotify art crossfades in on load */
         .ep-fallback {
-            position: absolute; inset: 0; display: none;
+            position: absolute; inset: 0; display: flex;
             flex-direction: column; align-items: center; justify-content: center; gap: 6px;
             background: var(--dark); color: var(--paper-on-dark); text-align: center; padding: 18px;
         }
-        .ep-fallback-active .ep-fallback { display: flex; }
+        .pod-cover .ep-cover-img {
+            position: absolute; inset: 0; z-index: 1;
+            width: 100%; height: 100%; object-fit: cover;
+            opacity: 0; transition: opacity 0.7s var(--exp);
+        }
+        .ep-cover-wrap.is-loaded .ep-cover-img { opacity: 1; }
         .ep-fallback .rule { width: 44px; height: 1px; background: var(--dark-rule); margin: 8px 0; }
         .ep-fallback .the { font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--paper-on-dark-soft); }
         .ep-fallback .big { font-family: var(--serif); font-size: 1.7rem; line-height: 1; }
@@ -764,7 +771,7 @@
            ===================================================== */
         .lab-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(16px, 2.2vw, 28px); }
 
-        /* ---- Sites I Build — horizontal swipe rail ---- */
+        /* ---- Sites I've Built — horizontal swipe rail ---- */
         .sites-rail {
             display: flex;
             gap: clamp(14px, 1.8vw, 22px);
@@ -1090,35 +1097,52 @@
         }
 
         /* =====================================================
-           COLLECTION (dark)
+           IN THE WORKS — compact band (The Collection + On the Record)
            ===================================================== */
-        .coll-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 30px); }
-        .coll-card {
-            background: var(--dark-raised); border: 1px solid var(--dark-rule-soft);
-            padding: 26px; position: relative; overflow: hidden;
-            transition: transform 0.5s var(--exp), border-color 0.5s;
+        /* Media Diet runs straight into the band; the band's own paper tone is the divider */
+        #media-diet { padding-bottom: var(--s7); }
+        .works-band {
+            padding: var(--s6) 0 var(--s7);
+            background: var(--paper-warm);
+            border-top: 1px solid var(--rule);
         }
-        .coll-card:hover { transform: translateY(-4px); border-color: var(--dark-rule); }
-        .coll-num { font-family: var(--mono); font-size: 0.58rem; color: var(--vermilion); letter-spacing: 0.14em; }
-        .coll-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; margin-top: 12px; }
-        .coll-desc { font-size: 0.84rem; line-height: 1.65; color: var(--paper-on-dark-soft); margin-top: 10px; }
-        @media (max-width: 900px) { .coll-grid { grid-template-columns: 1fr; } }
-
-        /* =====================================================
-           INTERVIEWS — screening room
-           ===================================================== */
-        .films { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 40px); }
-        .film { }
-        .film-frame {
-            position: relative; aspect-ratio: 16/9; overflow: hidden;
-            border: 1px solid var(--rule); background: var(--dark);
-            box-shadow: 0 24px 54px -26px rgba(23,21,18,0.4);
+        .works-head {
+            display: flex; align-items: flex-end; gap: clamp(16px, 3vw, 40px); flex-wrap: wrap;
+            padding-bottom: var(--s2); margin-bottom: var(--s4);
+            border-bottom: 1px solid var(--rule);
         }
-        .film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-        .film-meta { padding: 16px 2px 0; }
-        .film-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; }
-        .film-desc { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.6; margin-top: 6px; }
-        @media (max-width: 820px) { .films { grid-template-columns: 1fr; } }
+        .works-head .ch-num { padding-bottom: 6px; }
+        .works-title {
+            font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 3.4rem);
+            font-weight: 400; line-height: 0.95; letter-spacing: -0.015em;
+        }
+        .works-title .it { font-weight: 300; }
+        .works-meta {
+            margin-left: auto; padding-bottom: 6px;
+            font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em;
+            text-transform: uppercase; color: var(--ink-mid);
+        }
+        .works-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
+        .works-card {
+            display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+            padding: var(--s4) var(--s4) var(--s3);
+            background: var(--paper-raised); border: 1px solid var(--rule);
+            scroll-margin-top: 96px;
+        }
+        .works-status {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--mono); font-size: 0.58rem; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--vermilion);
+        }
+        .works-status .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: podPulse 2s infinite; }
+        .works-name { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 500; line-height: 1.05; }
+        .works-desc { font-size: 0.92rem; line-height: 1.65; color: var(--ink-soft); max-width: 460px; flex: 1; }
+        .works-card .rule-link { margin-top: 8px; }
+        @media (max-width: 720px) {
+            .works-grid { grid-template-columns: 1fr; }
+            .works-meta { margin-left: 0; width: 100%; padding-bottom: 0; }
+            .works-card { padding: var(--s3); }
+        }
 
         /* =====================================================
            MEDIA DIET — the shelf
@@ -1172,6 +1196,13 @@
             transition: color 0.3s var(--exp), border-color 0.3s var(--exp);
         }
         .contact-email:hover { color: var(--blue); border-color: var(--blue); }
+        .contact-actions {
+            display: flex; flex-wrap: wrap; align-items: center;
+            gap: var(--s3) var(--s5); margin-top: var(--s5);
+        }
+        .contact-actions .contact-email { margin-top: 0; }
+        .contact-lead { color: var(--ink); font-weight: 500; }
+        @media (max-width: 520px) { .contact-email { font-size: 1.15rem; } }
         .socials {
             display: grid; grid-template-columns: repeat(2, minmax(200px, 1fr));
             gap: 0 var(--s5); margin-top: var(--s6);
@@ -1235,22 +1266,6 @@
         :root[data-theme="dark"] .theme-toggle .sun { display: block; }
         :root[data-theme="dark"] .theme-toggle .moon { display: none; }
 
-        /* Coming-soon veil */
-        .veil-wrap { position: relative; }
-        .veil-content { filter: blur(7px) saturate(0.85); pointer-events: none; user-select: none; }
-        .veil-overlay {
-            position: absolute; inset: 0; z-index: 5;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .veil-stamp {
-            font-family: var(--mono); font-size: 0.8rem; font-weight: 700;
-            letter-spacing: 0.34em; text-transform: uppercase;
-            padding: 16px 34px 16px 40px;
-            border: 2px solid currentColor;
-            transform: rotate(-4deg);
-            white-space: nowrap;
-        }
-
         /* Darkroom kit strip */
         .kit-row {
             display: grid; grid-template-columns: repeat(3, 1fr);
@@ -1311,11 +1326,11 @@
             </a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#work">Work</a>
                 <a href="#podcasts">Podcasts</a>
-                <a href="#ai">AI</a>
-                <a href="#projects">Culture</a>
                 <a href="#photography">Photography</a>
+                <a href="#ai">AI</a>
+                <a href="#work">Brand Work</a>
+                <a href="#projects">Culture</a>
                 <a href="shop.html">Shop</a>
             </div>
             <div class="nav-right">
@@ -1331,14 +1346,13 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about"><span class="idx">01</span> About</a>
-        <a href="#work"><span class="idx">02</span> Work</a>
-        <a href="#podcasts"><span class="idx">03</span> Podcasts</a>
+        <a href="#podcasts"><span class="idx">02</span> Podcasts</a>
+        <a href="#photography"><span class="idx">03</span> Photography</a>
         <a href="#ai"><span class="idx">04</span> AI</a>
-        <a href="#projects"><span class="idx">05</span> Culture</a>
-        <a href="#photography"><span class="idx">06</span> Photography</a>
+        <a href="#work"><span class="idx">05</span> Brand Work</a>
+        <a href="#projects"><span class="idx">06</span> Culture</a>
         <a href="shop.html"><span class="idx">07</span> Shop</a>
-        <a href="#interviews"><span class="idx">08</span> Interviews</a>
-        <a href="#contact"><span class="idx">10</span> Contact</a>
+        <a href="#contact"><span class="idx">08</span> Contact</a>
     </div>
 
     <!-- =====================================================
@@ -1348,7 +1362,7 @@
         <div class="wrap" style="display:flex; flex-direction:column; flex:1;">
             <div class="hero-topline rv in">
                 <span>Portfolio — <span class="mark">2026 Edition</span></span>
-                <span>Creative Strategy × Culture × AI</span>
+                <span>Photography × Podcasts × AI × Brand Strategy</span>
                 <span>Los Angeles, CA — 34.05°N, 118.24°W</span>
             </div>
             <div class="hero-main">
@@ -1380,14 +1394,14 @@
                     </figure>
                 </div>
                 <div class="hero-roles rv rv-d2">
-                    <span class="hero-role">Creative Strategist</span>
-                    <span class="hero-role">AI Builder &amp; Creator</span>
                     <span class="hero-role">Photographer</span>
                     <span class="hero-role">Podcaster</span>
+                    <span class="hero-role">AI Builder &amp; Creator</span>
+                    <span class="hero-role">Brand Strategist</span>
                 </div>
             </div>
             <div class="hero-bottom rv rv-d3">
-                <p class="hero-intro">Strategy, stories, and the things I build when nobody assigned them.</p>
+                <p class="hero-intro">Strategy, stories, and the things I build when nobody assigned them. <span class="hero-booking">Now booking independent work.</span></p>
                 <div style="display:flex; gap: clamp(24px, 4vw, 56px); align-items:flex-end; flex-wrap:wrap;">
                     <div class="hero-stat">
                         <div class="stat-num"><span data-count="8">8</span><span class="suffix">+</span></div>
@@ -1403,8 +1417,8 @@
                     </div>
                 </div>
                 <div class="hero-ctas">
-                    <a href="#work" class="btn btn-ink">View the Work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    <a href="#contact" class="btn btn-line">Get in Touch</a>
+                    <a href="photography/#book" class="btn btn-ink">Book a Shoot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="#contact" class="btn btn-line">Start a Project</a>
                 </div>
             </div>
         </div>
@@ -1413,10 +1427,13 @@
     <!-- Breaker: skills index -->
     <div class="brk" aria-hidden="true">
         <div class="brk-track">
+            <span class="brk-item"><span class="hi">Photography</span> <span class="up">▲</span> +1.8%</span>
+            <span class="brk-item"><span class="hi">Podcasting</span> <span class="up">▲</span> +2.3%</span>
             <span class="brk-item"><span class="hi">Claude Code</span> <span class="up">▲</span> +4.8%</span>
-            <span class="brk-item"><span class="hi">Connections Planning</span> <span class="up">▲</span> +2.4%</span>
             <span class="brk-item"><span class="hi">Brand Strategy</span> <span class="up">▲</span> +1.6%</span>
             <span class="brk-item"><span class="hi">AI Workflow Design</span> <span class="up">▲</span> +5.1%</span>
+            <span class="brk-item"><span class="hi">Storytelling</span> <span class="up">▲</span> +1.4%</span>
+            <span class="brk-item"><span class="hi">Connections Planning</span> <span class="up">▲</span> +2.4%</span>
             <span class="brk-item"><span class="hi">Cultural Insight</span> <span class="up">▲</span> +1.1%</span>
             <span class="brk-item"><span class="hi">Prompt Engineering</span> <span class="up">▲</span> +3.9%</span>
             <span class="brk-item"><span class="hi">Campaign Architecture</span> <span class="up">▲</span> +2.2%</span>
@@ -1424,17 +1441,17 @@
             <span class="brk-item"><span class="hi">Audience Intelligence</span> <span class="up">▲</span> +1.9%</span>
             <span class="brk-item"><span class="hi">Creative Brief Writing</span> <span class="up">▲</span> +1.3%</span>
             <span class="brk-item"><span class="hi">Super Bowl Strategy</span> <span class="up">▲</span> +3.1%</span>
-            <span class="brk-item"><span class="hi">Photography</span> <span class="up">▲</span> +1.8%</span>
-            <span class="brk-item"><span class="hi">Storytelling</span> <span class="up">▲</span> +1.4%</span>
             <span class="brk-item"><span class="hi">Brand Positioning</span> <span class="up">▲</span> +2.0%</span>
             <span class="brk-item"><span class="hi">Curiosity</span> <span class="up">▲</span> +∞</span>
             <span class="brk-item"><span class="hi">Sleep</span> <span class="down">▼</span> -2.1%</span>
-            <span class="brk-item"><span class="hi">Podcasting</span> <span class="up">▲</span> +2.3%</span>
             <span class="brk-item"><span class="hi">Cannes Grand Prix Work</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">Photography</span> <span class="up">▲</span> +1.8%</span>
+            <span class="brk-item"><span class="hi">Podcasting</span> <span class="up">▲</span> +2.3%</span>
             <span class="brk-item"><span class="hi">Claude Code</span> <span class="up">▲</span> +4.8%</span>
-            <span class="brk-item"><span class="hi">Connections Planning</span> <span class="up">▲</span> +2.4%</span>
             <span class="brk-item"><span class="hi">Brand Strategy</span> <span class="up">▲</span> +1.6%</span>
             <span class="brk-item"><span class="hi">AI Workflow Design</span> <span class="up">▲</span> +5.1%</span>
+            <span class="brk-item"><span class="hi">Storytelling</span> <span class="up">▲</span> +1.4%</span>
+            <span class="brk-item"><span class="hi">Connections Planning</span> <span class="up">▲</span> +2.4%</span>
             <span class="brk-item"><span class="hi">Cultural Insight</span> <span class="up">▲</span> +1.1%</span>
             <span class="brk-item"><span class="hi">Prompt Engineering</span> <span class="up">▲</span> +3.9%</span>
             <span class="brk-item"><span class="hi">Campaign Architecture</span> <span class="up">▲</span> +2.2%</span>
@@ -1442,12 +1459,9 @@
             <span class="brk-item"><span class="hi">Audience Intelligence</span> <span class="up">▲</span> +1.9%</span>
             <span class="brk-item"><span class="hi">Creative Brief Writing</span> <span class="up">▲</span> +1.3%</span>
             <span class="brk-item"><span class="hi">Super Bowl Strategy</span> <span class="up">▲</span> +3.1%</span>
-            <span class="brk-item"><span class="hi">Photography</span> <span class="up">▲</span> +1.8%</span>
-            <span class="brk-item"><span class="hi">Storytelling</span> <span class="up">▲</span> +1.4%</span>
             <span class="brk-item"><span class="hi">Brand Positioning</span> <span class="up">▲</span> +2.0%</span>
             <span class="brk-item"><span class="hi">Curiosity</span> <span class="up">▲</span> +∞</span>
             <span class="brk-item"><span class="hi">Sleep</span> <span class="down">▼</span> -2.1%</span>
-            <span class="brk-item"><span class="hi">Podcasting</span> <span class="up">▲</span> +2.3%</span>
             <span class="brk-item"><span class="hi">Cannes Grand Prix Work</span> <span class="up">▲</span> +3.8%</span>
         </div>
     </div>
@@ -1529,244 +1543,6 @@
         </div>
     </section>
 
-
-    <!-- Breaker: campaigns -->
-    <div class="brk" aria-hidden="true">
-        <div class="brk-track">
-            <span class="brk-item"><span class="hi">GATORADE</span> <span class="up">▲</span> +4.8%</span>
-            <span class="brk-item"><span class="hi">LEVI'S × BEYONCÉ</span> <span class="up">▲</span> +6.1%</span>
-            <span class="brk-item"><span class="hi">DOORDASH</span> <span class="up">▲</span> +8.4%</span>
-            <span class="brk-item"><span class="hi">SUPER BOWL</span> <span class="up">▲</span> +3.1%</span>
-            <span class="brk-item"><span class="hi">SEPHORA</span> <span class="up">▲</span> +2.4%</span>
-            <span class="brk-item"><span class="hi">THE CRAFT</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">ONE SHOW</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">DOUBT</span> <span class="down">▼</span> -4.0%</span>
-            <span class="brk-item"><span class="hi">CONNECTIONS PLANNING</span> <span class="up">▲</span> +2.2%</span>
-            <span class="brk-item"><span class="hi">CANNES</span> <span class="up">▲</span> +7.0%</span>
-            <span class="brk-item"><span class="hi">DRIVING WHILE BLACK</span> <span class="up">▲</span> +4.4%</span>
-            <span class="brk-item"><span class="hi">THE BRIEF</span> <span class="up">▲</span> +1.9%</span>
-            <span class="brk-item"><span class="hi">GATORADE</span> <span class="up">▲</span> +4.8%</span>
-            <span class="brk-item"><span class="hi">LEVI'S × BEYONCÉ</span> <span class="up">▲</span> +6.1%</span>
-            <span class="brk-item"><span class="hi">DOORDASH</span> <span class="up">▲</span> +8.4%</span>
-            <span class="brk-item"><span class="hi">SUPER BOWL</span> <span class="up">▲</span> +3.1%</span>
-            <span class="brk-item"><span class="hi">SEPHORA</span> <span class="up">▲</span> +2.4%</span>
-            <span class="brk-item"><span class="hi">THE CRAFT</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">ONE SHOW</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">DOUBT</span> <span class="down">▼</span> -4.0%</span>
-            <span class="brk-item"><span class="hi">CONNECTIONS PLANNING</span> <span class="up">▲</span> +2.2%</span>
-            <span class="brk-item"><span class="hi">CANNES</span> <span class="up">▲</span> +7.0%</span>
-            <span class="brk-item"><span class="hi">DRIVING WHILE BLACK</span> <span class="up">▲</span> +4.4%</span>
-            <span class="brk-item"><span class="hi">THE BRIEF</span> <span class="up">▲</span> +1.9%</span>
-        </div>
-    </div>
-
-    <!-- =====================================================
-         02 — CAMPAIGN IMPACT
-         ===================================================== -->
-    <section id="work" class="chapter">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 02</span>
-                    <h2 class="ch-title">Campaign <span class="it">Impact</span></h2>
-                </div>
-                <div class="ch-meta">Brand Work<br>TBWA · W+K · GS&amp;P</div>
-            </div>
-
-            <div class="camp-filters rv" id="campFilters">
-                <button class="camp-filter active" data-agency="all">All</button>
-                <button class="camp-filter" data-agency="tbwa">TBWA\Chiat\Day</button>
-                <button class="camp-filter" data-agency="wk">Wieden+Kennedy</button>
-                <button class="camp-filter" data-agency="gsp">GS&amp;P</button>
-            </div>
-
-            <div class="plates">
-                <a href="work/work-levis.html" class="plate rv plate-wide" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://www.levistrauss.com/wp-content/uploads/2024/09/240930_Blu_Hero.jpg" data-fallbacks="yt:q40oimgnN00" alt="Levi&#x27;s × Beyoncé" data-label="Levi&#x27;s × Beyoncé"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Levi's x Beyoncé: REIIMAGINE <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Redefining an icon. A cultural reset for the denim giant that reimagined American heritage through a modern lens.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip gold">🥈 Clio Silver — Fashion &amp; Beauty 2026</span>
-                            <span class="award-chip">🎖️ 2× One Show Merit — 2026</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work/work-gatorade.html#stranger-things" class="plate rv" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/4ef9a524-7317-45ff-98a3-b9a321351eeb/G-ST_KV_V2_Logos?w=1400&amp;q=75" data-fallbacks="yt:cOL4TCUKb04" alt="Gatorade × Stranger Things" data-label="Gatorade × Stranger Things"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Gatorade × Stranger Things <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">An entertainment partnership that took Gatorade into the Upside Down for the final season of a cultural phenomenon.</p>
-                    </div>
-                </a>
-                <a href="work/work-doordash.html" class="plate rv rv-d1" data-agency="wk">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/doordash/supporting/Hero.webp" data-fallbacks="yt:DTLM5o-9hYg" alt="DoorDash — All The Ads" data-label="DoorDash — All The Ads"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Media &amp; Comms Supervisor • Wieden+Kennedy</span>
-                        <h3 class="plate-title">DoorDash: All The Ads <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Cannes Grand Prix winning Super Bowl phenomenon.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip grand">🏆 Cannes Titanium Grand Prix — 2024</span>
-                            <span class="award-chip gold">✏️ D&amp;AD Yellow Pencil — 2024</span>
-                            <span class="award-chip">🦁 8× Cannes Lions — 2024</span>
-                            <span class="award-chip gold">✏️ 7× One Show Gold Pencil — 2024</span>
-                            <span class="award-chip">🎖️ 7× One Show Silver/Bronze/Merit — 2024</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work/work-dwb.html" class="plate rv" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/dwb/CAR%203_0.jpg" data-fallbacks="brand/dwb/car%205.jpg" alt="Driving While Black" data-label="Driving While Black"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
-                        <h3 class="plate-title">Driving While Black <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">A concept car designed to survive racial profiling. Launched at the Detroit Auto Show.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip grand">🏆 Clio Grand — 2024</span>
-                            <span class="award-chip">🏅 Shorty Award Winner</span>
-                            <span class="award-chip">🎖️ One Show Bronze + Merit — 2024</span>
-                            <span class="award-chip">⭐ D&amp;AD Shortlisted</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work/work-gatorade.html#nfl" class="plate rv rv-d1" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/S8FHZ6Gtu94/maxresdefault.jpg" data-fallbacks="yt:S8FHZ6Gtu94" alt="All The Reasons Not To Quit" data-label="All The Reasons Not To Quit"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Gatorade: All The Reasons Not To Quit <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">An NFL season platform built on every reason athletes have to quit — and why they don&rsquo;t.</p>
-                    </div>
-                </a>
-                <a href="work/work-samadams.html" class="plate rv" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" data-fallbacks="brand/sam-adams/hero/Samuel-Adams-Kevin-Garnett.jpg" alt="Samuel Adams" data-label="Samuel Adams"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
-                        <h3 class="plate-title">Samuel Adams: Brighter Boston <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Kevin Garnett. Super Bowl LVII. Boston pride.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip">⭐ Clio Shortlist — 2023</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work/work-sephora.html#holiday" class="plate rv rv-d1" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/8xsxYoCI4uc/maxresdefault.jpg" data-fallbacks="yt:8xsxYoCI4uc" alt="Sephora — Don&#x27;t Overthink It" data-label="Sephora — Don&#x27;t Overthink It"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Sephora: Don't Overthink It <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Holiday gifting made effortless — directed by Taika Waititi.</p>
-                    </div>
-                </a>
-                <a href="work/work-xfinity.html" class="plate rv" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/63o9tgPK9r8/maxresdefault.jpg" data-fallbacks="yt:63o9tgPK9r8" alt="Xfinity — The Greatest Gift" data-label="Xfinity — The Greatest Gift"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Communications Strategist • Goodby, Silverstein &amp; Partners</span>
-                        <h3 class="plate-title">Xfinity: The Greatest Gift <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Steven Carell as Santa. Holiday campaign orchestration with strategic influencer partnerships.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip">🎖️ The One Club Merit — Casting 2021</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="work/work-preach.html" class="plate rv" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/HkPDeyQ3lHY/maxresdefault.jpg" data-fallbacks="yt:HkPDeyQ3lHY brand/preach/preach-hero.jpg" alt="Preach" data-label="Preach"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Built In-House — Not a Client Brief • Co-Creator, GS&amp;P BLK</span>
-                        <h3 class="plate-title">Preach <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">An Instagram game that opened a window into the real Black experience. Something we built, not something we were briefed on — created by GS&amp;P BLK for Black History Month 2021.</p>
-                    </div>
-                </a>
-                <a href="work/work-gatorade.html#football" class="plate rv hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/f4614c66-fc71-4228-a376-ab0eb41d0467/gatorade-global-football-campaign-header?w=1400&amp;q=75" data-fallbacks="yt:665gg3fGj9U" alt="Gatorade — Trust What&#x27;s Inside" data-label="Gatorade — Trust What&#x27;s Inside"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Gatorade: Trust What's Inside <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Gatorade&rsquo;s global football platform — fuel and belief, built from the inside out.</p>
-                    </div>
-                </a>
-                <a href="work/work-gatorade.html#lower-sugar" class="plate rv rv-d1 hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/2e4e68a6-7edf-45d3-9211-5af269317d69/gatorade-lower-sugar-hero?w=1400&amp;q=75" data-fallbacks="yt:iZjpjBxSHg4" alt="Gatorade — Lower Sugar" data-label="Gatorade — Lower Sugar"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Gatorade: Lower Sugar <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Introducing Gatorade Lower Sugar — all the fuel, less of the sugar.</p>
-                    </div>
-                </a>
-                <a href="work/work-gatorade.html#body-of-science" class="plate rv hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/gatorade/body-of-science/met-campaign-film-still.jpg" data-fallbacks="yt:ox2S_cwqQiY" alt="Gatorade — Body of Science" data-label="Gatorade — Body of Science"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Gatorade: Body of Science <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Gatorade&rsquo;s sports-science story, told through the athletes who live it.</p>
-                    </div>
-                </a>
-                <a href="work/work-sephora.html#skincare" class="plate rv rv-d1 hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg" data-fallbacks="yt:dMD94-fjyAQ" alt="Sephora — Skin Obsessed" data-label="Sephora — Skin Obsessed"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">Sephora: Skin Obsessed <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Sephora&rsquo;s skincare platform, built for the skin-obsessed.</p>
-                    </div>
-                </a>
-                <a href="work/work-directv.html#emmys-hijack" class="plate rv hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/directv/ooh-hijack/LA-48_DIRECTV_9.16.2025-2.jpg" data-fallbacks="brand/directv/ooh-hijack/IMG_8899%202.jpg" alt="DIRECTV — Emmys Hijack" data-label="DIRECTV — Emmys Hijack"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">DIRECTV: Emmys Hijack <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">An OOH hijack of TV&rsquo;s biggest night — DIRECTV showing up where the Emmys were already looking.</p>
-                    </div>
-                </a>
-                <a href="work/work-directv.html#like-never-seen" class="plate rv rv-d1 hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/-xYYHOXzUeY/maxresdefault.jpg" data-fallbacks="yt:-xYYHOXzUeY" alt="DIRECTV — Like You&#x27;ve Never Seen It" data-label="DIRECTV — Like You&#x27;ve Never Seen It"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">DIRECTV: Like Never Seen <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">The rebrand platform — DIRECTV like you&rsquo;ve never seen it.</p>
-                    </div>
-                </a>
-                <a href="work/work-directv.html#nothing-on-roof" class="plate rv hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4" alt="DIRECTV — Nothing On Your Roof" data-label="DIRECTV — Nothing On Your Roof"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
-                        <h3 class="plate-title">DIRECTV: Nothing On Your Roof <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">No dish. No clutter. The satellite company, minus the satellite.</p>
-                    </div>
-                </a>
-                <a href="work/work-mlb.html" class="plate rv rv-d1 hidden-card" data-agency="wk">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/mlb/mlb-hero.jpg" alt="MLB — Baseball Is Something Else" data-label="MLB — Baseball Is Something Else"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Brand Strategist • Wieden+Kennedy Portland</span>
-                        <h3 class="plate-title">MLB: Baseball Is Something Else <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">MLB&rsquo;s first brand platform in 8 years. Gen Z favorability up 10 points. The campaign that brought a new generation to the ballpark.</p>
-                    </div>
-                </a>
-                <a href="work/work-bmw.html" class="plate rv hidden-card" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/bmw/supporting/Hero%20alt.jpg" data-fallbacks="yt:nUC1QA5gRcU" alt="BMW — Zeus &amp; Hera" data-label="BMW — Zeus &amp; Hera"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
-                        <h3 class="plate-title">BMW: Zeus &amp; Hera <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Arnold &amp; Salma. The ultimate electric driving machine.</p>
-                    </div>
-                </a>
-                <a href="work/work-califia.html" class="plate rv rv-d1 hidden-card" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" alt="Califia Farms — Calilujah!" data-label="Califia Farms — Calilujah!"></div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
-                        <h3 class="plate-title">Califia Farms: Calilujah! <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">A joyful celebration of plant-based living.</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="see-toggle-row">
-                <button id="see-less-btn" data-collapsed="false" onclick="toggleSeeLess()" class="btn btn-line">
-                    <span>See Less</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg);transition:transform 0.3s var(--exp);"><path d="M18 15l-6-6-6 6"/></svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Breaker: podcasts (blue) -->
     <div class="brk brk-blue" aria-hidden="true">
         <div class="brk-track">
@@ -1796,13 +1572,13 @@
     </div>
 
     <!-- =====================================================
-         03 — PODCASTS
+         02 — PODCASTS
          ===================================================== -->
     <section id="podcasts" class="chapter">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
-                    <span class="ch-num">CH. 03</span>
+                    <span class="ch-num">CH. 02</span>
                     <h2 class="ch-title">On <span class="it">Air</span></h2>
                 </div>
                 <div class="ch-meta">My Voice<br>Four Shows · 2020 – Present</div>
@@ -1811,9 +1587,9 @@
 
             <div class="pod-grid">
                 <a href="podcasts/podcast-eclectic-polymath.html" class="pod-card rv">
-                    <div class="pod-cover ep-cover-wrap ep-fallback-active">
-                        <img loading="lazy" id="ep-show-cover" alt="The Eclectic Polymath Podcast" style="display:none;"
-                             onerror="this.style.display='none'; this.parentElement.classList.add('ep-fallback-active');">
+                    <div class="pod-cover ep-cover-wrap">
+                        <!-- Designed cover sits underneath; the live Spotify art fades in over it once it loads.
+                             The img stays rendered (opacity, never display:none) so the browser always fetches it. -->
                         <div class="ep-fallback" aria-hidden="true">
                             <div class="rule"></div>
                             <span class="the">The</span>
@@ -1821,11 +1597,12 @@
                             <span class="big">Polymath</span>
                             <div class="rule"></div>
                         </div>
+                        <img id="ep-show-cover" class="ep-cover-img" alt="The Eclectic Polymath Podcast" decoding="async">
                     </div>
                     <div class="pod-meta">
-                        <span class="pod-tag">2026 – Present · Solo deep dives</span>
+                        <span class="pod-tag">2026 – Present</span>
                         <h3 class="pod-title">The Eclectic Polymath</h3>
-                        <p class="pod-desc">Everything is interesting when you dig deep enough. Rigorous, solo audio on history, geopolitics, power, culture, and human behavior. No lane. No niche. Curiosity without borders.</p>
+                        <p class="pod-desc">Everything is interesting when you dig deep enough. Deep dives on history, geopolitics, power, culture, and human behavior. No lane. No niche. Curiosity without borders.</p>
                         <span class="pod-live"><span class="pulse"></span> Now Airing</span>
                     </div>
                 </a>
@@ -1869,8 +1646,167 @@
         </div>
     </section>
 
-    <!-- Breaker: AI (ink) -->
+    <!-- Breaker: darkroom (ink) -->
     <div class="brk brk-ink" aria-hidden="true">
+        <div class="brk-track">
+            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
+            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
+            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
+            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
+            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
+            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
+            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
+            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
+            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
+            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
+            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
+            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
+            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
+            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
+            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
+            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
+            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
+            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         03 — THE DARKROOM (Photography)
+         Everything between the PHOTOGRAPHY markers is generated by
+         scripts/render-photography.py. Edit the renderer, not the markup.
+         ===================================================== -->
+    <!-- PHOTOGRAPHY:START -->
+    <section id="photography" class="chapter chapter-dark">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 03</span>
+                    <h2 class="ch-title">The <span class="it">Darkroom</span></h2>
+                </div>
+                <div class="ch-meta">Selected Sequence<br>21 Frames</div>
+            </div>
+            <p class="ch-intro rv" style="color: var(--paper-on-dark-soft);">I photograph the instant a person drops the pose, a crowd becomes one body, or a landscape makes time feel larger. This is an edit about presence—not a catalogue of everything I have shot.</p>
+            <div class="darkroom-cta rv" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: calc(-1 * var(--s4)) 0 var(--s6);"><a class="darkroom-cta__book" href="photography/#book" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 14px 26px; border-radius: 999px; font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; background: var(--vermilion); color: var(--dark); border: 1.5px solid var(--vermilion);">Book a shoot &rarr;</a><a class="darkroom-cta__site" href="photography/" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 14px 26px; border-radius: 999px; font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--paper-on-dark); border: 1.5px solid var(--dark-rule);">Visit the photography site</a></div>
+
+            <div class="darkroom-note rv">
+                <span class="darkroom-note__label">The edit</span>
+                <p>People lead. Places let the story breathe. Gatherings return the noise. The sequence moves between all three the way memory does.</p>
+                <span class="darkroom-note__count">37 photographs in the archive</span>
+            </div>
+
+            <div class="sequence-heading rv">
+                <span>Selected sequence</span>
+                <span>Tap any frame to view full size</span>
+            </div>
+            <div class="photo-sequence rv">
+                <figure class="photo-item sequence-frame sequence-frame--hero" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 01: Black-and-white portrait of a father holding a baby outdoors."><img loading="eager" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors." width="2048" height="1365" decoding="async"><figcaption><span>01</span><span>people</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 02: Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><img loading="lazy" src="photos/fashion/JMG_1601.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." width="1365" height="2048" decoding="async"><figcaption><span>02</span><span>people</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 03: A red sun hangs over a hazy landscape lined with palm trees."><img loading="lazy" src="photos/landscape/DSC00659.jpg" alt="A red sun hangs over a hazy landscape lined with palm trees." width="2048" height="1365" decoding="async"><figcaption><span>03</span><span>places</span></figcaption></figure>
+                </div>
+                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 04: Two people stand in red and blue light against a wall covered in newspaper pages."><img loading="lazy" src="photos/portraits/JMG_1763.jpg" alt="Two people stand in red and blue light against a wall covered in newspaper pages." width="2048" height="1365" decoding="async"><figcaption><span>04</span><span>people</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 05: Mist moves through a pine forest and mountain valley."><img loading="lazy" src="photos/landscape/JMG_5693.jpg" alt="Mist moves through a pine forest and mountain valley." width="2048" height="1365" decoding="async"><figcaption><span>05</span><span>places</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 06: Fashion portrait of a model seated in a patterned green look and white trousers."><img loading="lazy" src="photos/fashion/JMG_3641.jpg" alt="Fashion portrait of a model seated in a patterned green look and white trousers." width="2048" height="1365" decoding="async"><figcaption><span>06</span><span>people</span></figcaption></figure>
+                </div>
+                <figure class="photo-item sequence-frame sequence-frame--inset" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 07: Two visitors share a quiet conversation inside an art museum."><img loading="lazy" src="photos/travel/JMG_7419.jpg" alt="Two visitors share a quiet conversation inside an art museum." width="2048" height="1365" decoding="async"><figcaption><span>07</span><span>places</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 08: Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><img loading="lazy" src="photos/portraits/JMG_8929.jpg" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." width="2048" height="1365" decoding="async"><figcaption><span>08</span><span>people</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 09: A concert crowd faces intersecting beams of white and blue stage light."><img loading="lazy" src="photos/events/JMG_2254.jpg" alt="A concert crowd faces intersecting beams of white and blue stage light." width="2048" height="1365" decoding="async"><figcaption><span>09</span><span>gatherings</span></figcaption></figure>
+                </div>
+                <div class="sequence-more" id="sequenceMore">
+                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 10: A lone walker crosses a mountain overlook as sunlight breaks through cloud."><img loading="lazy" src="photos/landscape/JMG_6799.jpg" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." width="2048" height="1365" decoding="async"><figcaption><span>10</span><span>places</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 11: Fashion portrait of a woman with copper hair seated against a rough concrete wall."><img loading="lazy" src="photos/fashion/JMG_4379.jpg" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." width="2048" height="1365" decoding="async"><figcaption><span>11</span><span>people</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 12: A small production crew gathers around a plated dish on a culinary set."><img loading="lazy" src="photos/events/JMG_7895.jpg" alt="A small production crew gathers around a plated dish on a culinary set." width="2048" height="1365" decoding="async"><figcaption><span>12</span><span>gatherings</span></figcaption></figure>
+                </div>
+                <figure class="photo-item sequence-frame sequence-frame--inset" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 13: Rock formations sit offshore beneath a pale band of ocean haze."><img loading="lazy" src="photos/landscape/JMG_6109.jpg" alt="Rock formations sit offshore beneath a pale band of ocean haze." width="2048" height="1365" decoding="async"><figcaption><span>13</span><span>places</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 14: Portrait of a woman standing beside railway tracks in warm evening light."><img loading="lazy" src="photos/portraits/JMG_8750.jpg" alt="Portrait of a woman standing beside railway tracks in warm evening light." width="2048" height="1365" decoding="async"><figcaption><span>14</span><span>people</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 15: Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><img loading="lazy" src="photos/fashion/JMG_8075.jpg" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." width="1365" height="2048" decoding="async"><figcaption><span>15</span><span>people</span></figcaption></figure>
+                </div>
+                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 16: Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><img loading="lazy" src="photos/travel/JMG_3086.jpg" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." width="2048" height="1365" decoding="async"><figcaption><span>16</span><span>places</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 17: Swimmers appear as small figures in a calm sea beneath a pastel sky."><img loading="lazy" src="photos/travel/DSC00870.jpg" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky." width="2048" height="1365" decoding="async"><figcaption><span>17</span><span>places</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 18: A crowd gathers beneath the glowing sign of a night market."><img loading="lazy" src="photos/events/DSC00021.jpg" alt="A crowd gathers beneath the glowing sign of a night market." width="2048" height="1365" decoding="async"><figcaption><span>18</span><span>gatherings</span></figcaption></figure>
+                </div>
+                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 19: Sailboats fill a marina with a city skyline rising beyond them."><img loading="lazy" src="photos/landscape/JMG_6986.jpg" alt="Sailboats fill a marina with a city skyline rising beyond them." width="2048" height="1365" decoding="async"><figcaption><span>19</span><span>places</span></figcaption></figure>
+                <div class="sequence-pair">
+                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 20: Portrait of a woman in warm window light beside a chrome pole."><img loading="lazy" src="photos/portraits/JMG_8386.jpg" alt="Portrait of a woman in warm window light beside a chrome pole." width="2048" height="1344" decoding="async"><figcaption><span>20</span><span>people</span></figcaption></figure>
+                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 21: Hands finish a row of carefully plated dishes at an event."><img loading="lazy" src="photos/events/JMG_7787.jpg" alt="Hands finish a row of carefully plated dishes at an event." width="2048" height="1365" decoding="async"><figcaption><span>21</span><span>gatherings</span></figcaption></figure>
+                </div>
+                </div>
+            </div>
+            <button type="button" class="darkroom-more" data-reveal="sequenceMore" aria-controls="sequenceMore" aria-expanded="false" data-open-label="Show the short edit" data-closed-label="Continue the sequence"><span class="darkroom-more__label">Continue the sequence</span><span class="darkroom-more__count">12 more frames</span></button>
+
+            <div class="archive-heading rv">
+                <div>
+                    <span class="archive-kicker">The archive</span>
+                    <h3>People, places, gatherings.</h3>
+                </div>
+                <p>Every photograph, browsable by subject.</p>
+            </div>
+            <button type="button" class="darkroom-more" data-reveal="archiveBody" aria-controls="archiveBody" aria-expanded="false" data-open-label="Close the archive" data-closed-label="Open the full archive"><span class="darkroom-more__label">Open the full archive</span><span class="darkroom-more__count">37 photographs</span></button>
+            <div class="archive-body" id="archiveBody">
+            <div class="photo-chapters rv" aria-label="Filter photography archive">
+                <button class="photo-chapter active" data-filter="all" aria-pressed="true">All work</button>
+                <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
+                <button class="photo-chapter" data-filter="places" aria-pressed="false">Places</button>
+                <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
+            </div>
+            <div class="photo-archive rv" id="photoGallery">
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them."><img loading="lazy" src="photos/shop/rio-brahma-corner.jpg" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." width="1404" height="2000" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro."><img loading="lazy" src="photos/shop/rio-fog-islands-moon.jpg" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." width="2000" height="1334" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk."><img loading="lazy" src="photos/shop/rio-two-brothers.jpg" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." width="2000" height="1333" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street."><img loading="lazy" src="photos/shop/rio-santa-teresa-trams.jpg" alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." width="2000" height="1333" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Black-and-white portrait of a father holding a baby outdoors."><img loading="lazy" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><img loading="lazy" src="photos/fashion/JMG_1601.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." width="1365" height="2048" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A red sun hangs over a hazy landscape lined with palm trees."><img loading="lazy" src="photos/landscape/DSC00659.jpg" alt="A red sun hangs over a hazy landscape lined with palm trees." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Two people stand in red and blue light against a wall covered in newspaper pages."><img loading="lazy" src="photos/portraits/JMG_1763.jpg" alt="Two people stand in red and blue light against a wall covered in newspaper pages." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Mist moves through a pine forest and mountain valley."><img loading="lazy" src="photos/landscape/JMG_5693.jpg" alt="Mist moves through a pine forest and mountain valley." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model seated in a patterned green look and white trousers."><img loading="lazy" src="photos/fashion/JMG_3641.jpg" alt="Fashion portrait of a model seated in a patterned green look and white trousers." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Two visitors share a quiet conversation inside an art museum."><img loading="lazy" src="photos/travel/JMG_7419.jpg" alt="Two visitors share a quiet conversation inside an art museum." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><img loading="lazy" src="photos/portraits/JMG_8929.jpg" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A concert crowd faces intersecting beams of white and blue stage light."><img loading="lazy" src="photos/events/JMG_2254.jpg" alt="A concert crowd faces intersecting beams of white and blue stage light." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A lone walker crosses a mountain overlook as sunlight breaks through cloud."><img loading="lazy" src="photos/landscape/JMG_6799.jpg" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a woman with copper hair seated against a rough concrete wall."><img loading="lazy" src="photos/fashion/JMG_4379.jpg" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A small production crew gathers around a plated dish on a culinary set."><img loading="lazy" src="photos/events/JMG_7895.jpg" alt="A small production crew gathers around a plated dish on a culinary set." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Rock formations sit offshore beneath a pale band of ocean haze."><img loading="lazy" src="photos/landscape/JMG_6109.jpg" alt="Rock formations sit offshore beneath a pale band of ocean haze." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman standing beside railway tracks in warm evening light."><img loading="lazy" src="photos/portraits/JMG_8750.jpg" alt="Portrait of a woman standing beside railway tracks in warm evening light." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><img loading="lazy" src="photos/fashion/JMG_8075.jpg" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." width="1365" height="2048" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><img loading="lazy" src="photos/travel/JMG_3086.jpg" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Swimmers appear as small figures in a calm sea beneath a pastel sky."><img loading="lazy" src="photos/travel/DSC00870.jpg" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A crowd gathers beneath the glowing sign of a night market."><img loading="lazy" src="photos/events/DSC00021.jpg" alt="A crowd gathers beneath the glowing sign of a night market." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Sailboats fill a marina with a city skyline rising beyond them."><img loading="lazy" src="photos/landscape/JMG_6986.jpg" alt="Sailboats fill a marina with a city skyline rising beyond them." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman in warm window light beside a chrome pole."><img loading="lazy" src="photos/portraits/JMG_8386.jpg" alt="Portrait of a woman in warm window light beside a chrome pole." width="2048" height="1344" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: Hands finish a row of carefully plated dishes at an event."><img loading="lazy" src="photos/events/JMG_7787.jpg" alt="Hands finish a row of carefully plated dishes at an event." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of an artist seated in a colorful studio surrounded by his work."><img loading="lazy" src="photos/portraits/JMG_6968.jpg" alt="Portrait of an artist seated in a colorful studio surrounded by his work." width="1365" height="2048" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: A woman holds a red rose in a brightly colored portrait setting."><img loading="lazy" src="photos/portraits/JMG_9553.jpg" alt="A woman holds a red rose in a brightly colored portrait setting." width="1365" height="2048" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: A couple in dark clothing stands close together before a graffiti-covered wall."><img loading="lazy" src="photos/fashion/JMG_8986.jpg" alt="A couple in dark clothing stands close together before a graffiti-covered wall." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A tall waterfall drops through a granite valley framed by green trees."><img loading="lazy" src="photos/landscape/JMG_5742.jpg" alt="A tall waterfall drops through a granite valley framed by green trees." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A snow-covered mountain rises behind dark trees at blue hour."><img loading="lazy" src="photos/landscape/DSC00488.jpg" alt="A snow-covered mountain rises behind dark trees at blue hour." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A lifeguard house and palm trees sit on a quiet beach beneath a pink sky."><img loading="lazy" src="photos/landscape/JMG_7535.jpg" alt="A lifeguard house and palm trees sit on a quiet beach beneath a pink sky." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Two rock formations rise from bright blue water along the coast."><img loading="lazy" src="photos/landscape/JMG_5559.jpg" alt="Two rock formations rise from bright blue water along the coast." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A performer in a quilted jacket stands beneath intense blue stage light."><img loading="lazy" src="photos/events/JMG_2228.jpg" alt="A performer in a quilted jacket stands beneath intense blue stage light." width="1365" height="2048" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A DJ works behind a booth in a club lit with purple and green light."><img loading="lazy" src="photos/events/JMG_2854.jpg" alt="A DJ works behind a booth in a club lit with purple and green light." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A graduate smiles in cap and gown outdoors after commencement."><img loading="lazy" src="photos/events/JMG_2437.jpg" alt="A graduate smiles in cap and gown outdoors after commencement." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A graduate celebrates on the steps of an engineering building."><img loading="lazy" src="photos/events/JMG_2560.jpg" alt="A graduate celebrates on the steps of an engineering building." width="2048" height="1365" decoding="async"></figure>
+                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: Friends pose together during a crowded evening market event."><img loading="lazy" src="photos/events/DSC00028.jpg" alt="Friends pose together during a crowded evening market event." width="2048" height="2048" decoding="async"></figure>
+            </div>
+            </div>
+            <p class="darkroom-site-link rv" style="margin-top: clamp(40px, 5vw, 64px); padding-top: var(--s3); border-top: 1px solid var(--dark-rule); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-dark-mid);">Full sets, services and booking live on the photography site: <a href="photography/" style="color: var(--paper-on-dark); border-bottom: 1px solid var(--vermilion); padding-bottom: 2px;">joshuamgerman.com/photography &rarr;</a></p>
+        </div>
+    </section>
+    <!-- PHOTOGRAPHY:END -->
+
+    <!-- Breaker: AI (paper: closes the dark Darkroom chapter above) -->
+    <div class="brk" aria-hidden="true">
         <div class="brk-track">
             <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
             <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
@@ -1882,6 +1818,7 @@
             <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
             <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
             <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
+            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
             <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
             <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
             <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
@@ -1894,6 +1831,7 @@
             <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
             <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
             <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
+            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
             <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
             <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
         </div>
@@ -2178,15 +2116,15 @@
                 </a>
             </div>
 
-            <!-- ===== Sites I Build — swipeable client work ===== -->
+            <!-- ===== Sites I've Built — swipeable client work ===== -->
             <div class="ch-head rv" style="margin-top: var(--s8);">
                 <div class="ch-head-left">
                     <span class="ch-num">CH. 04B</span>
-                    <h2 class="ch-title">Sites I <span class="it">Build</span></h2>
+                    <h2 class="ch-title">Sites I've <span class="it">Built</span></h2>
                 </div>
-                <div class="ch-meta">For real people<br>Shipped &amp; running</div>
+                <div class="ch-meta">For family &amp; small business<br>Built from scratch</div>
             </div>
-            <p class="ch-intro rv">Real websites for family and small businesses — booking flows, menus, QR menu boards, contact pipelines. Built from scratch, not dropped into a template.</p>
+            <p class="ch-intro rv">Websites I&rsquo;ve built for family and small businesses: booking flows, menus, QR menu boards, contact pipelines. Each one written from scratch, not dropped into a template.</p>
 
             <div class="sites-wrap rv">
                 <div class="sites-rail" id="sitesRail" role="list" aria-label="Client websites">
@@ -2243,8 +2181,245 @@
         </div>
     </section>
 
-    <!-- Breaker: culture -->
-    <div class="brk" aria-hidden="true">
+    <!-- Breaker: campaigns (ink) -->
+    <div class="brk brk-ink" aria-hidden="true">
+        <div class="brk-track">
+            <span class="brk-item"><span class="hi">GATORADE</span> <span class="up">▲</span> +4.8%</span>
+            <span class="brk-item"><span class="hi">LEVI'S × BEYONCÉ</span> <span class="up">▲</span> +6.1%</span>
+            <span class="brk-item"><span class="hi">DOORDASH</span> <span class="up">▲</span> +8.4%</span>
+            <span class="brk-item"><span class="hi">SUPER BOWL</span> <span class="up">▲</span> +3.1%</span>
+            <span class="brk-item"><span class="hi">SEPHORA</span> <span class="up">▲</span> +2.4%</span>
+            <span class="brk-item"><span class="hi">THE CRAFT</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">ONE SHOW</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">DOUBT</span> <span class="down">▼</span> -4.0%</span>
+            <span class="brk-item"><span class="hi">CONNECTIONS PLANNING</span> <span class="up">▲</span> +2.2%</span>
+            <span class="brk-item"><span class="hi">CANNES</span> <span class="up">▲</span> +7.0%</span>
+            <span class="brk-item"><span class="hi">DRIVING WHILE BLACK</span> <span class="up">▲</span> +4.4%</span>
+            <span class="brk-item"><span class="hi">THE BRIEF</span> <span class="up">▲</span> +1.9%</span>
+            <span class="brk-item"><span class="hi">GATORADE</span> <span class="up">▲</span> +4.8%</span>
+            <span class="brk-item"><span class="hi">LEVI'S × BEYONCÉ</span> <span class="up">▲</span> +6.1%</span>
+            <span class="brk-item"><span class="hi">DOORDASH</span> <span class="up">▲</span> +8.4%</span>
+            <span class="brk-item"><span class="hi">SUPER BOWL</span> <span class="up">▲</span> +3.1%</span>
+            <span class="brk-item"><span class="hi">SEPHORA</span> <span class="up">▲</span> +2.4%</span>
+            <span class="brk-item"><span class="hi">THE CRAFT</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">ONE SHOW</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">DOUBT</span> <span class="down">▼</span> -4.0%</span>
+            <span class="brk-item"><span class="hi">CONNECTIONS PLANNING</span> <span class="up">▲</span> +2.2%</span>
+            <span class="brk-item"><span class="hi">CANNES</span> <span class="up">▲</span> +7.0%</span>
+            <span class="brk-item"><span class="hi">DRIVING WHILE BLACK</span> <span class="up">▲</span> +4.4%</span>
+            <span class="brk-item"><span class="hi">THE BRIEF</span> <span class="up">▲</span> +1.9%</span>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         05 — BRAND WORK (campaigns)
+         ===================================================== -->
+    <section id="work" class="chapter">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 05</span>
+                    <h2 class="ch-title">Brand <span class="it">Work</span></h2>
+                </div>
+                <div class="ch-meta">Campaign Strategy<br>TBWA · W+K · GS&amp;P</div>
+            </div>
+
+            <div class="camp-filters rv" id="campFilters">
+                <button class="camp-filter active" data-agency="all">All</button>
+                <button class="camp-filter" data-agency="tbwa">TBWA\Chiat\Day</button>
+                <button class="camp-filter" data-agency="wk">Wieden+Kennedy</button>
+                <button class="camp-filter" data-agency="gsp">GS&amp;P</button>
+            </div>
+
+            <div class="plates">
+                <a href="work/work-levis.html" class="plate rv plate-wide" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://www.levistrauss.com/wp-content/uploads/2024/09/240930_Blu_Hero.jpg" data-fallbacks="yt:q40oimgnN00" alt="Levi&#x27;s × Beyoncé" data-label="Levi&#x27;s × Beyoncé"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Levi's x Beyoncé: REIIMAGINE <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Redefining an icon. A cultural reset for the denim giant that reimagined American heritage through a modern lens.</p>
+                        <div class="plate-awards">
+                            <span class="award-chip gold">🥈 Clio Silver — Fashion &amp; Beauty 2026</span>
+                            <span class="award-chip">🎖️ 2× One Show Merit — 2026</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="work/work-gatorade.html#stranger-things" class="plate rv" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/4ef9a524-7317-45ff-98a3-b9a321351eeb/G-ST_KV_V2_Logos?w=1400&amp;q=75" data-fallbacks="yt:cOL4TCUKb04" alt="Gatorade × Stranger Things" data-label="Gatorade × Stranger Things"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Gatorade × Stranger Things <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">An entertainment partnership that took Gatorade into the Upside Down for the final season of a cultural phenomenon.</p>
+                    </div>
+                </a>
+                <a href="work/work-doordash.html" class="plate rv rv-d1" data-agency="wk">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/doordash/supporting/Hero.webp" data-fallbacks="yt:DTLM5o-9hYg" alt="DoorDash — All The Ads" data-label="DoorDash — All The Ads"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Media &amp; Comms Supervisor • Wieden+Kennedy</span>
+                        <h3 class="plate-title">DoorDash: All The Ads <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Cannes Grand Prix winning Super Bowl phenomenon.</p>
+                        <div class="plate-awards">
+                            <span class="award-chip grand">🏆 Cannes Titanium Grand Prix — 2024</span>
+                            <span class="award-chip gold">✏️ D&amp;AD Yellow Pencil — 2024</span>
+                            <span class="award-chip">🦁 8× Cannes Lions — 2024</span>
+                            <span class="award-chip gold">✏️ 7× One Show Gold Pencil — 2024</span>
+                            <span class="award-chip">🎖️ 7× One Show Silver/Bronze/Merit — 2024</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="work/work-dwb.html" class="plate rv" data-agency="gsp">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/dwb/CAR%203_0.jpg" data-fallbacks="brand/dwb/car%205.jpg" alt="Driving While Black" data-label="Driving While Black"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
+                        <h3 class="plate-title">Driving While Black <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">A concept car designed to survive racial profiling. Launched at the Detroit Auto Show.</p>
+                        <div class="plate-awards">
+                            <span class="award-chip grand">🏆 Clio Grand — 2024</span>
+                            <span class="award-chip">🏅 Shorty Award Winner</span>
+                            <span class="award-chip">🎖️ One Show Bronze + Merit — 2024</span>
+                            <span class="award-chip">⭐ D&amp;AD Shortlisted</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="work/work-gatorade.html#nfl" class="plate rv rv-d1" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/S8FHZ6Gtu94/maxresdefault.jpg" data-fallbacks="yt:S8FHZ6Gtu94" alt="All The Reasons Not To Quit" data-label="All The Reasons Not To Quit"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Gatorade: All The Reasons Not To Quit <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">An NFL season platform built on every reason athletes have to quit — and why they don&rsquo;t.</p>
+                    </div>
+                </a>
+                <a href="work/work-samadams.html" class="plate rv" data-agency="gsp">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" data-fallbacks="brand/sam-adams/hero/Samuel-Adams-Kevin-Garnett.jpg" alt="Samuel Adams" data-label="Samuel Adams"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
+                        <h3 class="plate-title">Samuel Adams: Brighter Boston <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Kevin Garnett. Super Bowl LVII. Boston pride.</p>
+                        <div class="plate-awards">
+                            <span class="award-chip">⭐ Clio Shortlist — 2023</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="work/work-sephora.html#holiday" class="plate rv rv-d1" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/8xsxYoCI4uc/maxresdefault.jpg" data-fallbacks="yt:8xsxYoCI4uc" alt="Sephora — Don&#x27;t Overthink It" data-label="Sephora — Don&#x27;t Overthink It"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Sephora: Don't Overthink It <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Holiday gifting made effortless — directed by Taika Waititi.</p>
+                    </div>
+                </a>
+                <a href="work/work-xfinity.html" class="plate rv" data-agency="gsp">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/63o9tgPK9r8/maxresdefault.jpg" data-fallbacks="yt:63o9tgPK9r8" alt="Xfinity — The Greatest Gift" data-label="Xfinity — The Greatest Gift"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Communications Strategist • Goodby, Silverstein &amp; Partners</span>
+                        <h3 class="plate-title">Xfinity: The Greatest Gift <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Steven Carell as Santa. Holiday campaign orchestration with strategic influencer partnerships.</p>
+                        <div class="plate-awards">
+                            <span class="award-chip">🎖️ The One Club Merit — Casting 2021</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="work/work-preach.html" class="plate rv" data-agency="gsp">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/HkPDeyQ3lHY/maxresdefault.jpg" data-fallbacks="yt:HkPDeyQ3lHY brand/preach/preach-hero.jpg" alt="Preach" data-label="Preach"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Built In-House — Not a Client Brief • Co-Creator, GS&amp;P BLK</span>
+                        <h3 class="plate-title">Preach <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">An Instagram game that opened a window into the real Black experience. Something we built, not something we were briefed on — created by GS&amp;P BLK for Black History Month 2021.</p>
+                    </div>
+                </a>
+                <a href="work/work-gatorade.html#football" class="plate rv hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/f4614c66-fc71-4228-a376-ab0eb41d0467/gatorade-global-football-campaign-header?w=1400&amp;q=75" data-fallbacks="yt:665gg3fGj9U" alt="Gatorade — Trust What&#x27;s Inside" data-label="Gatorade — Trust What&#x27;s Inside"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Gatorade: Trust What's Inside <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Gatorade&rsquo;s global football platform — fuel and belief, built from the inside out.</p>
+                    </div>
+                </a>
+                <a href="work/work-gatorade.html#lower-sugar" class="plate rv rv-d1 hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/2e4e68a6-7edf-45d3-9211-5af269317d69/gatorade-lower-sugar-hero?w=1400&amp;q=75" data-fallbacks="yt:iZjpjBxSHg4" alt="Gatorade — Lower Sugar" data-label="Gatorade — Lower Sugar"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Gatorade: Lower Sugar <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Introducing Gatorade Lower Sugar — all the fuel, less of the sugar.</p>
+                    </div>
+                </a>
+                <a href="work/work-gatorade.html#body-of-science" class="plate rv hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/gatorade/body-of-science/met-campaign-film-still.jpg" data-fallbacks="yt:ox2S_cwqQiY" alt="Gatorade — Body of Science" data-label="Gatorade — Body of Science"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Gatorade: Body of Science <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Gatorade&rsquo;s sports-science story, told through the athletes who live it.</p>
+                    </div>
+                </a>
+                <a href="work/work-sephora.html#skincare" class="plate rv rv-d1 hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg" data-fallbacks="yt:dMD94-fjyAQ" alt="Sephora — Skin Obsessed" data-label="Sephora — Skin Obsessed"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">Sephora: Skin Obsessed <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Sephora&rsquo;s skincare platform, built for the skin-obsessed.</p>
+                    </div>
+                </a>
+                <a href="work/work-directv.html#emmys-hijack" class="plate rv hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/directv/ooh-hijack/LA-48_DIRECTV_9.16.2025-2.jpg" data-fallbacks="brand/directv/ooh-hijack/IMG_8899%202.jpg" alt="DIRECTV — Emmys Hijack" data-label="DIRECTV — Emmys Hijack"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">DIRECTV: Emmys Hijack <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">An OOH hijack of TV&rsquo;s biggest night — DIRECTV showing up where the Emmys were already looking.</p>
+                    </div>
+                </a>
+                <a href="work/work-directv.html#like-never-seen" class="plate rv rv-d1 hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/-xYYHOXzUeY/maxresdefault.jpg" data-fallbacks="yt:-xYYHOXzUeY" alt="DIRECTV — Like You&#x27;ve Never Seen It" data-label="DIRECTV — Like You&#x27;ve Never Seen It"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">DIRECTV: Like Never Seen <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">The rebrand platform — DIRECTV like you&rsquo;ve never seen it.</p>
+                    </div>
+                </a>
+                <a href="work/work-directv.html#nothing-on-roof" class="plate rv hidden-card" data-agency="tbwa">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4" alt="DIRECTV — Nothing On Your Roof" data-label="DIRECTV — Nothing On Your Roof"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
+                        <h3 class="plate-title">DIRECTV: Nothing On Your Roof <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">No dish. No clutter. The satellite company, minus the satellite.</p>
+                    </div>
+                </a>
+                <a href="work/work-mlb.html" class="plate rv rv-d1 hidden-card" data-agency="wk">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/mlb/mlb-hero.jpg" alt="MLB — Baseball Is Something Else" data-label="MLB — Baseball Is Something Else"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Brand Strategist • Wieden+Kennedy Portland</span>
+                        <h3 class="plate-title">MLB: Baseball Is Something Else <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">MLB&rsquo;s first brand platform in 8 years. Gen Z favorability up 10 points. The campaign that brought a new generation to the ballpark.</p>
+                    </div>
+                </a>
+                <a href="work/work-bmw.html" class="plate rv hidden-card" data-agency="gsp">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/bmw/supporting/Hero%20alt.jpg" data-fallbacks="yt:nUC1QA5gRcU" alt="BMW — Zeus &amp; Hera" data-label="BMW — Zeus &amp; Hera"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
+                        <h3 class="plate-title">BMW: Zeus &amp; Hera <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Arnold &amp; Salma. The ultimate electric driving machine.</p>
+                    </div>
+                </a>
+                <a href="work/work-califia.html" class="plate rv rv-d1 hidden-card" data-agency="gsp">
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" alt="Califia Farms — Calilujah!" data-label="Califia Farms — Calilujah!"></div>
+                    <div class="plate-body">
+                        <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
+                        <h3 class="plate-title">Califia Farms: Calilujah! <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">A joyful celebration of plant-based living.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="see-toggle-row">
+                <button id="see-less-btn" data-collapsed="false" onclick="toggleSeeLess()" class="btn btn-line">
+                    <span>See Less</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(180deg);transition:transform 0.3s var(--exp);"><path d="M18 15l-6-6-6 6"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breaker: culture (blue) -->
+    <div class="brk brk-blue" aria-hidden="true">
         <div class="brk-track">
             <span class="brk-item"><span class="hi">PREACH</span> <span class="up">▲</span> +5.0%</span>
             <span class="brk-item"><span class="hi">GS&P BLK</span> <span class="up">▲</span> +4.2%</span>
@@ -2272,13 +2447,13 @@
     </div>
 
     <!-- =====================================================
-         05 — CULTURE & INDEPENDENT PRACTICE
+         06 — CULTURE & INDEPENDENT PRACTICE
          ===================================================== -->
     <section id="projects" class="chapter">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
-                    <span class="ch-num">CH. 05</span>
+                    <span class="ch-num">CH. 06</span>
                     <h2 class="ch-title">Culture <span class="it">&amp; Practice</span></h2>
                 </div>
                 <div class="ch-meta">Agency, Culture &amp;<br>Independent Work</div>
@@ -2376,257 +2551,42 @@
         </div>
     </section>
 
-
-    <!-- Breaker: darkroom (ink) -->
-    <div class="brk brk-ink" aria-hidden="true">
+    <!-- Breaker: media diet -->
+    <div class="brk" aria-hidden="true">
         <div class="brk-track">
-            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
-            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
-            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
-            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
-            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
-            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
-            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
-            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
-            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
-            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
-            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
-            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
-            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
-            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
-            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
-            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
-            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
-            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
+            <span class="brk-item"><span class="hi">ON THE SHELF</span> <span class="up">▲</span> +3.9%</span>
+            <span class="brk-item"><span class="hi">FILMS</span> <span class="up">▲</span> +4.5%</span>
+            <span class="brk-item"><span class="hi">LETTERBOXD</span> <span class="up">▲</span> +3.1%</span>
+            <span class="brk-item"><span class="hi">BOOKS</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">GOODREADS</span> <span class="up">▲</span> +2.8%</span>
+            <span class="brk-item"><span class="hi">CHESS</span> <span class="up">▲</span> +4.2%</span>
+            <span class="brk-item"><span class="hi">DOOMSCROLLING</span> <span class="down">▼</span> -3.0%</span>
+            <span class="brk-item"><span class="hi">SUBSTACK</span> <span class="up">▲</span> +3.6%</span>
+            <span class="brk-item"><span class="hi">THE DAILY GAMECOCK</span> <span class="up">▲</span> +2.4%</span>
+            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
+            <span class="brk-item"><span class="hi">LONG READS</span> <span class="up">▲</span> +4.8%</span>
+            <span class="brk-item"><span class="hi">ON THE SHELF</span> <span class="up">▲</span> +3.9%</span>
+            <span class="brk-item"><span class="hi">FILMS</span> <span class="up">▲</span> +4.5%</span>
+            <span class="brk-item"><span class="hi">LETTERBOXD</span> <span class="up">▲</span> +3.1%</span>
+            <span class="brk-item"><span class="hi">BOOKS</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">GOODREADS</span> <span class="up">▲</span> +2.8%</span>
+            <span class="brk-item"><span class="hi">CHESS</span> <span class="up">▲</span> +4.2%</span>
+            <span class="brk-item"><span class="hi">DOOMSCROLLING</span> <span class="down">▼</span> -3.0%</span>
+            <span class="brk-item"><span class="hi">SUBSTACK</span> <span class="up">▲</span> +3.6%</span>
+            <span class="brk-item"><span class="hi">THE DAILY GAMECOCK</span> <span class="up">▲</span> +2.4%</span>
+            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
+            <span class="brk-item"><span class="hi">LONG READS</span> <span class="up">▲</span> +4.8%</span>
         </div>
     </div>
 
     <!-- =====================================================
-         06 — THE DARKROOM (Photography)
+         07 — MEDIA DIET
          ===================================================== -->
-    <!-- PHOTOGRAPHY:START -->
-    <section id="photography" class="chapter chapter-dark">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 06</span>
-                    <h2 class="ch-title">The <span class="it">Darkroom</span></h2>
-                </div>
-                <div class="ch-meta">Selected Sequence<br>21 Frames</div>
-            </div>
-            <p class="ch-intro rv" style="color: var(--paper-on-dark-soft);">I photograph the instant a person drops the pose, a crowd becomes one body, or a landscape makes time feel larger. This is an edit about presence—not a catalogue of everything I have shot.</p>
-
-            <div class="darkroom-note rv">
-                <span class="darkroom-note__label">The edit</span>
-                <p>People lead. Places let the story breathe. Gatherings return the noise. The sequence moves between all three the way memory does.</p>
-                <span class="darkroom-note__count">37 photographs in the archive</span>
-            </div>
-
-            <div class="sequence-heading rv">
-                <span>Selected sequence</span>
-                <span>Tap any frame to view full size</span>
-            </div>
-            <div class="photo-sequence rv">
-                <figure class="photo-item sequence-frame sequence-frame--hero" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 01: Black-and-white portrait of a father holding a baby outdoors."><img loading="eager" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors."><figcaption><span>01</span><span>people</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 02: Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><img loading="lazy" src="photos/fashion/JMG_1601.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><figcaption><span>02</span><span>people</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 03: A red sun hangs over a hazy landscape lined with palm trees."><img loading="lazy" src="photos/landscape/DSC00659.jpg" alt="A red sun hangs over a hazy landscape lined with palm trees."><figcaption><span>03</span><span>places</span></figcaption></figure>
-                </div>
-                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 04: Two people stand in red and blue light against a wall covered in newspaper pages."><img loading="lazy" src="photos/portraits/JMG_1763.jpg" alt="Two people stand in red and blue light against a wall covered in newspaper pages."><figcaption><span>04</span><span>people</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 05: Mist moves through a pine forest and mountain valley."><img loading="lazy" src="photos/landscape/JMG_5693.jpg" alt="Mist moves through a pine forest and mountain valley."><figcaption><span>05</span><span>places</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 06: Fashion portrait of a model seated in a patterned green look and white trousers."><img loading="lazy" src="photos/fashion/JMG_3641.jpg" alt="Fashion portrait of a model seated in a patterned green look and white trousers."><figcaption><span>06</span><span>people</span></figcaption></figure>
-                </div>
-                <figure class="photo-item sequence-frame sequence-frame--inset" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 07: Two visitors share a quiet conversation inside an art museum."><img loading="lazy" src="photos/travel/JMG_7419.jpg" alt="Two visitors share a quiet conversation inside an art museum."><figcaption><span>07</span><span>places</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 08: Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><img loading="lazy" src="photos/portraits/JMG_8929.jpg" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><figcaption><span>08</span><span>people</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 09: A concert crowd faces intersecting beams of white and blue stage light."><img loading="lazy" src="photos/events/JMG_2254.jpg" alt="A concert crowd faces intersecting beams of white and blue stage light."><figcaption><span>09</span><span>gatherings</span></figcaption></figure>
-                </div>
-                <div class="sequence-more" id="sequenceMore">
-                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 10: A lone walker crosses a mountain overlook as sunlight breaks through cloud."><img loading="lazy" src="photos/landscape/JMG_6799.jpg" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud."><figcaption><span>10</span><span>places</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 11: Fashion portrait of a woman with copper hair seated against a rough concrete wall."><img loading="lazy" src="photos/fashion/JMG_4379.jpg" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall."><figcaption><span>11</span><span>people</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 12: A small production crew gathers around a plated dish on a culinary set."><img loading="lazy" src="photos/events/JMG_7895.jpg" alt="A small production crew gathers around a plated dish on a culinary set."><figcaption><span>12</span><span>gatherings</span></figcaption></figure>
-                </div>
-                <figure class="photo-item sequence-frame sequence-frame--inset" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 13: Rock formations sit offshore beneath a pale band of ocean haze."><img loading="lazy" src="photos/landscape/JMG_6109.jpg" alt="Rock formations sit offshore beneath a pale band of ocean haze."><figcaption><span>13</span><span>places</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 14: Portrait of a woman standing beside railway tracks in warm evening light."><img loading="lazy" src="photos/portraits/JMG_8750.jpg" alt="Portrait of a woman standing beside railway tracks in warm evening light."><figcaption><span>14</span><span>people</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 15: Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><img loading="lazy" src="photos/fashion/JMG_8075.jpg" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><figcaption><span>15</span><span>people</span></figcaption></figure>
-                </div>
-                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 16: Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><img loading="lazy" src="photos/travel/JMG_3086.jpg" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><figcaption><span>16</span><span>places</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 17: Swimmers appear as small figures in a calm sea beneath a pastel sky."><img loading="lazy" src="photos/travel/DSC00870.jpg" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky."><figcaption><span>17</span><span>places</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 18: A crowd gathers beneath the glowing sign of a night market."><img loading="lazy" src="photos/events/DSC00021.jpg" alt="A crowd gathers beneath the glowing sign of a night market."><figcaption><span>18</span><span>gatherings</span></figcaption></figure>
-                </div>
-                <figure class="photo-item sequence-frame sequence-frame--wide" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph 19: Sailboats fill a marina with a city skyline rising beyond them."><img loading="lazy" src="photos/landscape/JMG_6986.jpg" alt="Sailboats fill a marina with a city skyline rising beyond them."><figcaption><span>19</span><span>places</span></figcaption></figure>
-                <div class="sequence-pair">
-                    <figure class="photo-item sequence-frame sequence-frame--pair-left" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph 20: Portrait of a woman in warm window light beside a chrome pole."><img loading="lazy" src="photos/portraits/JMG_8386.jpg" alt="Portrait of a woman in warm window light beside a chrome pole."><figcaption><span>20</span><span>people</span></figcaption></figure>
-                    <figure class="photo-item sequence-frame sequence-frame--pair-right" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph 21: Hands finish a row of carefully plated dishes at an event."><img loading="lazy" src="photos/events/JMG_7787.jpg" alt="Hands finish a row of carefully plated dishes at an event."><figcaption><span>21</span><span>gatherings</span></figcaption></figure>
-                </div>
-                </div>
-            </div>
-            <button type="button" class="darkroom-more" data-reveal="sequenceMore" aria-controls="sequenceMore" aria-expanded="false" data-open-label="Show the short edit" data-closed-label="Continue the sequence"><span class="darkroom-more__label">Continue the sequence</span><span class="darkroom-more__count">12 more frames</span></button>
-
-            <div class="archive-heading rv">
-                <div>
-                    <span class="archive-kicker">The archive</span>
-                    <h3>People, places, gatherings.</h3>
-                </div>
-                <p>Every photograph, browsable by subject.</p>
-            </div>
-            <button type="button" class="darkroom-more" data-reveal="archiveBody" aria-controls="archiveBody" aria-expanded="false" data-open-label="Close the archive" data-closed-label="Open the full archive"><span class="darkroom-more__label">Open the full archive</span><span class="darkroom-more__count">37 photographs</span></button>
-            <div class="archive-body" id="archiveBody">
-            <div class="photo-chapters rv" aria-label="Filter photography archive">
-                <button class="photo-chapter active" data-filter="all" aria-pressed="true">All work</button>
-                <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
-                <button class="photo-chapter" data-filter="places" aria-pressed="false">Places</button>
-                <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
-            </div>
-            <div class="photo-archive rv" id="photoGallery">
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them."><img loading="lazy" src="photos/shop/rio-brahma-corner.jpg" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro."><img loading="lazy" src="photos/shop/rio-fog-islands-moon.jpg" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk."><img loading="lazy" src="photos/shop/rio-two-brothers.jpg" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street."><img loading="lazy" src="photos/shop/rio-santa-teresa-trams.jpg" alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Black-and-white portrait of a father holding a baby outdoors."><img loading="lazy" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><img loading="lazy" src="photos/fashion/JMG_1601.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A red sun hangs over a hazy landscape lined with palm trees."><img loading="lazy" src="photos/landscape/DSC00659.jpg" alt="A red sun hangs over a hazy landscape lined with palm trees."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Two people stand in red and blue light against a wall covered in newspaper pages."><img loading="lazy" src="photos/portraits/JMG_1763.jpg" alt="Two people stand in red and blue light against a wall covered in newspaper pages."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Mist moves through a pine forest and mountain valley."><img loading="lazy" src="photos/landscape/JMG_5693.jpg" alt="Mist moves through a pine forest and mountain valley."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model seated in a patterned green look and white trousers."><img loading="lazy" src="photos/fashion/JMG_3641.jpg" alt="Fashion portrait of a model seated in a patterned green look and white trousers."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Two visitors share a quiet conversation inside an art museum."><img loading="lazy" src="photos/travel/JMG_7419.jpg" alt="Two visitors share a quiet conversation inside an art museum."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><img loading="lazy" src="photos/portraits/JMG_8929.jpg" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A concert crowd faces intersecting beams of white and blue stage light."><img loading="lazy" src="photos/events/JMG_2254.jpg" alt="A concert crowd faces intersecting beams of white and blue stage light."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A lone walker crosses a mountain overlook as sunlight breaks through cloud."><img loading="lazy" src="photos/landscape/JMG_6799.jpg" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a woman with copper hair seated against a rough concrete wall."><img loading="lazy" src="photos/fashion/JMG_4379.jpg" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A small production crew gathers around a plated dish on a culinary set."><img loading="lazy" src="photos/events/JMG_7895.jpg" alt="A small production crew gathers around a plated dish on a culinary set."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Rock formations sit offshore beneath a pale band of ocean haze."><img loading="lazy" src="photos/landscape/JMG_6109.jpg" alt="Rock formations sit offshore beneath a pale band of ocean haze."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman standing beside railway tracks in warm evening light."><img loading="lazy" src="photos/portraits/JMG_8750.jpg" alt="Portrait of a woman standing beside railway tracks in warm evening light."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><img loading="lazy" src="photos/fashion/JMG_8075.jpg" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><img loading="lazy" src="photos/travel/JMG_3086.jpg" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Swimmers appear as small figures in a calm sea beneath a pastel sky."><img loading="lazy" src="photos/travel/DSC00870.jpg" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A crowd gathers beneath the glowing sign of a night market."><img loading="lazy" src="photos/events/DSC00021.jpg" alt="A crowd gathers beneath the glowing sign of a night market."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Sailboats fill a marina with a city skyline rising beyond them."><img loading="lazy" src="photos/landscape/JMG_6986.jpg" alt="Sailboats fill a marina with a city skyline rising beyond them."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman in warm window light beside a chrome pole."><img loading="lazy" src="photos/portraits/JMG_8386.jpg" alt="Portrait of a woman in warm window light beside a chrome pole."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: Hands finish a row of carefully plated dishes at an event."><img loading="lazy" src="photos/events/JMG_7787.jpg" alt="Hands finish a row of carefully plated dishes at an event."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: Portrait of an artist seated in a colorful studio surrounded by his work."><img loading="lazy" src="photos/portraits/JMG_6968.jpg" alt="Portrait of an artist seated in a colorful studio surrounded by his work."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: A woman holds a red rose in a brightly colored portrait setting."><img loading="lazy" src="photos/portraits/JMG_9553.jpg" alt="A woman holds a red rose in a brightly colored portrait setting."></figure>
-                <figure class="photo-item archive-frame" data-cat="people" data-chapter="people" tabindex="0" role="button" aria-label="Open photograph: A couple in dark clothing stands close together before a graffiti-covered wall."><img loading="lazy" src="photos/fashion/JMG_8986.jpg" alt="A couple in dark clothing stands close together before a graffiti-covered wall."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A tall waterfall drops through a granite valley framed by green trees."><img loading="lazy" src="photos/landscape/JMG_5742.jpg" alt="A tall waterfall drops through a granite valley framed by green trees."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A snow-covered mountain rises behind dark trees at blue hour."><img loading="lazy" src="photos/landscape/DSC00488.jpg" alt="A snow-covered mountain rises behind dark trees at blue hour."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: A lifeguard house and palm trees sit on a quiet beach beneath a pink sky."><img loading="lazy" src="photos/landscape/JMG_7535.jpg" alt="A lifeguard house and palm trees sit on a quiet beach beneath a pink sky."></figure>
-                <figure class="photo-item archive-frame" data-cat="places" data-chapter="places" tabindex="0" role="button" aria-label="Open photograph: Two rock formations rise from bright blue water along the coast."><img loading="lazy" src="photos/landscape/JMG_5559.jpg" alt="Two rock formations rise from bright blue water along the coast."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A performer in a quilted jacket stands beneath intense blue stage light."><img loading="lazy" src="photos/events/JMG_2228.jpg" alt="A performer in a quilted jacket stands beneath intense blue stage light."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A DJ works behind a booth in a club lit with purple and green light."><img loading="lazy" src="photos/events/JMG_2854.jpg" alt="A DJ works behind a booth in a club lit with purple and green light."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A graduate smiles in cap and gown outdoors after commencement."><img loading="lazy" src="photos/events/JMG_2437.jpg" alt="A graduate smiles in cap and gown outdoors after commencement."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: A graduate celebrates on the steps of an engineering building."><img loading="lazy" src="photos/events/JMG_2560.jpg" alt="A graduate celebrates on the steps of an engineering building."></figure>
-                <figure class="photo-item archive-frame" data-cat="gatherings" data-chapter="gatherings" tabindex="0" role="button" aria-label="Open photograph: Friends pose together during a crowded evening market event."><img loading="lazy" src="photos/events/DSC00028.jpg" alt="Friends pose together during a crowded evening market event."></figure>
-            </div>
-            </div>
-        </div>
-    </section>
-    <!-- PHOTOGRAPHY:END -->
-
-    <!-- =====================================================
-         07 — THE COLLECTION (dark)
-         ===================================================== -->
-    <section id="collection" class="chapter chapter-dark" style="padding-top: 0;">
+    <section id="media-diet" class="chapter">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
                     <span class="ch-num">CH. 07</span>
-                    <h2 class="ch-title">The <span class="it">Collection</span></h2>
-                </div>
-                <div class="ch-meta">Limited Edition<br>Fine Art Prints</div>
-            </div>
-            <p class="ch-intro rv" style="color: var(--paper-on-dark-soft);">A curated selection of signed, limited-edition fine art prints. Each piece is produced on archival museum-grade paper, numbered, and released in a strictly limited run — a single frame held still, made to live on a wall.</p>
-
-            <div class="veil-wrap">
-                <div class="veil-overlay"><span class="veil-stamp" style="color: var(--paper-on-dark);">Coming Soon</span></div>
-                <div class="veil-content">
-            <div class="coll-grid rv">
-                <div class="coll-card"><span class="coll-num">№ I</span><h3 class="coll-title">Untitled I</h3><p class="coll-desc">Coming Soon</p></div>
-                <div class="coll-card"><span class="coll-num">№ II</span><h3 class="coll-title">Untitled II</h3><p class="coll-desc">Coming Soon</p></div>
-                <div class="coll-card"><span class="coll-num">№ III</span><h3 class="coll-title">Untitled III</h3><p class="coll-desc">Coming Soon</p></div>
-                <div class="coll-card"><span class="coll-num">№ IV</span><h3 class="coll-title">Untitled IV</h3><p class="coll-desc">Coming Soon</p></div>
-                <div class="coll-card"><span class="coll-num">№ V</span><h3 class="coll-title">Untitled V</h3><p class="coll-desc">Coming Soon</p></div>
-                <div class="coll-card"><span class="coll-num">№ VI</span><h3 class="coll-title">Untitled VI</h3><p class="coll-desc">Coming Soon</p></div>
-            </div>
-
-            <p class="rv" style="max-width:560px; margin: var(--s5) auto 0; text-align:center; font-size:0.9rem; line-height:1.7; color: var(--paper-on-dark-mid);">The Collection is being curated. Limited-edition fine art prints — archival museum-grade paper, numbered, signed, and released in strictly limited runs. Inquiries welcome now.</p>
-            <div class="rv" style="display:flex; justify-content:center; margin-top: var(--s3);">
-                <a href="#contact" class="rule-link" style="color: var(--paper-on-dark); border-color: var(--paper-on-dark);">Inquire About the Collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-            </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Breaker: on the record -->
-    <div class="brk" aria-hidden="true">
-        <div class="brk-track">
-            <span class="brk-item"><span class="hi">ON THE RECORD</span> <span class="up">▲</span> +3.9%</span>
-            <span class="brk-item"><span class="hi">THE QUESTION</span> <span class="up">▲</span> +4.5%</span>
-            <span class="brk-item"><span class="hi">LISTENING</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">CREATORS</span> <span class="up">▲</span> +3.1%</span>
-            <span class="brk-item"><span class="hi">ATHLETES</span> <span class="up">▲</span> +2.8%</span>
-            <span class="brk-item"><span class="hi">THE PAUSE</span> <span class="up">▲</span> +4.2%</span>
-            <span class="brk-item"><span class="hi">SMALL TALK</span> <span class="down">▼</span> -3.0%</span>
-            <span class="brk-item"><span class="hi">CULTURAL VOICES</span> <span class="up">▲</span> +3.6%</span>
-            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
-            <span class="brk-item"><span class="hi">STORYTELLING</span> <span class="up">▲</span> +4.8%</span>
-            <span class="brk-item"><span class="hi">ON THE RECORD</span> <span class="up">▲</span> +3.9%</span>
-            <span class="brk-item"><span class="hi">THE QUESTION</span> <span class="up">▲</span> +4.5%</span>
-            <span class="brk-item"><span class="hi">LISTENING</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">CREATORS</span> <span class="up">▲</span> +3.1%</span>
-            <span class="brk-item"><span class="hi">ATHLETES</span> <span class="up">▲</span> +2.8%</span>
-            <span class="brk-item"><span class="hi">THE PAUSE</span> <span class="up">▲</span> +4.2%</span>
-            <span class="brk-item"><span class="hi">SMALL TALK</span> <span class="down">▼</span> -3.0%</span>
-            <span class="brk-item"><span class="hi">CULTURAL VOICES</span> <span class="up">▲</span> +3.6%</span>
-            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
-            <span class="brk-item"><span class="hi">STORYTELLING</span> <span class="up">▲</span> +4.8%</span>
-        </div>
-    </div>
-
-    <!-- =====================================================
-         08 — INTERVIEWS
-         ===================================================== -->
-    <section id="interviews" class="chapter">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 08</span>
-                    <h2 class="ch-title">On the <span class="it">Record</span></h2>
-                </div>
-                <div class="ch-meta">Interviews<br>Coming Soon</div>
-            </div>
-            <p class="ch-intro rv">Creators, athletes, executives, cultural voices. The questions that get past the press-kit answer.</p>
-
-            <div class="veil-wrap">
-                <div class="veil-overlay"><span class="veil-stamp" style="color: var(--ink);">Coming Soon</span></div>
-                <div class="veil-content">
-            <div class="rv" style="border: 1.5px dashed var(--ink-faint); background: var(--paper-raised); padding: clamp(40px, 6vw, 72px); text-align:center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 16px; display:block;"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-                <span class="t-mono" style="color: var(--ink-mid); display:block; margin-bottom:10px;">Coming Soon</span>
-                <h3 class="t-title" style="margin-bottom:10px;">Interviews Loading</h3>
-                <p style="font-size:0.92rem; color:var(--ink-soft); max-width:420px; margin:0 auto;">Featured interviews will be added here. Check back soon.</p>
-            </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         09 — MEDIA DIET
-         ===================================================== -->
-    <section id="media-diet" class="chapter" style="padding-top: 0;">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 09</span>
                     <h2 class="ch-title">Media <span class="it">Diet</span></h2>
                 </div>
                 <div class="ch-meta">Follow Along<br>What I consume</div>
@@ -2667,68 +2627,105 @@
         </div>
     </section>
 
+    <!-- =====================================================
+         08 — IN THE WORKS (compact band: The Collection + On the Record)
+         Old #collection / #interviews anchors now land on the cards.
+         ===================================================== -->
+    <section id="in-the-works" class="chapter works-band" aria-labelledby="inTheWorksTitle">
+        <div class="wrap">
+            <div class="works-head rv">
+                <span class="ch-num">CH. 08</span>
+                <h2 class="works-title" id="inTheWorksTitle">In the <span class="it">Works</span></h2>
+                <span class="works-meta">Two projects on the bench</span>
+            </div>
+            <div class="works-grid">
+                <article class="works-card rv" id="collection">
+                    <span class="works-status"><span class="dot"></span> In curation</span>
+                    <h3 class="works-name">The Collection</h3>
+                    <p class="works-desc">Limited-edition prints, in curation. The first four prints, all from Rio, are already in the shop.</p>
+                    <a href="shop.html" class="rule-link">Visit the print shop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                </article>
+                <article class="works-card rv rv-d1" id="interviews">
+                    <span class="works-status"><span class="dot"></span> In production</span>
+                    <h3 class="works-name">On the Record</h3>
+                    <p class="works-desc">Interviews, in production. Creators, athletes, executives, cultural voices. Know someone who should be on it?</p>
+                    <a href="mailto:Jgerms20@gmail.com?subject=On%20the%20Record%3A%20guest%20idea" class="rule-link">Suggest a guest <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Breaker: contact (blue) -->
     <div class="brk brk-blue" aria-hidden="true">
         <div class="brk-track">
-            <span class="brk-item"><span class="hi">AVAILABLE</span> <span class="up">▲</span> +7.0%</span>
-            <span class="brk-item"><span class="hi">AI-ENHANCED STRATEGY</span> <span class="up">▲</span> +8.2%</span>
+            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +6.2%</span>
+            <span class="brk-item"><span class="hi">PODCAST COLLABS</span> <span class="up">▲</span> +4.4%</span>
+            <span class="brk-item"><span class="hi">AI BUILDS</span> <span class="up">▲</span> +8.2%</span>
             <span class="brk-item"><span class="hi">BRAND STRATEGY</span> <span class="up">▲</span> +4.6%</span>
             <span class="brk-item"><span class="hi">CREATIVE DIRECTION</span> <span class="up">▲</span> +4.1%</span>
             <span class="brk-item"><span class="hi">LOS ANGELES</span> <span class="up">▲</span> +3.3%</span>
-            <span class="brk-item"><span class="hi">ENTERTAINMENT</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">THE NEXT THING</span> <span class="up">▲</span> +6.4%</span>
+            <span class="brk-item"><span class="hi">INDEPENDENT</span> <span class="up">▲</span> +7.0%</span>
             <span class="brk-item"><span class="hi">HESITATION</span> <span class="down">▼</span> -5.0%</span>
-            <span class="brk-item"><span class="hi">PARTNERSHIPS</span> <span class="up">▲</span> +3.0%</span>
-            <span class="brk-item"><span class="hi">SAY HELLO</span> <span class="up">▲</span> +9.9%</span>
             <span class="brk-item"><span class="hi">NEW VENTURES</span> <span class="up">▲</span> +4.7%</span>
-            <span class="brk-item"><span class="hi">AVAILABLE</span> <span class="up">▲</span> +7.0%</span>
-            <span class="brk-item"><span class="hi">AI-ENHANCED STRATEGY</span> <span class="up">▲</span> +8.2%</span>
+            <span class="brk-item"><span class="hi">THE NEXT THING</span> <span class="up">▲</span> +6.4%</span>
+            <span class="brk-item"><span class="hi">SAY HELLO</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +6.2%</span>
+            <span class="brk-item"><span class="hi">PODCAST COLLABS</span> <span class="up">▲</span> +4.4%</span>
+            <span class="brk-item"><span class="hi">AI BUILDS</span> <span class="up">▲</span> +8.2%</span>
             <span class="brk-item"><span class="hi">BRAND STRATEGY</span> <span class="up">▲</span> +4.6%</span>
             <span class="brk-item"><span class="hi">CREATIVE DIRECTION</span> <span class="up">▲</span> +4.1%</span>
             <span class="brk-item"><span class="hi">LOS ANGELES</span> <span class="up">▲</span> +3.3%</span>
-            <span class="brk-item"><span class="hi">ENTERTAINMENT</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">THE NEXT THING</span> <span class="up">▲</span> +6.4%</span>
+            <span class="brk-item"><span class="hi">INDEPENDENT</span> <span class="up">▲</span> +7.0%</span>
             <span class="brk-item"><span class="hi">HESITATION</span> <span class="down">▼</span> -5.0%</span>
-            <span class="brk-item"><span class="hi">PARTNERSHIPS</span> <span class="up">▲</span> +3.0%</span>
-            <span class="brk-item"><span class="hi">SAY HELLO</span> <span class="up">▲</span> +9.9%</span>
             <span class="brk-item"><span class="hi">NEW VENTURES</span> <span class="up">▲</span> +4.7%</span>
+            <span class="brk-item"><span class="hi">THE NEXT THING</span> <span class="up">▲</span> +6.4%</span>
+            <span class="brk-item"><span class="hi">SAY HELLO</span> <span class="up">▲</span> +9.9%</span>
         </div>
     </div>
 
     <!-- =====================================================
-         10 — CONTACT
+         09 — CONTACT
          ===================================================== -->
     <section id="contact" class="contact">
         <div class="wrap">
             <span class="t-mono rv" style="display:inline-flex; align-items:center; gap:10px; color: var(--leaf); margin-bottom: var(--s4);">
                 <span style="width:7px;height:7px;border-radius:50%;background:var(--leaf);display:inline-block;animation:podPulse 2s infinite;"></span>
-                Available for select projects
+                Now booking independent work
             </span>
             <h2 class="contact-hello rv">Culture. Curiosity.<br><span class="it">Strategy. Intelligence.</span></h2>
-            <p class="contact-sub rv rv-d1">Creative strategist working at the intersection of culture, entertainment, and AI. Based in Los Angeles.</p>
-            <a href="mailto:Jgerms20@gmail.com" class="contact-email rv rv-d2">
-                Jgerms20@gmail.com
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
+            <p class="contact-sub rv rv-d1">Photographer, podcaster, AI builder, and brand strategist in Los Angeles. Send the brief, the shot list, or the half-formed idea.</p>
+            <div class="contact-actions rv rv-d2">
+                <a href="mailto:Jgerms20@gmail.com" class="contact-email">
+                    Jgerms20@gmail.com
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </a>
+                <a href="photography/#book" class="btn btn-ink">Book a Shoot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
 
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--s5); margin-top: var(--s7); max-width: 1100px;" class="rv">
                 <div>
+                    <span class="t-mono" style="color:var(--blue); display:block; padding-bottom:12px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">Available For</span>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Photography bookings &mdash; portraits, events, product, food &amp; hospitality, spaces</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Podcast collaborations &mdash; guest spots, co-hosting, production</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">AI builds &mdash; custom tools, prototypes &amp; workflows</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Brand strategy consulting &mdash; positioning, audience, go-to-market</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">AI-enhanced creative strategy</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Freelance &amp; consulting &mdash; strategy, AI, creative direction</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Collaborations with creators, studios &amp; founders</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">New ventures &amp; long-term partnerships</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Full-time at the intersection of brand, entertainment &amp; tech</div>
+                </div>
+                <div>
                     <span class="t-mono" style="color:var(--blue); display:block; padding-bottom:12px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">Focused On</span>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Brand strategy &amp; creative direction</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Photography &mdash; people, places, gatherings</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Podcasting &amp; audio storytelling</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">AI building &amp; workflows</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Brand strategy &amp; creative direction</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Marketing &amp; connections planning</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Entertainment, film &amp; IP-driven storytelling</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Building and scaling platforms &amp; companies</div>
-                </div>
-                <div>
-                    <span class="t-mono" style="color:var(--blue); display:block; padding-bottom:12px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">Available For</span>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">AI-enhanced creative strategy</div>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Freelance &amp; consulting — strategy, AI, creative direction</div>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Full-time at the intersection of brand, entertainment &amp; tech</div>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Photography — commissions &amp; collaborations</div>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Collaborations with creators, studios &amp; founders</div>
-                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">New ventures &amp; long-term partnerships</div>
                 </div>
                 <div>
                     <span class="t-mono" style="color:var(--blue); display:block; padding-bottom:12px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">Spaces</span>
@@ -2736,6 +2733,7 @@
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Technology &amp; AI</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Music, audio &amp; podcasting</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Fashion &amp; retail</div>
+                    <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Food, hospitality &amp; real estate</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Consumer brands with cultural presence</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Sports &amp; culture-driven brands</div>
                     <div class="diet-note" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Startups &amp; early-stage ventures</div>
@@ -2743,7 +2741,7 @@
             </div>
 
             <blockquote class="rv" style="margin-top: var(--s7); max-width: 760px;">
-                <p class="t-lede">&ldquo;I&rsquo;m a Creative Strategist, photographer, podcaster, and builder &mdash; living in Los Angeles, chasing every idea worth chasing, and making work that sits at the intersection of culture, story, and what&rsquo;s next.&rdquo;</p>
+                <p class="t-lede">&ldquo;I&rsquo;m a photographer, podcaster, builder, and strategist &mdash; living in Los Angeles, chasing every idea worth chasing, and making work that sits at the intersection of culture, story, and what&rsquo;s next.&rdquo;</p>
                 <cite class="t-mono-sm" style="display:block; margin-top: var(--s3); color: var(--ink-mid); font-style:normal;">Joshua McKenzie German &middot; Los Angeles, CA</cite>
             </blockquote>
 
@@ -2832,7 +2830,7 @@
             setTimeout(finish, 1500);
         })();
 
-        // ---- Sites I Build: expand + per-site password gates ----
+        // ---- Sites I've Built: expand + per-site password gates ----
         (function () {
             const rail = document.getElementById('sitesRail');
             const toggle = document.getElementById('sitesToggle');
@@ -2921,6 +2919,42 @@
                 document.body.style.overflow = open ? 'hidden' : '';
             });
             menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+        })();
+
+        // ---- In-page anchors: finish on the target ----
+        // The Darkroom sits above AI / Brand Work / Culture and its lazy photos
+        // grow the page while a smooth scroll is running, which leaves the jump
+        // short. After the scroll stops, correct it (a few passes at most) and
+        // back off the moment the visitor scrolls on their own.
+        (function () {
+            let token = null;
+            const cancel = () => { token = null; };
+            ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, cancel, { passive: true }));
+            const whenScrollStops = (cb) => {
+                let t;
+                const done = () => { window.removeEventListener('scroll', onScroll); cb(); };
+                const onScroll = () => { clearTimeout(t); t = setTimeout(done, 160); };
+                window.addEventListener('scroll', onScroll, { passive: true });
+                t = setTimeout(done, 450);
+            };
+            document.addEventListener('click', (e) => {
+                const a = e.target.closest('a[href^="#"]');
+                if (!a) return;
+                const id = decodeURIComponent(a.getAttribute('href').slice(1));
+                const target = id && document.getElementById(id);
+                if (!target) return;
+                const mine = token = {};
+                let passes = 0;
+                const check = () => {
+                    if (token !== mine) return;
+                    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+                    const off = Math.round(target.getBoundingClientRect().top - margin);
+                    if (Math.abs(off) <= 4 || passes++ >= 4) return;
+                    window.scrollBy({ top: off, behavior: passes > 2 ? 'auto' : 'smooth' });
+                    whenScrollStops(check);
+                };
+                whenScrollStops(check);
+            });
         })();
 
         // ---- Reveal on scroll ----
@@ -3187,24 +3221,23 @@
         })();
 
         // ---- Eclectic Polymath live cover (Spotify oEmbed, no credentials) ----
+        // The designed fallback is always painted underneath; the cover only fades in
+        // once it has actually loaded, so a blocked or failed request leaves the fallback.
         (function () {
             const img = document.getElementById('ep-show-cover');
             if (!img) return;
+            const wrap = img.parentElement;
+            img.addEventListener('load', () => {
+                if (img.naturalWidth > 0) wrap.classList.add('is-loaded');
+            });
+            img.addEventListener('error', () => wrap.classList.remove('is-loaded'));
             fetch('https://open.spotify.com/oembed?url=https%3A%2F%2Fopen.spotify.com%2Fshow%2F3dlagzJ0jiWLTB9mF3y069')
-                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(r => r.ok ? r.json() : Promise.reject(new Error('oEmbed ' + r.status)))
                 .then(data => {
-                    if (data && data.thumbnail_url) {
-                        img.addEventListener('load', () => {
-                            img.style.display = '';
-                            img.parentElement.classList.remove('ep-fallback-active');
-                        }, { once: true });
-                        img.src = data.thumbnail_url;
-                    } else { throw new Error(); }
+                    if (!data || !data.thumbnail_url) throw new Error('no thumbnail');
+                    img.src = data.thumbnail_url;
                 })
-                .catch(() => {
-                    img.style.display = 'none';
-                    img.parentElement.classList.add('ep-fallback-active');
-                });
+                .catch(() => wrap.classList.remove('is-loaded'));
         })();
 
         // =============================================
