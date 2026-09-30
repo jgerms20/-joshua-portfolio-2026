@@ -176,6 +176,13 @@
         .theme-toggle .sun { display: none; }
         :root[data-theme="dark"] .theme-toggle .sun { display: block; }
         :root[data-theme="dark"] .theme-toggle .moon { display: none; }
+        .bar-link {
+            display: inline-flex; align-items: center; height: 38px; padding: 0 8px; margin-right: 6px;
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--ink-soft); white-space: nowrap; transition: color 0.25s;
+        }
+        .bar-link:hover { color: var(--gold-ink); }
+        @media (max-width: 900px) { .bar-link { display: none; } }
         .bar-cta {
             display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 16px 0 12px; border-radius: 999px;
             background: var(--ink); color: var(--paper);
@@ -215,7 +222,13 @@
             box-shadow: 0 24px 50px -24px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.05);
             transition: transform 0.9s var(--exp);
         }
-        :root[data-theme="dark"] .disc { box-shadow: 0 24px 50px -24px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(201,168,76,0.28); }
+        :root[data-theme="dark"] .disc {
+            background:
+                radial-gradient(circle, #0d0b09 0 2.2%, var(--band-gold) 2.4% 15%, #0d0b09 15.3% 16.5%, transparent 16.8%),
+                radial-gradient(circle, transparent 0 60%, rgba(245,241,232,0.07) 64%, transparent 68%, rgba(245,241,232,0.05) 82%, transparent 86%),
+                repeating-radial-gradient(circle, #2a251e 0 1px, #16130f 1.2px 3px);
+            box-shadow: 0 24px 50px -24px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(201,168,76,0.5), inset 0 0 0 5px rgba(201,168,76,0.08);
+        }
         .sleeve:hover .disc { transform: translateX(7%) rotate(50deg); }
         .cover {
             position: relative; z-index: 1; aspect-ratio: 1; overflow: hidden;
@@ -352,9 +365,13 @@
         .pf-actions .btn { min-height: 46px; padding: 0 20px; font-size: 0.9rem; }
         .pf-retry {
             font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--on-band-mid); padding: 6px 0; border-bottom: 1px solid rgba(245,241,232,0.2); transition: color 0.25s, border-color 0.25s;
+            color: var(--on-band-mid); min-height: 44px; display: inline-flex; align-items: center; padding: 0 4px;
+            transition: color 0.25s;
         }
-        .pf-retry:hover { color: var(--on-band); border-color: var(--on-band); }
+        .pf-retry span { padding-bottom: 3px; border-bottom: 1px solid rgba(245,241,232,0.24); transition: border-color 0.25s; }
+        .pf-retry:hover { color: var(--on-band); }
+        .pf-retry:hover span { border-color: var(--on-band); }
+        .pf-retry[disabled] { cursor: progress; opacity: 0.7; }
 
         /* =====================================================
            Territory: the subject index (darkroom band)
@@ -449,7 +466,10 @@
         }
         .foot-base a { color: var(--ink); transition: color 0.25s; }
         .foot-base a:hover { color: var(--gold-ink); }
-        .foot-links { display: flex; gap: var(--s4); }
+        .foot-links { display: flex; flex-wrap: wrap; gap: 6px var(--s3); }
+        .foot-links a { display: inline-flex; align-items: center; min-height: 32px; }
+        .foot-links .foot-hire { color: var(--gold-ink); border-bottom: 1px solid var(--gold); min-height: 0; padding: 4px 0 3px; align-self: center; }
+        .foot-links .foot-hire:hover { color: var(--ink); border-color: var(--ink); }
 
         /* =====================================================
            Responsive
@@ -484,6 +504,10 @@
             .foot-base { flex-direction: column; align-items: flex-start; }
         }
         @media (max-width: 400px) {
+            .kicker .by-xs { display: none; }
+            .kicker { flex-wrap: nowrap; }
+            .kicker > span { white-space: nowrap; }
+            .sleeve { width: 68%; }
             .facts > div { padding: 16px 12px 18px; }
             .facts dd { font-size: 1rem; }
         }
@@ -513,6 +537,7 @@
                 </a>
             </div>
             <div class="bar-right">
+                <a href="../index.html#contact" class="bar-link">Work with me</a>
                 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
                     <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -547,7 +572,7 @@
                     </div>
 
                     <div class="hero-copy">
-                        <p class="kicker"><span class="on-air">On Air</span><span>A podcast by Joshua McKenzie German</span></p>
+                        <p class="kicker"><span class="on-air">On Air</span><span><span class="by-xs">A podcast by </span>Joshua McKenzie German</span></p>
                         <h1 class="title" id="show-title"><span class="line">The Eclectic</span> <em class="line">Polymath</em></h1>
                         <p class="tagline">Everything is interesting when you dig deep enough.</p>
                         <p class="lede">Deep, well-researched episodes on whatever&rsquo;s too interesting to ignore. History and power, religion and myth, psychology, science, and Black culture. No lane, no niche.</p>
@@ -624,7 +649,7 @@
                                     <p class="pf-text">Every episode is one tap away on Spotify.</p>
                                     <div class="pf-actions">
                                         <a href="https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069" target="_blank" rel="noopener" class="btn btn-gold">Open in Spotify</a>
-                                        <button type="button" class="pf-retry" id="playerRetry">Try the player again</button>
+                                        <button type="button" class="pf-retry" id="playerRetry"><span>Try the player again</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -685,7 +710,7 @@
                     <li class="ix">
                         <span class="ix-num">08</span>
                         <h3 class="ix-name">Black History &amp; Identity</h3>
-                        <p class="ix-desc">The stories that shaped Black culture, politics, and identity, told with the depth they deserve.</p>
+                        <p class="ix-desc">The stories that shaped Black culture, politics, and identity, researched all the way down.</p>
                     </li>
                 </ol>
             </div>
@@ -705,7 +730,7 @@
                     <p class="pull">Every episode starts with a question I couldn&rsquo;t put down.</p>
                     <div class="host-body">
                         <p>Cartels and dynasties. Prophecy and myth. Why an ad works on you. I do the research, follow the thread as deep as it goes, and come back with the story underneath.</p>
-                        <p>There&rsquo;s no lane and no niche here. Just whatever is too interesting to ignore. I host, produce, and edit every episode myself.</p>
+                        <p>There&rsquo;s no lane and no niche here. Just whatever is too interesting to ignore.</p>
                     </div>
                     <p class="sig"><span class="sig-name">Joshua McKenzie German</span><span class="sig-role">Los Angeles, CA</span></p>
                 </div>
@@ -761,10 +786,13 @@
             </ul>
             <div class="foot-base">
                 <span>Joshua McKenzie German · Los Angeles, CA</span>
-                <span class="foot-links">
-                    <a href="../index.html">joshuamgerman.com</a>
-                    <a href="#top">Back to top &uarr;</a>
-                </span>
+                <nav class="foot-links" aria-label="More from Joshua">
+                    <a href="../index.html">Home</a>
+                    <a href="../photography/">Photography</a>
+                    <a href="../index.html#work">Brand Work</a>
+                    <a href="../index.html#contact" class="foot-hire">Work with me &rarr;</a>
+                    <a href="#top">Top &uarr;</a>
+                </nav>
             </div>
         </div>
     </footer>
@@ -791,17 +819,21 @@
 
         // ---- Spotify reachability + live cover art ----
         // The designed cover is always there; Spotify's art fades in over it
-        // only once it has actually loaded. If Spotify can't be reached at all,
-        // the player below switches to its fallback card instead of showing
-        // the browser's error page inside the frame.
+        // only once it has actually loaded. The oEmbed lookup doubles as the
+        // reachability check: an iframe fires onload even when it is showing
+        // the browser's own error page, so the player is only revealed once
+        // Spotify has answered. If it can't be reached, the player switches to
+        // its fallback card instead of a dead frame.
         var reach = 'unknown';
         var reachWatchers = [];
+        var coverShown = false;
         function setReach(v) {
-            if (reach !== 'unknown') return;
             reach = v;
             reachWatchers.forEach(function (fn) { fn(); });
         }
         function showCover(url) {
+            if (coverShown) return;
+            coverShown = true;
             Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (box) {
                 var img = new Image();
                 img.className = 'cover-live';
@@ -813,42 +845,47 @@
                 box.appendChild(img);
             });
         }
-        if (window.fetch) {
-            fetch('https://open.spotify.com/oembed?url=' + encodeURIComponent(SHOW))
+        function checkReach() {
+            reach = 'unknown';
+            if (!window.fetch) { setReach('ok'); return; }
+            fetch('https://open.spotify.com/oembed?url=' + encodeURIComponent(SHOW), { cache: 'no-store' })
                 .then(function (r) { setReach('ok'); return r.ok ? r.json() : null; })
                 .then(function (data) { if (data && data.thumbnail_url) showCover(data.thumbnail_url); })
-                .catch(function () { setReach('down'); });
+                .catch(function () { if (reach === 'unknown') setReach('down'); });
         }
 
         // ---- Player: sketch while loading, real player when ready, card if not ----
         var player = document.getElementById('player');
-        if (!player) return;
+        if (!player) { checkReach(); return; }
         var frame = player.querySelector('iframe');
         var status = document.getElementById('playerStatus');
         var retry = document.getElementById('playerRetry');
-        var forced = false, graceTimer = null, failTimer = null;
+        var pfTitle = player.querySelector('.pf-title');
+        var pfText = player.querySelector('.pf-text');
+        var attempts = 0, failTimer = null;
 
         function setState(state) {
             if (player.getAttribute('data-state') === state) return;
             player.setAttribute('data-state', state);
             player.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
-            status.textContent = state === 'failed'
-                ? 'The Spotify player did not load. Use the Open in Spotify link to listen.'
-                : '';
+            if (state === 'failed') {
+                clearTimeout(failTimer);
+                retry.disabled = false;
+                if (attempts > 1) {
+                    pfTitle.textContent = 'Still can’t reach Spotify from here.';
+                    pfText.textContent = 'The player may be blocked on this network or browser. The show is always one tap away in Spotify.';
+                }
+                status.textContent = pfTitle.textContent + ' Use the Open in Spotify link to listen.';
+            } else {
+                status.textContent = '';
+            }
         }
+        // Only two things decide the state: Spotify answered (reach) and the
+        // frame finished loading. Loading alone is never treated as success.
         function evaluate() {
-            var state = player.getAttribute('data-state');
-            if (state === 'ready') return;
-            if (reach === 'down' && !forced) { setState('failed'); return; }
-            if (window.__epFrameLoaded && (reach === 'ok' || forced)) setState('ready');
-        }
-        function onFrameLoad() {
-            evaluate();
-            // Spotify loaded but the art lookup is still pending: don't make people wait on it.
-            clearTimeout(graceTimer);
-            graceTimer = setTimeout(function () {
-                if (reach === 'unknown' && player.getAttribute('data-state') === 'loading') setState('ready');
-            }, 4000);
+            if (player.getAttribute('data-state') !== 'loading') return;
+            if (reach === 'down') { setState('failed'); return; }
+            if (reach === 'ok' && window.__epFrameLoaded) { clearTimeout(failTimer); setState('ready'); }
         }
         function armFailTimer() {
             clearTimeout(failTimer);
@@ -856,18 +893,23 @@
                 if (player.getAttribute('data-state') === 'loading') setState('failed');
             }, 12000);
         }
-
-        window.__epFrameLoad = onFrameLoad;
-        reachWatchers.push(evaluate);
-        if (window.__epFrameLoaded) onFrameLoad();
-        armFailTimer();
-
-        retry.addEventListener('click', function () {
-            forced = true;
-            window.__epFrameLoaded = false;
+        function attempt() {
+            attempts++;
             setState('loading');
             armFailTimer();
+            checkReach();
+        }
+
+        window.__epFrameLoad = evaluate;
+        reachWatchers.push(evaluate);
+        attempt();
+        if (window.__epFrameLoaded) evaluate();
+
+        retry.addEventListener('click', function () {
+            retry.disabled = true;
+            window.__epFrameLoaded = false;
             frame.src = frame.src;
+            attempt();
         });
     })();
     </script>

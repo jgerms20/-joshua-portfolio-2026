@@ -5,6 +5,7 @@
     python3 scripts/render-photography.py --page-only  # only photography/index.html
     python3 scripts/render-photography.py --check      # exit 1 if either output is stale
     python3 scripts/render-photography.py --qr         # also rebuild the business-card QR codes
+                                                       # (combine with --page-only to leave index.html alone)
 
 data/photography.json is the single source of truth for both outputs.
 """
@@ -18,12 +19,14 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from portfolio_quality.photography import (  # noqa: E402
-    PHOTO_SITE_URL,
+    PHOTO_SITE_CARD_URL,
     apply_photo_site,
     load_photo_site_settings,
     load_photography_manifest,
+    missing_sized_images,
     render_darkroom,
     render_photo_site,
+    write_sized_images,
 )
 
 
@@ -70,15 +73,15 @@ def render_qr_codes() -> None:
     common = {"error_correction": qrcode.constants.ERROR_CORRECT_Q, "border": 4}
 
     svg = qrcode.QRCode(image_factory=qrcode.image.svg.SvgPathImage, box_size=10, **common)
-    svg.add_data(PHOTO_SITE_URL)
+    svg.add_data(PHOTO_SITE_CARD_URL)
     svg.make(fit=True)
     svg.make_image().save(str(QR_DIR / "photography-qr.svg"))
 
     png = qrcode.QRCode(box_size=40, **common)
-    png.add_data(PHOTO_SITE_URL)
+    png.add_data(PHOTO_SITE_CARD_URL)
     png.make(fit=True)
     png.make_image(fill_color="black", back_color="white").save(str(QR_DIR / "photography-qr.png"))
-    print(f"Wrote QR codes for {PHOTO_SITE_URL} to {QR_DIR.relative_to(ROOT)}/")
+    print(f"Wrote QR codes for {PHOTO_SITE_CARD_URL} to {QR_DIR.relative_to(ROOT)}/")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -98,8 +101,21 @@ def main(argv: list[str] | None = None) -> int:
         stale |= _write_if_changed(HOMEPAGE, original, updated, f"index.html Darkroom ({len(manifest)} photographs)", args.check)
 
     shell = PHOTO_SITE.read_text(encoding="utf-8")
-    page = apply_photo_site(shell, render_photo_site(manifest, root=ROOT, clients=settings["clients"]))
+    page = apply_photo_site(
+        shell, render_photo_site(manifest, root=ROOT, clients=settings["clients"], shoots=settings["shoots"])
+    )
     stale |= _write_if_changed(PHOTO_SITE, shell, page, f"photography/index.html ({len(manifest)} photographs)", args.check)
+
+    # Resized copies the page's srcsets point at (photos/_sized/).
+    if args.check:
+        missing = missing_sized_images(ROOT)
+        if missing:
+            print(f"{len(missing)} resized photographs are missing; run scripts/render-photography.py --page-only")
+            stale = True
+    else:
+        written = write_sized_images(ROOT)
+        if written:
+            print(f"Wrote {len(written)} resized photographs to photos/_sized/")
 
     if args.qr and not args.check:
         render_qr_codes()

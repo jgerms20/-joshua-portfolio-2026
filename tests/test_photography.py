@@ -14,14 +14,17 @@ from portfolio_quality.photography import (
     COMMERCIAL_CATEGORIES,
     INQUIRY_EMAIL,
     PHOTO_SITE_END,
+    PHOTO_SITE_CARD_URL,
     PHOTO_SITE_START,
     PHOTO_SITE_URL,
+    SIZED_DIR,
     UNLOCK_THRESHOLD,
     apply_photo_site,
     group_photo_site,
     import_photography_inbox,
     load_photo_site_settings,
     load_photography_manifest,
+    missing_sized_images,
     render_darkroom,
     render_photo_site,
 )
@@ -61,6 +64,11 @@ class PhotographyManifestTests(unittest.TestCase):
 
     def test_darkroom_is_chapter_three_and_sends_people_to_the_photo_site(self):
         markup = render_darkroom(load_photography_manifest(MANIFEST))
+
+        # the sequence toggle carries the right count for each state
+        self.assertRegex(markup, r'data-open-count="\d+ frames" data-closed-count="\d+ more frames"')
+        # the site link never breaks before its arrow
+        self.assertIn("joshuamgerman.com/photography&nbsp;&rarr;", markup)
 
         self.assertIn('<span class="ch-num">CH. 03</span>', markup)
         self.assertNotIn("CH. 06", markup)
@@ -130,6 +138,12 @@ class _Tags(HTMLParser):
             self.ids.add(attributes["id"])
 
 
+def _parse(markup: str) -> list[tuple[str, dict[str, str]]]:
+    tags = _Tags()
+    tags.feed(markup)
+    return tags.tags
+
+
 def _visible_text(page: str) -> str:
     text = re.sub(r"<(script|style)\b.*?</\1>", " ", page, flags=re.S | re.I)
     text = re.sub(r"<!--.*?-->", " ", text, flags=re.S)
@@ -137,7 +151,7 @@ def _visible_text(page: str) -> str:
 
 
 def _locked_cards(page: str) -> list[str]:
-    return re.findall(r'<article class="card card--locked.*?</article>', page, flags=re.S)
+    return re.findall(r'<article class="[^"]*card--locked.*?</article>', page, flags=re.S)
 
 
 class PhotoSiteTests(unittest.TestCase):
@@ -150,7 +164,10 @@ class PhotoSiteTests(unittest.TestCase):
 
     def test_page_is_current_with_the_manifest(self):
         settings = load_photo_site_settings(MANIFEST)
-        rendered = apply_photo_site(self.page, render_photo_site(self.photos, root=ROOT, clients=settings["clients"]))
+        rendered = apply_photo_site(
+            self.page,
+            render_photo_site(self.photos, root=ROOT, clients=settings["clients"], shoots=settings["shoots"]),
+        )
         self.assertEqual(rendered, self.page, "run python3 scripts/render-photography.py --page-only")
         self.assertIn(PHOTO_SITE_START, self.page)
         self.assertIn(PHOTO_SITE_END, self.page)
@@ -179,7 +196,7 @@ class PhotoSiteTests(unittest.TestCase):
         hero = self.page[self.page.index('<section class="hero"'):]
         hero = hero[: hero.index("</section>")]
         self.assertIn("Joshua McKenzie <em>German</em>", hero)
-        self.assertIn("Now booking product, food, hospitality and real-estate shoots.", hero)
+        self.assertIn("Now booking product, food, hospitality and real-estate shoots too.", hero)
         self.assertIn('href="#book">Book a shoot', hero)
         self.assertIn('fetchpriority="high"', hero)
         self.assertEqual(self.page.count('fetchpriority="high"'), 1)
@@ -205,12 +222,27 @@ class PhotoSiteTests(unittest.TestCase):
     def test_locked_categories_render_without_images(self):
         cards = _locked_cards(self.page)
         self.assertEqual(len(cards), 4)
-        titles = [re.search(r'<h3 class="card-title">(.*?)</h3>', card).group(1) for card in cards]
+        titles = [re.search(r'<h3 class="lock-title">(.*?)</h3>', card).group(1) for card in cards]
         self.assertEqual(titles, ["Product", "Food &amp; Restaurants", "Hospitality &amp; Locations", "Real Estate &amp; Spaces"])
         for card in cards:
             self.assertNotIn("<img", card)
-            self.assertIn("Locked &middot; In development", card)
+            self.assertIn("<span>Locked</span>", card)
+            # "in development" is said once, in the section header, not per card
+            self.assertNotIn("development", card.lower())
             self.assertRegex(card, r'href="#book" data-shoot="(product|food|hospitality|real-estate)"')
+        commercial = self.page[self.page.index('id="commercial"'):self.page.index('id="services"')]
+        self.assertEqual(_visible_text(commercial).lower().count("in development"), 1)
+
+    def test_booking_links_preselect_the_matching_shoot(self):
+        commercial = self.page[self.page.index('id="commercial"'):self.page.index('id="services"')]
+        # the Now booking button covers four kinds of shoot, so it preselects none
+        self.assertRegex(commercial, r'<a class="btn btn-safelight" href="#book">Plan your shoot')
+        services = self.page[self.page.index('id="services"'):self.page.index('id="process"')]
+        self.assertIn('data-shoot="real-estate"', services)
+        self.assertIn('data-shoot="hospitality"', services)
+        landscapes = self.page[self.page.index('data-set="landscapes"'):]
+        landscapes = landscapes[: landscapes.index("</article>")]
+        self.assertNotIn('data-shoot="hospitality"', landscapes)
 
     def test_nearby_archive_frames_are_labelled_as_not_client_work(self):
         for slug in ("food-archive", "hospitality-archive"):
@@ -261,6 +293,10 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn(f'data-email="{INQUIRY_EMAIL}"', form)
         for name in ("name", "email", "shoot", "company", "date", "location", "budget", "source", "details"):
             self.assertIn(f'name="{name}"', form)
+        # budget is the client's own words: no preset bands that read as a rate card
+        self.assertRegex(form, r'<input id="f-budget" name="budget" type="text"')
+        self.assertNotRegex(form, r"\d,\d{3}")
+        self.assertNotIn("USD", self.page)
         for field in ("name", "email", "shoot", "details"):
             self.assertRegex(form, rf'name="{field}"[^>]*required')
         for category in COMMERCIAL_CATEGORIES:
@@ -290,7 +326,8 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertNotIn("$", self.page)
         text = _visible_text(self.page).lower()
         for phrase in ("starting at", "per hour", "/hr", "turnaround", "48 hours", "testimonial",
-                       "live catalog", "twice weekly", "newest first", "no guests", "threshold"):
+                       "live catalog", "twice weekly", "newest first", "no guests", "threshold",
+                       "two podcasts", "extend", "open call", "first set"):
             self.assertNotIn(phrase, text)
         self.assertNotRegex(text, r"\bmuse\b")
         self.assertIn("rates quoted per project", text)
@@ -300,6 +337,30 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn('href="../"', self.page)
         self.assertIn('href="../index.html"', self.page)
         self.assertIn("The Rio set is available as prints", self.page)
+
+    def test_images_are_served_as_resized_copies(self):
+        """A QR scan over cellular should not pull 2000px originals for thumbnails."""
+        images = [attrs for tag, attrs in self.tags.tags if tag == "img" and attrs.get("src")]
+        for attrs in images:
+            if "srcset" not in attrs:
+                continue
+            for candidate in attrs["srcset"].split(","):
+                url, descriptor = candidate.split()
+                self.assertTrue(url.startswith(f"../{SIZED_DIR}/"), url)
+                self.assertTrue(descriptor.endswith("w"), candidate)
+                self.assertTrue((PHOTO_SITE.parent / url).resolve().is_file(), url)
+            self.assertTrue(attrs.get("sizes"), attrs["src"])
+        self.assertEqual(missing_sized_images(ROOT), [])
+        page_images = [attrs for attrs in images if "lb-img" not in attrs.get("class", "")]
+        self.assertTrue(all("srcset" in attrs for attrs in page_images))
+        # Everything a phone can fetch on first load (hero + Work covers + prints
+        # thumbs, at their largest candidate) stays well under the old ~2 MB.
+        first_screen = self.page[: self.page.index('id="services"')] + self.page[self.page.index('id="prints"'): self.page.index('id="about"')]
+        total = 0
+        for attrs in (a for t, a in _parse(first_screen) if t == "img"):
+            largest = attrs["srcset"].split(",")[-1].split()[0] if attrs.get("srcset") else attrs["src"]
+            total += (PHOTO_SITE.parent / largest).resolve().stat().st_size
+        self.assertLess(total, 900_000, total)
 
     def test_every_image_has_dimensions_and_alt_text(self):
         images = [attrs for tag, attrs in self.tags.tags if tag == "img"]
@@ -323,8 +384,11 @@ class PhotoSiteTests(unittest.TestCase):
             import qrcode
         except ImportError:  # pragma: no cover
             self.skipTest("qrcode is not installed")
+        self.assertEqual(PHOTO_SITE_CARD_URL, PHOTO_SITE_URL + "?src=card")
+        # the card URL is what preselects "Business card" in the form
+        self.assertIn("params.get('src') === 'card'", self.page)
         code = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_Q, box_size=40, border=4)
-        code.add_data(PHOTO_SITE_URL)
+        code.add_data(PHOTO_SITE_CARD_URL)
         code.make(fit=True)
         matrix = code.get_matrix()
         with Image.open(png) as image:
@@ -338,3 +402,19 @@ class PhotoSiteTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SelectedShootsTests(unittest.TestCase):
+    def test_shoots_render_only_when_the_manifest_lists_them(self):
+        photos = load_photography_manifest(MANIFEST)
+        self.assertNotIn("Selected shoots", render_photo_site(photos, root=ROOT))
+        page = render_photo_site(photos, root=ROOT, shoots=[{"project": "Test shoot", "type": "Event", "year": "2025"}])
+        self.assertIn("Selected shoots", page)
+        self.assertIn("Test shoot", page)
+
+    def test_manifest_shoots_need_a_project_name(self):
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "photography.json"
+            path.write_text(json.dumps({"version": 1, "entries": [], "site": {"shoots": [{"type": "Event"}]}}), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                load_photo_site_settings(path)

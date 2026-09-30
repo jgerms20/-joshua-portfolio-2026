@@ -195,7 +195,7 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
         _photo_figure(photo, sequence=False) for photo in photos
     )
     more_button = (
-        f'''<button type="button" class="darkroom-more" data-reveal="sequenceMore" aria-controls="sequenceMore" aria-expanded="false" data-open-label="Show the short edit" data-closed-label="Continue the sequence"><span class="darkroom-more__label">Continue the sequence</span><span class="darkroom-more__count">{more_count} more frames</span></button>'''
+        f'''<button type="button" class="darkroom-more" data-reveal="sequenceMore" aria-controls="sequenceMore" aria-expanded="false" data-open-label="Show the short edit" data-closed-label="Continue the sequence" data-open-count="{SEQUENCE_PREVIEW:02d} frames" data-closed-count="{more_count} more frames"><span class="darkroom-more__label">Continue the sequence</span><span class="darkroom-more__count">{more_count} more frames</span></button>'''
         if more_parts
         else ""
     )
@@ -246,7 +246,7 @@ def render_darkroom(photos: list[dict[str, object]]) -> str:
                 {archive}
             </div>
             </div>
-            <p class="darkroom-site-link rv" style="margin-top: clamp(40px, 5vw, 64px); padding-top: var(--s3); border-top: 1px solid var(--dark-rule); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-dark-mid);">Full sets, services and booking live on the photography site: <a href="photography/" style="color: var(--paper-on-dark); border-bottom: 1px solid var(--vermilion); padding-bottom: 2px;">joshuamgerman.com/photography &rarr;</a></p>
+            <p class="darkroom-site-link rv" style="margin-top: clamp(40px, 5vw, 64px); padding-top: var(--s3); border-top: 1px solid var(--dark-rule); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-dark-soft);">Full sets, services and booking live on the photography site: <a href="photography/" style="color: var(--paper-on-dark); border-bottom: 1px solid var(--vermilion); padding-bottom: 2px; white-space: nowrap;">joshuamgerman.com/photography&nbsp;&rarr;</a></p>
         </div>
     </section>'''
 
@@ -290,13 +290,18 @@ def _darkroom_cta() -> str:
 #   service       product | food | hospitality | real-estate
 #   commissioned  true shows a "Commissioned" tag in the lightbox
 #   recent        true adds the frame to a "Recent" strip under the hero
-# Optional top-level manifest key:
+# Optional top-level manifest keys:
 #   site.clients  list of client names for a "Select clients" line
+#   site.shoots   list of {"project", "type", "year"} for a "Selected shoots"
+#                 rundown under the Work sets. Real shoots only; empty hides it.
 # =====================================================================
 
 PHOTO_SITE_START = "<!-- PHOTO-SITE:START -->"
 PHOTO_SITE_END = "<!-- PHOTO-SITE:END -->"
 PHOTO_SITE_URL = "https://joshuamgerman.com/photography/"
+# What the business-card QR code encodes. ?src=card preselects "Business card"
+# under "How did you find me?" so card inquiries can be told apart.
+PHOTO_SITE_CARD_URL = PHOTO_SITE_URL + "?src=card"
 PHOTO_SITE_PREFIX = "../"
 INQUIRY_EMAIL = "jgerms20@gmail.com"
 INSTAGRAM_URL = "https://instagram.com/jgerms20"
@@ -332,16 +337,8 @@ SHOOT_TYPES = (
 )
 SHOOT_VALUES = {value for value, _ in SHOOT_TYPES}
 
-# Client-selected budget bands. They describe the client's budget, not a
-# rate card; Joshua can change the bands here.
-BUDGET_RANGES = (
-    "Not sure yet",
-    "Under 1,000 USD",
-    "1,000 to 2,500 USD",
-    "2,500 to 5,000 USD",
-    "5,000 to 10,000 USD",
-    "10,000 USD or more",
-)
+# Budget is the client's own free text. No preset bands: Joshua has not set
+# any, and bands would read as a public rate card.
 REFERRAL_SOURCES = ("Business card", "Instagram", "Referral", "Main site", "Other")
 
 PHOTO_PROJECTS = (
@@ -392,8 +389,8 @@ PHOTO_PROJECTS = (
         "match": ("photos/landscape/",),
         "cover": "misty-valley",
         "position": "50% 50%",
-        "pitch": "Plan a location shoot",
-        "shoot": "hospitality",
+        "pitch": "Book an outdoor shoot",
+        "shoot": "other",
     },
     {
         "slug": "travel",
@@ -402,7 +399,7 @@ PHOTO_PROJECTS = (
         "match": ("photos/travel/",),
         "cover": "palms-at-dusk",
         "position": "72% 50%",
-        "pitch": "Plan a shoot like this",
+        "pitch": "Book a travel shoot",
         "shoot": "other",
     },
 )
@@ -421,6 +418,7 @@ COMMERCIAL_CATEGORIES = (
     {
         "service": "product",
         "slug": "product",
+        "short": "Product",
         "title": "Product",
         "blurb": "Packshots, e-comm sets, product in use.",
         "shots": ("Hero", "Detail", "In use", "Loop"),
@@ -431,6 +429,7 @@ COMMERCIAL_CATEGORIES = (
     {
         "service": "food",
         "slug": "food",
+        "short": "Food",
         "title": "Food & Restaurants",
         "blurb": "Plated dishes, menus, kitchens, openings.",
         "shots": ("The plate", "Overhead", "The pass", "The room"),
@@ -441,6 +440,7 @@ COMMERCIAL_CATEGORIES = (
     {
         "service": "hospitality",
         "slug": "hospitality",
+        "short": "Hospitality",
         "title": "Hospitality & Locations",
         "blurb": "Hotels, bars, venues, the room itself.",
         "shots": ("Arrival", "The room", "Details", "After dark"),
@@ -451,6 +451,7 @@ COMMERCIAL_CATEGORIES = (
     {
         "service": "real-estate",
         "slug": "real-estate",
+        "short": "Real estate",
         "title": "Real Estate & Spaces",
         "blurb": "Listings, interiors, architecture.",
         "shots": ("Exterior", "Main room", "Details", "Twilight"),
@@ -475,7 +476,8 @@ SERVICES_NOW = (
 SERVICES_NEW = (
     ("product", "Product & e-commerce", "Packshots, e-comm sets, product in use."),
     ("food", "Food & restaurants", "Plates, menus, kitchens, openings."),
-    ("hospitality", "Hospitality, locations & real estate", "Hotels, bars, venues, listings, interiors."),
+    ("hospitality", "Hospitality & locations", "Hotels, bars, venues, the room itself."),
+    ("real-estate", "Real estate & spaces", "Listings, interiors, architecture."),
 )
 PROCESS_STEPS = (
     ("Inquire", "Send the form below. Tell me what you're making and where the photos will run."),
@@ -504,6 +506,69 @@ def _attr(value: object) -> str:
     return escape(str(value), quote=True)
 
 
+# ---- Resized copies -------------------------------------------------
+# The originals are ~2000px JPEGs of 150-450 KB. The photography site is
+# opened from a business-card QR code, often over cellular, so every <img>
+# on it points at WebP copies sized for how big the frame is drawn, with a
+# srcset. Originals are only fetched by the full-screen viewer.
+SIZED_DIR = "photos/_sized"
+SIZED_QUALITY = 78
+# Widths per placement. Each list is filtered to widths below the original.
+WIDTHS_HERO = (640, 960, 1280)
+WIDTHS_COVER = (480, 960)
+WIDTHS_THUMB = (480,)
+WIDTHS_PRINT = (240,)
+SIZES_HERO = "(min-width: 700px) min(40vw, 580px), calc(100vw - 32px)"
+SIZES_COVER = "(min-width: 720px) min(30vw, 470px), calc(100vw - 32px)"
+SIZES_STRIP = "(min-width: 700px) 18vw, 1px"
+SIZES_ABOUT = "(min-width: 800px) 440px, calc(100vw - 32px)"
+SIZES_THUMB = "(min-width: 720px) 200px, 45vw"
+SIZES_PRINT = "92px"
+
+# Every variant the last render asked for: {repo-relative output: (source, width)}.
+_requested_variants: dict[str, tuple[str, int]] = {}
+
+
+def _variant_path(source: str, width: int) -> str:
+    path = PurePosixPath(source)
+    return f"{SIZED_DIR}/{path.parent.name}-{path.stem}-{width}.webp"
+
+
+def _variants(root: Path, source: str, widths: tuple[int, ...]) -> list[tuple[int, str]]:
+    original_width, _ = _image_size(str(root), source)
+    chosen = []
+    for width in widths:
+        if width < original_width:
+            output = _variant_path(source, width)
+            _requested_variants[output] = (source, width)
+            chosen.append((width, output))
+    return chosen
+
+
+def write_sized_images(root: Path | None = None) -> list[str]:
+    """Write (or refresh) every resized copy the last render referenced."""
+    root = Path(root or REPO_ROOT)
+    written = []
+    for output, (source, width) in sorted(_requested_variants.items()):
+        target = root / output
+        original = root / source
+        if target.is_file() and target.stat().st_mtime >= original.stat().st_mtime:
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with Image.open(original) as opened:
+            image = ImageOps.exif_transpose(opened).convert("RGB")
+            height = round(image.height * width / image.width)
+            image = image.resize((width, height), Image.LANCZOS)
+            image.save(target, format="WEBP", quality=SIZED_QUALITY, method=6)
+        written.append(output)
+    return written
+
+
+def missing_sized_images(root: Path | None = None) -> list[str]:
+    root = Path(root or REPO_ROOT)
+    return sorted(output for output in _requested_variants if not (root / output).is_file())
+
+
 def _site_img(
     photo: dict[str, object],
     *,
@@ -513,11 +578,22 @@ def _site_img(
     priority: bool = False,
     low_priority: bool = False,
     alt: str | None = None,
+    widths: tuple[int, ...] = WIDTHS_COVER,
+    sizes: str = SIZES_COVER,
 ) -> str:
     source = str(photo["src"])
     width, height = _image_size(str(root), source)
+    variants = _variants(Path(root), source, widths)
+    if variants:
+        # The src fallback is the largest copy; srcset lets the browser go smaller.
+        src = variants[-1][1]
+        srcset = ", ".join(f"{PHOTO_SITE_PREFIX}{path} {w}w" for w, path in variants)
+        responsive = [f'srcset="{_attr(srcset)}"', f'sizes="{_attr(sizes)}"']
+    else:
+        src, responsive = source, []
     parts = [
-        f'<img src="{_attr(PHOTO_SITE_PREFIX + source)}"',
+        f'<img src="{_attr(PHOTO_SITE_PREFIX + src)}"',
+        *responsive,
         f'width="{width}" height="{height}"',
         f'alt="{_attr(photo["alt"] if alt is None else alt)}"',
         f'loading="{loading}" decoding="async"',
@@ -626,7 +702,7 @@ def group_photo_site(photos: list[dict[str, object]]) -> dict[str, object]:
     nearby = [
         {
             "slug": f'{category["slug"]}-archive',
-            "title": f'{category["title"]}: nearby in the archive',
+            "title": f'{category["short"]} · from the archive',
             "note": category["nearby_note"],
             "frames": [by_id[identifier] for identifier in category["nearby"] if identifier in by_id],
             "category": category["slug"],
@@ -646,11 +722,24 @@ def load_photo_site_settings(path: Path) -> dict[str, object]:
     clients = site.get("clients") or []
     if not isinstance(clients, list) or not all(isinstance(name, str) for name in clients):
         raise ValueError("photography manifest 'site.clients' must be a list of names")
-    return {"clients": [name.strip() for name in clients if name.strip()]}
+    shoots = site.get("shoots") or []
+    if not isinstance(shoots, list):
+        raise ValueError("photography manifest 'site.shoots' must be a list")
+    cleaned = []
+    for shoot in shoots:
+        if not isinstance(shoot, dict) or not str(shoot.get("project", "")).strip():
+            raise ValueError("each photography 'site.shoots' entry needs a project name")
+        cleaned.append({key: str(shoot.get(key) or "").strip() for key in ("project", "type", "year")})
+    return {"clients": [name.strip() for name in clients if name.strip()], "shoots": cleaned}
 
 
 def _arrow() -> str:
     return '<span class="arr" aria-hidden="true">&rarr;</span>'
+
+
+def _tail_arrow() -> str:
+    """Arrow glued to the last word so it never wraps onto a line of its own."""
+    return "&nbsp;" + _arrow()
 
 
 def _section_head(number: str, title: str, meta: str, section_id: str) -> str:
@@ -673,7 +762,10 @@ def _render_hero(
     lead_markup = ""
     if lead:
         slug, index = placement.get(HERO_LEAD, ("", 0))
-        image = _site_img(lead, root=root, loading="eager", priority=True, position=HERO_LEAD_POSITION)
+        image = _site_img(
+            lead, root=root, loading="eager", priority=True, position=HERO_LEAD_POSITION,
+            widths=WIDTHS_HERO, sizes=SIZES_HERO,
+        )
         lead_markup = (
             f'<figure class="hero-lead">'
             f'<a class="hero-lead__link" href="#{_attr(slug)}" data-open="{_attr(slug)}" data-index="{index}" '
@@ -692,7 +784,7 @@ def _render_hero(
             f'<li class="strip-frame">'
             f'<a href="#{_attr(slug)}" data-open="{_attr(slug)}" data-index="{index}" '
             f'aria-label="Open the {_attr(titles.get(slug, "photography"))} set at this frame">'
-            f'{_site_img(photo, root=root, loading="lazy", low_priority=True)}</a>'
+            f'{_site_img(photo, root=root, loading="lazy", low_priority=True, sizes=SIZES_STRIP)}</a>'
             f'<span class="strip-cap"><span class="fig-no">{number:02d}</span>{escape(titles.get(slug, "photography"))}</span>'
             f"</li>"
         )
@@ -703,7 +795,7 @@ def _render_hero(
             <div class="hero-copy">
                 <p class="kicker">Photography <span aria-hidden="true">&middot;</span> Los Angeles</p>
                 <h1 class="hero-title" id="hero-title">Joshua McKenzie <em>German</em></h1>
-                <p class="hero-line">I photograph people, places and live events. Now booking product, food, hospitality and real-estate shoots.</p>
+                <p class="hero-line">Portraits, fashion and live events in Los Angeles. Now booking product, food, hospitality and real-estate shoots too.</p>
                 <div class="hero-actions">
                     <a class="btn btn-safelight" href="#book">Book a shoot {_arrow()}</a>
                     <a class="btn btn-line" href="#work">See the work</a>
@@ -733,7 +825,7 @@ def _render_recent(photos: list[dict[str, object]], placement: dict[str, tuple[s
         slug, index = placement.get(str(photo["id"]), ("", 0))
         items.append(
             f'<li><a href="#{_attr(slug)}" data-open="{_attr(slug)}" data-index="{index}" '
-            f'aria-label="Open {_attr(photo["alt"])}">{_site_img(photo, root=root)}</a></li>'
+            f'aria-label="Open {_attr(photo["alt"])}">{_site_img(photo, root=root, widths=WIDTHS_THUMB, sizes=SIZES_THUMB)}</a></li>'
         )
     return f'''<section class="recent" id="recent" aria-labelledby="recent-title">
         <div class="wrap">
@@ -746,11 +838,26 @@ def _render_recent(photos: list[dict[str, object]], placement: dict[str, tuple[s
 def _pitch_link(project: dict[str, object]) -> str:
     label = escape(str(project["pitch"]))
     if project.get("href"):
-        return f'<a class="card-pitch" href="{_attr(project["href"])}">{label} {_arrow()}</a>'
-    return f'<a class="card-pitch" href="#book" data-shoot="{_attr(project.get("shoot", "other"))}">{label} {_arrow()}</a>'
+        return f'<a class="card-pitch" href="{_attr(project["href"])}">{label}{_tail_arrow()}</a>'
+    return f'<a class="card-pitch" href="#book" data-shoot="{_attr(project.get("shoot", "other"))}">{label}{_tail_arrow()}</a>'
 
 
-def _render_work(projects: list[dict[str, object]], root: Path) -> str:
+def _render_shoots(shoots: list[dict[str, str]]) -> str:
+    if not shoots:
+        return ""
+    rows = "".join(
+        f'<li><span class="shoot-name">{escape(shoot["project"])}</span>'
+        f'<span class="shoot-type">{escape(shoot["type"])}</span>'
+        f'<span class="shoot-year">{escape(shoot["year"])}</span></li>'
+        for shoot in shoots
+    )
+    return f'''<div class="shoots rv">
+                <h3 class="shoots-title">Selected shoots</h3>
+                <ol class="shoots-list">{rows}</ol>
+            </div>'''
+
+
+def _render_work(projects: list[dict[str, object]], root: Path, shoots: list[dict[str, str]] = ()) -> str:
     cards = []
     total = 0
     for number, project in enumerate(projects, start=1):
@@ -775,14 +882,15 @@ def _render_work(projects: list[dict[str, object]], root: Path) -> str:
                 </article>'''
         )
     grid = "\n                ".join(cards)
-    head = _section_head("01", "Work so far", f"{total:02d} frames &middot; {len(projects):02d} sets", "work")
+    head = _section_head("01", "Selected <em>work</em>", f"{total:02d} frames &middot; {len(projects):02d} sets", "work")
     return f'''<section class="sec" id="work" aria-labelledby="work-title">
         <div class="wrap">
             {head}
             <p class="sec-intro rv">People, places and nights out, grouped into sets. Open one to flip through it.</p>
-            <div class="cards">
+            <div class="cards cards--work">
                 {grid}
             </div>
+            {_render_shoots(list(shoots))}
         </div>
     </section>'''
 
@@ -798,62 +906,62 @@ LOCK_ICON = (
 def _render_commercial(
     locked: list[dict[str, object]], nearby: list[dict[str, object]], start_number: int
 ) -> str:
+    """The commercial books that are not open yet.
+
+    One strong moment (the Now booking panel) beside compact locked tiles:
+    no empty image frames, and "in development" said once, in the header.
+    """
     if not locked:
         return ""
     nearby_by_category = {item["category"]: item for item in nearby}
-    cards = []
+    tiles = []
     for offset, category in enumerate(locked):
-        shots = "".join(
-            f'<li><span class="shot-no">{index:02d}</span><span class="shot-name">{escape(name)}</span></li>'
-            for index, name in enumerate(category["shots"], start=1)
-        )
-        shot_names = ", ".join(category["shots"])
-        extras = []
+        shot_names = " / ".join(category["shots"])
+        links = [
+            f'<a class="card-pitch" href="#book" data-shoot="{_attr(category["service"])}">'
+            f'{escape(str(category["cta"]))}{_tail_arrow()}</a>'
+        ]
         frames = category["frames"]
         if frames:
-            extras.append(
+            links.append(
                 f'<a class="card-aside" href="#{_attr(category["slug"])}" data-open="{_attr(category["slug"])}" data-index="0">'
-                f'First frames in: {len(frames):02d} {_arrow()}</a>'
+                f'First frames in: {len(frames):02d}{_tail_arrow()}</a>'
             )
         near = nearby_by_category.get(category["slug"])
         if near:
-            extras.append(
+            links.append(
                 f'<a class="card-aside" href="#{_attr(near["slug"])}" data-open="{_attr(near["slug"])}" data-index="0">'
-                f'Nearby in the archive<span class="visually-hidden"> ({len(near["frames"])} frames)</span> {_arrow()}</a>'
+                f'From the archive<span class="visually-hidden"> ({len(near["frames"])} frames, not client work)</span>{_tail_arrow()}</a>'
             )
-        cards.append(
-            f'''<article class="card card--locked rv" data-service="{_attr(category["service"])}">
-                    <div class="locked-frame" role="img" aria-label="{_attr(category["title"])} portfolio, locked while in development. Shot list: {_attr(shot_names)}.">
-                        <span class="locked-label">{LOCK_ICON}<span>Locked &middot; In development</span></span>
-                        <ol class="shotlist" aria-hidden="true">{shots}</ol>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-meta"><span class="card-num">{start_number + offset:02d}</span> In development</p>
-                        <h3 class="card-title">{escape(str(category["title"]))}</h3>
-                        <p class="card-blurb">{escape(str(category["blurb"]))}</p>
-                        <a class="card-pitch" href="#book" data-shoot="{_attr(category["service"])}">{escape(str(category["cta"]))} {_arrow()}</a>
-                        {"".join(extras)}
-                    </div>
-                </article>'''
+        tiles.append(
+            f'''<article class="lock-tile card--locked rv" data-service="{_attr(category["service"])}">
+                        <p class="lock-meta"><span class="card-num">{start_number + offset:02d}</span>{LOCK_ICON}<span>Locked</span></p>
+                        <h3 class="lock-title">{escape(str(category["title"]))}</h3>
+                        <p class="lock-blurb">{escape(str(category["blurb"]))}</p>
+                        <p class="lock-shots"><span class="visually-hidden">Shot list: </span>{escape(shot_names)}</p>
+                        <div class="lock-links">{"".join(links)}</div>
+                    </article>'''
         )
-    grid = "\n                ".join(cards)
+    grid = "\n                    ".join(tiles)
     fits = "".join(f"<li>{escape(line)}</li>" for line in COMMERCIAL_FITS)
-    head = _section_head("02", "In <em>development</em>", f"{len(locked):02d} books in progress", "commercial")
+    head = _section_head("02", "Commercial", f"{len(locked):02d} books in development", "commercial")
     return f'''<section class="sec sec--commercial" id="commercial" aria-labelledby="commercial-title">
         <div class="wrap">
             {head}
-            <div class="cards cards--commercial">
+            <div class="commercial">
                 <div class="commercial-intro rv">
-                    <p class="commercial-kicker"><span class="dot" aria-hidden="true"></span>Open call</p>
-                    <p class="commercial-lede">I&rsquo;m building these books now. Got a product, a menu or a space? You could be in the first set.</p>
+                    <p class="commercial-kicker"><span class="dot" aria-hidden="true"></span>Now booking</p>
+                    <p class="commercial-lede">Product, food, hospitality and real estate are the newest books. Have a launch, a menu or a space that needs pictures? Let&rsquo;s plan it.</p>
                     <div class="commercial-fits">
-                        <p class="commercial-fits__label">Good fits for the first set</p>
+                        <p class="commercial-fits__label">Good fits</p>
                         <ul>{fits}</ul>
                     </div>
                     <p class="commercial-note">No stock photos, no borrowed frames. Each book opens once it has real shoots in it.</p>
-                    <a class="btn btn-safelight" href="#book" data-shoot="product">Pitch me your shoot {_arrow()}</a>
+                    <a class="btn btn-safelight" href="#book">Plan your shoot {_arrow()}</a>
                 </div>
-                {grid}
+                <div class="lock-grid">
+                    {grid}
+                </div>
             </div>
         </div>
     </section>'''
@@ -890,12 +998,12 @@ def _render_services(number: str) -> str:
                         <ul class="svc-list">{rows(SERVICES_NOW, False)}</ul>
                     </div>
                     <div class="svc-group rv">
-                        <h3 class="svc-label"><span class="dot" aria-hidden="true"></span>New &middot; now booking</h3>
-                        <ul class="svc-list">{rows(SERVICES_NEW, True)}</ul>
+                        <h3 class="svc-label"><span class="dot" aria-hidden="true"></span>New</h3>
+                        <ul class="svc-list">{rows(SERVICES_NEW, False)}</ul>
                     </div>
                     <div class="svc-group svc-extend rv">
-                        <h3 class="svc-label">Add-on &middot; Extend</h3>
-                        <p>One shoot, planned to go further: social crops, short loops and AI-assisted variations, built into the shot list from day one.</p>
+                        <h3 class="svc-label">Add-on &middot; Social cut-downs</h3>
+                        <p>One shoot, planned for more places: social crops, short loops and extra sizes, built into the shot list from day one.</p>
                     </div>
                 </div>
             </div>
@@ -911,13 +1019,13 @@ def _render_prints(rio: list[dict[str, object]], root: Path) -> str:
     if not rio:
         return ""
     thumbs = "".join(
-        f'<li><a href="../shop.html" tabindex="-1" aria-hidden="true">{_site_img(photo, root=root, alt="")}</a></li>'
+        f'<li><a href="../shop.html" tabindex="-1" aria-hidden="true">{_site_img(photo, root=root, alt="", widths=WIDTHS_PRINT, sizes=SIZES_PRINT)}</a></li>'
         for photo in rio[:4]
     )
     return f'''<section class="prints" id="prints" aria-label="Prints">
         <div class="wrap prints-row">
             <ul class="prints-thumbs">{thumbs}</ul>
-            <p class="prints-line"><a href="../shop.html">The Rio set is available as prints {_arrow()}</a></p>
+            <p class="prints-line"><a href="../shop.html">The Rio set is available as prints{_tail_arrow()}</a></p>
         </div>
     </section>'''
 
@@ -926,7 +1034,7 @@ def _render_about(number: str, clients: list[str], root: Path) -> str:
     portrait = ""
     if (Path(root) / ABOUT_PORTRAIT["src"]).is_file():
         portrait = (
-            f'<figure class="about-portrait rv">{_site_img(ABOUT_PORTRAIT, root=root)}'
+            f'<figure class="about-portrait rv">{_site_img(ABOUT_PORTRAIT, root=root, sizes=SIZES_ABOUT)}'
             f'<figcaption><span class="fig-no">Self</span><span>Joshua McKenzie German</span></figcaption></figure>'
         )
     client_line = (
@@ -941,7 +1049,7 @@ def _render_about(number: str, clients: list[str], root: Path) -> str:
                 <div class="about-copy rv">
                     <p class="about-lede">I&rsquo;m a Los Angeles photographer with a strategist&rsquo;s habit.</p>
                     <p>I started as a reporter, then moved into brand strategy at Goodby Silverstein &amp; Partners, Wieden+Kennedy and TBWA\\Chiat\\Day. That work taught me to ask where a picture will live before I take it: the feed, the site, the menu, the listing. So I plan the shoot around the use. Then I wait for the moment someone stops posing.</p>
-                    <p>Off the clock I host two podcasts and build with AI, which is where Extend comes from.</p>
+                    <p>Off the clock I host and produce podcasts and build tools with AI.</p>
                     {client_line}
                     <dl class="about-facts">
                         <div><dt>Based</dt><dd>Los Angeles, CA</dd></div>
@@ -962,9 +1070,6 @@ def _render_about(number: str, clients: list[str], root: Path) -> str:
 def _render_book(number: str) -> str:
     shoot_options = '<option value="">Choose one</option>' + "".join(
         f'<option value="{_attr(value)}">{escape(label)}</option>' for value, label in SHOOT_TYPES
-    )
-    budget_options = '<option value="">Choose a range (optional)</option>' + "".join(
-        f"<option>{escape(label)}</option>" for label in BUDGET_RANGES
     )
     source_options = '<option value="">Choose one (optional)</option>' + "".join(
         f"<option>{escape(label)}</option>" for label in REFERRAL_SOURCES
@@ -1015,8 +1120,8 @@ def _render_book(number: str) -> str:
                         <input id="f-location" name="location" type="text" placeholder="City, venue or address">
                     </div>
                     <div class="field">
-                        <label for="f-budget">Budget</label>
-                        <select id="f-budget" name="budget">{budget_options}</select>
+                        <label for="f-budget">Your budget</label>
+                        <input id="f-budget" name="budget" type="text" placeholder="A range or a number (optional)">
                     </div>
                     <div class="field">
                         <label for="f-source">How did you find me?</label>
@@ -1055,7 +1160,7 @@ def _render_sets(groups: list[dict[str, object]], root: Path) -> str:
             figures.append(
                 f'<figure class="set-frame" data-full="{_attr(full)}" data-w="{width}" data-h="{height}" '
                 f'data-alt="{_attr(frame["alt"])}" data-tag="{_attr(" · ".join(tags))}">'
-                f'<a href="{_attr(full)}">{_site_img(frame, root=root)}</a></figure>'
+                f'<a href="{_attr(full)}">{_site_img(frame, root=root, widths=WIDTHS_THUMB, sizes=SIZES_THUMB)}</a></figure>'
             )
         note = str(group.get("note") or "")
         note_markup = f'<p class="set-note">{escape(note)}</p>' if note else ""
@@ -1080,9 +1185,11 @@ def render_photo_site(
     *,
     root: Path | None = None,
     clients: list[str] | tuple[str, ...] = (),
+    shoots: list[dict[str, str]] | tuple[dict[str, str], ...] = (),
 ) -> str:
     """Render everything between the PHOTO-SITE markers of photography/index.html."""
     root = Path(root or REPO_ROOT)
+    _requested_variants.clear()
     grouped = group_photo_site(photos)
     projects = grouped["projects"]
     locked = grouped["locked"]
@@ -1118,7 +1225,7 @@ def render_photo_site(
         _render_hero(by_id, placement, titles, root),
         _render_jump(bool(locked)),
         _render_recent(photos, placement, root),
-        _render_work(projects, root),
+        _render_work(projects, root, list(shoots)),
         _render_commercial(locked, nearby, start_number=len(projects) + 1),
         _render_services(next(numbers)),
         _render_prints(rio, root),

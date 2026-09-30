@@ -106,6 +106,16 @@ class PodcastFreshnessTests(unittest.TestCase):
             r'(?:(?!</a>).)*Listen on Spotify(?:(?!</a>).)*</a>',
         )
 
+        # Listeners can reach the rest of the site and the booking contact.
+        self.assertIn('href="../index.html#contact"', page)
+        self.assertIn('href="../photography/"', page)
+
+        # The player is only revealed once Spotify has answered; an iframe
+        # onload alone (which also fires for the browser's error page) must
+        # never flip it to ready, including after "Try the player again".
+        self.assertIn("reach === 'ok' && window.__epFrameLoaded", page)
+        self.assertNotIn("forced", page)
+
 
 if __name__ == "__main__":
     unittest.main()

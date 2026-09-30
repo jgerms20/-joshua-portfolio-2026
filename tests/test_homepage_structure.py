@@ -91,12 +91,20 @@ class HomepageStructureTests(unittest.TestCase):
     def test_mobile_menu_matches_nav_and_ends_with_contact(self):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
-            ["#about", "#podcasts", "#photography", "#ai", "#work", "#projects", "shop.html", "#contact"],
+            [
+                "#about", "#podcasts", "#photography", "#ai", "#work", "#projects",
+                "shop.html", "#contact", "photography/#book",
+            ],
         )
+        # Chapter links carry the same numbers as the chapter heads (CH. 01-06);
+        # Shop and Contact are not chapters, so they must not borrow CH. 07/08.
         self.assertEqual(
-            [label.split(" ", 1)[0] for _, label in self.page.mobile_links],
-            ["01", "02", "03", "04", "05", "06", "07", "08"],
+            [label.split(" ", 1)[0] for _, label in self.page.mobile_links[:6]],
+            ["01", "02", "03", "04", "05", "06"],
         )
+        for _, label in self.page.mobile_links[6:]:
+            self.assertFalse(label[:2].isdigit(), label)
+        self.assertTrue(self.page.mobile_links[-1][1].startswith("Book a shoot"))
 
     def test_collection_and_interviews_are_one_compact_band_after_media_diet(self):
         band = PAGE[PAGE.index('<section id="in-the-works"'):]
@@ -122,8 +130,31 @@ class HomepageStructureTests(unittest.TestCase):
         for phrase in ("solo", "no guests", "live catalog", "twice weekly", "newest first"):
             self.assertNotIn(phrase, text)
 
+    def test_hero_cta_block_is_booking_first(self):
+        hero = PAGE[PAGE.index('<section id="hero"'):]
+        hero = hero[: hero.index("</section>")]
+        self.assertIn("Now booking independent work", hero)
+        self.assertIn('href="photography/#book"', hero)
+
+    def test_contact_pitches_independent_work_only(self):
+        contact = PAGE[PAGE.index('<section id="contact"'):]
+        contact = contact[: contact.index("</section>")]
+        self.assertNotIn("Full-time", contact)
+        self.assertIn('href="photography/#book"', contact)
+        self.assertIn("subject=Project%20inquiry", contact)
+
+    def test_metadata_leads_with_the_new_positioning(self):
+        head = PAGE[: PAGE.index("</head>")]
+        self.assertNotIn("| Creative Strategist</title>", head)
+        self.assertIn("<title>Joshua McKenzie German | Photographer", head)
+        self.assertIn('property="og:title" content="Joshua McKenzie German | Photographer', head)
+
+    def test_in_the_works_does_not_overclaim(self):
+        self.assertNotIn("In production", PAGE)
+        self.assertNotIn("in production", PAGE.lower().replace("post-production", ""))
+
     def test_sites_chapter_is_past_tense(self):
-        self.assertIn("Sites I've <span class=\"it\">Built</span>", PAGE)
+        self.assertIn("Sites I&rsquo;ve <span class=\"it\">Built</span>", PAGE)
         self.assertNotIn("Sites I <span", PAGE)
 
 

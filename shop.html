@@ -111,7 +111,15 @@
         .cart-count.show { opacity: 1; transform: scale(1); }
         .nav-cta { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 10px 20px; border-radius: 999px; transition: background 0.3s var(--exp), transform 0.3s var(--exp); white-space: nowrap; }
         .nav-cta:hover { background: var(--blue); transform: translateY(-1px); }
-        @media (max-width: 720px) { .nav-links { display: none; } .nav-cta { display: none; } }
+        .nav-links a { white-space: nowrap; }
+        /* Phones: drop the long wordmark and the CTA, keep Photography + Back reachable */
+        @media (max-width: 720px) {
+            .nav-brand .name { display: none; }
+            .nav-cta { display: none; }
+            .nav-links { gap: 18px; }
+            .nav-right { gap: 10px; }
+        }
+        @media (max-width: 420px) { .nav-links .nav-long { display: none; } }
 
         /* ---- Hero ---- */
         .shop-hero { padding: calc(62px + var(--s7)) 0 var(--s6); }
@@ -278,11 +286,11 @@
     <nav class="nav" id="nav">
         <div class="nav-row">
             <a href="index.html" class="nav-brand" aria-label="Joshua McKenzie German – Home">
-                <span class="dot"></span> Joshua McKenzie German
+                <span class="dot"></span> <span class="name">Joshua McKenzie German</span>
             </a>
             <div class="nav-links">
                 <a href="photography/">Photography</a>
-                <a href="index.html">← Back to Site</a>
+                <a href="index.html">← Back<span class="nav-long"> to Site</span></a>
             </div>
             <div class="nav-right">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
