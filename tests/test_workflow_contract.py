@@ -17,7 +17,7 @@ class WorkflowContractTests(unittest.TestCase):
         self.assertEqual(workflow.get("permissions"), {"contents": "read"})
         self.assertEqual(
             [item["cron"] for item in triggers["schedule"]],
-            ["0 17 * * 1", "0 17 * * 5"],
+            ["13 16 * * *"],
         )
         self.assertEqual(set(jobs), {"health"})
 
