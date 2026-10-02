@@ -1,9 +1,9 @@
 {
-  "_note": "Feeds for scripts/sync-episodes.py. Give each show an 'rss' URL, an Apple Podcasts 'apple_id', or a 'spotify_show' id (the part after open.spotify.com/show/). RSS/Apple are used first; Spotify needs the SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET repository secrets. Shows with none are skipped.",
+  "_note": "Feeds for scripts/sync-episodes.py. Give each show an 'rss' URL, an Apple Podcasts 'apple_id', or a 'spotify_show' id (the part after open.spotify.com/show/). RSS/Apple are used first; Spotify needs the SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET repository secrets. Shows with none are skipped. A 'spotify_episode' id is enough: the sync looks up its show.",
   "shows": [
-    {"slug": "dominate", "name": "Dominate The Decade", "apple_id": "1517223875", "rss": null, "spotify_show": "3IiC15tFfb1rHoDm9R6Zxp"},
-    {"slug": "eclectic-polymath", "name": "The Eclectic Polymath", "apple_id": null, "rss": null, "spotify_show": "3dlagzJ0jiWLTB9mF3y069"},
-    {"slug": "curious-creative", "name": "Curious & Creative", "apple_id": null, "rss": null, "spotify_show": null},
-    {"slug": "approachable-ai", "name": "Approachable AI", "apple_id": null, "rss": null, "spotify_show": null}
+    {"slug": "dominate", "name": "Dominate The Decade", "apple_id": "1517223875", "rss": null, "spotify_show": "3IiC15tFfb1rHoDm9R6Zxp", "spotify_episode": null},
+    {"slug": "eclectic-polymath", "name": "The Eclectic Polymath", "apple_id": null, "rss": null, "spotify_show": "3dlagzJ0jiWLTB9mF3y069", "spotify_episode": null},
+    {"slug": "curious-creative", "name": "Curious & Creative", "apple_id": null, "rss": null, "spotify_show": null, "spotify_episode": "2XaKSCTZ0qJWxZm7LG1YSI"},
+    {"slug": "approachable-ai", "name": "Approachable AI", "apple_id": null, "rss": null, "spotify_show": null, "spotify_episode": null}
   ]
 }

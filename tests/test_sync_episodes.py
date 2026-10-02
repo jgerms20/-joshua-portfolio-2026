@@ -76,6 +76,12 @@ class SyncEpisodesTests(unittest.TestCase):
             with self.assertRaises(RuntimeError):
                 sync.spotify_episodes("anything")
 
+    def test_one_spotify_episode_is_enough_to_find_the_show(self):
+        with mock.patch.object(sync, "spotify_token", return_value="t"), \
+             mock.patch.object(sync, "spotify_get", return_value={"show": {"id": "SHOW123"}}) as get:
+            self.assertEqual(sync.spotify_show_for_episode("EP1"), "SHOW123")
+        self.assertIn("episodes/EP1", get.call_args[0][0])
+
     def test_every_show_in_config_has_a_slug_matching_a_podcast_page(self):
         shows = json.loads((ROOT / "data/podcast-feeds.json").read_text())["shows"]
         for show in shows:

@@ -4,7 +4,8 @@
 Runs on a schedule in GitHub Actions (.github/workflows/sync-episodes.yml),
 where the podcast hosts are reachable. Each show in data/podcast-feeds.json
 needs an "rss" URL, an Apple Podcasts "apple_id" (the feed URL is looked
-up from Apple), or a "spotify_show" id. Spotify needs SPOTIFY_CLIENT_ID and
+up from Apple), a "spotify_show" id, or just one "spotify_episode" id (its
+show is looked up). Spotify needs SPOTIFY_CLIENT_ID and
 SPOTIFY_CLIENT_SECRET in the environment (GitHub repository secrets; never
 commit them). Shows with none of these are skipped, and the podcast pages
 simply don't show a "Latest episodes" list for them.
@@ -41,8 +42,7 @@ def fetch(url: str) -> bytes:
         return response.read()
 
 
-def spotify_episodes(show_id: str) -> list[dict]:
-    """Newest episodes from the Spotify Web API (client-credentials flow)."""
+def spotify_token() -> str:
     client_id = os.environ.get("SPOTIFY_CLIENT_ID", "").strip()
     secret = os.environ.get("SPOTIFY_CLIENT_SECRET", "").strip()
     if not client_id or not secret:
@@ -54,13 +54,24 @@ def spotify_episodes(show_id: str) -> list[dict]:
         headers={**UA, "Authorization": f"Basic {auth}", "Content-Type": "application/x-www-form-urlencoded"},
     )
     with urllib.request.urlopen(token_request, timeout=30) as response:
-        token = json.loads(response.read())["access_token"]
-    request = urllib.request.Request(
-        f"https://api.spotify.com/v1/shows/{show_id}/episodes?market=US&limit={MAX_EPISODES}",
-        headers={**UA, "Authorization": f"Bearer {token}"},
-    )
+        return json.loads(response.read())["access_token"]
+
+
+def spotify_get(path: str, token: str) -> dict:
+    request = urllib.request.Request(f"https://api.spotify.com/v1/{path}", headers={**UA, "Authorization": f"Bearer {token}"})
     with urllib.request.urlopen(request, timeout=30) as response:
-        return parse_spotify(json.loads(response.read()))
+        return json.loads(response.read())
+
+
+def spotify_show_for_episode(episode_id: str) -> str:
+    """One episode link is enough: the API says which show it belongs to."""
+    return spotify_get(f"episodes/{episode_id}?market=US", spotify_token())["show"]["id"]
+
+
+def spotify_episodes(show_id: str) -> list[dict]:
+    """Newest episodes from the Spotify Web API (client-credentials flow)."""
+    token = spotify_token()
+    return parse_spotify(spotify_get(f"shows/{show_id}/episodes?market=US&limit={MAX_EPISODES}", token))
 
 
 def parse_spotify(payload: dict) -> list[dict]:
@@ -187,7 +198,10 @@ def main(argv=None) -> int:
         try:
             if slug in local:
                 feed, xml_bytes = local[slug], Path(local[slug]).read_bytes()
-            elif show.get("spotify_show") and not (show.get("rss") or show.get("apple_id")):
+            elif not (show.get("rss") or show.get("apple_id")) and (show.get("spotify_show") or show.get("spotify_episode")):
+                if not show.get("spotify_show"):
+                    show["spotify_show"] = spotify_show_for_episode(show["spotify_episode"])
+                    print(f"[info] {slug}: episode {show['spotify_episode']} belongs to show {show['spotify_show']}")
                 feed, xml_bytes = f"https://open.spotify.com/show/{show['spotify_show']}", None
             else:
                 feed = feed_url_for(show)
@@ -204,7 +218,7 @@ def main(argv=None) -> int:
         except Exception as error:  # one bad feed shouldn't stop the others
             failures += 1
             print(f"[error] {slug}: {error}", file=sys.stderr)
-    configured = [s for s in shows if s.get("rss") or s.get("apple_id") or s.get("spotify_show")]
+    configured = [s for s in shows if s.get("rss") or s.get("apple_id") or s.get("spotify_show") or s.get("spotify_episode")]
     return 1 if failures and failures == len(configured) else 0
 
 

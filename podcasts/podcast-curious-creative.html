@@ -451,6 +451,7 @@
         .host-photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--rule-soft); pointer-events: none; }
         .sp-player { margin-top: 28px; }
         .sp-player .sp-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 12px; }
+        .sp-player iframe.sp-episode { height: 232px; }
         .sp-player iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 14px; background: var(--paper-dim, rgba(0,0,0,0.04)); }
         .host-cap { margin-top: 12px; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
         .pull {
@@ -559,7 +560,7 @@
         }
         @media (max-width: 400px) {
             .kicker .by-xs { display: none; }
-            .kicker { flex-wrap: nowrap; }
+            .kicker { flex-wrap: wrap; row-gap: 6px; }
             .kicker > span { white-space: nowrap; }
             .sleeve { width: 68%; }
             .facts > div { padding: 16px 12px 18px; }
@@ -832,6 +833,8 @@
         // Spotify show id (the part after open.spotify.com/show/). Leave empty to
         // let the daily sync supply it via data/podcast-feeds.json -> spotify_show.
         var SPOTIFY_SHOW = '';
+        // Featured until the synced feed has episodes: the first episode, with Janelle.
+        var FIRST_EPISODE = '2XaKSCTZ0qJWxZm7LG1YSI';
 
         // ---- Theme toggle (shared 'jmg-theme' key with the rest of the site) ----
         var root = document.documentElement;
@@ -1025,6 +1028,30 @@
         }
         enableSpotify(SPOTIFY_SHOW);
 
+        // Before the show id is known, "Listen on Spotify" opens the first episode.
+        function linkEpisode(id) {
+            if (spotifyOn || !/^[A-Za-z0-9]{10,40}$/.test(id || '')) return;
+            document.querySelectorAll('[data-spotify-link]').forEach(function (a) {
+                a.href = 'https://open.spotify.com/episode/' + id; a.hidden = false;
+            });
+        }
+        linkEpisode(FIRST_EPISODE);
+
+        // Spotify's episode player carries its own title, art and show name.
+        function showEpisodePlayer(id) {
+            if (!/^[A-Za-z0-9]{10,40}$/.test(id || '')) return false;
+            var slot = document.getElementById('spPlayer');
+            slot.querySelector('.sp-label').textContent = 'Episode 01 · Now streaming';
+            var frame = document.createElement('iframe');
+            frame.src = 'https://open.spotify.com/embed/episode/' + id + '?utm_source=generator';
+            frame.title = 'Curious & Creative, first episode, on Spotify';
+            frame.className = 'sp-episode';
+            frame.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+            slot.appendChild(frame);
+            slot.hidden = false;
+            return true;
+        }
+
         function finish(state) {
             box.setAttribute('data-state', state);
             box.setAttribute('aria-busy', 'false');
@@ -1033,8 +1060,10 @@
         function showEmpty() {
             if (box.getAttribute('data-state') !== 'loading') return;
             // With Spotify known, its player is the episode list; skip the empty card.
-            finish(spotifyOn ? 'spotify' : 'empty');
-            if (!spotifyOn) empty.hidden = false;
+            if (spotifyOn) { finish('spotify'); return; }
+            if (showEpisodePlayer(FIRST_EPISODE)) { finish('episode'); return; }
+            finish('empty');
+            empty.hidden = false;
         }
         function render(data) {
             if (box.getAttribute('data-state') !== 'loading') return;
