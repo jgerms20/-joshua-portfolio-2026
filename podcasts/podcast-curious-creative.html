@@ -449,6 +449,9 @@
         .host-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-dim); }
         .host-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
         .host-photo::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--rule-soft); pointer-events: none; }
+        .sp-player { margin-top: 28px; }
+        .sp-player .sp-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 12px; }
+        .sp-player iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 14px; background: var(--paper-dim, rgba(0,0,0,0.04)); }
         .host-cap { margin-top: 12px; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
         .pull {
             font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.6vw, 3.1rem); line-height: 1.08;
@@ -624,7 +627,7 @@
                     </div>
 
                     <div class="hero-copy">
-                        <p class="kicker"><span class="on-air">2026 &ndash; Present</span><span><span class="by-xs">A podcast by </span>Joshua McKenzie German</span></p>
+                        <p class="kicker"><span class="on-air">2026 &ndash; Present</span><span><span class="by-xs">A podcast by </span>Joshua McKenzie German &amp; Janelle</span></p>
                         <h1 class="title" id="show-title"><span class="line">Curious</span> <em class="line">&amp; Creative</em></h1>
                         <p class="tagline">Where creative strategy meets real conversation.</p>
                         <p class="lede">A deep dive into the minds of artists, creators, and innovators. Exploring the ideas, decisions, and cultural moments that shape how we see &mdash; and sell &mdash; the world.</p>
@@ -632,6 +635,10 @@
                             <a href="#episodes" class="btn btn-ink">
                                 Latest episodes
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" class="btn btn-violet" data-spotify-link hidden>
+                                Listen on Spotify
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                             </a>
                             <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-line">
                                 Visit the show site
@@ -642,7 +649,7 @@
                 </div>
 
                 <dl class="facts">
-                    <div><dt>Host</dt><dd>Joshua McKenzie German</dd></div>
+                    <div><dt>Hosts</dt><dd>Joshua McKenzie German &amp; Janelle</dd></div>
                     <div><dt>Based in</dt><dd>Los Angeles, CA</dd></div>
                     <div><dt>On air</dt><dd>2026 &ndash; Present</dd></div>
                     <div><dt>Show site</dt><dd><a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Curious &amp; Creative</a></dd></div>
@@ -675,21 +682,25 @@
 
                     <div id="epList" hidden></div>
 
+                    <div class="sp-player" id="spPlayer" hidden>
+                        <p class="sp-label">Listen on Spotify</p>
+                    </div>
+
                     <div class="ep-empty" id="epEmpty" hidden>
                         <div class="ee-inner">
                             <div class="ee-cover">
                                 <img src="../photos/podcasts/curious-creative-logo.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async">
                             </div>
                             <div>
-                                <p class="ee-kicker">On the way</p>
-                                <h3 class="ee-title">First episodes <em>dropping soon.</em></h3>
-                                <p class="ee-text">New conversations with artists, creators, and innovators are on the way. Visit the show site, or send a note to hear the moment they land.</p>
+                                <p class="ee-kicker">Now streaming</p>
+                                <h3 class="ee-title">New conversations, <em>every drop.</em></h3>
+                                <p class="ee-text">Conversations with artists, creators, and innovators. Catch the latest on the show site, or send a note to suggest a guest.</p>
                                 <div class="ee-actions">
                                     <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-violet">
                                         Visit the show site
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                                     </a>
-                                    <a href="mailto:jgerms20@gmail.com?subject=Curious%20%26%20Creative" class="ee-mail"><span>Get notified / suggest a guest</span></a>
+                                    <a href="mailto:jgerms20@gmail.com?subject=Curious%20%26%20Creative" class="ee-mail"><span>Suggest a guest</span></a>
                                 </div>
                             </div>
                         </div>
@@ -737,7 +748,7 @@
                     <div class="host-photo">
                         <img src="../photos/self/IMG_0680.JPG" alt="Joshua McKenzie German raising a camera to his eye on a city street" width="1650" height="2200" loading="lazy" decoding="async">
                     </div>
-                    <figcaption class="host-cap">Joshua McKenzie German · Host</figcaption>
+                    <figcaption class="host-cap">Joshua McKenzie German · Co-host</figcaption>
                 </figure>
                 <div>
                     <h2 class="label" id="host-title"><span class="label-num">03</span> From the host</h2>
@@ -818,6 +829,9 @@
         var EPISODES_URL = '../data/episodes/curious-creative.json';
         var LOGO = '../photos/podcasts/curious-creative-logo.jpg';
         var MAX_EPISODES = 6;
+        // Spotify show id (the part after open.spotify.com/show/). Leave empty to
+        // let the daily sync supply it via data/podcast-feeds.json -> spotify_show.
+        var SPOTIFY_SHOW = '';
 
         // ---- Theme toggle (shared 'jmg-theme' key with the rest of the site) ----
         var root = document.documentElement;
@@ -993,6 +1007,24 @@
             return li;
         }
 
+        var spotifyOn = false;
+        function enableSpotify(id) {
+            if (spotifyOn || typeof id !== 'string' || !/^[A-Za-z0-9]{10,40}$/.test(id)) return false;
+            spotifyOn = true;
+            var url = 'https://open.spotify.com/show/' + id;
+            document.querySelectorAll('[data-spotify-link]').forEach(function (a) { a.href = url; a.hidden = false; });
+            var slot = document.getElementById('spPlayer');
+            var frame = document.createElement('iframe');
+            frame.src = 'https://open.spotify.com/embed/show/' + id + '?utm_source=generator';
+            frame.title = 'Curious & Creative on Spotify';
+            frame.loading = 'lazy';
+            frame.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+            slot.appendChild(frame);
+            slot.hidden = false;
+            return true;
+        }
+        enableSpotify(SPOTIFY_SHOW);
+
         function finish(state) {
             box.setAttribute('data-state', state);
             box.setAttribute('aria-busy', 'false');
@@ -1000,11 +1032,13 @@
         }
         function showEmpty() {
             if (box.getAttribute('data-state') !== 'loading') return;
-            finish('empty');
-            empty.hidden = false;
+            // With Spotify known, its player is the episode list; skip the empty card.
+            finish(spotifyOn ? 'spotify' : 'empty');
+            if (!spotifyOn) empty.hidden = false;
         }
         function render(data) {
             if (box.getAttribute('data-state') !== 'loading') return;
+            if (data) enableSpotify(data.spotify_show);
             var eps = (data && Array.isArray(data.episodes) ? data.episodes : [])
                 .filter(function (ep) { return ep && typeof ep.title === 'string' && ep.title.trim(); })
                 .map(function (ep) { var c = {}; for (var k in ep) c[k] = ep[k]; c.title = plain(ep.title, 160); return c; })

@@ -3,15 +3,20 @@
 
 Runs on a schedule in GitHub Actions (.github/workflows/sync-episodes.yml),
 where the podcast hosts are reachable. Each show in data/podcast-feeds.json
-needs either an "rss" URL or an Apple Podcasts "apple_id" (the feed URL is
-looked up from Apple). Shows with neither are skipped, and the podcast
-pages simply don't show a "Latest episodes" list for them.
+needs an "rss" URL, an Apple Podcasts "apple_id" (the feed URL is looked
+up from Apple), or a "spotify_show" id. Spotify needs SPOTIFY_CLIENT_ID and
+SPOTIFY_CLIENT_SECRET in the environment (GitHub repository secrets; never
+commit them). Shows with none of these are skipped, and the podcast pages
+simply don't show a "Latest episodes" list for them.
 
 Usage:
     python3 scripts/sync-episodes.py            # fetch and write
     python3 scripts/sync-episodes.py --from-file dominate=feed.xml   # offline
 """
 import argparse
+import base64
+import os
+import urllib.parse
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 import html
@@ -34,6 +39,47 @@ def fetch(url: str) -> bytes:
     request = urllib.request.Request(url, headers=UA)
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read()
+
+
+def spotify_episodes(show_id: str) -> list[dict]:
+    """Newest episodes from the Spotify Web API (client-credentials flow)."""
+    client_id = os.environ.get("SPOTIFY_CLIENT_ID", "").strip()
+    secret = os.environ.get("SPOTIFY_CLIENT_SECRET", "").strip()
+    if not client_id or not secret:
+        raise RuntimeError("SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET not set")
+    auth = base64.b64encode(f"{client_id}:{secret}".encode()).decode()
+    token_request = urllib.request.Request(
+        "https://accounts.spotify.com/api/token",
+        data=urllib.parse.urlencode({"grant_type": "client_credentials"}).encode(),
+        headers={**UA, "Authorization": f"Basic {auth}", "Content-Type": "application/x-www-form-urlencoded"},
+    )
+    with urllib.request.urlopen(token_request, timeout=30) as response:
+        token = json.loads(response.read())["access_token"]
+    request = urllib.request.Request(
+        f"https://api.spotify.com/v1/shows/{show_id}/episodes?market=US&limit={MAX_EPISODES}",
+        headers={**UA, "Authorization": f"Bearer {token}"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return parse_spotify(json.loads(response.read()))
+
+
+def parse_spotify(payload: dict) -> list[dict]:
+    episodes = []
+    for item in payload.get("items") or []:
+        if not item or not item.get("name"):
+            continue
+        images = sorted(item.get("images") or [], key=lambda i: -(i.get("width") or 0))
+        seconds = round((item.get("duration_ms") or 0) / 1000)
+        episodes.append({
+            "title": _plain(item["name"], 160),
+            "date": (item.get("release_date") or "")[:10],
+            "url": (item.get("external_urls") or {}).get("spotify", ""),
+            "description": _plain(item.get("description") or ""),
+            "image": images[0]["url"] if images else "",
+            "duration": _duration(str(seconds)) if seconds else "",
+        })
+    episodes.sort(key=lambda e: e["date"], reverse=True)
+    return episodes[:MAX_EPISODES]
 
 
 def feed_url_for(show: dict) -> str | None:
@@ -107,18 +153,20 @@ def parse_feed(xml_bytes: bytes) -> list[dict]:
     return episodes[:MAX_EPISODES]
 
 
-def write_show(slug: str, feed: str, episodes: list[dict]) -> bool:
+def write_show(slug: str, feed: str, episodes: list[dict], spotify_show: str | None = None) -> bool:
     """Write only when the episode list changed, so the Action commits nothing on quiet days."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     path = OUT_DIR / f"{slug}.json"
     if path.exists():
         previous = json.loads(path.read_text(encoding="utf-8"))
-        if previous.get("episodes") == episodes and previous.get("feed") == feed:
+        if (previous.get("episodes") == episodes and previous.get("feed") == feed
+                and previous.get("spotify_show") == spotify_show):
             return False
     payload = {
         "show": slug,
         "updated": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "feed": feed,
+        "spotify_show": spotify_show,
         "episodes": episodes,
     }
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -139,22 +187,25 @@ def main(argv=None) -> int:
         try:
             if slug in local:
                 feed, xml_bytes = local[slug], Path(local[slug]).read_bytes()
+            elif show.get("spotify_show") and not (show.get("rss") or show.get("apple_id")):
+                feed, xml_bytes = f"https://open.spotify.com/show/{show['spotify_show']}", None
             else:
                 feed = feed_url_for(show)
                 if not feed:
-                    print(f"[skip] {slug}: no rss or apple_id configured")
+                    print(f"[skip] {slug}: no rss, apple_id or spotify_show configured")
                     continue
                 xml_bytes = fetch(feed)
-            episodes = parse_feed(xml_bytes)
+            episodes = parse_feed(xml_bytes) if xml_bytes is not None else spotify_episodes(show["spotify_show"])
             if not episodes:
                 print(f"[warn] {slug}: feed had no episodes; leaving existing data alone")
                 continue
-            changed = write_show(slug, feed, episodes)
+            changed = write_show(slug, feed, episodes, show.get("spotify_show"))
             print(f"[{'updated' if changed else 'same'}] {slug}: {len(episodes)} episodes, newest {episodes[0]['date']}")
         except Exception as error:  # one bad feed shouldn't stop the others
             failures += 1
             print(f"[error] {slug}: {error}", file=sys.stderr)
-    return 1 if failures and failures == len([s for s in shows if s.get("rss") or s.get("apple_id")]) else 0
+    configured = [s for s in shows if s.get("rss") or s.get("apple_id") or s.get("spotify_show")]
+    return 1 if failures and failures == len(configured) else 0
 
 
 if __name__ == "__main__":

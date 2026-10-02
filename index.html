@@ -885,8 +885,8 @@
                 overflow: visible; scroll-snap-type: none;
                 margin-inline: 0; padding-inline: 0;
             }
-            .sites-rail .site-card { grid-column: span 2; }
-            .sites-rail .site-card.is-soon { grid-column: span 3; }
+            /* Six cards: two even rows of three */
+            .sites-rail .site-card, .sites-rail .site-card.is-soon { grid-column: span 2; }
         }
         /* Lock button, password form and "launching" label share one fixed-height slot,
            so opening a gate never changes the card height. */
@@ -1705,7 +1705,7 @@
                     <div class="pod-meta">
                         <span class="pod-tag">2026 – Present</span>
                         <h3 class="pod-title">Curious &amp; Creative</h3>
-                        <p class="pod-desc">Where creative strategy meets real conversation. Exploring the ideas, decisions, and cultural moments that shape how we see — and sell — the world.</p>
+                        <p class="pod-desc">With co-host Janelle. Where creative strategy meets real conversation: the ideas, decisions, and cultural moments that shape how we see, and sell, the world.</p>
                         <span class="pod-live"><span class="pulse"></span> Now Airing</span>
                     </div>
                 </a>
@@ -2141,14 +2141,21 @@
                     <span class="ch-num">CH. 04B</span>
                     <h2 class="ch-title">Sites I&rsquo;ve <span class="it">Built</span></h2>
                 </div>
-                <div class="ch-meta">For family &amp; small business<br>Built from scratch</div>
+                <div class="ch-meta">Shows, family &amp; small business<br>Built from scratch</div>
             </div>
-            <p class="ch-intro rv">Websites I&rsquo;ve built for family and small businesses: booking flows, menus, QR menu boards, contact pipelines. Each one written from scratch, not dropped into a template.</p>
+            <p class="ch-intro rv">Websites I&rsquo;ve built for my own shows, family, and small businesses: booking flows, menus, QR menu boards, contact pipelines. Each one written from scratch, not dropped into a template.</p>
 
             <div class="sites-wrap rv">
                 <div class="sites-rail" id="sitesRail" role="list" aria-label="Client websites">
-                    <div class="site-card" role="listitem" data-gate="milton" data-url="https://milton-german.vercel.app">
+                    <div class="site-card" role="listitem">
                         <span class="site-num">01</span>
+                        <span class="site-kicker">Podcast · Show site</span>
+                        <h3 class="site-name">Curious &amp; Creative</h3>
+                        <p class="site-desc">The home for the show Janelle and I host. Episodes, the conversations behind them, and a way to pitch a guest.</p>
+                        <a class="site-cta site-open" href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Visit the site &#8599;</a>
+                    </div>
+                    <div class="site-card" role="listitem" data-gate="milton" data-url="https://milton-german.vercel.app">
+                        <span class="site-num">02</span>
                         <span class="site-kicker">Bookkeeping · Walterboro, SC</span>
                         <h3 class="site-name">Milton German Bookkeeping</h3>
                         <p class="site-desc">My dad. Thirty years of South Carolina state government accounting, now keeping the books for small businesses.</p>
@@ -2159,7 +2166,7 @@
                         </form>
                     </div>
                     <div class="site-card" role="listitem" data-gate="daniel" data-url="https://dg-creations.vercel.app">
-                        <span class="site-num">02</span>
+                        <span class="site-num">03</span>
                         <span class="site-kicker">Private Chef · Dining</span>
                         <h3 class="site-name">DG Creations</h3>
                         <p class="site-desc">Daniel German, Johnson &amp; Wales trained. Private dining, catering, meal prep. "Every plate, a creation."</p>
@@ -2170,7 +2177,7 @@
                         </form>
                     </div>
                     <div class="site-card" role="listitem" data-gate="gma" data-url="https://janie-bells-alterations.vercel.app">
-                        <span class="site-num">03</span>
+                        <span class="site-num">04</span>
                         <span class="site-kicker">Alterations · Walterboro, SC</span>
                         <h3 class="site-name">Janie Bell's Alterations</h3>
                         <p class="site-desc">A seamstress who'd done professional-grade alterations for fifty years and charged almost nothing for it. Drop-off, mail-in, real booking flow.</p>
@@ -2181,14 +2188,14 @@
                         </form>
                     </div>
                     <div class="site-card is-soon" role="listitem">
-                        <span class="site-num">04</span>
+                        <span class="site-num">05</span>
                         <span class="site-kicker">BBQ &amp; Soul Food · Columbia, SC</span>
                         <h3 class="site-name">The Comeback Truck</h3>
                         <p class="site-desc">My brother Brig's truck. Slow-smoked ribs, pulled pork, chili cheese fries, and the Carolina mustard sauce that brings you back.</p>
                         <span class="site-cta">Launching soon</span>
                     </div>
                     <div class="site-card is-soon" role="listitem">
-                        <span class="site-num">05</span>
+                        <span class="site-num">06</span>
                         <span class="site-kicker">Percussion · Columbia, SC</span>
                         <h3 class="site-name">Nicholas German</h3>
                         <p class="site-desc">Nick — working drummer. Jazz gigs, gospel worship, weddings, corporate dates. Media reel and a booking pipeline.</p>

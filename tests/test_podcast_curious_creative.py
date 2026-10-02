@@ -36,10 +36,17 @@ class CuriousCreativePageTests(unittest.TestCase):
             canon, ["https://joshuamgerman.com/podcasts/podcast-curious-creative.html"]
         )
 
-    def test_no_placeholder_spotify_link(self):
+    def test_spotify_only_appears_once_a_real_show_id_is_known(self):
         self.assertNotIn("your-show-id", self.html)
-        self.assertNotIn("open.spotify.com", self.html)
-        self.assertNotIn("Listen on Spotify", self.html)
+        # no hardcoded show link in the markup; the button is hidden until enabled
+        self.assertNotRegex(self.html, r'href="https://open\.spotify\.com')
+        self.assertRegex(self.html, r'data-spotify-link hidden')
+        # the id comes from the page constant or the synced data (spotify_show)
+        self.assertIn("enableSpotify(data.spotify_show)", self.html)
+        self.assertIn("/^[A-Za-z0-9]{10,40}$/", self.html)
+
+    def test_names_both_hosts(self):
+        self.assertIn("Joshua McKenzie German &amp; Janelle", self.html)
 
     def test_no_internal_or_operational_copy(self):
         for pattern in (r"\bTODO\b", r"\bFIXME\b", r"\bTBD\b", r"placeholder", r"lorem ipsum"):
@@ -61,9 +68,10 @@ class CuriousCreativePageTests(unittest.TestCase):
 
     def test_empty_state_copy_and_actions(self):
         self.assertIn('id="epEmpty"', self.html)
-        self.assertIn("First episodes <em>dropping soon.</em>", self.html)
+        self.assertIn("New conversations, <em>every drop.</em>", self.html)
+        self.assertNotIn("dropping soon", self.html)
         self.assertIn("Visit the show site", self.html)
-        self.assertIn("Get notified / suggest a guest", self.html)
+        self.assertIn("Suggest a guest", self.html)
         self.assertIn('href="mailto:jgerms20@gmail.com', self.html)
         self.assertIn(f'href="{SHOW_SITE}"', self.html)
 

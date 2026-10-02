@@ -57,6 +57,25 @@ class SyncEpisodesTests(unittest.TestCase):
         self.assertEqual(data["show"], "sample")
         self.assertEqual(len(data["episodes"]), 2)
 
+    def test_parses_spotify_api_episodes(self):
+        payload = {"items": [
+            None,
+            {"name": "Pilot", "release_date": "2026-09-20", "duration_ms": 2_700_000,
+             "description": "First <b>one</b>", "external_urls": {"spotify": "https://open.spotify.com/episode/abc"},
+             "images": [{"url": "https://i.scdn.co/small", "width": 64}, {"url": "https://i.scdn.co/big", "width": 640}]},
+        ]}
+        [episode] = sync.parse_spotify(payload)
+        self.assertEqual(episode["title"], "Pilot")
+        self.assertEqual(episode["url"], "https://open.spotify.com/episode/abc")
+        self.assertEqual(episode["image"], "https://i.scdn.co/big")
+        self.assertEqual(episode["duration"], "45 min")
+        self.assertEqual(episode["description"], "First one")
+
+    def test_spotify_needs_credentials_from_the_environment(self):
+        with mock.patch.dict("os.environ", {"SPOTIFY_CLIENT_ID": "", "SPOTIFY_CLIENT_SECRET": ""}):
+            with self.assertRaises(RuntimeError):
+                sync.spotify_episodes("anything")
+
     def test_every_show_in_config_has_a_slug_matching_a_podcast_page(self):
         shows = json.loads((ROOT / "data/podcast-feeds.json").read_text())["shows"]
         for show in shows:
