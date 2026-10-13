@@ -14,7 +14,7 @@ const { chromium } = require('playwright');
 
 const BASE = process.env.SMOKE_BASE || 'http://localhost:8765/';
 const PAGES = [
-  'index.html', 'photography/', 'shop.html',
+  'index.html', 'photography/', 'network/', 'shop.html',
   'podcasts/podcast-eclectic-polymath.html', 'podcasts/podcast-dominate.html',
   'podcasts/podcast-approachable-ai.html', 'podcasts/podcast-curious-creative.html',
   'work/work-gatorade.html', 'work/work-levis.html', 'work/work-sephora.html',

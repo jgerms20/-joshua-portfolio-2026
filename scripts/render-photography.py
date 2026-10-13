@@ -7,7 +7,8 @@
     python3 scripts/render-photography.py --qr         # also rebuild the business-card QR codes
                                                        # (combine with --page-only to leave index.html alone)
 
-data/photography.json is the single source of truth for both outputs.
+data/photography.json (photographs) and data/photo-sets.json (place/theme sets)
+are the source of truth for both outputs.
 """
 import argparse
 from pathlib import Path
@@ -20,7 +21,9 @@ if str(ROOT) not in sys.path:
 
 from portfolio_quality.photography import (  # noqa: E402
     PHOTO_SITE_CARD_URL,
+    SETS_FILE,
     apply_photo_site,
+    load_photo_sets,
     load_photo_site_settings,
     load_photography_manifest,
     missing_sized_images,
@@ -93,16 +96,17 @@ def main(argv: list[str] | None = None) -> int:
 
     manifest = load_photography_manifest(MANIFEST)
     settings = load_photo_site_settings(MANIFEST)
+    sets = load_photo_sets(ROOT / SETS_FILE)
     stale = False
 
     if not args.page_only:
         original = HOMEPAGE.read_text(encoding="utf-8")
-        updated = replace_darkroom(original, render_darkroom(manifest))
+        updated = replace_darkroom(original, render_darkroom(manifest, sets))
         stale |= _write_if_changed(HOMEPAGE, original, updated, f"index.html Darkroom ({len(manifest)} photographs)", args.check)
 
     shell = PHOTO_SITE.read_text(encoding="utf-8")
     page = apply_photo_site(
-        shell, render_photo_site(manifest, root=ROOT, clients=settings["clients"], shoots=settings["shoots"])
+        shell, render_photo_site(manifest, root=ROOT, sets=sets, shoots=settings["shoots"])
     )
     stale |= _write_if_changed(PHOTO_SITE, shell, page, f"photography/index.html ({len(manifest)} photographs)", args.check)
 

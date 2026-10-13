@@ -1101,6 +1101,21 @@
         .photo-enhanced .archive-body:not(.is-open) { display: none; }
         .sequence-more { display: grid; gap: inherit; }
         .archive-body.is-open { margin-top: clamp(24px, 3vw, 40px); }
+        /* The Network band (Curious & Creative) */
+        .net-band { padding: clamp(72px, 9vw, 128px) 0; border-top: 1px solid var(--rule); background: linear-gradient(180deg, rgba(55,179,74,0.07), transparent 70%); }
+        .net-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+        .net-kicker { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1F7A2E; }
+        :root[data-theme="dark"] .net-kicker { color: #6FD57E; }
+        .net-dot { width: 8px; height: 8px; border-radius: 50%; background: #37B34A; box-shadow: 0 0 0 4px rgba(55,179,74,0.18); }
+        .net-title { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 7.4vw, 6.4rem); line-height: 0.92; letter-spacing: -0.03em; margin: 18px 0 22px; }
+        .net-title .it { font-style: italic; color: #37B34A; }
+        .net-lede { font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.6; color: var(--ink-soft); max-width: 520px; }
+        .net-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .net-stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; position: relative; }
+        .net-stack img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--paper-dim); box-shadow: 0 18px 40px -26px rgba(23,21,18,0.55); transition: transform .5s var(--exp); }
+        @media (hover: hover) { .net-stack:hover img { transform: translateY(-4px); } .net-stack:hover img:nth-child(even) { transform: translateY(4px); } }
+        .net-stack-cap { grid-column: 1 / -1; margin-top: 8px; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
+        @media (max-width: 860px) { .net-grid { grid-template-columns: 1fr; } }
         /* Homepage photography: one justified grid, every frame at its own ratio */
         .gallery-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; margin-bottom: clamp(20px, 3vw, 32px); }
         .gallery-bar .photo-chapters { margin: 0; }
@@ -1403,6 +1418,7 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#podcasts">Podcasts</a>
+                <a href="#network">Network</a>
                 <a href="#photography">Photography</a>
                 <a href="#ai">AI</a>
                 <a href="#work">Brand Work</a>
@@ -1423,6 +1439,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about"><span class="idx">01</span> About</a>
         <a href="#podcasts"><span class="idx">02</span> Podcasts</a>
+        <a href="#network"><span class="idx" aria-hidden="true">&rarr;</span> Network</a>
         <a href="#photography"><span class="idx">03</span> Photography</a>
         <a href="#ai"><span class="idx">04</span> AI</a>
         <a href="#work"><span class="idx">05</span> Brand Work</a>
@@ -1725,6 +1742,32 @@
         </div>
     </section>
 
+    <!-- =====================================================
+         THE NETWORK: Curious & Creative (feature band, links to /network/)
+         ===================================================== -->
+    <section id="network" class="net-band" aria-labelledby="network-title">
+        <div class="wrap net-grid">
+            <div class="net-copy rv">
+                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> The Network</p>
+                <h2 class="net-title" id="network-title">Curious <span class="it">&amp;</span> Creative</h2>
+                <p class="net-lede">The network Janel Moore and I run. Seven shows, a studio for brands and founders, and the things we&rsquo;re inventing.</p>
+                <div class="net-ctas">
+                    <a href="network/" class="btn btn-ink">Explore the network <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=project" class="btn btn-line" target="_blank" rel="noopener">Work with the studio &#8599;</a>
+                </div>
+            </div>
+            <a href="network/" class="net-stack rv rv-d1" aria-label="See all seven shows in the Curious &amp; Creative Network">
+                <img loading="lazy" decoding="async" src="photos/podcasts/curious-creative-logo.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/polymath.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/brazil.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="photos/podcasts/approachable-ai-logo.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/tmtt.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/abolitionist.jpg" alt="" width="400" height="400">
+                <span class="net-stack-cap">7 shows &middot; Studio &middot; Inventions</span>
+            </a>
+        </div>
+    </section>
+
     <!-- Breaker: darkroom (ink) -->
     <div class="brk brk-ink" aria-hidden="true">
         <div class="brk-track">
@@ -1778,6 +1821,7 @@
                     <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
                 </div>
                 <div class="gallery-links"><a class="gallery-link gallery-link--book" href="photography/#book">Book a shoot&nbsp;&rarr;</a><a class="gallery-link" href="photography/">Full photography site&nbsp;&rarr;</a></div>
+                <nav class="gallery-links gallery-sets" aria-label="Photo sets" style="flex-basis:100%"><span class="gallery-link" style="border-bottom-color:transparent;color:var(--paper-on-dark-soft)">Sets</span><a class="gallery-link" href="photography/#set-rio-de-janeiro">Rio de Janeiro&nbsp;&rarr;</a></nav>
             </div>
             <div class="photo-grid rv" id="photoGallery">
                 <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Black-and-white portrait of a father holding a baby outdoors."><img loading="eager" decoding="async" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors." width="2048" height="1365"></figure>

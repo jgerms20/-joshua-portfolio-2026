@@ -1,19 +1,28 @@
 # Photography inbox
 
-Drop new `.jpg`, `.jpeg`, `.png`, or `.webp` photographs in this folder, then run:
+## Add a set (a place or a theme: Rio, North Carolina, Oregon...)
 
-```bash
-python3 scripts/import-photography.py
-```
+1. Make a folder named for the set, lowercase with hyphens, and drop the photos in it:
+   `photos/inbox/north-carolina/`
+2. Run `python3 scripts/import-photography.py`.
+   Each photo becomes a WebP in `photos/northcarolina/` and an unpublished draft in
+   `data/photography.json` with `"set": "north-carolina"`. If the set is new, it is added to
+   `data/photo-sets.json` with the title "North Carolina".
+3. In `data/photography.json`, for each new draft: write the `alt` text, check `chapter`
+   (`places`, `people` or `gatherings`; it starts as `places`), and set `published` to `true`.
+4. Optional, in `data/photo-sets.json`: fix the `title`, add `place` ("USA"), `year`, a one-line
+   `blurb`, and `cover` (a photo id). The list order is the order on the site.
+5. Run `python3 scripts/render-photography.py` and the tests.
 
-The importer creates a metadata-stripped WebP in `photos/library/` and adds an unpublished draft to `data/photography.json`. It never publishes a photograph automatically.
+The set shows up on /photography/ (link: `/photography/#set-north-carolina`) and as a link
+on the homepage gallery once it has at least one published photo. An empty set never shows.
 
-Before publishing a draft:
+To put an existing photo in a set, add `"set": "<slug>"` to its entry in `data/photography.json`.
 
-1. Write specific alt text.
-2. Set `chapter` to `people`, `places`, or `gatherings`.
-3. Leave `sequence` as `null` for the archive, or assign a deliberate sequence position and layout.
-4. Set `published` to `true`.
-5. Run `python3 scripts/render-photography.py` and the test suite.
+## Single photos (no set)
 
-The original inbox file is retained so nothing is discarded implicitly.
+Drop files straight into `photos/inbox/` and run the same importer. They land in
+`photos/library/` as unassigned drafts: write alt text, pick a `chapter`, set `published` to
+`true`, and render. Leave `sequence` as `null` unless you want the frame in the homepage edit.
+
+Nothing is ever published automatically, and the original inbox files are kept.

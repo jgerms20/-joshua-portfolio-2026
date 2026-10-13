@@ -64,6 +64,7 @@ class HomepageStructureTests(unittest.TestCase):
                 "hero",
                 "about",
                 "podcasts",
+                "network",
                 "photography",
                 "ai",
                 "work",
@@ -80,6 +81,7 @@ class HomepageStructureTests(unittest.TestCase):
             [
                 ("#about", "About"),
                 ("#podcasts", "Podcasts"),
+                ("#network", "Network"),
                 ("#photography", "Photography"),
                 ("#ai", "AI"),
                 ("#work", "Brand Work"),
@@ -92,18 +94,17 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
             [
-                "#about", "#podcasts", "#photography", "#ai", "#work", "#projects",
+                "#about", "#podcasts", "#network", "#photography", "#ai", "#work", "#projects",
                 "shop.html", "#contact", "photography/#book",
             ],
         )
         # Chapter links carry the same numbers as the chapter heads (CH. 01-06);
         # Shop and Contact are not chapters, so they must not borrow CH. 07/08.
-        self.assertEqual(
-            [label.split(" ", 1)[0] for _, label in self.page.mobile_links[:6]],
-            ["01", "02", "03", "04", "05", "06"],
-        )
-        for _, label in self.page.mobile_links[6:]:
-            self.assertFalse(label[:2].isdigit(), label)
+        numbered = [label.split(" ", 1)[0] for _, label in self.page.mobile_links if label[:2].isdigit()]
+        self.assertEqual(numbered, ["01", "02", "03", "04", "05", "06"])
+        # the Network band is a feature, not a numbered chapter
+        network = dict(self.page.mobile_links)["#network"]
+        self.assertFalse(network[:2].isdigit(), network)
         self.assertTrue(self.page.mobile_links[-1][1].startswith("Book a shoot"))
 
     def test_collection_and_interviews_are_one_compact_band_after_media_diet(self):
@@ -114,6 +115,13 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn('href="shop.html"', band)
         self.assertIn('href="mailto:', band)
         self.assertNotIn("veil", PAGE)
+
+    def test_network_band_follows_podcasts_and_links_to_the_hub(self):
+        band = PAGE[PAGE.index('<section id="network"'):]
+        band = band[: band.index("</section>")]
+        self.assertIn('href="network/"', band)
+        self.assertIn("Janel Moore", band)
+        self.assertIn("jgerms20.github.io/curious-and-creative", band)
 
     def test_eclectic_polymath_cover_can_load(self):
         cover = self.page.ep_cover

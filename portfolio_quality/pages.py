@@ -3,6 +3,7 @@ from pathlib import Path
 
 PRODUCTION_GLOBS = (
     "index.html",
+    "network/index.html",
     "media/media-*.html",
     "podcasts/podcast-*.html",
     "work/work-*.html",
