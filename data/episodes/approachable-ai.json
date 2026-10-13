@@ -1,0 +1,56 @@
+{
+  "show": "approachable-ai",
+  "updated": "2026-10-13T19:22:06Z",
+  "feed": "https://jgerms20.github.io/curious-and-creative/",
+  "spotify_show": null,
+  "episodes": [
+    {
+      "title": "#006 Trying to Run My Life With Meta's Muse AI Agent",
+      "date": "2026-10-09",
+      "url": "https://www.youtube.com/watch?v=MZHfbT_1v1c",
+      "description": "AI agents have been talked about as the future for a while now. But what happens when you actually give one access to your apps, your calendar, and the projects you're working on? In Episode 6 of Approachable AI, Joshua returns to explore…",
+      "image": "https://i.ytimg.com/vi/MZHfbT_1v1c/hqdefault.jpg",
+      "duration": ""
+    },
+    {
+      "title": "#005 How I Built \"The Eclectic Polymath Podcast\"",
+      "date": "2026-07-21",
+      "url": "https://www.youtube.com/watch?v=WTV1Wh3ltCI",
+      "description": "Welcome back to Approachable AI, where I explore practical ways to use AI, test new tools, build real projects, and make emerging technology easier to understand. In this episode, I’m taking you behind the scenes of how I built \"The…",
+      "image": "https://i.ytimg.com/vi/WTV1Wh3ltCI/hqdefault.jpg",
+      "duration": ""
+    },
+    {
+      "title": "Episode #004: Vibe Coding My 2026 AI Resolution Challenge",
+      "date": "2026-01-29",
+      "url": "https://www.youtube.com/watch?v=dQuwJuegV5A",
+      "description": "Welcome to 2026! I'm back with a raw, unfiltered look at building AI-powered apps in real-time. In this episode, I'm kicking off a 10-week AI resolution challenge inspired by the AI Daily Brief podcast. Watch me build a complete…",
+      "image": "https://i.ytimg.com/vi/dQuwJuegV5A/hqdefault.jpg",
+      "duration": ""
+    },
+    {
+      "title": "Episode #003: Building An AI Bias Radar By Training It To Read Between the Lines",
+      "date": "2025-12-09",
+      "url": "https://www.youtube.com/watch?v=fodaQYQTrpg",
+      "description": "In this episode of Approachable AI, Joshua brings you into a live build session of what we're calling \"Veritas\", a bias rating app for news, podcasts, and other media. Drawing on his journalism background, he breaks down why “unbiased”…",
+      "image": "https://i.ytimg.com/vi/fodaQYQTrpg/hqdefault.jpg",
+      "duration": ""
+    },
+    {
+      "title": "Episode #002: Live Vibe Coding: Mastering Tools And Building Your Own",
+      "date": "2025-11-29",
+      "url": "https://www.youtube.com/watch?v=rD52xDVvjNQ",
+      "description": "Welcome back to Approachable AI, your shortcut to understanding artificial intelligence in plain English. We explore what’s happening, why it matters, and how you can use AI so that it feels less like the future and more like a part of…",
+      "image": "https://i.ytimg.com/vi/rD52xDVvjNQ/hqdefault.jpg",
+      "duration": ""
+    },
+    {
+      "title": "Episode #001: Trying, Failing, And Trying Again With ChatGPT Atlas, Google Gemini & Google AI Studio",
+      "date": "2025-11-19",
+      "url": "https://www.youtube.com/watch?v=z6j0RwKSllQ",
+      "description": "Welcome to the premiere of Approachable AI, your shortcut to understanding artificial intelligence in plain English. We explore what’s happening, why it matters, and how you can use it so that AI feels less like the future and more like a…",
+      "image": "https://i.ytimg.com/vi/z6j0RwKSllQ/hqdefault.jpg",
+      "duration": ""
+    }
+  ]
+}

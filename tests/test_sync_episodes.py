@@ -82,6 +82,41 @@ class SyncEpisodesTests(unittest.TestCase):
             self.assertEqual(sync.spotify_show_for_episode("EP1"), "SHOW123")
         self.assertIn("episodes/EP1", get.call_args[0][0])
 
+    def test_reads_episodes_from_the_network_site(self):
+        content = {
+            "shows": [{"key": "approachable", "short": "Approachable AI", "art": "assets/art/approachable.jpg"}],
+            "episodes": [
+                {"show": "approachable", "title": "#006 New one", "date": "2026-10-09T18:37:06Z",
+                 "url": "https://www.youtube.com/watch?v=abc", "duration": 600, "image": None},
+                {"show": "other", "title": "Not ours", "date": "2026-10-10T00:00:00Z", "url": "https://x"},
+            ],
+        }
+        [episode] = sync.network_episodes(content, "approachable")
+        self.assertEqual(episode["title"], "#006 New one")
+        self.assertEqual(episode["date"], "2026-10-09")
+        self.assertEqual(episode["duration"], "10 min")
+        self.assertEqual(episode["image"], sync.NETWORK_SITE + "assets/art/approachable.jpg")
+
+    def test_parses_youtube_channel_feed(self):
+        feed = b"""<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/">
+          <entry><yt:videoId>vid1</yt:videoId><title>Episode A</title><published>2026-10-09T18:37:06+00:00</published>
+          <media:group><media:description>About A</media:description></media:group></entry></feed>"""
+        [episode] = sync.parse_youtube(feed)
+        self.assertEqual(episode["url"], "https://www.youtube.com/watch?v=vid1")
+        self.assertEqual(episode["date"], "2026-10-09")
+        self.assertEqual(episode["description"], "About A")
+
+    def test_merging_keeps_older_episodes_the_source_dropped(self):
+        old = {"episodes": [{"title": "#001", "date": "2026-07-01", "url": "https://o/1"}]}
+        with mock.patch.object(sync, "OUT_DIR", Path(self.tmp.name)):
+            (Path(self.tmp.name) / "show.json").write_text(json.dumps(old))
+            merged = sync.merge_with_existing("show", [{"title": "#002", "date": "2026-07-22", "url": "https://o/2"}])
+        self.assertEqual([e["title"] for e in merged], ["#002", "#001"])
+
+    def test_every_show_maps_to_the_network(self):
+        shows = json.loads((ROOT / "data/podcast-feeds.json").read_text())["shows"]
+        self.assertTrue(all(s.get("network_key") for s in shows))
+
     def test_every_show_in_config_has_a_slug_matching_a_podcast_page(self):
         shows = json.loads((ROOT / "data/podcast-feeds.json").read_text())["shows"]
         for show in shows:

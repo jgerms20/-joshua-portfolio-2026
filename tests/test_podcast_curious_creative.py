@@ -46,7 +46,8 @@ class CuriousCreativePageTests(unittest.TestCase):
         self.assertIn("/^[A-Za-z0-9]{10,40}$/", self.html)
 
     def test_names_both_hosts(self):
-        self.assertIn("Joshua McKenzie German &amp; Janelle", self.html)
+        self.assertIn("Joshua McKenzie German &amp; Janel Moore", self.html)
+        self.assertNotIn("Janelle", self.html)
 
     def test_no_internal_or_operational_copy(self):
         for pattern in (r"\bTODO\b", r"\bFIXME\b", r"\bTBD\b", r"placeholder", r"lorem ipsum"):

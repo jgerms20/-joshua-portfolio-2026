@@ -1,12 +1,14 @@
 name: Sync podcast episodes
 
 # Pulls the newest episodes for each show (data/podcast-feeds.json) into
-# data/episodes/<show>.json, which the podcast pages read. Commits only when
+# data/episodes/<show>.json, and the network snapshot into data/network.json,
+# which the podcast pages and /network/ read. Commits only when
 # something changed, then starts a deploy so the new episodes go live.
 on:
   schedule:
-    # Every day at 7:07am Pacific (14:07 UTC)
-    - cron: "7 14 * * *"
+    # Every 6 hours, 30 minutes after the Curious & Creative network site
+    # refreshes its own show data (it runs at :23 past every 6th hour).
+    - cron: "53 */6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -38,10 +40,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -n "$(git status --porcelain data/episodes)" ]; then
+          if [ -n "$(git status --porcelain data/episodes data/network.json)" ]; then
             git config user.name "episode-sync"
             git config user.email "actions@users.noreply.github.com"
-            git add data/episodes
+            git add data/episodes data/network.json
             git commit -m "Sync latest podcast episodes"
             git push
             gh workflow run deploy.yml --ref main

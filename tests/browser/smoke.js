@@ -6,8 +6,10 @@
 //   node tests/browser/smoke.js
 //
 // Fails (exit 1) on page errors, broken local requests, sideways scrolling,
-// or a broken interaction. External hosts (YouTube, Spotify, fonts) are
-// ignored: they can be down without the site being broken.
+// or a broken interaction. Requests to other hosts (YouTube, Spotify, fonts,
+// the network site) are blocked so the test is deterministic: it checks that
+// this site works and its fallbacks hold. External media health is probed
+// separately by scripts/check-site.py --live.
 const { chromium } = require('playwright');
 
 const BASE = process.env.SMOKE_BASE || 'http://localhost:8765/';
@@ -26,6 +28,7 @@ const fail = (where, what) => failures.push(`${where}: ${what}`);
 async function checkPage(browser, path, [w, h]) {
   const where = `${path} @${w}`;
   const page = await browser.newPage({ viewport: { width: w, height: h } });
+  await page.route(url => !url.href.startsWith(BASE), route => route.abort());
   page.on('pageerror', e => fail(where, `page error: ${e.message}`));
   page.on('response', r => {
     // data/episodes/*.json is optional: it only exists once a show's feed is configured
@@ -97,6 +100,8 @@ async function interactions(browser) {
   await browser.close();
   if (failures.length) {
     console.error(`Smoke test found ${failures.length} problem(s):\n- ` + failures.join('\n- '));
+    // GitHub annotations: readable from the run page and the checks API
+    if (process.env.GITHUB_ACTIONS) failures.slice(0, 40).forEach(f => console.log(`::error title=Smoke test::${f.replace(/\n/g, ' ')}`));
     process.exit(1);
   }
   console.log(`Smoke test passed: ${PAGES.length} pages x ${SIZES.length} sizes, plus gallery, photo site and shop interactions.`);

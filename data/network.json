@@ -1,0 +1,231 @@
+{
+  "source": "https://jgerms20.github.io/curious-and-creative/",
+  "generated_at": "2026-10-13T14:21:26Z",
+  "shows": [
+    {
+      "key": "ccpod",
+      "name": "The Curious & Creative Podcast",
+      "short": "Curious & Creative",
+      "kind": "podcast",
+      "flagship": true,
+      "hosts": [
+        "Joshua German",
+        "Janel Moore"
+      ],
+      "tagline": "Where creative strategy meets real conversation.",
+      "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
+      "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
+      "art": "https://joshuamgerman.com/photos/podcasts/curious-creative-logo.jpg",
+      "latest": "2026-07-22",
+      "count": 1
+    },
+    {
+      "key": "brazil",
+      "name": "God Is Brazilian",
+      "short": "God Is Brazilian",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "A podcast by Joshua German.",
+      "about": "",
+      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "latest": "2026-10-13",
+      "count": 9
+    },
+    {
+      "key": "polymath",
+      "name": "The Eclectic Polymath",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-10-11",
+      "count": 204
+    },
+    {
+      "key": "approachable",
+      "name": "Approachable AI",
+      "short": "Approachable AI",
+      "kind": "youtube",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Demystifying AI, one episode at a time.",
+      "about": "No jargon, just what's actually happening and why it matters. Real tools, real builds, and the mistakes along the way.",
+      "url": "https://www.youtube.com/@Approachable.A.I",
+      "art": "https://yt3.googleusercontent.com/-P8idUJBD9irEwIyaZUXol4P_40QvlnJEeEYDJhQ8HcW3P6kIytF7gjmUDrumNABB8ULeCijSQ=s900-c-k-c0x00ffffff-no-rj",
+      "latest": "2026-10-09",
+      "count": 6
+    },
+    {
+      "key": "tmtt",
+      "name": "Too Much to Tweet",
+      "short": "Too Much to Tweet",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Janel Moore"
+      ],
+      "tagline": "The takes too big for a caption.",
+      "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
+      "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "latest": "2026-07-25",
+      "count": 1
+    },
+    {
+      "key": "abolitionist",
+      "name": "Aspiring Abolitionist",
+      "short": "Aspiring Abolitionist",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Janel Moore"
+      ],
+      "tagline": "Politics, policy, and culture from an abolitionist lens.",
+      "about": "The political, social, and cultural moments shaping our world — from HUD policy to the 2025 Inauguration.",
+      "url": "https://open.spotify.com/show/7natfWFnBgakjLLZcEDZaw",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/6760199/6760199-1737450635481-ed92e7f5a89ad.jpg",
+      "latest": "2025-01-21",
+      "count": 13
+    },
+    {
+      "key": "dominate",
+      "name": "Dominate the Decade",
+      "short": "Dominate the Decade",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German",
+        "Adarius Simpkins",
+        "Matthew Anderson"
+      ],
+      "tagline": "Growth, culture, and building a meaningful decade.",
+      "about": "Three young Black men navigating their own paths to success — crypto, politics, sports, music, movies, and everything in between. The full 2020–2023 run, including Janel's guest episode.",
+      "url": "https://open.spotify.com/show/3IiC15tFfb1rHoDm9R6Zxp",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/5983104/5983104-1590975610877-89f0b71432133.jpg",
+      "latest": "2023-03-20",
+      "count": 23
+    }
+  ],
+  "latest": [
+    {
+      "show": "brazil",
+      "show_name": "God Is Brazilian",
+      "kind": "episode",
+      "title": "#17 Por Que São Paulo Parece Mais Branca? Raça, Imigração e a Geografia do Brasil (Português)",
+      "date": "2026-10-13",
+      "url": "https://open.spotify.com/episode/3QvNoGZqpr58FDBARvnvXN",
+      "image": ""
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#204 Symbiopsychotaxiplasm: The Film That Watched Itself",
+      "date": "2026-10-11",
+      "url": "https://open.spotify.com/episode/4nA94cJH4rcO2NqHHBJKYD",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715609055-e657199a56807.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#203 Local Natives and the Last Indie Band of the 2000s",
+      "date": "2026-10-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/203-Local-Natives-and-the-Last-Indie-Band-of-the-2000s-e3qavbt",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791716143226-f473f66d25a3e.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#202 The Polygraph: The Machine That Never Detected a Lie",
+      "date": "2026-10-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/202-The-Polygraph-The-Machine-That-Never-Detected-a-Lie-e3qav74",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715827357-80cd9f986e23a.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#201 Smoke Shops & Dispensaries: How Cannabis Got Its Storefront",
+      "date": "2026-10-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/201-Smoke-Shops--Dispensaries-How-Cannabis-Got-Its-Storefront-e3qavfk",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791717857710-2374608fd9765.jpg"
+    },
+    {
+      "show": "approachable",
+      "show_name": "Approachable AI",
+      "kind": "video",
+      "title": "#006 Trying to Run My Life With Meta's Muse AI Agent",
+      "date": "2026-10-09",
+      "url": "https://www.youtube.com/watch?v=MZHfbT_1v1c",
+      "image": "https://i.ytimg.com/vi/MZHfbT_1v1c/hqdefault.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#199 The Chakras: Blocked and Unblocked",
+      "date": "2026-10-08",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/199-The-Chakras-Blocked-and-Unblocked-e3q5pke",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791471617960-5cae4e49cd83e.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#198 Seinfeld: Who Was Really the Brains?",
+      "date": "2026-10-08",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/198-Seinfeld-Who-Was-Really-the-Brains-e3q4jhk",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791433907733-152212abec044.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#197 Spirit Halloween: The Business of the Pop-Up",
+      "date": "2026-10-08",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/197-Spirit-Halloween-The-Business-of-the-Pop-Up-e3q450h",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791418345231-556db3e20d415.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#196 Charlie Sheen: The Truth Behind \"Winning\"",
+      "date": "2026-10-07",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/196-Charlie-Sheen-The-Truth-Behind-Winning-e3q2aiv",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791412870756-63ce9deacd3bf.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#195 Ari Emanuel: The Agent Who Ate Hollywood",
+      "date": "2026-10-07",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/195-Ari-Emanuel-The-Agent-Who-Ate-Hollywood-e3q1vqk",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791343119109-d32a5bdcbf974.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#194 Obama's Shadow Wars: Drones, Raids, and the Power Vacuums They Left Behind",
+      "date": "2026-10-06",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/194-Obamas-Shadow-Wars-Drones--Raids--and-the-Power-Vacuums-They-Left-Behind-e3q0q9r",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791311213536-e2f6051966f66.jpg"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "podcasts/podcast-approachable-ai.html"
 
-VIDEO_IDS = ("WTV1Wh3ltCI", "dQuwJuegV5A", "fodaQYQTrpg", "rD52xDVvjNQ", "z6j0RwKSllQ")
+VIDEO_IDS = ("MZHfbT_1v1c", "WTV1Wh3ltCI", "dQuwJuegV5A", "fodaQYQTrpg", "rD52xDVvjNQ", "z6j0RwKSllQ")
 
 
 class ApproachableAiPageTests(unittest.TestCase):
@@ -62,8 +62,11 @@ class ApproachableAiPageTests(unittest.TestCase):
 
     def test_latest_episodes_hook_reads_feed_safely(self):
         self.assertIn("fetch('../data/episodes/approachable-ai.json'", self.page)
-        self.assertIn('id="fresh" hidden', self.page)
-        self.assertIn(".slice(0, 6)", self.page)
+        # newest synced episode becomes the feature, the rest fill the grid
+        self.assertIn("box.textContent = ''", self.page)
+        self.assertIn("ep ep-feature", self.page)
+        # the built-in fallback already includes the latest known episode
+        self.assertIn('data-yt="MZHfbT_1v1c"', self.page)
         script = self.page.split('src="../assets/media.js"></script>', 1)[1]
         # Feed data is only ever written with textContent.
         self.assertNotIn("innerHTML", script)
