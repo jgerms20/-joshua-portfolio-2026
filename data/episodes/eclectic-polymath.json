@@ -1,9 +1,41 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-14T05:31:18Z",
+  "updated": "2026-10-14T21:58:04Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#208 New Hollywood: The Decade the Directors Took Over",
+      "date": "2026-10-14",
+      "url": "https://open.spotify.com/episode/6tw2rIa4hHBFi6r2CnFUK9",
+      "description": "In 1967, American movies changed their mind about everything. The studio system that had run Hollywood for forty years collapsed — and for one strange decade, the keys went to film-school kids, method actors who looked like people you…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792002419317-d2864ec3bcbf5.jpg",
+      "duration": "1 hr 10 min"
+    },
+    {
+      "title": "#207 Iran-Contra: The Scandal That Pardoned Itself",
+      "date": "2026-10-14",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/207-Iran-Contra-The-Scandal-That-Pardoned-Itself-e3qgpoj",
+      "description": "In October 1986, a cargo plane carrying weapons was shot down over Nicaragua, and the sole survivor started talking. Within two months, the Reagan White House was admitting to one of the strangest schemes in American history: selling…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792000883429-b54311bb3d83b.jpg",
+      "duration": "1 hr 17 min"
+    },
+    {
+      "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
+      "date": "2026-10-13",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/206-The-Ten-Percent-CAA--WME--and-the-Invention-of-the-Agent-e3qfe9g",
+      "description": "Behind almost every famous name in entertainment stands someone you've never heard of — and they take ten percent of everything. The agent might be the most powerful job in Hollywood that nobody outside it understands, and it wasn't…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791931920773-e05a2092b9dca.jpg",
+      "duration": "53 min"
+    },
+    {
+      "title": "#205 1920s Harlem: How to Spot a Renaissance",
+      "date": "2026-10-13",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/205-1920s-Harlem-How-to-Spot-a-Renaissance-e3qgobb",
+      "description": "In the 1920s, a few square miles of Manhattan became the capital of Black culture — and for a moment, the center of American art itself. Hughes, Hurston, Ellington, Aaron Douglas: an entire generation arrived at once, in one neighborhood.…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791999111070-bb5b12c510722.jpg",
+      "duration": "1 hr 9 min"
+    },
     {
       "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
       "date": "2026-10-13",
@@ -67,38 +99,6 @@
       "description": "Everyone says Larry David was the real brains behind Seinfeld — but what actually went down? This is the full rundown: two stand-up comics, one fateful 1988 meeting with NBC's Rick Ludwin, and a pilot that tested so badly the network…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791433907733-152212abec044.jpg",
       "duration": "36 min"
-    },
-    {
-      "title": "#197 Spirit Halloween: The Business of the Pop-Up",
-      "date": "2026-10-08",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/197-Spirit-Halloween-The-Business-of-the-Pop-Up-e3q450h",
-      "description": "Every fall, Spirit Halloween appears out of nowhere — 1,500 stores in dead malls and empty big boxes across America — and then vanishes by mid-November. How does a store that exists for 60 days make money? This is the full anatomy of the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791418345231-556db3e20d415.jpg",
-      "duration": "48 min"
-    },
-    {
-      "title": "#196 Charlie Sheen: The Truth Behind \"Winning\"",
-      "date": "2026-10-07",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/196-Charlie-Sheen-The-Truth-Behind-Winning-e3q2aiv",
-      "description": "In 2011, Charlie Sheen — the highest-paid actor on television — went on live TV and declared he had \"tiger blood\" and \"Adonis DNA,\" that he was \"winning.\" America laughed, then watched it curdle in real time. But what was actually going…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791412870756-63ce9deacd3bf.jpg",
-      "duration": "43 min"
-    },
-    {
-      "title": "#195 Ari Emanuel: The Agent Who Ate Hollywood",
-      "date": "2026-10-07",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/195-Ari-Emanuel-The-Agent-Who-Ate-Hollywood-e3q1vqk",
-      "description": "He started as a kid from Chicago with dyslexia, ADHD, and a phone he wouldn't put down. Then Ari Emanuel got fired from his own job — and built Endeavor out of a walkout, turned a talent agency into a private-equity empire, and bought the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791343119109-d32a5bdcbf974.jpg",
-      "duration": "53 min"
-    },
-    {
-      "title": "#194 Obama's Shadow Wars: Drones, Raids, and the Power Vacuums They Left Behind",
-      "date": "2026-10-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/194-Obamas-Shadow-Wars-Drones--Raids--and-the-Power-Vacuums-They-Left-Behind-e3q0q9r",
-      "description": "Three days after Barack Obama became president, missiles struck Pakistan. It was the beginning of a new kind of American war — no invasions, no occupations. Instead: drones, a kill list, and small teams of operators. 563 strikes across…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791311213536-e2f6051966f66.jpg",
-      "duration": "48 min"
     }
   ]
 }

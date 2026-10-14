@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-14T12:03:36Z",
+  "generated_at": "2026-10-14T21:47:13Z",
   "shows": [
     {
       "key": "ccpod",
@@ -32,8 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-13",
-      "count": 205
+      "latest": "2026-10-14",
+      "count": 208
     },
     {
       "key": "brazil",
@@ -79,7 +79,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -123,10 +123,37 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#208 New Hollywood: The Decade the Directors Took Over",
+      "date": "2026-10-14",
+      "url": "https://open.spotify.com/episode/6tw2rIa4hHBFi6r2CnFUK9",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792002419317-d2864ec3bcbf5.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#207 Iran-Contra: The Scandal That Pardoned Itself",
+      "date": "2026-10-14",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/207-Iran-Contra-The-Scandal-That-Pardoned-Itself-e3qgpoj",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792000883429-b54311bb3d83b.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
       "date": "2026-10-13",
-      "url": "https://open.spotify.com/episode/0btNq1hJ3DFts0e3Y9jzN7",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/206-The-Ten-Percent-CAA--WME--and-the-Invention-of-the-Agent-e3qfe9g",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791931920773-e05a2092b9dca.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#205 1920s Harlem: How to Spot a Renaissance",
+      "date": "2026-10-13",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/205-1920s-Harlem-How-to-Spot-a-Renaissance-e3qgobb",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791999111070-bb5b12c510722.jpg"
     },
     {
       "show": "brazil",
@@ -199,33 +226,6 @@
       "date": "2026-10-08",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/198-Seinfeld-Who-Was-Really-the-Brains-e3q4jhk",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791433907733-152212abec044.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#197 Spirit Halloween: The Business of the Pop-Up",
-      "date": "2026-10-08",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/197-Spirit-Halloween-The-Business-of-the-Pop-Up-e3q450h",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791418345231-556db3e20d415.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#196 Charlie Sheen: The Truth Behind \"Winning\"",
-      "date": "2026-10-07",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/196-Charlie-Sheen-The-Truth-Behind-Winning-e3q2aiv",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791412870756-63ce9deacd3bf.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#195 Ari Emanuel: The Agent Who Ate Hollywood",
-      "date": "2026-10-07",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/195-Ari-Emanuel-The-Agent-Who-Ate-Hollywood-e3q1vqk",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791343119109-d32a5bdcbf974.jpg"
     }
   ]
 }
