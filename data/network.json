@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-13T14:21:26Z",
+  "generated_at": "2026-10-14T05:01:47Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 1
     },
     {
+      "key": "polymath",
+      "name": "The Eclectic Polymath",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-10-13",
+      "count": 205
+    },
+    {
       "key": "brazil",
       "name": "God Is Brazilian",
       "short": "God Is Brazilian",
@@ -34,22 +50,6 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-13",
       "count": 9
-    },
-    {
-      "key": "polymath",
-      "name": "The Eclectic Polymath",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-11",
-      "count": 204
     },
     {
       "key": "approachable",
@@ -79,7 +79,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -120,6 +120,15 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
+      "date": "2026-10-13",
+      "url": "https://open.spotify.com/episode/0btNq1hJ3DFts0e3Y9jzN7",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791931920773-e05a2092b9dca.jpg"
+    },
+    {
       "show": "brazil",
       "show_name": "God Is Brazilian",
       "kind": "episode",
@@ -134,7 +143,7 @@
       "kind": "episode",
       "title": "#204 Symbiopsychotaxiplasm: The Film That Watched Itself",
       "date": "2026-10-11",
-      "url": "https://open.spotify.com/episode/4nA94cJH4rcO2NqHHBJKYD",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/204-Symbiopsychotaxiplasm-The-Film-That-Watched-Itself-e3qav3k",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715609055-e657199a56807.jpg"
     },
     {
@@ -217,15 +226,6 @@
       "date": "2026-10-07",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/195-Ari-Emanuel-The-Agent-Who-Ate-Hollywood-e3q1vqk",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791343119109-d32a5bdcbf974.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#194 Obama's Shadow Wars: Drones, Raids, and the Power Vacuums They Left Behind",
-      "date": "2026-10-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/194-Obamas-Shadow-Wars-Drones--Raids--and-the-Power-Vacuums-They-Left-Behind-e3q0q9r",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791311213536-e2f6051966f66.jpg"
     }
   ]
 }

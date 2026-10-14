@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-13T19:22:06Z",
+  "updated": "2026-10-14T05:31:18Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
+      "date": "2026-10-13",
+      "url": "https://open.spotify.com/episode/0btNq1hJ3DFts0e3Y9jzN7",
+      "description": "Behind almost every famous name in entertainment stands someone you've never heard of — and they take ten percent of everything. The agent might be the most powerful job in Hollywood that nobody outside it understands, and it wasn't…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791931920773-e05a2092b9dca.jpg",
+      "duration": "53 min"
+    },
+    {
       "title": "#204 Symbiopsychotaxiplasm: The Film That Watched Itself",
       "date": "2026-10-11",
-      "url": "https://open.spotify.com/episode/4nA94cJH4rcO2NqHHBJKYD",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/204-Symbiopsychotaxiplasm-The-Film-That-Watched-Itself-e3qav3k",
       "description": "In 1968, filmmaker William Greaves took a cast and crew into Central Park to shoot a screen test — and quietly designed the production so his crew would rebel against him on camera. The result, Symbiopsychotaxiplasm: Take One, is a film…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715609055-e657199a56807.jpg",
       "duration": "45 min"
@@ -35,6 +43,14 @@
       "description": "For fifty years, the American smoke shop sold millions of dollars of cannabis gear under one rule: nobody could say what any of it was for. This episode traces the head shop from its 1966 counterculture birth — the Psychedelic Shop on…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791717857710-2374608fd9765.jpg",
       "duration": "1 hr 0 min"
+    },
+    {
+      "title": "#204 Symbiopsychotaxiplasm: The Film That Watched Itself",
+      "date": "2026-10-11",
+      "url": "https://open.spotify.com/episode/4nA94cJH4rcO2NqHHBJKYD",
+      "description": "In 1968, filmmaker William Greaves took a cast and crew into Central Park to shoot a screen test — and quietly designed the production so his crew would rebel against him on camera. The result, Symbiopsychotaxiplasm: Take One, is a film…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715609055-e657199a56807.jpg",
+      "duration": "45 min"
     },
     {
       "title": "#199 The Chakras: Blocked and Unblocked",
@@ -83,22 +99,6 @@
       "description": "Three days after Barack Obama became president, missiles struck Pakistan. It was the beginning of a new kind of American war — no invasions, no occupations. Instead: drones, a kill list, and small teams of operators. 563 strikes across…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791311213536-e2f6051966f66.jpg",
       "duration": "48 min"
-    },
-    {
-      "title": "#193 Why Cuba Is Where People Go to Vanish",
-      "date": "2026-10-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/193-Why-Cuba-Is-Where-People-Go-to-Vanish-e3q16pt",
-      "description": "\"Fake my death, go to Cuba, that's the only option.\" Kendrick Lamar compressed an entire American fantasy into one line on \"ELEMENT.\" (DAMN., 2017). He didn't do it — but the line works because every American ear already knows what Cuba…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791317641633-91fb1107bb735.jpg",
-      "duration": "52 min"
-    },
-    {
-      "title": "#192 Marriage: The Business Behind \"I Do\"",
-      "date": "2026-10-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/192-Marriage-The-Business-Behind-I-Do-e3pvjgp",
-      "description": "Two people can love each other for years without the government caring very much. Then they say \"I do,\" sign a document, and suddenly courts, tax authorities, insurers, employers, immigration officials, and inheritance law all have…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791263613943-f58930ee30f2a.jpg",
-      "duration": "55 min"
     }
   ]
 }
