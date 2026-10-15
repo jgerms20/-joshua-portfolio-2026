@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-15T17:24:35Z",
+  "updated": "2026-10-15T21:51:03Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#215 Nithya Raman: Hollywood's Socialist Is Leading the Mayor's Race",
+      "date": "2026-10-15",
+      "url": "https://open.spotify.com/episode/7xdHSC9RH67dVgLsOlEe64",
+      "description": "Nineteen days before the election, the challenger is ahead. Nithya Raman endorsed Mayor Karen Bass for re-election in January, then filed to run against her hours before the February deadline, and the September Berkeley IGS poll has her…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792092517902-d5b8291b3d1e6.jpg",
+      "duration": "44 min"
+    },
+    {
       "title": "#214 David Ellison: Hollywood's New Landlord",
       "date": "2026-10-15",
-      "url": "https://open.spotify.com/episode/7tHjyr4F2k2rriHbOZF9Eo",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/214-David-Ellison-Hollywoods-New-Landlord-e3qhmbc",
       "description": "Fifteen years ago David Ellison was the rich kid whose flying movie flopped. On October 6, 2026, he closed the deal that put Warner Bros. and Paramount in the same hands, and no mogul in history has held a combination like it. The…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792047231637-95a1e6b8ec956.jpg",
       "duration": "42 min"
@@ -19,6 +27,14 @@
       "description": "For one day in September 2025, Larry Ellison was the richest man alive. He was 81, and the money did not come from a new invention. It came from forty years of databases, data centers, and a doctrine he never apologized for: if you cannot…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792046419323-e41ff76770ab.jpg",
       "duration": "54 min"
+    },
+    {
+      "title": "#214 David Ellison: Hollywood's New Landlord",
+      "date": "2026-10-15",
+      "url": "https://open.spotify.com/episode/7tHjyr4F2k2rriHbOZF9Eo",
+      "description": "Fifteen years ago David Ellison was the rich kid whose flying movie flopped. On October 6, 2026, he closed the deal that put Warner Bros. and Paramount in the same hands, and no mogul in history has held a combination like it. The…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792047231637-95a1e6b8ec956.jpg",
+      "duration": "42 min"
     },
     {
       "title": "#210 Mongolia: How to Stay Yourself Between Russia and China",
@@ -83,22 +99,6 @@
       "description": "In the 1920s, a few square miles of Manhattan became the capital of Black culture — and for a moment, the center of American art itself. Hughes, Hurston, Ellington, Aaron Douglas: an entire generation arrived at once, in one neighborhood.…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791999111070-bb5b12c510722.jpg",
       "duration": "1 hr 9 min"
-    },
-    {
-      "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
-      "date": "2026-10-13",
-      "url": "https://open.spotify.com/episode/0btNq1hJ3DFts0e3Y9jzN7",
-      "description": "Behind almost every famous name in entertainment stands someone you've never heard of — and they take ten percent of everything. The agent might be the most powerful job in Hollywood that nobody outside it understands, and it wasn't…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791931920773-e05a2092b9dca.jpg",
-      "duration": "53 min"
-    },
-    {
-      "title": "#204 Symbiopsychotaxiplasm: The Film That Watched Itself",
-      "date": "2026-10-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/204-Symbiopsychotaxiplasm-The-Film-That-Watched-Itself-e3qav3k",
-      "description": "In 1968, filmmaker William Greaves took a cast and crew into Central Park to shoot a screen test — and quietly designed the production so his crew would rebel against him on camera. The result, Symbiopsychotaxiplasm: Take One, is a film…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715609055-e657199a56807.jpg",
-      "duration": "45 min"
     }
   ]
 }
