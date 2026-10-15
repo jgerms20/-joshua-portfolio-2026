@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-14T21:47:13Z",
+  "generated_at": "2026-10-15T04:50:31Z",
   "shows": [
     {
       "key": "ccpod",
@@ -33,7 +33,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-14",
-      "count": 208
+      "count": 210
     },
     {
       "key": "brazil",
@@ -123,9 +123,27 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#210 Mongolia: How to Stay Yourself Between Russia and China",
+      "date": "2026-10-14",
+      "url": "https://open.spotify.com/episode/79TOhrUS0dAJd9vXLX8Fn1",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015628558-1ebb713b4ae72.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#209 Pompeii: The City That Didn't Know It Was Ending",
+      "date": "2026-10-14",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/209-Pompeii-The-City-That-Didnt-Know-It-Was-Ending-e3qh532",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015450315-d04a4f1addaf1.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#208 New Hollywood: The Decade the Directors Took Over",
       "date": "2026-10-14",
-      "url": "https://open.spotify.com/episode/6tw2rIa4hHBFi6r2CnFUK9",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/208-New-Hollywood-The-Decade-the-Directors-Took-Over-e3qgqu3",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792002419317-d2864ec3bcbf5.jpg"
     },
     {
@@ -208,24 +226,6 @@
       "date": "2026-10-09",
       "url": "https://www.youtube.com/watch?v=MZHfbT_1v1c",
       "image": "https://i.ytimg.com/vi/MZHfbT_1v1c/hqdefault.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#199 The Chakras: Blocked and Unblocked",
-      "date": "2026-10-08",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/199-The-Chakras-Blocked-and-Unblocked-e3q5pke",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791471617960-5cae4e49cd83e.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#198 Seinfeld: Who Was Really the Brains?",
-      "date": "2026-10-08",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/198-Seinfeld-Who-Was-Really-the-Brains-e3q4jhk",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791433907733-152212abec044.jpg"
     }
   ]
 }
