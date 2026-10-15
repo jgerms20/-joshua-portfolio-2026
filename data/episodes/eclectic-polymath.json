@@ -1,13 +1,29 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-15T05:20:11Z",
+  "updated": "2026-10-15T17:24:35Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#214 David Ellison: Hollywood's New Landlord",
+      "date": "2026-10-15",
+      "url": "https://open.spotify.com/episode/7tHjyr4F2k2rriHbOZF9Eo",
+      "description": "Fifteen years ago David Ellison was the rich kid whose flying movie flopped. On October 6, 2026, he closed the deal that put Warner Bros. and Paramount in the same hands, and no mogul in history has held a combination like it. The…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792047231637-95a1e6b8ec956.jpg",
+      "duration": "42 min"
+    },
+    {
+      "title": "#213 Larry Ellison: Winning by Buying",
+      "date": "2026-10-15",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/213-Larry-Ellison-Winning-by-Buying-e3qhlv9",
+      "description": "For one day in September 2025, Larry Ellison was the richest man alive. He was 81, and the money did not come from a new invention. It came from forty years of databases, data centers, and a doctrine he never apologized for: if you cannot…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792046419323-e41ff76770ab.jpg",
+      "duration": "54 min"
+    },
+    {
       "title": "#210 Mongolia: How to Stay Yourself Between Russia and China",
       "date": "2026-10-14",
-      "url": "https://open.spotify.com/episode/79TOhrUS0dAJd9vXLX8Fn1",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/210-Mongolia-How-to-Stay-Yourself-Between-Russia-and-China-e3qh58j",
       "description": "Mongolia is the emptiest country on Earth — about two people per square kilometer — and a third of it still moves with the seasons. It's also the homeland of the largest land empire in history, now sitting quietly between Russia and…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015628558-1ebb713b4ae72.jpg",
       "duration": "51 min"
@@ -35,6 +51,14 @@
       "description": "In October 1986, a cargo plane carrying weapons was shot down over Nicaragua, and the sole survivor started talking. Within two months, the Reagan White House was admitting to one of the strangest schemes in American history: selling…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792000883429-b54311bb3d83b.jpg",
       "duration": "1 hr 17 min"
+    },
+    {
+      "title": "#210 Mongolia: How to Stay Yourself Between Russia and China",
+      "date": "2026-10-14",
+      "url": "https://open.spotify.com/episode/79TOhrUS0dAJd9vXLX8Fn1",
+      "description": "Mongolia is the emptiest country on Earth — about two people per square kilometer — and a third of it still moves with the seasons. It's also the homeland of the largest land empire in history, now sitting quietly between Russia and…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015628558-1ebb713b4ae72.jpg",
+      "duration": "51 min"
     },
     {
       "title": "#208 New Hollywood: The Decade the Directors Took Over",
@@ -75,30 +99,6 @@
       "description": "In 1968, filmmaker William Greaves took a cast and crew into Central Park to shoot a screen test — and quietly designed the production so his crew would rebel against him on camera. The result, Symbiopsychotaxiplasm: Take One, is a film…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715609055-e657199a56807.jpg",
       "duration": "45 min"
-    },
-    {
-      "title": "#203 Local Natives and the Last Indie Band of the 2000s",
-      "date": "2026-10-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/203-Local-Natives-and-the-Last-Indie-Band-of-the-2000s-e3qavbt",
-      "description": "Local Natives were five kids from Orange County who moved into a Silver Lake house together, named their debut album after it — Gorilla Manor — and became one of the defining bands of the 2000s indie era. This episode tells their story as…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791716143226-f473f66d25a3e.jpg",
-      "duration": "56 min"
-    },
-    {
-      "title": "#202 The Polygraph: The Machine That Never Detected a Lie",
-      "date": "2026-10-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/202-The-Polygraph-The-Machine-That-Never-Detected-a-Lie-e3qav74",
-      "description": "For a hundred years, the polygraph has decided who gets hired, who gets believed, and who goes to prison — without ever actually detecting a lie. This episode traces the machine from John Larson's 1921 Berkeley prototype and the inventor…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791715827357-80cd9f986e23a.jpg",
-      "duration": "58 min"
-    },
-    {
-      "title": "#201 Smoke Shops & Dispensaries: How Cannabis Got Its Storefront",
-      "date": "2026-10-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/201-Smoke-Shops--Dispensaries-How-Cannabis-Got-Its-Storefront-e3qavfk",
-      "description": "For fifty years, the American smoke shop sold millions of dollars of cannabis gear under one rule: nobody could say what any of it was for. This episode traces the head shop from its 1966 counterculture birth — the Psychedelic Shop on…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791717857710-2374608fd9765.jpg",
-      "duration": "1 hr 0 min"
     }
   ]
 }
