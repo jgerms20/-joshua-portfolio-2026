@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-15T21:30:17Z",
+  "generated_at": "2026-10-16T04:40:52Z",
   "shows": [
     {
       "key": "ccpod",
@@ -33,7 +33,7 @@
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
-      "count": 4
+      "count": 5
     },
     {
       "key": "polymath",
@@ -63,7 +63,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-13",
       "count": 9
     },
@@ -135,6 +135,15 @@
     }
   ],
   "latest": [
+    {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "#21 The Week Ahead: October 19-25",
+      "date": "2026-10-15",
+      "url": "https://open.spotify.com/episode/6pq1lb9RuRPNphkSDhjjEz",
+      "image": ""
+    },
     {
       "show": "riff",
       "show_name": "The Daily Riff",
@@ -233,15 +242,6 @@
       "date": "2026-10-14",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/207-Iran-Contra-The-Scandal-That-Pardoned-Itself-e3qgpoj",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792000883429-b54311bb3d83b.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#206 The Ten Percent: CAA, WME, and the Invention of the Agent",
-      "date": "2026-10-13",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/206-The-Ten-Percent-CAA--WME--and-the-Invention-of-the-Agent-e3qfe9g",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1791931920773-e05a2092b9dca.jpg"
     }
   ]
 }
