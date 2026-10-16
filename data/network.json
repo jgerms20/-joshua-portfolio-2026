@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-16T11:34:49Z",
+  "generated_at": "2026-10-16T16:45:48Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,22 +20,6 @@
       "count": 1
     },
     {
-      "key": "riff",
-      "name": "The Daily Riff",
-      "short": "The Daily Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Jazz, every day.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-15",
-      "count": 5
-    },
-    {
       "key": "polymath",
       "name": "The Eclectic Polymath",
       "short": "Eclectic Polymath",
@@ -48,8 +32,24 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-10-16",
+      "count": 215
+    },
+    {
+      "key": "riff",
+      "name": "The Daily Riff",
+      "short": "The Daily Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Jazz, every day.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
-      "count": 213
+      "count": 5
     },
     {
       "key": "brazil",
@@ -63,7 +63,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-13",
       "count": 9
     },
@@ -136,6 +136,33 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#217 A Different World: The Sitcom That Refused to End",
+      "date": "2026-10-16",
+      "url": "https://open.spotify.com/episode/3ibYRtcaBptheQtyTfG3Gw",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#216 How Karen Bass Became the Establishment",
+      "date": "2026-10-16",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/216-How-Karen-Bass-Became-the-Establishment-e3qjrn4",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792160720495-a205a14e0ab07.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#215 Nithya Raman: Hollywood's Socialist Is Leading the Mayor's Race",
+      "date": "2026-10-16",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/215-Nithya-Raman-Hollywoods-Socialist-Is-Leading-the-Mayors-Race-e3qj939",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792130748087-6f878b91aaa59.jpg"
+    },
+    {
       "show": "riff",
       "show_name": "The Daily Riff",
       "kind": "episode",
@@ -170,15 +197,6 @@
       "date": "2026-10-15",
       "url": "https://open.spotify.com/episode/67ZFR85yAZ8cEMdXAPEZ04",
       "image": ""
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#215 Nithya Raman: Hollywood's Socialist Is Leading the Mayor's Race",
-      "date": "2026-10-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/215-Nithya-Raman-Hollywoods-Socialist-Is-Leading-the-Mayors-Race-e3qik69",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792092517902-d5b8291b3d1e6.jpg"
     },
     {
       "show": "riff",
@@ -224,24 +242,6 @@
       "date": "2026-10-14",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/209-Pompeii-The-City-That-Didnt-Know-It-Was-Ending-e3qh532",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015450315-d04a4f1addaf1.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#208 New Hollywood: The Decade the Directors Took Over",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/208-New-Hollywood-The-Decade-the-Directors-Took-Over-e3qgqu3",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792002419317-d2864ec3bcbf5.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#207 Iran-Contra: The Scandal That Pardoned Itself",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/207-Iran-Contra-The-Scandal-That-Pardoned-Itself-e3qgpoj",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792000883429-b54311bb3d83b.jpg"
     }
   ]
 }
