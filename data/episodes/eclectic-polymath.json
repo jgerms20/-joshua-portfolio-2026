@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-16T17:00:44Z",
+  "updated": "2026-10-17T05:04:24Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
+      "date": "2026-10-17",
+      "url": "https://open.spotify.com/episode/2SMA8VHHSQYDsmwAIyhqnM",
+      "description": "Nicole Avant grew up in the most connected house in Black Hollywood, and then she built a bigger one. Ambassador to the Bahamas at 41. The producer who willed The Black Godfather into existence. Half of the couple whose Hancock Park home…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg",
+      "duration": "22 min"
+    },
+    {
       "title": "#217 A Different World: The Sitcom That Refused to End",
       "date": "2026-10-16",
-      "url": "https://open.spotify.com/episode/3ibYRtcaBptheQtyTfG3Gw",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/217-A-Different-World-The-Sitcom-That-Refused-to-End-e3qjs6n",
       "description": "A Different World is not a nostalgia story anymore. The Netflix sequel premiered September 24, hit number one in the US, and got renewed eight days later, with Debbie Allen still holding the wheel nearly 40 years after she first saved the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg",
       "duration": "51 min"
@@ -27,6 +35,14 @@
       "description": "Nineteen days before the election, the challenger is ahead. Nithya Raman endorsed Mayor Karen Bass for re-election in January, then filed to run against her hours before the February deadline, and the September Berkeley IGS poll has her…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792130748087-6f878b91aaa59.jpg",
       "duration": "44 min"
+    },
+    {
+      "title": "#217 A Different World: The Sitcom That Refused to End",
+      "date": "2026-10-16",
+      "url": "https://open.spotify.com/episode/3ibYRtcaBptheQtyTfG3Gw",
+      "description": "A Different World is not a nostalgia story anymore. The Netflix sequel premiered September 24, hit number one in the US, and got renewed eight days later, with Debbie Allen still holding the wheel nearly 40 years after she first saved the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg",
+      "duration": "51 min"
     },
     {
       "title": "#214 David Ellison: Hollywood's New Landlord",
@@ -83,22 +99,6 @@
       "description": "In 79 AD, Pompeii was a working Roman city of bakeries, bars, election posters, and graffiti — and almost nobody there knew the mountain behind it was a volcano. Latin didn't even have a word for one. Then, over about eighteen hours, the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015450315-d04a4f1addaf1.jpg",
       "duration": "48 min"
-    },
-    {
-      "title": "#208 New Hollywood: The Decade the Directors Took Over",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/208-New-Hollywood-The-Decade-the-Directors-Took-Over-e3qgqu3",
-      "description": "In 1967, American movies changed their mind about everything. The studio system that had run Hollywood for forty years collapsed — and for one strange decade, the keys went to film-school kids, method actors who looked like people you…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792002419317-d2864ec3bcbf5.jpg",
-      "duration": "1 hr 10 min"
-    },
-    {
-      "title": "#207 Iran-Contra: The Scandal That Pardoned Itself",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/207-Iran-Contra-The-Scandal-That-Pardoned-Itself-e3qgpoj",
-      "description": "In October 1986, a cargo plane carrying weapons was shot down over Nicaragua, and the sole survivor started talking. Within two months, the Reagan White House was admitting to one of the strangest schemes in American history: selling…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792000883429-b54311bb3d83b.jpg",
-      "duration": "1 hr 17 min"
     }
   ]
 }

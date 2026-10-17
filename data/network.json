@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-16T21:20:15Z",
+  "generated_at": "2026-10-17T04:37:50Z",
   "shows": [
     {
       "key": "ccpod",
@@ -32,8 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-16",
-      "count": 215
+      "latest": "2026-10-17",
+      "count": 216
     },
     {
       "key": "riff",
@@ -63,7 +63,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-13",
       "count": 9
     },
@@ -139,9 +139,18 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
+      "date": "2026-10-17",
+      "url": "https://open.spotify.com/episode/2SMA8VHHSQYDsmwAIyhqnM",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#217 A Different World: The Sitcom That Refused to End",
       "date": "2026-10-16",
-      "url": "https://open.spotify.com/episode/3ibYRtcaBptheQtyTfG3Gw",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/217-A-Different-World-The-Sitcom-That-Refused-to-End-e3qjs6n",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg"
     },
     {
@@ -233,15 +242,6 @@
       "date": "2026-10-14",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/210-Mongolia-How-to-Stay-Yourself-Between-Russia-and-China-e3qh58j",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015628558-1ebb713b4ae72.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#209 Pompeii: The City That Didn't Know It Was Ending",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/209-Pompeii-The-City-That-Didnt-Know-It-Was-Ending-e3qh532",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015450315-d04a4f1addaf1.jpg"
     }
   ]
 }
