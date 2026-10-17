@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-17T15:42:19Z",
+  "generated_at": "2026-10-17T20:42:53Z",
   "shows": [
     {
       "key": "ccpod",
@@ -33,7 +33,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-17",
-      "count": 216
+      "count": 218
     },
     {
       "key": "riff",
@@ -47,7 +47,7 @@
       "tagline": "Jazz, every day.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
       "count": 5
     },
@@ -139,9 +139,18 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
+      "date": "2026-10-17",
+      "url": "https://open.spotify.com/episode/22NCk7s2gZZMt048VNcGeA",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
       "date": "2026-10-17",
-      "url": "https://open.spotify.com/episode/2SMA8VHHSQYDsmwAIyhqnM",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/218-Nicole-Avant-Power--Marriage--and-the-Family-Way-e3qkoea",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg"
     },
     {
@@ -233,15 +242,6 @@
       "date": "2026-10-15",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/213-Larry-Ellison-Winning-by-Buying-e3qhlv9",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792046419323-e41ff76770ab.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#210 Mongolia: How to Stay Yourself Between Russia and China",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/210-Mongolia-How-to-Stay-Yourself-Between-Russia-and-China-e3qh58j",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015628558-1ebb713b4ae72.jpg"
     }
   ]
 }

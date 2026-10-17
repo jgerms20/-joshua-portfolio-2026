@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-17T15:59:17Z",
+  "updated": "2026-10-17T21:03:24Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
+      "date": "2026-10-17",
+      "url": "https://open.spotify.com/episode/22NCk7s2gZZMt048VNcGeA",
+      "description": "Rick Caruso's father swept floors at the Farmers Market. The son built a town next door. The Grove opened in 2002 after fifteen years of failed schemes and neighborhood war, and then out-sold almost every real mall in America. The…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg",
+      "duration": "50 min"
+    },
+    {
+      "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
+      "date": "2026-10-17",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/218-Nicole-Avant-Power--Marriage--and-the-Family-Way-e3qkoea",
+      "description": "Nicole Avant grew up in the most connected house in Black Hollywood, and then she built a bigger one. Ambassador to the Bahamas at 41. The producer who willed The Black Godfather into existence. Half of the couple whose Hancock Park home…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg",
+      "duration": "51 min"
+    },
     {
       "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
       "date": "2026-10-17",
@@ -83,22 +99,6 @@
       "description": "Nineteen days before the election, the challenger is ahead. Nithya Raman endorsed Mayor Karen Bass for re-election in January, then filed to run against her hours before the February deadline, and the September Berkeley IGS poll has her…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792092517902-d5b8291b3d1e6.jpg",
       "duration": "44 min"
-    },
-    {
-      "title": "#214 David Ellison: Hollywood's New Landlord",
-      "date": "2026-10-15",
-      "url": "https://open.spotify.com/episode/7tHjyr4F2k2rriHbOZF9Eo",
-      "description": "Fifteen years ago David Ellison was the rich kid whose flying movie flopped. On October 6, 2026, he closed the deal that put Warner Bros. and Paramount in the same hands, and no mogul in history has held a combination like it. The…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792047231637-95a1e6b8ec956.jpg",
-      "duration": "42 min"
-    },
-    {
-      "title": "#210 Mongolia: How to Stay Yourself Between Russia and China",
-      "date": "2026-10-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/210-Mongolia-How-to-Stay-Yourself-Between-Russia-and-China-e3qh58j",
-      "description": "Mongolia is the emptiest country on Earth — about two people per square kilometer — and a third of it still moves with the seasons. It's also the homeland of the largest land empire in history, now sitting quietly between Russia and…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792015628558-1ebb713b4ae72.jpg",
-      "duration": "51 min"
     }
   ]
 }
