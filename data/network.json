@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-18T14:41:15Z",
+  "generated_at": "2026-10-18T20:55:25Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,9 +15,25 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-18",
       "count": 2
+    },
+    {
+      "key": "brazil",
+      "name": "God Is Brazilian",
+      "short": "God Is Brazilian",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "A podcast by Joshua German.",
+      "about": "",
+      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "latest": "2026-10-18",
+      "count": 10
     },
     {
       "key": "polymath",
@@ -33,7 +49,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-18",
-      "count": 221
+      "count": 220
     },
     {
       "key": "riff",
@@ -50,22 +66,6 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
       "count": 5
-    },
-    {
-      "key": "brazil",
-      "name": "God Is Brazilian",
-      "short": "God Is Brazilian",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "A podcast by Joshua German.",
-      "about": "",
-      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
-      "latest": "2026-10-13",
-      "count": 9
     },
     {
       "key": "approachable",
@@ -95,7 +95,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -136,13 +136,13 @@
   ],
   "latest": [
     {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
+      "show": "brazil",
+      "show_name": "God Is Brazilian",
       "kind": "episode",
-      "title": "#222 What's going on in France?… and why?",
+      "title": "#18 A Franquia Bolsonaro: A Família que Virou um Movimento (Português)",
       "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/4RO1UApTgYqUdWMuE5Crux",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg"
+      "url": "https://open.spotify.com/episode/5QhTn3V5CS2ZXX2aI94y7U",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
     },
     {
       "show": "polymath",
@@ -223,7 +223,7 @@
       "title": "#21 The Week Ahead: October 19-25",
       "date": "2026-10-15",
       "url": "https://open.spotify.com/episode/6pq1lb9RuRPNphkSDhjjEz",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
     },
     {
       "show": "riff",
@@ -241,7 +241,7 @@
       "title": "#6 New York: The Capital Holds",
       "date": "2026-10-15",
       "url": "https://open.spotify.com/episode/2pWoI1OQBEJii1hkKl15hl",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
     }
   ]
 }

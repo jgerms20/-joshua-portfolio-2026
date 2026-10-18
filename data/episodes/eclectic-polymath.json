@@ -1,17 +1,9 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-18T16:10:28Z",
+  "updated": "2026-10-18T21:06:17Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
-    {
-      "title": "#222 What's going on in France?… and why?",
-      "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/4RO1UApTgYqUdWMuE5Crux",
-      "description": "Half a million people in the streets. Schoolkids sitting on top of the Republic's own statue. Town halls burning by night. And no leader anywhere who can call it off, because nobody called it on. This started with a school in Créteil that…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg",
-      "duration": "56 min"
-    },
     {
       "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
       "date": "2026-10-18",
@@ -19,6 +11,14 @@
       "description": "The United States once ran the largest wealth-building program in its history: 160 acres, nearly free, to anyone who would work it. About a quarter of American adults today descend from the people who got it. This is the compare and…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg",
       "duration": "1 hr 14 min"
+    },
+    {
+      "title": "#222 What's going on in France?… and why?",
+      "date": "2026-10-18",
+      "url": "https://open.spotify.com/episode/4RO1UApTgYqUdWMuE5Crux",
+      "description": "Half a million people in the streets. Schoolkids sitting on top of the Republic's own statue. Town halls burning by night. And no leader anywhere who can call it off, because nobody called it on. This started with a school in Créteil that…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg",
+      "duration": "56 min"
     },
     {
       "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
