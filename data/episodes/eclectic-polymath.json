@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-18T05:12:24Z",
+  "updated": "2026-10-18T11:46:52Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "France Erupts: Nobody Leads It, Nobody Can Stop It",
+      "date": "2026-10-18",
+      "url": "https://open.spotify.com/episode/4RO1UApTgYqUdWMuE5Crux",
+      "description": "Half a million people in the streets. Schoolkids sitting on top of the Republic's own statue. Town halls burning by night. And no leader anywhere who can call it off, because nobody called it on. This started with a school in Créteil that…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg",
+      "duration": "56 min"
+    },
+    {
+      "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
+      "date": "2026-10-18",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/221-The-Homestead-Who-Got-Set-Up--Who-Got-Stripped-e3qlunl",
+      "description": "The United States once ran the largest wealth-building program in its history: 160 acres, nearly free, to anyone who would work it. About a quarter of American adults today descend from the people who got it. This is the compare and…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg",
+      "duration": "1 hr 14 min"
+    },
     {
       "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
       "date": "2026-10-18",
@@ -83,22 +99,6 @@
       "description": "The police union spent against Karen Bass in 2022. This year it is spending millions for her. That flip tells you most of what you need to know about the mayor Los Angeles is deciding whether to keep. You may know her as the first Black…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792130234751-9b37b4ba2946.jpg",
       "duration": "55 min"
-    },
-    {
-      "title": "#217 A Different World: The Sitcom That Refused to End",
-      "date": "2026-10-16",
-      "url": "https://open.spotify.com/episode/3ibYRtcaBptheQtyTfG3Gw",
-      "description": "A Different World is not a nostalgia story anymore. The Netflix sequel premiered September 24, hit number one in the US, and got renewed eight days later, with Debbie Allen still holding the wheel nearly 40 years after she first saved the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg",
-      "duration": "51 min"
-    },
-    {
-      "title": "#214 David Ellison: Hollywood's New Landlord",
-      "date": "2026-10-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/214-David-Ellison-Hollywoods-New-Landlord-e3qhmbc",
-      "description": "Fifteen years ago David Ellison was the rich kid whose flying movie flopped. On October 6, 2026, he closed the deal that put Warner Bros. and Paramount in the same hands, and no mogul in history has held a combination like it. The…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792047231637-95a1e6b8ec956.jpg",
-      "duration": "42 min"
     }
   ]
 }
