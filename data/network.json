@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-17T20:42:53Z",
+  "generated_at": "2026-10-18T04:43:24Z",
   "shows": [
     {
       "key": "ccpod",
@@ -16,8 +16,8 @@
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
       "art": "https://joshuamgerman.com/photos/podcasts/curious-creative-logo.jpg",
-      "latest": "2026-07-22",
-      "count": 1
+      "latest": "2026-10-18",
+      "count": 2
     },
     {
       "key": "polymath",
@@ -32,8 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-17",
-      "count": 218
+      "latest": "2026-10-18",
+      "count": 220
     },
     {
       "key": "riff",
@@ -63,7 +63,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-13",
       "count": 9
     },
@@ -139,9 +139,36 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
+      "date": "2026-10-18",
+      "url": "https://open.spotify.com/episode/0JahAvjONFmqvu5K4u56D3",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg"
+    },
+    {
+      "show": "ccpod",
+      "show_name": "Curious & Creative",
+      "kind": "episode",
+      "title": "Episode #003: Your Mother, Your Mother, Your Mother",
+      "date": "2026-10-18",
+      "url": "https://open.spotify.com/episode/4FNzTh4mSHC8hy3Ea1bk2y",
+      "image": ""
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#220 Nathan Fielder: The Man Who Rehearsed Reality",
+      "date": "2026-10-17",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/220-Nathan-Fielder-The-Man-Who-Rehearsed-Reality-e3qllf8",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792272856637-9710f04a89226.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
       "date": "2026-10-17",
-      "url": "https://open.spotify.com/episode/22NCk7s2gZZMt048VNcGeA",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/219-The-Grove--The-Americana-Fake-Towns--Real-Empire-e3qliim",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg"
     },
     {
@@ -215,33 +242,6 @@
       "date": "2026-10-15",
       "url": "https://open.spotify.com/episode/67ZFR85yAZ8cEMdXAPEZ04",
       "image": ""
-    },
-    {
-      "show": "riff",
-      "show_name": "The Daily Riff",
-      "kind": "episode",
-      "title": "#4 A Love Supreme: The Prayer Coltrane Recorded in One Day",
-      "date": "2026-10-15",
-      "url": "https://open.spotify.com/episode/4pyb52nSDEdR8tsNdym7oC",
-      "image": ""
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#214 David Ellison: Hollywood's New Landlord",
-      "date": "2026-10-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/214-David-Ellison-Hollywoods-New-Landlord-e3qhmbc",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792047231637-95a1e6b8ec956.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#213 Larry Ellison: Winning by Buying",
-      "date": "2026-10-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/213-Larry-Ellison-Winning-by-Buying-e3qhlv9",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792046419323-e41ff76770ab.jpg"
     }
   ]
 }
