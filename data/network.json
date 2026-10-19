@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-18T20:55:25Z",
+  "generated_at": "2026-10-19T01:28:25Z",
   "shows": [
     {
       "key": "ccpod",
@@ -49,7 +49,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-18",
-      "count": 220
+      "count": 222
     },
     {
       "key": "riff",
@@ -63,7 +63,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
       "count": 5
     },
@@ -142,7 +142,25 @@
       "title": "#18 A Franquia Bolsonaro: A Família que Virou um Movimento (Português)",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/5QhTn3V5CS2ZXX2aI94y7U",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#224 Flávio Bolsonaro: The Heir, the Exile, and the Algorithm",
+      "date": "2026-10-18",
+      "url": "https://open.spotify.com/episode/0RZeeXzJaT11gB5HRfzh9f",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#222 What's going on in France?… and why?",
+      "date": "2026-10-18",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/222-Whats-going-on-in-France--and-why-e3qm71l",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg"
     },
     {
       "show": "polymath",
@@ -223,24 +241,6 @@
       "title": "#21 The Week Ahead: October 19-25",
       "date": "2026-10-15",
       "url": "https://open.spotify.com/episode/6pq1lb9RuRPNphkSDhjjEz",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
-    },
-    {
-      "show": "riff",
-      "show_name": "The Daily Riff",
-      "kind": "episode",
-      "title": "#11 Chicago: The Sound of the Great Migration, Still Moving",
-      "date": "2026-10-15",
-      "url": "https://open.spotify.com/episode/4BaNHWmBqtYcR7qTrFXAK0",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
-    },
-    {
-      "show": "riff",
-      "show_name": "The Daily Riff",
-      "kind": "episode",
-      "title": "#6 New York: The Capital Holds",
-      "date": "2026-10-15",
-      "url": "https://open.spotify.com/episode/2pWoI1OQBEJii1hkKl15hl",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6"
     }
   ]
