@@ -68,7 +68,6 @@ class HomepageStructureTests(unittest.TestCase):
                 "photography",
                 "ai",
                 "work",
-                "projects",
                 "media-diet",
                 "in-the-works",
                 "contact",
@@ -85,7 +84,6 @@ class HomepageStructureTests(unittest.TestCase):
                 ("#photography", "Photography"),
                 ("#ai", "AI"),
                 ("#work", "Brand Work"),
-                ("#projects", "Culture"),
                 ("shop.html", "Shop"),
             ],
         )
@@ -94,14 +92,14 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
             [
-                "#about", "#podcasts", "#network", "#photography", "#ai", "#work", "#projects",
+                "#about", "#podcasts", "#network", "#photography", "#ai", "#work",
                 "shop.html", "#contact", "photography/#book",
             ],
         )
-        # Chapter links carry the same numbers as the chapter heads (CH. 01-06);
+        # Chapter links carry the same numbers as the chapter heads (CH. 01-05);
         # Shop and Contact are not chapters, so they must not borrow CH. 07/08.
         numbered = [label.split(" ", 1)[0] for _, label in self.page.mobile_links if label[:2].isdigit()]
-        self.assertEqual(numbered, ["01", "02", "03", "04", "05", "06"])
+        self.assertEqual(numbered, ["01", "02", "03", "04", "05"])
         # the Network band is a feature, not a numbered chapter
         network = dict(self.page.mobile_links)["#network"]
         self.assertFalse(network[:2].isdigit(), network)
@@ -122,6 +120,16 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn('href="network/"', band)
         self.assertIn("Janel Moore", band)
         self.assertIn("jgerms20.github.io/curious-and-creative", band)
+
+    def test_no_culture_chapter_and_advisory_work_is_public_in_brand_work(self):
+        self.assertNotIn('id="projects"', PAGE)
+        self.assertNotIn("openStartupGate", PAGE)
+        self.assertNotIn("startup-locked", PAGE)
+        work = PAGE[PAGE.index('<section id="work"'):]
+        work = work[: work.index("</section>")]
+        self.assertEqual(work.count('data-agency="independent"'), 3)  # filter + HIIKE + U&AI
+        self.assertIn("HIIKE", work)
+        self.assertIn("U&amp;AI", work)
 
     def test_eclectic_polymath_cover_can_load(self):
         cover = self.page.ep_cover
