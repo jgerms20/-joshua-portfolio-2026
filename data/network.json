@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-21T05:01:50Z",
+  "generated_at": "2026-10-21T10:19:42Z",
   "shows": [
     {
       "key": "ccpod",
@@ -31,7 +31,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-19",
       "count": 11
     },
@@ -49,7 +49,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-18",
-      "count": 222
+      "count": 223
     },
     {
       "key": "riff",
@@ -95,7 +95,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -151,7 +151,7 @@
       "title": "#19 A \"Democracia Racial\" do Brasil: Mito, Realidade e o Significado de Raça (Português)",
       "date": "2026-10-19",
       "url": "https://open.spotify.com/episode/15U065FkO9qzLjFpjpYJCT",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab126da536a0a03ce78624da0"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab126da536a0a03ce78624da0"
     },
     {
       "show": "brazil",
@@ -160,7 +160,7 @@
       "title": "#18 A Franquia Bolsonaro: A Família que Virou um Movimento (Português)",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/5QhTn3V5CS2ZXX2aI94y7U",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
     },
     {
       "show": "polymath",
@@ -170,6 +170,15 @@
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/0RZeeXzJaT11gB5HRfzh9f",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#223 The Yellow Jackets: France's Permanent Revolt",
+      "date": "2026-10-18",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/223-The-Yellow-Jackets-Frances-Permanent-Revolt-e3qr300",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792551427244-965a4379086a2.jpg"
     },
     {
       "show": "polymath",
@@ -196,7 +205,7 @@
       "title": "#003: Your Mother, Your Mother, Your Mother",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/4FNzTh4mSHC8hy3Ea1bk2y",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46"
     },
     {
       "show": "polymath",
@@ -233,15 +242,6 @@
       "date": "2026-10-16",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/217-A-Different-World-The-Sitcom-That-Refused-to-End-e3qjs6n",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#216 How Karen Bass Became the Establishment",
-      "date": "2026-10-16",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/216-How-Karen-Bass-Became-the-Establishment-e3qjrn4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792160720495-a205a14e0ab07.jpg"
     }
   ]
 }
