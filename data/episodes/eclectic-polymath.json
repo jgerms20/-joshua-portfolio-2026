@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-21T12:29:17Z",
+  "updated": "2026-10-21T22:00:48Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#225 Mike & Pam: The Last Studio Heads of Hollywood",
+      "date": "2026-10-21",
+      "url": "https://open.spotify.com/episode/0E0iWvfSMeePSDMRdfizXg",
+      "description": "Six consecutive number-one openings. A Best Picture winner. The best studio year of the decade. It still wasn't enough. When the Paramount Skydance merger closed in October 2026, Mike De Luca and Pam Abdy were out at Warner Bros. This…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792596978429-db329b8bad218.jpg",
+      "duration": "54 min"
+    },
+    {
       "title": "#224 Flávio Bolsonaro: The Heir, the Exile, and the Algorithm",
       "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/0RZeeXzJaT11gB5HRfzh9f",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/224-Flvio-Bolsonaro-The-Heir--the-Exile--and-the-Algorithm-e3qmqbd",
       "description": "On October 4, Flávio Bolsonaro beat Lula in the first round of Brazil's presidential election, 56.1 million votes to 53.9 million. His father, the man who built the movement, followed it under house arrest: 27 years for the coup plot,…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg",
       "duration": "58 min"
@@ -35,6 +43,14 @@
       "description": "The United States once ran the largest wealth-building program in its history: 160 acres, nearly free, to anyone who would work it. About a quarter of American adults today descend from the people who got it. This is the compare and…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg",
       "duration": "1 hr 14 min"
+    },
+    {
+      "title": "#224 Flávio Bolsonaro: The Heir, the Exile, and the Algorithm",
+      "date": "2026-10-18",
+      "url": "https://open.spotify.com/episode/0RZeeXzJaT11gB5HRfzh9f",
+      "description": "On October 4, Flávio Bolsonaro beat Lula in the first round of Brazil's presidential election, 56.1 million votes to 53.9 million. His father, the man who built the movement, followed it under house arrest: 27 years for the coup plot,…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg",
+      "duration": "58 min"
     },
     {
       "title": "#222 What's going on in France?… and why?",
@@ -83,22 +99,6 @@
       "description": "Rick Caruso's father swept floors at the Farmers Market. The son built a town next door. The Grove opened in 2002 after fifteen years of failed schemes and neighborhood war, and then out-sold almost every real mall in America. The…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg",
       "duration": "50 min"
-    },
-    {
-      "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
-      "date": "2026-10-17",
-      "url": "https://open.spotify.com/episode/2SMA8VHHSQYDsmwAIyhqnM",
-      "description": "Nicole Avant grew up in the most connected house in Black Hollywood, and then she built a bigger one. Ambassador to the Bahamas at 41. The producer who willed The Black Godfather into existence. Half of the couple whose Hancock Park home…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg",
-      "duration": "51 min"
-    },
-    {
-      "title": "#217 A Different World: The Sitcom That Refused to End",
-      "date": "2026-10-16",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/217-A-Different-World-The-Sitcom-That-Refused-to-End-e3qjs6n",
-      "description": "A Different World is not a nostalgia story anymore. The Netflix sequel premiered September 24, hit number one in the US, and got renewed eight days later, with Debbie Allen still holding the wheel nearly 40 years after she first saved the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792161184414-19e7835644c34.jpg",
-      "duration": "51 min"
     }
   ]
 }
