@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-22T10:20:05Z",
+  "generated_at": "2026-10-22T15:24:57Z",
   "shows": [
     {
       "key": "ccpod",
@@ -33,7 +33,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-21",
-      "count": 225
+      "count": 226
     },
     {
       "key": "brazil",
@@ -160,7 +160,7 @@
       "title": "#004 The Only Living Pickpocket in New York",
       "date": "2026-10-20",
       "url": "https://open.spotify.com/episode/5MP6BACDwM6OvAtZKDkS0g",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc"
     },
     {
       "show": "brazil",
@@ -178,7 +178,7 @@
       "title": "#18 A Franquia Bolsonaro: A Família que Virou um Movimento (Português)",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/5QhTn3V5CS2ZXX2aI94y7U",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
     },
     {
       "show": "polymath",
