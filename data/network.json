@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-21T20:15:44Z",
+  "generated_at": "2026-10-22T05:04:07Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,7 +15,7 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
     },
@@ -33,7 +33,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-21",
-      "count": 224
+      "count": 225
     },
     {
       "key": "brazil",
@@ -63,7 +63,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
       "count": 5
     },
@@ -139,9 +139,18 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#227 Asteroid Mining: Humanity's Next Industry",
+      "date": "2026-10-21",
+      "url": "https://open.spotify.com/episode/3p1vzWZW9cOFfDuvNL3254",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#225 Mike & Pam: The Last Studio Heads of Hollywood",
       "date": "2026-10-21",
-      "url": "https://open.spotify.com/episode/0E0iWvfSMeePSDMRdfizXg",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/225-Mike--Pam-The-Last-Studio-Heads-of-Hollywood-e3qruhs",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792596978429-db329b8bad218.jpg"
     },
     {
@@ -151,7 +160,7 @@
       "title": "#004 The Only Living Pickpocket in New York",
       "date": "2026-10-20",
       "url": "https://open.spotify.com/episode/5MP6BACDwM6OvAtZKDkS0g",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc"
     },
     {
       "show": "brazil",
@@ -169,7 +178,7 @@
       "title": "#18 A Franquia Bolsonaro: A Família que Virou um Movimento (Português)",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/5QhTn3V5CS2ZXX2aI94y7U",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
     },
     {
       "show": "polymath",
@@ -233,15 +242,6 @@
       "date": "2026-10-17",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/219-The-Grove--The-Americana-Fake-Towns--Real-Empire-e3qliim",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
-      "date": "2026-10-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/218-Nicole-Avant-Power--Marriage--and-the-Family-Way-e3qkoea",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg"
     }
   ]
 }

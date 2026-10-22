@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-21T22:00:48Z",
+  "updated": "2026-10-22T05:29:51Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#227 Asteroid Mining: Humanity's Next Industry",
+      "date": "2026-10-21",
+      "url": "https://open.spotify.com/episode/3p1vzWZW9cOFfDuvNL3254",
+      "description": "What is actually out there, and what could it mean for us if we could reach it? Asteroids are failed planets, frozen feedstock from the solar system's construction, and water locked in clay older than Earth. This episode explores what…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg",
+      "duration": "53 min"
+    },
+    {
+      "title": "#225 Mike & Pam: The Last Studio Heads of Hollywood",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/225-Mike--Pam-The-Last-Studio-Heads-of-Hollywood-e3qruhs",
+      "description": "Six consecutive number-one openings. A Best Picture winner. The best studio year of the decade. It still wasn't enough. When the Paramount Skydance merger closed in October 2026, Mike De Luca and Pam Abdy were out at Warner Bros. This…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792596978429-db329b8bad218.jpg",
+      "duration": "54 min"
+    },
     {
       "title": "#225 Mike & Pam: The Last Studio Heads of Hollywood",
       "date": "2026-10-21",
@@ -80,22 +96,6 @@
       "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
       "date": "2026-10-17",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/219-The-Grove--The-Americana-Fake-Towns--Real-Empire-e3qliim",
-      "description": "Rick Caruso's father swept floors at the Farmers Market. The son built a town next door. The Grove opened in 2002 after fifteen years of failed schemes and neighborhood war, and then out-sold almost every real mall in America. The…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg",
-      "duration": "50 min"
-    },
-    {
-      "title": "#218 Nicole Avant: Power, Marriage, and the Family Way",
-      "date": "2026-10-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/218-Nicole-Avant-Power--Marriage--and-the-Family-Way-e3qkoea",
-      "description": "Nicole Avant grew up in the most connected house in Black Hollywood, and then she built a bigger one. Ambassador to the Bahamas at 41. The producer who willed The Black Godfather into existence. Half of the couple whose Hancock Park home…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792207037394-b18c909c89431.jpg",
-      "duration": "51 min"
-    },
-    {
-      "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
-      "date": "2026-10-17",
-      "url": "https://open.spotify.com/episode/22NCk7s2gZZMt048VNcGeA",
       "description": "Rick Caruso's father swept floors at the Farmers Market. The son built a town next door. The Grove opened in 2002 after fifteen years of failed schemes and neighborhood war, and then out-sold almost every real mall in America. The…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg",
       "duration": "50 min"
