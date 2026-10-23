@@ -1,15 +1,23 @@
 {
   "show": "curious-creative",
-  "updated": "2026-10-18T16:10:28Z",
+  "updated": "2026-10-22T21:57:01Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "033ze48fmi1cTvj2M7Pb6M",
   "episodes": [
+    {
+      "title": "#004 The Only Living Pickpocket in New York",
+      "date": "2026-10-20",
+      "url": "https://open.spotify.com/episode/5MP6BACDwM6OvAtZKDkS0g",
+      "description": "",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc",
+      "duration": "29 min"
+    },
     {
       "title": "#003: Your Mother, Your Mother, Your Mother",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/4FNzTh4mSHC8hy3Ea1bk2y",
       "description": "",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46",
       "duration": "1 hr 12 min"
     },
     {
@@ -17,7 +25,7 @@
       "date": "2026-07-22",
       "url": "https://open.spotify.com/episode/1c29WyilCTFCyjUvtJkWWl",
       "description": "",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a52ec51bd5f694dd10750804e",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a52ec51bd5f694dd10750804e",
       "duration": "50 min"
     }
   ]
