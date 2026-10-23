@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-23T15:13:32Z",
+  "generated_at": "2026-10-23T19:21:53Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,9 +15,25 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
+    },
+    {
+      "key": "polymath",
+      "name": "The Eclectic Polymath",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-10-23",
+      "count": 233
     },
     {
       "key": "morningread",
@@ -36,22 +52,6 @@
       "count": 1
     },
     {
-      "key": "polymath",
-      "name": "The Eclectic Polymath",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-21",
-      "count": 226
-    },
-    {
       "key": "brazil",
       "name": "God Is Brazilian",
       "short": "God Is Brazilian",
@@ -63,7 +63,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-19",
       "count": 11
     },
@@ -79,7 +79,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
       "count": 5
     },
@@ -152,6 +152,33 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#233 McDonald's Monopoly: Why You're Always One Piece Away",
+      "date": "2026-10-23",
+      "url": "https://open.spotify.com/episode/6wB28hw6mVeBSzrVRUaU4v",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792782374064-ff88617a6cfaa.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#232 Epstein's Last Men Standing: The Lawyer and Accountant Nobody Charged",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/232-Epsteins-Last-Men-Standing-The-Lawyer-and-Accountant-Nobody-Charged-e3qvpod",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792781596280-25c0c5def968e.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#231 Eisenkot: The General Running to Replace Netanyahu",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/231-Eisenkot-The-General-Running-to-Replace-Netanyahu-e3qvp5i",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792780545253-6b8bee2385ae8.jpg"
+    },
+    {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
@@ -164,10 +191,46 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#230 Lovecraft Country: The Hit HBO Cancelled and Never Explained",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/230-Lovecraft-Country-The-Hit-HBO-Cancelled-and-Never-Explained-e3qtpd8",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792775567319-ee23002e353dc.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#229 Jonathan Majors: The Villain Who Broke Marvel's Timeline",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/229-Jonathan-Majors-The-Villain-Who-Broke-Marvels-Timeline-e3qvo3q",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792779503830-9056b3541b8f6.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#228 Are Redheads Black? The Gene, the Pharaoh, and the Meme",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/228-Are-Redheads-Black--The-Gene--the-Pharaoh--and-the-Meme-e3qvnfo",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792777903233-9a33e0b380d89.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#227 Asteroid Mining: Humanity's Next Industry",
       "date": "2026-10-21",
-      "url": "https://open.spotify.com/episode/3p1vzWZW9cOFfDuvNL3254",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/227-Asteroid-Mining-Humanitys-Next-Industry-e3qsbai",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#226 The Envelope: How Moonlight Really Won.",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/226-The-Envelope-How-Moonlight-Really-Won-e3qvmpa",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792776872809-083c9f750c51d.jpg"
     },
     {
       "show": "polymath",
@@ -195,69 +258,6 @@
       "date": "2026-10-19",
       "url": "https://open.spotify.com/episode/15U065FkO9qzLjFpjpYJCT",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab126da536a0a03ce78624da0"
-    },
-    {
-      "show": "brazil",
-      "show_name": "God Is Brazilian",
-      "kind": "episode",
-      "title": "#18 A Franquia Bolsonaro: A Família que Virou um Movimento (Português)",
-      "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/5QhTn3V5CS2ZXX2aI94y7U",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa2a23030ca9b181c9f0f2cb5"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#224 Flávio Bolsonaro: The Heir, the Exile, and the Algorithm",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/224-Flvio-Bolsonaro-The-Heir--the-Exile--and-the-Algorithm-e3qmqbd",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#223 The Yellow Jackets: France's Permanent Revolt",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/223-The-Yellow-Jackets-Frances-Permanent-Revolt-e3qr300",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792551427244-965a4379086a2.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#222 What's going on in France?… and why?",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/222-Whats-going-on-in-France--and-why-e3qm71l",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/221-The-Homestead-Who-Got-Set-Up--Who-Got-Stripped-e3qlunl",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg"
-    },
-    {
-      "show": "ccpod",
-      "show_name": "Curious & Creative",
-      "kind": "episode",
-      "title": "#003: Your Mother, Your Mother, Your Mother",
-      "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/4FNzTh4mSHC8hy3Ea1bk2y",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#220 Nathan Fielder: The Man Who Rehearsed Reality",
-      "date": "2026-10-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/220-Nathan-Fielder-The-Man-Who-Rehearsed-Reality-e3qllf8",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792272856637-9710f04a89226.jpg"
     }
   ]
 }

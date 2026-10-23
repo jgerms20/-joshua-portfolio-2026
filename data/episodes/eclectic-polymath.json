@@ -1,15 +1,71 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-22T05:29:51Z",
+  "updated": "2026-10-23T21:43:44Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#233 McDonald's Monopoly: Why You're Always One Piece Away",
+      "date": "2026-10-23",
+      "url": "https://open.spotify.com/episode/6wB28hw6mVeBSzrVRUaU4v",
+      "description": "You have never won McDonald's Monopoly, and neither has anyone you know — but you have absolutely been one piece away. This episode opens the machine up: who invented the promotion in 1987, how the odds are actually printed, why the law…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792782374064-ff88617a6cfaa.jpg",
+      "duration": "50 min"
+    },
+    {
+      "title": "#232 Epstein's Last Men Standing: The Lawyer and Accountant Nobody Charged",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/232-Epsteins-Last-Men-Standing-The-Lawyer-and-Accountant-Nobody-Charged-e3qvpod",
+      "description": "For two decades, Jeffrey Epstein's operation ran through two professionals: his lawyer Darren Indyke and his accountant Richard Kahn. On October 21, 2026, New Mexico's attorney general sued them — the first law-enforcement action either…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792781596280-25c0c5def968e.jpg",
+      "duration": "46 min"
+    },
+    {
+      "title": "#231 Eisenkot: The General Running to Replace Netanyahu",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/231-Eisenkot-The-General-Running-to-Replace-Netanyahu-e3qvp5i",
+      "description": "Five days before Israel votes, the man leading half the polls is a general who has never held office — and the math says nobody can win. This episode reconstructs Gadi Eisenkot's rise, the party he built in a year, and the deadlock…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792780545253-6b8bee2385ae8.jpg",
+      "duration": "50 min"
+    },
+    {
+      "title": "#230 Lovecraft Country: The Hit HBO Cancelled and Never Explained",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/230-Lovecraft-Country-The-Hit-HBO-Cancelled-and-Never-Explained-e3qtpd8",
+      "description": "A hit show, cancelled after one season, by a network that never explained why. Lovecraft Country grew its audience all season, topped HBO Max, and pulled 18 Emmy nominations, including Drama Series, eleven days after HBO ended it. A…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792775567319-ee23002e353dc.jpg",
+      "duration": "1 hr 3 min"
+    },
+    {
+      "title": "#229 Jonathan Majors: The Villain Who Broke Marvel's Timeline",
+      "date": "2026-10-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/229-Jonathan-Majors-The-Villain-Who-Broke-Marvels-Timeline-e3qvo3q",
+      "description": "He was supposed to be everywhere. Marvel built its Multiverse Saga on one actor playing infinite variants of the same villain — then a Manhattan jury, a split verdict, and a firing within hours ended it. This episode reconstructs the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792779503830-9056b3541b8f6.jpg",
+      "duration": "51 min"
+    },
+    {
+      "title": "#228 Are Redheads Black? The Gene, the Pharaoh, and the Meme",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/228-Are-Redheads-Black--The-Gene--the-Pharaoh--and-the-Meme-e3qvnfo",
+      "description": "In May 2025, the internet declared redheads Black — and meant it at least five different ways. This episode separates the claims and tests each one: the genetics of the red-hair gene and where its mutations actually arose, a redheaded…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792777903233-9a33e0b380d89.jpg",
+      "duration": "54 min"
+    },
+    {
       "title": "#227 Asteroid Mining: Humanity's Next Industry",
       "date": "2026-10-21",
-      "url": "https://open.spotify.com/episode/3p1vzWZW9cOFfDuvNL3254",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/227-Asteroid-Mining-Humanitys-Next-Industry-e3qsbai",
       "description": "What is actually out there, and what could it mean for us if we could reach it? Asteroids are failed planets, frozen feedstock from the solar system's construction, and water locked in clay older than Earth. This episode explores what…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg",
+      "duration": "53 min"
+    },
+    {
+      "title": "#226 The Envelope: How Moonlight Really Won.",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/226-The-Envelope-How-Moonlight-Really-Won-e3qvmpa",
+      "description": "It is still the most shocking moment in Oscars history: La La Land announced as Best Picture, speeches underway — then the correction. Moonlight had won. This episode reconstructs that night minute by minute and asks the question…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792776872809-083c9f750c51d.jpg",
       "duration": "53 min"
     },
     {
@@ -19,6 +75,14 @@
       "description": "Six consecutive number-one openings. A Best Picture winner. The best studio year of the decade. It still wasn't enough. When the Paramount Skydance merger closed in October 2026, Mike De Luca and Pam Abdy were out at Warner Bros. This…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792596978429-db329b8bad218.jpg",
       "duration": "54 min"
+    },
+    {
+      "title": "#227 Asteroid Mining: Humanity's Next Industry",
+      "date": "2026-10-21",
+      "url": "https://open.spotify.com/episode/3p1vzWZW9cOFfDuvNL3254",
+      "description": "What is actually out there, and what could it mean for us if we could reach it? Asteroids are failed planets, frozen feedstock from the solar system's construction, and water locked in clay older than Earth. This episode explores what…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg",
+      "duration": "53 min"
     },
     {
       "title": "#225 Mike & Pam: The Last Studio Heads of Hollywood",
@@ -35,70 +99,6 @@
       "description": "On October 4, Flávio Bolsonaro beat Lula in the first round of Brazil's presidential election, 56.1 million votes to 53.9 million. His father, the man who built the movement, followed it under house arrest: 27 years for the coup plot,…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg",
       "duration": "58 min"
-    },
-    {
-      "title": "#223 The Yellow Jackets: France's Permanent Revolt",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/223-The-Yellow-Jackets-Frances-Permanent-Revolt-e3qr300",
-      "description": "Every car in France carried the uniform. The law put it there. In November 2018 the drivers of the periphery put it on, seized the roundabouts, and cancelled a fuel tax in eighteen days. No leaders. No party. Nobody who could sign a…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792551427244-965a4379086a2.jpg",
-      "duration": "1 hr 14 min"
-    },
-    {
-      "title": "#222 What's going on in France?… and why?",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/222-Whats-going-on-in-France--and-why-e3qm71l",
-      "description": "Half a million people in the streets. Schoolkids sitting on top of the Republic's own statue. Town halls burning by night. And no leader anywhere who can call it off, because nobody called it on. This started with a school in Créteil that…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg",
-      "duration": "56 min"
-    },
-    {
-      "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
-      "date": "2026-10-18",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/221-The-Homestead-Who-Got-Set-Up--Who-Got-Stripped-e3qlunl",
-      "description": "The United States once ran the largest wealth-building program in its history: 160 acres, nearly free, to anyone who would work it. About a quarter of American adults today descend from the people who got it. This is the compare and…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg",
-      "duration": "1 hr 14 min"
-    },
-    {
-      "title": "#224 Flávio Bolsonaro: The Heir, the Exile, and the Algorithm",
-      "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/0RZeeXzJaT11gB5HRfzh9f",
-      "description": "On October 4, Flávio Bolsonaro beat Lula in the first round of Brazil's presidential election, 56.1 million votes to 53.9 million. His father, the man who built the movement, followed it under house arrest: 27 years for the coup plot,…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792344807490-b72c5d4ae8963.jpg",
-      "duration": "58 min"
-    },
-    {
-      "title": "#222 What's going on in France?… and why?",
-      "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/4RO1UApTgYqUdWMuE5Crux",
-      "description": "Half a million people in the streets. Schoolkids sitting on top of the Republic's own statue. Town halls burning by night. And no leader anywhere who can call it off, because nobody called it on. This started with a school in Créteil that…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792313662339-55bbc1d83bb7a.jpg",
-      "duration": "56 min"
-    },
-    {
-      "title": "#221 The Homestead: Who Got Set Up, Who Got Stripped",
-      "date": "2026-10-18",
-      "url": "https://open.spotify.com/episode/0JahAvjONFmqvu5K4u56D3",
-      "description": "The United States once ran the largest wealth-building program in its history: 160 acres, nearly free, to anyone who would work it. About a quarter of American adults today descend from the people who got it. This is the compare and…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792297845663-2b27c7fd5cfdb.jpg",
-      "duration": "1 hr 14 min"
-    },
-    {
-      "title": "#220 Nathan Fielder: The Man Who Rehearsed Reality",
-      "date": "2026-10-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/220-Nathan-Fielder-The-Man-Who-Rehearsed-Reality-e3qllf8",
-      "description": "He has a business degree, a pilot’s license, and a theory about why people don’t speak up. Nathan Fielder turned a small-business advice show into a series of experiments on how people comply, perform, and go along: a coffee shop that ran…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792272856637-9710f04a89226.jpg",
-      "duration": "50 min"
-    },
-    {
-      "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
-      "date": "2026-10-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/219-The-Grove--The-Americana-Fake-Towns--Real-Empire-e3qliim",
-      "description": "Rick Caruso's father swept floors at the Farmers Market. The son built a town next door. The Grove opened in 2002 after fifteen years of failed schemes and neighborhood war, and then out-sold almost every real mall in America. The…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg",
-      "duration": "50 min"
     }
   ]
 }
