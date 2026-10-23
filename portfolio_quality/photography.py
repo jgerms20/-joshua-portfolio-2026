@@ -758,7 +758,7 @@ def _render_sets(photo_sets: list[dict[str, object]], root: Path) -> str:
             f'<ul class="set-card__frames" aria-label="More from {_attr(item["title"])}">{thumbs}</ul>' if thumbs else ""
         )
         prints = (
-            f'<a class="card-aside" href="../shop.html">Prints in the shop{_tail_arrow()}</a>' if item.get("prints") else ""
+            f'<a class="card-aside" href="../shop.html#photosets">In the shop{_tail_arrow()}</a>' if item.get("prints") else ""
         )
         cards.append(
             f'''<article class="set-card rv" data-set="{set_id}">

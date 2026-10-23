@@ -378,7 +378,7 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn("Rio de Janeiro", card)
         self.assertIn("Brazil &middot; 04 frames", card)
         self.assertIn('href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro"', card)
-        self.assertIn('href="../shop.html"', card)
+        self.assertIn('href="../shop.html#photosets"', card)
         for slug in ("portraits", "fashion", "events", "landscapes", "travel"):
             self.assertIn(f'<article class="card rv" data-set="{slug}">', work)
             self.assertIn(f'<section class="gallery" id="{slug}"', work)

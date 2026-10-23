@@ -1,0 +1,4 @@
+{
+  "_readme": "Photo books for shop.html#photobooks. Add one object per book, newest first. Fields: slug, title, volume (e.g. 'Volume I'), status ('in-the-works' | 'pre-order' | 'available' | 'sold-out'), year, writeup (2-4 sentences, first person), size (e.g. '8 x 10 in'), binding (e.g. 'Hardcover'), pages (number), edition (optional, e.g. 'Edition of 100'), price (number, USD; omit until set), cover (image path, e.g. 'photos/books/volume-one-cover.jpg'), spreads (optional list of image paths), buy_url (optional: Blurb or checkout link; without it, buttons open an email order). While the list is empty the shop shows a 'Volume I, in the works' placeholder.",
+  "books": []
+}

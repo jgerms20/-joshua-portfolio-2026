@@ -268,6 +268,61 @@
         .frame-card h4 { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; margin-bottom: var(--s1); }
         .frame-card p { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.6; }
 
+
+        /* ---- Shop sections nav ---- */
+        .shop-sections { display: flex; gap: var(--s4); margin-top: var(--s5); padding-top: var(--s2); border-top: 1px solid var(--rule); }
+        .shop-sections a { font-family: var(--mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); padding: 6px 0; border-bottom: 1px solid transparent; transition: color .25s, border-color .25s; }
+        .shop-sections a:hover { color: var(--ink); border-color: var(--ink); }
+        #prints, #photobooks, #photosets { scroll-margin-top: 84px; }
+
+        /* ---- Photo books ---- */
+        .books-chapter, .sets-chapter { padding: var(--s7) 0; border-top: 1px solid var(--rule); }
+        .books { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: clamp(36px, 5vw, 64px) clamp(24px, 4vw, 48px); margin-top: var(--s6); }
+        .book { display: flex; flex-direction: column; }
+        .book-stage { position: relative; aspect-ratio: 5 / 4; display: grid; place-items: center; background: var(--paper-dim); border-radius: 4px; perspective: 1400px; overflow: hidden; }
+        /* A hardcover, slightly turned: cover, spine shading, page block */
+        .book-3d { position: relative; width: 52%; aspect-ratio: 4 / 5; transform: rotateY(-24deg) rotateX(4deg); transform-style: preserve-3d; transition: transform .7s var(--exp); }
+        .book:hover .book-3d { transform: rotateY(-12deg) rotateX(2deg); }
+        .book-cover { position: absolute; inset: 0; border-radius: 2px 4px 4px 2px; overflow: hidden; background: #23201c; box-shadow: 18px 22px 40px -18px rgba(23,21,18,.55), 2px 2px 0 rgba(0,0,0,.08); }
+        .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .book-cover::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 9%; z-index: 1; background: linear-gradient(90deg, rgba(0,0,0,.38), rgba(255,255,255,.14) 45%, rgba(0,0,0,.16)); }
+        .book-pages { position: absolute; top: 2%; bottom: 2%; right: -5%; width: 6%; transform: rotateY(90deg); transform-origin: left; background: repeating-linear-gradient(90deg, #f3eee4 0 1px, #e3ddd1 1px 2px); }
+        .book-blank { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 12% 12% 10% 18%; background: linear-gradient(160deg, #e9e2d4, #d9cfbd); color: #2b2620; }
+        .book-blank b { font-family: var(--serif); font-weight: 400; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 1.05; }
+        .book-blank i { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2rem); }
+        .book-blank span { font-family: var(--mono); font-size: 0.5rem; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+        .book-status { position: absolute; top: 14px; left: 14px; font-family: var(--mono); font-size: 0.56rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: var(--paper); color: var(--ink); box-shadow: 0 0 0 1px var(--rule); }
+        .book-status.is-sold { color: var(--ink-faint); }
+        .book-status.is-live { background: var(--ink); color: var(--paper); box-shadow: none; }
+        .book-spreads { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; scrollbar-width: none; }
+        .book-spreads img { height: 64px; width: auto; flex: none; border-radius: 2px; }
+        .book-body { padding-top: var(--s3); }
+        .book-vol { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+        .book-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.05; margin: 6px 0 12px; }
+        .book-writeup { font-size: 0.94rem; line-height: 1.65; color: var(--ink-soft); }
+        .book-specs { font-family: var(--mono); font-size: 0.62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-mid); margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule); }
+        .book-buy { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; }
+        .book-price { font-family: var(--serif); font-size: 1.4rem; }
+        .book-btn { font-family: var(--mono); font-size: 0.64rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: 13px 20px; border-radius: 999px; background: var(--ink); color: var(--paper); transition: background .25s; white-space: nowrap; }
+        .book-btn:hover { background: var(--blue); }
+        .book-btn.is-quiet { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+        .book-btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+        .books-note { font-size: 0.92rem; color: var(--ink-mid); }
+        .books-note a { text-decoration: underline; }
+
+        /* ---- Photo sets ---- */
+        .sets { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: clamp(28px, 4vw, 48px); margin-top: var(--s6); }
+        .pset { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 6px; aspect-ratio: 3 / 2; }
+        .pset img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--paper-dim); }
+        .pset img:first-child { grid-row: 1 / -1; }
+        .pset-body { padding-top: var(--s3); display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+        .pset-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+        .pset-meta { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mid); }
+        .pset-links { width: 100%; display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 10px; }
+        .pset-links a { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--rule); padding-bottom: 3px; }
+        .pset-links a:hover { border-color: var(--ink); }
+        @media (max-width: 620px) { .shop-sections { gap: var(--s3); } .book-3d { width: 58%; } }
+        @media (prefers-reduced-motion: reduce) { .book-3d { transition: none; } }
         footer.shop-footer { padding: var(--s5) 0; border-top: 1px solid var(--rule); text-align: center; }
         footer.shop-footer p { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--ink-faint); }
 
@@ -311,14 +366,20 @@
          ===================================================== -->
     <header class="shop-hero">
         <div class="wrap">
-            <div class="shop-kicker rv">Fine-Art Prints</div>
-            <h1 class="shop-title rv rv-d1">Prints from the <span class="it accent">Darkroom.</span></h1>
+            <div class="shop-kicker rv">The Shop</div>
+            <h1 class="shop-title rv rv-d1">Prints, books <span class="it accent">&amp; sets.</span></h1>
             <p class="shop-intro rv rv-d2">The first set: four frames from Rio de Janeiro — a foggy bay under a full moon, Dois Irmãos over the lagoon at dusk, the trams of Santa Teresa, and a quiet corner bar. Printed true to the frame I shot it in. No crops, no filters, no upscaling beyond the original file.</p>
             <p class="shop-note rv rv-d3">This shop is new. Orders are confirmed by email before anything is printed — see checkout for how that works.</p>
         </div>
     </header>
 
-    <div class="wrap">
+    <nav class="shop-sections wrap rv" aria-label="Shop sections">
+        <a href="#prints">Prints</a>
+        <a href="#photobooks">Photo Books</a>
+        <a href="#photosets">Photo Sets</a>
+    </nav>
+
+    <div class="wrap" id="prints">
         <!-- Filters -->
         <div class="filter-row rv">
             <button class="filter-pill active" data-filter="all" aria-pressed="true">All Prints</button>
@@ -329,6 +390,34 @@
         <!-- Grid -->
         <div class="shop-grid" id="shopGrid"></div>
     </div>
+
+    <!-- =====================================================
+         PHOTO BOOKS (rendered from data/photobooks.json)
+         ===================================================== -->
+    <section class="books-chapter" id="photobooks" aria-labelledby="booksTitle">
+        <div class="wrap">
+            <div class="shop-kicker rv">Photo Books</div>
+            <h2 class="shop-title rv rv-d1" id="booksTitle" style="font-size: clamp(2.2rem, 5.5vw, 3.8rem);">Bound, <span class="it accent">in print.</span></h2>
+            <p class="shop-intro rv rv-d2">The longer edit. Each volume collects a stretch of travel, people, and nights out, sequenced the way I remember them and printed to keep.</p>
+            <div class="books" id="booksGrid">
+                <noscript><p class="books-note">Photo books are listed here when they&rsquo;re ready. <a href="mailto:jgerms20@gmail.com?subject=Photo%20book">Email me</a> to hear first.</p></noscript>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         PHOTO SETS (rendered from data/photo-sets.json + data/photography.json)
+         ===================================================== -->
+    <section class="sets-chapter" id="photosets" aria-labelledby="setsTitle">
+        <div class="wrap">
+            <div class="shop-kicker rv">Photo Sets</div>
+            <h2 class="shop-title rv rv-d1" id="setsTitle" style="font-size: clamp(2.2rem, 5.5vw, 3.8rem);">One place, <span class="it accent">one set.</span></h2>
+            <p class="shop-intro rv rv-d2">Each set is a single trip or theme. See the whole thing, pick prints from it, or ask about the full set.</p>
+            <div class="sets" id="setsGrid">
+                <noscript><p class="books-note">See every set on the <a href="photography/">photography site</a>.</p></noscript>
+            </div>
+        </div>
+    </section>
 
     <!-- =====================================================
          PRINT + FRAME ADVISORY
@@ -803,6 +892,132 @@
         }
         window.addEventListener('hashchange', openFromHash);
         openFromHash();
+    </script>
+
+    <script>
+    // Photo books + photo sets. Data is only written with textContent.
+    (function () {
+        var EMAIL = 'jgerms20@gmail.com';
+        function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+        function str(v) { return typeof v === 'string' ? v.trim() : ''; }
+        function safeUrl(v) {
+            v = str(v); if (!v) return '';
+            try { var u = new URL(v, location.href); return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : ''; } catch (e) { return ''; }
+        }
+        function mail(subject) { return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject); }
+        function getJSON(url) { return fetch(url, { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); }
+        var STATUS = { 'in-the-works': 'In the works', 'pre-order': 'Pre-order', 'available': 'Available', 'sold-out': 'Sold out' };
+
+        function bookCard(b) {
+            var status = STATUS[b.status] ? b.status : 'in-the-works';
+            var card = el('article', 'book rv in');
+            var stage = el('div', 'book-stage');
+            var tome = el('div', 'book-3d');
+            var cover = el('div', 'book-cover');
+            var src = safeUrl(b.cover);
+            if (src) {
+                var img = el('img'); img.alt = (str(b.title) || 'Photo book') + ' cover'; img.loading = 'lazy'; img.decoding = 'async'; img.src = src;
+                cover.appendChild(img);
+            } else {
+                var blank = el('div', 'book-blank');
+                blank.appendChild(el('span', null, 'Joshua McKenzie German'));
+                var t = el('b'); t.appendChild(document.createTextNode(str(b.title) || 'Photographs'));
+                blank.appendChild(t);
+                blank.appendChild(el('i', null, str(b.volume) || 'Vol. I'));
+                cover.appendChild(blank);
+            }
+            tome.appendChild(cover);
+            tome.appendChild(el('div', 'book-pages'));
+            stage.appendChild(tome);
+            var badge = el('span', 'book-status' + (status === 'sold-out' ? ' is-sold' : status === 'available' ? ' is-live' : ''), STATUS[status]);
+            stage.appendChild(badge);
+            card.appendChild(stage);
+
+            if (Array.isArray(b.spreads) && b.spreads.length) {
+                var strip = el('div', 'book-spreads');
+                b.spreads.slice(0, 8).forEach(function (p) { var u = safeUrl(p); if (!u) return; var i = el('img'); i.alt = ''; i.loading = 'lazy'; i.src = u; strip.appendChild(i); });
+                if (strip.children.length) card.appendChild(strip);
+            }
+
+            var body = el('div', 'book-body');
+            body.appendChild(el('p', 'book-vol', [str(b.volume), b.year ? String(b.year) : ''].filter(Boolean).join(' · ')));
+            body.appendChild(el('h3', 'book-title', str(b.title) || 'Untitled'));
+            if (str(b.writeup)) body.appendChild(el('p', 'book-writeup', str(b.writeup)));
+            var specs = [str(b.size), str(b.binding), b.pages ? b.pages + ' pages' : '', str(b.edition)].filter(Boolean);
+            if (specs.length) body.appendChild(el('p', 'book-specs', specs.join(' · ')));
+
+            var buy = el('div', 'book-buy');
+            buy.appendChild(el('span', 'book-price', typeof b.price === 'number' && status !== 'in-the-works' ? '$' + b.price : ''));
+            var btn = el('a', 'book-btn');
+            var link = safeUrl(b.buy_url);
+            var title = str(b.title) || 'photo book';
+            if (status === 'sold-out') { btn.textContent = 'Sold out'; btn.setAttribute('aria-disabled', 'true'); btn.href = '#photobooks'; }
+            else if (status === 'in-the-works') { btn.textContent = 'Get notified'; btn.className += ' is-quiet'; btn.href = mail('Notify me: ' + title); }
+            else if (link) { btn.textContent = status === 'pre-order' ? 'Pre-order ↗' : 'Buy the book ↗'; btn.href = link; btn.target = '_blank'; btn.rel = 'noopener'; }
+            else { btn.textContent = status === 'pre-order' ? 'Pre-order' : 'Order by email'; btn.href = mail((status === 'pre-order' ? 'Pre-order: ' : 'Order: ') + title); }
+            buy.appendChild(btn);
+            body.appendChild(buy);
+            card.appendChild(body);
+            return card;
+        }
+
+        var booksGrid = document.getElementById('booksGrid');
+        getJSON('data/photobooks.json').then(function (data) {
+            var books = data && Array.isArray(data.books) ? data.books.filter(function (b) { return b && typeof b === 'object'; }) : [];
+            if (!books.length) {
+                // Nothing published yet: one honest placeholder for the first volume.
+                books = [{ title: 'Volume I', volume: 'Photo book', status: 'in-the-works',
+                    writeup: 'The first book is in the works: travel, people, and nights out, edited down to the frames that hold up on paper. Want to know when it drops?' }];
+            }
+            booksGrid.textContent = '';
+            books.forEach(function (b) { booksGrid.appendChild(bookCard(b)); });
+        });
+
+        // Photo sets: covers from the same manifest the photography site uses.
+        function sized(src) {
+            var m = /^photos\/([a-z]+)\/(.+)\.[a-z]+$/i.exec(src || '');
+            return m ? 'photos/_sized/' + m[1].toLowerCase() + '-' + m[2] + '-480.webp' : src;
+        }
+        var setsGrid = document.getElementById('setsGrid');
+        Promise.all([getJSON('data/photo-sets.json'), getJSON('data/photography.json')]).then(function (res) {
+            var sets = res[0] && Array.isArray(res[0].sets) ? res[0].sets : [];
+            var photos = res[1] && Array.isArray(res[1].entries) ? res[1].entries.filter(function (e) { return e && e.published && e.set; }) : [];
+            setsGrid.textContent = '';
+            sets.forEach(function (set) {
+                var frames = photos.filter(function (p) { return p.set === set.slug; });
+                if (!frames.length) return;
+                frames.sort(function (a, b) { return (a.id === set.cover ? -1 : 0) - (b.id === set.cover ? -1 : 0); });
+                var card = el('article', 'pset-card rv in');
+                var grid = el('a', 'pset');
+                grid.href = 'photography/#set-' + encodeURIComponent(set.slug);
+                grid.setAttribute('aria-label', 'View the ' + str(set.title) + ' set');
+                frames.slice(0, 4).forEach(function (f, i) {
+                    var img = el('img'); img.alt = i ? '' : str(f.alt); img.loading = 'lazy'; img.decoding = 'async';
+                    var full = str(f.src);
+                    img.addEventListener('error', function () { if (img.getAttribute('src') !== full) img.src = full; });
+                    img.src = sized(full);
+                    grid.appendChild(img);
+                });
+                card.appendChild(grid);
+                var body = el('div', 'pset-body');
+                body.appendChild(el('h3', 'pset-title', str(set.title)));
+                body.appendChild(el('span', 'pset-meta', [str(set.place), set.year ? String(set.year) : '', frames.length + ' frames'].filter(Boolean).join(' · ')));
+                if (str(set.blurb)) body.appendChild(el('p', 'book-writeup', str(set.blurb)));
+                var links = el('div', 'pset-links');
+                var view = el('a', null, 'View the set →'); view.href = grid.href; links.appendChild(view);
+                if (set.prints) { var pr = el('a', null, 'Prints from this set'); pr.href = '#prints'; links.appendChild(pr); }
+                var ask = el('a', null, 'Ask about the full set'); ask.href = mail('Photo set: ' + str(set.title)); links.appendChild(ask);
+                body.appendChild(links);
+                card.appendChild(body);
+                setsGrid.appendChild(card);
+            });
+            if (!setsGrid.children.length) {
+                var note = el('p', 'books-note', 'Sets land here as they are published. ');
+                var a = el('a', null, 'See the photography site'); a.href = 'photography/'; note.appendChild(a);
+                setsGrid.appendChild(note);
+            }
+        });
+    })();
     </script>
 <script src="assets/media.js" defer></script>
 </body>
