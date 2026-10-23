@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-22T20:13:45Z",
+  "generated_at": "2026-10-23T05:04:00Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,9 +15,25 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
+    },
+    {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A morning read, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
+      "latest": "2026-10-22",
+      "count": 1
     },
     {
       "key": "polymath",
@@ -33,7 +49,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-21",
-      "count": 225
+      "count": 226
     },
     {
       "key": "brazil",
@@ -42,7 +58,7 @@
       "kind": "podcast",
       "flagship": false,
       "hosts": [
-        "Joshua German"
+        "AI-generated"
       ],
       "tagline": "A podcast by Joshua German.",
       "about": "",
@@ -63,7 +79,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-15",
       "count": 5
     },
@@ -136,6 +152,15 @@
   ],
   "latest": [
     {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "The Morning Read — Thursday, October 22: Diplomats Out of Saudi Arabia",
+      "date": "2026-10-22",
+      "url": "https://open.spotify.com/episode/6hFvuPA0CQ67f5aVH91gYY",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
+    },
+    {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
@@ -169,7 +194,7 @@
       "title": "#19 A \"Democracia Racial\" do Brasil: Mito, Realidade e o Significado de Raça (Português)",
       "date": "2026-10-19",
       "url": "https://open.spotify.com/episode/15U065FkO9qzLjFpjpYJCT",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab126da536a0a03ce78624da0"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab126da536a0a03ce78624da0"
     },
     {
       "show": "brazil",
@@ -223,7 +248,7 @@
       "title": "#003: Your Mother, Your Mother, Your Mother",
       "date": "2026-10-18",
       "url": "https://open.spotify.com/episode/4FNzTh4mSHC8hy3Ea1bk2y",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a225acadf788df6748c8c8f46"
     },
     {
       "show": "polymath",
@@ -233,15 +258,6 @@
       "date": "2026-10-17",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/220-Nathan-Fielder-The-Man-Who-Rehearsed-Reality-e3qllf8",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792272856637-9710f04a89226.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#219 The Grove & The Americana: Fake Towns, Real Empire",
-      "date": "2026-10-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/219-The-Grove--The-Americana-Fake-Towns--Real-Empire-e3qliim",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792266838352-dec527772bbd4.jpg"
     }
   ]
 }
