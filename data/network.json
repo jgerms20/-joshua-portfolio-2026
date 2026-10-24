@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-23T19:21:53Z",
+  "generated_at": "2026-10-24T01:43:16Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 3
     },
     {
+      "key": "brazil",
+      "name": "God Is Brazilian",
+      "short": "God Is Brazilian",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A podcast by Joshua German.",
+      "about": "",
+      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "latest": "2026-10-23",
+      "count": 12
+    },
+    {
       "key": "polymath",
       "name": "The Eclectic Polymath",
       "short": "Eclectic Polymath",
@@ -33,7 +49,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-23",
-      "count": 233
+      "count": 235
     },
     {
       "key": "morningread",
@@ -50,22 +66,6 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
       "latest": "2026-10-22",
       "count": 1
-    },
-    {
-      "key": "brazil",
-      "name": "God Is Brazilian",
-      "short": "God Is Brazilian",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A podcast by Joshua German.",
-      "about": "",
-      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
-      "latest": "2026-10-19",
-      "count": 11
     },
     {
       "key": "riff",
@@ -111,7 +111,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -152,13 +152,40 @@
   ],
   "latest": [
     {
+      "show": "brazil",
+      "show_name": "God Is Brazilian",
+      "kind": "episode",
+      "title": "#20 Como os Brasileiros Realmente Trabalham: Salários, Direitos e o Dia a Dia (Português)",
+      "date": "2026-10-23",
+      "url": "https://open.spotify.com/episode/4hWgfgic2US6TtVJb16Jyf",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#235 Ryū Murakami: The Other Murakami",
+      "date": "2026-10-23",
+      "url": "https://open.spotify.com/episode/4TwvSppUBE1xV8B8ooys0l",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792784079250-91ad27894ed59.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#234 The Spice Wars: The Seed That Outpriced Manhattan",
+      "date": "2026-10-23",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/234-The-Spice-Wars-The-Seed-That-Outpriced-Manhattan-e3qvqv2",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792783417242-a8e41615a7fb3.jpg"
+    },
+    {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
       "title": "#233 McDonald's Monopoly: Why You're Always One Piece Away",
       "date": "2026-10-23",
-      "url": "https://open.spotify.com/episode/6wB28hw6mVeBSzrVRUaU4v",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792782374064-ff88617a6cfaa.jpg"
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/233-McDonalds-Monopoly-Why-Youre-Always-One-Piece-Away-e3qvqe5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792788567780-e886cb46c3e39.jpg"
     },
     {
       "show": "polymath",
@@ -185,7 +212,7 @@
       "title": "The Morning Read — Thursday, October 22: Diplomats Out of Saudi Arabia",
       "date": "2026-10-22",
       "url": "https://open.spotify.com/episode/6hFvuPA0CQ67f5aVH91gYY",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
     },
     {
       "show": "polymath",
@@ -203,7 +230,7 @@
       "title": "#229 Jonathan Majors: The Villain Who Broke Marvel's Timeline",
       "date": "2026-10-22",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/229-Jonathan-Majors-The-Villain-Who-Broke-Marvels-Timeline-e3qvo3q",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792779503830-9056b3541b8f6.jpg"
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792792702561-d777fe2d99532.jpg"
     },
     {
       "show": "polymath",
@@ -231,33 +258,6 @@
       "date": "2026-10-21",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/226-The-Envelope-How-Moonlight-Really-Won-e3qvmpa",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792776872809-083c9f750c51d.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#225 Mike & Pam: The Last Studio Heads of Hollywood",
-      "date": "2026-10-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/225-Mike--Pam-The-Last-Studio-Heads-of-Hollywood-e3qruhs",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792596978429-db329b8bad218.jpg"
-    },
-    {
-      "show": "ccpod",
-      "show_name": "Curious & Creative",
-      "kind": "episode",
-      "title": "#004 The Only Living Pickpocket in New York",
-      "date": "2026-10-20",
-      "url": "https://open.spotify.com/episode/5MP6BACDwM6OvAtZKDkS0g",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc"
-    },
-    {
-      "show": "brazil",
-      "show_name": "God Is Brazilian",
-      "kind": "episode",
-      "title": "#19 A \"Democracia Racial\" do Brasil: Mito, Realidade e o Significado de Raça (Português)",
-      "date": "2026-10-19",
-      "url": "https://open.spotify.com/episode/15U065FkO9qzLjFpjpYJCT",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab126da536a0a03ce78624da0"
     }
   ]
 }
