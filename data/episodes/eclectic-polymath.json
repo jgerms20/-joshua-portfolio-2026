@@ -1,6 +1,6 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-24T11:40:12Z",
+  "updated": "2026-10-24T16:17:35Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
@@ -69,11 +69,27 @@
       "duration": "51 min"
     },
     {
+      "title": "#228 Are Redheads Black? The Gene, the Pharaoh, and the Meme",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/228-Are-Redheads-Black--The-Gene--the-Pharaoh--and-the-Meme-e3qvnfo",
+      "description": "In May 2025, the internet declared redheads Black — and meant it at least five different ways. This episode separates the claims and tests each one: the genetics of the red-hair gene and where its mutations actually arose, a redheaded…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792777903233-9a33e0b380d89.jpg",
+      "duration": "54 min"
+    },
+    {
       "title": "#227 Asteroid Mining: Humanity's Next Industry",
       "date": "2026-10-21",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/227-Asteroid-Mining-Humanitys-Next-Industry-e3qsbai",
       "description": "What is actually out there, and what could it mean for us if we could reach it? Asteroids are failed planets, frozen feedstock from the solar system's construction, and water locked in clay older than Earth. This episode explores what…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg",
+      "duration": "53 min"
+    },
+    {
+      "title": "#226 The Envelope: How Moonlight Really Won.",
+      "date": "2026-10-21",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/226-The-Envelope-How-Moonlight-Really-Won-e3qvmpa",
+      "description": "It is still the most shocking moment in Oscars history: La La Land announced as Best Picture, speeches underway — then the correction. Moonlight had won. This episode reconstructs that night minute by minute and asks the question…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792776872809-083c9f750c51d.jpg",
       "duration": "53 min"
     },
     {
@@ -83,22 +99,6 @@
       "description": "Six consecutive number-one openings. A Best Picture winner. The best studio year of the decade. It still wasn't enough. When the Paramount Skydance merger closed in October 2026, Mike De Luca and Pam Abdy were out at Warner Bros. This…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792596978429-db329b8bad218.jpg",
       "duration": "54 min"
-    },
-    {
-      "title": "#228 Are Redheads Black? The Gene, the Pharaoh, and the Meme",
-      "date": "2026-10-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/228-Are-Redheads-Black--The-Gene--the-Pharaoh--and-the-Meme-e3qvnfo",
-      "description": "In May 2025, the internet declared redheads Black — and meant it at least five different ways. This episode separates the claims and tests each one: the genetics of the red-hair gene and where its mutations actually arose, a redheaded…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792777903233-9a33e0b380d89.jpg",
-      "duration": "54 min"
-    },
-    {
-      "title": "#226 The Envelope: How Moonlight Really Won.",
-      "date": "2026-10-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/226-The-Envelope-How-Moonlight-Really-Won-e3qvmpa",
-      "description": "It is still the most shocking moment in Oscars history: La La Land announced as Best Picture, speeches underway — then the correction. Moonlight had won. This episode reconstructs that night minute by minute and asks the question…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792776872809-083c9f750c51d.jpg",
-      "duration": "53 min"
     }
   ]
 }
