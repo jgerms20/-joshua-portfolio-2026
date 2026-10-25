@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-24T19:35:18Z",
+  "generated_at": "2026-10-25T01:19:45Z",
   "shows": [
     {
       "key": "ccpod",
@@ -52,6 +52,22 @@
       "count": 235
     },
     {
+      "key": "riff",
+      "name": "The Daily Riff",
+      "short": "The Daily Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A daily dose of jazz, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-10-23",
+      "count": 6
+    },
+    {
       "key": "morningread",
       "name": "The Morning Read",
       "short": "The Morning Read",
@@ -66,22 +82,6 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
       "latest": "2026-10-22",
       "count": 1
-    },
-    {
-      "key": "riff",
-      "name": "The Daily Riff",
-      "short": "The Daily Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A daily dose of jazz, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-15",
-      "count": 5
     },
     {
       "key": "approachable",
@@ -111,7 +111,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -158,7 +158,7 @@
       "title": "#20 Como os Brasileiros Realmente Trabalham: Salários, Direitos e o Dia a Dia (Português)",
       "date": "2026-10-23",
       "url": "https://open.spotify.com/episode/4hWgfgic2US6TtVJb16Jyf",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
     },
     {
       "show": "polymath",
@@ -168,6 +168,15 @@
       "date": "2026-10-23",
       "url": "https://open.spotify.com/episode/4TwvSppUBE1xV8B8ooys0l",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792784079250-91ad27894ed59.jpg"
+    },
+    {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "The Sweep: The Week of the Big Band",
+      "date": "2026-10-23",
+      "url": "https://open.spotify.com/episode/0NhokwIetrzAcCutEdXdwE",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa2242a6bc1ae0210d177e823"
     },
     {
       "show": "polymath",
@@ -212,7 +221,7 @@
       "title": "The Morning Read — Thursday, October 22: Diplomats Out of Saudi Arabia",
       "date": "2026-10-22",
       "url": "https://open.spotify.com/episode/6hFvuPA0CQ67f5aVH91gYY",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
     },
     {
       "show": "polymath",
@@ -249,15 +258,6 @@
       "date": "2026-10-21",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/227-Asteroid-Mining-Humanitys-Next-Industry-e3qsbai",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#226 The Envelope: How Moonlight Really Won.",
-      "date": "2026-10-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/226-The-Envelope-How-Moonlight-Really-Won-e3qvmpa",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792776872809-083c9f750c51d.jpg"
     }
   ]
 }
