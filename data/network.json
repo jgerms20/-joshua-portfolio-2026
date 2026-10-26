@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-26T01:22:11Z",
+  "generated_at": "2026-10-26T06:32:16Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 3
     },
     {
+      "key": "riff",
+      "name": "The Daily Riff",
+      "short": "The Daily Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A daily dose of jazz, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-10-26",
+      "count": 7
+    },
+    {
       "key": "brazil",
       "name": "God Is Brazilian",
       "short": "God Is Brazilian",
@@ -31,7 +47,7 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-23",
       "count": 12
     },
@@ -50,22 +66,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-23",
       "count": 235
-    },
-    {
-      "key": "riff",
-      "name": "The Daily Riff",
-      "short": "The Daily Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A daily dose of jazz, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-23",
-      "count": 6
     },
     {
       "key": "morningread",
@@ -111,7 +111,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -152,6 +152,15 @@
   ],
   "latest": [
     {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "The Week Ahead: October 26 – November 1",
+      "date": "2026-10-26",
+      "url": "https://open.spotify.com/episode/4O4oE9FdrKwZs72X1KAyOs",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a9b9f60e9b417207d6441740a"
+    },
+    {
       "show": "brazil",
       "show_name": "God Is Brazilian",
       "kind": "episode",
@@ -166,7 +175,7 @@
       "kind": "episode",
       "title": "#235 Ryū Murakami: The Other Murakami",
       "date": "2026-10-23",
-      "url": "https://open.spotify.com/episode/4TwvSppUBE1xV8B8ooys0l",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/235-Ry-Murakami-The-Other-Murakami-e3qvret",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792784079250-91ad27894ed59.jpg"
     },
     {
@@ -221,7 +230,7 @@
       "title": "The Morning Read — Thursday, October 22: Diplomats Out of Saudi Arabia",
       "date": "2026-10-22",
       "url": "https://open.spotify.com/episode/6hFvuPA0CQ67f5aVH91gYY",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
     },
     {
       "show": "polymath",
@@ -249,15 +258,6 @@
       "date": "2026-10-21",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/228-Are-Redheads-Black--The-Gene--the-Pharaoh--and-the-Meme-e3qvnfo",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792777903233-9a33e0b380d89.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#227 Asteroid Mining: Humanity's Next Industry",
-      "date": "2026-10-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/227-Asteroid-Mining-Humanitys-Next-Industry-e3qsbai",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792614356084-988e6dbec42a9.jpg"
     }
   ]
 }
