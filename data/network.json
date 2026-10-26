@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-26T06:32:16Z",
+  "generated_at": "2026-10-26T20:37:43Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,38 @@
       "count": 3
     },
     {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A morning read, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
+      "latest": "2026-10-26",
+      "count": 2
+    },
+    {
+      "key": "polymath",
+      "name": "The Eclectic Polymath",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-10-26",
+      "count": 239
+    },
+    {
       "key": "riff",
       "name": "The Daily Riff",
       "short": "The Daily Riff",
@@ -31,7 +63,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-26",
       "count": 7
     },
@@ -47,41 +79,9 @@
       "tagline": "A podcast by Joshua German.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-23",
       "count": 12
-    },
-    {
-      "key": "polymath",
-      "name": "The Eclectic Polymath",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-23",
-      "count": 235
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A morning read, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
-      "latest": "2026-10-22",
-      "count": 1
     },
     {
       "key": "approachable",
@@ -152,6 +152,42 @@
   ],
   "latest": [
     {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "The Morning Read — Monday, October 26: Lula Wins a Fourth Term",
+      "date": "2026-10-26",
+      "url": "https://open.spotify.com/episode/54Uk0qbZf2ZdG9lWvIrNDv",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a691ad38dcfc14e7a67cf9657"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#239 The Greenville Clowns: The Monster Nobody Ever Found",
+      "date": "2026-10-26",
+      "url": "https://open.spotify.com/episode/6qFsSnIk5CQ2HucjHsR2ix",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793022010216-2fef7c5890c4e.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#238 Jay-Z vs. Nas: Two Casinos, Two Theories of Black Capital",
+      "date": "2026-10-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/238-Jay-Z-vs--Nas-Two-Casinos--Two-Theories-of-Black-Capital-e3r3hi6",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793020958425-4cf6ed2c5fed2.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#237 Obama's Incomplete Bill: The Healthcare Law That Never Finished the Job",
+      "date": "2026-10-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/237-Obamas-Incomplete-Bill-The-Healthcare-Law-That-Never-Finished-the-Job-e3r38ak",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792990572137-2abfb320d31d7.jpg"
+    },
+    {
       "show": "riff",
       "show_name": "The Daily Riff",
       "kind": "episode",
@@ -161,13 +197,22 @@
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a9b9f60e9b417207d6441740a"
     },
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#236 Harold Washington: The Mayor Who Beat the Machine",
+      "date": "2026-10-25",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/236-Harold-Washington-The-Mayor-Who-Beat-the-Machine-e3r357t",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792978104126-7c17d1675b347.jpg"
+    },
+    {
       "show": "brazil",
       "show_name": "God Is Brazilian",
       "kind": "episode",
       "title": "#20 Como os Brasileiros Realmente Trabalham: Salários, Direitos e o Dia a Dia (Português)",
       "date": "2026-10-23",
       "url": "https://open.spotify.com/episode/4hWgfgic2US6TtVJb16Jyf",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
     },
     {
       "show": "polymath",
@@ -213,51 +258,6 @@
       "date": "2026-10-22",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/232-Epsteins-Last-Men-Standing-The-Lawyer-and-Accountant-Nobody-Charged-e3qvpod",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792781596280-25c0c5def968e.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#231 Eisenkot: The General Running to Replace Netanyahu",
-      "date": "2026-10-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/231-Eisenkot-The-General-Running-to-Replace-Netanyahu-e3qvp5i",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792780545253-6b8bee2385ae8.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "The Morning Read — Thursday, October 22: Diplomats Out of Saudi Arabia",
-      "date": "2026-10-22",
-      "url": "https://open.spotify.com/episode/6hFvuPA0CQ67f5aVH91gYY",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a144dcbe9d61248d7ba1350dc"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#230 Lovecraft Country: The Hit HBO Cancelled and Never Explained",
-      "date": "2026-10-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/230-Lovecraft-Country-The-Hit-HBO-Cancelled-and-Never-Explained-e3qtpd8",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792775567319-ee23002e353dc.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#229 Jonathan Majors: The Villain Who Broke Marvel's Timeline",
-      "date": "2026-10-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/229-Jonathan-Majors-The-Villain-Who-Broke-Marvels-Timeline-e3qvo3q",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792792702561-d777fe2d99532.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#228 Are Redheads Black? The Gene, the Pharaoh, and the Meme",
-      "date": "2026-10-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/228-Are-Redheads-Black--The-Gene--the-Pharaoh--and-the-Meme-e3qvnfo",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792777903233-9a33e0b380d89.jpg"
     }
   ]
 }
