@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-26T20:37:43Z",
+  "generated_at": "2026-10-27T00:36:58Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,38 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
+    },
+    {
+      "key": "brazil",
+      "name": "God Is Brazilian",
+      "short": "God Is Brazilian",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A podcast by Joshua German.",
+      "about": "",
+      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "latest": "2026-10-26",
+      "count": 13
+    },
+    {
+      "key": "riff",
+      "name": "The Daily Riff",
+      "short": "The Daily Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A daily dose of jazz, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-10-26",
+      "count": 8
     },
     {
       "key": "morningread",
@@ -50,38 +82,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-10-26",
       "count": 239
-    },
-    {
-      "key": "riff",
-      "name": "The Daily Riff",
-      "short": "The Daily Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A daily dose of jazz, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-26",
-      "count": 7
-    },
-    {
-      "key": "brazil",
-      "name": "God Is Brazilian",
-      "short": "God Is Brazilian",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A podcast by Joshua German.",
-      "about": "",
-      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
-      "latest": "2026-10-23",
-      "count": 12
     },
     {
       "key": "approachable",
@@ -152,13 +152,31 @@
   ],
   "latest": [
     {
+      "show": "brazil",
+      "show_name": "God Is Brazilian",
+      "kind": "episode",
+      "title": "#21 Lula e os Metalúrgicos do ABC: Como um Operário Construiu um Movimento Político (Português)",
+      "date": "2026-10-26",
+      "url": "https://open.spotify.com/episode/7pJSZCz8dBNbcOrwIQHgbv",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a70b1209ac78b8ceb58ceb8e2"
+    },
+    {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "The Sweep: Six Cities, Halloween Week",
+      "date": "2026-10-26",
+      "url": "https://open.spotify.com/episode/0j0DAmLGAEWXniX9VL1LrH",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a73fe1c4f1485aeb59d3ca086"
+    },
+    {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
       "title": "The Morning Read — Monday, October 26: Lula Wins a Fourth Term",
       "date": "2026-10-26",
       "url": "https://open.spotify.com/episode/54Uk0qbZf2ZdG9lWvIrNDv",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a691ad38dcfc14e7a67cf9657"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a691ad38dcfc14e7a67cf9657"
     },
     {
       "show": "polymath",
@@ -240,24 +258,6 @@
       "date": "2026-10-23",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/234-The-Spice-Wars-The-Seed-That-Outpriced-Manhattan-e3qvqv2",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792783417242-a8e41615a7fb3.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#233 McDonald's Monopoly: Why You're Always One Piece Away",
-      "date": "2026-10-23",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/233-McDonalds-Monopoly-Why-Youre-Always-One-Piece-Away-e3qvqe5",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792788567780-e886cb46c3e39.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#232 Epstein's Last Men Standing: The Lawyer and Accountant Nobody Charged",
-      "date": "2026-10-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/232-Epsteins-Last-Men-Standing-The-Lawyer-and-Accountant-Nobody-Charged-e3qvpod",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792781596280-25c0c5def968e.jpg"
     }
   ]
 }
