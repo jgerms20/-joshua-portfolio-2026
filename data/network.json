@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-28T02:25:54Z",
+  "generated_at": "2026-10-28T09:51:47Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,22 +20,6 @@
       "count": 3
     },
     {
-      "key": "brazil",
-      "name": "God Is Brazilian",
-      "short": "God Is Brazilian",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A podcast by Joshua German.",
-      "about": "",
-      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
-      "latest": "2026-10-26",
-      "count": 13
-    },
-    {
       "key": "riff",
       "name": "The Daily Riff",
       "short": "The Daily Riff",
@@ -47,9 +31,25 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-10-28",
+      "count": 9
+    },
+    {
+      "key": "brazil",
+      "name": "God Is Brazilian",
+      "short": "God Is Brazilian",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A podcast by Joshua German.",
+      "about": "",
+      "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-26",
-      "count": 8
+      "count": 13
     },
     {
       "key": "morningread",
@@ -63,7 +63,7 @@
       "tagline": "A morning read, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a575b8e353de70af5d48ab3ad",
       "latest": "2026-10-26",
       "count": 2
     },
@@ -152,13 +152,22 @@
   ],
   "latest": [
     {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "Paris: The City That Set Jazz Free",
+      "date": "2026-10-28",
+      "url": "https://open.spotify.com/episode/2XknqJJWEmSRO7wAltXNm7",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a71370649c63c338e28578ada"
+    },
+    {
       "show": "brazil",
       "show_name": "God Is Brazilian",
       "kind": "episode",
       "title": "#21 Lula e os Metalúrgicos do ABC: Como um Operário Construiu um Movimento Político (Português)",
       "date": "2026-10-26",
       "url": "https://open.spotify.com/episode/7pJSZCz8dBNbcOrwIQHgbv",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a70b1209ac78b8ceb58ceb8e2"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a70b1209ac78b8ceb58ceb8e2"
     },
     {
       "show": "riff",
@@ -167,7 +176,7 @@
       "title": "The Sweep: Six Cities, Halloween Week",
       "date": "2026-10-26",
       "url": "https://open.spotify.com/episode/0j0DAmLGAEWXniX9VL1LrH",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a73fe1c4f1485aeb59d3ca086"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a73fe1c4f1485aeb59d3ca086"
     },
     {
       "show": "morningread",
@@ -230,7 +239,7 @@
       "title": "#20 Como os Brasileiros Realmente Trabalham: Salários, Direitos e o Dia a Dia (Português)",
       "date": "2026-10-23",
       "url": "https://open.spotify.com/episode/4hWgfgic2US6TtVJb16Jyf",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a653ec8aaf76cceaf3ec35639"
     },
     {
       "show": "polymath",
@@ -249,15 +258,6 @@
       "date": "2026-10-23",
       "url": "https://open.spotify.com/episode/0NhokwIetrzAcCutEdXdwE",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa2242a6bc1ae0210d177e823"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#234 The Spice Wars: The Seed That Outpriced Manhattan",
-      "date": "2026-10-23",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/234-The-Spice-Wars-The-Seed-That-Outpriced-Manhattan-e3qvqv2",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792783417242-a8e41615a7fb3.jpg"
     }
   ]
 }
