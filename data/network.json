@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-29T01:52:57Z",
+  "generated_at": "2026-10-29T08:40:25Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,7 +15,7 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
     },
@@ -32,8 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-28",
-      "count": 244
+      "latest": "2026-10-29",
+      "count": 245
     },
     {
       "key": "morningread",
@@ -47,7 +47,7 @@
       "tagline": "A morning read, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
       "latest": "2026-10-28",
       "count": 3
     },
@@ -155,9 +155,18 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#246 Los Angeles: The Capital of the Pacific Century",
+      "date": "2026-10-29",
+      "url": "https://open.spotify.com/episode/2hVT2KVrMP5SIZzoOP4Xbn",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
       "date": "2026-10-28",
-      "url": "https://open.spotify.com/episode/1sPFk3tLCuKqSKlX5gvwFh",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-by-the-Numbers-The-IPO-Document-Nobody-Read-e3r9vlo",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg"
     },
     {
@@ -230,7 +239,7 @@
       "title": "#21 Lula e os Metalúrgicos do ABC: Como um Operário Construiu um Movimento Político (Português)",
       "date": "2026-10-26",
       "url": "https://open.spotify.com/episode/7pJSZCz8dBNbcOrwIQHgbv",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a70b1209ac78b8ceb58ceb8e2"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a70b1209ac78b8ceb58ceb8e2"
     },
     {
       "show": "riff",
@@ -239,7 +248,7 @@
       "title": "The Sweep: Six Cities, Halloween Week",
       "date": "2026-10-26",
       "url": "https://open.spotify.com/episode/0j0DAmLGAEWXniX9VL1LrH",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a73fe1c4f1485aeb59d3ca086"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a73fe1c4f1485aeb59d3ca086"
     },
     {
       "show": "morningread",
@@ -249,15 +258,6 @@
       "date": "2026-10-26",
       "url": "https://open.spotify.com/episode/54Uk0qbZf2ZdG9lWvIrNDv",
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a691ad38dcfc14e7a67cf9657"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#239 The Greenville Clowns: The Monster Nobody Ever Found",
-      "date": "2026-10-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/239-The-Greenville-Clowns-The-Monster-Nobody-Ever-Found-e3r45ph",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793022010216-2fef7c5890c4e.jpg"
     }
   ]
 }

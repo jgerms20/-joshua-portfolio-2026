@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-29T06:33:20Z",
+  "updated": "2026-10-29T13:46:41Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#246 Los Angeles: The Capital of the Pacific Century",
+      "date": "2026-10-29",
+      "url": "https://open.spotify.com/episode/2hVT2KVrMP5SIZzoOP4Xbn",
+      "description": "An Instagram reel argued Los Angeles is destined to become the greatest city in the world, and its comments kept returning to one phrase: the third wave. This episode audits the claim — the waves of LA's history, the city it never…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg",
+      "duration": "1 hr 6 min"
+    },
+    {
       "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
       "date": "2026-10-28",
-      "url": "https://open.spotify.com/episode/1sPFk3tLCuKqSKlX5gvwFh",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-by-the-Numbers-The-IPO-Document-Nobody-Read-e3r9vlo",
       "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
       "duration": "55 min"
@@ -43,6 +51,14 @@
       "description": "Ask a room of Disney fans to name the eras and you will start an argument — because every border in Disney's century is a disguised theory of what an era even is. Does the Silver Age end in 1959, when the fairy-tale style peaked, or in…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793208371002-d60da8c3a6577.jpg",
       "duration": "46 min"
+    },
+    {
+      "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
+      "date": "2026-10-28",
+      "url": "https://open.spotify.com/episode/1sPFk3tLCuKqSKlX5gvwFh",
+      "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
+      "duration": "55 min"
     },
     {
       "title": "#239 The Greenville Clowns: The Monster Nobody Ever Found",
@@ -83,22 +99,6 @@
       "description": "Harold Washington didn't inherit Chicago. He registered it. Before the 1983 run he set a condition: 50,000 new Black voters, or no campaign. Black Chicago delivered nearly double, and the machine that had run the city for half a century…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792978104126-7c17d1675b347.jpg",
       "duration": "49 min"
-    },
-    {
-      "title": "#235 Ryū Murakami: The Other Murakami",
-      "date": "2026-10-23",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/235-Ry-Murakami-The-Other-Murakami-e3qvret",
-      "description": "On October 23, 2026, Japan learned that Ryū Murakami was dead, and almost every English-language obituary had to begin the same way: not that Murakami. This episode is about the one the world mostly didn't read: the novelist who grew up…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792784079250-91ad27894ed59.jpg",
-      "duration": "44 min"
-    },
-    {
-      "title": "#234 The Spice Wars: The Seed That Outpriced Manhattan",
-      "date": "2026-10-23",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/234-The-Spice-Wars-The-Seed-That-Outpriced-Manhattan-e3qvqv2",
-      "description": "In 1667, England and the Netherlands signed a peace that left the Dutch holding Run, a nutmeg island three kilometres long, and the English holding a muddy port called Manhattan. By the prices of the day, the Dutch won. This episode tells…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792783417242-a8e41615a7fb3.jpg",
-      "duration": "1 hr 9 min"
     }
   ]
 }
