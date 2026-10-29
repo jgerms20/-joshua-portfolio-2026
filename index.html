@@ -11,11 +11,11 @@
     <meta property="og:title" content="Joshua McKenzie German | Photographer, Podcaster, AI Builder &amp; Creative Strategist">
     <meta property="og:description" content="Photographer, podcaster, AI builder and creative strategist in Los Angeles. Now booking shoots, AI builds and strategy projects.">
     <meta property="og:url" content="https://joshuamgerman.com">
-    <meta property="og:image" content="https://joshuamgerman.com/photos/self/000070270013.JPEG">
+    <meta property="og:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Joshua McKenzie German | Photographer, Podcaster, AI Builder &amp; Creative Strategist">
     <meta name="twitter:description" content="Photographer, podcaster, AI builder and creative strategist in Los Angeles. Now booking shoots, AI builds and strategy projects.">
-    <meta name="twitter:image" content="https://joshuamgerman.com/photos/self/000070270013.JPEG">
+    <meta name="twitter:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.youtube.com">
@@ -553,7 +553,8 @@
         .hero-cap-count { color: var(--ink); }
         .hero-cap-rail { height: 1px; background: var(--rule); margin-top: 10px; overflow: hidden; }
         .hero-cap-rail span { display: block; height: 100%; width: 0; background: var(--blue); }
-        .hero-portrait.paused .hero-cap-rail span { animation-play-state: paused !important; }
+        .hero-portrait.paused .hero-cap-rail span, .self-roll.paused .hero-cap-rail span { animation-play-state: paused !important; }
+        .self-roll { margin: 0; width: 100%; max-width: 460px; }
         @keyframes heroRail { from { width: 0; } to { width: 100%; } }
         .hero > .wrap { width: 100%; }
         .hero-stats { display: flex; gap: clamp(24px, 4vw, 56px); align-items: flex-end; flex-wrap: wrap; }
@@ -604,23 +605,36 @@
             align-items: start;
         }
         .about-left { position: sticky; top: 110px; }
-        .about-portrait {
-            position: relative;
-            background: var(--paper-raised);
-            padding: 14px 14px 52px;
-            border: 1px solid var(--rule-soft);
-            box-shadow: 0 24px 60px -30px rgba(23,21,18,0.35);
-            transform: rotate(-1.4deg);
-            transition: transform 0.6s var(--exp);
-        }
-        .about-portrait:hover { transform: rotate(0deg) scale(1.01); }
-        .about-portrait img { width: 100%; aspect-ratio: 4/5; filter: saturate(0.92); }
-        .about-portrait figcaption {
-            position: absolute; bottom: 16px; left: 16px; right: 16px;
-            display: flex; justify-content: space-between;
-            font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.16em;
-            text-transform: uppercase; color: var(--ink-mid);
-        }
+
+        /* ---- Where I'm from / where I've been: route map ---- */
+        .trail { margin-top: clamp(64px, 8vw, 112px); }
+        .trail-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 24px; padding-bottom: 16px; border-bottom: 1.5px solid var(--ink); }
+        .trail-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1; letter-spacing: -0.015em; }
+        .trail-title .it { font-style: italic; color: var(--blue); }
+        .trail-sub { color: var(--ink-mid); }
+        .trail-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: center; margin-top: clamp(28px, 4vw, 48px); }
+        .trail-map { position: relative; margin: 0; }
+        .trail-map img { width: 100%; height: auto; display: block; opacity: .9; }
+        :root[data-theme="dark"] .trail-map img { opacity: .55; }
+        .trail-map svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+        .trail-route { fill: none; stroke: var(--blue); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 2.4s var(--exp); }
+        .trail.in .trail-route { stroke-dashoffset: 0; }
+        .trail-pin text { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; fill: var(--ink-mid); paint-order: stroke; stroke: var(--paper); stroke-width: 3px; transition: fill .25s; }
+        .trail-dot { fill: var(--paper); stroke: var(--blue); stroke-width: 2; transition: r .25s, fill .25s; }
+        .trail-pulse { fill: var(--blue); opacity: 0; transform-origin: center; }
+        .trail-pin.is-lit .trail-dot, .trail-pin[data-stop="la"] .trail-dot { fill: var(--blue); }
+        .trail-pin.is-lit text { fill: var(--ink); }
+        .trail-pin[data-stop="la"] .trail-pulse { animation: trailPulse 2.4s ease-out infinite; }
+        @keyframes trailPulse { 0% { opacity: .35; transform: scale(.5); } 100% { opacity: 0; transform: scale(1.8); } }
+        .trail-stops { list-style: none; margin: 0; padding: 0; }
+        .trail-stop { display: grid; grid-template-columns: 92px 1fr; gap: 2px 16px; padding: 16px 12px; margin: 0 -12px; border-bottom: 1px solid var(--rule-soft); cursor: default; transition: background .25s; outline: none; }
+        .trail-stop:hover, .trail-stop:focus-visible, .trail-stop.is-lit { background: var(--blue-wash, rgba(43,53,214,0.06)); }
+        .trail-when { grid-row: span 2; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); padding-top: 6px; }
+        .trail-stop.is-now .trail-when { color: var(--vermilion); }
+        .trail-where { font-family: var(--serif); font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.2; }
+        .trail-what { font-size: 0.9rem; line-height: 1.55; color: var(--ink-soft); }
+        @media (max-width: 860px) { .trail-grid { grid-template-columns: 1fr; } }
+        @media (prefers-reduced-motion: reduce) { .trail-route { transition: none; stroke-dashoffset: 0; } .trail-pin .trail-pulse { animation: none; } }
         .about-facts { margin-top: var(--s4); border-top: 1px solid var(--rule); }
         .about-fact {
             display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3);
@@ -647,6 +661,10 @@
             border-right: 1px solid var(--rule-soft);
         }
         .stat-cell:last-child { border-right: none; }
+        .hero-now { display: flex; gap: clamp(20px, 3vw, 44px); margin: 0; }
+        .hero-now > div { border-left: 1px solid var(--rule); padding-left: 14px; }
+        .hero-now dt { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); }
+        .hero-now dd { margin: 6px 0 0; font-family: var(--serif); font-size: clamp(1rem, 1.3vw, 1.18rem); line-height: 1.25; color: var(--ink); max-width: 15ch; }
         .stat-num {
             font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 400; line-height: 1; letter-spacing: -0.02em;
@@ -666,32 +684,6 @@
             .stat-cell { border-bottom: 1px solid var(--rule-soft); }
         }
 
-        /* Career index (timeline) */
-        .career { margin-top: var(--s6); }
-        .career-head {
-            display: flex; justify-content: space-between; align-items: baseline;
-            padding-bottom: var(--s2); border-bottom: 1.5px solid var(--ink);
-        }
-        .career-row {
-            display: grid;
-            grid-template-columns: 92px 1.3fr 1fr 1.6fr;
-            gap: var(--s3); align-items: baseline;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--rule-soft);
-            transition: background 0.3s var(--exp), padding-left 0.3s var(--exp);
-            position: relative;
-        }
-        .career-row:hover { background: var(--blue-wash); padding-left: 12px; }
-        .career-year { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: var(--blue); letter-spacing: 0.08em; }
-        .career-role { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.4rem); font-weight: 500; line-height: 1.2; }
-        .career-co { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); }
-        .career-note { font-size: 0.86rem; line-height: 1.6; color: var(--ink-soft); }
-        @media (max-width: 820px) {
-            .career-row { grid-template-columns: 70px 1fr; }
-            .career-co { grid-column: 2; }
-            .career-note { grid-column: 2; }
-        }
-
         /* =====================================================
            WORK — campaign plates
            ===================================================== */
@@ -703,6 +695,10 @@
             transition: all 0.3s var(--exp);
         }
         .camp-filter:hover { color: var(--ink); border-color: var(--ink-faint); }
+        .plate-media .brand-mark { display: block; width: 56px !important; height: 56px !important; aspect-ratio: 1 !important; object-fit: contain; margin: 0 auto 14px; border-radius: 14px; background: #fff; padding: 6px; box-shadow: 0 8px 22px -10px rgba(0,0,0,.6); transform: none !important; }
+        .lab-art-img { position: relative; padding: 0 !important; }
+        .lab-art-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .lab-art-img .lab-badge-live { position: absolute; top: 14px; left: 14px; right: auto; width: auto; display: inline-flex; z-index: 1; }
         .work-also { margin-top: clamp(28px, 4vw, 44px); font-size: 0.92rem; color: var(--ink-mid); }
         .camp-filter.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
         .plates { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(18px, 2.6vw, 36px); }
@@ -1217,31 +1213,47 @@
         /* =====================================================
            MEDIA DIET — the shelf
            ===================================================== */
-        .diet-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: var(--s5); }
-        .diet-tab {
-            font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-            padding: 10px 20px; border-radius: 999px;
-            border: 1px solid var(--rule); color: var(--ink-mid);
-            transition: all 0.3s var(--exp);
-        }
-        .diet-tab:hover { color: var(--ink); border-color: var(--ink-faint); }
-        .diet-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-        .diet-panel { display: none; }
-        .diet-panel.active { display: block; }
-        .diet-row {
-            display: grid; grid-template-columns: 54px 1.4fr 1fr 1.6fr;
-            gap: var(--s3); align-items: baseline;
-            padding: 18px 0; border-bottom: 1px solid var(--rule-soft);
-            transition: background 0.3s, padding-left 0.3s var(--exp);
-        }
-        .diet-row:hover { background: var(--blue-wash); padding-left: 10px; }
-        .diet-idx { font-family: var(--mono); font-size: 0.62rem; color: var(--blue); font-weight: 700; }
-        .diet-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; }
-        .diet-by { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); }
+
+        /* ---- Media diet: live intake shelf ---- */
+        .intake { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: clamp(24px, 3.4vw, 48px); margin-top: var(--s5); }
+        .intake-col { min-width: 0; }
+        .intake-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; margin-bottom: 18px; border-bottom: 1.5px solid var(--ink); }
+        .intake-label { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
+        .intake-head a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mid); }
+        .intake-head a:hover { color: var(--ink); }
+        .intake-col.has-data .intake-empty { display: none; }
+        .intake-empty { display: flex; align-items: center; gap: 16px; padding: 18px; border: 1px dashed var(--rule); border-radius: 4px; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); transition: border-color .25s, background .25s; }
+        .intake-empty:hover { border-color: var(--ink-faint); background: var(--paper-raised); }
+        .intake-empty-art { flex: none; width: 54px; height: 76px; border-radius: 3px; background: var(--paper-dim); box-shadow: inset 0 0 0 1px var(--rule); position: relative; }
+        .intake-empty-art--film { background: repeating-linear-gradient(180deg, var(--paper-dim) 0 9px, var(--rule) 9px 10px); }
+        .intake-empty-art--book { width: 50px; box-shadow: inset 6px 0 0 var(--rule), inset 0 0 0 1px var(--rule); }
+        .intake-empty-art--pen { height: 54px; border-radius: 50%; }
+        .intake-posters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+        .intake-film { display: block; position: relative; }
+        .intake-film img, .intake-film .intake-film-tile { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 3px; background: var(--paper-dim); box-shadow: 0 12px 24px -16px rgba(23,21,18,.55); transition: transform .4s var(--exp); }
+        .intake-film-tile { display: flex !important; align-items: flex-end; padding: 8px; font-family: var(--serif); font-size: 0.82rem; line-height: 1.1; color: var(--ink); }
+        @media (hover: hover) { .intake-film:hover img, .intake-film:hover .intake-film-tile { transform: translateY(-4px); } }
+        .intake-stars { display: block; margin-top: 6px; font-size: 0.72rem; letter-spacing: .06em; color: var(--blue); }
+        .intake-film-name { display: block; font-size: 0.72rem; line-height: 1.3; color: var(--ink-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .intake-books { display: grid; gap: 14px; }
+        .intake-book { display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: center; }
+        .intake-book img, .intake-book .intake-book-tile { width: 54px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 2px; background: var(--paper-dim); box-shadow: 0 10px 20px -14px rgba(23,21,18,.6); display: block; }
+        .intake-book b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.02rem; line-height: 1.2; }
+        .intake-book small { display: block; font-size: 0.8rem; color: var(--ink-mid); margin-top: 2px; }
+        .intake-book .intake-now { font-family: var(--mono); font-size: 0.56rem; letter-spacing: .16em; text-transform: uppercase; color: var(--leaf); }
+        .intake-posts { list-style: none; margin: 0; padding: 0; }
+        .intake-posts li { border-bottom: 1px solid var(--rule-soft); }
+        .intake-posts a { display: block; padding: 12px 0; }
+        .intake-posts time { font-family: var(--mono); font-size: 0.58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+        .intake-posts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; line-height: 1.25; margin-top: 4px; }
+        .intake-posts a:hover b { text-decoration: underline; text-underline-offset: 3px; }
+        .intake-also { margin-top: var(--s5); font-size: 0.9rem; color: var(--ink-mid); }
+        .intake-also a { border-bottom: 1px solid var(--rule); }
+        .intake-also a:hover { border-color: var(--ink); color: var(--ink); }
+        @media (max-width: 980px) { .intake { grid-template-columns: 1fr 1fr; } .intake-col[data-shelf="watching"] { grid-column: 1 / -1; } }
+        @media (max-width: 620px) { .intake { grid-template-columns: 1fr; } .intake-posters { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; } }
         .diet-note { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.6; }
         @media (max-width: 820px) {
-            .diet-row { grid-template-columns: 40px 1fr; }
-            .diet-by, .diet-note { grid-column: 2; }
         }
 
         /* =====================================================
@@ -1351,26 +1363,7 @@
         @media (max-width: 760px) { .kit-row { grid-template-columns: 1fr; } .kit-cell { border-right: none; border-bottom: 1px solid var(--dark-rule-soft); } }
 
         /* Media diet cards */
-        .diet-card {
-            display: grid; grid-template-columns: 64px 1.3fr 1fr 1.6fr;
-            gap: var(--s3); align-items: center;
-            padding: 22px 24px;
-            border: 1px solid var(--rule-soft);
-            background: var(--paper-raised);
-            margin-bottom: 12px;
-            transition: transform 0.4s var(--exp), border-color 0.4s, box-shadow 0.4s var(--exp);
-            text-decoration: none;
-        }
-        .diet-card:hover { transform: translateX(6px); border-color: var(--ink-faint); box-shadow: 0 14px 34px -20px rgba(23,21,18,0.4); }
-        .diet-ico {
-            width: 52px; height: 52px; border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff; flex-shrink: 0;
-        }
-        .diet-ico svg { width: 24px; height: 24px; }
         @media (max-width: 820px) {
-            .diet-card { grid-template-columns: 52px 1fr; }
-            .diet-by, .diet-note { grid-column: 2; }
         }
     </style>
 <link rel="stylesheet" href="assets/media.css">
@@ -1399,9 +1392,9 @@
                 <a href="#about">About</a>
                 <a href="#podcasts">Podcasts</a>
                 <a href="#network">Network</a>
+                <a href="#work">Brand Work</a>
                 <a href="#photography">Photography</a>
                 <a href="#ai">AI</a>
-                <a href="#work">Brand Work</a>
                 <a href="shop.html">Shop</a>
             </div>
             <div class="nav-right">
@@ -1419,9 +1412,9 @@
         <a href="#about"><span class="idx">01</span> About</a>
         <a href="#podcasts"><span class="idx">02</span> Podcasts</a>
         <a href="#network"><span class="idx" aria-hidden="true">&rarr;</span> Network</a>
-        <a href="#photography"><span class="idx">03</span> Photography</a>
-        <a href="#ai"><span class="idx">04</span> AI</a>
-        <a href="#work"><span class="idx">05</span> Brand Work</a>
+        <a href="#work"><span class="idx">03</span> Brand Work</a>
+        <a href="#photography"><span class="idx">04</span> Photography</a>
+        <a href="#ai"><span class="idx">05</span> AI</a>
         <a href="shop.html"><span class="idx" aria-hidden="true">&rarr;</span> Shop</a>
         <a href="#contact"><span class="idx" aria-hidden="true">&rarr;</span> Contact</a>
         <a href="photography/#book" class="mm-book">Book a shoot <span aria-hidden="true">&rarr;</span></a>
@@ -1446,22 +1439,14 @@
                             <span class="mask-line"><span><em>German</em></span></span>
                         </h1>
                     </div>
-                    <figure class="hero-portrait rv rv-d3" aria-label="Portraits of Joshua McKenzie German">
-                        <div class="hero-frame" id="heroRotator">
-                            <img decoding="async" src="photos/self/000070270013.JPEG" alt="Portrait of Joshua McKenzie German" class="rot-slide active">
-                            <img loading="lazy" decoding="async" src="photos/self/DSC01484.JPG" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" src="photos/self/IMG_0680.JPG" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" src="photos/self/IMG_1912.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" src="photos/self/JMG_7456.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" src="photos/self/JMG_8976.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" src="photos/self/DSC00827.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" src="photos/self/JMG_7538.jpg" alt="" class="rot-slide">
+                    <figure class="hero-portrait rv rv-d3">
+                        <div class="hero-frame">
+                            <img decoding="async" fetchpriority="high" src="photos/self/German_Joshua_898-0831.jpg" alt="Portrait of Joshua McKenzie German" class="rot-slide active">
                         </div>
                         <figcaption class="hero-cap t-mono-sm">
-                            <span class="hero-cap-count"><span id="heroCapIdx">01</span> / 08</span>
-                            <span class="hero-cap-meta"><span id="heroCapLeft">35mm Film</span> · <span id="heroCapRight">Lab Scan</span></span>
+                            <span class="hero-cap-count">Joshua McKenzie German</span>
+                            <span class="hero-cap-meta">Los Angeles</span>
                         </figcaption>
-                        <div class="hero-cap-rail" aria-hidden="true"><span id="heroCapBar"></span></div>
                     </figure>
                 </div>
                 <div class="hero-roles rv rv-d2">
@@ -1473,20 +1458,11 @@
             </div>
             <div class="hero-bottom rv rv-d3">
                 <p class="hero-intro">Strategy, stories, and the things I build when nobody assigned them. <span class="hero-booking">Now booking independent work.</span></p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="stat-num"><span data-count="8">8</span><span class="suffix">+</span></div>
-                        <div class="stat-label">Years Strategy</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-num"><span data-count="50">50</span><span class="suffix">+</span></div>
-                        <div class="stat-label">Campaigns</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="stat-num"><span data-count="4">4</span><span class="suffix">+</span></div>
-                        <div class="stat-label">Years Building With AI</div>
-                    </div>
-                </div>
+                <dl class="hero-stats hero-now" aria-label="What I&rsquo;m doing now">
+                    <div><dt>Strategy</dt><dd>TBWA\Chiat\Day, Los Angeles</dd></div>
+                    <div><dt>On air</dt><dd>The Eclectic Polymath</dd></div>
+                    <div><dt>Behind the lens</dt><dd>Portraits, places, nights out</dd></div>
+                </dl>
                 <div class="hero-ctas">
                     <a href="photography/#book" class="btn btn-ink">Book a Shoot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="#contact" class="btn btn-line">Start a Project</a>
@@ -1552,16 +1528,26 @@
 
             <div class="about-grid">
                 <div class="about-left rv rv-d1">
-                    <figure class="about-portrait">
-                        <img loading="lazy" src="photos/self/German_Joshua_898-0831.jpg" alt="Joshua McKenzie German">
-                        <figcaption>
-                            <span>Joshua McKenzie German</span>
-                            <span>Fig. 01</span>
+                    <figure class="self-roll" aria-label="Photos of Joshua McKenzie German">
+                        <div class="hero-frame" id="selfRotator">
+                            <img decoding="async" data-cap="35mm Film · Lab Scan" src="photos/self/000070270013.JPEG" alt="Portrait of Joshua McKenzie German" class="rot-slide active">
+                            <img loading="lazy" decoding="async" data-cap="Jul 2025 · Sony a6100" src="photos/self/DSC01484.JPG" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Jul 2024 · iPhone" src="photos/self/IMG_0680.JPG" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Self · Archive" src="photos/self/IMG_1912.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Nov 2022 · Nikon D500" src="photos/self/JMG_7456.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Jan 2023 · Nikon D500" src="photos/self/JMG_8976.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Apr 2025 · Sony a6100" src="photos/self/DSC00827.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Aug 2024 · Nikon D500" src="photos/self/JMG_7538.jpg" alt="" class="rot-slide">
+                        </div>
+                        <figcaption class="hero-cap t-mono-sm">
+                            <span class="hero-cap-count"><span id="selfCapIdx">01</span> / <span id="selfCapTotal">08</span></span>
+                            <span class="hero-cap-meta" id="selfCapMeta">35mm Film · Lab Scan</span>
                         </figcaption>
+                        <div class="hero-cap-rail" aria-hidden="true"><span id="selfCapBar"></span></div>
                     </figure>
                     <dl class="about-facts">
                         <div class="about-fact"><dt>Based</dt><dd>Los Angeles, CA</dd></div>
-                        <div class="about-fact"><dt>From</dt><dd>The South &middot; Columbia, SC</dd></div>
+                        <div class="about-fact"><dt>From</dt><dd>Columbia, South Carolina</dd></div>
                         <div class="about-fact"><dt>Making</dt><dd>Strategy, podcasts, photos, AI tools</dd></div>
                         <div class="about-fact"><dt>Status</dt><dd style="color:var(--leaf);">● Now booking shoots &amp; projects</dd></div>
                     </dl>
@@ -1570,42 +1556,73 @@
                 <div class="about-right rv rv-d2">
                     <p class="t-lede about-lede">Hey, I&rsquo;m Joshua. Curious and creative, and happiest telling stories in <span class="accent-word">whatever medium fits</span>.</p>
                     <div class="about-body">
-                        <p>Born and raised in the South, which left me with a real need to see and understand people. That pulled me into journalism, then advertising, where I&rsquo;m a strategist: figuring out where, how, and most importantly <em>why</em> an idea reaches people.</p>
-                        <p>I&rsquo;m also a podcaster and producer, because I love a deep conversation. I&rsquo;ve been all in on AI since the ChatGPT moment: building tools, running a podcast network, and helping brands keep up.</p>
-                        <p>And I shoot. People, places, the moments in between. Look around, and say hi.</p>
+                        <p>Born and raised in South Carolina, and I&rsquo;ve always loved connecting with people: seeing them, hearing them, figuring out what makes them tick. That pulled me into journalism, then advertising, where I&rsquo;m a strategist working out where, how, and most importantly <em>why</em> an idea reaches people.</p>
+                        <p>I&rsquo;m also a podcaster and producer, because I love a deep conversation. I&rsquo;ve been all in on AI since the ChatGPT moment: building tools, testing everything, and helping brands keep up. With Janel Moore I run Curious Creative Company, a podcast network and creative studio that grew out of the same itch.</p>
+                        <p>And I shoot. People, places, nights out, the moments in between. Most of what you&rsquo;ll find here started as a question I couldn&rsquo;t leave alone. Look around, and say hi.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Career Index -->
-            <div class="career rv">
-                <div class="career-head">
-                    <span class="t-mono">The Signal Trace — Five Cities, One Trajectory</span>
-                    <span class="t-mono-sm" style="color:var(--ink-mid);">Index of Chapters</span>
+            <!-- Where I'm from, where I've been -->
+            <div class="trail rv">
+                <div class="trail-head">
+                    <h3 class="trail-title">Where I&rsquo;m from. <span class="it">Where I&rsquo;ve been.</span></h3>
+                    <span class="t-mono-sm trail-sub">Columbia &rarr; Charlotte &rarr; San Francisco &rarr; Portland &rarr; Los Angeles</span>
                 </div>
-                <div class="career-row">
-                    <span class="career-year">Origin</span>
-                    <span class="career-role">Born and raised, Columbia, South Carolina</span>
-                    <span class="career-co">The South</span>
-                    <span class="career-note">Where the curiosity started.</span>
-                </div>
-                <div class="career-row">
-                    <span class="career-year">2021–23</span>
-                    <span class="career-role">Charlotte, NC &rarr; San Francisco, CA</span>
-                    <span class="career-co">Goodby, Silverstein &amp; Partners (Remote)</span>
-                    <span class="career-note">Campaigns for BMW, Pepsi, and more.</span>
-                </div>
-                <div class="career-row">
-                    <span class="career-year">2023–24</span>
-                    <span class="career-role">Portland, OR</span>
-                    <span class="career-co">Wieden+Kennedy</span>
-                    <span class="career-note">On the team behind DoorDash &ldquo;All The Ads,&rdquo; a Cannes Grand Prix winner.</span>
-                </div>
-                <div class="career-row">
-                    <span class="career-year" style="color:var(--vermilion);">2024–Now</span>
-                    <span class="career-role">Los Angeles, CA <span class="t-mono-sm" style="color:var(--leaf);">● Current</span></span>
-                    <span class="career-co">TBWA\Chiat\Day</span>
-                    <span class="career-note">Levi's &times; Beyonc&eacute;, Sephora, DIRECTV.</span>
+                <div class="trail-grid">
+                    <figure class="trail-map" aria-hidden="true">
+                        <img src="photos/route-map-dots.png" alt="" width="1020" height="670" loading="lazy" decoding="async">
+                        <svg viewBox="0 0 510 335" preserveAspectRatio="xMidYMid meet">
+                            <path class="trail-route" d="M407 192 L399 176 Q 220 60 12 146 Q 0 100 22 58 Q 140 110 62 215" pathLength="1"></path>
+                        <g class="trail-pin" data-stop="cola" transform="translate(407 192)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="12" y="14">Columbia</text>
+                        </g>
+                        <g class="trail-pin" data-stop="clt" transform="translate(399 176)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="-8">Charlotte</text>
+                        </g>
+                        <g class="trail-pin" data-stop="sf" transform="translate(12 146)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="4">San Francisco</text>
+                        </g>
+                        <g class="trail-pin" data-stop="pdx" transform="translate(22 58)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="4">Portland</text>
+                        </g>
+                        <g class="trail-pin" data-stop="la" transform="translate(62 215)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="6">Los Angeles</text>
+                        </g>
+                        </svg>
+                    </figure>
+                    <ol class="trail-stops">
+                        <li class="trail-stop" data-stop="cola" tabindex="0">
+                            <span class="trail-when">Origin</span>
+                            <span class="trail-where">Columbia, South Carolina</span>
+                            <span class="trail-what">Born and raised. Where the curiosity started.</span>
+                        </li>
+                        <li class="trail-stop" data-stop="clt" data-also="sf" tabindex="0">
+                            <span class="trail-when">2021&ndash;23</span>
+                            <span class="trail-where">Charlotte, NC &rarr; San Francisco</span>
+                            <span class="trail-what">Goodby Silverstein &amp; Partners, remote: BMW, Samuel Adams, Xfinity.</span>
+                        </li>
+                        <li class="trail-stop" data-stop="pdx" tabindex="0">
+                            <span class="trail-when">2023&ndash;24</span>
+                            <span class="trail-where">Portland, Oregon</span>
+                            <span class="trail-what">Wieden+Kennedy: on the team behind DoorDash &ldquo;All The Ads,&rdquo; a Cannes Grand Prix winner.</span>
+                        </li>
+                        <li class="trail-stop is-now" data-stop="la" tabindex="0">
+                            <span class="trail-when">2024&ndash;Now</span>
+                            <span class="trail-where">Los Angeles, California</span>
+                            <span class="trail-what">TBWA\Chiat\Day: Levi&rsquo;s &times; Beyonc&eacute;, Sephora, DIRECTV. Home base.</span>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -1667,7 +1684,7 @@
                             </span>
                             <span class="rule"></span>
                         </div>
-                        <img id="ep-show-cover" class="ep-cover-img" alt="The Eclectic Polymath Podcast" decoding="async">
+                        <img id="ep-show-cover" class="ep-cover-img" src="photos/podcasts/eclectic-polymath-cover.jpg" width="900" height="900" alt="The Eclectic Polymath Podcast" decoding="async">
                     </div>
                     <div class="pod-meta">
                         <span class="pod-tag">2026 – Present</span>
@@ -1722,505 +1739,23 @@
     <section id="network" class="net-band" aria-labelledby="network-title">
         <div class="wrap net-grid">
             <div class="net-copy rv">
-                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> The Network</p>
+                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> Curious Creative Company</p>
                 <h2 class="net-title" id="network-title">Curious <span class="it">&amp;</span> Creative</h2>
-                <p class="net-lede">The network Janel Moore and I run. Seven shows, a studio for brands and founders, and the things we&rsquo;re inventing.</p>
+                <p class="net-lede">The company Janel Moore and I run. Curious first, then creative: a podcast network, a studio that shoots, films and builds for brands, and the things we&rsquo;re inventing.</p>
                 <div class="net-ctas">
-                    <a href="network/" class="btn btn-ink">Explore the network <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="network/" class="btn btn-ink">Explore the company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=project" class="btn btn-line" target="_blank" rel="noopener">Work with the studio &#8599;</a>
                 </div>
             </div>
-            <a href="network/" class="net-stack rv rv-d1" aria-label="See all seven shows in the Curious &amp; Creative Network">
+            <a href="network/" class="net-stack rv rv-d1" aria-label="Explore Curious Creative Company: the network, the studio and inventions">
                 <img loading="lazy" decoding="async" src="photos/podcasts/curious-creative-logo.jpg" alt="" width="400" height="400">
-                <img loading="lazy" decoding="async" src="network/art/polymath.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="photos/podcasts/eclectic-polymath-cover.jpg" alt="" width="400" height="400">
                 <img loading="lazy" decoding="async" src="network/art/brazil.jpg" alt="" width="400" height="400">
                 <img loading="lazy" decoding="async" src="photos/podcasts/approachable-ai-logo.jpg" alt="" width="400" height="400">
                 <img loading="lazy" decoding="async" src="network/art/tmtt.jpg" alt="" width="400" height="400">
                 <img loading="lazy" decoding="async" src="network/art/abolitionist.jpg" alt="" width="400" height="400">
-                <span class="net-stack-cap">7 shows &middot; Studio &middot; Inventions</span>
+                <span class="net-stack-cap">The Network &middot; The Studio &middot; Inventions</span>
             </a>
-        </div>
-    </section>
-
-    <!-- Breaker: darkroom (ink) -->
-    <div class="brk brk-ink" aria-hidden="true">
-        <div class="brk-track">
-            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
-            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
-            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
-            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
-            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
-            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
-            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
-            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
-            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
-            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
-            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
-            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
-            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
-            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
-            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
-            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
-            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
-            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
-            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
-            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
-            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
-            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
-        </div>
-    </div>
-
-    <!-- =====================================================
-         03 — THE DARKROOM (Photography)
-         Everything between the PHOTOGRAPHY markers is generated by
-         scripts/render-photography.py. Edit the renderer, not the markup.
-         ===================================================== -->
-    <!-- PHOTOGRAPHY:START -->
-    <section id="photography" class="chapter chapter-dark">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 03</span>
-                    <h2 class="ch-title"><span class="it">Photography</span></h2>
-                </div>
-                <div class="ch-meta">People · Places<br>Gatherings</div>
-            </div>
-            <div class="gallery-bar rv">
-                <div class="photo-chapters" aria-label="Filter photographs">
-                    <button class="photo-chapter active" data-filter="all" aria-pressed="true">All</button>
-                    <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
-                    <button class="photo-chapter" data-filter="places" aria-pressed="false">Places</button>
-                    <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
-                </div>
-                <div class="gallery-links"><a class="gallery-link gallery-link--book" href="photography/#book">Book a shoot&nbsp;&rarr;</a><a class="gallery-link" href="photography/">Full photography site&nbsp;&rarr;</a></div>
-                <nav class="gallery-links gallery-sets" aria-label="Photo sets" style="flex-basis:100%"><span class="gallery-link" style="border-bottom-color:transparent;color:var(--paper-on-dark-soft)">Sets</span><a class="gallery-link" href="photography/#set-rio-de-janeiro">Rio de Janeiro&nbsp;&rarr;</a></nav>
-            </div>
-            <div class="photo-grid rv" id="photoGallery">
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Black-and-white portrait of a father holding a baby outdoors."><img loading="eager" decoding="async" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><img loading="eager" decoding="async" src="photos/fashion/JMG_1601.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." width="1365" height="2048"></figure>
-                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A red sun hangs over a hazy landscape lined with palm trees."><img loading="eager" decoding="async" src="photos/landscape/DSC00659.jpg" alt="A red sun hangs over a hazy landscape lined with palm trees." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two people stand in red and blue light against a wall covered in newspaper pages."><img loading="lazy" decoding="async" src="photos/portraits/JMG_1763.jpg" alt="Two people stand in red and blue light against a wall covered in newspaper pages." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Mist moves through a pine forest and mountain valley."><img loading="lazy" decoding="async" src="photos/landscape/JMG_5693.jpg" alt="Mist moves through a pine forest and mountain valley." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model seated in a patterned green look and white trousers."><img loading="lazy" decoding="async" src="photos/fashion/JMG_3641.jpg" alt="Fashion portrait of a model seated in a patterned green look and white trousers." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two visitors share a quiet conversation inside an art museum."><img loading="lazy" decoding="async" src="photos/travel/JMG_7419.jpg" alt="Two visitors share a quiet conversation inside an art museum." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><img loading="lazy" decoding="async" src="photos/portraits/JMG_8929.jpg" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A concert crowd faces intersecting beams of white and blue stage light."><img loading="lazy" decoding="async" src="photos/events/JMG_2254.jpg" alt="A concert crowd faces intersecting beams of white and blue stage light." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A lone walker crosses a mountain overlook as sunlight breaks through cloud."><img loading="lazy" decoding="async" src="photos/landscape/JMG_6799.jpg" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a woman with copper hair seated against a rough concrete wall."><img loading="lazy" decoding="async" src="photos/fashion/JMG_4379.jpg" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A small production crew gathers around a plated dish on a culinary set."><img loading="lazy" decoding="async" src="photos/events/JMG_7895.jpg" alt="A small production crew gathers around a plated dish on a culinary set." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Rock formations sit offshore beneath a pale band of ocean haze."><img loading="lazy" decoding="async" src="photos/landscape/JMG_6109.jpg" alt="Rock formations sit offshore beneath a pale band of ocean haze." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman standing beside railway tracks in warm evening light."><img loading="lazy" decoding="async" src="photos/portraits/JMG_8750.jpg" alt="Portrait of a woman standing beside railway tracks in warm evening light." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><img loading="lazy" decoding="async" src="photos/fashion/JMG_8075.jpg" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." width="1365" height="2048"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><img loading="lazy" decoding="async" src="photos/travel/JMG_3086.jpg" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Swimmers appear as small figures in a calm sea beneath a pastel sky."><img loading="lazy" decoding="async" src="photos/travel/DSC00870.jpg" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A crowd gathers beneath the glowing sign of a night market."><img loading="lazy" decoding="async" src="photos/events/DSC00021.jpg" alt="A crowd gathers beneath the glowing sign of a night market." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Sailboats fill a marina with a city skyline rising beyond them."><img loading="lazy" decoding="async" src="photos/landscape/JMG_6986.jpg" alt="Sailboats fill a marina with a city skyline rising beyond them." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:1.5238" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman in warm window light beside a chrome pole."><img loading="lazy" decoding="async" src="photos/portraits/JMG_8386.jpg" alt="Portrait of a woman in warm window light beside a chrome pole." width="2048" height="1344"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Hands finish a row of carefully plated dishes at an event."><img loading="lazy" decoding="async" src="photos/events/JMG_7787.jpg" alt="Hands finish a row of carefully plated dishes at an event." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:0.7020" tabindex="0" role="button" aria-label="Open photograph: Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them."><img loading="lazy" decoding="async" src="photos/shop/rio-brahma-corner.jpg" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." width="1404" height="2000"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.4993" tabindex="0" role="button" aria-label="Open photograph: A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro."><img loading="lazy" decoding="async" src="photos/shop/rio-fog-islands-moon.jpg" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." width="2000" height="1334"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk."><img loading="lazy" decoding="async" src="photos/shop/rio-two-brothers.jpg" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." width="2000" height="1333"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street."><img loading="lazy" decoding="async" src="photos/shop/rio-santa-teresa-trams.jpg" alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." width="2000" height="1333"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: Portrait of an artist seated in a colorful studio surrounded by his work."><img loading="lazy" decoding="async" src="photos/portraits/JMG_6968.jpg" alt="Portrait of an artist seated in a colorful studio surrounded by his work." width="1365" height="2048"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: A woman holds a red rose in a brightly colored portrait setting."><img loading="lazy" decoding="async" src="photos/portraits/JMG_9553.jpg" alt="A woman holds a red rose in a brightly colored portrait setting." width="1365" height="2048"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A couple in dark clothing stands close together before a graffiti-covered wall."><img loading="lazy" decoding="async" src="photos/fashion/JMG_8986.jpg" alt="A couple in dark clothing stands close together before a graffiti-covered wall." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A tall waterfall drops through a granite valley framed by green trees."><img loading="lazy" decoding="async" src="photos/landscape/JMG_5742.jpg" alt="A tall waterfall drops through a granite valley framed by green trees." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A snow-covered mountain rises behind dark trees at blue hour."><img loading="lazy" decoding="async" src="photos/landscape/DSC00488.jpg" alt="A snow-covered mountain rises behind dark trees at blue hour." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A lifeguard house and palm trees sit on a quiet beach beneath a pink sky."><img loading="lazy" decoding="async" src="photos/landscape/JMG_7535.jpg" alt="A lifeguard house and palm trees sit on a quiet beach beneath a pink sky." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two rock formations rise from bright blue water along the coast."><img loading="lazy" decoding="async" src="photos/landscape/JMG_5559.jpg" alt="Two rock formations rise from bright blue water along the coast." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: A performer in a quilted jacket stands beneath intense blue stage light."><img loading="lazy" decoding="async" src="photos/events/JMG_2228.jpg" alt="A performer in a quilted jacket stands beneath intense blue stage light." width="1365" height="2048"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A DJ works behind a booth in a club lit with purple and green light."><img loading="lazy" decoding="async" src="photos/events/JMG_2854.jpg" alt="A DJ works behind a booth in a club lit with purple and green light." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A graduate smiles in cap and gown outdoors after commencement."><img loading="lazy" decoding="async" src="photos/events/JMG_2437.jpg" alt="A graduate smiles in cap and gown outdoors after commencement." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A graduate celebrates on the steps of an engineering building."><img loading="lazy" decoding="async" src="photos/events/JMG_2560.jpg" alt="A graduate celebrates on the steps of an engineering building." width="2048" height="1365"></figure>
-                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.0000" tabindex="0" role="button" aria-label="Open photograph: Friends pose together during a crowded evening market event."><img loading="lazy" decoding="async" src="photos/events/DSC00028.jpg" alt="Friends pose together during a crowded evening market event." width="2048" height="2048"></figure>
-                <span class="gallery-filler" aria-hidden="true"></span>
-            </div>
-            <button type="button" class="darkroom-more gallery-more" data-reveal="photoGallery" aria-controls="photoGallery" aria-expanded="false" data-open-label="See less" data-closed-label="See more" data-open-count="All 37 photos" data-closed-count="23 more photos"><span class="darkroom-more__label">See more</span><span class="darkroom-more__count">23 more photos</span></button>
-        </div>
-    </section>
-    <!-- PHOTOGRAPHY:END -->
-
-    <!-- Breaker: AI (paper: closes the dark Darkroom chapter above) -->
-    <div class="brk" aria-hidden="true">
-        <div class="brk-track">
-            <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
-            <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
-            <span class="brk-item"><span class="hi">GEMINI</span> <span class="up">▲</span> +5.2%</span>
-            <span class="brk-item"><span class="hi">THE FUTURE</span> <span class="up">▲</span> +8.0%</span>
-            <span class="brk-item"><span class="hi">GRANDMASTER</span> <span class="up">▲</span> +4.1%</span>
-            <span class="brk-item"><span class="hi">LIFE GAMIFIED</span> <span class="up">▲</span> +3.7%</span>
-            <span class="brk-item"><span class="hi">AI BUILDER</span> <span class="up">▲</span> +7.7%</span>
-            <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
-            <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
-            <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
-            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
-            <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
-            <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
-            <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
-            <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
-            <span class="brk-item"><span class="hi">GEMINI</span> <span class="up">▲</span> +5.2%</span>
-            <span class="brk-item"><span class="hi">THE FUTURE</span> <span class="up">▲</span> +8.0%</span>
-            <span class="brk-item"><span class="hi">GRANDMASTER</span> <span class="up">▲</span> +4.1%</span>
-            <span class="brk-item"><span class="hi">LIFE GAMIFIED</span> <span class="up">▲</span> +3.7%</span>
-            <span class="brk-item"><span class="hi">AI BUILDER</span> <span class="up">▲</span> +7.7%</span>
-            <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
-            <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
-            <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
-            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
-            <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
-            <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
-        </div>
-    </div>
-
-    <!-- =====================================================
-         04 — THE AI LAB
-         ===================================================== -->
-    <section id="ai" class="chapter">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 04</span>
-                    <h2 class="ch-title">The AI <span class="it">Lab</span></h2>
-                </div>
-                <div class="ch-meta">Superintelligence<br>Built end-to-end</div>
-            </div>
-            <p class="ch-intro rv">Apps, tools, and prototypes — from quick Google AI Studio experiments to full platforms shipped end to end with Claude Code and Codex.</p>
-            <div class="rv" style="margin: calc(-1 * var(--s5)) 0 var(--s5);">
-                <a href="https://github.com/jgerms20" target="_blank" rel="noopener" class="rule-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-            </div>
-
-            <div class="lab-grid">
-                <!-- Gen Alpha Intelligence Lab -->
-                <a href="https://agencythings-gen-alpha.vercel.app" target="_blank" rel="noopener" class="lab-card lab-feat rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #0b0618 0%, #1d0f36 45%, #05030d 100%); display:flex; align-items:center; justify-content:center;">
-                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
-                        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%, rgba(168,85,247,0.18) 0%, transparent 65%);"></div>
-                        <svg width="260" height="120" viewBox="0 0 260 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;opacity:0.45;">
-                            <path d="M10 96 L52 64 L94 76 L136 38 L178 52 L220 18 L250 30" stroke="rgba(200,150,255,0.75)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="52" cy="64" r="3.5" fill="rgba(200,150,255,0.8)"/>
-                            <circle cx="136" cy="38" r="3.5" fill="rgba(200,150,255,0.65)"/>
-                            <circle cx="220" cy="18" r="5" fill="rgba(220,180,255,0.95)"/>
-                        </svg>
-                        <span style="position:relative;font-family:var(--mono);font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(220,190,255,0.95);">Gen α</span>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Cultural Intelligence</span>
-                        <h3 class="lab-title">Gen Alpha Intelligence Lab <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">A living research lab on the forces shaping Gen Alpha culture — insights, findings, creators, and the spaces they actually occupy, with an ingest pipeline for reports, interviews, and field notes. Built with Next.js 16 and Supabase.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Dreamcatcher -->
-                <a href="https://jgerms20.github.io/Dreamcatcher/" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #0d0620 0%, #1a1038 45%, #050310 100%); display:flex; align-items:center; justify-content:center;">
-                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
-                        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 55% 45%, rgba(150,110,255,0.16) 0%, transparent 65%);"></div>
-                        <div style="position:absolute;top:20%;left:16%;width:3px;height:3px;background:rgba(255,255,255,0.85);border-radius:50%;box-shadow:44px 26px 0 rgba(255,255,255,0.5), 98px 10px 0 rgba(255,255,255,0.65), 134px 46px 0 rgba(255,255,255,0.4), 26px 64px 0 rgba(255,255,255,0.45), 120px 76px 0 rgba(255,255,255,0.3);"></div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(190,160,255,0.95)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="position:relative;filter:drop-shadow(0 0 16px rgba(150,110,255,0.55));"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Dream Journal · Voice</span>
-                        <h3 class="lab-title">Dreamcatcher <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Speak your dream the second you wake up, before it's gone. An adaptive AI interview deepens the recall, then reads it back through four lenses — Jungian, Freudian, cognitive, and cultural — and correlates it against your sleep data.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Meme Library -->
-                <a href="https://meme-atlas.vercel.app/" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #101006 0%, #23200a 45%, #080703 100%); display:flex; align-items:center; justify-content:center;">
-                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
-                        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 45% 50%, rgba(255,200,60,0.14) 0%, transparent 65%);"></div>
-                        <div style="position:relative;display:flex;gap:7px;align-items:flex-end;">
-                            <div style="width:30px;height:38px;border:1.5px solid rgba(255,210,90,0.75);border-radius:3px;"></div>
-                            <div style="width:30px;height:52px;border:1.5px solid rgba(255,210,90,0.95);border-radius:3px;background:rgba(255,210,90,0.12);"></div>
-                            <div style="width:30px;height:44px;border:1.5px solid rgba(255,210,90,0.6);border-radius:3px;"></div>
-                        </div>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Cultural Search</span>
-                        <h3 class="lab-title">Meme Library <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Describe the meme you half remember and it finds it. Natural-language recall across 1,000+ source-linked clips, reactions, and GIFs — each with provenance and a spread timeline showing how it travelled.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Grandmaster -->
-                <a href="https://jgerms20.github.io/Grandmaster/" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #0a0a06 0%, #1a1a0a 40%, #0f0d00 100%); display:flex; align-items:center; justify-content:center;">
-                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
-                        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.14) 0%, transparent 65%);"></div>
-                        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;">
-                            <span style="font-size:3rem;line-height:1;filter:drop-shadow(0 0 16px rgba(201,168,76,0.5));">♚</span>
-                            <div style="display:flex;gap:4px;">
-                                <div style="width:8px;height:8px;background:rgba(255,255,255,0.9);border-radius:1px;"></div>
-                                <div style="width:8px;height:8px;background:rgba(30,30,30,0.9);border:1px solid rgba(201,168,76,0.4);border-radius:1px;"></div>
-                                <div style="width:8px;height:8px;background:rgba(255,255,255,0.9);border-radius:1px;"></div>
-                                <div style="width:8px;height:8px;background:rgba(30,30,30,0.9);border:1px solid rgba(201,168,76,0.4);border-radius:1px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Chess · Real-Time</span>
-                        <h3 class="lab-title">Grandmaster <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">A live, shared chess tournament hub. Think ESPN Tournament Challenge — but for your friend group. Live bracket tracking, Chess.com integration, auto-seeding by rating.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Life Gamified — featured -->
-                <a href="https://jgerms20.github.io/Life_Gamified/" target="_blank" rel="noopener" class="lab-card lab-feat rv rv-d1">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #1a0f00 0%, #2d1b0e 50%, #0a0d06 100%); display:flex; align-items:center; justify-content:center;">
-                        <span class="lab-badge-live"><span class="dot" style="background:var(--gold);"></span> Quest Active</span>
-                        <div style="position:absolute;width:280px;height:280px;background:radial-gradient(circle,rgba(212,175,55,0.14) 0%,transparent 70%);top:50%;left:35%;transform:translate(-50%,-50%);"></div>
-                        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="rgba(212,175,55,0.95)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
-                            <div style="width:130px;">
-                                <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
-                                    <span style="font-size:8px;color:rgba(212,175,55,0.8);font-weight:700;letter-spacing:0.12em;font-family:var(--mono);">XP</span>
-                                    <span style="font-size:8px;color:rgba(212,175,55,0.5);font-family:var(--mono);">2,847 / 5,000</span>
-                                </div>
-                                <div style="background:rgba(212,175,55,0.15);border-radius:2px;height:5px;overflow:hidden;">
-                                    <div style="width:57%;height:100%;background:linear-gradient(90deg,rgba(212,175,55,0.8),rgba(240,210,80,1));border-radius:2px;box-shadow:0 0 8px rgba(212,175,55,0.5);"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Life Gamification</span>
-                        <h3 class="lab-title">Life Gamified <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">A fully-gamified RPG quest journal for real life. Track tasks as quests, earn XP, level up your character, unlock achievements, and build a talent tree. Because life should feel like an epic adventure. Built with React 19 and Claude Code.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Man and the Machine — featured -->
-                <a href="https://jgerms20.github.io/the_man_and_the_machine/" target="_blank" rel="noopener" class="lab-card lab-feat rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #0A0A0F 0%, #0d1a2e 40%, #0a1505 100%); display:flex; align-items:center; justify-content:center;">
-                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
-                        <svg width="280" height="120" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;opacity:0.5;">
-                            <path d="M0 60 Q20 20 40 60 Q60 100 80 60 Q100 20 120 60 Q140 100 160 60 Q180 20 200 60 Q220 100 240 60 Q260 20 280 60" stroke="rgba(212,255,79,0.5)" stroke-width="2" fill="none"/>
-                            <circle cx="70" cy="90" r="4" fill="rgba(212,255,79,0.7)"/>
-                            <circle cx="110" cy="90" r="4" fill="rgba(212,255,79,0.5)"/>
-                            <circle cx="155" cy="90" r="4" fill="rgba(212,255,79,0.3)"/>
-                            <circle cx="200" cy="90" r="6" fill="rgba(212,255,79,0.8)"/>
-                        </svg>
-                        <div style="display:flex;align-items:center;gap:20px;position:relative;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(212,255,79,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-                            <div style="width:32px;height:2px;background:linear-gradient(90deg,rgba(212,255,79,0.8),rgba(34,211,238,0.8));border-radius:1px;"></div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(34,211,238,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 21h8M12 17v4"/></svg>
-                        </div>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">AI Music Collaboration</span>
-                        <h3 class="lab-title">The Man and the Machine <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Play bass or connect MIDI — and the AI plays back. A real-time jam session tool with 10 AI musician personalities: from Supportive to Adversary, Listen to Free. Built with React, TypeScript, Web Audio API, and Claude Code.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Jukeboxd -->
-                <a href="https://ai.studio/apps/drive/1xqDWg6PA0RVMGC3LHaqbQr_VweZT_m-6" target="_blank" rel="noopener" class="lab-card rv rv-d1">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #1DB954 0%, #191414 100%); display:flex; align-items:center; justify-content:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"></path></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Music Social</span>
-                        <h3 class="lab-title">Jukeboxd <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Letterboxd for music. Track, rate, and review albums. Share your musical journey and discover new sounds.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Veritas -->
-                <a href="https://ai.studio/apps/drive/1CrSc4klhhMskBGHyQv5FzLd_fwXkvOBS" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display:flex; align-items:center; justify-content:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Media Intelligence</span>
-                        <h3 class="lab-title">Veritas <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered bias detection for news and media. Analyze content for perspective, compare sources, and see the full picture.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Creator Search -->
-                <a href="https://ai.studio/apps/drive/1SofxKk1-7GVv8tcvi7SkIRnvI5PksZcC" target="_blank" rel="noopener" class="lab-card rv rv-d1">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #E4405F 0%, #833AB4 100%); display:flex; align-items:center; justify-content:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Creator Discovery</span>
-                        <h3 class="lab-title">Creator Search <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered influencer and creator discovery. Find the perfect creators for your brand based on audience, style, and engagement.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Archive -->
-                <a href="https://ai.studio/apps/drive/1C1BH5wAdVTio0MAa3mmMiH1O5elvxbth" target="_blank" rel="noopener" class="lab-card rv rv-d2">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%); display:flex; align-items:center; justify-content:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-4M4 7h4m0 0v13m8-13v13M8 7l4-4 4 4M8 7h8"></path></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Digital Closet</span>
-                        <h3 class="lab-title">Archive <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered wardrobe organizer. Catalog, style, and manage your closet with intelligent outfit recommendations.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Ætheria -->
-                <a href="https://ai.studio/apps/drive/1TXV9Z8tMLr0ehtWEaUbQJ5sGVjTvHarJ" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #00CED1 0%, #191970 100%); display:flex; align-items:center; justify-content:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"></path></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Sound Therapy</span>
-                        <h3 class="lab-title">Ætheria <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-generated binaural beats for focus, relaxation, and meditation. Custom soundscapes tailored to your mental state.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Momentum -->
-                <a href="https://ai.studio/apps/drive/1EM6FwL7KX1I4fRDw-S82yLSsp8pQwRPG" target="_blank" rel="noopener" class="lab-card rv rv-d1">
-                    <div class="lab-art" style="background: linear-gradient(135deg, #FFB700 0%, #FF8C00 100%); display:flex; align-items:center; justify-content:center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Productivity</span>
-                        <h3 class="lab-title">Momentum <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered productivity and goal tracking. Build momentum with intelligent task management and progress insights.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Perfect Day Crafter -->
-                <a href="https://ai.studio/apps/drive/1UpeX-jONjncy41Putdc_YGg_9qYHlQcD" target="_blank" rel="noopener" class="lab-card rv rv-d2">
-                    <div class="lab-art" style="background: radial-gradient(circle at top right, #FF6B6B 0%, #FFA500 100%); display:flex; align-items:center; justify-content:center;">
-                        <span style="font-size:3.2rem;">☀️</span>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Life Design</span>
-                        <h3 class="lab-title">Perfect Day Crafter <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- ===== Sites I've Built — swipeable client work ===== -->
-            <div class="ch-head rv" style="margin-top: var(--s8);">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 04B</span>
-                    <h2 class="ch-title">Sites I&rsquo;ve <span class="it">Built</span></h2>
-                </div>
-                <div class="ch-meta">Shows, family &amp; small business<br>Built from scratch</div>
-            </div>
-            <p class="ch-intro rv">Websites I&rsquo;ve built for my own shows, family, and small businesses: booking flows, menus, QR menu boards, contact pipelines. Each one written from scratch, not dropped into a template.</p>
-
-            <div class="sites-wrap rv">
-                <div class="sites-rail" id="sitesRail" role="list" aria-label="Client websites">
-                    <div class="site-card" role="listitem">
-                        <span class="site-num">01</span>
-                        <span class="site-kicker">Podcast · Show site</span>
-                        <h3 class="site-name">Curious &amp; Creative</h3>
-                        <p class="site-desc">The hub for Curious &amp; Creative, the network Janel Moore and I run: seven shows, a studio, and the things we&rsquo;re inventing.</p>
-                        <a class="site-cta site-open" href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Visit the site &#8599;</a>
-                    </div>
-                    <div class="site-card" role="listitem" data-gate="milton" data-url="https://milton-german.vercel.app">
-                        <span class="site-num">02</span>
-                        <span class="site-kicker">Bookkeeping · Walterboro, SC</span>
-                        <h3 class="site-name">Milton German Bookkeeping</h3>
-                        <p class="site-desc">My dad. Thirty years of South Carolina state government accounting, now keeping the books for small businesses.</p>
-                        <button class="site-cta site-lock" type="button">🔒 Enter password</button>
-                        <form class="site-gate" autocomplete="off">
-                            <input type="password" class="site-gate-input" placeholder="Password" aria-label="Password for Milton German Bookkeeping">
-                            <button type="submit" class="site-gate-go">Open</button>
-                        </form>
-                    </div>
-                    <div class="site-card" role="listitem" data-gate="daniel" data-url="https://dg-creations.vercel.app">
-                        <span class="site-num">03</span>
-                        <span class="site-kicker">Private Chef · Dining</span>
-                        <h3 class="site-name">DG Creations</h3>
-                        <p class="site-desc">Daniel German, Johnson &amp; Wales trained. Private dining, catering, meal prep. "Every plate, a creation."</p>
-                        <button class="site-cta site-lock" type="button">🔒 Enter password</button>
-                        <form class="site-gate" autocomplete="off">
-                            <input type="password" class="site-gate-input" placeholder="Password" aria-label="Password for DG Creations">
-                            <button type="submit" class="site-gate-go">Open</button>
-                        </form>
-                    </div>
-                    <div class="site-card" role="listitem" data-gate="gma" data-url="https://janie-bells-alterations.vercel.app">
-                        <span class="site-num">04</span>
-                        <span class="site-kicker">Alterations · Walterboro, SC</span>
-                        <h3 class="site-name">Janie Bell's Alterations</h3>
-                        <p class="site-desc">A seamstress who'd done professional-grade alterations for fifty years and charged almost nothing for it. Drop-off, mail-in, real booking flow.</p>
-                        <button class="site-cta site-lock" type="button">🔒 Enter password</button>
-                        <form class="site-gate" autocomplete="off">
-                            <input type="password" class="site-gate-input" placeholder="Password" aria-label="Password for Janie Bell's Alterations">
-                            <button type="submit" class="site-gate-go">Open</button>
-                        </form>
-                    </div>
-                    <div class="site-card is-soon" role="listitem">
-                        <span class="site-num">05</span>
-                        <span class="site-kicker">BBQ &amp; Soul Food · Columbia, SC</span>
-                        <h3 class="site-name">The Comeback Truck</h3>
-                        <p class="site-desc">My brother Brig's truck. Slow-smoked ribs, pulled pork, chili cheese fries, and the Carolina mustard sauce that brings you back.</p>
-                        <span class="site-cta">Launching soon</span>
-                    </div>
-                    <div class="site-card is-soon" role="listitem">
-                        <span class="site-num">06</span>
-                        <span class="site-kicker">Percussion · Columbia, SC</span>
-                        <h3 class="site-name">Nicholas German</h3>
-                        <p class="site-desc">Nick — working drummer. Jazz gigs, gospel worship, weddings, corporate dates. Media reel and a booking pipeline.</p>
-                        <span class="site-cta">Launching soon</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2255,13 +1790,13 @@
     </div>
 
     <!-- =====================================================
-         05 — BRAND WORK (campaigns)
+         03 — BRAND WORK (campaigns)
          ===================================================== -->
     <section id="work" class="chapter">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
-                    <span class="ch-num">CH. 05</span>
+                    <span class="ch-num">CH. 03</span>
                     <h2 class="ch-title">Brand <span class="it">Work</span></h2>
                 </div>
                 <div class="ch-meta">Campaigns &amp; Advisory<br>TBWA · W+K · GS&amp;P · Independent</div>
@@ -2334,11 +1869,12 @@
                     </div>
                 </a>
                 <!-- HIIKE -->
-                <div class="plate rv" data-agency="independent">
+                <a href="https://hiike.com/" class="plate rv" data-agency="independent" target="_blank" rel="noopener">
                     <div class="plate-media">
                         <div class="plate-media-brand" style="background: linear-gradient(150deg, #080f08 0%, #0c1c0d 60%, #060c06 100%); position:relative;">
                             <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(120,220,80,0.06) 1px,transparent 1px);background-size:20px 20px;"></div>
                             <div style="position:relative;text-align:center;">
+                                <img class="brand-mark" src="https://www.google.com/s2/favicons?domain=hiike.com&amp;sz=128" alt="HIIKE logo" width="56" height="56" loading="lazy" onerror="this.remove()">
                                 <span style="display:block;font-family:var(--sans);font-size:2.8rem;font-weight:700;color:rgba(150,235,110,0.9);letter-spacing:0.14em;line-height:1;">HIIKE</span>
                                 <span style="display:block;margin-top:10px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(150,235,110,0.4);">Film Festival Platform</span>
                             </div>
@@ -2346,8 +1882,8 @@
                     </div>
                     <div class="plate-body">
                         <span class="plate-tag">Advisor &amp; Strategist • Independent</span>
-                        <h3 class="plate-title">HIIKE: Brand &amp; Go-to-Market</h3>
-                        <p class="plate-desc">Built foundational brand, audience, and GTM strategy from the ground up for a pre-launch startup.</p>
+                        <h3 class="plate-title">HIIKE: Brand &amp; Go-to-Market <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="plate-desc">Brand, audience, and go-to-market strategy, built from the ground up for a film festival research and submission platform.</p>
                         <div class="plate-awards">
                             <span class="award-chip">Audience Mapping</span>
                             <span class="award-chip">Content Swim Lanes</span>
@@ -2356,7 +1892,7 @@
                             <span class="award-chip">Go-to-Market</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <a href="work/work-samadams.html" class="plate rv" data-agency="gsp">
                     <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" data-fallbacks="brand/sam-adams/hero/Samuel-Adams-Kevin-Garnett.jpg" alt="Samuel Adams" data-label="Samuel Adams"></div>
@@ -2377,12 +1913,14 @@
                         <p class="plate-desc">Holiday gifting made effortless — directed by Taika Waititi.</p>
                     </div>
                 </a>
+
                 <!-- U&AI -->
-                <div class="plate rv rv-d1" data-agency="independent">
+                <a href="https://www.uandai.co/" class="plate rv rv-d1" data-agency="independent" target="_blank" rel="noopener">
                     <div class="plate-media">
                         <div class="plate-media-brand" style="background: linear-gradient(150deg, #060810 0%, #0a0e22 60%, #050710 100%); position:relative;">
                             <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(90,120,255,0.07) 1px,transparent 1px);background-size:20px 20px;"></div>
                             <div style="position:relative;text-align:center;">
+                                <img class="brand-mark" src="https://www.google.com/s2/favicons?domain=uandai.co&amp;sz=128" alt="U&amp;AI logo" width="56" height="56" loading="lazy" onerror="this.remove()">
                                 <span style="display:block;font-family:var(--sans);font-size:2.6rem;font-weight:700;color:rgba(120,150,255,0.9);letter-spacing:0.06em;line-height:1;">U&amp;AI</span>
                                 <span style="display:block;margin-top:10px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(120,150,255,0.4);">AI Visibility Venture</span>
                             </div>
@@ -2390,7 +1928,7 @@
                     </div>
                     <div class="plate-body">
                         <span class="plate-tag">Fractional CMO • Independent</span>
-                        <h3 class="plate-title">U&amp;AI: Chief Marketing Officer</h3>
+                        <h3 class="plate-title">U&amp;AI: Chief Marketing Officer <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
                         <p class="plate-desc">Serving as Fractional CMO for an AI-visibility venture — leading marketing strategy, brand direction, and go-to-market.</p>
                         <div class="plate-awards">
                             <span class="award-chip">Marketing Strategy</span>
@@ -2399,7 +1937,7 @@
                             <span class="award-chip">Fractional CMO</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <a href="work/work-xfinity.html" class="plate rv" data-agency="gsp">
                     <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/63o9tgPK9r8/maxresdefault.jpg" data-fallbacks="yt:63o9tgPK9r8" alt="Xfinity — The Greatest Gift" data-label="Xfinity — The Greatest Gift"></div>
@@ -2513,6 +2051,450 @@
         </div>
     </section>
 
+    <!-- Breaker: darkroom (ink) -->
+    <div class="brk brk-ink" aria-hidden="true">
+        <div class="brk-track">
+            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
+            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
+            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
+            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
+            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
+            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
+            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
+            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
+            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
+            <span class="brk-item"><span class="hi">PHOTOGRAPHY</span> <span class="up">▲</span> +4.6%</span>
+            <span class="brk-item"><span class="hi">NOW BOOKING</span> <span class="up">▲</span> +9.9%</span>
+            <span class="brk-item"><span class="hi">THE LIGHT</span> <span class="up">▲</span> +5.1%</span>
+            <span class="brk-item"><span class="hi">NIKON D500</span> <span class="up">▲</span> +3.8%</span>
+            <span class="brk-item"><span class="hi">PORTRAITS</span> <span class="up">▲</span> +3.2%</span>
+            <span class="brk-item"><span class="hi">35MM FILM</span> <span class="up">▲</span> +4.0%</span>
+            <span class="brk-item"><span class="hi">THE FRAME</span> <span class="up">▲</span> +4.7%</span>
+            <span class="brk-item"><span class="hi">SONY A6100</span> <span class="up">▲</span> +2.9%</span>
+            <span class="brk-item"><span class="hi">THE SNAPSHOT</span> <span class="down">▼</span> -2.4%</span>
+            <span class="brk-item"><span class="hi">LANDSCAPE</span> <span class="up">▲</span> +2.6%</span>
+            <span class="brk-item"><span class="hi">EVERY FRAME A DECISION</span> <span class="up">▲</span> +5.0%</span>
+            <span class="brk-item"><span class="hi">FASHION</span> <span class="up">▲</span> +3.0%</span>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         04 — PHOTOGRAPHY
+         Everything between the PHOTOGRAPHY markers is generated by
+         scripts/render-photography.py. Edit the renderer, not the markup.
+         ===================================================== -->
+    <!-- PHOTOGRAPHY:START -->
+    <section id="photography" class="chapter chapter-dark">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 04</span>
+                    <h2 class="ch-title"><span class="it">Photography</span></h2>
+                </div>
+                <div class="ch-meta">People · Places<br>Gatherings</div>
+            </div>
+            <div class="gallery-bar rv">
+                <div class="photo-chapters" aria-label="Filter photographs">
+                    <button class="photo-chapter active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="photo-chapter" data-filter="people" aria-pressed="false">People</button>
+                    <button class="photo-chapter" data-filter="places" aria-pressed="false">Places</button>
+                    <button class="photo-chapter" data-filter="gatherings" aria-pressed="false">Gatherings</button>
+                </div>
+                <div class="gallery-links"><a class="gallery-link gallery-link--book" href="photography/#book">Book a shoot&nbsp;&rarr;</a><a class="gallery-link" href="photography/">Full photography site&nbsp;&rarr;</a></div>
+                <nav class="gallery-links gallery-sets" aria-label="Photo sets" style="flex-basis:100%"><span class="gallery-link" style="border-bottom-color:transparent;color:var(--paper-on-dark-soft)">Sets</span><a class="gallery-link" href="photography/#set-rio-de-janeiro">Rio de Janeiro&nbsp;&rarr;</a></nav>
+            </div>
+            <div class="photo-grid rv" id="photoGallery">
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Black-and-white portrait of a father holding a baby outdoors."><img loading="eager" decoding="async" src="photos/portraits/JMG_1520.jpg" alt="Black-and-white portrait of a father holding a baby outdoors." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model in a red coat and knit hat against a pale studio wall."><img loading="eager" decoding="async" src="photos/fashion/JMG_1601.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." width="1365" height="2048"></figure>
+                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A red sun hangs over a hazy landscape lined with palm trees."><img loading="eager" decoding="async" src="photos/landscape/DSC00659.jpg" alt="A red sun hangs over a hazy landscape lined with palm trees." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two people stand in red and blue light against a wall covered in newspaper pages."><img loading="lazy" decoding="async" src="photos/portraits/JMG_1763.jpg" alt="Two people stand in red and blue light against a wall covered in newspaper pages." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Mist moves through a pine forest and mountain valley."><img loading="lazy" decoding="async" src="photos/landscape/JMG_5693.jpg" alt="Mist moves through a pine forest and mountain valley." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a model seated in a patterned green look and white trousers."><img loading="lazy" decoding="async" src="photos/fashion/JMG_3641.jpg" alt="Fashion portrait of a model seated in a patterned green look and white trousers." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two visitors share a quiet conversation inside an art museum."><img loading="lazy" decoding="async" src="photos/travel/JMG_7419.jpg" alt="Two visitors share a quiet conversation inside an art museum." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Portrait of a man in dark glasses and a leather jacket against vivid graffiti."><img loading="lazy" decoding="async" src="photos/portraits/JMG_8929.jpg" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A concert crowd faces intersecting beams of white and blue stage light."><img loading="lazy" decoding="async" src="photos/events/JMG_2254.jpg" alt="A concert crowd faces intersecting beams of white and blue stage light." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A lone walker crosses a mountain overlook as sunlight breaks through cloud."><img loading="lazy" decoding="async" src="photos/landscape/JMG_6799.jpg" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a woman with copper hair seated against a rough concrete wall."><img loading="lazy" decoding="async" src="photos/fashion/JMG_4379.jpg" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A small production crew gathers around a plated dish on a culinary set."><img loading="lazy" decoding="async" src="photos/events/JMG_7895.jpg" alt="A small production crew gathers around a plated dish on a culinary set." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Rock formations sit offshore beneath a pale band of ocean haze."><img loading="lazy" decoding="async" src="photos/landscape/JMG_6109.jpg" alt="Rock formations sit offshore beneath a pale band of ocean haze." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman standing beside railway tracks in warm evening light."><img loading="lazy" decoding="async" src="photos/portraits/JMG_8750.jpg" alt="Portrait of a woman standing beside railway tracks in warm evening light." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look."><img loading="lazy" decoding="async" src="photos/fashion/JMG_8075.jpg" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." width="1365" height="2048"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky."><img loading="lazy" decoding="async" src="photos/travel/JMG_3086.jpg" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Swimmers appear as small figures in a calm sea beneath a pastel sky."><img loading="lazy" decoding="async" src="photos/travel/DSC00870.jpg" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A crowd gathers beneath the glowing sign of a night market."><img loading="lazy" decoding="async" src="photos/events/DSC00021.jpg" alt="A crowd gathers beneath the glowing sign of a night market." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Sailboats fill a marina with a city skyline rising beyond them."><img loading="lazy" decoding="async" src="photos/landscape/JMG_6986.jpg" alt="Sailboats fill a marina with a city skyline rising beyond them." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:1.5238" tabindex="0" role="button" aria-label="Open photograph: Portrait of a woman in warm window light beside a chrome pole."><img loading="lazy" decoding="async" src="photos/portraits/JMG_8386.jpg" alt="Portrait of a woman in warm window light beside a chrome pole." width="2048" height="1344"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Hands finish a row of carefully plated dishes at an event."><img loading="lazy" decoding="async" src="photos/events/JMG_7787.jpg" alt="Hands finish a row of carefully plated dishes at an event." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:0.7020" tabindex="0" role="button" aria-label="Open photograph: Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them."><img loading="lazy" decoding="async" src="photos/shop/rio-brahma-corner.jpg" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." width="1404" height="2000"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.4993" tabindex="0" role="button" aria-label="Open photograph: A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro."><img loading="lazy" decoding="async" src="photos/shop/rio-fog-islands-moon.jpg" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." width="2000" height="1334"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk."><img loading="lazy" decoding="async" src="photos/shop/rio-two-brothers.jpg" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." width="2000" height="1333"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street."><img loading="lazy" decoding="async" src="photos/shop/rio-santa-teresa-trams.jpg" alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." width="2000" height="1333"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: Portrait of an artist seated in a colorful studio surrounded by his work."><img loading="lazy" decoding="async" src="photos/portraits/JMG_6968.jpg" alt="Portrait of an artist seated in a colorful studio surrounded by his work." width="1365" height="2048"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: A woman holds a red rose in a brightly colored portrait setting."><img loading="lazy" decoding="async" src="photos/portraits/JMG_9553.jpg" alt="A woman holds a red rose in a brightly colored portrait setting." width="1365" height="2048"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="people" data-chapter="people" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A couple in dark clothing stands close together before a graffiti-covered wall."><img loading="lazy" decoding="async" src="photos/fashion/JMG_8986.jpg" alt="A couple in dark clothing stands close together before a graffiti-covered wall." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A tall waterfall drops through a granite valley framed by green trees."><img loading="lazy" decoding="async" src="photos/landscape/JMG_5742.jpg" alt="A tall waterfall drops through a granite valley framed by green trees." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A snow-covered mountain rises behind dark trees at blue hour."><img loading="lazy" decoding="async" src="photos/landscape/DSC00488.jpg" alt="A snow-covered mountain rises behind dark trees at blue hour." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A lifeguard house and palm trees sit on a quiet beach beneath a pink sky."><img loading="lazy" decoding="async" src="photos/landscape/JMG_7535.jpg" alt="A lifeguard house and palm trees sit on a quiet beach beneath a pink sky." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="places" data-chapter="places" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: Two rock formations rise from bright blue water along the coast."><img loading="lazy" decoding="async" src="photos/landscape/JMG_5559.jpg" alt="Two rock formations rise from bright blue water along the coast." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:0.6665" tabindex="0" role="button" aria-label="Open photograph: A performer in a quilted jacket stands beneath intense blue stage light."><img loading="lazy" decoding="async" src="photos/events/JMG_2228.jpg" alt="A performer in a quilted jacket stands beneath intense blue stage light." width="1365" height="2048"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A DJ works behind a booth in a club lit with purple and green light."><img loading="lazy" decoding="async" src="photos/events/JMG_2854.jpg" alt="A DJ works behind a booth in a club lit with purple and green light." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A graduate smiles in cap and gown outdoors after commencement."><img loading="lazy" decoding="async" src="photos/events/JMG_2437.jpg" alt="A graduate smiles in cap and gown outdoors after commencement." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.5004" tabindex="0" role="button" aria-label="Open photograph: A graduate celebrates on the steps of an engineering building."><img loading="lazy" decoding="async" src="photos/events/JMG_2560.jpg" alt="A graduate celebrates on the steps of an engineering building." width="2048" height="1365"></figure>
+                <figure class="photo-item gallery-tile is-extra" data-cat="gatherings" data-chapter="gatherings" style="--r:1.0000" tabindex="0" role="button" aria-label="Open photograph: Friends pose together during a crowded evening market event."><img loading="lazy" decoding="async" src="photos/events/DSC00028.jpg" alt="Friends pose together during a crowded evening market event." width="2048" height="2048"></figure>
+                <span class="gallery-filler" aria-hidden="true"></span>
+            </div>
+            <button type="button" class="darkroom-more gallery-more" data-reveal="photoGallery" aria-controls="photoGallery" aria-expanded="false" data-open-label="See less" data-closed-label="See more" data-open-count="All 37 photos" data-closed-count="23 more photos"><span class="darkroom-more__label">See more</span><span class="darkroom-more__count">23 more photos</span></button>
+        </div>
+    </section>
+    <!-- PHOTOGRAPHY:END -->
+
+    <!-- Breaker: AI (paper: closes the dark Darkroom chapter above) -->
+    <div class="brk" aria-hidden="true">
+        <div class="brk-track">
+            <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
+            <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
+            <span class="brk-item"><span class="hi">GEMINI</span> <span class="up">▲</span> +5.2%</span>
+            <span class="brk-item"><span class="hi">THE FUTURE</span> <span class="up">▲</span> +8.0%</span>
+            <span class="brk-item"><span class="hi">GRANDMASTER</span> <span class="up">▲</span> +4.1%</span>
+            <span class="brk-item"><span class="hi">LIFE GAMIFIED</span> <span class="up">▲</span> +3.7%</span>
+            <span class="brk-item"><span class="hi">AI BUILDER</span> <span class="up">▲</span> +7.7%</span>
+            <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
+            <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
+            <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
+            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
+            <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
+            <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
+            <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
+            <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
+            <span class="brk-item"><span class="hi">GEMINI</span> <span class="up">▲</span> +5.2%</span>
+            <span class="brk-item"><span class="hi">THE FUTURE</span> <span class="up">▲</span> +8.0%</span>
+            <span class="brk-item"><span class="hi">GRANDMASTER</span> <span class="up">▲</span> +4.1%</span>
+            <span class="brk-item"><span class="hi">LIFE GAMIFIED</span> <span class="up">▲</span> +3.7%</span>
+            <span class="brk-item"><span class="hi">AI BUILDER</span> <span class="up">▲</span> +7.7%</span>
+            <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
+            <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
+            <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
+            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
+            <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
+            <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         05 — THE AI LAB
+         ===================================================== -->
+    <section id="ai" class="chapter">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 05</span>
+                    <h2 class="ch-title">The AI <span class="it">Lab</span></h2>
+                </div>
+                <div class="ch-meta">Superintelligence<br>Built end-to-end</div>
+            </div>
+            <p class="ch-intro rv">Apps, tools, and prototypes, from quick experiments to full platforms shipped end to end. Built because I wanted to know if they could work.</p>
+            <div class="rv" style="margin: calc(-1 * var(--s5)) 0 var(--s5);">
+                <a href="https://github.com/jgerms20" target="_blank" rel="noopener" class="rule-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+            </div>
+
+            <div class="lab-grid">
+                <!-- Gen Alpha Intelligence Lab -->
+                <a href="https://agencythings-gen-alpha.vercel.app" target="_blank" rel="noopener" class="lab-card lab-feat rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/genalpha.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Cultural Intelligence</span>
+                        <h3 class="lab-title">Gen Alpha Intelligence Lab <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">A living research lab on the forces shaping Gen Alpha culture — insights, findings, creators, and the spaces they actually occupy, with an ingest pipeline for reports, interviews, and field notes. Built with Next.js 16 and Supabase.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
+                            <span class="lab-cta">View Live →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Dreamcatcher -->
+                <a href="https://jgerms20.github.io/Dreamcatcher/" target="_blank" rel="noopener" class="lab-card rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/dreamcatcher.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Dream Journal · Voice</span>
+                        <h3 class="lab-title">Dreamcatcher <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">Speak your dream the second you wake up, before it's gone. An adaptive AI interview deepens the recall, then reads it back through four lenses — Jungian, Freudian, cognitive, and cultural — and correlates it against your sleep data.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
+                            <span class="lab-cta">View Live →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Meme Library -->
+                <a href="https://meme-atlas.vercel.app/" target="_blank" rel="noopener" class="lab-card rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/memelibrary.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Cultural Search</span>
+                        <h3 class="lab-title">Meme Library <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">Describe the meme you half remember and it finds it. Natural-language recall across 1,000+ source-linked clips, reactions, and GIFs — each with provenance and a spread timeline showing how it travelled.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
+                            <span class="lab-cta">View Live →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Grandmaster -->
+                <a href="https://jgerms20.github.io/Grandmaster/" target="_blank" rel="noopener" class="lab-card rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/grandmaster.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Chess · Real-Time</span>
+                        <h3 class="lab-title">Grandmaster <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">A live, shared chess tournament hub. Think ESPN Tournament Challenge — but for your friend group. Live bracket tracking, Chess.com integration, auto-seeding by rating.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
+                            <span class="lab-cta">View Live →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Life Gamified — featured -->
+                <a href="https://jgerms20.github.io/Life_Gamified/" target="_blank" rel="noopener" class="lab-card lab-feat rv rv-d1">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/lifegamified.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Life Gamification</span>
+                        <h3 class="lab-title">Life Gamified <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">A fully-gamified RPG quest journal for real life. Track tasks as quests, earn XP, level up your character, unlock achievements, and build a talent tree. Because life should feel like an epic adventure. Built with React 19 and Claude Code.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
+                            <span class="lab-cta">View Live →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Man and the Machine — featured -->
+                <a href="https://jgerms20.github.io/the_man_and_the_machine/" target="_blank" rel="noopener" class="lab-card lab-feat rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/manmachine.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">AI Music Collaboration</span>
+                        <h3 class="lab-title">The Man and the Machine <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">Play bass or connect MIDI — and the AI plays back. A real-time jam session tool with 10 AI musician personalities: from Supportive to Adversary, Listen to Free. Built with React, TypeScript, Web Audio API, and Claude Code.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Jukeboxd -->
+                <a href="https://ai.studio/apps/drive/1xqDWg6PA0RVMGC3LHaqbQr_VweZT_m-6" target="_blank" rel="noopener" class="lab-card rv rv-d1">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/jukeboxd.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Music Social</span>
+                        <h3 class="lab-title">Jukeboxd <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">Letterboxd for music. Track, rate, and review albums. Share your musical journey and discover new sounds.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Veritas -->
+                <a href="https://ai.studio/apps/drive/1CrSc4klhhMskBGHyQv5FzLd_fwXkvOBS" target="_blank" rel="noopener" class="lab-card rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/veritas.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Media Intelligence</span>
+                        <h3 class="lab-title">Veritas <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">AI-powered bias detection for news and media. Analyze content for perspective, compare sources, and see the full picture.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Creator Search -->
+                <a href="https://ai.studio/apps/drive/1SofxKk1-7GVv8tcvi7SkIRnvI5PksZcC" target="_blank" rel="noopener" class="lab-card rv rv-d1">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/creatorsearch.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Creator Discovery</span>
+                        <h3 class="lab-title">Creator Search <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">AI-powered influencer and creator discovery. Find the perfect creators for your brand based on audience, style, and engagement.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Archive -->
+                <a href="https://ai.studio/apps/drive/1C1BH5wAdVTio0MAa3mmMiH1O5elvxbth" target="_blank" rel="noopener" class="lab-card rv rv-d2">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/closet.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Digital Closet</span>
+                        <h3 class="lab-title">Archive <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">AI-powered wardrobe organizer. Catalog, style, and manage your closet with intelligent outfit recommendations.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Ætheria -->
+                <a href="https://ai.studio/apps/drive/1TXV9Z8tMLr0ehtWEaUbQJ5sGVjTvHarJ" target="_blank" rel="noopener" class="lab-card rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/aetheria.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Sound Therapy</span>
+                        <h3 class="lab-title">Ætheria <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">AI-generated binaural beats for focus, relaxation, and meditation. Custom soundscapes tailored to your mental state.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Momentum -->
+                <a href="https://ai.studio/apps/drive/1EM6FwL7KX1I4fRDw-S82yLSsp8pQwRPG" target="_blank" rel="noopener" class="lab-card rv rv-d1">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/momentum.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Productivity</span>
+                        <h3 class="lab-title">Momentum <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">AI-powered productivity and goal tracking. Build momentum with intelligent task management and progress insights.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Perfect Day Crafter -->
+                <a href="https://ai.studio/apps/drive/1UpeX-jONjncy41Putdc_YGg_9qYHlQcD" target="_blank" rel="noopener" class="lab-card rv rv-d2">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/perfectday.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Life Design</span>
+                        <h3 class="lab-title">Perfect Day Crafter <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform google"><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google AI Studio</span>
+                            <span class="lab-cta">Launch App →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ===== Sites I've Built — swipeable client work ===== -->
+            <div class="ch-head rv" style="margin-top: var(--s8);">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 05B</span>
+                    <h2 class="ch-title">Sites I&rsquo;ve <span class="it">Built</span></h2>
+                </div>
+                <div class="ch-meta">Shows, family &amp; small business<br>Built from scratch</div>
+            </div>
+            <p class="ch-intro rv">Websites I&rsquo;ve built for my own shows, family, and small businesses: booking flows, menus, QR menu boards, contact pipelines. Each one written from scratch, not dropped into a template.</p>
+
+            <div class="sites-wrap rv">
+                <div class="sites-rail" id="sitesRail" role="list" aria-label="Client websites">
+                    <div class="site-card" role="listitem">
+                        <span class="site-num">01</span>
+                        <span class="site-kicker">Podcast · Show site</span>
+                        <h3 class="site-name">Curious &amp; Creative</h3>
+                        <p class="site-desc">The home of Curious Creative Company: our shows, our studio, and what we&rsquo;re building, kept fresh by feeds that update themselves.</p>
+                        <a class="site-cta site-open" href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Visit the site &#8599;</a>
+                    </div>
+                    <div class="site-card is-soon" role="listitem">
+                        <span class="site-num">02</span>
+                        <span class="site-kicker">BBQ &amp; Soul Food · Columbia, SC</span>
+                        <h3 class="site-name">The Comeback Truck</h3>
+                        <p class="site-desc">My brother Brig's truck. Slow-smoked ribs, pulled pork, chili cheese fries, and the Carolina mustard sauce that brings you back.</p>
+                        <span class="site-cta">Launching soon</span>
+                    </div>
+                    <div class="site-card" role="listitem" data-gate="milton" data-url="https://milton-german.vercel.app">
+                        <span class="site-num">03</span>
+                        <span class="site-kicker">Bookkeeping · Walterboro, SC</span>
+                        <h3 class="site-name">Milton German Bookkeeping</h3>
+                        <p class="site-desc">My dad. Thirty years of South Carolina state government accounting, now keeping the books for small businesses.</p>
+                        <button class="site-cta site-lock" type="button">🔒 Enter password</button>
+                        <form class="site-gate" autocomplete="off">
+                            <input type="password" class="site-gate-input" placeholder="Password" aria-label="Password for Milton German Bookkeeping">
+                            <button type="submit" class="site-gate-go">Open</button>
+                        </form>
+                    </div>
+                    <div class="site-card" role="listitem" data-gate="daniel" data-url="https://dg-creations.vercel.app">
+                        <span class="site-num">04</span>
+                        <span class="site-kicker">Private Chef · Dining</span>
+                        <h3 class="site-name">DG Creations</h3>
+                        <p class="site-desc">Daniel German, Johnson &amp; Wales trained. Private dining, catering, meal prep. "Every plate, a creation."</p>
+                        <button class="site-cta site-lock" type="button">🔒 Enter password</button>
+                        <form class="site-gate" autocomplete="off">
+                            <input type="password" class="site-gate-input" placeholder="Password" aria-label="Password for DG Creations">
+                            <button type="submit" class="site-gate-go">Open</button>
+                        </form>
+                    </div>
+                    <div class="site-card" role="listitem" data-gate="gma" data-url="https://janie-bells-alterations.vercel.app">
+                        <span class="site-num">05</span>
+                        <span class="site-kicker">Alterations · Walterboro, SC</span>
+                        <h3 class="site-name">Janie Bell's Alterations</h3>
+                        <p class="site-desc">A seamstress who'd done professional-grade alterations for fifty years and charged almost nothing for it. Drop-off, mail-in, real booking flow.</p>
+                        <button class="site-cta site-lock" type="button">🔒 Enter password</button>
+                        <form class="site-gate" autocomplete="off">
+                            <input type="password" class="site-gate-input" placeholder="Password" aria-label="Password for Janie Bell's Alterations">
+                            <button type="submit" class="site-gate-go">Open</button>
+                        </form>
+                    </div>
+                    <div class="site-card is-soon" role="listitem">
+                        <span class="site-num">06</span>
+                        <span class="site-kicker">Percussion · Columbia, SC</span>
+                        <h3 class="site-name">Nicholas German</h3>
+                        <p class="site-desc">Nick — working drummer. Jazz gigs, gospel worship, weddings, corporate dates. Media reel and a booking pipeline.</p>
+                        <span class="site-cta">Launching soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Breaker: media diet -->
     <div class="brk" aria-hidden="true">
@@ -2552,41 +2534,28 @@
                     <span class="ch-num">CH. 06</span>
                     <h2 class="ch-title">Media <span class="it">Diet</span></h2>
                 </div>
-                <div class="ch-meta">Follow Along<br>What I consume</div>
+                <div class="ch-meta">What a curious, creative<br>strategist consumes</div>
             </div>
+            <p class="ch-intro rv">Inputs become outputs. Here&rsquo;s what&rsquo;s been going in lately, pulled live from where I log it.</p>
 
-            <div class="rv">
-                <a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener" class="diet-card">
-                    <span class="diet-ico" style="background: linear-gradient(135deg, #00D735, #00870F);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="7" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="17" y2="20"/><line x1="2" y1="9" x2="7" y2="9"/><line x1="2" y1="15" x2="7" y2="15"/><line x1="17" y1="9" x2="22" y2="9"/><line x1="17" y1="15" x2="22" y2="15"/></svg></span>
-                    <span class="diet-title">Films I've Watched Recently</span>
-                    <span class="diet-by">Letterboxd</span>
-                    <span class="diet-note">Check out my film journey — letterboxd.com/jgerms →</span>
-                </a>
-                <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener" class="diet-card">
-                    <span class="diet-ico" style="background: linear-gradient(135deg, #8B6F47, #5C4A2E);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-                    <span class="diet-title">Books I'm Reading</span>
-                    <span class="diet-by">Goodreads</span>
-                    <span class="diet-note">Track my reading progress — goodreads.com/joshua-german →</span>
-                </a>
-                <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener" class="diet-card">
-                    <span class="diet-ico" style="background: linear-gradient(135deg, #769656, #4a7c3f);"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .5-.2 1-.5 1.3.8.6 1.5 1.6 1.5 2.7 0 .8-.3 1.5-.8 2h.8a1 1 0 0 1 0 2h-.5l1 6h1a1 1 0 0 1 0 2H7.5a1 1 0 0 1 0-2h1l1-6h-.5a1 1 0 0 1 0-2h.8c-.5-.5-.8-1.2-.8-2 0-1.1.7-2.1 1.5-2.7-.3-.3-.5-.8-.5-1.3a2 2 0 0 1 2-2z"/></svg></span>
-                    <span class="diet-title">Chess</span>
-                    <span class="diet-by">Chess.com</span>
-                    <span class="diet-note">Follow my games and rating — chess.com/member/jgerms →</span>
-                </a>
-                <a href="https://www.dailygamecock.com/staff/josh-german" target="_blank" rel="noopener" class="diet-card">
-                    <span class="diet-ico" style="background: linear-gradient(135deg, #73000A, #9c1220);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
-                    <span class="diet-title">Early Writing</span>
-                    <span class="diet-by">The Daily Gamecock</span>
-                    <span class="diet-note">Sports journalism at USC's student paper — where it all started →</span>
-                </a>
-                <a href="https://jgerms20.substack.com" target="_blank" rel="noopener" class="diet-card">
-                    <span class="diet-ico" style="background: linear-gradient(135deg, #FF6719, #E5551A);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v3H4zM4 9.5h16v3H4z" fill="currentColor" stroke="none"/><path d="M4 15h16v7l-8-3.5L4 22z" fill="currentColor" stroke="none"/></svg></span>
-                    <span class="diet-title">Articles Written</span>
-                    <span class="diet-by">Substack</span>
-                    <span class="diet-note">My latest thoughts and essays — jgerms20.substack.com →</span>
-                </a>
+            <div class="intake rv" id="intake">
+                <div class="intake-col" data-shelf="watching">
+                    <div class="intake-head"><span class="intake-label">Watching</span><a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">Letterboxd &#8599;</a></div>
+                    <div class="intake-posters" id="intakeFilms"></div>
+                    <a class="intake-empty" href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--film" aria-hidden="true"></span><span>Every film I log, with the stars to prove it.</span></a>
+                </div>
+                <div class="intake-col" data-shelf="reading">
+                    <div class="intake-head"><span class="intake-label">Reading</span><a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">Goodreads &#8599;</a></div>
+                    <div class="intake-books" id="intakeBooks"></div>
+                    <a class="intake-empty" href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--book" aria-hidden="true"></span><span>What&rsquo;s on the nightstand and what I finished.</span></a>
+                </div>
+                <div class="intake-col" data-shelf="writing">
+                    <div class="intake-head"><span class="intake-label">Writing</span><a href="https://jgerms20.substack.com" target="_blank" rel="noopener">Substack &#8599;</a></div>
+                    <ol class="intake-posts" id="intakePosts"></ol>
+                    <a class="intake-empty" href="https://jgerms20.substack.com" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--pen" aria-hidden="true"></span><span>Essays and notes from the rabbit holes.</span></a>
+                </div>
             </div>
+            <p class="intake-also rv">Also: <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener">my chess games &#8599;</a> &middot; <a href="https://www.dailygamecock.com/staff/josh-german" target="_blank" rel="noopener">where the writing started, at <em>The Daily Gamecock</em> &#8599;</a></p>
         </div>
     </section>
 
@@ -2914,59 +2883,103 @@
             }, { passive: true });
         })();
 
-        // ---- Animated counters ----
+        // ---- Route map: light a city when its stop is hovered or focused ----
         (function () {
-            const els = document.querySelectorAll('[data-count]');
-            if (!els.length) return;
-            const animate = (el, target) => {
-                const dur = 1600; const t0 = performance.now();
-                const frame = (t) => {
-                    const p = Math.min((t - t0) / dur, 1);
-                    const ease = 1 - Math.pow(1 - p, 3);
-                    el.textContent = Math.round(target * ease);
-                    if (p < 1) requestAnimationFrame(frame);
-                };
-                requestAnimationFrame(frame);
-            };
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) { animate(e.target, +e.target.dataset.count); obs.unobserve(e.target); }
-                });
-            }, { threshold: 0.8 });
-            els.forEach(el => obs.observe(el));
+            const trail = document.querySelector('.trail');
+            if (!trail) return;
+            const pins = trail.querySelectorAll('.trail-pin');
+            function light(stop) {
+                const keys = stop ? [stop.dataset.stop, stop.dataset.also].filter(Boolean) : [];
+                pins.forEach(p => p.classList.toggle('is-lit', keys.includes(p.dataset.stop)));
+                trail.querySelectorAll('.trail-stop').forEach(li => li.classList.toggle('is-lit', li === stop));
+            }
+            trail.querySelectorAll('.trail-stop').forEach(li => {
+                li.addEventListener('mouseenter', () => light(li));
+                li.addEventListener('focus', () => light(li));
+            });
+            trail.querySelector('.trail-stops').addEventListener('mouseleave', () => light(null));
         })();
-
-        // ---- Hero portrait rotator ----
+        // ---- Media diet: live intake from data/media-diet.json (synced every 6 hours) ----
         (function () {
-            const frame = document.getElementById('heroRotator');
+            const root = document.getElementById('intake');
+            if (!root || !window.fetch) return;
+            const el = (t, c, txt) => { const n = document.createElement(t); if (c) n.className = c; if (txt != null) n.textContent = txt; return n; };
+            const https = u => (typeof u === 'string' && /^https:\/\//.test(u)) ? u : '';
+            const stars = r => typeof r === 'number' && r > 0 ? '★'.repeat(Math.floor(r)) + (r % 1 ? '½' : '') : '';
+            const fmt = d => { if (!d) return ''; const x = new Date(d + 'T00:00:00Z'); return isNaN(x) ? '' : x.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }); };
+            const link = (url, cls) => { const a = el(url ? 'a' : 'div', cls); if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; } return a; };
+            fetch('data/media-diet.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
+                if (!data) return;
+                const films = (data.letterboxd || []).filter(f => f && f.title).slice(0, 8);
+                if (films.length) {
+                    const box = document.getElementById('intakeFilms');
+                    films.forEach(f => {
+                        const a = link(https(f.url), 'intake-film');
+                        a.setAttribute('aria-label', f.title + (f.year ? ' (' + f.year + ')' : '') + (f.rating ? ', ' + f.rating + ' stars' : ''));
+                        const tile = el('span', 'intake-film-tile', f.title);
+                        if (https(f.poster)) {
+                            const img = el('img'); img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.src = f.poster;
+                            img.addEventListener('error', () => img.replaceWith(tile));
+                            a.appendChild(img);
+                        } else a.appendChild(tile);
+                        a.appendChild(el('span', 'intake-stars', stars(f.rating) || ' '));
+                        a.appendChild(el('span', 'intake-film-name', f.title));
+                        box.appendChild(a);
+                    });
+                    root.querySelector('[data-shelf="watching"]').classList.add('has-data');
+                }
+                const now = (data.reading || []).filter(b => b && b.title).map(b => Object.assign({ now: true }, b));
+                const done = (data.read || []).filter(b => b && b.title);
+                const books = now.concat(done).slice(0, 4);
+                if (books.length) {
+                    const box = document.getElementById('intakeBooks');
+                    books.forEach(b => {
+                        const a = link(https(b.url), 'intake-book');
+                        if (https(b.cover)) { const img = el('img'); img.alt = ''; img.loading = 'lazy'; img.src = b.cover; img.addEventListener('error', () => img.replaceWith(el('span', 'intake-book-tile'))); a.appendChild(img); }
+                        else a.appendChild(el('span', 'intake-book-tile'));
+                        const t = el('span');
+                        if (b.now) t.appendChild(el('span', 'intake-now', 'Now reading'));
+                        t.appendChild(el('b', null, b.title));
+                        if (b.author) t.appendChild(el('small', null, b.author + (b.rating ? ' · ' + '★'.repeat(b.rating) : '')));
+                        a.appendChild(t);
+                        box.appendChild(a);
+                    });
+                    root.querySelector('[data-shelf="reading"]').classList.add('has-data');
+                }
+                const posts = (data.substack || []).filter(p => p && p.title).slice(0, 4);
+                if (posts.length) {
+                    const box = document.getElementById('intakePosts');
+                    posts.forEach(p => {
+                        const li = el('li'); const a = link(https(p.url));
+                        const d = fmt(p.date); if (d) a.appendChild(el('time', null, d));
+                        a.appendChild(el('b', null, p.title));
+                        li.appendChild(a); box.appendChild(li);
+                    });
+                    root.querySelector('[data-shelf="writing"]').classList.add('has-data');
+                }
+            }).catch(() => {});
+        })();
+        // ---- About: rotating photos of Joshua ----
+        // To add a photo: drop it in photos/self/ and add one <img class="rot-slide"
+        // data-cap="Month Year · Camera"> line inside #selfRotator. The counter updates itself.
+        (function () {
+            const frame = document.getElementById('selfRotator');
             if (!frame) return;
             const slides = frame.querySelectorAll('.rot-slide');
-            if (slides.length < 2) return;
-            const captions = [
-                ['35mm Film', 'Lab Scan'],
-                ['Jul 2025', 'Sony a6100'],
-                ['Jul 2024', 'iPhone'],
-                ['Self', 'Archive'],
-                ['Nov 2022', 'Nikon D500'],
-                ['Jan 2023', 'Nikon D500'],
-                ['Apr 2025', 'Sony a6100'],
-                ['Aug 2024', 'Nikon D500']
-            ];
-            const fig = frame.closest('.hero-portrait');
-            const capL = document.getElementById('heroCapLeft');
-            const capR = document.getElementById('heroCapRight');
-            const idx = document.getElementById('heroCapIdx');
-            const bar = document.getElementById('heroCapBar');
+            const fig = frame.closest('.self-roll');
+            const meta = document.getElementById('selfCapMeta');
+            const idx = document.getElementById('selfCapIdx');
+            const total = document.getElementById('selfCapTotal');
+            const bar = document.getElementById('selfCapBar');
+            total.textContent = String(slides.length).padStart(2, '0');
+            if (slides.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             const DWELL = 4500;
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             let i = 0, paused = false;
-
             function show(n) {
                 slides[i].classList.remove('active');
                 i = n;
                 slides[i].classList.add('active');
-                const cap = captions[i] || ['', ''];
-                capL.textContent = cap[0]; capR.textContent = cap[1];
+                meta.textContent = slides[i].dataset.cap || '';
                 idx.textContent = String(i + 1).padStart(2, '0');
                 bar.style.animation = 'none'; void bar.offsetWidth;
                 bar.style.animation = 'heroRail ' + DWELL + 'ms linear forwards';
@@ -3158,30 +3171,14 @@
             btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         })();
 
-        // ---- Eclectic Polymath live cover (Spotify oEmbed, no credentials) ----
-        // The designed fallback is always painted underneath; the cover only fades in
-        // once it has actually loaded, so a blocked or failed request leaves the fallback.
+        // ---- Eclectic Polymath cover (local file; the designed tile stays underneath if it fails) ----
         (function () {
             const img = document.getElementById('ep-show-cover');
             if (!img) return;
             const wrap = img.parentElement;
-            img.addEventListener('load', () => {
-                if (img.naturalWidth > 0) wrap.classList.add('is-loaded');
-            });
+            const done = () => { if (img.naturalWidth > 0) wrap.classList.add('is-loaded'); };
+            if (img.complete) done(); else img.addEventListener('load', done);
             img.addEventListener('error', () => wrap.classList.remove('is-loaded'));
-            // Repeat visits paint the last known art straight away, before the oEmbed call returns.
-            const KEY = 'jmg-ep-cover';
-            let cached = null;
-            try { cached = localStorage.getItem(KEY); } catch (e) {}
-            if (cached && /^https:\/\/[a-z0-9.-]*(scdn\.co|spotifycdn\.com)\//.test(cached)) img.src = cached;
-            fetch('https://open.spotify.com/oembed?url=https%3A%2F%2Fopen.spotify.com%2Fshow%2F3dlagzJ0jiWLTB9mF3y069')
-                .then(r => r.ok ? r.json() : Promise.reject(new Error('oEmbed ' + r.status)))
-                .then(data => {
-                    if (!data || !data.thumbnail_url) throw new Error('no thumbnail');
-                    if (img.getAttribute('src') !== data.thumbnail_url) img.src = data.thumbnail_url;
-                    try { localStorage.setItem(KEY, data.thumbnail_url); } catch (e) {}
-                })
-                .catch(() => { if (!img.getAttribute('src')) wrap.classList.remove('is-loaded'); });
         })();
 
     </script>

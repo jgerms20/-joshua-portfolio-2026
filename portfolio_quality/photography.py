@@ -297,7 +297,7 @@ def render_darkroom(photos: list[dict[str, object]], sets: list[dict[str, object
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
-                    <span class="ch-num">CH. 03</span>
+                    <span class="ch-num">CH. 04</span>
                     <h2 class="ch-title"><span class="it">Photography</span></h2>
                 </div>
                 <div class="ch-meta">People · Places<br>Gatherings</div>

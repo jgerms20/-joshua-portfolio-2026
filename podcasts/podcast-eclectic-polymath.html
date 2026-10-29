@@ -11,12 +11,15 @@
     <meta property="og:title" content="The Eclectic Polymath | A podcast by Joshua McKenzie German">
     <meta property="og:description" content="Everything is interesting when you dig deep enough. Deep, well-researched episodes on history, power, religion, psychology, science, and culture.">
     <meta property="og:url" content="https://joshuamgerman.com/podcasts/podcast-eclectic-polymath.html">
-    <meta property="og:image" content="https://joshuamgerman.com/photos/self/000070270013.JPEG">
-    <meta property="og:image:alt" content="Joshua McKenzie German, host of The Eclectic Polymath">
+    <meta property="og:image" content="https://joshuamgerman.com/photos/podcasts/eclectic-polymath-cover.jpg">
+    <meta property="og:image:width" content="900">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="The Eclectic Polymath podcast cover art">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Eclectic Polymath | A podcast by Joshua McKenzie German">
     <meta name="twitter:description" content="Everything is interesting when you dig deep enough. Listen on Spotify.">
-    <meta name="twitter:image" content="https://joshuamgerman.com/photos/self/000070270013.JPEG">
+    <meta name="twitter:image" content="https://joshuamgerman.com/photos/podcasts/eclectic-polymath-cover.jpg">
+    <meta name="twitter:image:alt" content="The Eclectic Polymath podcast cover art">
     <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +32,7 @@
         "name": "The Eclectic Polymath",
         "description": "Everything is interesting when you dig deep enough. Deep, well-researched episodes on history, power, religion, psychology, science, and culture.",
         "url": "https://joshuamgerman.com/podcasts/podcast-eclectic-polymath.html",
+        "image": "https://joshuamgerman.com/photos/podcasts/eclectic-polymath-cover.jpg",
         "sameAs": ["https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069"],
         "author": { "@type": "Person", "name": "Joshua McKenzie German", "url": "https://joshuamgerman.com" }
     }
@@ -236,13 +240,12 @@
             box-shadow: 0 34px 70px -34px rgba(23,21,18,0.55), 0 0 0 1px var(--rule-soft);
         }
         :root[data-theme="dark"] .cover { box-shadow: 0 34px 70px -30px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,168,76,0.22); }
-        .cover-live {
-            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-            opacity: 0; transition: opacity 0.7s ease;
+        /* The real show cover, served from this site so it paints with the page */
+        .cover-art {
+            position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover;
         }
-        .is-live > .cover-live { opacity: 1; }
 
-        /* Designed typographic cover (shown until/unless Spotify's art arrives) */
+        /* Designed typographic sleeve: sits under the cover and only shows if the image fails */
         .art {
             position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center; color: var(--on-band);
@@ -417,6 +420,48 @@
         }
         .pull::before { content: '\201C'; color: var(--gold); margin-left: -0.45em; }
         .pull::after { content: '\201D'; color: var(--gold); }
+        /* Recent rabbit holes: real episode titles under the pull quote.
+           Without JS it is a short static list; with JS the items stack in
+           one grid cell and one shows at a time. */
+        .lately { margin-top: var(--s4); max-width: 34em; }
+        .lately-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
+        .lately-label {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-ink);
+        }
+        .lately-label::before { content: ''; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--gold); flex-shrink: 0; }
+        .lately-count { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+        .lately-count:empty { display: none; }
+        .lately-list { list-style: none; display: grid; gap: 10px; margin-top: 12px; }
+        .lately-item { min-width: 0; }
+        .lately-end { white-space: nowrap; }
+        .lately-link {
+            display: inline; font-family: var(--serif); font-weight: 400; font-size: clamp(1.12rem, 1.6vw, 1.32rem);
+            line-height: 1.32; letter-spacing: -0.01em; color: var(--ink);
+            background-image: linear-gradient(var(--gold), var(--gold)); background-repeat: no-repeat;
+            background-size: 0% 1px; background-position: 0 100%;
+            transition: background-size 0.5s var(--exp), color 0.25s;
+        }
+        .lately-link:hover, .lately-link:focus-visible { background-size: 100% 1px; }
+        .lately-sub { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+        .lately-link svg { display: inline-block; width: 0.7em; height: 0.7em; margin-left: 0.3em; vertical-align: 0.02em; color: var(--gold); transition: transform 0.3s var(--exp); }
+        .lately-link:hover svg { transform: translate(2px, -2px); }
+        .lately-bar { display: none; position: relative; height: 1px; margin-top: 16px; background: var(--rule); overflow: hidden; }
+        .lately-bar i { position: absolute; inset: 0; background: var(--gold); transform: scaleX(0); transform-origin: left center; }
+
+        .lately.is-rotating .lately-list { gap: 0; }
+        .lately.is-rotating .lately-item {
+            grid-area: 1 / 1; align-self: center; opacity: 0; transform: translateY(0.55em); pointer-events: none;
+            transition: opacity 0.55s ease, transform 0.75s var(--exp);
+        }
+        .lately.is-rotating .lately-item.is-active { opacity: 1; transform: none; pointer-events: auto; }
+        .lately.is-rotating .lately-item.is-leaving { opacity: 0; transform: translateY(-0.55em); }
+        .lately.is-rotating .lately-bar { display: block; }
+        .lately.is-rotating .lately-bar i.run { animation: latelyFill 3.5s linear forwards; }
+        .lately.is-paused .lately-bar i.run { animation-play-state: paused; }
+        .lately.is-still .lately-bar, .lately.is-still .lately-count { display: none; }
+        @keyframes latelyFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
         .host-body { margin-top: var(--s4); max-width: 34em; }
         .host-body p { font-size: 1.05rem; line-height: 1.78; color: var(--ink-soft); }
         .host-body p + p { margin-top: var(--s2); }
@@ -558,7 +603,8 @@
                 <div class="hero-grid">
                     <div class="sleeve">
                         <div class="disc" aria-hidden="true"></div>
-                        <div class="cover" data-cover>
+                        <div class="cover">
+                            <img class="cover-art" src="../photos/podcasts/eclectic-polymath-cover.jpg" alt="The Eclectic Polymath podcast cover art" width="900" height="900" fetchpriority="high" decoding="async" onerror="this.remove()">
                             <div class="art" aria-hidden="true">
                                 <span class="art-top">A Podcast</span>
                                 <span class="art-the">The</span>
@@ -634,7 +680,8 @@
 
                         <div class="pf">
                             <div class="pf-inner">
-                                <div class="pf-cover" data-cover>
+                                <div class="pf-cover">
+                                    <img class="cover-art" src="../photos/podcasts/eclectic-polymath-cover.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" onerror="this.remove()">
                                     <div class="art" aria-hidden="true">
                                         <span class="art-the">The</span>
                                         <span class="art-rule"></span>
@@ -728,6 +775,21 @@
                 <div>
                     <h2 class="label" id="host-title"><span class="label-num">03</span> From the host</h2>
                     <p class="pull">Every episode starts with a question I couldn&rsquo;t put down.</p>
+                    <div class="lately" id="lately">
+                        <div class="lately-head">
+                            <p class="lately-label" id="lately-label">Recent rabbit holes</p>
+                            <span class="lately-count" aria-hidden="true"></span>
+                        </div>
+                        <ul class="lately-list" aria-labelledby="lately-label" aria-live="off" data-src="../data/episodes/eclectic-polymath.json">
+                            <li class="lately-item"><a class="lately-link" href="https://open.spotify.com/episode/2hVT2KVrMP5SIZzoOP4Xbn" target="_blank" rel="noopener"><span class="lately-main">Los Angeles</span><span class="lately-sub">: The Capital of the Pacific <span class="lately-end">Century<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                            <li class="lately-item"><a class="lately-link" href="https://open.spotify.com/episode/1sPFk3tLCuKqSKlX5gvwFh" target="_blank" rel="noopener"><span class="lately-main">Anthropic by the Numbers</span><span class="lately-sub">: The IPO Document Nobody <span class="lately-end">Read<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                            <li class="lately-item"><a class="lately-link" href="https://podcasters.spotify.com/pod/show/jgerms20/episodes/243-Serbias-Student-List-The-Movement-With-No-Leader-That-Beat-the-Strongman-e3ra156" target="_blank" rel="noopener"><span class="lately-main">Serbia's Student List</span><span class="lately-sub">: The Movement With No Leader That Beat the <span class="lately-end">Strongman<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                            <li class="lately-item"><a class="lately-link" href="https://podcasters.spotify.com/pod/show/jgerms20/episodes/242-DreamWorks-The-Studio-Built-to-Beat-Disney-e3r9unt" target="_blank" rel="noopener"><span class="lately-main">DreamWorks</span><span class="lately-sub">: The Studio Built to Beat <span class="lately-end">Disney<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                            <li class="lately-item"><a class="lately-link" href="https://podcasters.spotify.com/pod/show/jgerms20/episodes/241-The-Bibles-Supporting-Cast-The-Minor-Characters-Who-Move-the-Whole-Story-e3r9jad" target="_blank" rel="noopener"><span class="lately-main">The Bible's Supporting Cast</span><span class="lately-sub">: The Minor Characters Who Move the Whole <span class="lately-end">Story<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                            <li class="lately-item"><a class="lately-link" href="https://podcasters.spotify.com/pod/show/jgerms20/episodes/240-The-Eras-of-Disney-From-Snow-White-to-Soul--and-the-Next-Hundred-Years-e3r9dnt" target="_blank" rel="noopener"><span class="lately-main">The Eras of Disney</span><span class="lately-sub">: From Snow White to Soul, and the Next Hundred <span class="lately-end">Years<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span><span class="sr-only"> (opens in a new tab)</span></a></li>
+                        </ul>
+                        <span class="lately-bar" aria-hidden="true"><i></i></span>
+                    </div>
                     <div class="host-body">
                         <p>Cartels and dynasties. Prophecy and myth. Why an ad works on you. I do the research, follow the thread as deep as it goes, and come back with the story underneath.</p>
                         <p>There&rsquo;s no lane and no niche here. Just whatever is too interesting to ignore.</p>
@@ -817,40 +879,194 @@
             syncToggleLabel();
         });
 
-        // ---- Spotify reachability + live cover art ----
-        // The designed cover is always there; Spotify's art fades in over it
-        // only once it has actually loaded. The oEmbed lookup doubles as the
-        // reachability check: an iframe fires onload even when it is showing
-        // the browser's own error page, so the player is only revealed once
-        // Spotify has answered. If it can't be reached, the player switches to
-        // its fallback card instead of a dead frame.
+        // ---- Recent rabbit holes: rotating episode titles ----
+        // The list ships with real titles in the HTML. JS refreshes it from
+        // the episodes data (textContent only), stacks the items, and shows
+        // one at a time. The gold bar's animation is the clock, so pausing it
+        // (hover, focus, offscreen, hidden tab) pauses the rotation too.
+        // aria-live stays off: screen readers get the whole list, and
+        // keyboard focus on any title brings that title into view.
+        (function lately() {
+            var box = document.getElementById('lately');
+            if (!box) return;
+            var list = box.querySelector('.lately-list');
+            var count = box.querySelector('.lately-count');
+            var bar = box.querySelector('.lately-bar i');
+            var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var items = [], idx = 0, started = false;
+            var hover = false, focus = false, offscreen = false;
+            var ARROW = 'M7 17 17 7M8 7h9v9';
+            var SVGNS = 'http://www.w3.org/2000/svg';
+
+            function pad(n) { return (n < 10 ? '0' : '') + n; }
+            function cleanTitle(t) { return String(t || '').replace(/^#\d+\s*[:.\-–—]?\s*/, '').trim(); }
+            function safeUrl(u) { return /^https:\/\/[^\s]+$/.test(String(u || '')) ? String(u) : ''; }
+
+            function buildItem(title, url) {
+                var li = document.createElement('li');
+                li.className = 'lately-item';
+                var a = document.createElement('a');
+                a.className = 'lately-link';
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener';
+                // "Main: subtitle" -> main in roman, subtitle in italic; the
+                // last word and the arrow stay together so it never wraps alone.
+                var cut = title.indexOf(': ');
+                var mainText = cut > 0 ? title.slice(0, cut) : title;
+                var subText = cut > 0 ? title.slice(cut) : '';
+                var tail = subText || mainText;
+                var sp = tail.lastIndexOf(' ');
+                var lastWord = sp > -1 ? tail.slice(sp + 1) : tail;
+                tail = sp > -1 ? tail.slice(0, sp + 1) : '';
+                var main = document.createElement('span');
+                main.className = 'lately-main';
+                a.appendChild(main);
+                var holder = main;
+                if (subText) {
+                    main.textContent = mainText;
+                    holder = document.createElement('span');
+                    holder.className = 'lately-sub';
+                    a.appendChild(holder);
+                }
+                holder.appendChild(document.createTextNode(tail));
+                var end = document.createElement('span');
+                end.className = 'lately-end';
+                end.textContent = lastWord;
+                holder.appendChild(end);
+                var svg = document.createElementNS(SVGNS, 'svg');
+                svg.setAttribute('viewBox', '0 0 24 24');
+                svg.setAttribute('fill', 'none');
+                svg.setAttribute('stroke', 'currentColor');
+                svg.setAttribute('stroke-width', '2');
+                svg.setAttribute('stroke-linecap', 'round');
+                svg.setAttribute('stroke-linejoin', 'round');
+                svg.setAttribute('aria-hidden', 'true');
+                var path = document.createElementNS(SVGNS, 'path');
+                path.setAttribute('d', ARROW);
+                svg.appendChild(path);
+                end.appendChild(svg);
+                var note = document.createElement('span');
+                note.className = 'sr-only';
+                note.textContent = ' (opens in a new tab)';
+                a.appendChild(note);
+                li.appendChild(a);
+                return li;
+            }
+
+            // Recent first, one entry per title (preferring open.spotify.com links), at most six.
+            function pick(data) {
+                var eps = data && Array.isArray(data.episodes) ? data.episodes.slice() : [];
+                eps.sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); });
+                var seen = {}, out = [];
+                eps.forEach(function (ep) {
+                    var title = cleanTitle(ep && ep.title), url = safeUrl(ep && ep.url);
+                    if (!title || !url) return;
+                    var key = title.toLowerCase();
+                    if (key in seen) {
+                        var prev = out[seen[key]];
+                        if (prev.url.indexOf('open.spotify.com') === -1 && url.indexOf('open.spotify.com') !== -1) prev.url = url;
+                        return;
+                    }
+                    seen[key] = out.length;
+                    out.push({ title: title, url: url });
+                });
+                return out.slice(0, 6);
+            }
+
+            function show(n, instant) {
+                if (!items.length) return;
+                n = (n + items.length) % items.length;
+                items.forEach(function (li, i) {
+                    li.classList.remove('is-leaving');
+                    if (i === idx && i !== n && !instant) li.classList.add('is-leaving');
+                    li.classList.toggle('is-active', i === n);
+                });
+                idx = n;
+                if (count) count.textContent = items.length > 1 ? pad(idx + 1) + ' / ' + pad(items.length) : '';
+            }
+            function restartBar() {
+                if (!bar || still || items.length < 2) return;
+                bar.classList.remove('run');
+                void bar.offsetWidth;
+                bar.classList.add('run');
+            }
+            function syncPause() {
+                box.classList.toggle('is-paused', hover || focus || offscreen || document.hidden);
+            }
+            function adopt() {
+                items = Array.prototype.slice.call(list.querySelectorAll('.lately-item'));
+                idx = 0;
+                show(0, true);
+                if (started) restartBar();
+            }
+            function start() {
+                if (started) return;
+                started = true;
+                restartBar();
+            }
+
+            box.classList.add('is-rotating');
+            if (still) box.classList.add('is-still');
+            adopt();
+
+            if (bar) bar.addEventListener('animationend', function () {
+                show(idx + 1);
+                restartBar();
+            });
+            box.addEventListener('mouseenter', function () { hover = true; syncPause(); });
+            box.addEventListener('mouseleave', function () { hover = false; syncPause(); });
+            box.addEventListener('focusin', function (e) {
+                focus = true; syncPause();
+                var li = e.target.closest && e.target.closest('.lately-item');
+                var i = items.indexOf(li);
+                if (i > -1 && i !== idx) { show(i, still); restartBar(); }
+            });
+            box.addEventListener('focusout', function (e) {
+                if (!box.contains(e.relatedTarget)) { focus = false; syncPause(); }
+            });
+            document.addEventListener('visibilitychange', syncPause);
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) {
+                    offscreen = !entries[0].isIntersecting; syncPause();
+                }).observe(box);
+            }
+
+            if (!window.fetch) { start(); return; }
+            var src = list.getAttribute('data-src');
+            var giveUp = setTimeout(start, 2500);
+            fetch(src, { cache: 'no-cache' })
+                .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+                .then(function (data) {
+                    var fresh = pick(data);
+                    if (fresh.length < 2) return;
+                    var current = items.map(function (li) { return li.textContent.replace(' (opens in a new tab)', ''); }).join('|');
+                    var next = fresh.map(function (ep) { return ep.title; }).join('|');
+                    if (current === next) return;
+                    while (list.firstChild) list.removeChild(list.firstChild);
+                    fresh.forEach(function (ep) { list.appendChild(buildItem(ep.title, ep.url)); });
+                    adopt();
+                })
+                .catch(function () { /* keep the titles that shipped with the page */ })
+                .then(function () { clearTimeout(giveUp); start(); });
+        })();
+
+        // ---- Spotify reachability ----
+        // The oEmbed lookup is the reachability check: an iframe fires onload
+        // even when it is showing the browser's own error page, so the player
+        // is only revealed once Spotify has answered. If it can't be reached,
+        // the player switches to its fallback card instead of a dead frame.
         var reach = 'unknown';
         var reachWatchers = [];
-        var coverShown = false;
         function setReach(v) {
             reach = v;
             reachWatchers.forEach(function (fn) { fn(); });
-        }
-        function showCover(url) {
-            if (coverShown) return;
-            coverShown = true;
-            Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (box) {
-                var img = new Image();
-                img.className = 'cover-live';
-                img.alt = '';
-                img.decoding = 'async';
-                img.onload = function () { box.classList.add('is-live'); };
-                img.onerror = function () { img.remove(); };
-                img.src = url;
-                box.appendChild(img);
-            });
         }
         function checkReach() {
             reach = 'unknown';
             if (!window.fetch) { setReach('ok'); return; }
             fetch('https://open.spotify.com/oembed?url=' + encodeURIComponent(SHOW), { cache: 'no-store' })
-                .then(function (r) { setReach('ok'); return r.ok ? r.json() : null; })
-                .then(function (data) { if (data && data.thumbnail_url) showCover(data.thumbnail_url); })
+                .then(function () { setReach('ok'); })
                 .catch(function () { if (reach === 'unknown') setReach('down'); });
         }
 

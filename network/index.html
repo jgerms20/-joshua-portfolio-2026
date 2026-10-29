@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Curious &amp; Creative Network | Joshua McKenzie German &amp; Janel Moore</title>
-    <meta name="description" content="Curious &amp; Creative is the network Joshua McKenzie German and Janel Moore run: seven shows led by The Curious &amp; Creative Podcast, a strategy and production studio, photography, and inventions like Kindling.">
+    <title>Curious Creative Company | Joshua McKenzie German &amp; Janel Moore</title>
+    <meta name="description" content="Curious Creative Company is where Joshua McKenzie German and Janel Moore&rsquo;s work comes back together: the Curious &amp; Creative Network of shows, a full creative studio, and inventions built because they wanted them to exist.">
     <link rel="canonical" href="https://joshuamgerman.com/network/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Joshua McKenzie German">
-    <meta property="og:title" content="The Curious &amp; Creative Network">
-    <meta property="og:description" content="Seven shows, a studio, and the things we&rsquo;re inventing. From Joshua McKenzie German and Janel Moore.">
+    <meta property="og:title" content="Curious Creative Company">
+    <meta property="og:description" content="Curious first. Then creative. The Curious &amp; Creative Network, the studio, and the inventions, from Joshua McKenzie German and Janel Moore.">
     <meta property="og:url" content="https://joshuamgerman.com/network/">
     <meta property="og:image" content="https://joshuamgerman.com/network/img/duo-1600.jpg">
     <meta property="og:image:width" content="1600">
     <meta property="og:image:height" content="1066">
     <meta property="og:image:alt" content="Joshua McKenzie German and Janel Moore in front of a wall of wooden bookshelves">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Curious &amp; Creative Network">
-    <meta name="twitter:description" content="Seven shows, a studio, and the things we&rsquo;re inventing. From Joshua McKenzie German and Janel Moore.">
+    <meta name="twitter:title" content="Curious Creative Company">
+    <meta name="twitter:description" content="Curious first. Then creative. The Curious &amp; Creative Network, the studio, and the inventions, from Joshua McKenzie German and Janel Moore.">
     <meta name="twitter:image" content="https://joshuamgerman.com/network/img/duo-1600.jpg">
     <meta name="twitter:image:alt" content="Joshua McKenzie German and Janel Moore in front of a wall of wooden bookshelves">
     <meta name="theme-color" content="#F5F1E8">
@@ -29,9 +29,10 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Curious & Creative",
-        "alternateName": "The Curious & Creative Network",
-        "description": "A network of shows, a studio, photography, and inventions from Joshua McKenzie German and Janel Moore.",
+        "name": "Curious Creative Company",
+        "alternateName": ["Curious & Creative", "The Curious & Creative Network"],
+        "slogan": "Curious first. Then creative.",
+        "description": "Curious Creative Company is where Joshua McKenzie German and Janel Moore's work comes back together: the Curious & Creative Network of shows, a full creative studio, and inventions built because they wanted them to exist.",
         "url": "https://jgerms20.github.io/curious-and-creative/",
         "sameAs": ["https://joshuamgerman.com/network/", "https://www.youtube.com/@Approachable.A.I"],
         "founder": [
@@ -43,8 +44,8 @@
 
     <style>
         /* =====================================================
-           THE PAPER EDITION: The Curious & Creative Network
-           Site tokens (Ink & Paper) + the network's green and
+           THE PAPER EDITION: Curious Creative Company
+           Site tokens (Ink & Paper) + the company's green and
            each show's own color, used as marks, never as text.
            ===================================================== */
         :root {
@@ -70,8 +71,6 @@
             --band-rule: rgba(245,241,232,0.12);
             --on-band: #F5F1E8; --on-band-soft: rgba(245,241,232,0.74); --on-band-mid: rgba(245,241,232,0.56);
             --band-net: #5FCF6E;
-            /* Kindling's own palette */
-            --k-night: #170B0A; --k-cream: #FBF0E2; --k-flame: #FF6A2B; --k-gold: #FFC24B; --k-ember: #C2321F;
             --bar: 60px;
             color-scheme: light;
         }
@@ -96,7 +95,7 @@
         button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
         em { font-style: italic; }
         :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
-        .band :focus-visible, .kindle :focus-visible { outline-color: var(--band-net); }
+        .band :focus-visible, .cta-card :focus-visible { outline-color: var(--band-net); }
 
         .sr-only {
             position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -292,16 +291,29 @@
         .stamp .covers img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(18,16,12,0.9); background: #2a251e; }
         .stamp .covers img + img { margin-left: -7px; }
 
-        /* Facts strip */
-        .facts {
-            display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* The three arms of the company */
+        .arms {
+            display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
             margin-top: clamp(56px, 7vw, 96px); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
         }
-        .facts > div { padding: 20px 20px 22px; border-left: 1px solid var(--rule-soft); min-width: 0; }
-        .facts > div:first-child { border-left: 0; padding-left: 0; }
-        .facts dt { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); }
-        .facts dd { font-family: var(--serif); font-size: 1.12rem; line-height: 1.3; margin-top: 8px; }
-        .facts dd .big { font-size: 2rem; letter-spacing: -0.02em; line-height: 1; display: inline-block; margin-right: 6px; }
+        .arm {
+            position: relative; display: flex; flex-direction: column; min-width: 0;
+            padding: 22px clamp(16px, 2vw, 28px) 24px; border-left: 1px solid var(--rule-soft);
+            transition: background 0.35s var(--exp);
+        }
+        .arm:first-child { border-left: 0; padding-left: 0; }
+        .arm::before { content: ''; position: absolute; top: -1px; left: 0; width: 40px; height: 3px; background: var(--c); transition: width 0.5s var(--exp); }
+        .arm:first-child::before { left: 0; }
+        .arm:hover::before { width: 88px; }
+        .arm-k { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); }
+        .arm-k b { color: var(--net-ink); font-weight: 700; margin-right: 8px; }
+        .arm-name { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.05; letter-spacing: -0.02em; margin-top: 10px; }
+        .arm-name em { color: var(--net-ink); font-weight: 300; }
+        .arm-line { font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); margin-top: 8px; max-width: 26em; }
+        .arm-go { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 14px; font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+        .arm-go svg { width: 13px; height: 13px; transition: transform 0.3s var(--exp); }
+        .arm:hover .arm-go { color: var(--net-ink); }
+        .arm:hover .arm-go svg { transform: translateY(2px); }
 
         /* On this page */
         .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s3); }
@@ -504,73 +516,79 @@
         .modes dd { font-size: 0.84rem; line-height: 1.5; color: var(--ink-mid); margin-top: 4px; }
 
         /* =====================================================
-           04 Inventions
+           03 Inventions: art panel + kicker + blurb + built-with
            ===================================================== */
-        .inv { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s2); margin-top: clamp(40px, 5vw, 72px); }
-        .kindle {
-            position: relative; overflow: hidden; grid-row: span 2; color: var(--k-cream);
-            padding: clamp(28px, 4.4vw, 60px); min-height: 520px; display: flex; flex-direction: column;
-            background:
-                radial-gradient(70% 60% at 100% 100%, rgba(255,106,43,0.34), transparent 70%),
-                radial-gradient(50% 40% at 85% 70%, rgba(255,194,75,0.16), transparent 70%),
-                var(--k-night);
+        .chip {
+            display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 999px;
+            background: rgba(10,8,6,0.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: #F5F1E8;
+            font-family: var(--mono); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
         }
-        :root[data-theme="dark"] .kindle { box-shadow: inset 0 0 0 1px rgba(255,106,43,0.24); }
-        .k-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-        .k-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(251,240,226,0.22); font-family: var(--mono); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--k-cream); }
-        .k-chip.live { border-color: transparent; background: var(--k-flame); color: var(--k-night); }
-        .k-word { position: relative; z-index: 1; font-family: var(--serif); font-weight: 400; font-size: clamp(3.6rem, 8vw, 7rem); line-height: 0.85; letter-spacing: -0.04em; margin-top: clamp(28px, 4vw, 48px); }
-        .k-word span { color: var(--k-flame); }
-        .k-lede { position: relative; z-index: 1; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.3rem, 2.2vw, 1.8rem); line-height: 1.25; margin-top: var(--s3); max-width: 18em; }
-        .k-lede em { color: var(--k-gold); }
-        .k-sub { color: rgba(251,240,226,0.76); line-height: 1.7; margin-top: var(--s2); max-width: 24em; position: relative; z-index: 1; }
-        .kindle .actions { margin-top: auto; padding-top: var(--s4); position: relative; z-index: 1; }
-        .btn-flame { background: var(--k-flame); color: var(--k-night); }
-        .btn-flame:hover { background: var(--k-gold); }
-        .btn-cream { border: 1px solid rgba(251,240,226,0.3); color: var(--k-cream); }
-        .btn-cream:hover { border-color: var(--k-cream); }
-        /* A small fan of cards, drawn in CSS */
-        .k-fan { position: absolute; right: clamp(28px, 4vw, 64px); bottom: -22%; width: clamp(150px, 15vw, 210px); aspect-ratio: 5 / 7; pointer-events: none; }
-        .k-fan i {
-            position: absolute; inset: 0; border-radius: 12px; border: 1px solid rgba(251,240,226,0.18);
-            background: linear-gradient(160deg, #2A1512, #1C0D0B); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.8);
-            transform-origin: 50% 110%; transition: transform 0.8s var(--exp);
+        .chip.live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--band-net); box-shadow: 0 0 0 3px rgba(95,207,110,0.25); }
+        .lab {
+            position: relative; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+            margin-top: clamp(40px, 5vw, 72px); background: var(--paper-raised); border: 1px solid var(--rule);
+            transition: border-color 0.3s var(--exp), box-shadow 0.4s var(--exp);
         }
-        .k-fan i:nth-child(1) { transform: rotate(-16deg); }
-        .k-fan i:nth-child(2) { transform: rotate(-5deg); background: linear-gradient(160deg, #3A1A12, #24100C); }
-        .k-fan i:nth-child(3) {
-            transform: rotate(7deg); background: var(--k-cream); border-color: transparent;
-            display: flex; flex-direction: column; justify-content: space-between; padding: 14%;
-        }
-        .k-fan i:nth-child(3)::before { content: 'Heat 3'; font-family: var(--mono); font-style: normal; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--k-ember); }
-        .k-fan i:nth-child(3)::after { content: 'What do you want more of?'; font-family: var(--serif); font-style: italic; font-size: clamp(0.9rem, 1.4vw, 1.2rem); line-height: 1.2; color: var(--k-night); }
-        .kindle:hover .k-fan i:nth-child(1) { transform: rotate(-22deg); }
-        .kindle:hover .k-fan i:nth-child(3) { transform: rotate(12deg); }
+        .lab:hover { border-color: var(--ink-faint); box-shadow: 0 40px 80px -56px rgba(23,21,18,0.55); }
+        .lab-art { position: relative; display: block; overflow: hidden; min-height: 340px; background: #1B1340; }
+        .lab-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--exp); }
+        .lab:hover .lab-art img { transform: scale(1.04); }
+        .lab-art .chip { position: absolute; right: clamp(14px, 2vw, 22px); top: clamp(14px, 2vw, 22px); }
+        .lab-body { display: flex; flex-direction: column; min-width: 0; padding: clamp(24px, 3.4vw, 48px); }
+        .lab-kick, .proj-kick { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); }
+        .lab-kick b { color: var(--net-ink); font-weight: 700; }
+        .lab-name { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 0.98; letter-spacing: -0.025em; margin-top: var(--s2); }
+        .lab-name em { display: block; color: var(--net-ink); font-weight: 300; }
+        .lab-blurb { display: block; color: var(--ink-soft); line-height: 1.7; margin-top: var(--s2); }
+        .lab-built, .proj-built { display: block; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; color: var(--ink-mid); padding-top: 14px; margin-top: var(--s3); border-top: 1px solid var(--rule-soft); }
+        .lab-built span, .proj-built span { text-transform: uppercase; letter-spacing: 0.16em; margin-right: 6px; color: var(--ink-faint); }
+        .lab-go { display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; min-height: 46px; padding: 0 22px; margin-top: auto; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 0.92rem; transition: background 0.3s var(--exp); }
+        .lab-body .lab-built { margin-bottom: var(--s3); }
+        .lab-go svg { width: 16px; height: 16px; transition: transform 0.3s var(--exp); }
+        .lab:hover .lab-go { background: var(--net-ink); color: #fff; }
+        :root[data-theme="dark"] .lab:hover .lab-go { color: #12100C; }
+        .lab:hover .lab-go svg { transform: translate(2px, -2px); }
 
-        .inv-tile {
-            position: relative; display: flex; flex-direction: column; padding: clamp(22px, 2.8vw, 36px); background: var(--paper-raised);
-            border: 1px solid var(--rule-soft); transition: border-color 0.3s var(--exp), transform 0.3s var(--exp);
-        }
-        .inv-tile:hover { border-color: var(--ink-faint); transform: translateY(-3px); }
-        .inv-tile::before { content: ''; position: absolute; left: -1px; top: -1px; width: 48px; height: 3px; background: var(--c); }
-        .inv-num { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); }
-        .inv-tile h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.05; letter-spacing: -0.015em; margin-top: 28px; }
-        .inv-tile p { font-size: 0.95rem; line-height: 1.65; color: var(--ink-soft); margin-top: 10px; }
-        .inv-tile .sc-go { margin-top: auto; padding-top: 20px; }
-        .inv-tile:hover .sc-go { color: var(--net-ink); }
+        .projects { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s2); margin-top: var(--s2); }
+        .proj { position: relative; display: flex; flex-direction: column; height: 100%; background: var(--paper-raised); border: 1px solid var(--rule-soft); transition: border-color 0.3s var(--exp), transform 0.3s var(--exp), box-shadow 0.3s var(--exp); }
+        .proj:hover { border-color: var(--ink-faint); transform: translateY(-3px); box-shadow: 0 24px 48px -36px rgba(23,21,18,0.45); }
+        .proj-art { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper-dim); }
+        .proj-art img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--exp); }
+        .proj:hover .proj-art img { transform: scale(1.05); }
+        .proj-art .chip { position: absolute; left: 12px; top: 12px; }
+        .proj-body { display: flex; flex-direction: column; flex: 1; padding: clamp(16px, 1.8vw, 22px); }
+        .proj-name { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.35rem, 1.8vw, 1.6rem); line-height: 1.06; letter-spacing: -0.015em; margin-top: 8px; }
+        .proj-blurb { display: block; font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); margin-top: 8px; }
+        .proj-built { margin-top: auto; }
+        .proj-blurb + .proj-built { margin-top: auto; }
+        .proj-body .sc-go { padding-top: 12px; }
+        .proj:hover .sc-go { color: var(--net-ink); }
+        .proj:hover .sc-go svg { transform: translate(2px, -2px); }
+        .proj-spacer { flex: 1; min-height: 16px; }
+        .inv-more { margin-top: var(--s3); display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+
+        /* =====================================================
+           04 Photography strip
+           ===================================================== */
+        .strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: clamp(40px, 5vw, 64px); }
+        .shot { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-dim); }
+        .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--exp), filter 0.4s; }
+        .shot:hover img { transform: scale(1.05); }
+        .shot::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,6,0.62), rgba(10,8,6,0) 42%); pointer-events: none; }
+        .shot span { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 1; color: #F5F1E8; font-family: var(--mono); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+        .shot:nth-child(2) { margin-top: 28px; } .shot:nth-child(4) { margin-top: 28px; } .shot:nth-child(6) { margin-top: 28px; }
+        :root[data-theme="dark"] .shot img { filter: brightness(0.92); }
+        .strip-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; margin-top: var(--s3); }
+        .strip-foot p { font-size: 0.86rem; color: var(--ink-mid); }
 
         /* =====================================================
            05 Joshua & Janel
            ===================================================== */
         .duo { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 104px); align-items: start; }
         .duo-head .h2 { max-width: 9em; }
-        .pull {
-            font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1.15;
-            letter-spacing: -0.015em; margin-top: var(--s4); max-width: 18em;
-        }
-        .pull em { color: var(--net-ink); font-weight: 300; }
-        .duo-body { margin-top: var(--s3); max-width: 34em; }
+        .duo-body { margin-top: var(--s4); max-width: 34em; }
         .duo-body p { font-size: 1.03rem; line-height: 1.75; color: var(--ink-soft); }
+        .duo-body p + p { margin-top: 1em; }
         .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3); }
         .person-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-dim); }
         .person-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -641,20 +659,22 @@
         @media (max-width: 1100px) {
             .roster { grid-template-columns: minmax(0, 1fr); }
             .modes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 900px) {
-            .hero-grid, .flagship, .sec-head, .feed-grid, .fallback, .sk, .studio, .inv, .duo, .cta-top { grid-template-columns: minmax(0, 1fr); }
+            .hero-grid, .flagship, .sec-head, .feed-grid, .fallback, .sk, .studio, .lab, .duo, .cta-top { grid-template-columns: minmax(0, 1fr); }
             .cover-photo { max-width: 560px; }
             .cover-photo .frame { aspect-ratio: 3 / 2; }
             .sec-head .sub { justify-self: start; }
-            .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .facts > div:nth-child(3) { border-left: 0; padding-left: 0; }
-            .facts > div:nth-child(n+3) { border-top: 1px solid var(--rule-soft); }
+            .arms { grid-template-columns: minmax(0, 1fr); }
+            .arm { border-left: 0; padding-left: 0; padding-right: 0; }
+            .arm + .arm { border-top: 1px solid var(--rule-soft); }
+            .arm-go { padding-top: 10px; }
+            .lab-art { min-height: 0; aspect-ratio: 16 / 10; }
+            .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .shot:nth-child(n) { margin-top: 0; }
             .flagship .art { max-width: 360px; }
             .studio-head { position: static; }
-            .kindle { grid-row: auto; min-height: 0; }
-            .k-fan { width: 140px; bottom: -18%; right: 24px; }
-            .kindle { padding-bottom: 72px; }
             .doors { grid-template-columns: minmax(0, 1fr); }
             .door { min-height: 0; }
             .sk-lead { display: none; }
@@ -676,13 +696,12 @@
             .fi-date { grid-column: 2; text-align: left; margin-top: -8px; }
             .fi-date b { display: inline; margin: 0 0 0 8px; }
             .foot-base { flex-direction: column; align-items: flex-start; }
-            .k-fan { display: none; }
+            .projects { grid-template-columns: minmax(0, 1fr); }
+            .strip { gap: 6px; }
+            .shot span { left: 8px; bottom: 7px; font-size: 0.5rem; letter-spacing: 0.12em; }
             .cta-card { padding-left: 20px; padding-right: 20px; }
         }
         @media (max-width: 400px) {
-            .facts > div { padding: 16px 12px 18px; }
-            .facts dd { font-size: 1rem; }
-            .facts dd .big { font-size: 1.6rem; }
             .sc { grid-template-columns: 80px minmax(0, 1fr); gap: 14px; }
             .person { grid-template-columns: 96px minmax(0, 1fr); }
             .kicker { letter-spacing: 0.14em; }
@@ -691,9 +710,8 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
-            .btn:hover, .sc:hover, .inv-tile:hover, .sc:hover .art > img, .flagship:hover .art > img, .lead:hover .lead-media > img, .lead:hover .lead-media.is-art .art { transform: none; }
-            .kindle:hover .k-fan i:nth-child(1) { transform: rotate(-16deg); }
-            .kindle:hover .k-fan i:nth-child(3) { transform: rotate(7deg); }
+            .btn:hover, .sc:hover, .proj:hover, .sc:hover .art > img, .flagship:hover .art > img, .lead:hover .lead-media > img, .lead:hover .lead-media.is-art .art,
+            .lab:hover .lab-art img, .proj:hover .proj-art img, .shot:hover img { transform: none; }
         }
     </style>
 </head>
@@ -721,7 +739,7 @@
                     <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                 </button>
                 <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="bar-cta">
-                    <span>Visit<span class="xs-hide"> the network</span></span>
+                    <span>Visit<span class="xs-hide"> the site</span></span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                     <span class="sr-only">(opens in a new tab)</span>
                 </a>
@@ -736,17 +754,16 @@
             <div class="wrap">
                 <div class="hero-grid">
                     <div class="hero-copy">
-                        <p class="kicker rise"><span class="on-air">The network</span><span>Joshua McKenzie German &amp; Janel Moore</span></p>
+                        <p class="kicker rise"><span class="on-air">The company</span><span>Joshua McKenzie German &amp; Janel Moore</span></p>
                         <h1 class="masthead rise d1" id="net-title">
-                            <span class="mh-the">The</span>
-                            <span class="mh-big">Curious <em>&amp;&nbsp;Creative</em></span>
-                            <span class="mh-net">Network</span>
+                            <span class="mh-big">Curious <em>Creative</em></span>
+                            <span class="mh-net">Company</span>
                         </h1>
-                        <p class="tagline rise d2">Seven shows, a studio, and the things we&rsquo;re inventing.</p>
-                        <p class="lede rise d2">The home for everything we make, together and on our own: podcasts and video led by our flagship, The Curious &amp; Creative Podcast; a studio for founders and brands; photography; and inventions like Kindling. We met at the University of South Carolina and never stopped trading ideas.</p>
+                        <p class="tagline rise d2">Curious first. Then creative.</p>
+                        <p class="lede rise d2">We met at the University of South Carolina and never stopped trading ideas. Same curiosity, different directions: strategy and photography, policy and finance, research, AI, and art. Curious Creative Company is where it all comes back together: the Curious &amp; Creative Network, the studio, and the things we invent.</p>
                         <div class="actions rise d3">
                             <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-ink">
-                                Visit the network site
+                                Visit the site
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                                 <span class="sr-only">(opens in a new tab)</span>
                             </a>
@@ -765,39 +782,54 @@
                                 <img src="../photos/podcasts/curious-creative-logo.jpg" alt="" width="22" height="22">
                                 <img src="art/polymath.jpg" alt="" width="22" height="22">
                                 <img src="art/tmtt.jpg" alt="" width="22" height="22">
-                                <img src="../photos/podcasts/approachable-ai-logo.jpg" alt="" width="22" height="22">
+                                <img src="art/riff.jpg" alt="" width="22" height="22">
                             </span>
-                            Seven shows
+                            Curious &amp; Creative
                         </span>
                         <figcaption><span>Joshua McKenzie German</span><span>Janel Moore</span></figcaption>
                     </figure>
                 </div>
 
-                <dl class="facts rise d4">
-                    <div><dt>Founded by</dt><dd>Joshua &amp; Janel</dd></div>
-                    <div><dt>Shows</dt><dd><span class="big" data-fact="shows">7</span>podcasts &amp; video</dd></div>
-                    <div><dt>Episodes &amp; videos</dt><dd><span class="big" data-fact="episodes">250+</span>and counting</dd></div>
-                    <div><dt>The studio</dt><dd>Strategy, brand, production &amp; AI</dd></div>
-                </dl>
+                <nav class="arms rise d4" aria-label="The three arms of Curious Creative Company">
+                    <a class="arm" href="#shows" style="--c:#37B34A">
+                        <span class="arm-k"><b>01</b>The Network</span>
+                        <span class="arm-name">The <em>shows</em></span>
+                        <span class="arm-line">Eight podcasts and a video series, led by The Curious &amp; Creative Podcast. <span data-fact="episodes">300+</span> episodes and videos so far.</span>
+                        <span class="arm-go">See the shows <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>
+                    </a>
+                    <a class="arm" href="#studio" style="--c:#EC3F8E">
+                        <span class="arm-k"><b>02</b>The Studio</span>
+                        <span class="arm-name">What we make <em>for you</em></span>
+                        <span class="arm-line">Photography, video, podcasts from zero, brand assets, strategy, and events.</span>
+                        <span class="arm-go">See the six offers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>
+                    </a>
+                    <a class="arm" href="#inventions" style="--c:#8E6FE0">
+                        <span class="arm-k"><b>03</b>Inventions</span>
+                        <span class="arm-name">Things we <em>built</em></span>
+                        <span class="arm-line">Games, research labs, music tools, and AI experiments, led by the Gen Alpha Intelligence Lab and Kindling.</span>
+                        <span class="arm-go">See the inventions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>
+                    </a>
+                </nav>
                 <nav class="jump" aria-label="On this page">
-                    <a href="#shows">The shows</a>
+                    <a href="#shows">The Network</a>
                     <a href="#latest">The latest</a>
-                    <a href="#studio">The studio</a>
+                    <a href="#studio">The Studio</a>
                     <a href="#inventions">Inventions</a>
+                    <a href="#photos">Photography</a>
                     <a href="#duo">Joshua &amp; Janel</a>
                 </nav>
             </div>
         </section>
 
-        <!-- ===================== 01 THE SHOWS ===================== -->
+        <!-- ===================== 01 THE NETWORK ===================== -->
         <section class="section" id="shows" aria-labelledby="shows-title">
             <div class="wrap">
                 <div class="sec-head">
                     <div>
-                        <p class="label"><span class="label-num">01</span> The shows</p>
-                        <h2 class="h2" id="shows-title">Seven shows. <em>One network.</em></h2>
+                        <p class="label"><span class="label-num">01</span> The Curious &amp; Creative Network</p>
+                        <h2 class="h2" id="shows-title">Every show. <em>One network.</em></h2>
                     </div>
-                    <p class="sub">History rabbit holes, policy, AI builds, and real conversations with the people shaping culture. The flagship leads; the rest sort by what dropped most recently.</p>
+                    <p class="sub">Every show here is part of the Curious &amp; Creative Network, with Joshua as principal. Some are hosted by Joshua, Janel, or both; some are AI-generated; one is a hybrid of a host and AI. The flagship leads; the rest sort by what dropped most recently.</p>
                 </div>
 
                 <!-- Flagship. Static markup is complete; JS adds the latest-episode line. -->
@@ -821,7 +853,7 @@
                     </span>
                 </a>
 
-                <ul class="roster" id="roster" aria-label="More shows in the network">
+                <ul class="roster" id="roster" aria-label="More shows in the Curious &amp; Creative Network">
                     <li data-show="brazil" style="--c:#009C3B">
                         <a class="sc" href="https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w" target="_blank" rel="noopener">
                             <span class="art" data-art="brazil">
@@ -829,10 +861,40 @@
                                 <img src="art/brazil.jpg" alt="" width="600" height="600" loading="lazy" decoding="async">
                             </span>
                             <span class="sc-body">
-                                <span class="sc-kind">Podcast</span>
+                                <span class="sc-kind">Podcast &middot; AI-generated</span>
                                 <h3 class="sc-name">God Is Brazilian</h3>
-                                <span class="sc-hosts">Hosted by Joshua McKenzie German</span>
-                                <span class="sc-tag">Brazil up close: its cities, history, money, and culture, in English and Portuguese.</span>
+                                <span class="sc-hosts">AI-generated &middot; Joshua, principal</span>
+                                <span class="sc-tag">A podcast by Joshua German.</span>
+                                <span class="sc-foot"><span class="meta" data-meta></span><span class="sc-go">Spotify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li data-show="riff" style="--c:#2F5BEA">
+                        <a class="sc" href="https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk" target="_blank" rel="noopener">
+                            <span class="art" data-art="riff">
+                                <span class="tile" aria-hidden="true"><span class="tile-k">Podcast</span><span class="tile-n">The Daily <em>Riff</em></span></span>
+                                <img src="art/riff.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
+                            </span>
+                            <span class="sc-body">
+                                <span class="sc-kind">Podcast &middot; AI-generated</span>
+                                <h3 class="sc-name">The Daily Riff</h3>
+                                <span class="sc-hosts">AI-generated &middot; Joshua, principal</span>
+                                <span class="sc-tag">A daily dose of jazz, made with AI.</span>
+                                <span class="sc-foot"><span class="meta" data-meta></span><span class="sc-go">Spotify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li data-show="morningread" style="--c:#C9781C">
+                        <a class="sc" href="https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp" target="_blank" rel="noopener">
+                            <span class="art" data-art="morningread">
+                                <span class="tile" aria-hidden="true"><span class="tile-k">Podcast</span><span class="tile-n">The Morning <em>Read</em></span></span>
+                                <img src="art/morningread.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
+                            </span>
+                            <span class="sc-body">
+                                <span class="sc-kind">Podcast &middot; AI-generated</span>
+                                <h3 class="sc-name">The Morning Read</h3>
+                                <span class="sc-hosts">AI-generated &middot; Joshua, principal</span>
+                                <span class="sc-tag">A morning read, made with AI.</span>
                                 <span class="sc-foot"><span class="meta" data-meta></span><span class="sc-go">Spotify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span></span>
                             </span>
                         </a>
@@ -844,10 +906,10 @@
                                 <img src="art/polymath.jpg" alt="" width="600" height="600" loading="lazy" decoding="async">
                             </span>
                             <span class="sc-body">
-                                <span class="sc-kind">Podcast</span>
+                                <span class="sc-kind">Podcast &middot; Hybrid: host + AI</span>
                                 <h3 class="sc-name">The Eclectic Polymath</h3>
                                 <span class="sc-hosts">Hosted by Joshua McKenzie German</span>
-                                <span class="sc-tag">Everything is interesting when you dig deep enough.</span>
+                                <span class="sc-tag">Everything is interesting when you dig deep enough. History and power, religion and myth, psychology, science, and Black culture.</span>
                                 <span class="sc-foot"><span class="meta" data-meta></span><span class="sc-go">Show page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></span>
                             </span>
                         </a>
@@ -913,20 +975,20 @@
                         </a>
                     </li>
                 </ul>
-                <p class="roster-note">Every show, every episode, searchable in one place on the <a href="https://jgerms20.github.io/curious-and-creative/pages/shows.html" target="_blank" rel="noopener">network&rsquo;s shows page<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+                <p class="roster-note">Every show, every episode, searchable in one place on the <a href="https://jgerms20.github.io/curious-and-creative/pages/shows.html" target="_blank" rel="noopener">Curious Creative Company shows page<span class="sr-only"> (opens in a new tab)</span></a>.</p>
             </div>
         </section>
 
-        <!-- ===================== 02 THE LATEST ===================== -->
+        <!-- ===================== 01 · THE LATEST ===================== -->
         <section class="band" id="latest" aria-labelledby="latest-title">
             <div class="wrap">
                 <div class="sec-head">
                     <div>
-                        <p class="label"><span class="label-num">02</span> The latest</p>
+                        <p class="label"><span class="label-num">On air</span> The latest</p>
                         <h2 class="h2" id="latest-title">Fresh off <em>the network.</em></h2>
                     </div>
                     <div>
-                        <p class="sub">The newest episodes and videos from every show, newest first. This list refreshes from the network on its own.</p>
+                        <p class="sub">The newest episodes and videos from every show in the Curious &amp; Creative Network, newest first. This list refreshes on its own.</p>
                         <p class="stamp-line" id="feedStamp" aria-live="polite"></p>
                     </div>
                 </div>
@@ -962,17 +1024,17 @@
                         <div class="fb-covers" aria-hidden="true">
                             <span class="art" style="--c:#37B34A"><img src="../photos/podcasts/curious-creative-logo.jpg" alt="" width="1024" height="1024" loading="lazy"></span>
                             <span class="art" style="--c:#8E6FE0"><img src="art/polymath.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                            <span class="art" style="--c:#009C3B"><img src="art/brazil.jpg" alt="" width="600" height="600" loading="lazy"></span>
+                            <span class="art" style="--c:#2F5BEA"><img src="art/riff.jpg" alt="" width="640" height="640" loading="lazy"></span>
                             <span class="art" style="--c:#46C7E8"><img src="../photos/podcasts/approachable-ai-logo.jpg" alt="" width="1024" height="1024" loading="lazy"></span>
                             <span class="art" style="--c:#EC3F8E"><img src="art/tmtt.jpg" alt="" width="600" height="600" loading="lazy"></span>
+                            <span class="art" style="--c:#009C3B"><img src="art/brazil.jpg" alt="" width="600" height="600" loading="lazy"></span>
+                            <span class="art" style="--c:#C9781C"><img src="art/morningread.jpg" alt="" width="640" height="640" loading="lazy"></span>
                             <span class="art" style="--c:#FFC93C"><img src="art/abolitionist.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                            <span class="art" style="--c:#FF8D27"><img src="art/dominate.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                            <span class="art" style="--c:#37B34A"><span class="tile"><span class="tile-k">Network</span><span class="tile-n">C<em>&amp;</em>C</span></span></span>
                         </div>
                         <div>
-                            <p class="fb-kicker">All seven shows, one archive</p>
-                            <h3 class="fb-title">Every episode, newest first, lives on the network.</h3>
-                            <p class="fb-text">Episodes and videos from all seven shows, in one searchable archive that updates itself as new ones drop.</p>
+                            <p class="fb-kicker">Every show, one archive</p>
+                            <h3 class="fb-title">Every episode. Every experiment.</h3>
+                            <p class="fb-text">Episodes and videos across every show, searchable, filterable, and all in one place on the Curious Creative Company site.</p>
                             <div class="actions">
                                 <a class="btn btn-net" href="https://jgerms20.github.io/curious-and-creative/pages/archive.html" target="_blank" rel="noopener">Browse the archive
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -986,79 +1048,158 @@
             </div>
         </section>
 
-        <!-- ===================== 03 THE STUDIO ===================== -->
+        <!-- ===================== 02 THE STUDIO ===================== -->
         <section class="section" id="studio" aria-labelledby="studio-title" style="padding-top: clamp(72px, 9vw, 128px)">
             <div class="wrap studio">
                 <div class="studio-head">
-                    <p class="label"><span class="label-num">03</span> The studio</p>
-                    <h2 class="h2" id="studio-title">Strategy, story, <em>and a steady hand.</em></h2>
-                    <p class="sub">Part agency, part production house, fully curious. We help founders, brands, and teams figure out what to say, how to make it, and why anyone should care.</p>
+                    <p class="label"><span class="label-num">02</span> The Studio</p>
+                    <h2 class="h2" id="studio-title">What we make <em>for&nbsp;you.</em></h2>
+                    <p class="sub">A full creative shop. The same team behind eight podcasts, a photo practice, and work for brands like Levi&rsquo;s, Sephora, and Gatorade will shoot it, film it, launch it, and plan the strategy around it.</p>
                     <div class="actions">
                         <a class="btn btn-ink" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=project" target="_blank" rel="noopener">
                             Work with the studio
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                             <span class="sr-only">(opens in a new tab)</span>
                         </a>
-                        <a class="text-link" href="https://jgerms20.github.io/curious-and-creative/pages/studio.html" target="_blank" rel="noopener">See services
+                        <a class="text-link" href="https://jgerms20.github.io/curious-and-creative/pages/studio.html#podcast" target="_blank" rel="noopener">Start a podcast
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                             <span class="sr-only">(opens in a new tab)</span>
                         </a>
                     </div>
-                    <p class="creds">Agency-grade strategy from TBWA\Chiat\Day, Goodby Silverstein &amp; Partners, and Wieden+Kennedy, plus the operational chops of banking and political campaigns. For founders, brands, and teams who treat creative as serious work.</p>
+                    <p class="creds">Joshua is a Senior Connections Strategist at TBWA\Chiat\Day (formerly Goodby Silverstein &amp; Partners and Wieden+Kennedy) and a working photographer. Janel brings technology, finance, and campaign operations from Truist, JP Morgan, and political campaigns in four states.</p>
                 </div>
                 <div>
-                    <ul class="svc">
-                        <li style="--c:#37B34A"><span class="svc-num">01</span><h3>Strategy &amp; Story</h3><p>Brand strategy, narrative work, communications and connections planning. The through-line between what you make and the people who should care.</p></li>
-                        <li style="--c:#EC3F8E"><span class="svc-num">02</span><h3>Brand Building</h3><p>Naming, identity, voice: the small details that make a brand feel like something. Zero-to-one launches and refreshes.</p></li>
-                        <li style="--c:#8E6FE0"><span class="svc-num">03</span><h3>Production</h3><p>Podcasts, video, photography, written work. We make the thing end to end, or step in where you need a hand.</p></li>
-                        <li style="--c:#FF8D27"><span class="svc-num">04</span><h3>AI &amp; Consulting</h3><p>A sharp outside brain: AI workflows that actually help, second-opinion sessions, sprints, and retainers.</p></li>
+                    <ul class="svc" aria-label="Six things the studio makes">
+                        <li style="--c:#FFC93C"><span class="svc-num">01</span><h3>Photography</h3><p>Portraits and headshots, events, lookbooks, product, and spaces, on film and digital.</p></li>
+                        <li style="--c:#EC3F8E"><span class="svc-num">02</span><h3>Videography</h3><p>Brand films, interviews, event coverage, and cut-downs for every feed, from plan to final edit.</p></li>
+                        <li style="--c:#37B34A"><span class="svc-num">03</span><h3>Podcasts from zero</h3><p>Concept, name, cover art, setup, recording, editing, and launch. Then a home in our network.</p></li>
+                        <li style="--c:#8E6FE0"><span class="svc-num">04</span><h3>Brand assets</h3><p>Identity, cover art, templates, and photo and video libraries: a brand that looks like itself.</p></li>
+                        <li style="--c:#46C7E8"><span class="svc-num">05</span><h3>Strategy &amp; consulting</h3><p>Marketing, advertising, and branding strategy, plus AI workflows that actually help your team.</p></li>
+                        <li style="--c:#FF8D27"><span class="svc-num">06</span><h3>Events</h3><p>Launches, panels, and live podcast recordings, with photo and video coverage built in.</p></li>
                     </ul>
                     <dl class="modes" aria-label="Ways to work together">
+                        <div><dt>One-off shoots</dt><dd>A day of photo or video, delivered fast.</dd></div>
                         <div><dt>Project sprints</dt><dd>4&ndash;8 weeks. Define, make, ship.</dd></div>
-                        <div><dt>Retainers</dt><dd>An ongoing strategic and creative partner.</dd></div>
-                        <div><dt>Advisory</dt><dd>Monthly check-ins and sharp feedback.</dd></div>
-                        <div><dt>Custom</dt><dd>Tell us the shape; we&rsquo;ll build to it.</dd></div>
+                        <div><dt>Shows as a service</dt><dd>Your podcast or series, episode after episode.</dd></div>
+                        <div><dt>Retainers</dt><dd>An ongoing creative and strategic partner.</dd></div>
                     </dl>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== 04 INVENTIONS ===================== -->
+        <!-- ===================== 03 INVENTIONS ===================== -->
         <section class="section" id="inventions" aria-labelledby="inv-title">
             <div class="wrap">
                 <div class="sec-head">
                     <div>
-                        <p class="label"><span class="label-num">04</span> Inventions &amp; more</p>
-                        <h2 class="h2" id="inv-title">Built to hold <em>what&rsquo;s next.</em></h2>
+                        <p class="label"><span class="label-num">03</span> Inventions</p>
+                        <h2 class="h2" id="inv-title">Things we built <em>because we wanted them to exist.</em></h2>
                     </div>
-                    <p class="sub">Curious &amp; Creative is the umbrella. Under it: products, tools, and pictures that start as &ldquo;what if.&rdquo;</p>
+                    <p class="sub">Games, research labs, music tools, and AI experiments. Some are products, some are prototypes, all of them started as &ldquo;what if.&rdquo;</p>
                 </div>
-                <div class="inv">
-                    <article class="kindle" aria-labelledby="k-title">
-                        <div class="k-fan" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <div class="k-chips"><span class="k-chip">Invention 01</span><span class="k-chip live">Pre-orders open</span></div>
-                        <h3 class="k-word" id="k-title">kindling<span>.</span></h3>
-                        <p class="k-lede">A card game for people who want <em>more of each other.</em></p>
-                        <p class="k-sub">334 cards across four decks, dialed from heat 1 to 5, with consent built into every rule. For couples, throuples, and friends.</p>
-                        <div class="actions">
-                            <a class="btn btn-flame" href="https://jgerms20.github.io/curious-and-creative/kindling/" target="_blank" rel="noopener">See the game
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-                                <span class="sr-only">(opens in a new tab)</span>
-                            </a>
-                            <a class="btn btn-cream" href="https://jgerms20.github.io/curious-and-creative/kindling/play.html" target="_blank" rel="noopener">Play free<span class="sr-only"> (opens in a new tab)</span></a>
-                        </div>
-                    </article>
-                    <a class="inv-tile" href="../podcasts/podcast-approachable-ai.html" style="--c:#46C7E8">
-                        <span class="inv-num">AI &middot; Builds</span>
-                        <h3>Builds from Approachable AI</h3>
-                        <p>Tools Joshua builds on camera, like the Veritas bias radar and the 2026 resolution tracker. Watch them get made, mistakes included.</p>
-                        <span class="sc-go">Watch the series <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+
+                <a class="lab" href="https://agencythings-gen-alpha.vercel.app" target="_blank" rel="noopener" aria-labelledby="lab-name">
+                    <span class="lab-art">
+                        <img src="../assets/genalpha.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        <span class="chip live">Live</span>
+                    </span>
+                    <span class="lab-body">
+                        <span class="lab-kick"><b>Research</b> &middot; Cultural intelligence</span>
+                        <span class="lab-name" id="lab-name">Gen Alpha <em>Intelligence Lab</em></span>
+                        <span class="lab-blurb">A living research lab on the forces shaping Gen Alpha culture: insights, findings, creators, and the spaces they actually occupy, with an ingest pipeline for reports, interviews, and field notes.</span>
+                        <span class="lab-built"><span>Built with</span>Next.js + Supabase &middot; Codex</span>
+                        <span class="lab-go">Open the lab
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                            <span class="sr-only">(opens in a new tab)</span>
+                        </span>
+                    </span>
+                </a>
+
+                <ul class="projects" aria-label="More inventions">
+                    <li>
+                        <a class="proj" href="https://jgerms20.github.io/curious-and-creative/kindling/" target="_blank" rel="noopener">
+                            <span class="proj-art"><img src="art/kindling.svg" alt="" width="800" height="500" loading="lazy" decoding="async"><span class="chip live">Pre-orders open</span></span>
+                            <span class="proj-body">
+                                <span class="proj-kick">Card game</span>
+                                <span class="proj-name">Kindling</span>
+                                <span class="proj-blurb">A card game for people who want more of each other: 334 cards across four decks, heat 1 to 5, with consent built into every rule.</span>
+                                <span class="proj-built"><span>Built by</span>Curious &amp; Creative</span>
+                                <span class="sc-go">See the game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="proj" href="https://meme-atlas.vercel.app/" target="_blank" rel="noopener">
+                            <span class="proj-art"><img src="art/memelibrary.svg" alt="" width="800" height="500" loading="lazy" decoding="async"><span class="chip live">Live &middot; updating</span></span>
+                            <span class="proj-body">
+                                <span class="proj-kick">Cultural search</span>
+                                <span class="proj-name">Meme Library</span>
+                                <span class="proj-blurb">Describe the meme you half remember and it finds it, across 1,000+ source-linked clips, reactions, and GIFs.</span>
+                                <span class="proj-built"><span>Built with</span>Codex</span>
+                                <span class="sc-go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="proj" href="https://jgerms20.github.io/the_man_and_the_machine/" target="_blank" rel="noopener">
+                            <span class="proj-art"><img src="art/manmachine.svg" alt="" width="800" height="500" loading="lazy" decoding="async"><span class="chip live">Live</span></span>
+                            <span class="proj-body">
+                                <span class="proj-kick">AI jam partner</span>
+                                <span class="proj-name">The Man and the Machine</span>
+                                <span class="proj-blurb">Play bass or connect MIDI and the AI plays back: a real-time jam with 10 AI musician personalities.</span>
+                                <span class="proj-built"><span>Built with</span>React + Web Audio API &middot; Claude Code</span>
+                                <span class="sc-go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="proj" href="https://jgerms20.github.io/Life_Gamified/" target="_blank" rel="noopener">
+                            <span class="proj-art"><img src="art/lifegamified.svg" alt="" width="800" height="500" loading="lazy" decoding="async"><span class="chip live">Live</span></span>
+                            <span class="proj-body">
+                                <span class="proj-kick">RPG quest journal</span>
+                                <span class="proj-name">Life Gamified</span>
+                                <span class="proj-blurb">A fantasy RPG quest journal for real life: tasks become quests, you earn XP, level up, and grow a talent tree.</span>
+                                <span class="proj-built"><span>Built with</span>React 19 &middot; Claude Code</span>
+                                <span class="sc-go">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="inv-more">
+                    <a class="text-link" href="https://jgerms20.github.io/curious-and-creative/pages/inventions.html" target="_blank" rel="noopener">Everything we&rsquo;ve built
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                        <span class="sr-only">(opens in a new tab)</span>
                     </a>
-                    <a class="inv-tile" href="../photography/" style="--c:#FFC93C">
-                        <span class="inv-num">Photography</span>
-                        <h3>People, places, and nights out</h3>
-                        <p>Portraits, fashion, live events, and travel, Los Angeles to Rio de Janeiro, on 35mm film and digital.</p>
-                        <span class="sc-go">See the photography <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    <a class="text-link" href="https://jgerms20.github.io/curious-and-creative/kindling/play.html" target="_blank" rel="noopener">Play Kindling free
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                        <span class="sr-only">(opens in a new tab)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== 04 PHOTOGRAPHY ===================== -->
+        <section class="section" id="photos" aria-labelledby="photos-title">
+            <div class="wrap">
+                <div class="sec-head">
+                    <div>
+                        <p class="label"><span class="label-num">04</span> Photography</p>
+                        <h2 class="h2" id="photos-title">People, places, <em>and nights&nbsp;out.</em></h2>
+                    </div>
+                    <p class="sub">A handful of favorites from Joshua&rsquo;s camera: portraits, fashion, live events, and Rio, on 35mm film and digital. The same eye the studio brings to every shoot.</p>
+                </div>
+                <div class="strip">
+                    <a class="shot" href="../photography/"><img src="img/fashion-jmg_1601-sm.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." width="427" height="640" loading="lazy" decoding="async"><span>Fashion</span></a>
+                    <a class="shot" href="../photography/"><img src="img/events-jmg_2228-sm.jpg" alt="A performer in a quilted jacket stands beneath intense blue stage light." width="427" height="640" loading="lazy" decoding="async"><span>Events &amp; Live</span></a>
+                    <a class="shot" href="../photography/"><img src="img/portraits-jmg_9553-sm.jpg" alt="A woman holds a red rose in a brightly colored portrait setting." width="427" height="640" loading="lazy" decoding="async"><span>Portraits</span></a>
+                    <a class="shot" href="../photography/"><img src="img/shop-rio-brahma-corner-sm.jpg" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." width="449" height="640" loading="lazy" decoding="async"><span>Rio de Janeiro</span></a>
+                    <a class="shot" href="../photography/"><img src="img/events-dsc00028-sm.jpg" alt="Friends pose together during a crowded evening market event." width="480" height="480" loading="lazy" decoding="async"><span>Events &amp; Live</span></a>
+                    <a class="shot" href="../photography/"><img src="img/landscape-jmg_5742-sm.jpg" alt="A tall waterfall drops through a granite valley framed by green trees." width="480" height="320" loading="lazy" decoding="async"><span>Landscapes</span></a>
+                </div>
+                <div class="strip-foot">
+                    <p>Photography by Joshua McKenzie German.</p>
+                    <a class="text-link" href="../photography/">See the photography
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
@@ -1069,25 +1210,25 @@
             <div class="wrap duo">
                 <div class="duo-head">
                     <p class="label"><span class="label-num">05</span> Who we are</p>
-                    <h2 class="h2" id="duo-title">Joshua &amp; Janel. <em>Curious, then creative.</em></h2>
-                    <p class="pull">A strategist with a magpie brain. <em>A storyteller with a microphone.</em></p>
+                    <h2 class="h2" id="duo-title">Same curiosity. <em>Different directions.</em></h2>
                     <div class="duo-body">
-                        <p>We both came up at the University of South Carolina: Joshua in Mass Communications, writing for The Daily Gamecock; Janel in Global Studies, on her way into politics and policy. The conversations never stopped after graduation. Curious &amp; Creative is what happens when we follow the interesting thing all the way to something real.</p>
+                        <p>We met at the University of South Carolina and have been swapping ideas ever since. Underneath everything we make is the same instinct: notice what&rsquo;s interesting, dig until we actually understand it, then make something other people can feel.</p>
+                        <p>Curious Creative Company is where those roads meet: our flagship podcast and the shows we each host, the pictures and art we make, the things we invent, and a studio that brings the same curiosity to brands and founders.</p>
                     </div>
                 </div>
                 <div class="people">
                     <div class="person">
                         <div class="person-photo"><img src="img/joshua.jpg" alt="Portrait of Joshua McKenzie German" width="663" height="1000" loading="lazy" decoding="async" style="object-position: 50% 40%"></div>
                         <h3>Joshua McKenzie German</h3>
-                        <p class="role">Co-founder</p>
-                        <p>Senior Connections Strategist at TBWA\Chiat\Day, after Goodby Silverstein &amp; Partners and Wieden+Kennedy. Photographer. Hosts The Eclectic Polymath, God Is Brazilian, and Approachable AI.</p>
-                        <p class="links"><a href="../index.html">Portfolio</a><a href="../index.html#podcasts">His shows</a></p>
+                        <p class="role">Co-founder &middot; Network principal</p>
+                        <p>Senior Connections Strategist at TBWA\Chiat\Day, after Goodby Silverstein &amp; Partners and Wieden+Kennedy. Photographer. Hosts The Eclectic Polymath and Approachable AI.</p>
+                        <p class="links"><a href="../index.html">Portfolio</a><a href="#shows">His shows</a></p>
                     </div>
                     <div class="person">
                         <div class="person-photo"><img src="img/janel.jpg" alt="Portrait of Janel Moore" width="560" height="747" loading="lazy" decoding="async" style="object-position: 50% 20%"></div>
                         <h3>Janel Moore</h3>
                         <p class="role">Co-founder</p>
-                        <p>Technology in global corporate banking at Truist, with experience at JP Morgan, and a fundraising veteran of six political campaigns across four states. Hosts Too Much to Tweet and Aspiring Abolitionist.</p>
+                        <p>Technology and finance at Truist; political fundraising veteran; artist. Hosts Too Much to Tweet.</p>
                         <p class="links"><a href="https://www.linkedin.com/in/janel-moore/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a><a href="#shows">Her shows</a></p>
                     </div>
                 </div>
@@ -1100,13 +1241,13 @@
                 <div class="cta-card">
                     <div class="cta-top">
                         <h2 class="cta-title" id="cta-title">Curious? <em>Same.</em></h2>
-                        <p>Got a project, a guest pitch, or want to swap notes on good work? Pick a door. We read every note.</p>
+                        <p>Got a project, a guest pitch, a venture idea, or want to swap notes on good work? Pick a door.</p>
                     </div>
                     <div class="doors">
                         <a class="door primary" href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">
-                            <span class="door-k">The hub</span>
-                            <b>Visit the network site</b>
-                            <span class="d">Every show, video, photo set, and invention in one place.</span>
+                            <span class="door-k">Curious Creative Company</span>
+                            <b>Visit the site</b>
+                            <span class="d">Curious Creative Company: every show, video, photo set, and invention in one place.</span>
                             <span class="arrow">Go <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span>
                         </a>
                         <a class="door" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=project" target="_blank" rel="noopener">
@@ -1118,7 +1259,7 @@
                         <a class="door" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=guest" target="_blank" rel="noopener">
                             <span class="door-k">For the shows</span>
                             <b>Pitch a guest</b>
-                            <span class="d">Founders, artists, policy minds: anyone with a sharp take and a microphone tolerance.</span>
+                            <span class="d">Got a guest, or a niche you want covered? Tell us who should be on the mic.</span>
                             <span class="arrow">Pitch us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span>
                         </a>
                     </div>
@@ -1180,14 +1321,15 @@
         }
         Array.prototype.forEach.call(document.querySelectorAll('.art > img'), function (img) { guardImg(img); });
 
-        // ---- The network, from ../data/network.json (refreshed every 6 hours) ----
+        // ---- The Curious & Creative Network, from ../data/network.json (refreshed every 6 hours) ----
         var DATA_URL = '../data/network.json';
         var MAX_FEED = 8;
-        var COLORS = { ccpod: '#37B34A', polymath: '#8E6FE0', brazil: '#009C3B', approachable: '#46C7E8', tmtt: '#EC3F8E', abolitionist: '#FFC93C', dominate: '#FF8D27' };
+        var COLORS = { ccpod: '#37B34A', polymath: '#8E6FE0', brazil: '#009C3B', riff: '#2F5BEA', morningread: '#C9781C', approachable: '#46C7E8', tmtt: '#EC3F8E', abolitionist: '#FFC93C', dominate: '#FF8D27' };
         var LOCAL_ART = {
             ccpod: '../photos/podcasts/curious-creative-logo.jpg',
             approachable: '../photos/podcasts/approachable-ai-logo.jpg',
             polymath: 'art/polymath.jpg', brazil: 'art/brazil.jpg', tmtt: 'art/tmtt.jpg',
+            riff: 'art/riff.jpg', morningread: 'art/morningread.jpg',
             abolitionist: 'art/abolitionist.jpg', dominate: 'art/dominate.jpg'
         };
         var EXTRA_COLORS = ['#8E6FE0', '#EC3F8E', '#46C7E8', '#FF8D27', '#FFC93C'];
@@ -1288,7 +1430,9 @@
             body.appendChild(el('span', 'sc-kind', show.kind === 'youtube' ? 'Video series' : 'Podcast'));
             body.appendChild(el('h3', 'sc-name', str(show.name)));
             var hosts = Array.isArray(show.hosts) ? show.hosts.filter(function (h) { return typeof h === 'string'; }) : [];
-            if (hosts.length) body.appendChild(el('span', 'sc-hosts', 'Hosted by ' + hosts.join(' & ')));
+            var aiOnly = hosts.length === 1 && /^AI-generated$/i.test(hosts[0]);
+            if (aiOnly) body.appendChild(el('span', 'sc-hosts', 'AI-generated \u00b7 Joshua, principal'));
+            else if (hosts.length) body.appendChild(el('span', 'sc-hosts', 'Hosted by ' + hosts.join(' & ')));
             if (str(show.tagline)) body.appendChild(el('span', 'sc-tag', show.tagline));
             var foot = el('span', 'sc-foot');
             var meta = el('span', 'meta'); meta.setAttribute('data-meta', '');

@@ -71,7 +71,7 @@ class PhotographyManifestTests(unittest.TestCase):
         photos = load_photography_manifest(MANIFEST)
         markup = render_darkroom(photos)
 
-        self.assertIn('<span class="ch-num">CH. 03</span>', markup)
+        self.assertIn('<span class="ch-num">CH. 04</span>', markup)
         self.assertIn("Photography", markup)
         # no Darkroom preamble: header, filters, then pictures
         for gone in ("Darkroom", "darkroom-note", "Selected sequence", "Continue the sequence", "The archive"):

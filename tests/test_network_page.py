@@ -11,13 +11,22 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "network/index.html"
 NETWORK_SITE = "https://jgerms20.github.io/curious-and-creative/"
 CONTACT = NETWORK_SITE + "pages/contact.html"
+GEN_ALPHA_LAB = "https://agencythings-gen-alpha.vercel.app"
+COMPANY = "Curious Creative Company"
+# The studio's six offers, as the Curious Creative Company site names them.
+STUDIO_OFFERS = (
+    "Photography", "Videography", "Podcasts from zero",
+    "Brand assets", "Strategy &amp; consulting", "Events",
+)
 
-# The seven shows and where each card must link: Joshua's shows go to his own
-# show pages in this repo, the others go out to Spotify.
+# Every show in the Curious & Creative Network and where each card must link:
+# Joshua's shows go to his own show pages in this repo, the others to Spotify.
 SHOWS = {
     "ccpod": ("The Curious", "../podcasts/podcast-curious-creative.html"),
     "polymath": ("The Eclectic Polymath", "../podcasts/podcast-eclectic-polymath.html"),
     "brazil": ("God Is Brazilian", "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w"),
+    "riff": ("The Daily Riff", "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk"),
+    "morningread": ("The Morning Read", "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp"),
     "approachable": ("Approachable AI", "../podcasts/podcast-approachable-ai.html"),
     "tmtt": ("Too Much to Tweet", "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa"),
     "abolitionist": ("Aspiring Abolitionist", "https://open.spotify.com/show/7natfWFnBgakjLLZcEDZaw"),
@@ -100,7 +109,8 @@ class NetworkPageTests(unittest.TestCase):
         self.assertIn("Curious", self.meta("twitter:title"))
         self.assertEqual(self.meta("twitter:card"), "summary_large_image")
         self.assertTrue(self.meta("description"))
-        self.assertIn("Curious &amp; Creative", re.search(r"<title>(.*?)</title>", self.html).group(1))
+        self.assertIn(COMPANY, re.search(r"<title>(.*?)</title>", self.html).group(1))
+        self.assertIn(COMPANY, self.meta("description"))
         # the share image is a real file in this repo
         for key in ("og:image", "twitter:image"):
             url = self.meta(key)
@@ -128,7 +138,52 @@ class NetworkPageTests(unittest.TestCase):
             self.assertIn(field, data["latest"][0])
             self.assertIn(f"item.{field}", self.script)
 
-    def test_static_markup_lists_all_seven_shows(self):
+    def test_page_is_framed_as_the_company_with_three_arms(self):
+        h1 = re.search(r"<h1\b.*?</h1>", self.html, re.S).group(0)
+        h1_text = " ".join(re.sub(r"<[^>]+>", " ", h1).split())
+        self.assertEqual(h1_text, COMPANY)
+        self.assertIn("Curious first. Then creative.", self.html)
+        arms = re.search(r'<nav class="arms.*?</nav>', self.html, re.S).group(0)
+        for target, name in (("#shows", "The Network"), ("#studio", "The Studio"), ("#inventions", "Inventions")):
+            self.assertIn(f'href="{target}"', arms)
+            self.assertIn(name, arms)
+        for section in ("shows", "latest", "studio", "inventions", "photos", "duo", "pitch"):
+            self.assertIn(f'id="{section}"', self.html)
+
+    def test_studio_lists_the_six_offers(self):
+        studio = self.html[self.html.index('id="studio"'):self.html.index('id="inventions"')]
+        offers = re.findall(r'<ul class="svc".*?</ul>', studio, re.S)
+        self.assertEqual(len(offers), 1)
+        names = re.findall(r"<h3>(.*?)</h3>", offers[0])
+        self.assertEqual(tuple(names), STUDIO_OFFERS)
+
+    def test_gen_alpha_lab_is_the_featured_invention(self):
+        inventions = self.html[self.html.index('id="inventions"'):self.html.index('id="photos"')]
+        lab = re.search(r'<a class="lab".*?</a>', inventions, re.S).group(0)
+        self.assertIn(f'href="{GEN_ALPHA_LAB}"', lab)
+        self.assertIn('target="_blank" rel="noopener"', lab)
+        self.assertIn("Gen Alpha <em>Intelligence Lab</em>", lab)
+        self.assertIn(">Live<", lab)
+        self.assertIn("Built with", lab)
+        self.assertIn('src="../assets/genalpha.svg"', lab)
+        self.assertTrue((ROOT / "assets/genalpha.svg").is_file())
+        # Kindling and the other inventions carry their own art, copied locally
+        self.assertIn(NETWORK_SITE + "kindling/", inventions)
+        arts = re.findall(r'<img src="(art/[^"]+\.svg)"', inventions)
+        self.assertGreaterEqual(len(arts), 3)
+        for src in arts:
+            self.assertTrue((PAGE.parent / src).is_file(), src)
+
+    def test_photo_strip_links_to_the_photography_site(self):
+        photos = self.html[self.html.index('id="photos"'):self.html.index('id="duo"')]
+        shots = re.findall(r'<a class="shot" href="([^"]+)"><img src="([^"]+)" alt="([^"]+)"', photos)
+        self.assertGreaterEqual(len(shots), 4)
+        for href, src, alt in shots:
+            self.assertEqual(href, "../photography/")
+            self.assertTrue((PAGE.parent / src).is_file(), src)
+            self.assertTrue(alt.strip(), src)
+
+    def test_static_markup_lists_every_show(self):
         cards = self.parsed.cards
         for key, (name, href) in SHOWS.items():
             self.assertIn(key, cards, f"no static card for {key}")
@@ -140,6 +195,8 @@ class NetworkPageTests(unittest.TestCase):
         self.assertIn("Hosted by Janel Moore", cards["tmtt"]["text"])
         self.assertIn("Hosted by Janel Moore", cards["abolitionist"]["text"])
         self.assertIn("2020", cards["dominate"]["text"])
+        for key in ("brazil", "riff", "morningread"):
+            self.assertIn("AI-generated", cards[key]["text"], key)
         # every card has its art in the markup, and that art exists locally
         for key in SHOWS:
             block = re.search(rf'data-art="{key}".*?<img src="([^"]+)"', self.html, re.S)
@@ -154,6 +211,8 @@ class NetworkPageTests(unittest.TestCase):
     def test_janel_is_spelled_correctly(self):
         self.assertIn("Janel Moore", self.html)
         self.assertNotRegex(self.html, r"(?i)janelle")
+        # her bio uses the Curious Creative Company site's current wording
+        self.assertIn("Technology and finance at Truist; political fundraising veteran; artist. Hosts Too Much to Tweet.", self.html)
 
     def test_links_to_the_network_site_and_its_doors(self):
         hrefs = [a.get("href", "") for a in self.parsed.anchors]
@@ -161,7 +220,7 @@ class NetworkPageTests(unittest.TestCase):
         self.assertIn(CONTACT + "?topic=project", hrefs)
         self.assertIn(CONTACT + "?topic=guest", hrefs)
         self.assertIn(NETWORK_SITE + "kindling/", hrefs)
-        for label in ("Visit the network site", "Work with the studio", "Pitch a guest"):
+        for label in ("Visit the site", "Work with the studio", "Pitch a guest"):
             self.assertIn(label, self.html)
 
     def test_external_links_open_safely(self):

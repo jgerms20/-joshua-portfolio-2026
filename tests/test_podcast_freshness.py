@@ -116,6 +116,52 @@ class PodcastFreshnessTests(unittest.TestCase):
         self.assertIn("reach === 'ok' && window.__epFrameLoaded", page)
         self.assertNotIn("forced", page)
 
+    def test_eclectic_page_uses_local_cover_and_rotates_real_episode_titles(self):
+        import html as html_lib
+        import json
+        import re
+
+        page = (ROOT / "podcasts/podcast-eclectic-polymath.html").read_text(encoding="utf-8")
+        cover = "photos/podcasts/eclectic-polymath-cover.jpg"
+        self.assertTrue((ROOT / cover).is_file())
+
+        # The real show cover is the hero img src (paints immediately), with the
+        # designed sleeve kept underneath as the onerror fallback.
+        hero = re.search(r'(?s)<div class="cover">(.*?)<div class="art"', page)
+        self.assertIsNotNone(hero)
+        self.assertRegex(hero.group(1), r'<img[^>]+src="\.\./' + re.escape(cover) + r'"[^>]*onerror=')
+        self.assertIn(f'<meta property="og:image" content="https://joshuamgerman.com/{cover}">', page)
+        self.assertIn(f'<meta name="twitter:image" content="https://joshuamgerman.com/{cover}">', page)
+        # The Spotify oEmbed thumbnail is no longer used for the cover art.
+        self.assertNotIn("thumbnail_url", page)
+        self.assertNotIn("data-cover", page)
+
+        # The rotator reads the episodes data client-side and never parses it as HTML.
+        self.assertIn('data-src="../data/episodes/eclectic-polymath.json"', page)
+        self.assertIn('aria-live="off"', page)
+        self.assertIn("prefers-reduced-motion: reduce", page)
+        self.assertNotIn("innerHTML", page)
+        self.assertNotIn("insertAdjacentHTML", page)
+        self.assertNotIn("document.write", page)
+
+        # The static fallback titles are real: each one (and its link) exists in the data file.
+        data = json.loads((ROOT / "data/episodes/eclectic-polymath.json").read_text(encoding="utf-8"))
+        known = {}
+        for ep in data["episodes"]:
+            known.setdefault(re.sub(r"^#\d+\s*", "", ep["title"]).strip(), set()).add(ep["url"])
+        block = re.search(r'(?s)<ul class="lately-list"[^>]*>(.*?)</ul>', page)
+        self.assertIsNotNone(block)
+        links = re.findall(r'(?s)<a class="lately-link" href="([^"]+)"[^>]*>(.*?)</a>', block.group(1))
+        self.assertGreaterEqual(len(links), 4)
+        self.assertLessEqual(len(links), 6)
+        for href, inner in links:
+            text = re.sub(r'<span class="sr-only">.*?</span>', "", inner)
+            title = html_lib.unescape(re.sub(r"<[^>]+>", "", text)).strip()
+            self.assertIn(title, known, title)
+            self.assertIn(html_lib.unescape(href), known[title])
+            self.assertNotRegex(title, r"^#\d+")
+        self.assertEqual(block.group(1).count('target="_blank" rel="noopener"'), len(links))
+
 
 if __name__ == "__main__":
     unittest.main()

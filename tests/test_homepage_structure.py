@@ -57,7 +57,7 @@ class HomepageStructureTests(unittest.TestCase):
         cls.page = _Collector()
         cls.page.feed(PAGE)
 
-    def test_chapters_run_podcasts_photography_ai_then_brand_work(self):
+    def test_chapters_run_podcasts_network_brand_work_photography_ai(self):
         self.assertEqual(
             self.page.body_sections,
             [
@@ -65,9 +65,9 @@ class HomepageStructureTests(unittest.TestCase):
                 "about",
                 "podcasts",
                 "network",
+                "work",
                 "photography",
                 "ai",
-                "work",
                 "media-diet",
                 "in-the-works",
                 "contact",
@@ -81,9 +81,9 @@ class HomepageStructureTests(unittest.TestCase):
                 ("#about", "About"),
                 ("#podcasts", "Podcasts"),
                 ("#network", "Network"),
+                ("#work", "Brand Work"),
                 ("#photography", "Photography"),
                 ("#ai", "AI"),
-                ("#work", "Brand Work"),
                 ("shop.html", "Shop"),
             ],
         )
@@ -92,7 +92,7 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
             [
-                "#about", "#podcasts", "#network", "#photography", "#ai", "#work",
+                "#about", "#podcasts", "#network", "#work", "#photography", "#ai",
                 "shop.html", "#contact", "photography/#book",
             ],
         )
@@ -131,6 +131,17 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn("HIIKE", work)
         self.assertIn("U&amp;AI", work)
 
+    def test_about_keeps_it_personal_and_accurate(self):
+        about = PAGE[PAGE.index('<section id="about"'):]
+        about = about[: about.index("</section>")]
+        self.assertIn("South Carolina", about)
+        self.assertNotIn("Pepsi", PAGE)
+        self.assertNotIn("Signal Trace", PAGE)
+        for tool in ("Claude", "Codex", "Gemini"):
+            self.assertNotIn(tool, about)
+        self.assertIn('id="selfRotator"', about)
+        self.assertNotIn("data-count", PAGE)  # no quantified hero stats
+
     def test_eclectic_polymath_cover_can_load(self):
         cover = self.page.ep_cover
         self.assertIsNotNone(cover)
@@ -138,6 +149,8 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertNotEqual(cover.get("loading"), "lazy")
         self.assertNotIn("display:none", (cover.get("style") or "").replace(" ", ""))
         self.assertIn('class="ep-fallback"', PAGE)
+        # the real cover ships with the site; no dependency on Spotify
+        self.assertEqual(cover.get("src"), "photos/podcasts/eclectic-polymath-cover.jpg")
 
     def test_public_copy_has_no_internal_or_solo_notes(self):
         text = re.sub(r"<(script|style)\b.*?</\1>", " ", PAGE, flags=re.S | re.I)
