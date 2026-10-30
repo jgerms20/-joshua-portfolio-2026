@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-29T21:15:21Z",
+  "generated_at": "2026-10-30T01:10:25Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,7 +15,7 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
     },
@@ -28,7 +28,7 @@
       "hosts": [
         "AI-generated"
       ],
-      "tagline": "A podcast by Joshua German.",
+      "tagline": "Brazil's cities, culture, and history, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
@@ -47,7 +47,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-29",
       "count": 11
     },
@@ -111,7 +111,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -148,6 +148,38 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded/5983104/5983104-1590975610877-89f0b71432133.jpg",
       "latest": "2023-03-20",
       "count": 23
+    },
+    {
+      "key": "hollywoodinsider",
+      "name": "Hollywood Insider",
+      "short": "Hollywood Insider",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "What's really happening in Hollywood, made with AI.",
+      "about": "",
+      "url": "",
+      "art": "",
+      "latest": "",
+      "count": 0
+    },
+    {
+      "key": "fastbreak",
+      "name": "The Fast Break",
+      "short": "The Fast Break",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "Sports, fast, made with AI.",
+      "about": "",
+      "url": "",
+      "art": "",
+      "latest": "",
+      "count": 0
     }
   ],
   "latest": [
@@ -158,7 +190,7 @@
       "title": "#22 Junho de 2013: O Protesto Brasileiro Que Ninguém Controlou (Português)",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/28tB5QvyIzWNdRwcNx5Rkk",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ae49ecd5c26d4e5e961ac6450"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ae49ecd5c26d4e5e961ac6450"
     },
     {
       "show": "riff",
@@ -167,7 +199,7 @@
       "title": "Immanuel Wilkins: The Genius at the Vanguard",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/0fOZboUXPRPcb62tCjKM4n",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
     },
     {
       "show": "morningread",
@@ -176,7 +208,7 @@
       "title": "Thursday, October 29, 2026",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/6ki9i2c6fXcvjpzULHIgzE",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
     },
     {
       "show": "polymath",
@@ -191,9 +223,9 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
-      "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
+      "title": "#244 Anthropic: By the Numbers",
       "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-by-the-Numbers-The-IPO-Document-Nobody-Read-e3r9vlo",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-By-the-Numbers-e3r9vlo",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg"
     },
     {
@@ -221,7 +253,7 @@
       "title": "Wednesday, October 28, 2026",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/0t4U4xxBlPidvhI4u62u0x",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
     },
     {
       "show": "polymath",
@@ -239,7 +271,7 @@
       "title": "Clifford Brown: The Trumpeter Who Sang",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/7a5UZZDih07Fv7lxmIaxYD",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab96cef2464599b354a4ac2bd"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab96cef2464599b354a4ac2bd"
     },
     {
       "show": "polymath",
@@ -257,7 +289,7 @@
       "title": "Paris: The City That Set Jazz Free",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/2XknqJJWEmSRO7wAltXNm7",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a71370649c63c338e28578ada"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a71370649c63c338e28578ada"
     }
   ]
 }
