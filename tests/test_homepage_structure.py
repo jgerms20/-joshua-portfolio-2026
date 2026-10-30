@@ -67,6 +67,7 @@ class HomepageStructureTests(unittest.TestCase):
                 "network",
                 "work",
                 "photography",
+                "art",
                 "ai",
                 "media-diet",
                 "in-the-works",
@@ -83,6 +84,7 @@ class HomepageStructureTests(unittest.TestCase):
                 ("#network", "Network"),
                 ("#work", "Brand Work"),
                 ("#photography", "Photography"),
+                ("#art", "Art"),
                 ("#ai", "AI"),
                 ("shop.html", "Shop"),
             ],
@@ -92,7 +94,7 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
             [
-                "#about", "#podcasts", "#network", "#work", "#photography", "#ai",
+                "#about", "#podcasts", "#network", "#work", "#photography", "#art", "#ai",
                 "shop.html", "#contact", "photography/#book",
             ],
         )
@@ -141,6 +143,16 @@ class HomepageStructureTests(unittest.TestCase):
             self.assertNotIn(tool, about)
         self.assertIn('id="selfRotator"', about)
         self.assertNotIn("data-count", PAGE)  # no quantified hero stats
+
+    def test_art_section_shows_every_collage(self):
+        art = PAGE[PAGE.index('<section id="art"'):]
+        art = art[: art.index("</section>")]
+        import re
+        pieces = re.findall(r'data-full="(photos/art/[^"]+)"', art)
+        self.assertEqual(len(pieces), 6)
+        for full in pieces:
+            self.assertTrue((ROOT / full).is_file(), full)
+            self.assertTrue((ROOT / full.replace(".jpg", "-sm.jpg")).is_file(), full)
 
     def test_eclectic_polymath_cover_can_load(self):
         cover = self.page.ep_cover

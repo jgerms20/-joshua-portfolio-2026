@@ -635,6 +635,25 @@
         .trail-what { font-size: 0.9rem; line-height: 1.55; color: var(--ink-soft); }
         @media (max-width: 860px) { .trail-grid { grid-template-columns: 1fr; } }
         @media (prefers-reduced-motion: reduce) { .trail-route { transition: none; stroke-dashoffset: 0; } .trail-pin .trail-pulse { animation: none; } }
+
+        /* ---- Art: collages ---- */
+        .art-wall { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(36px, 4vw, 56px) clamp(20px, 3vw, 40px); align-items: start; margin-top: var(--s5); }
+        .art-piece { margin: 0; }
+        @media (max-width: 980px) { .art-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 600px) { .art-wall { grid-template-columns: 1fr; } }
+        .art-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+        .art-open img { width: 100%; height: auto; display: block; box-shadow: 0 22px 40px -26px rgba(23,21,18,.6); transition: transform .5s var(--exp); }
+        @media (hover: hover) { .art-open:hover img { transform: rotate(-.6deg) scale(1.01); } }
+        .art-open:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
+        .art-piece figcaption { padding-top: 14px; }
+        .art-num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+        .art-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.35rem, 2vw, 1.7rem); margin: 4px 0 8px; }
+        .art-desc { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
+        .art-lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; }
+        .art-lightbox::backdrop { background: rgba(10,9,8,.88); }
+        .art-lightbox img { display: block; max-width: 92vw; max-height: 86vh; width: auto; height: auto; margin: 0 auto; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+        .art-lb-cap { margin-top: 12px; text-align: center; font-family: var(--mono); font-size: 0.62rem; letter-spacing: .16em; text-transform: uppercase; color: #f4efe6; }
+        .art-lb-close { position: fixed; top: 16px; right: 20px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.4); color: #fff; font-size: 1.4rem; cursor: pointer; }
         .about-facts { margin-top: var(--s4); border-top: 1px solid var(--rule); }
         .about-fact {
             display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3);
@@ -1394,6 +1413,7 @@
                 <a href="#network">Network</a>
                 <a href="#work">Brand Work</a>
                 <a href="#photography">Photography</a>
+                <a href="#art">Art</a>
                 <a href="#ai">AI</a>
                 <a href="shop.html">Shop</a>
             </div>
@@ -1414,6 +1434,7 @@
         <a href="#network"><span class="idx" aria-hidden="true">&rarr;</span> Network</a>
         <a href="#work"><span class="idx">03</span> Brand Work</a>
         <a href="#photography"><span class="idx">04</span> Photography</a>
+        <a href="#art"><span class="idx" aria-hidden="true">&rarr;</span> Art</a>
         <a href="#ai"><span class="idx">05</span> AI</a>
         <a href="shop.html"><span class="idx" aria-hidden="true">&rarr;</span> Shop</a>
         <a href="#contact"><span class="idx" aria-hidden="true">&rarr;</span> Contact</a>
@@ -2150,6 +2171,89 @@
         </div>
     </section>
     <!-- PHOTOGRAPHY:END -->
+
+    <!-- =====================================================
+         04B — ART: collages (Cut & Paste)
+         ===================================================== -->
+    <section id="art" class="chapter art-chapter">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 04B</span>
+                    <h2 class="ch-title">Cut &amp; <span class="it">Paste</span></h2>
+                </div>
+                <div class="ch-meta">Collage<br>Newsprint, ads &amp; ephemera on board</div>
+            </div>
+            <p class="ch-intro rv">I keep the news on paper. Headlines, ads and ticket stubs, cut out and pasted down until the pattern shows up. Collage is how I make sense of the noise.</p>
+            <div class="art-wall">
+                <figure class="art-piece rv">
+                    <button type="button" class="art-open" data-full="photos/art/lots-to-love.jpg" aria-label="Open Lots to Love full size">
+                        <img src="photos/art/lots-to-love-sm.jpg" alt="Collage: Lots to Love" width="720" height="965" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>
+                        <span class="art-num">No. 01</span>
+                        <h3 class="art-title">Lots to Love</h3>
+                        <p class="art-desc">Ads promising everything, headlines taking it back. Jobs gone, prices still high, an EV that doesn&rsquo;t know what it should sound like. The optimism and the anxiety on one board.</p>
+                    </figcaption>
+                </figure>
+                <figure class="art-piece rv rv-d1">
+                    <button type="button" class="art-open" data-full="photos/art/just-curious.jpg" aria-label="Open Just Curious full size">
+                        <img src="photos/art/just-curious-sm.jpg" alt="Collage: Just Curious" width="720" height="962" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>
+                        <span class="art-num">No. 02</span>
+                        <h3 class="art-title">Just Curious</h3>
+                        <p class="art-desc">The question that runs everything, pinned to the top. A Quincy Jones symphony ticket, a new pope pleading for peace, Ovechkin passing Gretzky, and a typewriter clacking toward the future.</p>
+                    </figcaption>
+                </figure>
+                <figure class="art-piece rv rv-d2">
+                    <button type="button" class="art-open" data-full="photos/art/questions-persist.jpg" aria-label="Open Questions Persist full size">
+                        <img src="photos/art/questions-persist-sm.jpg" alt="Collage: Questions Persist" width="720" height="1020" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>
+                        <span class="art-num">No. 03</span>
+                        <h3 class="art-title">Questions Persist</h3>
+                        <p class="art-desc">&ldquo;Mr. President, what did you get reelected to do?&rdquo; opens a black board of tariffs, betting scandals, a new pope and my own student ID. Ohtani knew; the bookie never asked.</p>
+                    </figcaption>
+                </figure>
+                <figure class="art-piece rv">
+                    <button type="button" class="art-open" data-full="photos/art/city-of-dreams.jpg" aria-label="Open City of Dreams full size">
+                        <img src="photos/art/city-of-dreams-sm.jpg" alt="Collage: City of Dreams" width="720" height="871" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>
+                        <span class="art-num">No. 04</span>
+                        <h3 class="art-title">City of Dreams</h3>
+                        <p class="art-desc">Los Angeles during the ICE protests: flags, riot lines, <em>Chinga La Migra</em> and a small American flag in the corner. Uncomfortable history, kept as it happened.</p>
+                    </figcaption>
+                </figure>
+                <figure class="art-piece rv rv-d1">
+                    <button type="button" class="art-open" data-full="photos/art/a-new-word.jpg" aria-label="Open A New Word full size">
+                        <img src="photos/art/a-new-word-sm.jpg" alt="Collage: A New Word" width="720" height="855" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>
+                        <span class="art-num">No. 05</span>
+                        <h3 class="art-title">A New Word</h3>
+                        <p class="art-desc">Affordability, rediscovered. Shutdown math, 50-year mortgages, the Epstein files and Mamdani&rsquo;s win, held together by a Basquiat phone case and an AI Slop sticker.</p>
+                    </figcaption>
+                </figure>
+                <figure class="art-piece rv rv-d2">
+                    <button type="button" class="art-open" data-full="photos/art/halfway-to-history.jpg" aria-label="Open Halfway to History full size">
+                        <img src="photos/art/halfway-to-history-sm.jpg" alt="Collage: Halfway to History" width="720" height="1123" loading="lazy" decoding="async">
+                    </button>
+                    <figcaption>
+                        <span class="art-num">No. 06</span>
+                        <h3 class="art-title">Halfway to History</h3>
+                        <p class="art-desc">The framed one. Nines everywhere, an election fright, a rare comet and a new cold war, and one word at the bottom that says what I do: strategist.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <dialog class="art-lightbox" id="artLightbox" aria-label="Collage, full size">
+        <button type="button" class="art-lb-close" aria-label="Close">&times;</button>
+        <img alt="">
+        <p class="art-lb-cap"></p>
+    </dialog>
 
     <!-- Breaker: AI (paper: closes the dark Darkroom chapter above) -->
     <div class="brk" aria-hidden="true">
@@ -2958,6 +3062,23 @@
                     root.querySelector('[data-shelf="writing"]').classList.add('has-data');
                 }
             }).catch(() => {});
+        })();
+        // ---- Art: open a collage full size ----
+        (function () {
+            const box = document.getElementById('artLightbox');
+            if (!box || typeof box.showModal !== 'function') return;
+            const img = box.querySelector('img'), cap = box.querySelector('.art-lb-cap');
+            let last = null;
+            document.querySelectorAll('.art-open').forEach(btn => btn.addEventListener('click', () => {
+                last = btn;
+                img.src = btn.dataset.full;
+                img.alt = btn.querySelector('img').alt;
+                cap.textContent = btn.closest('.art-piece').querySelector('.art-title').textContent;
+                box.showModal();
+            }));
+            box.querySelector('.art-lb-close').addEventListener('click', () => box.close());
+            box.addEventListener('click', e => { if (e.target === box) box.close(); });
+            box.addEventListener('close', () => { if (last) last.focus(); });
         })();
         // ---- About: rotating photos of Joshua ----
         // To add a photo: drop it in photos/self/ and add one <img class="rot-slide"
