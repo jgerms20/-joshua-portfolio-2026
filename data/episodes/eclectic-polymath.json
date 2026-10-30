@@ -1,6 +1,6 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-29T13:46:41Z",
+  "updated": "2026-10-30T06:32:47Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
@@ -13,9 +13,9 @@
       "duration": "1 hr 6 min"
     },
     {
-      "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
+      "title": "#244 Anthropic: By the Numbers",
       "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-by-the-Numbers-The-IPO-Document-Nobody-Read-e3r9vlo",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-By-the-Numbers-e3r9vlo",
       "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
       "duration": "55 min"
@@ -55,6 +55,14 @@
     {
       "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
       "date": "2026-10-28",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-by-the-Numbers-The-IPO-Document-Nobody-Read-e3r9vlo",
+      "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
+      "duration": "55 min"
+    },
+    {
+      "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
+      "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/1sPFk3tLCuKqSKlX5gvwFh",
       "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
@@ -90,14 +98,6 @@
       "url": "https://open.spotify.com/episode/6qFsSnIk5CQ2HucjHsR2ix",
       "description": "In late August 2016, a mother in Greenville, South Carolina reported what her son had seen in the woods behind their apartment complex: clowns, whispering, flashing green lights, trying to lure children in. Deputies searched the abandoned…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793022010216-2fef7c5890c4e.jpg",
-      "duration": "49 min"
-    },
-    {
-      "title": "#236 Harold Washington: The Mayor Who Beat the Machine",
-      "date": "2026-10-25",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/236-Harold-Washington-The-Mayor-Who-Beat-the-Machine-e3r357t",
-      "description": "Harold Washington didn't inherit Chicago. He registered it. Before the 1983 run he set a condition: 50,000 new Black voters, or no campaign. Black Chicago delivered nearly double, and the machine that had run the city for half a century…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792978104126-7c17d1675b347.jpg",
       "duration": "49 min"
     }
   ]
