@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-30T07:17:57Z",
+  "generated_at": "2026-10-30T19:32:53Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,9 +15,41 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
+    },
+    {
+      "key": "riff",
+      "name": "The Daily Riff",
+      "short": "The Daily Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A daily dose of jazz, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-10-30",
+      "count": 12
+    },
+    {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A morning read, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "latest": "2026-10-30",
+      "count": 5
     },
     {
       "key": "brazil",
@@ -34,38 +66,6 @@
       "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-29",
       "count": 14
-    },
-    {
-      "key": "riff",
-      "name": "The Daily Riff",
-      "short": "The Daily Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A daily dose of jazz, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-29",
-      "count": 11
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A morning read, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
-      "latest": "2026-10-29",
-      "count": 4
     },
     {
       "key": "polymath",
@@ -184,6 +184,24 @@
   ],
   "latest": [
     {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "London: The City That Found Its Own Accent",
+      "date": "2026-10-30",
+      "url": "https://open.spotify.com/episode/5rffT9FV8MvsUQbfTsu0dQ",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a37f412f9a7056b7f0b8297b8"
+    },
+    {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "Friday, October 30, 2026",
+      "date": "2026-10-30",
+      "url": "https://open.spotify.com/episode/1wpfvdKfEOZcLjCktoPuGA",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
+    },
+    {
       "show": "brazil",
       "show_name": "God Is Brazilian",
       "kind": "episode",
@@ -199,7 +217,7 @@
       "title": "Immanuel Wilkins: The Genius at the Vanguard",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/0fOZboUXPRPcb62tCjKM4n",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
     },
     {
       "show": "morningread",
@@ -208,7 +226,7 @@
       "title": "Thursday, October 29, 2026",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/6ki9i2c6fXcvjpzULHIgzE",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
     },
     {
       "show": "polymath",
@@ -253,7 +271,7 @@
       "title": "Wednesday, October 28, 2026",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/0t4U4xxBlPidvhI4u62u0x",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
     },
     {
       "show": "polymath",
@@ -272,24 +290,6 @@
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/7a5UZZDih07Fv7lxmIaxYD",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab96cef2464599b354a4ac2bd"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#240 The Eras of Disney: From Snow White to Soul, and the Next Hundred Years",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/240-The-Eras-of-Disney-From-Snow-White-to-Soul--and-the-Next-Hundred-Years-e3r9dnt",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793208371002-d60da8c3a6577.jpg"
-    },
-    {
-      "show": "riff",
-      "show_name": "The Daily Riff",
-      "kind": "episode",
-      "title": "Paris: The City That Set Jazz Free",
-      "date": "2026-10-28",
-      "url": "https://open.spotify.com/episode/2XknqJJWEmSRO7wAltXNm7",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a71370649c63c338e28578ada"
     }
   ]
 }
