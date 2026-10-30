@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-30T01:10:25Z",
+  "generated_at": "2026-10-30T07:17:57Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,7 +15,7 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
     },
@@ -31,7 +31,7 @@
       "tagline": "Brazil's cities, culture, and history, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-29",
       "count": 14
     },
@@ -63,7 +63,7 @@
       "tagline": "A morning read, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
       "latest": "2026-10-29",
       "count": 4
     },
@@ -253,7 +253,7 @@
       "title": "Wednesday, October 28, 2026",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/0t4U4xxBlPidvhI4u62u0x",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
     },
     {
       "show": "polymath",
@@ -271,7 +271,7 @@
       "title": "Clifford Brown: The Trumpeter Who Sang",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/7a5UZZDih07Fv7lxmIaxYD",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab96cef2464599b354a4ac2bd"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab96cef2464599b354a4ac2bd"
     },
     {
       "show": "polymath",
@@ -289,7 +289,7 @@
       "title": "Paris: The City That Set Jazz Free",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/2XknqJJWEmSRO7wAltXNm7",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a71370649c63c338e28578ada"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a71370649c63c338e28578ada"
     }
   ]
 }
