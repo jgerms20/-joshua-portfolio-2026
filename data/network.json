@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-30T19:32:53Z",
+  "generated_at": "2026-10-31T05:58:26Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 3
     },
     {
+      "key": "polymath",
+      "name": "The Eclectic Polymath",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-10-30",
+      "count": 246
+    },
+    {
       "key": "riff",
       "name": "The Daily Riff",
       "short": "The Daily Riff",
@@ -31,7 +47,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-30",
       "count": 12
     },
@@ -68,22 +84,6 @@
       "count": 14
     },
     {
-      "key": "polymath",
-      "name": "The Eclectic Polymath",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-29",
-      "count": 245
-    },
-    {
       "key": "approachable",
       "name": "Approachable AI",
       "short": "Approachable AI",
@@ -111,7 +111,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -184,13 +184,22 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "Spain: The Cultural Superpower History Tried to Erase",
+      "date": "2026-10-30",
+      "url": "https://open.spotify.com/episode/2Z9arv5aDPS69xU1mdWgo2",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg"
+    },
+    {
       "show": "riff",
       "show_name": "The Daily Riff",
       "kind": "episode",
       "title": "London: The City That Found Its Own Accent",
       "date": "2026-10-30",
       "url": "https://open.spotify.com/episode/5rffT9FV8MvsUQbfTsu0dQ",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a37f412f9a7056b7f0b8297b8"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a37f412f9a7056b7f0b8297b8"
     },
     {
       "show": "morningread",
@@ -199,7 +208,7 @@
       "title": "Friday, October 30, 2026",
       "date": "2026-10-30",
       "url": "https://open.spotify.com/episode/1wpfvdKfEOZcLjCktoPuGA",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
     },
     {
       "show": "brazil",
@@ -217,7 +226,7 @@
       "title": "Immanuel Wilkins: The Genius at the Vanguard",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/0fOZboUXPRPcb62tCjKM4n",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
     },
     {
       "show": "morningread",
@@ -234,7 +243,7 @@
       "kind": "episode",
       "title": "#246 Los Angeles: The Capital of the Pacific Century",
       "date": "2026-10-29",
-      "url": "https://open.spotify.com/episode/2hVT2KVrMP5SIZzoOP4Xbn",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/246-Los-Angeles-The-Capital-of-the-Pacific-Century-e3ramns",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg"
     },
     {
@@ -271,7 +280,7 @@
       "title": "Wednesday, October 28, 2026",
       "date": "2026-10-28",
       "url": "https://open.spotify.com/episode/0t4U4xxBlPidvhI4u62u0x",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
     },
     {
       "show": "polymath",
@@ -281,15 +290,6 @@
       "date": "2026-10-28",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/241-The-Bibles-Supporting-Cast-The-Minor-Characters-Who-Move-the-Whole-Story-e3r9jad",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793209081043-b7940c6ebbc52.jpg"
-    },
-    {
-      "show": "riff",
-      "show_name": "The Daily Riff",
-      "kind": "episode",
-      "title": "Clifford Brown: The Trumpeter Who Sang",
-      "date": "2026-10-28",
-      "url": "https://open.spotify.com/episode/7a5UZZDih07Fv7lxmIaxYD",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab96cef2464599b354a4ac2bd"
     }
   ]
 }

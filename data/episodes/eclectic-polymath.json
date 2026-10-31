@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-30T06:32:47Z",
+  "updated": "2026-10-31T06:22:31Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "Spain: The Cultural Superpower History Tried to Erase",
+      "date": "2026-10-30",
+      "url": "https://open.spotify.com/episode/2Z9arv5aDPS69xU1mdWgo2",
+      "description": "A movie about a murdered poet just won at Cannes — and it opens the door on the biggest buried story in Western culture. Spain has been one of the world's great cultural capitals not once but three times: the Golden Age that invented the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg",
+      "duration": "1 hr 10 min"
+    },
+    {
+      "title": "#246 Los Angeles: The Capital of the Pacific Century",
+      "date": "2026-10-29",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/246-Los-Angeles-The-Capital-of-the-Pacific-Century-e3ramns",
+      "description": "An Instagram reel argued Los Angeles is destined to become the greatest city in the world, and its comments kept returning to one phrase: the third wave. This episode audits the claim — the waves of LA's history, the city it never…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg",
+      "duration": "1 hr 6 min"
+    },
     {
       "title": "#246 Los Angeles: The Capital of the Pacific Century",
       "date": "2026-10-29",
@@ -83,22 +99,6 @@
       "description": "In September 2025, New York ran the same experiment twice. Jay-Z stood before a community committee and pitched a Caesars casino in the middle of Times Square: \"We from these neighborhoods. We are the community.\" The committee voted him…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793020958425-4cf6ed2c5fed2.jpg",
       "duration": "41 min"
-    },
-    {
-      "title": "#237 Obama's Incomplete Bill: The Healthcare Law That Never Finished the Job",
-      "date": "2026-10-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/237-Obamas-Incomplete-Bill-The-Healthcare-Law-That-Never-Finished-the-Job-e3r38ak",
-      "description": "When Barack Obama signed the Affordable Care Act in March 2010, he called it the culmination of a century’s fight. Fifteen years later, even its defenders reach for the same word: incomplete. This episode takes that word apart — because…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1792990572137-2abfb320d31d7.jpg",
-      "duration": "1 hr 1 min"
-    },
-    {
-      "title": "#239 The Greenville Clowns: The Monster Nobody Ever Found",
-      "date": "2026-10-26",
-      "url": "https://open.spotify.com/episode/6qFsSnIk5CQ2HucjHsR2ix",
-      "description": "In late August 2016, a mother in Greenville, South Carolina reported what her son had seen in the woods behind their apartment complex: clowns, whispering, flashing green lights, trying to lure children in. Deputies searched the abandoned…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793022010216-2fef7c5890c4e.jpg",
-      "duration": "49 min"
     }
   ]
 }
