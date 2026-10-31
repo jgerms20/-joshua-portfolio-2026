@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-31T12:49:44Z",
+  "generated_at": "2026-10-31T21:45:29Z",
   "shows": [
     {
       "key": "ccpod",
@@ -15,7 +15,7 @@
       "tagline": "Where creative strategy meets real conversation.",
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
     },
@@ -32,8 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-30",
-      "count": 246
+      "latest": "2026-10-31",
+      "count": 247
     },
     {
       "key": "riff",
@@ -47,9 +47,9 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-30",
-      "count": 12
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-10-31",
+      "count": 13
     },
     {
       "key": "morningread",
@@ -63,9 +63,9 @@
       "tagline": "A morning read, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
-      "latest": "2026-10-30",
-      "count": 5
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "latest": "2026-10-31",
+      "count": 6
     },
     {
       "key": "brazil",
@@ -187,9 +187,36 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
-      "title": "Spain: The Cultural Superpower History Tried to Erase",
+      "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
+      "date": "2026-10-31",
+      "url": "https://open.spotify.com/episode/1LsiABpQamM6OE2RWfD9l5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793474032492-8d27403cd3c15.jpg"
+    },
+    {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "Illinois Jacquet: The Solo They All Had to Play Note for Note",
+      "date": "2026-10-31",
+      "url": "https://open.spotify.com/episode/7p1A3XMzRKDqzs7lQNuk94",
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aeb8745e115b41dada2a3557d"
+    },
+    {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "Saturday, October 31, 2026",
+      "date": "2026-10-31",
+      "url": "https://open.spotify.com/episode/77CHK8ODuYp6bjPaGpcTCx",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab0dc176d7416b8baf70633d5"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#247 Spain: The Cultural Superpower History Tried to Erase",
       "date": "2026-10-30",
-      "url": "https://open.spotify.com/episode/2Z9arv5aDPS69xU1mdWgo2",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/247-Spain-The-Cultural-Superpower-History-Tried-to-Erase-e3req0o",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg"
     },
     {
@@ -199,7 +226,7 @@
       "title": "London: The City That Found Its Own Accent",
       "date": "2026-10-30",
       "url": "https://open.spotify.com/episode/5rffT9FV8MvsUQbfTsu0dQ",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a37f412f9a7056b7f0b8297b8"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a37f412f9a7056b7f0b8297b8"
     },
     {
       "show": "morningread",
@@ -208,7 +235,7 @@
       "title": "Friday, October 30, 2026",
       "date": "2026-10-30",
       "url": "https://open.spotify.com/episode/1wpfvdKfEOZcLjCktoPuGA",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
     },
     {
       "show": "brazil",
@@ -226,7 +253,7 @@
       "title": "Immanuel Wilkins: The Genius at the Vanguard",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/0fOZboUXPRPcb62tCjKM4n",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a32599379dc14175a0c1c453f"
     },
     {
       "show": "morningread",
@@ -235,7 +262,7 @@
       "title": "Thursday, October 29, 2026",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/6ki9i2c6fXcvjpzULHIgzE",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
     },
     {
       "show": "polymath",
@@ -263,33 +290,6 @@
       "date": "2026-10-28",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/243-Serbias-Student-List-The-Movement-With-No-Leader-That-Beat-the-Strongman-e3ra156",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793223364606-532aaa1876cf3.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#242 DreamWorks: The Studio Built to Beat Disney",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/242-DreamWorks-The-Studio-Built-to-Beat-Disney-e3r9unt",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218288807-0646eb57cc794.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "Wednesday, October 28, 2026",
-      "date": "2026-10-28",
-      "url": "https://open.spotify.com/episode/0t4U4xxBlPidvhI4u62u0x",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a506ec25feb5b0450e7cc981d"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#241 The Bible's Supporting Cast: The Minor Characters Who Move the Whole Story",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/241-The-Bibles-Supporting-Cast-The-Minor-Characters-Who-Move-the-Whole-Story-e3r9jad",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793209081043-b7940c6ebbc52.jpg"
     }
   ]
 }

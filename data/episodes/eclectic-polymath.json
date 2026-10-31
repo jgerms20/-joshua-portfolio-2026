@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-31T06:22:31Z",
+  "updated": "2026-10-31T21:57:22Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
+      "date": "2026-10-31",
+      "url": "https://open.spotify.com/episode/1LsiABpQamM6OE2RWfD9l5",
+      "description": "Fourteen statewide propositions, two county charter amendments, seven city measures, and a mayoral runoff, all on one ballot, all decided on Tuesday. This episode is the complete voting prep for the November 3, 2026 California general…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793474032492-8d27403cd3c15.jpg",
+      "duration": "1 hr 4 min"
+    },
+    {
+      "title": "#247 Spain: The Cultural Superpower History Tried to Erase",
+      "date": "2026-10-30",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/247-Spain-The-Cultural-Superpower-History-Tried-to-Erase-e3req0o",
+      "description": "A movie about a murdered poet just won at Cannes — and it opens the door on the biggest buried story in Western culture. Spain has been one of the world's great cultural capitals not once but three times: the Golden Age that invented the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg",
+      "duration": "1 hr 10 min"
+    },
     {
       "title": "Spain: The Cultural Superpower History Tried to Erase",
       "date": "2026-10-30",
@@ -83,22 +99,6 @@
       "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
       "duration": "55 min"
-    },
-    {
-      "title": "#239 The Greenville Clowns: The Monster Nobody Ever Found",
-      "date": "2026-10-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/239-The-Greenville-Clowns-The-Monster-Nobody-Ever-Found-e3r45ph",
-      "description": "In late August 2016, a mother in Greenville, South Carolina reported what her son had seen in the woods behind their apartment complex: clowns, whispering, flashing green lights, trying to lure children in. Deputies searched the abandoned…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793022010216-2fef7c5890c4e.jpg",
-      "duration": "49 min"
-    },
-    {
-      "title": "#238 Jay-Z vs. Nas: Two Casinos, Two Theories of Black Capital",
-      "date": "2026-10-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/238-Jay-Z-vs--Nas-Two-Casinos--Two-Theories-of-Black-Capital-e3r3hi6",
-      "description": "In September 2025, New York ran the same experiment twice. Jay-Z stood before a community committee and pitched a Caesars casino in the middle of Times Square: \"We from these neighborhoods. We are the community.\" The committee voted him…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793020958425-4cf6ed2c5fed2.jpg",
-      "duration": "41 min"
     }
   ]
 }
