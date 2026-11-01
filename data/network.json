@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-01T15:19:29Z",
+  "generated_at": "2026-11-01T19:48:32Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 3
     },
     {
+      "key": "riff",
+      "name": "The Daily Riff",
+      "short": "The Daily Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A daily dose of jazz, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "latest": "2026-11-01",
+      "count": 14
+    },
+    {
       "key": "morningread",
       "name": "The Morning Read",
       "short": "The Morning Read",
@@ -31,7 +47,7 @@
       "tagline": "A morning read, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
       "latest": "2026-11-01",
       "count": 7
     },
@@ -50,22 +66,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-11-01",
       "count": 248
-    },
-    {
-      "key": "riff",
-      "name": "The Daily Riff",
-      "short": "The Daily Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A daily dose of jazz, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
-      "latest": "2026-10-31",
-      "count": 13
     },
     {
       "key": "brazil",
@@ -184,6 +184,15 @@
   ],
   "latest": [
     {
+      "show": "riff",
+      "show_name": "The Daily Riff",
+      "kind": "episode",
+      "title": "The Week Ahead: November 2-8",
+      "date": "2026-11-01",
+      "url": "https://open.spotify.com/episode/5R3qbyiVkafdakg5Sz786x",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a28ba5018a21b5b3374bd8267"
+    },
+    {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
@@ -226,7 +235,7 @@
       "title": "Saturday, October 31, 2026",
       "date": "2026-10-31",
       "url": "https://open.spotify.com/episode/77CHK8ODuYp6bjPaGpcTCx",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab0dc176d7416b8baf70633d5"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab0dc176d7416b8baf70633d5"
     },
     {
       "show": "polymath",
@@ -281,15 +290,6 @@
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/6ki9i2c6fXcvjpzULHIgzE",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#246 Los Angeles: The Capital of the Pacific Century",
-      "date": "2026-10-29",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/246-Los-Angeles-The-Capital-of-the-Pacific-Century-e3ramns",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg"
     }
   ]
 }
