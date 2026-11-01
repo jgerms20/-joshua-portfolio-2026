@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-01T01:18:07Z",
+  "generated_at": "2026-11-01T15:19:29Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,22 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aed297133296396b09882ba74",
       "latest": "2026-10-20",
       "count": 3
+    },
+    {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "A morning read, made with AI.",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "latest": "2026-11-01",
+      "count": 7
     },
     {
       "key": "polymath",
@@ -50,22 +66,6 @@
       "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-10-31",
       "count": 13
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "A morning read, made with AI.",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
-      "latest": "2026-10-31",
-      "count": 6
     },
     {
       "key": "brazil",
@@ -184,6 +184,15 @@
   ],
   "latest": [
     {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "Sunday, November 1, 2026",
+      "date": "2026-11-01",
+      "url": "https://open.spotify.com/episode/0WOzV9qbsBrfZoFJzw8eK0",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a92d8b8e9c22089c5efb292b6"
+    },
+    {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
@@ -281,15 +290,6 @@
       "date": "2026-10-29",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/246-Los-Angeles-The-Capital-of-the-Pacific-Century-e3ramns",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#244 Anthropic: By the Numbers",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-By-the-Numbers-e3r9vlo",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg"
     }
   ]
 }
