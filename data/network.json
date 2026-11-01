@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-10-31T21:45:29Z",
+  "generated_at": "2026-11-01T01:18:07Z",
   "shows": [
     {
       "key": "ccpod",
@@ -32,8 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-10-31",
-      "count": 247
+      "latest": "2026-11-01",
+      "count": 248
     },
     {
       "key": "riff",
@@ -63,7 +63,7 @@
       "tagline": "A morning read, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a7cc87eef493f1787315c28b6",
       "latest": "2026-10-31",
       "count": 6
     },
@@ -79,7 +79,7 @@
       "tagline": "Brazil's cities, culture, and history, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aa67fd6da9547cf47b9b85b01",
       "latest": "2026-10-29",
       "count": 14
     },
@@ -111,7 +111,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -187,9 +187,18 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#249 The Audio Century: How Audio Is Replacing Screens",
+      "date": "2026-11-01",
+      "url": "https://open.spotify.com/episode/4sj5COhOYOqEzxNHT9YCqc",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793492549346-19396cafcbe29.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
       "date": "2026-10-31",
-      "url": "https://open.spotify.com/episode/1LsiABpQamM6OE2RWfD9l5",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/248-Los-Angeles-Votes-Bass--Raman--and-the-Ballot-That-Rewrites-Two-Governments-e3rgel0",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793474032492-8d27403cd3c15.jpg"
     },
     {
@@ -199,7 +208,7 @@
       "title": "Illinois Jacquet: The Solo They All Had to Play Note for Note",
       "date": "2026-10-31",
       "url": "https://open.spotify.com/episode/7p1A3XMzRKDqzs7lQNuk94",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aeb8745e115b41dada2a3557d"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aeb8745e115b41dada2a3557d"
     },
     {
       "show": "morningread",
@@ -208,7 +217,7 @@
       "title": "Saturday, October 31, 2026",
       "date": "2026-10-31",
       "url": "https://open.spotify.com/episode/77CHK8ODuYp6bjPaGpcTCx",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab0dc176d7416b8baf70633d5"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab0dc176d7416b8baf70633d5"
     },
     {
       "show": "polymath",
@@ -281,15 +290,6 @@
       "date": "2026-10-28",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-By-the-Numbers-e3r9vlo",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#243 Serbia's Student List: The Movement With No Leader That Beat the Strongman",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/243-Serbias-Student-List-The-Movement-With-No-Leader-That-Beat-the-Strongman-e3ra156",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793223364606-532aaa1876cf3.jpg"
     }
   ]
 }

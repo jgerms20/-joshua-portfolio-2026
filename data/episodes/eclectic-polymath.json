@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-10-31T21:57:22Z",
+  "updated": "2026-11-01T06:55:15Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#249 The Audio Century: How Audio Is Replacing Screens",
+      "date": "2026-11-01",
+      "url": "https://open.spotify.com/episode/4sj5COhOYOqEzxNHT9YCqc",
+      "description": "Two decades in, podcasting still cannot agree on what a listener is. This episode is a deep dive into the business of podcasting and the future of audio itself: where the industry stands, why it is still being formed, and where it goes…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793492549346-19396cafcbe29.jpg",
+      "duration": "48 min"
+    },
+    {
+      "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
+      "date": "2026-10-31",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/248-Los-Angeles-Votes-Bass--Raman--and-the-Ballot-That-Rewrites-Two-Governments-e3rgel0",
+      "description": "Fourteen statewide propositions, two county charter amendments, seven city measures, and a mayoral runoff, all on one ballot, all decided on Tuesday. This episode is the complete voting prep for the November 3, 2026 California general…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793474032492-8d27403cd3c15.jpg",
+      "duration": "1 hr 4 min"
+    },
     {
       "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
       "date": "2026-10-31",
@@ -83,22 +99,6 @@
       "description": "Ask a room of Disney fans to name the eras and you will start an argument — because every border in Disney's century is a disguised theory of what an era even is. Does the Silver Age end in 1959, when the fairy-tale style peaked, or in…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793208371002-d60da8c3a6577.jpg",
       "duration": "46 min"
-    },
-    {
-      "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-by-the-Numbers-The-IPO-Document-Nobody-Read-e3r9vlo",
-      "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
-      "duration": "55 min"
-    },
-    {
-      "title": "#244 Anthropic by the Numbers: The IPO Document Nobody Read",
-      "date": "2026-10-28",
-      "url": "https://open.spotify.com/episode/1sPFk3tLCuKqSKlX5gvwFh",
-      "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
-      "duration": "55 min"
     }
   ]
 }
