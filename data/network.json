@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-01T19:48:32Z",
+  "generated_at": "2026-11-02T06:27:58Z",
   "shows": [
     {
       "key": "ccpod",
@@ -31,7 +31,7 @@
       "tagline": "A daily dose of jazz, made with AI.",
       "about": "",
       "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a3ab8c8bccf3cc39b6e9e7bf6",
       "latest": "2026-11-01",
       "count": 14
     },
@@ -190,7 +190,7 @@
       "title": "The Week Ahead: November 2-8",
       "date": "2026-11-01",
       "url": "https://open.spotify.com/episode/5R3qbyiVkafdakg5Sz786x",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a28ba5018a21b5b3374bd8267"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a28ba5018a21b5b3374bd8267"
     },
     {
       "show": "morningread",
@@ -226,7 +226,7 @@
       "title": "Illinois Jacquet: The Solo They All Had to Play Note for Note",
       "date": "2026-10-31",
       "url": "https://open.spotify.com/episode/7p1A3XMzRKDqzs7lQNuk94",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8aeb8745e115b41dada2a3557d"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8aeb8745e115b41dada2a3557d"
     },
     {
       "show": "morningread",
@@ -262,7 +262,7 @@
       "title": "Friday, October 30, 2026",
       "date": "2026-10-30",
       "url": "https://open.spotify.com/episode/1wpfvdKfEOZcLjCktoPuGA",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4b796644b6b507e5b4cf9629"
     },
     {
       "show": "brazil",
@@ -289,7 +289,7 @@
       "title": "Thursday, October 29, 2026",
       "date": "2026-10-29",
       "url": "https://open.spotify.com/episode/6ki9i2c6fXcvjpzULHIgzE",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
+      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a4d00feda1a3db2a2ab4286bf"
     }
   ]
 }
