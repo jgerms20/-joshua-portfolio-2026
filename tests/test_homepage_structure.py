@@ -67,7 +67,6 @@ class HomepageStructureTests(unittest.TestCase):
                 "network",
                 "work",
                 "photography",
-                "art",
                 "ai",
                 "media-diet",
                 "in-the-works",
@@ -81,11 +80,11 @@ class HomepageStructureTests(unittest.TestCase):
             [
                 ("#about", "About"),
                 ("#podcasts", "Podcasts"),
-                ("#network", "Network"),
+                ("#network", "Curious & Creative"),
                 ("#work", "Brand Work"),
                 ("#photography", "Photography"),
-                ("#art", "Art"),
                 ("#ai", "AI"),
+                ("#art", "Art"),
                 ("shop.html", "Shop"),
             ],
         )
@@ -94,7 +93,7 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
             [
-                "#about", "#podcasts", "#network", "#work", "#photography", "#art", "#ai",
+                "#about", "#podcasts", "#network", "#work", "#photography", "#ai", "#art",
                 "shop.html", "#contact", "photography/#book",
             ],
         )
@@ -129,7 +128,9 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertNotIn("startup-locked", PAGE)
         work = PAGE[PAGE.index('<section id="work"'):]
         work = work[: work.index("</section>")]
-        self.assertEqual(work.count('data-agency="independent"'), 3)  # filter + HIIKE + U&AI
+        self.assertEqual(work.count('data-agency="independent"'), 2)  # filter + the HIIKE/U&AI group
+        self.assertIn('class="plate plate-group', work)
+        self.assertIn("Fractional Chief Marketing Officer", work)
         self.assertIn("HIIKE", work)
         self.assertIn("U&amp;AI", work)
 
@@ -145,8 +146,9 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertNotIn("data-count", PAGE)  # no quantified hero stats
 
     def test_art_section_shows_every_collage(self):
-        art = PAGE[PAGE.index('<section id="art"'):]
-        art = art[: art.index("</section>")]
+        works = PAGE[PAGE.index('<section id="in-the-works"'):]
+        works = works[: works.index("</section>")]
+        art = works[works.index('id="art"'):]
         import re
         pieces = re.findall(r'data-full="(photos/art/[^"]+)"', art)
         self.assertEqual(len(pieces), 6)

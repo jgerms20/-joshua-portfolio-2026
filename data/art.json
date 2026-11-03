@@ -1,0 +1,83 @@
+{
+  "_readme": "Joshua's collages. One entry per piece, in display order. image = full size, thumb = small. medium is shown under the title. Used by index.html (Art in In the Works) and shop.html (Art). To add one: put <slug>.jpg and <slug>-sm.jpg in photos/art/ and add an entry here.",
+  "pieces": [
+    {
+      "slug": "just-curious",
+      "title": "Just Curious",
+      "blurb": "The question that runs everything, pinned to the top. A Quincy Jones symphony ticket, a new pope pleading for peace, Ovechkin passing Gretzky, and a typewriter clacking toward the future.",
+      "medium": "Newsprint, ads & ephemera on board",
+      "image": "photos/art/just-curious.jpg",
+      "thumb": "photos/art/just-curious-sm.jpg",
+      "thumb_size": [
+        720,
+        962
+      ],
+      "for_sale": false
+    },
+    {
+      "slug": "gods-message-to-you",
+      "title": "God's Message to You",
+      "blurb": "A pocket gospel tract, an ad promising “Anytime. Everywhere. Free.” and headlines taking it all back: jobs gone, prices still high, an EV that doesn’t know what it should sound like.",
+      "medium": "Newsprint, ads & ephemera on board",
+      "image": "photos/art/gods-message-to-you.jpg",
+      "thumb": "photos/art/gods-message-to-you-sm.jpg",
+      "thumb_size": [
+        720,
+        965
+      ],
+      "for_sale": false
+    },
+    {
+      "slug": "questions-persist",
+      "title": "Questions Persist",
+      "blurb": "“Mr. President, what did you get reelected to do?” opens a black board of tariffs, betting scandals, a new pope and my own student ID. Ohtani knew; the bookie never asked.",
+      "medium": "Newsprint, ads & ephemera on board",
+      "image": "photos/art/questions-persist.jpg",
+      "thumb": "photos/art/questions-persist-sm.jpg",
+      "thumb_size": [
+        720,
+        1020
+      ],
+      "for_sale": false
+    },
+    {
+      "slug": "city-of-dreams",
+      "title": "City of Dreams",
+      "blurb": "Los Angeles during the ICE protests: flags, riot lines, Chinga La Migra and a small American flag in the corner. Uncomfortable history, kept as it happened.",
+      "medium": "Newsprint, ads & ephemera on board",
+      "image": "photos/art/city-of-dreams.jpg",
+      "thumb": "photos/art/city-of-dreams-sm.jpg",
+      "thumb_size": [
+        720,
+        871
+      ],
+      "for_sale": false
+    },
+    {
+      "slug": "the-adventure-above-all",
+      "title": "The Adventure Above All",
+      "blurb": "Affordability, rediscovered. Shutdown math, 50-year mortgages, the Epstein files and Mamdani’s win, held together by a Basquiat phone case and an AI Slop sticker.",
+      "medium": "Newsprint, ads & ephemera on board",
+      "image": "photos/art/the-adventure-above-all.jpg",
+      "thumb": "photos/art/the-adventure-above-all-sm.jpg",
+      "thumb_size": [
+        720,
+        855
+      ],
+      "for_sale": false
+    },
+    {
+      "slug": "halfway-to-history",
+      "title": "Halfway to History",
+      "blurb": "The framed one. Nines everywhere, an election fright, a rare comet and a new cold war, and one word at the bottom that says what I do: strategist.",
+      "medium": "Newsprint, ads & ephemera on board",
+      "image": "photos/art/halfway-to-history.jpg",
+      "thumb": "photos/art/halfway-to-history-sm.jpg",
+      "thumb_size": [
+        720,
+        1123
+      ],
+      "for_sale": false
+    }
+  ]
+}

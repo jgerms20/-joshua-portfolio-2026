@@ -1,0 +1,11 @@
+{
+  "_readme": [
+    "Listening shelf for joshuamgerman.com/media-diet/#listening. Hand-edited: no sync script touches this file.",
+    "Add one object per thing to the top of \"items\" (newest first is tidiest, but the page sorts by date anyway).",
+    "Fields: type (podcast | episode | article | album | song | video), title, creator, url (https only), date (YYYY-MM-DD, when you listened/read it).",
+    "Optional: image (https URL to square cover art), note (one line, what grabbed you).",
+    "Example: {\"type\": \"episode\", \"title\": \"How to Think About Taste\", \"creator\": \"Design Matters with Debbie Millman\", \"url\": \"https://example.com/episode\", \"image\": \"https://example.com/art.jpg\", \"date\": \"2026-11-01\", \"note\": \"The best ten minutes on taste I've heard.\"}",
+    "Entries missing a title, or with a non-https url/image, are skipped or shown without the link/image."
+  ],
+  "items": []
+}

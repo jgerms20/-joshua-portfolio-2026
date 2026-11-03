@@ -12,7 +12,7 @@ PAGE = ROOT / "network/index.html"
 NETWORK_SITE = "https://jgerms20.github.io/curious-and-creative/"
 CONTACT = NETWORK_SITE + "pages/contact.html"
 GEN_ALPHA_LAB = "https://agencythings-gen-alpha.vercel.app"
-COMPANY = "Curious Creative Company"
+COMPANY = "The Curious &amp; Creative Company"
 # The studio's six offers, as the Curious Creative Company site names them.
 STUDIO_OFFERS = (
     "Photography", "Videography", "Podcasts from zero",
@@ -110,7 +110,7 @@ class NetworkPageTests(unittest.TestCase):
         self.assertEqual(self.meta("twitter:card"), "summary_large_image")
         self.assertTrue(self.meta("description"))
         self.assertIn(COMPANY, re.search(r"<title>(.*?)</title>", self.html).group(1))
-        self.assertIn(COMPANY, self.meta("description"))
+        self.assertIn("The Curious & Creative Company", self.meta("description"))
         # the share image is a real file in this repo
         for key in ("og:image", "twitter:image"):
             url = self.meta(key)
@@ -141,7 +141,7 @@ class NetworkPageTests(unittest.TestCase):
     def test_page_is_framed_as_the_company_with_three_arms(self):
         h1 = re.search(r"<h1\b.*?</h1>", self.html, re.S).group(0)
         h1_text = " ".join(re.sub(r"<[^>]+>", " ", h1).split())
-        self.assertEqual(h1_text, COMPANY)
+        self.assertEqual(h1_text, "Curious &amp; Creative Company")
         self.assertIn("Curious first. Then creative.", self.html)
         arms = re.search(r'<nav class="arms.*?</nav>', self.html, re.S).group(0)
         for target, name in (("#shows", "The Network"), ("#studio", "The Studio"), ("#inventions", "Inventions")):

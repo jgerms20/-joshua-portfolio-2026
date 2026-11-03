@@ -387,8 +387,8 @@
         .nav-burger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
         .nav-burger span { width: 22px; height: 1.5px; background: var(--ink); transition: all 0.3s var(--exp); }
 
-        @media (max-width: 1180px) { .nav-clock { display: none; } }
-        @media (max-width: 960px) {
+        @media (max-width: 1340px) { .nav-clock { display: none; } }
+        @media (max-width: 1120px) {
             .nav-links, .nav-clock { display: none; }
             .nav-burger { display: flex; }
         }
@@ -621,7 +621,7 @@
         .trail.in .trail-route { stroke-dashoffset: 0; }
         .trail-pin text { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; fill: var(--ink-mid); paint-order: stroke; stroke: var(--paper); stroke-width: 3px; transition: fill .25s; }
         .trail-dot { fill: var(--paper); stroke: var(--blue); stroke-width: 2; transition: r .25s, fill .25s; }
-        .trail-pulse { fill: var(--blue); opacity: 0; transform-origin: center; }
+        .trail-pulse { fill: var(--blue); opacity: 0; transform-box: fill-box; transform-origin: center; }
         .trail-pin.is-lit .trail-dot, .trail-pin[data-stop="la"] .trail-dot { fill: var(--blue); }
         .trail-pin.is-lit text { fill: var(--ink); }
         .trail-pin[data-stop="la"] .trail-pulse { animation: trailPulse 2.4s ease-out infinite; }
@@ -637,17 +637,24 @@
         @media (prefers-reduced-motion: reduce) { .trail-route { transition: none; stroke-dashoffset: 0; } .trail-pin .trail-pulse { animation: none; } }
 
         /* ---- Art: collages ---- */
-        .art-wall { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(36px, 4vw, 56px) clamp(20px, 3vw, 40px); align-items: start; margin-top: var(--s5); }
+        .works-art { margin-bottom: clamp(48px, 6vw, 80px); }
+        .works-art-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 22px; padding-bottom: 12px; border-bottom: 1.5px solid var(--ink); }
+        .works-art-title { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1; }
+        .works-art-meta { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-mid); flex: 1; }
+        .works-art-intro { max-width: 640px; margin-top: 16px; font-size: 0.98rem; line-height: 1.65; color: var(--ink-soft); }
+        .art-wall { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(40px, 5vw, 64px) clamp(24px, 3.4vw, 48px); align-items: start; margin-top: clamp(28px, 4vw, 44px); }
         .art-piece { margin: 0; }
+        .art-frame { background: #FBF9F4 !important; padding: clamp(10px, 1.3vw, 16px) !important; border: clamp(6px, .7vw, 9px) solid #161412 !important; box-shadow: 0 2px 0 rgba(0,0,0,.08), 0 24px 44px -24px rgba(23,21,18,.65); }
+        .art-frame img { box-shadow: inset 0 0 0 1px rgba(0,0,0,.06) !important; }
         @media (max-width: 980px) { .art-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .art-wall { grid-template-columns: 1fr; } }
         .art-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-        .art-open img { width: 100%; height: auto; display: block; box-shadow: 0 22px 40px -26px rgba(23,21,18,.6); transition: transform .5s var(--exp); }
-        @media (hover: hover) { .art-open:hover img { transform: rotate(-.6deg) scale(1.01); } }
+        .art-open img { width: 100%; height: auto; display: block; }
+        @media (hover: hover) { .art-open { transition: transform .5s var(--exp); } .art-open:hover { transform: translateY(-4px); } }
         .art-open:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
         .art-piece figcaption { padding-top: 14px; }
         .art-num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
-        .art-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.35rem, 2vw, 1.7rem); margin: 4px 0 8px; }
+        .art-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.3rem, 1.9vw, 1.6rem); margin: 4px 0 8px; }
         .art-desc { font-size: 0.9rem; line-height: 1.6; color: var(--ink-soft); }
         .art-lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; }
         .art-lightbox::backdrop { background: rgba(10,9,8,.88); }
@@ -718,6 +725,15 @@
         .lab-art-img { position: relative; padding: 0 !important; }
         .lab-art-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .lab-art-img .lab-badge-live { position: absolute; top: 14px; left: 14px; right: auto; width: auto; display: inline-flex; z-index: 1; }
+        .plate-group { grid-column: span 12; position: relative; padding: clamp(18px, 2.4vw, 30px); border-radius: 18px; border: 1.5px solid var(--blue); background: var(--blue-wash, rgba(43,53,214,.05)); box-shadow: 0 0 0 6px rgba(43,53,214,.06); }
+        .plate-group-label { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 clamp(14px, 2vw, 22px); font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+        .pg-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px rgba(43,53,214,.18); }
+        .plate-group-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 36px); }
+        .plate-card { display: block; }
+        .plate-card:hover .plate-media img { transform: scale(1.035); }
+        .hiike-tile { background: #F7F3EC !important; }
+        .hiike-mark { font-family: var(--sans); font-weight: 800; font-size: clamp(2.6rem, 5vw, 4.2rem); letter-spacing: .12em; color: #E2231A; line-height: 1; }
+        @media (max-width: 820px) { .plate-group-grid { grid-template-columns: 1fr; } }
         .work-also { margin-top: clamp(28px, 4vw, 44px); font-size: 0.92rem; color: var(--ink-mid); }
         .camp-filter.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
         .plates { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(18px, 2.6vw, 36px); }
@@ -1124,8 +1140,12 @@
         @media (hover: hover) { .photo-grid .gallery-tile:hover img { transform: scale(1.03); } }
         .photo-grid .gallery-tile:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 3px; }
         .photo-grid .gallery-filler { flex: 999 1 0; height: 0; }
+        /* the short edit ends on a full, justified row (orphans are trimmed by script) */
+        .photo-enhanced .photo-grid:not(.is-open):not(.is-filtered) .gallery-filler { flex-grow: 0; }
+        .photo-enhanced .photo-grid.is-measuring .gallery-filler { flex-grow: 999 !important; }
         .photo-grid .photo-item.hide { display: none; }
         .photo-enhanced .photo-grid:not(.is-open):not(.is-filtered) .is-extra { display: none; }
+        .photo-enhanced .photo-grid:not(.is-open):not(.is-filtered) .is-trim { display: none; }
         .gallery-more { margin-top: clamp(20px, 3vw, 32px) !important; }
         @media (max-width: 760px) {
             .photo-grid { gap: 5px; }
@@ -1234,7 +1254,7 @@
            ===================================================== */
 
         /* ---- Media diet: live intake shelf ---- */
-        .intake { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: clamp(24px, 3.4vw, 48px); margin-top: var(--s5); }
+        .intake { display: grid; grid-template-columns: 1.15fr 1.15fr 0.9fr; gap: clamp(24px, 3.4vw, 48px); margin-top: var(--s5); }
         .intake-col { min-width: 0; }
         .intake-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; margin-bottom: 18px; border-bottom: 1.5px solid var(--ink); }
         .intake-label { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
@@ -1266,6 +1286,10 @@
         .intake-posts time { font-family: var(--mono); font-size: 0.58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
         .intake-posts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; line-height: 1.25; margin-top: 4px; }
         .intake-posts a:hover b { text-decoration: underline; text-underline-offset: 3px; }
+        .intake-covers { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .intake-film { position: relative; }
+        .intake-badge { position: absolute; top: 6px; left: 6px; font-family: var(--mono); font-size: 0.5rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 3px 6px; border-radius: 999px; background: var(--leaf); color: #fff; }
+        .intake-more { margin-top: var(--s4); }
         .intake-also { margin-top: var(--s5); font-size: 0.9rem; color: var(--ink-mid); }
         .intake-also a { border-bottom: 1px solid var(--rule); }
         .intake-also a:hover { border-color: var(--ink); color: var(--ink); }
@@ -1410,11 +1434,11 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#podcasts">Podcasts</a>
-                <a href="#network">Network</a>
+                <a href="#network">Curious &amp; Creative</a>
                 <a href="#work">Brand Work</a>
                 <a href="#photography">Photography</a>
-                <a href="#art">Art</a>
                 <a href="#ai">AI</a>
+                <a href="#art">Art</a>
                 <a href="shop.html">Shop</a>
             </div>
             <div class="nav-right">
@@ -1431,11 +1455,11 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about"><span class="idx">01</span> About</a>
         <a href="#podcasts"><span class="idx">02</span> Podcasts</a>
-        <a href="#network"><span class="idx" aria-hidden="true">&rarr;</span> Network</a>
+        <a href="#network"><span class="idx" aria-hidden="true">&rarr;</span> Curious &amp; Creative</a>
         <a href="#work"><span class="idx">03</span> Brand Work</a>
         <a href="#photography"><span class="idx">04</span> Photography</a>
-        <a href="#art"><span class="idx" aria-hidden="true">&rarr;</span> Art</a>
         <a href="#ai"><span class="idx">05</span> AI</a>
+        <a href="#art"><span class="idx" aria-hidden="true">&rarr;</span> Art</a>
         <a href="shop.html"><span class="idx" aria-hidden="true">&rarr;</span> Shop</a>
         <a href="#contact"><span class="idx" aria-hidden="true">&rarr;</span> Contact</a>
         <a href="photography/#book" class="mm-book">Book a shoot <span aria-hidden="true">&rarr;</span></a>
@@ -1575,11 +1599,12 @@
                 </div>
 
                 <div class="about-right rv rv-d2">
-                    <p class="t-lede about-lede">Hey, I&rsquo;m Joshua. Curious and creative, and happiest telling stories in <span class="accent-word">whatever medium fits</span>.</p>
+                    <p class="t-lede about-lede">I&rsquo;m Joshua. Curious and creative, and happiest telling stories in <span class="accent-word">whatever medium fits</span>.</p>
                     <div class="about-body">
-                        <p>Born and raised in South Carolina, and I&rsquo;ve always loved connecting with people: seeing them, hearing them, figuring out what makes them tick. That pulled me into journalism, then advertising, where I&rsquo;m a strategist working out where, how, and most importantly <em>why</em> an idea reaches people.</p>
-                        <p>I&rsquo;m also a podcaster and producer, because I love a deep conversation. I&rsquo;ve been all in on AI since the ChatGPT moment: building tools, testing everything, and helping brands keep up. With Janel Moore I run Curious Creative Company, a podcast network and creative studio that grew out of the same itch.</p>
-                        <p>And I shoot. People, places, nights out, the moments in between. Most of what you&rsquo;ll find here started as a question I couldn&rsquo;t leave alone. Look around, and say hi.</p>
+                        <p>Born and raised in South Carolina, and I&rsquo;ve always loved connecting with people: seeing them, hearing them, figuring out what makes them tick. That pulled me into journalism, then advertising. As a strategist I work out where, how, and most importantly <em>why</em> an idea reaches people, on brands like Levi&rsquo;s, Sephora and DIRECTV, with some of that work landing at the Super Bowl and in Cannes.</p>
+                        <p>I&rsquo;m a podcaster and producer, because I love a deep conversation. <em>The Eclectic Polymath</em> is where I chase rabbit holes in history, power and culture; <em>Approachable AI</em> is where I build things on camera and show my work.</p>
+                        <p>I&rsquo;ve been all in on AI since the ChatGPT moment: building tools, testing everything, and helping brands keep up. With Janel Moore I run The Curious &amp; Creative Company, a podcast network and creative studio that grew out of the same itch.</p>
+                        <p>And I shoot, on film and digital: people, places, nights out, the moments in between. When the news gets loud, I cut it up and make collages. Most of what you&rsquo;ll find here started as a question I couldn&rsquo;t leave alone. Look around, and say hi.</p>
                     </div>
                 </div>
             </div>
@@ -1760,7 +1785,7 @@
     <section id="network" class="net-band" aria-labelledby="network-title">
         <div class="wrap net-grid">
             <div class="net-copy rv">
-                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> Curious Creative Company</p>
+                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> The Curious &amp; Creative Company</p>
                 <h2 class="net-title" id="network-title">Curious <span class="it">&amp;</span> Creative</h2>
                 <p class="net-lede">The company Janel Moore and I run. Curious first, then creative: a podcast network, a studio that shoots, films and builds for brands, and the things we&rsquo;re inventing.</p>
                 <div class="net-ctas">
@@ -1768,7 +1793,7 @@
                     <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=project" class="btn btn-line" target="_blank" rel="noopener">Work with the studio &#8599;</a>
                 </div>
             </div>
-            <a href="network/" class="net-stack rv rv-d1" aria-label="Explore Curious Creative Company: the network, the studio and inventions">
+            <a href="network/" class="net-stack rv rv-d1" aria-label="Explore The Curious &amp; Creative Company: the network, the studio and inventions">
                 <img loading="lazy" decoding="async" src="photos/podcasts/curious-creative-logo.jpg" alt="" width="400" height="400">
                 <img loading="lazy" decoding="async" src="photos/podcasts/eclectic-polymath-cover.jpg" alt="" width="400" height="400">
                 <img loading="lazy" decoding="async" src="network/art/brazil.jpg" alt="" width="400" height="400">
@@ -1889,31 +1914,56 @@
                         <p class="plate-desc">An NFL season platform built on every reason athletes have to quit — and why they don&rsquo;t.</p>
                     </div>
                 </a>
+                <!-- Startups: HIIKE + U&AI, grouped -->
+                <div class="plate plate-group rv" data-agency="independent">
+                    <p class="plate-group-label"><span class="pg-dot" aria-hidden="true"></span> Startups &middot; Brand &amp; go-to-market</p>
+                    <div class="plate-group-grid">
                 <!-- HIIKE -->
-                <a href="https://hiike.com/" class="plate rv" data-agency="independent" target="_blank" rel="noopener">
-                    <div class="plate-media">
-                        <div class="plate-media-brand" style="background: linear-gradient(150deg, #080f08 0%, #0c1c0d 60%, #060c06 100%); position:relative;">
-                            <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(120,220,80,0.06) 1px,transparent 1px);background-size:20px 20px;"></div>
-                            <div style="position:relative;text-align:center;">
-                                <img class="brand-mark" src="https://www.google.com/s2/favicons?domain=hiike.com&amp;sz=128" alt="HIIKE logo" width="56" height="56" loading="lazy" onerror="this.remove()">
-                                <span style="display:block;font-family:var(--sans);font-size:2.8rem;font-weight:700;color:rgba(150,235,110,0.9);letter-spacing:0.14em;line-height:1;">HIIKE</span>
-                                <span style="display:block;margin-top:10px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(150,235,110,0.4);">Film Festival Platform</span>
+                    <a href="https://hiike.com/" class="plate-card" target="_blank" rel="noopener">
+                        <div class="plate-media">
+                            <div class="plate-media-brand hiike-tile"><span class="hiike-mark">HIIKE</span></div>
+                        </div>
+                        <div class="plate-body">
+                            <span class="plate-tag">Advisor &amp; Strategist • Independent</span>
+                            <h3 class="plate-title">HIIKE: Brand &amp; Go-to-Market <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                            <p class="plate-desc">Brand, audience, and go-to-market strategy, built from the ground up for a film festival research and submission platform.</p>
+                            <div class="plate-awards">
+                                <span class="award-chip">Audience Mapping</span>
+                                <span class="award-chip">Content Swim Lanes</span>
+                                <span class="award-chip">Posting Framework</span>
+                                <span class="award-chip">Brand Strategy</span>
+                                <span class="award-chip">Go-to-Market</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Advisor &amp; Strategist • Independent</span>
-                        <h3 class="plate-title">HIIKE: Brand &amp; Go-to-Market <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Brand, audience, and go-to-market strategy, built from the ground up for a film festival research and submission platform.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip">Audience Mapping</span>
-                            <span class="award-chip">Content Swim Lanes</span>
-                            <span class="award-chip">Posting Framework</span>
-                            <span class="award-chip">Brand Strategy</span>
-                            <span class="award-chip">Go-to-Market</span>
+                    </a>
+    
+                <!-- U&AI -->
+                    <a href="https://www.uandai.co/" class="plate-card" target="_blank" rel="noopener">
+                        <div class="plate-media">
+                            <div class="plate-media-brand" style="background: linear-gradient(150deg, #060810 0%, #0a0e22 60%, #050710 100%); position:relative;">
+                                <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(90,120,255,0.07) 1px,transparent 1px);background-size:20px 20px;"></div>
+                                <div style="position:relative;text-align:center;">
+                                    <img class="brand-mark" src="https://www.google.com/s2/favicons?domain=uandai.co&amp;sz=128" alt="U&amp;AI logo" width="56" height="56" loading="lazy" onerror="this.remove()">
+                                    <span style="display:block;font-family:var(--sans);font-size:2.6rem;font-weight:700;color:rgba(120,150,255,0.9);letter-spacing:0.06em;line-height:1;">U&amp;AI</span>
+                                    <span style="display:block;margin-top:10px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(120,150,255,0.4);">AI Visibility Venture</span>
+                                </div>
+                            </div>
                         </div>
+                        <div class="plate-body">
+                            <span class="plate-tag">Fractional Chief Marketing Officer • Independent</span>
+                            <h3 class="plate-title">U&amp;AI: Chief Marketing Officer <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                            <p class="plate-desc">Serving as Fractional CMO for an AI-visibility venture — leading marketing strategy, brand direction, and go-to-market.</p>
+                            <div class="plate-awards">
+                                <span class="award-chip">Marketing Strategy</span>
+                                <span class="award-chip">Brand Direction</span>
+                                <span class="award-chip">Go-to-Market</span>
+                                <span class="award-chip">Fractional CMO</span>
+                            </div>
+                        </div>
+                    </a>
+    
                     </div>
-                </a>
+                </div>
 
                 <a href="work/work-samadams.html" class="plate rv" data-agency="gsp">
                     <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/63e1579848ae6.jpg" data-fallbacks="brand/sam-adams/hero/Samuel-Adams-Kevin-Garnett.jpg" alt="Samuel Adams" data-label="Samuel Adams"></div>
@@ -1932,31 +1982,6 @@
                         <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">Sephora: Don't Overthink It <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
                         <p class="plate-desc">Holiday gifting made effortless — directed by Taika Waititi.</p>
-                    </div>
-                </a>
-
-                <!-- U&AI -->
-                <a href="https://www.uandai.co/" class="plate rv rv-d1" data-agency="independent" target="_blank" rel="noopener">
-                    <div class="plate-media">
-                        <div class="plate-media-brand" style="background: linear-gradient(150deg, #060810 0%, #0a0e22 60%, #050710 100%); position:relative;">
-                            <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(90,120,255,0.07) 1px,transparent 1px);background-size:20px 20px;"></div>
-                            <div style="position:relative;text-align:center;">
-                                <img class="brand-mark" src="https://www.google.com/s2/favicons?domain=uandai.co&amp;sz=128" alt="U&amp;AI logo" width="56" height="56" loading="lazy" onerror="this.remove()">
-                                <span style="display:block;font-family:var(--sans);font-size:2.6rem;font-weight:700;color:rgba(120,150,255,0.9);letter-spacing:0.06em;line-height:1;">U&amp;AI</span>
-                                <span style="display:block;margin-top:10px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(120,150,255,0.4);">AI Visibility Venture</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="plate-body">
-                        <span class="plate-tag">Fractional CMO • Independent</span>
-                        <h3 class="plate-title">U&amp;AI: Chief Marketing Officer <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Serving as Fractional CMO for an AI-visibility venture — leading marketing strategy, brand direction, and go-to-market.</p>
-                        <div class="plate-awards">
-                            <span class="award-chip">Marketing Strategy</span>
-                            <span class="award-chip">Brand Direction</span>
-                            <span class="award-chip">Go-to-Market</span>
-                            <span class="award-chip">Fractional CMO</span>
-                        </div>
                     </div>
                 </a>
 
@@ -2028,7 +2053,7 @@
                     </div>
                 </a>
                 <a href="work/work-directv.html#nothing-on-roof" class="plate rv hidden-card" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4" alt="DIRECTV — Nothing On Your Roof" data-label="DIRECTV — Nothing On Your Roof"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4 brand/directv/directv-rebranding-bringing-flexibility-2025.webp" alt="DIRECTV — Nothing On Your Roof" data-label="DIRECTV — Nothing On Your Roof"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">DIRECTV: Nothing On Your Roof <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -2036,7 +2061,7 @@
                     </div>
                 </a>
                 <a href="work/work-mlb.html" class="plate rv rv-d1 hidden-card" data-agency="wk">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/mlb/mlb-hero.jpg" alt="MLB — Baseball Is Something Else" data-label="MLB — Baseball Is Something Else"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/VRHr8IwbSMI/maxresdefault.jpg" data-fallbacks="yt:VRHr8IwbSMI brand/mlb/mlb-hero.jpg" alt="MLB — Baseball Is Something Else" data-label="MLB — Baseball Is Something Else"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Brand Strategist • Wieden+Kennedy Portland</span>
                         <h3 class="plate-title">MLB: Baseball Is Something Else <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -2172,83 +2197,6 @@
     </section>
     <!-- PHOTOGRAPHY:END -->
 
-    <!-- =====================================================
-         04B — ART: collages (Cut & Paste)
-         ===================================================== -->
-    <section id="art" class="chapter art-chapter">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 04B</span>
-                    <h2 class="ch-title">Cut &amp; <span class="it">Paste</span></h2>
-                </div>
-                <div class="ch-meta">Collage<br>Newsprint, ads &amp; ephemera on board</div>
-            </div>
-            <p class="ch-intro rv">I keep the news on paper. Headlines, ads and ticket stubs, cut out and pasted down until the pattern shows up. Collage is how I make sense of the noise.</p>
-            <div class="art-wall">
-                <figure class="art-piece rv">
-                    <button type="button" class="art-open" data-full="photos/art/lots-to-love.jpg" aria-label="Open Lots to Love full size">
-                        <img src="photos/art/lots-to-love-sm.jpg" alt="Collage: Lots to Love" width="720" height="965" loading="lazy" decoding="async">
-                    </button>
-                    <figcaption>
-                        <span class="art-num">No. 01</span>
-                        <h3 class="art-title">Lots to Love</h3>
-                        <p class="art-desc">Ads promising everything, headlines taking it back. Jobs gone, prices still high, an EV that doesn&rsquo;t know what it should sound like. The optimism and the anxiety on one board.</p>
-                    </figcaption>
-                </figure>
-                <figure class="art-piece rv rv-d1">
-                    <button type="button" class="art-open" data-full="photos/art/just-curious.jpg" aria-label="Open Just Curious full size">
-                        <img src="photos/art/just-curious-sm.jpg" alt="Collage: Just Curious" width="720" height="962" loading="lazy" decoding="async">
-                    </button>
-                    <figcaption>
-                        <span class="art-num">No. 02</span>
-                        <h3 class="art-title">Just Curious</h3>
-                        <p class="art-desc">The question that runs everything, pinned to the top. A Quincy Jones symphony ticket, a new pope pleading for peace, Ovechkin passing Gretzky, and a typewriter clacking toward the future.</p>
-                    </figcaption>
-                </figure>
-                <figure class="art-piece rv rv-d2">
-                    <button type="button" class="art-open" data-full="photos/art/questions-persist.jpg" aria-label="Open Questions Persist full size">
-                        <img src="photos/art/questions-persist-sm.jpg" alt="Collage: Questions Persist" width="720" height="1020" loading="lazy" decoding="async">
-                    </button>
-                    <figcaption>
-                        <span class="art-num">No. 03</span>
-                        <h3 class="art-title">Questions Persist</h3>
-                        <p class="art-desc">&ldquo;Mr. President, what did you get reelected to do?&rdquo; opens a black board of tariffs, betting scandals, a new pope and my own student ID. Ohtani knew; the bookie never asked.</p>
-                    </figcaption>
-                </figure>
-                <figure class="art-piece rv">
-                    <button type="button" class="art-open" data-full="photos/art/city-of-dreams.jpg" aria-label="Open City of Dreams full size">
-                        <img src="photos/art/city-of-dreams-sm.jpg" alt="Collage: City of Dreams" width="720" height="871" loading="lazy" decoding="async">
-                    </button>
-                    <figcaption>
-                        <span class="art-num">No. 04</span>
-                        <h3 class="art-title">City of Dreams</h3>
-                        <p class="art-desc">Los Angeles during the ICE protests: flags, riot lines, <em>Chinga La Migra</em> and a small American flag in the corner. Uncomfortable history, kept as it happened.</p>
-                    </figcaption>
-                </figure>
-                <figure class="art-piece rv rv-d1">
-                    <button type="button" class="art-open" data-full="photos/art/a-new-word.jpg" aria-label="Open A New Word full size">
-                        <img src="photos/art/a-new-word-sm.jpg" alt="Collage: A New Word" width="720" height="855" loading="lazy" decoding="async">
-                    </button>
-                    <figcaption>
-                        <span class="art-num">No. 05</span>
-                        <h3 class="art-title">A New Word</h3>
-                        <p class="art-desc">Affordability, rediscovered. Shutdown math, 50-year mortgages, the Epstein files and Mamdani&rsquo;s win, held together by a Basquiat phone case and an AI Slop sticker.</p>
-                    </figcaption>
-                </figure>
-                <figure class="art-piece rv rv-d2">
-                    <button type="button" class="art-open" data-full="photos/art/halfway-to-history.jpg" aria-label="Open Halfway to History full size">
-                        <img src="photos/art/halfway-to-history-sm.jpg" alt="Collage: Halfway to History" width="720" height="1123" loading="lazy" decoding="async">
-                    </button>
-                    <figcaption>
-                        <span class="art-num">No. 06</span>
-                        <h3 class="art-title">Halfway to History</h3>
-                        <p class="art-desc">The framed one. Nines everywhere, an election fright, a rare comet and a new cold war, and one word at the bottom that says what I do: strategist.</p>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
     <dialog class="art-lightbox" id="artLightbox" aria-label="Collage, full size">
         <button type="button" class="art-lb-close" aria-label="Close">&times;</button>
         <img alt="">
@@ -2543,7 +2491,7 @@
                         <span class="site-num">01</span>
                         <span class="site-kicker">Podcast · Show site</span>
                         <h3 class="site-name">Curious &amp; Creative</h3>
-                        <p class="site-desc">The home of Curious Creative Company: our shows, our studio, and what we&rsquo;re building, kept fresh by feeds that update themselves.</p>
+                        <p class="site-desc">The home of The Curious &amp; Creative Company: our shows, our studio, and what we&rsquo;re building, kept fresh by feeds that update themselves.</p>
                         <a class="site-cta site-open" href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Visit the site &#8599;</a>
                     </div>
                     <div class="site-card is-soon" role="listitem">
@@ -2644,22 +2592,23 @@
 
             <div class="intake rv" id="intake">
                 <div class="intake-col" data-shelf="watching">
-                    <div class="intake-head"><span class="intake-label">Watching</span><a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">Letterboxd &#8599;</a></div>
+                    <div class="intake-head"><span class="intake-label">Watching</span><a href="media-diet/#watching">See all &rarr;</a></div>
                     <div class="intake-posters" id="intakeFilms"></div>
                     <a class="intake-empty" href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--film" aria-hidden="true"></span><span>Every film I log, with the stars to prove it.</span></a>
                 </div>
                 <div class="intake-col" data-shelf="reading">
-                    <div class="intake-head"><span class="intake-label">Reading</span><a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">Goodreads &#8599;</a></div>
-                    <div class="intake-books" id="intakeBooks"></div>
+                    <div class="intake-head"><span class="intake-label">Reading</span><a href="media-diet/#reading">See all &rarr;</a></div>
+                    <div class="intake-posters intake-covers" id="intakeBooks"></div>
                     <a class="intake-empty" href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--book" aria-hidden="true"></span><span>What&rsquo;s on the nightstand and what I finished.</span></a>
                 </div>
-                <div class="intake-col" data-shelf="writing">
-                    <div class="intake-head"><span class="intake-label">Writing</span><a href="https://jgerms20.substack.com" target="_blank" rel="noopener">Substack &#8599;</a></div>
-                    <ol class="intake-posts" id="intakePosts"></ol>
-                    <a class="intake-empty" href="https://jgerms20.substack.com" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--pen" aria-hidden="true"></span><span>Essays and notes from the rabbit holes.</span></a>
+                <div class="intake-col" data-shelf="listening">
+                    <div class="intake-head"><span class="intake-label">Listening</span><a href="media-diet/#listening">See all &rarr;</a></div>
+                    <ol class="intake-posts" id="intakeListening"></ol>
+                    <div class="intake-empty"><span class="intake-empty-art intake-empty-art--pen" aria-hidden="true"></span><span>Podcasts, articles and records I&rsquo;m into. Coming soon.</span></div>
                 </div>
             </div>
-            <p class="intake-also rv">Also: <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener">my chess games &#8599;</a> &middot; <a href="https://www.dailygamecock.com/staff/josh-german" target="_blank" rel="noopener">where the writing started, at <em>The Daily Gamecock</em> &#8599;</a></p>
+            <p class="intake-more rv"><a href="media-diet/" class="rule-link">The full media diet: flip, sort and filter &#8599;</a></p>
+            <p class="intake-also rv">Also: <a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">Letterboxd &#8599;</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">Goodreads &#8599;</a> &middot; <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener">my chess games &#8599;</a> &middot; <a href="https://jgerms20.substack.com" target="_blank" rel="noopener">Substack &#8599;</a></p>
         </div>
     </section>
 
@@ -2672,8 +2621,80 @@
             <div class="works-head rv">
                 <span class="ch-num">CH. 07</span>
                 <h2 class="works-title" id="inTheWorksTitle">In the <span class="it">Works</span></h2>
-                <span class="works-meta">Prints &amp; a planned series</span>
+                <span class="works-meta">Art, prints &amp; a planned series</span>
             </div>
+            <!-- ART:START (generated from data/art.json) -->
+            <div class="works-art" id="art">
+                <div class="works-art-head rv">
+                    <h3 class="works-art-title">Art</h3>
+                    <span class="works-art-meta">Collage &middot; newsprint, ads &amp; ephemera on board</span>
+                    <a href="shop.html#art" class="rule-link">In the shop &#8599;</a>
+                </div>
+                <p class="works-art-intro rv">I keep the news on paper. Headlines, ads and ticket stubs, cut out and pasted down until the pattern shows up. Collage is how I make sense of the noise.</p>
+                <div class="art-wall">
+                    <figure class="art-piece rv">
+                        <button type="button" class="art-open art-frame" data-full="photos/art/just-curious.jpg" aria-label="Open Just Curious full size">
+                            <img src="photos/art/just-curious-sm.jpg" alt="Collage: Just Curious" width="720" height="962" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>
+                            <span class="art-num">No. 01</span>
+                            <h4 class="art-title">Just Curious</h4>
+                            <p class="art-desc">The question that runs everything, pinned to the top. A Quincy Jones symphony ticket, a new pope pleading for peace, Ovechkin passing Gretzky, and a typewriter clacking toward the future.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="art-piece rv rv-d1">
+                        <button type="button" class="art-open art-frame" data-full="photos/art/gods-message-to-you.jpg" aria-label="Open God&#x27;s Message to You full size">
+                            <img src="photos/art/gods-message-to-you-sm.jpg" alt="Collage: God&#x27;s Message to You" width="720" height="965" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>
+                            <span class="art-num">No. 02</span>
+                            <h4 class="art-title">God&#x27;s Message to You</h4>
+                            <p class="art-desc">A pocket gospel tract, an ad promising “Anytime. Everywhere. Free.” and headlines taking it all back: jobs gone, prices still high, an EV that doesn’t know what it should sound like.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="art-piece rv rv-d2">
+                        <button type="button" class="art-open art-frame" data-full="photos/art/questions-persist.jpg" aria-label="Open Questions Persist full size">
+                            <img src="photos/art/questions-persist-sm.jpg" alt="Collage: Questions Persist" width="720" height="1020" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>
+                            <span class="art-num">No. 03</span>
+                            <h4 class="art-title">Questions Persist</h4>
+                            <p class="art-desc">“Mr. President, what did you get reelected to do?” opens a black board of tariffs, betting scandals, a new pope and my own student ID. Ohtani knew; the bookie never asked.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="art-piece rv">
+                        <button type="button" class="art-open art-frame" data-full="photos/art/city-of-dreams.jpg" aria-label="Open City of Dreams full size">
+                            <img src="photos/art/city-of-dreams-sm.jpg" alt="Collage: City of Dreams" width="720" height="871" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>
+                            <span class="art-num">No. 04</span>
+                            <h4 class="art-title">City of Dreams</h4>
+                            <p class="art-desc">Los Angeles during the ICE protests: flags, riot lines, Chinga La Migra and a small American flag in the corner. Uncomfortable history, kept as it happened.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="art-piece rv rv-d1">
+                        <button type="button" class="art-open art-frame" data-full="photos/art/the-adventure-above-all.jpg" aria-label="Open The Adventure Above All full size">
+                            <img src="photos/art/the-adventure-above-all-sm.jpg" alt="Collage: The Adventure Above All" width="720" height="855" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>
+                            <span class="art-num">No. 05</span>
+                            <h4 class="art-title">The Adventure Above All</h4>
+                            <p class="art-desc">Affordability, rediscovered. Shutdown math, 50-year mortgages, the Epstein files and Mamdani’s win, held together by a Basquiat phone case and an AI Slop sticker.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="art-piece rv rv-d2">
+                        <button type="button" class="art-open art-frame" data-full="photos/art/halfway-to-history.jpg" aria-label="Open Halfway to History full size">
+                            <img src="photos/art/halfway-to-history-sm.jpg" alt="Collage: Halfway to History" width="720" height="1123" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>
+                            <span class="art-num">No. 06</span>
+                            <h4 class="art-title">Halfway to History</h4>
+                            <p class="art-desc">The framed one. Nines everywhere, an election fright, a rare comet and a new cold war, and one word at the bottom that says what I do: strategist.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- ART:END -->
             <div class="works-grid">
                 <article class="works-card rv" id="collection">
                     <span class="works-status"><span class="dot"></span> In the shop</span>
@@ -2730,7 +2751,7 @@
                 <span style="width:7px;height:7px;border-radius:50%;background:var(--leaf);display:inline-block;animation:podPulse 2s infinite;"></span>
                 Now booking independent work
             </span>
-            <h2 class="contact-hello rv">Let&rsquo;s book<br><span class="it">the next thing.</span></h2>
+            <h2 class="contact-hello rv">Let&rsquo;s book<br><span class="it">your next thing.</span></h2>
             <p class="contact-sub rv rv-d1">Photographer, podcaster, AI builder, and brand strategist in Los Angeles. Send the brief, the shot list, or the half-formed idea.</p>
             <div class="contact-actions rv rv-d2">
                 <a href="mailto:Jgerms20@gmail.com" class="contact-email">
@@ -3003,65 +3024,54 @@
             });
             trail.querySelector('.trail-stops').addEventListener('mouseleave', () => light(null));
         })();
-        // ---- Media diet: live intake from data/media-diet.json (synced every 6 hours) ----
+        // ---- Media diet: live intake (data/media-diet.json synced every 6 hours; data/listening.json hand-edited) ----
         (function () {
             const root = document.getElementById('intake');
             if (!root || !window.fetch) return;
             const el = (t, c, txt) => { const n = document.createElement(t); if (c) n.className = c; if (txt != null) n.textContent = txt; return n; };
             const https = u => (typeof u === 'string' && /^https:\/\//.test(u)) ? u : '';
             const stars = r => typeof r === 'number' && r > 0 ? '★'.repeat(Math.floor(r)) + (r % 1 ? '½' : '') : '';
-            const fmt = d => { if (!d) return ''; const x = new Date(d + 'T00:00:00Z'); return isNaN(x) ? '' : x.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }); };
             const link = (url, cls) => { const a = el(url ? 'a' : 'div', cls); if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; } return a; };
-            fetch('data/media-diet.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
-                if (!data) return;
-                const films = (data.letterboxd || []).filter(f => f && f.title).slice(0, 8);
+            function tile(item, label, badge) {
+                const a = link(https(item.url), 'intake-film');
+                a.setAttribute('aria-label', label);
+                const fallback = el('span', 'intake-film-tile', item.title);
+                const src = https(item.poster || item.cover || item.image);
+                if (src) { const img = el('img'); img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.src = src; img.addEventListener('error', () => img.replaceWith(fallback)); a.appendChild(img); }
+                else a.appendChild(fallback);
+                if (badge) a.appendChild(el('span', 'intake-badge', badge));
+                a.appendChild(el('span', 'intake-stars', stars(item.rating) || ' '));
+                a.appendChild(el('span', 'intake-film-name', item.title));
+                return a;
+            }
+            const get = url => fetch(url, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null);
+            Promise.all([get('data/media-diet.json'), get('data/listening.json')]).then(([diet, listening]) => {
+                const films = ((diet && diet.letterboxd) || []).filter(f => f && f.title).slice(0, 8);
                 if (films.length) {
                     const box = document.getElementById('intakeFilms');
-                    films.forEach(f => {
-                        const a = link(https(f.url), 'intake-film');
-                        a.setAttribute('aria-label', f.title + (f.year ? ' (' + f.year + ')' : '') + (f.rating ? ', ' + f.rating + ' stars' : ''));
-                        const tile = el('span', 'intake-film-tile', f.title);
-                        if (https(f.poster)) {
-                            const img = el('img'); img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.src = f.poster;
-                            img.addEventListener('error', () => img.replaceWith(tile));
-                            a.appendChild(img);
-                        } else a.appendChild(tile);
-                        a.appendChild(el('span', 'intake-stars', stars(f.rating) || ' '));
-                        a.appendChild(el('span', 'intake-film-name', f.title));
-                        box.appendChild(a);
-                    });
+                    films.forEach(f => box.appendChild(tile(f, f.title + (f.year ? ' (' + f.year + ')' : '') + (f.rating ? ', ' + f.rating + ' stars' : ''))));
                     root.querySelector('[data-shelf="watching"]').classList.add('has-data');
                 }
-                const now = (data.reading || []).filter(b => b && b.title).map(b => Object.assign({ now: true }, b));
-                const done = (data.read || []).filter(b => b && b.title);
-                const books = now.concat(done).slice(0, 4);
+                const now = ((diet && diet.reading) || []).filter(b => b && b.title);
+                const done = ((diet && diet.read) || []).filter(b => b && b.title);
+                const books = now.map(b => [b, 'Now']).concat(done.map(b => [b, ''])).slice(0, 8);
                 if (books.length) {
                     const box = document.getElementById('intakeBooks');
-                    books.forEach(b => {
-                        const a = link(https(b.url), 'intake-book');
-                        if (https(b.cover)) { const img = el('img'); img.alt = ''; img.loading = 'lazy'; img.src = b.cover; img.addEventListener('error', () => img.replaceWith(el('span', 'intake-book-tile'))); a.appendChild(img); }
-                        else a.appendChild(el('span', 'intake-book-tile'));
-                        const t = el('span');
-                        if (b.now) t.appendChild(el('span', 'intake-now', 'Now reading'));
-                        t.appendChild(el('b', null, b.title));
-                        if (b.author) t.appendChild(el('small', null, b.author + (b.rating ? ' · ' + '★'.repeat(b.rating) : '')));
-                        a.appendChild(t);
-                        box.appendChild(a);
-                    });
+                    books.forEach(([b, badge]) => box.appendChild(tile(b, b.title + (b.author ? ' by ' + b.author : ''), badge)));
                     root.querySelector('[data-shelf="reading"]').classList.add('has-data');
                 }
-                const posts = (data.substack || []).filter(p => p && p.title).slice(0, 4);
-                if (posts.length) {
-                    const box = document.getElementById('intakePosts');
-                    posts.forEach(p => {
-                        const li = el('li'); const a = link(https(p.url));
-                        const d = fmt(p.date); if (d) a.appendChild(el('time', null, d));
-                        a.appendChild(el('b', null, p.title));
+                const items = ((listening && listening.items) || []).filter(i => i && i.title).slice(0, 5);
+                if (items.length) {
+                    const box = document.getElementById('intakeListening');
+                    items.forEach(i => {
+                        const li = el('li'); const a = link(https(i.url));
+                        a.appendChild(el('time', null, [i.type, i.creator].filter(Boolean).join(' · ')));
+                        a.appendChild(el('b', null, i.title));
                         li.appendChild(a); box.appendChild(li);
                     });
-                    root.querySelector('[data-shelf="writing"]').classList.add('has-data');
+                    root.querySelector('[data-shelf="listening"]').classList.add('has-data');
                 }
-            }).catch(() => {});
+            });
         })();
         // ---- Art: open a collage full size ----
         (function () {
@@ -3079,6 +3089,38 @@
             box.querySelector('.art-lb-close').addEventListener('click', () => box.close());
             box.addEventListener('click', e => { if (e.target === box) box.close(); });
             box.addEventListener('close', () => { if (last) last.focus(); });
+        })();
+        // ---- Photography: never end the short edit on a lonely half-row ----
+        (function () {
+            const grid = document.getElementById('photoGallery');
+            const btn = document.querySelector('#photography .gallery-more');
+            if (!grid) return;
+            const count = btn && btn.querySelector('.darkroom-more__count');
+            const extras = grid.querySelectorAll('.is-extra').length;
+            function trim() {
+                grid.querySelectorAll('.is-trim').forEach(t => t.classList.remove('is-trim'));
+                let trimmed = 0;
+                grid.classList.add('is-measuring');
+                if (!grid.classList.contains('is-open') && !grid.classList.contains('is-filtered')) {
+                    for (let pass = 0; pass < 3; pass++) {
+                        const tiles = [...grid.querySelectorAll('.gallery-tile:not(.is-extra):not(.is-trim)')].filter(t => t.offsetParent);
+                        if (tiles.length < 4) break;
+                        const top = tiles[tiles.length - 1].offsetTop;
+                        const last = tiles.filter(t => t.offsetTop === top);
+                        const used = last.reduce((w, t) => w + t.offsetWidth, 0);
+                        if (last.length === tiles.length || (last.length > 1 && used >= grid.clientWidth * 0.62)) break;
+                        last.forEach(t => t.classList.add('is-trim'));
+                        trimmed += last.length;
+                    }
+                }
+                grid.classList.remove('is-measuring');
+                if (count && btn.getAttribute('aria-expanded') !== 'true') count.textContent = (extras + trimmed) + ' more photos';
+            }
+            let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(trim, 150); });
+            if (btn) btn.addEventListener('click', () => setTimeout(trim, 0));
+            document.querySelectorAll('#photography .photo-chapter').forEach(b => b.addEventListener('click', () => setTimeout(trim, 0)));
+            if (document.readyState === 'complete') trim(); else window.addEventListener('load', trim);
+            requestAnimationFrame(trim);
         })();
         // ---- About: rotating photos of Joshua ----
         // To add a photo: drop it in photos/self/ and add one <img class="rot-slide"
