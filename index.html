@@ -644,8 +644,12 @@
         .works-art-intro { max-width: 640px; margin-top: 16px; font-size: 0.98rem; line-height: 1.65; color: var(--ink-soft); }
         .art-wall { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(40px, 5vw, 64px) clamp(24px, 3.4vw, 48px); align-items: start; margin-top: clamp(28px, 4vw, 44px); }
         .art-piece { margin: 0; }
-        .art-frame { background: #FBF9F4 !important; padding: clamp(10px, 1.3vw, 16px) !important; border: clamp(6px, .7vw, 9px) solid #161412 !important; box-shadow: 0 2px 0 rgba(0,0,0,.08), 0 24px 44px -24px rgba(23,21,18,.65); }
-        .art-frame img { box-shadow: inset 0 0 0 1px rgba(0,0,0,.06) !important; }
+        :root { --art-frame: #17140F; --art-mat: #FCFBF7; --art-shadow: rgba(23,21,18,.30); }
+        :root[data-theme="dark"] { --art-frame: #060504; --art-mat: #EEEAE1; --art-shadow: rgba(0,0,0,.62); }
+        :root[data-theme="dark"] .art-frame { outline: 1px solid rgba(240,234,224,.10); }
+        .art-frame { display: block; width: 100%; padding: clamp(14px, 7%, 30px) !important; background: var(--art-mat) !important; border: 6px solid var(--art-frame) !important; border-radius: 1px;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,.20), 0 2px 3px rgba(23,21,18,.10), 0 18px 34px -16px var(--art-shadow), 0 34px 60px -34px var(--art-shadow); }
+        .art-frame img { width: 100%; height: auto; object-fit: contain; background: var(--paper-dim); box-shadow: 0 0 0 1px rgba(23,21,18,.14) !important; }
         @media (max-width: 980px) { .art-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 600px) { .art-wall { grid-template-columns: 1fr; } }
         .art-open { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
@@ -2634,7 +2638,7 @@
                 <div class="art-wall">
                     <figure class="art-piece rv">
                         <button type="button" class="art-open art-frame" data-full="photos/art/just-curious.jpg" aria-label="Open Just Curious full size">
-                            <img src="photos/art/just-curious-sm.jpg" alt="Collage: Just Curious" width="720" height="962" loading="lazy" decoding="async">
+                            <img src="photos/art/just-curious-sm.jpg" alt="Collage: Just Curious" width="720" height="1061" loading="lazy" decoding="async">
                         </button>
                         <figcaption>
                             <span class="art-num">No. 01</span>
@@ -2644,7 +2648,7 @@
                     </figure>
                     <figure class="art-piece rv rv-d1">
                         <button type="button" class="art-open art-frame" data-full="photos/art/gods-message-to-you.jpg" aria-label="Open God&#x27;s Message to You full size">
-                            <img src="photos/art/gods-message-to-you-sm.jpg" alt="Collage: God&#x27;s Message to You" width="720" height="965" loading="lazy" decoding="async">
+                            <img src="photos/art/gods-message-to-you-sm.jpg" alt="Collage: God&#x27;s Message to You" width="720" height="979" loading="lazy" decoding="async">
                         </button>
                         <figcaption>
                             <span class="art-num">No. 02</span>
@@ -2654,7 +2658,7 @@
                     </figure>
                     <figure class="art-piece rv rv-d2">
                         <button type="button" class="art-open art-frame" data-full="photos/art/questions-persist.jpg" aria-label="Open Questions Persist full size">
-                            <img src="photos/art/questions-persist-sm.jpg" alt="Collage: Questions Persist" width="720" height="1020" loading="lazy" decoding="async">
+                            <img src="photos/art/questions-persist-sm.jpg" alt="Collage: Questions Persist" width="720" height="1102" loading="lazy" decoding="async">
                         </button>
                         <figcaption>
                             <span class="art-num">No. 03</span>
@@ -2664,7 +2668,7 @@
                     </figure>
                     <figure class="art-piece rv">
                         <button type="button" class="art-open art-frame" data-full="photos/art/city-of-dreams.jpg" aria-label="Open City of Dreams full size">
-                            <img src="photos/art/city-of-dreams-sm.jpg" alt="Collage: City of Dreams" width="720" height="871" loading="lazy" decoding="async">
+                            <img src="photos/art/city-of-dreams-sm.jpg" alt="Collage: City of Dreams" width="720" height="929" loading="lazy" decoding="async">
                         </button>
                         <figcaption>
                             <span class="art-num">No. 04</span>
@@ -2674,7 +2678,7 @@
                     </figure>
                     <figure class="art-piece rv rv-d1">
                         <button type="button" class="art-open art-frame" data-full="photos/art/the-adventure-above-all.jpg" aria-label="Open The Adventure Above All full size">
-                            <img src="photos/art/the-adventure-above-all-sm.jpg" alt="Collage: The Adventure Above All" width="720" height="855" loading="lazy" decoding="async">
+                            <img src="photos/art/the-adventure-above-all-sm.jpg" alt="Collage: The Adventure Above All" width="720" height="930" loading="lazy" decoding="async">
                         </button>
                         <figcaption>
                             <span class="art-num">No. 05</span>
@@ -2684,7 +2688,7 @@
                     </figure>
                     <figure class="art-piece rv rv-d2">
                         <button type="button" class="art-open art-frame" data-full="photos/art/halfway-to-history.jpg" aria-label="Open Halfway to History full size">
-                            <img src="photos/art/halfway-to-history-sm.jpg" alt="Collage: Halfway to History" width="720" height="1123" loading="lazy" decoding="async">
+                            <img src="photos/art/halfway-to-history-sm.jpg" alt="Collage: Halfway to History" width="720" height="1119" loading="lazy" decoding="async">
                         </button>
                         <figcaption>
                             <span class="art-num">No. 06</span>

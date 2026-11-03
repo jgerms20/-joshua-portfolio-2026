@@ -270,10 +270,10 @@
 
 
         /* ---- Shop sections nav ---- */
-        .shop-sections { display: flex; gap: var(--s4); margin-top: var(--s5); padding-top: var(--s2); border-top: 1px solid var(--rule); }
+        .shop-sections { display: flex; flex-wrap: wrap; gap: 4px var(--s4); margin-top: var(--s5); padding-top: var(--s2); border-top: 1px solid var(--rule); }
         .shop-sections a { font-family: var(--mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); padding: 6px 0; border-bottom: 1px solid transparent; transition: color .25s, border-color .25s; }
         .shop-sections a:hover { color: var(--ink); border-color: var(--ink); }
-        #prints, #photobooks, #photosets { scroll-margin-top: 84px; }
+        #prints, #photobooks, #photosets, #art { scroll-margin-top: 84px; }
 
         /* ---- Photo books ---- */
         .books-chapter, .sets-chapter { padding: var(--s7) 0; border-top: 1px solid var(--rule); }
@@ -321,6 +321,45 @@
         .pset-links { width: 100%; display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 10px; }
         .pset-links a { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--rule); padding-bottom: 3px; }
         .pset-links a:hover { border-color: var(--ink); }
+        /* ---- Art: each collage hung like a framed piece on the wall ---- */
+        :root { --art-frame: #17140F; --art-mat: #FCFBF7; --art-shadow: rgba(23,21,18,0.30); }
+        :root[data-theme="dark"] { --art-frame: #060504; --art-mat: #EEEAE1; --art-shadow: rgba(0,0,0,0.62); }
+        :root[data-theme="dark"] .art-frame { outline: 1px solid rgba(240,234,224,0.10); }
+        .art-chapter { padding: var(--s7) 0; border-top: 1px solid var(--rule); }
+        .art-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: clamp(44px, 6vw, 80px) clamp(28px, 4vw, 56px); margin-top: var(--s6); }
+        @media (max-width: 980px) { .art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 620px) { .art-grid { grid-template-columns: minmax(0, 1fr); } }
+        .art-piece { display: flex; flex-direction: column; min-width: 0; }
+        /* frame (thin black moulding) > mat (white) > artwork */
+        .art-frame {
+            display: block; width: 100%; padding: clamp(14px, 7%, 30px); background: var(--art-mat);
+            border: 6px solid var(--art-frame); border-radius: 1px; cursor: zoom-in;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.20), 0 0 0 1px rgba(255,255,255,0.04),
+                        0 2px 3px rgba(23,21,18,0.10), 0 18px 34px -16px var(--art-shadow), 0 34px 60px -34px var(--art-shadow);
+            transition: transform .5s var(--exp), box-shadow .5s var(--exp);
+        }
+        .art-frame:hover { transform: translateY(-3px); box-shadow: inset 0 1px 4px rgba(0,0,0,0.20), 0 0 0 1px rgba(255,255,255,0.04), 0 3px 5px rgba(23,21,18,0.10), 0 26px 44px -18px var(--art-shadow), 0 44px 70px -36px var(--art-shadow); }
+        .art-frame:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+        .art-frame img { width: 100%; height: auto; object-fit: contain; background: var(--paper-dim); box-shadow: 0 0 0 1px rgba(23,21,18,0.14); }
+        .art-body { padding-top: var(--s3); }
+        .art-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 2.4vw, 1.8rem); line-height: 1.1; }
+        .art-medium { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mid); margin-top: 8px; }
+        .art-blurb { font-size: 0.92rem; line-height: 1.65; color: var(--ink-soft); margin-top: 12px; }
+        .art-buy { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule); }
+        .art-status { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+        /* Full-size view */
+        .art-lightbox { border: 0; padding: 0; margin: auto; background: transparent; color: #F0EAE0; max-width: min(96vw, 1400px); max-height: 96vh; overflow: visible; }
+        .art-lightbox::backdrop { background: rgba(10,9,7,0.92); }
+        .art-lightbox[open] { display: flex; flex-direction: column; align-items: center; }
+        .art-lb-img { display: block; width: auto; height: auto; max-width: min(96vw, 1400px); max-height: calc(96vh - 64px); object-fit: contain; background: #1B1813; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .art-lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding-top: 12px; }
+        .art-lb-cap { font-family: var(--serif); font-size: 1.05rem; line-height: 1.3; min-width: 0; }
+        .art-lb-cap span { display: block; font-family: var(--mono); font-size: 0.56rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(240,234,224,0.6); margin-top: 3px; }
+        .art-lb-close { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(240,234,224,0.35); color: #F0EAE0; display: flex; align-items: center; justify-content: center; }
+        .art-lb-close:hover { border-color: #F0EAE0; }
+        .art-lb-close:focus-visible { outline: 2px solid #9D9BFF; outline-offset: 3px; }
+        .art-lb-close svg { width: 15px; height: 15px; }
+        @media (prefers-reduced-motion: reduce) { .art-frame, .art-frame:hover { transition: none; transform: none; } }
         @media (max-width: 620px) { .shop-sections { gap: var(--s3); } .book-3d { width: 58%; } }
         @media (prefers-reduced-motion: reduce) { .book-3d { transition: none; } }
         footer.shop-footer { padding: var(--s5) 0; border-top: 1px solid var(--rule); text-align: center; }
@@ -377,6 +416,7 @@
         <a href="#prints">Prints</a>
         <a href="#photobooks">Photo Books</a>
         <a href="#photosets">Photo Sets</a>
+        <a href="#art">Art</a>
     </nav>
 
     <div class="wrap" id="prints">
@@ -418,6 +458,28 @@
             </div>
         </div>
     </section>
+
+    <!-- =====================================================
+         ART (rendered from data/art.json)
+         ===================================================== -->
+    <section class="art-chapter" id="art" aria-labelledby="artTitle">
+        <div class="wrap">
+            <div class="shop-kicker rv">Art</div>
+            <h2 class="shop-title rv rv-d1" id="artTitle" style="font-size: clamp(2.2rem, 5.5vw, 3.8rem);">Cut <span class="it accent">&amp; paste.</span></h2>
+            <p class="shop-intro rv rv-d2">Collages built from newsprint, ads and ephemera on board, with the headlines kept as they ran. Each one is an original. Tap a piece to see it full size.</p>
+            <div class="art-grid" id="artGrid">
+                <noscript><p class="books-note">Six collages live here: Just Curious, God&rsquo;s Message to You, Questions Persist, City of Dreams, The Adventure Above All and Halfway to History. <a href="mailto:jgerms20@gmail.com?subject=Art%20inquiry">Email me</a> to ask about a piece.</p></noscript>
+            </div>
+        </div>
+    </section>
+
+    <dialog class="art-lightbox" id="artLightbox" aria-labelledby="artLbTitle">
+        <img class="art-lb-img" id="artLbImg" alt="">
+        <div class="art-lb-bar">
+            <p class="art-lb-cap" id="artLbTitle"></p>
+            <button class="art-lb-close" id="artLbClose" type="button" aria-label="Close full-size view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        </div>
+    </dialog>
 
     <!-- =====================================================
          PRINT + FRAME ADVISORY
@@ -1017,6 +1079,111 @@
                 setsGrid.appendChild(note);
             }
         });
+    })();
+    </script>
+
+    <script>
+    // Art: collages from data/art.json. Data is only written with textContent,
+    // and image URLs must be relative or https.
+    (function () {
+        var EMAIL = 'jgerms20@gmail.com';
+        var grid = document.getElementById('artGrid');
+        var box = document.getElementById('artLightbox');
+        var boxImg = document.getElementById('artLbImg');
+        var boxCap = document.getElementById('artLbTitle');
+        var opener = null;
+        if (!grid) return;
+        function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+        function str(v) { return typeof v === 'string' ? v.trim() : ''; }
+        function artUrl(v) {
+            v = str(v); if (!v) return '';
+            if (/^[a-z][a-z0-9+.-]*:/i.test(v) || v.indexOf('//') === 0) {
+                try { var u = new URL(v, location.href); return u.protocol === 'https:' ? u.href : ''; } catch (e) { return ''; }
+            }
+            return /^[\w\-./]+$/.test(v) && v.indexOf('..') === -1 ? v : '';
+        }
+        function mail(subject) { return 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject); }
+
+        function openFull(piece, trigger) {
+            if (!box || typeof box.showModal !== 'function') { location.href = piece.full; return; }
+            opener = trigger;
+            boxImg.removeAttribute('src');
+            boxImg.alt = piece.alt;
+            boxImg.src = piece.full;
+            boxCap.textContent = piece.title;
+            if (piece.medium) boxCap.appendChild(el('span', null, piece.medium));
+            box.showModal();
+            document.body.classList.add('lock');
+            document.getElementById('artLbClose').focus({ preventScroll: true });
+        }
+        if (box) {
+            document.getElementById('artLbClose').addEventListener('click', function () { box.close(); });
+            // Click on the dimmed backdrop (outside the picture and caption) closes it
+            box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+            box.addEventListener('close', function () {
+                document.body.classList.remove('lock');
+                if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
+                opener = null;
+            });
+        }
+
+        function artCard(p) {
+            var title = str(p.title) || 'Untitled';
+            var medium = str(p.medium);
+            var thumb = artUrl(p.thumb) || artUrl(p.image);
+            var full = artUrl(p.image) || thumb;
+            var card = el('article', 'art-piece rv in');
+            if (thumb) {
+                var frame = el('button', 'art-frame');
+                frame.type = 'button';
+                frame.setAttribute('aria-label', 'View ' + title + ' full size');
+                var img = el('img');
+                var size = Array.isArray(p.thumb_size) ? p.thumb_size : [];
+                if (size[0] > 0 && size[1] > 0) { img.width = size[0]; img.height = size[1]; }
+                img.alt = title + ', collage of newsprint and ads on board';
+                img.loading = 'lazy'; img.decoding = 'async'; img.src = thumb;
+                frame.appendChild(img);
+                var piece = { title: title, medium: medium, full: full, alt: img.alt };
+                frame.addEventListener('click', function () { openFull(piece, frame); });
+                card.appendChild(frame);
+            }
+            var body = el('div', 'art-body');
+            body.appendChild(el('h3', 'art-title', title));
+            if (medium) body.appendChild(el('p', 'art-medium', medium));
+            if (str(p.blurb)) body.appendChild(el('p', 'art-blurb', str(p.blurb)));
+            var buy = el('div', 'art-buy');
+            var btn = el('a', 'book-btn');
+            if (p.for_sale === true && typeof p.price === 'number' && p.price > 0) {
+                buy.appendChild(el('span', 'book-price', '$' + p.price));
+                btn.textContent = 'Request it';
+                btn.href = mail('Art order: ' + title);
+            } else {
+                buy.appendChild(el('span', 'art-status', 'Original'));
+                btn.textContent = 'Inquire about this piece';
+                btn.className += ' is-quiet';
+                btn.href = mail('Art inquiry: ' + title);
+            }
+            buy.appendChild(btn);
+            body.appendChild(buy);
+            card.appendChild(body);
+            return card;
+        }
+
+        fetch('data/art.json', { cache: 'no-cache' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .catch(function () { return null; })
+            .then(function (data) {
+                var pieces = data && Array.isArray(data.pieces) ? data.pieces.filter(function (p) { return p && typeof p === 'object' && str(p.title); }) : [];
+                grid.textContent = '';
+                if (!pieces.length) {
+                    var note = el('p', 'books-note', 'The collages are on their way back up. ');
+                    var a = el('a', null, 'Email me'); a.href = mail('Art inquiry'); note.appendChild(a);
+                    note.appendChild(document.createTextNode(' to ask about a piece.'));
+                    grid.appendChild(note);
+                    return;
+                }
+                pieces.forEach(function (p) { grid.appendChild(artCard(p)); });
+            });
     })();
     </script>
 <script src="assets/media.js" defer></script>
