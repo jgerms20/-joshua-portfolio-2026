@@ -1,6 +1,6 @@
 {
   "show": "curious-creative",
-  "updated": "2026-11-02T21:57:55Z",
+  "updated": "2026-11-03T07:18:32Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "033ze48fmi1cTvj2M7Pb6M",
   "episodes": [
@@ -8,9 +8,17 @@
       "title": "#004 The Only Living Pickpocket in New York",
       "date": "2026-10-20",
       "url": "https://open.spotify.com/episode/5MP6BACDwM6OvAtZKDkS0g",
-      "description": "",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab1fcf06bc301c86a4f9850dc",
+      "description": "Fresh out of the theater, Joshua and Janel share their thoughts on The Only Living Pickpocket in New York . They get into the film, its cast, and the role New York plays in the story. Stay curious. Stay creative.",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1792478029932-8cbaf3aac66.jpg",
       "duration": "29 min"
+    },
+    {
+      "title": "#003: Your Mother, Your Mother, Your Mother",
+      "date": "2026-10-18",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/003-Your-Mother--Your-Mother--Your-Mother-e3qltej",
+      "description": "What happens when faith, family, and survival collide? Janel and Joshua unpack Your Mother, Your Mother, Your Mother , a Mahershala Ali-led thriller that blends action, religion, and the complicated realities of parenthood. From Black…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1792289847121-5901ccaa254d2.jpg",
+      "duration": "1 hr 12 min"
     },
     {
       "title": "#003: Your Mother, Your Mother, Your Mother",
@@ -23,10 +31,26 @@
     {
       "title": "#002 Obsession, Backrooms & Hollywood's New Era",
       "date": "2026-07-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/002-Obsession--Backrooms--Hollywoods-New-Era-e3mdtir",
+      "description": "Is Hollywood entering a new golden age, or witnessing the end of an era? Recorded in June and August 2026, Janel and Joshua explore an industry in transition, from shifting power dynamics to a new generation of filmmakers. Through…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1792290014878-9530ca118139c.jpg",
+      "duration": "50 min"
+    },
+    {
+      "title": "#002 Obsession, Backrooms & Hollywood's New Era",
+      "date": "2026-07-22",
       "url": "https://open.spotify.com/episode/1c29WyilCTFCyjUvtJkWWl",
       "description": "",
       "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a52ec51bd5f694dd10750804e",
       "duration": "50 min"
+    },
+    {
+      "title": "#001: Alone... Together",
+      "date": "2026-07-16",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/001-Alone----Together-e3m62md",
+      "description": "Welcome to the first episode of the Curious & Creative podcast! Recorded in 2025, this inaugural conversation introduces Janel Moore and Joshua German through one of the defining tensions of modern life: we have more ways to connect than…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1792308669413-20250a8541f46.jpg",
+      "duration": "58 min"
     }
   ]
 }

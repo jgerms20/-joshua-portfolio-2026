@@ -71,9 +71,387 @@
       "rewatch": false,
       "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb",
       "url": "https://letterboxd.com/jgerms/film/disclosure-day/"
+    },
+    {
+      "title": "The Drama",
+      "year": "2026",
+      "rating": 3.5,
+      "watched": "2026-05-06",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5",
+      "url": "https://letterboxd.com/jgerms/film/the-drama/1/"
+    },
+    {
+      "title": "Speed Racer",
+      "year": "2008",
+      "rating": 5.0,
+      "watched": "2026-04-21",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/8/0/1/8/48018-speed-racer-0-600-0-900-crop.jpg?v=35fe09fa1e",
+      "url": "https://letterboxd.com/jgerms/film/speed-racer/"
+    },
+    {
+      "title": "The Empire Strikes Back",
+      "year": "1980",
+      "rating": 3.0,
+      "watched": "2026-04-17",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/mp/pz/lf/2i/7BuH8itoSrLExs2YZSsM01Qk2no-0-600-0-900-crop.jpg?v=27c6c6fba7",
+      "url": "https://letterboxd.com/jgerms/film/the-empire-strikes-back/"
+    },
+    {
+      "title": "Mother Mary",
+      "year": "2026",
+      "rating": 3.0,
+      "watched": "2026-04-17",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4",
+      "url": "https://letterboxd.com/jgerms/film/mother-mary-2026/"
+    },
+    {
+      "title": "Star Wars",
+      "year": "1977",
+      "rating": 5.0,
+      "watched": "2026-04-12",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/2/7/0/6/2706-star-wars-0-600-0-900-crop.jpg?v=f1f1271bf5",
+      "url": "https://letterboxd.com/jgerms/film/star-wars/"
+    },
+    {
+      "title": "The Christophers",
+      "year": "2025",
+      "rating": 3.0,
+      "watched": "2026-04-12",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/2/8/3/6/8/4/1283684-the-christophers-0-600-0-900-crop.jpg?v=4269379fb4",
+      "url": "https://letterboxd.com/jgerms/film/the-christophers/"
+    },
+    {
+      "title": "You, Me & Tuscany",
+      "year": "2026",
+      "rating": 1.0,
+      "watched": "2026-04-09",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/3/3/2/2/7/6/1332276-you-me-tuscany-0-600-0-900-crop.jpg?v=37c2adcef0",
+      "url": "https://letterboxd.com/jgerms/film/you-me-tuscany/"
+    },
+    {
+      "title": "Wasteman",
+      "year": "2025",
+      "rating": 4.5,
+      "watched": "2026-04-07",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/8/9/0/6/1/1189061-wasteman-0-600-0-900-crop.jpg?v=39e5fcc3ac",
+      "url": "https://letterboxd.com/jgerms/film/wasteman/"
+    },
+    {
+      "title": "The Drama",
+      "year": "2026",
+      "rating": 3.0,
+      "watched": "2026-04-02",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5",
+      "url": "https://letterboxd.com/jgerms/film/the-drama/"
+    },
+    {
+      "title": "Reservoir Dogs",
+      "year": "1992",
+      "rating": 4.0,
+      "watched": "2026-01-13",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/u0/4o/op/yx/g7spS2Y4SZoQoC6Hn7zoqEqdYqR-0-600-0-900-crop.jpg?v=6d1aaa720c",
+      "url": "https://letterboxd.com/jgerms/film/reservoir-dogs/"
+    },
+    {
+      "title": "Stranger Things 5: The Finale",
+      "year": "2025",
+      "rating": 4.5,
+      "watched": "2026-01-03",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/4/4/0/3/3/4/1440334-stranger-things-5-the-finale-0-600-0-900-crop.jpg?v=b9fef563bd",
+      "url": "https://letterboxd.com/jgerms/film/stranger-things-5-the-finale/"
+    },
+    {
+      "title": "Last Holiday",
+      "year": "2006",
+      "rating": 4.0,
+      "watched": "2025-12-23",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/1/0/3/6/41036-last-holiday-0-600-0-900-crop.jpg?v=4540251966",
+      "url": "https://letterboxd.com/jgerms/film/last-holiday/"
+    },
+    {
+      "title": "Marty Supreme",
+      "year": "2025",
+      "rating": 5.0,
+      "watched": "2025-12-18",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/9/7/4/9/9/1197499-marty-supreme-0-600-0-900-crop.jpg?v=b14a26bb43",
+      "url": "https://letterboxd.com/jgerms/film/marty-supreme/"
+    },
+    {
+      "title": "Babylon",
+      "year": "2022",
+      "rating": 5.0,
+      "watched": "2025-10-07",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/5/4/2/7/7/3/542773-babylon-0-600-0-900-crop.jpg?v=aab2f01937",
+      "url": "https://letterboxd.com/jgerms/film/babylon-2022/1/"
+    },
+    {
+      "title": "HIM",
+      "year": "2025",
+      "rating": 1.5,
+      "watched": "2025-09-18",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/8/8/7/9/5/6/887956-him-2025-0-600-0-900-crop.jpg?v=c0d69b5b2d",
+      "url": "https://letterboxd.com/jgerms/film/him-2025/"
+    },
+    {
+      "title": "Twinless",
+      "year": "2025",
+      "rating": 4.0,
+      "watched": "2025-09-16",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/2/8/1/1/6/1128116-twinless-0-600-0-900-crop.jpg?v=685774222b",
+      "url": "https://letterboxd.com/jgerms/film/twinless/"
+    },
+    {
+      "title": "The Long Walk",
+      "year": "2025",
+      "rating": 2.0,
+      "watched": "2025-09-12",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/5/3/1/3/1/6/531316-the-long-walk-2025-0-600-0-900-crop.jpg?v=9cf0c245aa",
+      "url": "https://letterboxd.com/jgerms/film/the-long-walk-2025/"
+    },
+    {
+      "title": "Caught Stealing",
+      "year": "2025",
+      "rating": 3.5,
+      "watched": "2025-08-29",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/2/9/1/9/9/1129199-caught-stealing-0-600-0-900-crop.jpg?v=d3b8da3722",
+      "url": "https://letterboxd.com/jgerms/film/caught-stealing/"
+    },
+    {
+      "title": "Highest 2 Lowest",
+      "year": "2025",
+      "rating": 2.0,
+      "watched": "2025-08-21",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/2/5/0/3/1/1125031-highest-2-lowest-0-600-0-900-crop.jpg?v=4bac6efe11",
+      "url": "https://letterboxd.com/jgerms/film/highest-2-lowest/"
+    },
+    {
+      "title": "Freakier Friday",
+      "year": "2025",
+      "rating": 3.5,
+      "watched": "2025-08-12",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/1/3/8/6/7/1013867-freakier-friday-0-600-0-900-crop.jpg?v=9956bf7519",
+      "url": "https://letterboxd.com/jgerms/film/freakier-friday/"
+    },
+    {
+      "title": "Superman",
+      "year": "2025",
+      "rating": 3.0,
+      "watched": "2025-07-23",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/5/7/0/5/0/957050-superman-2025-0-600-0-900-crop.jpg?v=54e41a55ff",
+      "url": "https://letterboxd.com/jgerms/film/superman-2025/1/"
+    },
+    {
+      "title": "Eddington",
+      "year": "2025",
+      "rating": 3.0,
+      "watched": "2025-07-23",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/5/7/4/5/9/5/574595-eddington-0-600-0-900-crop.jpg?v=925abc6d9b",
+      "url": "https://letterboxd.com/jgerms/film/eddington/"
+    },
+    {
+      "title": "Superman",
+      "year": "2025",
+      "rating": 2.0,
+      "watched": "2025-07-10",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/5/7/0/5/0/957050-superman-2025-0-600-0-900-crop.jpg?v=54e41a55ff",
+      "url": "https://letterboxd.com/jgerms/film/superman-2025/"
+    },
+    {
+      "title": "Elio",
+      "year": "2025",
+      "rating": 3.5,
+      "watched": "2025-07-07",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/2/1/5/7/5/921575-elio-0-600-0-900-crop.jpg?v=d3f4e92f5e",
+      "url": "https://letterboxd.com/jgerms/film/elio/"
+    },
+    {
+      "title": "The Insider",
+      "year": "1999",
+      "rating": 4.5,
+      "watched": "2025-07-07",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/l7/vs/7t/qj/sYQsmMl4oG56NtFaNkDxuJhhODa-0-600-0-900-crop.jpg?v=2ee2c41378",
+      "url": "https://letterboxd.com/jgerms/film/the-insider/"
+    },
+    {
+      "title": "Hurry Up Tomorrow",
+      "year": "2025",
+      "rating": 2.0,
+      "watched": "2025-05-20",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/8/5/4/4/6/985446-hurry-up-tomorrow-0-600-0-900-crop.jpg?v=7f40052bcd",
+      "url": "https://letterboxd.com/jgerms/film/hurry-up-tomorrow/"
+    },
+    {
+      "title": "Top Gun: Maverick",
+      "year": "2022",
+      "rating": 3.5,
+      "watched": "2025-02-27",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/2/9/3/4/6/5/293465-top-gun-maverick-0-600-0-900-crop.jpg?v=9f8af0f61b",
+      "url": "https://letterboxd.com/jgerms/film/top-gun-maverick/"
+    },
+    {
+      "title": "Moonlight",
+      "year": "2016",
+      "rating": 5.0,
+      "watched": "2025-02-27",
+      "rewatch": true,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/90/gn/c7/9k/qAwFbszz0kRyTuXmMeKQZCX3Q2O-0-600-0-900-crop.jpg?v=192bde15c6",
+      "url": "https://letterboxd.com/jgerms/film/moonlight-2016/"
+    },
+    {
+      "title": "Better Man",
+      "year": "2024",
+      "rating": 4.5,
+      "watched": "2025-01-14",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/7/1/7/4/7/1/717471-better-man-2024-0-600-0-900-crop.jpg?v=e2168b52aa",
+      "url": "https://letterboxd.com/jgerms/film/better-man-2024/"
+    },
+    {
+      "title": "The Brutalist",
+      "year": "2024",
+      "rating": 4.0,
+      "watched": "2024-12-27",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/7/8/4/2/8/478428-the-brutalist-0-600-0-900-crop.jpg?v=2f8cae2ea5",
+      "url": "https://letterboxd.com/jgerms/film/the-brutalist/"
+    },
+    {
+      "title": "A Complete Unknown",
+      "year": "2024",
+      "rating": 4.5,
+      "watched": "2024-12-25",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/5/8/6/5/8/3/586583-a-complete-unknown-0-600-0-900-crop.jpg?v=f14ab6ecf6",
+      "url": "https://letterboxd.com/jgerms/film/a-complete-unknown/"
+    },
+    {
+      "title": "Nickel Boys",
+      "year": "2024",
+      "rating": 5.0,
+      "watched": "2024-12-22",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/2/6/5/8/9/926589-nickel-boys-0-600-0-900-crop.jpg?v=c90912e607",
+      "url": "https://letterboxd.com/jgerms/film/nickel-boys/"
+    },
+    {
+      "title": "Heretic",
+      "year": "2024",
+      "rating": 2.5,
+      "watched": "2024-11-11",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/2/5/3/3/1/1025331-heretic-2024-0-600-0-900-crop.jpg?v=c79c5c8121",
+      "url": "https://letterboxd.com/jgerms/film/heretic-2024/"
+    },
+    {
+      "title": "Dìdi (弟弟)",
+      "year": "2024",
+      "rating": 4.5,
+      "watched": "2024-09-01",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/4/5/1/1/5/1045115-didi--0-600-0-900-crop.jpg?v=e65b2443a7",
+      "url": "https://letterboxd.com/jgerms/film/didi-2024/"
+    },
+    {
+      "title": "Alien: Romulus",
+      "year": "2024",
+      "rating": 4.5,
+      "watched": "2024-08-20",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/8/5/0/4/5/9/850459-alien-romulus-0-600-0-900-crop.jpg?v=acabb7fd83",
+      "url": "https://letterboxd.com/jgerms/film/alien-romulus/"
+    },
+    {
+      "title": "Trap",
+      "year": "2024",
+      "rating": 0.5,
+      "watched": "2024-08-04",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/3/1/1/6/4/931164-trap-0-600-0-900-crop.jpg?v=23298a998e",
+      "url": "https://letterboxd.com/jgerms/film/trap-2024/"
+    },
+    {
+      "title": "Deadpool & Wolverine",
+      "year": "2024",
+      "rating": 2.0,
+      "watched": "2024-07-30",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/6/2/8/7/0/462870-deadpool-wolverine-0-600-0-900-crop.jpg?v=1aa778d2c6",
+      "url": "https://letterboxd.com/jgerms/film/deadpool-wolverine/"
+    },
+    {
+      "title": "MaXXXine",
+      "year": "2024",
+      "rating": 2.0,
+      "watched": "2024-07-24",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/2/2/8/5/8/922858-maxxxine-0-600-0-900-crop.jpg?v=a0fd94e61f",
+      "url": "https://letterboxd.com/jgerms/film/maxxxine/"
+    },
+    {
+      "title": "Fly Me to the Moon",
+      "year": "2024",
+      "rating": 2.0,
+      "watched": "2024-07-15",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/8/6/1/0/3/9/861039-fly-me-to-the-moon-0-600-0-900-crop.jpg?v=9ee3295246",
+      "url": "https://letterboxd.com/jgerms/film/fly-me-to-the-moon-2024/"
+    },
+    {
+      "title": "Twister",
+      "year": "1996",
+      "rating": 3.0,
+      "watched": "2024-07-09",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/4/6/0/51460-twister-0-600-0-900-crop.jpg?v=fb3e6b239c",
+      "url": "https://letterboxd.com/jgerms/film/twister/"
+    },
+    {
+      "title": "Beverly Hills Cop",
+      "year": "1984",
+      "rating": 4.5,
+      "watched": "2024-07-04",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/7h/a5/tr/ae/s7n0rS2Ff85SuSpqYG3ndkmdQf4-0-600-0-900-crop.jpg?v=dd6901d827",
+      "url": "https://letterboxd.com/jgerms/film/beverly-hills-cop/"
+    },
+    {
+      "title": "Inside Out 2",
+      "year": "2024",
+      "rating": 4.5,
+      "watched": "2024-07-04",
+      "rewatch": false,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/2/1/5/7/8/921578-inside-out-2-0-600-0-900-crop.jpg?v=efa25e5cca",
+      "url": "https://letterboxd.com/jgerms/film/inside-out-2-2024/"
     }
   ],
   "reading": [],
   "read": [],
-  "updated": "2026-10-30T06:32:48Z"
+  "updated": "2026-11-03T07:18:33Z"
 }
