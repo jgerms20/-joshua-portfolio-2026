@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-03T07:00:17Z",
+  "generated_at": "2026-11-03T15:21:58Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-10-20",
       "count": 4
+    },
+    {
+      "key": "abolitionist",
+      "name": "Aspiring Abolitionist",
+      "short": "Aspiring Abolitionist",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Janel Moore"
+      ],
+      "tagline": "Politics, policy, and culture from an abolitionist lens.",
+      "about": "The political, social, and cultural moments shaping our world — from HUD policy to the 2025 Inauguration.",
+      "url": "https://open.spotify.com/show/7natfWFnBgakjLLZcEDZaw",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/6760199/6760199-1737450635481-ed92e7f5a89ad.jpg",
+      "latest": "2026-11-03",
+      "count": 14
     },
     {
       "key": "brazil",
@@ -479,25 +495,9 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
-    },
-    {
-      "key": "abolitionist",
-      "name": "Aspiring Abolitionist",
-      "short": "Aspiring Abolitionist",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Janel Moore"
-      ],
-      "tagline": "Politics, policy, and culture from an abolitionist lens.",
-      "about": "The political, social, and cultural moments shaping our world — from HUD policy to the 2025 Inauguration.",
-      "url": "https://open.spotify.com/show/7natfWFnBgakjLLZcEDZaw",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/6760199/6760199-1737450635481-ed92e7f5a89ad.jpg",
-      "latest": "2025-01-21",
-      "count": 13
     },
     {
       "key": "dominate",
@@ -519,6 +519,15 @@
     }
   ],
   "latest": [
+    {
+      "show": "abolitionist",
+      "show_name": "Aspiring Abolitionist",
+      "kind": "episode",
+      "title": "Election Eve 2026: The Races I’m Watching",
+      "date": "2026-11-03",
+      "url": "https://podcasters.spotify.com/pod/show/janel-moore/episodes/Election-Eve-2026-The-Races-Im-Watching-e3rkuu5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/6760199/6760199-1793685134721-1e64ac6ab40b1.jpg"
+    },
     {
       "show": "brazil",
       "show_name": "God is Brazilian",
@@ -617,15 +626,6 @@
       "date": "2026-11-02",
       "url": "https://open.spotify.com/episode/1oNxTIXTf6SYNZbaxg5nE2",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107171/47107171-1793623013621-a0e9e9c7e6288.jpg"
-    },
-    {
-      "show": "optionsdesk",
-      "show_name": "The Options Desk",
-      "kind": "episode",
-      "title": "Monday, November 2, 2026",
-      "date": "2026-11-02",
-      "url": "https://open.spotify.com/episode/2aNVutj8HvWzKSxWP5ozNP",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107161/47107161-1793622695376-aaf46eee6f64f.jpg"
     }
   ]
 }
