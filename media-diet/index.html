@@ -137,7 +137,7 @@
         /* =====================================================
            Masthead
            ===================================================== */
-        .hero { position: relative; padding: clamp(40px, 6vw, 88px) 0 clamp(28px, 4vw, 48px); }
+        .hero { position: relative; padding: clamp(36px, 4.6vw, 64px) 0 clamp(28px, 3.4vw, 44px); }
         .hero::before {
             content: ''; position: absolute; top: -10%; left: -10%; width: 60%; height: 100%; pointer-events: none;
             background: radial-gradient(closest-side, var(--blue-wash), transparent);
@@ -163,14 +163,14 @@
         .lede em { font-family: var(--serif); font-size: 1.08em; color: var(--ink); }
 
         /* Latest three, fanned like a stack on the nightstand */
-        .stack { position: relative; height: clamp(200px, 22vw, 290px); justify-self: end; width: min(100%, 360px); }
+        .stack { position: relative; height: clamp(200px, 19vw, 250px); justify-self: end; width: min(100%, 360px); }
         .stack-item { position: absolute; bottom: 0; width: 46%; aspect-ratio: 2 / 3; border-radius: 4px; overflow: hidden; background: var(--paper-dim); box-shadow: var(--shadow); transition: transform 0.5s var(--exp); }
         .stack-item:nth-child(1) { left: 0; transform: rotate(-7deg) translateY(4px); z-index: 1; }
         .stack-item:nth-child(2) { left: 27%; transform: rotate(2deg) translateY(-14px); z-index: 2; }
         .stack-item:nth-child(3) { left: 54%; transform: rotate(8deg) translateY(2px); z-index: 1; }
         @media (hover: hover) { a.stack-item:hover { transform: rotate(0) translateY(-22px); z-index: 3; } }
         .stack img, .stack .tile { width: 100%; height: 100%; object-fit: cover; }
-        .stack-cap { position: absolute; right: 0; top: -6px; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
+        .stack-cap { position: absolute; right: 0; bottom: -30px; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
 
         /* =====================================================
            Shelves: tabs
@@ -366,7 +366,7 @@
         }
         @media (max-width: 860px) {
             .hero-grid { grid-template-columns: minmax(0, 1fr); }
-            .stack { justify-self: start; width: min(100%, 300px); height: 200px; margin-top: var(--s2); }
+            .stack { justify-self: start; width: min(100%, 300px); height: 200px; margin: var(--s2) 0 var(--s3); }
             .selects { margin-left: 0; width: 100%; }
             .search { max-width: none; flex-basis: 100%; }
         }
@@ -383,8 +383,9 @@
             .name { font-size: 0.86rem; }
             .by { font-size: 0.74rem; }
             .stars { font-size: 0.68rem; letter-spacing: 0; }
-            .rw span { display: none; }
-            .when { font-size: 0.5rem; letter-spacing: 0.08em; }
+            .rw span, .wv { display: none; }
+            .stack { display: none !important; }
+            .when { font-size: 0.5rem; letter-spacing: 0.08em; white-space: normal; }
             .card--listen { grid-template-columns: 84px minmax(0, 1fr); gap: 14px; padding: 14px; }
             .card--listen .name { font-size: 1.02rem; }
             .empty { grid-template-columns: minmax(0, 1fr); }
@@ -438,7 +439,7 @@
                     <h1 class="masthead rise d1">Media <em>Diet</em></h1>
                     <p class="lede rise d2">Inputs become outputs. Every film I log, every book on the nightstand, and the podcasts, articles and records I can&rsquo;t stop talking about. <em>Flip through.</em></p>
                 </div>
-                <div class="stack rise d3" id="stack" aria-label="Most recent" hidden></div>
+                <div class="stack rise d3" id="stack" role="group" aria-label="Most recent" hidden></div>
             </div>
         </section>
 
@@ -805,8 +806,13 @@
             }
             a.appendChild(meta);
             a.appendChild(el('span', 'name', f.title));
-            var when = [f.year, f.date ? 'Watched ' + fmtDate(f.date, false) + ' ’' + f.date.slice(2, 4) : ''].filter(Boolean).join(' · ');
-            a.appendChild(el('span', 'when', when));
+            var when = el('span', 'when', f.year);
+            if (f.date) {
+                if (f.year) when.appendChild(document.createTextNode(' · '));
+                when.appendChild(el('span', 'wv', 'Watched '));
+                when.appendChild(document.createTextNode(fmtDate(f.date, false) + ' ’' + f.date.slice(2, 4)));
+            }
+            a.appendChild(when);
             return a;
         }
         function bookCard(b) {
