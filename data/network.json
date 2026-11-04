@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-04T01:30:34Z",
+  "generated_at": "2026-11-04T18:05:56Z",
   "shows": [
     {
       "key": "ccpod",
@@ -36,22 +36,6 @@
       "count": 4
     },
     {
-      "key": "dominatedconvo",
-      "name": "Dominated the Conversation",
-      "short": "Dominated the Conversation",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
-      "latest": "2026-11-03",
-      "count": 4
-    },
-    {
       "key": "celticsdaily",
       "name": "Celtics Daily",
       "short": "Celtics Daily",
@@ -68,22 +52,6 @@
       "count": 5
     },
     {
-      "key": "nyread",
-      "name": "The New York Read",
-      "short": "The New York Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
-      "latest": "2026-11-03",
-      "count": 6
-    },
-    {
       "key": "waiverwire",
       "name": "The Waiver Wire",
       "short": "The Waiver Wire",
@@ -95,7 +63,7 @@
       "tagline": "",
       "about": "",
       "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793639616697-5aab21d8fe841.jpg",
       "latest": "2026-11-03",
       "count": 2
     },
@@ -340,6 +308,22 @@
       "count": 31
     },
     {
+      "key": "dominatedconvo",
+      "name": "Dominated the Conversation",
+      "short": "Dominated the Conversation",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
+      "latest": "2026-11-02",
+      "count": 3
+    },
+    {
       "key": "designdigest",
       "name": "The Design Digest",
       "short": "The Design Digest",
@@ -386,6 +370,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
       "latest": "2026-11-02",
       "count": 2
+    },
+    {
+      "key": "nyread",
+      "name": "The New York Read",
+      "short": "The New York Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
+      "latest": "2026-11-02",
+      "count": 5
     },
     {
       "key": "fastbreak",
@@ -529,15 +529,6 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115008/47115008-1793739567897-4e9b0617f1f7b.jpg"
     },
     {
-      "show": "dominatedconvo",
-      "show_name": "Dominated the Conversation",
-      "kind": "episode",
-      "title": "LeBron James Took a Sip of a Fan's Wine Mid-Game | Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/7xhqXGnM2mwm2RgLtarUDq",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1793740125932-3cf1749e187e2.jpg"
-    },
-    {
       "show": "celticsdaily",
       "show_name": "Celtics Daily",
       "kind": "episode",
@@ -545,15 +536,6 @@
       "date": "2026-11-03",
       "url": "https://open.spotify.com/episode/1KOc1rCkyBzsutYvG0zChU",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1793739116906-0b0efa7aba0ee.jpg"
-    },
-    {
-      "show": "nyread",
-      "show_name": "The New York Read",
-      "kind": "episode",
-      "title": "Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/6Hi5y21M9E3yLZb6rvd6UJ",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1793738620234-b70dfdf650b65.jpg"
     },
     {
       "show": "waiverwire",
@@ -589,7 +571,7 @@
       "title": "Tuesday, November 3, 2026",
       "date": "2026-11-03",
       "url": "https://open.spotify.com/episode/5AcyPw7zFX6B6PHm3hk1t4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107171/47107171-1793725385137-896a825e76f9.jpg"
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107171/47107171-1793808871918-d896545f36265.jpg"
     },
     {
       "show": "optionsdesk",
@@ -626,6 +608,24 @@
       "date": "2026-11-03",
       "url": "https://open.spotify.com/episode/3GzvtT1kYfZVHdJXpqWZ4Z",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793725056475-5063d9f95f6bf.jpg"
+    },
+    {
+      "show": "coltsdaily",
+      "show_name": "Colts Daily",
+      "kind": "episode",
+      "title": "Jones Keeps the Job, For Right Now: Steichen Sticks With His QB, Indianapolis Is 2-6 | Tuesday, November 3, 2026",
+      "date": "2026-11-03",
+      "url": "https://open.spotify.com/episode/6Orxpxs8s1PjuewKm6Mvdy",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107277/47107277-1793809215082-0e15ba33151e.jpg"
+    },
+    {
+      "show": "tvinsider",
+      "show_name": "The TV Insider",
+      "kind": "episode",
+      "title": "HBO Renews Sharon Horgan's 'Youth' for Season 2 One Day After the Finale | Tuesday, November 3, 2026",
+      "date": "2026-11-03",
+      "url": "https://open.spotify.com/episode/16N2VnFJ2Z9cjaU1RtHuA4",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1793724894328-52e64f9cbac7f.jpg"
     }
   ]
 }

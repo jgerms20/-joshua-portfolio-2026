@@ -1,9 +1,17 @@
 {
   "show": "curious-creative",
-  "updated": "2026-11-03T07:18:32Z",
+  "updated": "2026-11-04T20:06:20Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "033ze48fmi1cTvj2M7Pb6M",
   "episodes": [
+    {
+      "title": "#004 The Only Living Pickpocket in New York",
+      "date": "2026-10-20",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/004-The-Only-Living-Pickpocket-in-New-York-e3qpf3g",
+      "description": "Fresh out of the theater, Joshua and Janel share their thoughts on The Only Living Pickpocket in New York . They get into the film, its cast, and the role New York plays in the story. Stay curious. Stay creative.",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1792478029932-8cbaf3aac66.jpg",
+      "duration": "29 min"
+    },
     {
       "title": "#004 The Only Living Pickpocket in New York",
       "date": "2026-10-20",
