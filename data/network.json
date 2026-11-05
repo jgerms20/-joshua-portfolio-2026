@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-05T07:02:00Z",
+  "generated_at": "2026-11-05T15:38:40Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,38 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
+    },
+    {
+      "key": "fastbreak",
+      "name": "The Fast Break",
+      "short": "The Fast Break",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
+      "latest": "2026-11-05",
+      "count": 8
+    },
+    {
+      "key": "cfbdaily",
+      "name": "College Football Daily",
+      "short": "College Football Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
+      "latest": "2026-11-05",
+      "count": 8
     },
     {
       "key": "techread",
@@ -228,22 +260,6 @@
       "count": 4
     },
     {
-      "key": "cfbdaily",
-      "name": "College Football Daily",
-      "short": "College Football Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
-      "latest": "2026-11-03",
-      "count": 7
-    },
-    {
       "key": "coltsdaily",
       "name": "Colts Daily",
       "short": "Colts Daily",
@@ -388,22 +404,6 @@
       "count": 2
     },
     {
-      "key": "fastbreak",
-      "name": "The Fast Break",
-      "short": "The Fast Break",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
-      "latest": "2026-11-02",
-      "count": 7
-    },
-    {
       "key": "cbbdaily",
       "name": "College Basketball Daily",
       "short": "College Basketball Daily",
@@ -520,6 +520,24 @@
   ],
   "latest": [
     {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-05",
+      "url": "https://open.spotify.com/episode/2895zpdHklI2Y4vfjIXisM",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1793863870665-932b4efa3a52d.jpg"
+    },
+    {
+      "show": "cfbdaily",
+      "show_name": "College Football Daily",
+      "kind": "episode",
+      "title": "UMass Wins a MACtion Overtime Classic on a Missed Extra Point, and Toledo Escapes Sacramento | Wednesday, November 4, 2026",
+      "date": "2026-11-05",
+      "url": "https://open.spotify.com/episode/2puCAK9dXFdLZLxA0hvsUR",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1793862784758-09e079463ba42.jpg"
+    },
+    {
       "show": "techread",
       "show_name": "The Tech Read",
       "kind": "episode",
@@ -608,24 +626,6 @@
       "date": "2026-11-04",
       "url": "https://open.spotify.com/episode/4uoWiFR9ruEyKf7g0cXEoA",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793772335372-f5b0900776123.jpg"
-    },
-    {
-      "show": "ccpod",
-      "show_name": "Curious & Creative",
-      "kind": "episode",
-      "title": "#005 A Curious & Creative Weekend: October 10, 2026",
-      "date": "2026-11-04",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/005-A-Curious--Creative-Weekend-October-10--2026-e3qvthp",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793809038333-2b87a195a4eec.jpg"
-    },
-    {
-      "show": "techread",
-      "show_name": "The Tech Read",
-      "kind": "episode",
-      "title": "Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2003/episodes/Tuesday--November-3--2026-e3rmi4q",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115008/47115008-1793739567897-4e9b0617f1f7b.jpg"
     }
   ]
 }
