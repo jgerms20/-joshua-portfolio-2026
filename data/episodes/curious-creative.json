@@ -1,9 +1,25 @@
 {
   "show": "curious-creative",
-  "updated": "2026-11-04T20:06:20Z",
+  "updated": "2026-11-05T07:27:42Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "033ze48fmi1cTvj2M7Pb6M",
   "episodes": [
+    {
+      "title": "#006: Fjord",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/4uoWiFR9ruEyKf7g0cXEoA",
+      "description": "Janel and Joshua review Fjord , starring Sebastian Stan. Set in Norway, the film explores family, faith, and the cultural differences that shape our understanding of parenting, tradition, and personal freedom. Stay curious. Stay creative.",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793772335372-f5b0900776123.jpg",
+      "duration": "52 min"
+    },
+    {
+      "title": "#005 A Curious & Creative Weekend: October 10, 2026",
+      "date": "2026-11-04",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/005-A-Curious--Creative-Weekend-October-10--2026-e3qvthp",
+      "description": "Janel and Joshua switch things up with a recap of a weekend filled with movies, music, art, and everything in between. From BLACKWEEK and Digger to seeing Local Natives in Ojai, The Social Reckoning , and Yoko Ono's exhibition at The…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793809038333-2b87a195a4eec.jpg",
+      "duration": "1 hr 13 min"
+    },
     {
       "title": "#004 The Only Living Pickpocket in New York",
       "date": "2026-10-20",

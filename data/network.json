@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-04T18:05:56Z",
+  "generated_at": "2026-11-05T07:02:00Z",
   "shows": [
     {
       "key": "ccpod",
@@ -16,8 +16,8 @@
       "about": "A deep dive into the minds of artists, creators, and innovators — the ideas, decisions, and cultural moments that shape how we see (and sell) the world.",
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
-      "latest": "2026-10-20",
-      "count": 4
+      "latest": "2026-11-04",
+      "count": 6
     },
     {
       "key": "techread",
@@ -32,6 +32,150 @@
       "about": "",
       "url": "https://open.spotify.com/show/1hQp8wRwxTf0BO6OfTtdDe",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115008/47115008-1793403471813-faf390ffca731.jpg",
+      "latest": "2026-11-04",
+      "count": 5
+    },
+    {
+      "key": "nyread",
+      "name": "The New York Read",
+      "short": "The New York Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
+      "latest": "2026-11-04",
+      "count": 11
+    },
+    {
+      "key": "globalread",
+      "name": "The Global Read",
+      "short": "The Global Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
+      "key": "airead",
+      "name": "The AI Read",
+      "short": "The AI Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
+      "key": "ladaily",
+      "name": "The LA Daily",
+      "short": "The LA Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
+      "latest": "2026-11-04",
+      "count": 9
+    },
+    {
+      "key": "optionsdesk",
+      "name": "The Options Desk",
+      "short": "The Options Desk",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/5EvGemFi7cyaWysrrYXpIp",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107161/47107161-1793316392630-4f694b23fc264.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
+      "key": "cryptoread",
+      "name": "The Crypto Read",
+      "short": "The Crypto Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1OhlHYPg6qvrXoGKhc2WvQ",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107171/47107171-1793316528128-bfd222f5e9759.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
+      "key": "marketread",
+      "name": "The Market Read",
+      "short": "The Market Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
+      "key": "dominatedconvo",
+      "name": "Dominated the Conversation",
+      "short": "Dominated the Conversation",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
       "latest": "2026-11-03",
       "count": 4
     },
@@ -63,7 +207,7 @@
       "tagline": "",
       "about": "",
       "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793639616697-5aab21d8fe841.jpg",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
       "latest": "2026-11-03",
       "count": 2
     },
@@ -100,86 +244,6 @@
       "count": 7
     },
     {
-      "key": "cryptoread",
-      "name": "The Crypto Read",
-      "short": "The Crypto Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1OhlHYPg6qvrXoGKhc2WvQ",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107171/47107171-1793316528128-bfd222f5e9759.jpg",
-      "latest": "2026-11-03",
-      "count": 6
-    },
-    {
-      "key": "optionsdesk",
-      "name": "The Options Desk",
-      "short": "The Options Desk",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/5EvGemFi7cyaWysrrYXpIp",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107161/47107161-1793316392630-4f694b23fc264.jpg",
-      "latest": "2026-11-03",
-      "count": 6
-    },
-    {
-      "key": "airead",
-      "name": "The AI Read",
-      "short": "The AI Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
-      "latest": "2026-11-03",
-      "count": 6
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
-      "latest": "2026-11-03",
-      "count": 10
-    },
-    {
-      "key": "ladaily",
-      "name": "The LA Daily",
-      "short": "The LA Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
-      "latest": "2026-11-03",
-      "count": 8
-    },
-    {
       "key": "coltsdaily",
       "name": "Colts Daily",
       "short": "Colts Daily",
@@ -210,38 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
       "latest": "2026-11-03",
       "count": 5
-    },
-    {
-      "key": "marketread",
-      "name": "The Market Read",
-      "short": "The Market Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-03",
-      "count": 6
-    },
-    {
-      "key": "globalread",
-      "name": "The Global Read",
-      "short": "The Global Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-03",
-      "count": 6
     },
     {
       "key": "blitz",
@@ -308,22 +340,6 @@
       "count": 31
     },
     {
-      "key": "dominatedconvo",
-      "name": "Dominated the Conversation",
-      "short": "Dominated the Conversation",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
-      "latest": "2026-11-02",
-      "count": 3
-    },
-    {
       "key": "designdigest",
       "name": "The Design Digest",
       "short": "The Design Digest",
@@ -370,22 +386,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
       "latest": "2026-11-02",
       "count": 2
-    },
-    {
-      "key": "nyread",
-      "name": "The New York Read",
-      "short": "The New York Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
-      "latest": "2026-11-02",
-      "count": 5
     },
     {
       "key": "fastbreak",
@@ -523,109 +523,109 @@
       "show": "techread",
       "show_name": "The Tech Read",
       "kind": "episode",
-      "title": "Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/5EaoDfLCjOsChsoE7YIEfZ",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115008/47115008-1793739567897-4e9b0617f1f7b.jpg"
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/28uwbVNg6dtHLBCGWFctKo",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115008/47115008-1793830386903-bc64d0b749996.jpg"
     },
     {
-      "show": "celticsdaily",
-      "show_name": "Celtics Daily",
+      "show": "nyread",
+      "show_name": "The New York Read",
       "kind": "episode",
-      "title": "Rockets Beat the Celtics 109-93: Sengun's Near Triple-Double Ends the Streak, Boston Is 5-2 | Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/1KOc1rCkyBzsutYvG0zChU",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1793739116906-0b0efa7aba0ee.jpg"
-    },
-    {
-      "show": "waiverwire",
-      "show_name": "The Waiver Wire",
-      "kind": "episode",
-      "title": "Allgeier and Washington Take the Backfields, Mitchell Breaks Out: The Week 9 Waiver Board | Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/03ZUFSEy5YHvZwpk1wP9hm",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1793725749770-05ae80e00c905.jpg"
-    },
-    {
-      "show": "hollywoodinsider",
-      "show_name": "The Business of Hollywood",
-      "kind": "episode",
-      "title": "You Can See Everything's $11.4M Documentary Win and Godzilla's IMAX Fight | Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/0S6bn8wd3rab0Dv0HlU1ku",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105424/47105424-1793725635997-25823fd868bad.jpg"
-    },
-    {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "The Committee Speaks Tonight, and Saturday Will Test Every Word of It | Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/4dHfn8NFoC6hd6quozVuU5",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1793725410242-73e59390fa5ea.jpg"
-    },
-    {
-      "show": "cryptoread",
-      "show_name": "The Crypto Read",
-      "kind": "episode",
-      "title": "Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/5AcyPw7zFX6B6PHm3hk1t4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107171/47107171-1793808871918-d896545f36265.jpg"
-    },
-    {
-      "show": "optionsdesk",
-      "show_name": "The Options Desk",
-      "kind": "episode",
-      "title": "Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/5ol5RLxfcLHvBzlqCNlWWQ",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107161/47107161-1793725190828-3f9143146e9bd.jpg"
-    },
-    {
-      "show": "airead",
-      "show_name": "The AI Read",
-      "kind": "episode",
-      "title": "Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/4Cn8zUGhsEBWfqXUDhQzvh",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1793725066723-44b85ddf9a8d7.jpg"
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/41FB3rvQSFZ4doxAUDimlF",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1793828723562-7014ad83044a3.jpg"
     },
     {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
-      "title": "Tuesday, November 3, 2026 — AM Edition",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/4dd34qRAc2L6P0fBVBa5Cq",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1793725040755-1f2bcc1f37ee8.jpg"
+      "title": "Wednesday, November 4, 2026 — AM Edition",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/2S22WggM20c1je68uDIAN6",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1793828791182-4b3f46353ff88.jpg"
+    },
+    {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026 — AM Edition",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/5fiL5WpqNxBB85I6MInoXE",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1793828663023-04a572b5e2593.jpg"
+    },
+    {
+      "show": "airead",
+      "show_name": "The AI Read",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/2neRKtn0PTXVMeOuKxOoyt",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1793828655898-169b736c3357c.jpg"
     },
     {
       "show": "ladaily",
       "show_name": "The LA Daily",
       "kind": "episode",
-      "title": "Tuesday, November 3, 2026 — AM Edition",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/3GzvtT1kYfZVHdJXpqWZ4Z",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793725056475-5063d9f95f6bf.jpg"
+      "title": "Wednesday, November 4, 2026 — AM Edition",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/0cytPlj0VVW5hcsgkDzsJg",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793828467818-1dfcb2dc249b4.jpg"
     },
     {
-      "show": "coltsdaily",
-      "show_name": "Colts Daily",
+      "show": "optionsdesk",
+      "show_name": "The Options Desk",
       "kind": "episode",
-      "title": "Jones Keeps the Job, For Right Now: Steichen Sticks With His QB, Indianapolis Is 2-6 | Tuesday, November 3, 2026",
-      "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/6Orxpxs8s1PjuewKm6Mvdy",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107277/47107277-1793809215082-0e15ba33151e.jpg"
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/252XC2r1M3AnQqWiNQoJ7y",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107161/47107161-1793828271407-b9f5c357a1b19.jpg"
     },
     {
-      "show": "tvinsider",
-      "show_name": "The TV Insider",
+      "show": "cryptoread",
+      "show_name": "The Crypto Read",
       "kind": "episode",
-      "title": "HBO Renews Sharon Horgan's 'Youth' for Season 2 One Day After the Finale | Tuesday, November 3, 2026",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/489Rg3d9xEC8t3nXUhmmJm",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107171/47107171-1793828222203-f30a65f3c0d58.jpg"
+    },
+    {
+      "show": "marketread",
+      "show_name": "The Market Read",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/5dTxYB7ZWcl8dVyWH4o24W",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1793828192692-16c690f69d2ad.jpg"
+    },
+    {
+      "show": "ccpod",
+      "show_name": "Curious & Creative",
+      "kind": "episode",
+      "title": "#006: Fjord",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/4uoWiFR9ruEyKf7g0cXEoA",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793772335372-f5b0900776123.jpg"
+    },
+    {
+      "show": "ccpod",
+      "show_name": "Curious & Creative",
+      "kind": "episode",
+      "title": "#005 A Curious & Creative Weekend: October 10, 2026",
+      "date": "2026-11-04",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms205/episodes/005-A-Curious--Creative-Weekend-October-10--2026-e3qvthp",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793809038333-2b87a195a4eec.jpg"
+    },
+    {
+      "show": "techread",
+      "show_name": "The Tech Read",
+      "kind": "episode",
+      "title": "Tuesday, November 3, 2026",
       "date": "2026-11-03",
-      "url": "https://open.spotify.com/episode/16N2VnFJ2Z9cjaU1RtHuA4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1793724894328-52e64f9cbac7f.jpg"
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2003/episodes/Tuesday--November-3--2026-e3rmi4q",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115008/47115008-1793739567897-4e9b0617f1f7b.jpg"
     }
   ]
 }
