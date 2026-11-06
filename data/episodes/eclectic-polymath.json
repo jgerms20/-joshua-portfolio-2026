@@ -1,9 +1,17 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-04T07:00:28Z",
+  "updated": "2026-11-06T07:27:40Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#249 The Audio Century: How Audio Is Replacing Screens",
+      "date": "2026-11-01",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/249-The-Audio-Century-How-Audio-Is-Replacing-Screens-e3rgs60",
+      "description": "Two decades in, podcasting still cannot agree on what a listener is. This episode is a deep dive into the business of podcasting and the future of audio itself: where the industry stands, why it is still being formed, and where it goes…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793492549346-19396cafcbe29.jpg",
+      "duration": "49 min"
+    },
     {
       "title": "#249 The Audio Century: How Audio Is Replacing Screens",
       "date": "2026-11-01",
@@ -91,14 +99,6 @@
       "description": "They get two verses, one sentence, sometimes no name at all — and the whole story turns on them. This episode is about the Bible's secondary characters: the midwives who lie to Pharaoh before Moses is born, the wife whose quick hands save…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793209081043-b7940c6ebbc52.jpg",
       "duration": "1 hr 6 min"
-    },
-    {
-      "title": "#240 The Eras of Disney: From Snow White to Soul, and the Next Hundred Years",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/240-The-Eras-of-Disney-From-Snow-White-to-Soul--and-the-Next-Hundred-Years-e3r9dnt",
-      "description": "Ask a room of Disney fans to name the eras and you will start an argument — because every border in Disney's century is a disguised theory of what an era even is. Does the Silver Age end in 1959, when the fairy-tale style peaked, or in…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793208371002-d60da8c3a6577.jpg",
-      "duration": "47 min"
     }
   ]
 }

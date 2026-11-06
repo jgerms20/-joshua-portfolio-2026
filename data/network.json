@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-05T15:38:40Z",
+  "generated_at": "2026-11-06T06:17:06Z",
   "shows": [
     {
       "key": "ccpod",
@@ -17,6 +17,38 @@
       "url": "https://open.spotify.com/show/033ze48fmi1cTvj2M7Pb6M",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
+      "count": 6
+    },
+    {
+      "key": "blitz",
+      "name": "The Blitz",
+      "short": "The Blitz",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0GRrulRcTaVs3rSqdqJFCQ",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
+      "latest": "2026-11-06",
+      "count": 7
+    },
+    {
+      "key": "celticsdaily",
+      "name": "Celtics Daily",
+      "short": "Celtics Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
+      "latest": "2026-11-06",
       "count": 6
     },
     {
@@ -212,22 +244,6 @@
       "count": 4
     },
     {
-      "key": "celticsdaily",
-      "name": "Celtics Daily",
-      "short": "Celtics Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
-      "latest": "2026-11-03",
-      "count": 5
-    },
-    {
       "key": "waiverwire",
       "name": "The Waiver Wire",
       "short": "The Waiver Wire",
@@ -288,22 +304,6 @@
       "about": "",
       "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
-      "latest": "2026-11-03",
-      "count": 5
-    },
-    {
-      "key": "blitz",
-      "name": "The Blitz",
-      "short": "The Blitz",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0GRrulRcTaVs3rSqdqJFCQ",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
       "latest": "2026-11-03",
       "count": 5
     },
@@ -520,6 +520,33 @@
   ],
   "latest": [
     {
+      "show": "blitz",
+      "show_name": "The Blitz",
+      "kind": "episode",
+      "title": "Thursday, November 5, 2026",
+      "date": "2026-11-06",
+      "url": "https://open.spotify.com/episode/1ZasiQuuo4p8JJgNmtUJzS",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1793942045001-eb9d444640a2b.jpg"
+    },
+    {
+      "show": "celticsdaily",
+      "show_name": "Celtics Daily",
+      "kind": "episode",
+      "title": "Celtics Survive Near Collapse Against Bucks, Boston Is 6-2 | Thursday, November 5, 2026",
+      "date": "2026-11-06",
+      "url": "https://open.spotify.com/episode/7jQT0R2RSlxXCBkD2UmfCx",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1793939585894-11dc0dab3c76d.jpg"
+    },
+    {
+      "show": "blitz",
+      "show_name": "The Blitz",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-05",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms209/episodes/Wednesday--November-4--2026-e3rq1q7",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1793864707668-77fd565c49db8.jpg"
+    },
+    {
       "show": "fastbreak",
       "show_name": "The Fast Break",
       "kind": "episode",
@@ -561,7 +588,7 @@
       "kind": "episode",
       "title": "Wednesday, November 4, 2026 — AM Edition",
       "date": "2026-11-04",
-      "url": "https://open.spotify.com/episode/2S22WggM20c1je68uDIAN6",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Wednesday--November-4--2026--AM-Edition-e3rp56m",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1793828791182-4b3f46353ff88.jpg"
     },
     {
@@ -570,7 +597,7 @@
       "kind": "episode",
       "title": "Wednesday, November 4, 2026 — AM Edition",
       "date": "2026-11-04",
-      "url": "https://open.spotify.com/episode/5fiL5WpqNxBB85I6MInoXE",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Wednesday--November-4--2026--AM-Edition-e3rp4vd",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1793828663023-04a572b5e2593.jpg"
     },
     {
@@ -588,7 +615,7 @@
       "kind": "episode",
       "title": "Wednesday, November 4, 2026 — AM Edition",
       "date": "2026-11-04",
-      "url": "https://open.spotify.com/episode/0cytPlj0VVW5hcsgkDzsJg",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20487/episodes/Wednesday--November-4--2026--AM-Edition-e3rp4rp",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793828467818-1dfcb2dc249b4.jpg"
     },
     {
@@ -599,33 +626,6 @@
       "date": "2026-11-04",
       "url": "https://open.spotify.com/episode/252XC2r1M3AnQqWiNQoJ7y",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107161/47107161-1793828271407-b9f5c357a1b19.jpg"
-    },
-    {
-      "show": "cryptoread",
-      "show_name": "The Crypto Read",
-      "kind": "episode",
-      "title": "Wednesday, November 4, 2026",
-      "date": "2026-11-04",
-      "url": "https://open.spotify.com/episode/489Rg3d9xEC8t3nXUhmmJm",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107171/47107171-1793828222203-f30a65f3c0d58.jpg"
-    },
-    {
-      "show": "marketread",
-      "show_name": "The Market Read",
-      "kind": "episode",
-      "title": "Wednesday, November 4, 2026",
-      "date": "2026-11-04",
-      "url": "https://open.spotify.com/episode/5dTxYB7ZWcl8dVyWH4o24W",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1793828192692-16c690f69d2ad.jpg"
-    },
-    {
-      "show": "ccpod",
-      "show_name": "Curious & Creative",
-      "kind": "episode",
-      "title": "#006: Fjord",
-      "date": "2026-11-04",
-      "url": "https://open.spotify.com/episode/4uoWiFR9ruEyKf7g0cXEoA",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46174576/46174576-1793772335372-f5b0900776123.jpg"
     }
   ]
 }
