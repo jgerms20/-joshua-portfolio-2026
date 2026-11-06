@@ -1,9 +1,17 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-06T07:27:40Z",
+  "updated": "2026-11-06T19:43:42Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#251 Arnold Schwarzenegger: The Recall That Invented the Celebrity Candidate",
+      "date": "2026-11-06",
+      "url": "https://open.spotify.com/episode/3fL4OY3OMjL1gUeerRXcye",
+      "description": "In October 2003, California fired its governor mid-term — and replaced him with a movie star. This episode traces how the 2003 gubernatorial recall worked, who paid for it, why Gray Davis was so unpopular, and how Arnold Schwarzenegger…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793937037745-105e513b3ebf6.jpg",
+      "duration": "56 min"
+    },
     {
       "title": "#249 The Audio Century: How Audio Is Replacing Screens",
       "date": "2026-11-01",
@@ -91,14 +99,6 @@
       "description": "In his new memoir, Ari Emanuel tells the story of how Jeffrey Katzenberg got pushed out of Disney — and what got built next. In October 1994, Katzenberg, Steven Spielberg, and David Geffen announced DreamWorks SKG: the first new major…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218288807-0646eb57cc794.jpg",
       "duration": "55 min"
-    },
-    {
-      "title": "#241 The Bible's Supporting Cast: The Minor Characters Who Move the Whole Story",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/241-The-Bibles-Supporting-Cast-The-Minor-Characters-Who-Move-the-Whole-Story-e3r9jad",
-      "description": "They get two verses, one sentence, sometimes no name at all — and the whole story turns on them. This episode is about the Bible's secondary characters: the midwives who lie to Pharaoh before Moses is born, the wife whose quick hands save…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793209081043-b7940c6ebbc52.jpg",
-      "duration": "1 hr 6 min"
     }
   ]
 }
