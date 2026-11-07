@@ -57,15 +57,15 @@ class HomepageStructureTests(unittest.TestCase):
         cls.page = _Collector()
         cls.page.feed(PAGE)
 
-    def test_chapters_run_podcasts_network_brand_work_photography_ai(self):
+    def test_chapters_run_brand_work_podcasts_network_photography_ai(self):
         self.assertEqual(
             self.page.body_sections,
             [
                 "hero",
                 "about",
+                "work",
                 "podcasts",
                 "network",
-                "work",
                 "photography",
                 "ai",
                 "media-diet",
@@ -79,9 +79,9 @@ class HomepageStructureTests(unittest.TestCase):
             self.page.nav_links,
             [
                 ("#about", "About"),
+                ("#work", "Brand Work"),
                 ("#podcasts", "Podcasts"),
                 ("#network", "Curious & Creative"),
-                ("#work", "Brand Work"),
                 ("#photography", "Photography"),
                 ("#ai", "AI"),
                 ("#art", "Art"),
@@ -93,14 +93,17 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
             [
-                "#about", "#podcasts", "#network", "#work", "#photography", "#ai", "#art",
+                "#about", "#work", "#podcasts", "#network", "#photography", "#ai", "#art",
                 "shop.html", "#contact", "photography/#book",
             ],
         )
         # Chapter links carry the same numbers as the chapter heads (CH. 01-05);
         # Shop and Contact are not chapters, so they must not borrow CH. 07/08.
-        numbered = [label.split(" ", 1)[0] for _, label in self.page.mobile_links if label[:2].isdigit()]
-        self.assertEqual(numbered, ["01", "02", "03", "04", "05"])
+        numbered = [label for _, label in self.page.mobile_links if label[:2].isdigit()]
+        self.assertEqual(numbered, ["01 About", "02 Brand Work", "03 Podcasts", "04 Photography", "05 AI"])
+        for number, section in (("02", "work"), ("03", "podcasts"), ("04", "photography"), ("05", "ai")):
+            head = PAGE[PAGE.index(f'<section id="{section}"'):]
+            self.assertIn(f'<span class="ch-num">CH. {number}</span>', head[:600], section)
         # the Network band is a feature, not a numbered chapter
         network = dict(self.page.mobile_links)["#network"]
         self.assertFalse(network[:2].isdigit(), network)
@@ -128,8 +131,10 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertNotIn("startup-locked", PAGE)
         work = PAGE[PAGE.index('<section id="work"'):]
         work = work[: work.index("</section>")]
-        self.assertEqual(work.count('data-agency="independent"'), 2)  # filter + the HIIKE/U&AI group
-        self.assertIn('class="plate plate-group', work)
+        self.assertEqual(work.count('data-agency="independent"'), 3)  # filter + HIIKE + U&AI
+        self.assertEqual(work.count("plate-startup"), 2)  # their own cards, flagged as startups
+        self.assertEqual(work.count("Startup &middot; Independent"), 2)
+        self.assertNotIn("plate-group", work)
         self.assertIn("Fractional Chief Marketing Officer", work)
         self.assertIn("HIIKE", work)
         self.assertIn("U&amp;AI", work)
@@ -189,16 +194,67 @@ class HomepageStructureTests(unittest.TestCase):
     def test_metadata_leads_with_the_new_positioning(self):
         head = PAGE[: PAGE.index("</head>")]
         self.assertNotIn("| Creative Strategist</title>", head)
-        self.assertIn("<title>Joshua McKenzie German | Photographer", head)
-        self.assertIn('property="og:title" content="Joshua McKenzie German | Photographer', head)
+        lead = "Joshua McKenzie German | Creative &amp; Cultural Strategist, Photographer, Podcaster, AI Builder"
+        self.assertIn(f"<title>{lead}</title>", head)
+        self.assertIn(f'property="og:title" content="{lead}"', head)
+        hero = PAGE[PAGE.index('<section id="hero"'):]
+        roles = re.findall(r'<span class="hero-role">(.*?)</span>', hero[: hero.index("</section>")])
+        self.assertEqual(roles, ["Creative &amp; Cultural Strategist", "Photographer", "Podcaster", "AI Builder &amp; Creator"])
 
     def test_in_the_works_does_not_overclaim(self):
         self.assertNotIn("In production", PAGE)
         self.assertNotIn("in production", PAGE.lower().replace("post-production", ""))
 
-    def test_sites_chapter_is_past_tense(self):
-        self.assertIn("Sites I&rsquo;ve <span class=\"it\">Built</span>", PAGE)
-        self.assertNotIn("Sites I <span", PAGE)
+    def test_sites_chapter_is_off_for_now(self):
+        self.assertNotIn("sites-rail", PAGE)
+        self.assertNotIn("data-gate", PAGE)
+
+    def test_brand_work_leads_with_the_best_campaigns(self):
+        work = PAGE[PAGE.index('<section id="work"'):]
+        work = work[: work.index("</section>")]
+        hrefs = re.findall(r'<a href="([^"]+)" class="plate\b', work)
+        self.assertEqual(hrefs[:7], [
+            "work/work-levis.html", "work/work-gatorade.html#stranger-things", "work/work-doordash.html",
+            "work/work-dwb.html", "work/work-gatorade.html#body-of-science", "work/work-gatorade.html#lower-sugar",
+            "work/work-directv.html#like-never-seen",
+        ])
+        self.assertLess(hrefs.index("work/work-sephora.html#skincare"), hrefs.index("work/work-gatorade.html#nfl"))
+        # every campaign card shows a picture (or a brand tile), never an empty box
+        for card in re.findall(r'<a href="[^"]+" class="plate\b.*?</a>', work, re.S):
+            self.assertTrue("<img" in card or "plate-media-brand" in card, card[:120])
+
+    def test_ai_lab_leads_with_gen_alpha_then_life_gamified(self):
+        ai = PAGE[PAGE.index('<section id="ai"'):]
+        ai = ai[: ai.index("</section>")]
+        titles = re.findall(r'class="lab-title">(.*?) <svg', ai)
+        self.assertEqual(titles[:6], ["Gen Alpha Intelligence Lab", "Life Gamified", "Archive", "Veritas",
+                                      "The Man and the Machine", "Creator Search"])
+        self.assertIn('class="lab-card lab-hero', ai)
+        self.assertLess(titles.index("Creator Search"), titles.index("Dreamcatcher"))
+
+    def test_network_band_names_the_network_and_drops_god_is_brazilian(self):
+        band = PAGE[PAGE.index('<section id="network"'):]
+        band = band[: band.index("</section>")]
+        self.assertIn("The Curious &amp; Creative Network", band)
+        self.assertNotIn("brazil", band)
+        self.assertIn("network/art/dominate.jpg", band)
+
+    def test_contact_invites_collaboration(self):
+        contact = PAGE[PAGE.index('<section id="contact"'):]
+        contact = contact[: contact.index("</section>")]
+        self.assertIn("Let&rsquo;s create<br><span class=\"it\">together.</span>", contact)
+        self.assertIn("From Columbia to Los Angeles, same instinct the whole way", contact)
+        self.assertNotIn("by way of", contact)
+
+    def test_every_public_page_has_the_tab_icon(self):
+        for rel in ("index.html", "shop.html", "network/index.html", "photography/index.html",
+                    "podcasts/podcast-eclectic-polymath.html", "work/work-levis.html"):
+            page = (ROOT / rel).read_text(encoding="utf-8")
+            up = "../" * rel.count("/")
+            self.assertIn(f'<link rel="icon" href="{up}favicon.svg" type="image/svg+xml">', page, rel)
+            self.assertIn(f'<link rel="apple-touch-icon" href="{up}apple-touch-icon.png">', page, rel)
+        for asset in ("favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest"):
+            self.assertTrue((ROOT / asset).is_file(), asset)
 
 
 if __name__ == "__main__":

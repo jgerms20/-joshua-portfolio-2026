@@ -203,6 +203,16 @@ class NetworkPageTests(unittest.TestCase):
             self.assertIsNotNone(block, key)
             self.assertTrue((PAGE.parent / block.group(1)).resolve().is_file(), block.group(1))
 
+    def test_eclectic_polymath_leads_the_roster_after_the_flagship(self):
+        html = PAGE.read_text(encoding="utf-8")
+        roster = html[html.index('id="roster"'):]
+        roster = roster[: roster.index("</ul>")]
+        order = re.findall(r'<li data-show="([a-z]+)"', roster)
+        self.assertEqual(order[0], "polymath")
+        self.assertEqual(order[-1], "dominate")  # the archive closes the list
+        # the live re-sort keeps the same rule: polymath, hosted shows, AI-generated, archive
+        self.assertIn("key === 'polymath' ? 0", html)
+
     def test_script_knows_every_static_show(self):
         for key in SHOWS:
             self.assertRegex(self.script, rf"\b{key}: '#[0-9A-F]{{6}}'", f"no color for {key}")
