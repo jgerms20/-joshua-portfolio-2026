@@ -23,7 +23,7 @@
      <p>The truth about the audience the work was built on.</p>
    </aside>
    ===================================================== */
-.chm-lede { font-family: var(--serif); font-style: italic; font-size: 1.12rem; line-height: 1.45; color: var(--ink-soft); margin: 0 0 18px; }
+.chm-lede, .cs-body .chm-lede { font-family: var(--serif); font-style: italic; font-size: 1.12rem; line-height: 1.45; color: var(--ink-soft); margin: 0 0 18px; }
 .chm { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); counter-reset: chm; }
 .chm-row { display: grid; grid-template-columns: minmax(110px, 160px) minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); position: relative; }
 .chm-k { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); padding-top: 4px; display: flex; gap: 8px; align-items: baseline; }
@@ -34,7 +34,7 @@
 .chm-src + .chm-src { margin-left: 12px; }
 @media (max-width: 640px) { .chm-row { grid-template-columns: 1fr; gap: 6px; } }
 
-.culture-note { max-width: 860px; margin: 0 auto; padding: clamp(22px, 3vw, 34px); border-left: 3px solid var(--vermilion); background: var(--paper-raised); }
+.culture-note { max-width: 860px; margin: 0 auto var(--s5, 48px); padding: clamp(22px, 3vw, 34px); border-left: 3px solid var(--vermilion); background: var(--paper-raised); }
 .culture-k { display: block; font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--vermilion); margin-bottom: 10px; }
 .culture-note p { margin: 0; font-family: var(--serif); font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.45; color: var(--ink); }
 .culture-note p + p { margin-top: 10px; }
