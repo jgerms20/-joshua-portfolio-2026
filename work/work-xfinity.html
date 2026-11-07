@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
     <meta name="description" content="Xfinity The Greatest Gift Holiday Campaign - Case Study by Joshua McKenzie German">
     <title>Xfinity: The Greatest Gift | Joshua McKenzie German</title>
     <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
@@ -550,7 +554,9 @@
             <p class="t-lede cs-sub rv rv-d1">Orchestrating a holiday campaign that brought joy to millions through strategic influencer partnerships and cultural moments.</p>
 
             <figure class="plate-media hero-plate rv rv-d2">
-                <div class="film-frame mv-frame" data-yt="63o9tgPK9r8" data-title="The Greatest Gift — Dir. Craig Gillespie"></div>
+                <!-- Poster: Vimeo thumbnail of MJZ's :60 upload (vimeo.com/489634274) first, then
+                     media.js falls back to the YouTube thumbnails of 63o9tgPK9r8. -->
+                <div class="film-frame mv-frame" data-yt="63o9tgPK9r8" data-poster="https://vumbnail.com/489634274.jpg" data-title="The Greatest Gift — Dir. Craig Gillespie"></div>
                 <a class="mv-out" href="https://www.ispot.tv/ad/tBI3/xfinity-the-greatest-gift-featuring-steve-carell" target="_blank" rel="noopener noreferrer">Also on iSpot ↗</a>
             </figure>
 
@@ -594,6 +600,11 @@
                 <h2 class="cs-h">The Campaign</h2>
                 <p>Starring Steven Carell as an unconventional Santa, "The Greatest Gift" positioned Xfinity not just as a service provider, but as an enabler of human connection. The film showcased the power of staying connected with family and friends during the holidays—the real gift was the ability to share moments together, made possible by reliable connectivity.</p>
                 <p>As Communications Strategist, I orchestrated the rollout strategy across multiple channels, managing influencer partnerships to amplify the message organically. The campaign needed to move beyond traditional advertising into the cultural conversation, turning the emotional storytelling into shareable moments that resonated with audiences authentically.</p>
+
+                <figure style="margin-top: var(--s4);">
+                    <div class="film-frame mv-frame" data-vimeo="489634274" data-poster="https://i.ytimg.com/vi/63o9tgPK9r8/maxresdefault.jpg" data-fallbacks="yt:63o9tgPK9r8 https://vumbnail.com/489634274.jpg" data-title="The Greatest Gift — :60"></div>
+                    <figcaption class="film-caption"><span>The Greatest Gift — :60 cut</span><span>MJZ · Dir. Craig Gillespie</span></figcaption>
+                </figure>
             </div>
         </section>
 
@@ -665,10 +676,10 @@
                 <a href="../index.html#work" class="rule-link">← Back to Brand Work</a>
             </div>
             <nav class="footer-links" aria-label="More from Joshua">
+                <a href="../index.html#work">Brand Work</a>
                 <a href="../index.html#podcasts">Podcasts</a>
                 <a href="../photography/">Photography</a>
                 <a href="../index.html#ai">AI</a>
-                <a href="../index.html#work">Brand Work</a>
                 <a href="../shop.html">Shop</a>
                 <a href="../photography/#book" class="book">Book a shoot &rarr;</a>
             </nav>
@@ -676,6 +687,58 @@
     </footer>
 
     <script>
+        // ---- Vimeo films ----
+        // Same click-to-play facade as ../assets/media.js (which handles
+        // YouTube / iSpot / mp4): poster + play button, player loads on
+        // click, "Watch on Vimeo" link underneath. media.js guards the
+        // poster's data-fallbacks once it loads.
+        function mvVimeo(frame) {
+            const id = frame.getAttribute('data-vimeo');
+            if (!id || frame._mvDone) return;
+            frame._mvDone = true;
+            const title = frame.getAttribute('data-title') || 'Watch the film';
+            const poster = frame.getAttribute('data-poster') || '';
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'mv-film' + (poster ? '' : ' mv-noposter');
+            btn.setAttribute('aria-label', 'Play: ' + title);
+            if (poster) {
+                const img = document.createElement('img');
+                img.className = 'mv-poster'; img.alt = ''; img.decoding = 'async';
+                const fb = frame.getAttribute('data-fallbacks');
+                if (fb) img.setAttribute('data-fallbacks', fb);
+                img.src = poster;
+                btn.appendChild(img);
+            }
+            btn.insertAdjacentHTML('beforeend',
+                '<span class="mv-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6,3 21,12 6,21"/></svg></span>' +
+                '<span class="mv-cap"><span class="mv-cap-title"></span><span class="mv-cap-src">▶ Vimeo</span></span>');
+            btn.querySelector('.mv-cap-title').textContent = title;
+            btn.addEventListener('click', function () {
+                const el = document.createElement('iframe');
+                el.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+                el.allow = 'autoplay; fullscreen; picture-in-picture';
+                el.allowFullscreen = true;
+                el.className = 'mv-frame-live';
+                el.title = title;
+                frame.innerHTML = '';
+                frame.appendChild(el);
+            });
+            frame.innerHTML = '';
+            frame.appendChild(btn);
+            const holder = frame.parentElement;
+            if (holder && !holder.querySelector('.mv-out')) {
+                const a = document.createElement('a');
+                a.className = 'mv-out';
+                a.href = 'https://vimeo.com/' + id; a.target = '_blank'; a.rel = 'noopener';
+                a.textContent = 'Watch on Vimeo ↗';
+                frame.insertAdjacentElement('afterend', a);
+            }
+            const img = btn.querySelector('img');
+            if (img && window.MV) window.MV.guard(img);
+        }
+        document.querySelectorAll('.mv-frame[data-vimeo]').forEach(mvVimeo);
+
         // ---- Theme toggle ----
         (function () {
             const btn = document.getElementById('themeToggle');

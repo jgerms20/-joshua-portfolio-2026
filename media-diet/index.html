@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
     <title>Media Diet | Joshua McKenzie German</title>
     <meta name="description" content="What Joshua McKenzie German is watching, reading and listening to: every film from Letterboxd, every book from Goodreads, and the podcasts, articles and records he can&rsquo;t stop talking about.">
     <link rel="canonical" href="https://joshuamgerman.com/media-diet/">
@@ -22,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/media-diet.css">
 
     <style>
         /* =====================================================
@@ -162,178 +167,15 @@
         .lede { margin-top: var(--s3); max-width: 31em; font-size: clamp(1rem, 1.3vw, 1.12rem); line-height: 1.65; color: var(--ink-soft); }
         .lede em { font-family: var(--serif); font-size: 1.08em; color: var(--ink); }
 
-        /* Latest three, fanned like a stack on the nightstand */
+        /* Latest three, fanned like a stack on the nightstand (filled by ../assets/media-diet.js) */
         .stack { position: relative; height: clamp(200px, 19vw, 250px); justify-self: end; width: min(100%, 360px); }
-        .stack-item { position: absolute; bottom: 0; width: 46%; aspect-ratio: 2 / 3; border-radius: 4px; overflow: hidden; background: var(--paper-dim); box-shadow: var(--shadow); transition: transform 0.5s var(--exp); }
-        .stack-item:nth-child(1) { left: 0; transform: rotate(-7deg) translateY(4px); z-index: 1; }
-        .stack-item:nth-child(2) { left: 27%; transform: rotate(2deg) translateY(-14px); z-index: 2; }
-        .stack-item:nth-child(3) { left: 54%; transform: rotate(8deg) translateY(2px); z-index: 1; }
-        @media (hover: hover) { a.stack-item:hover { transform: rotate(0) translateY(-22px); z-index: 3; } }
-        .stack img, .stack .tile { width: 100%; height: 100%; object-fit: cover; }
-        .stack-cap { position: absolute; right: 0; bottom: -30px; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
 
         /* =====================================================
-           Shelves: tabs
+           Shelves: the shared component in ../assets/media-diet.css
+           (the same one the homepage's Media Diet chapter mounts)
            ===================================================== */
-        .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--rule); scroll-margin-top: calc(var(--bar) + 8px); }
-        .tab {
-            position: relative; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; text-align: left;
-            padding: clamp(16px, 2vw, 24px) clamp(4px, 1.6vw, 24px) clamp(14px, 1.8vw, 22px) 0; min-width: 0;
-            color: var(--ink-mid); transition: color 0.25s;
-        }
-        .tab + .tab { padding-left: clamp(12px, 2vw, 28px); border-left: 1px solid var(--rule-soft); }
-        .tab::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--exp); }
-        .tab + .tab::after { left: clamp(12px, 2vw, 28px); }
-        .tab[aria-selected="true"] { color: var(--ink); }
-        .tab[aria-selected="true"]::after { transform: scaleX(1); }
-        .tab:hover { color: var(--ink); }
-        .tab-num { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; color: var(--blue); align-self: center; }
-        .tab-name { font-family: var(--serif); font-size: clamp(1.45rem, 3.4vw, 2.7rem); line-height: 1; letter-spacing: -0.02em; }
-        .tab[aria-selected="true"] .tab-name { font-style: italic; font-weight: 300; }
-        .tab-count { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; }
-
-        /* =====================================================
-           Panel: dek, tools, grid, pager
-           ===================================================== */
-        .panel { padding: clamp(20px, 3vw, 36px) 0 var(--s7); }
-        .panel:focus { outline: none; }
-        .panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
-        .dek { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.35; max-width: 34em; }
-        .source {
-            display: inline-flex; align-items: center; gap: 8px; padding: 4px 0;
-            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-            border-bottom: 1px solid var(--blue); transition: color 0.25s, gap 0.3s var(--exp); white-space: nowrap;
-        }
-        .source:hover { color: var(--blue); gap: 12px; }
-        .source svg { width: 12px; height: 12px; }
-
-        .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: var(--s3); padding: 14px 0; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
-        .search { position: relative; flex: 1 1 220px; max-width: 320px; min-width: 0; }
-        .search svg { position: absolute; left: 14px; top: 50%; width: 15px; height: 15px; transform: translateY(-50%); color: var(--ink-mid); pointer-events: none; }
-        .search input {
-            width: 100%; height: 40px; padding: 0 14px 0 38px; border-radius: 999px; border: 1px solid var(--rule);
-            background: var(--paper-raised); font-size: 0.9rem; transition: border-color 0.25s;
-        }
-        .search input::placeholder { color: var(--ink-mid); }
-        .search input:hover, .search input:focus { border-color: var(--ink-faint); }
-        .search input:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
-        .chips { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
-        .chip {
-            height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--rule);
-            font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;
-            color: var(--ink-soft); transition: border-color 0.2s, background 0.2s, color 0.2s;
-        }
-        .chip:hover { border-color: var(--ink-faint); color: var(--ink); }
-        .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-        .chip .n { opacity: 0.6; margin-left: 6px; font-weight: 400; }
-        .selects { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
-        .sel { position: relative; display: inline-flex; align-items: center; height: 40px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper-raised); transition: border-color 0.25s; }
-        .sel:hover, .sel:focus-within { border-color: var(--ink-faint); }
-        .sel-k { padding-left: 14px; font-family: var(--mono); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); pointer-events: none; white-space: nowrap; }
-        .sel select {
-            appearance: none; -webkit-appearance: none; border: 0; background: transparent; height: 100%; cursor: pointer;
-            padding: 0 32px 0 8px; font-size: 0.86rem; font-weight: 500; border-radius: 999px; min-width: 0; max-width: 100%;
-        }
-        .sel select:focus-visible { outline: none; }
-        .sel:focus-within { outline: 2px solid var(--blue); outline-offset: 2px; }
-        .sel::after { content: ''; position: absolute; right: 14px; top: 50%; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-70%) rotate(45deg); pointer-events: none; opacity: 0.6; }
-        .sel option { background: var(--paper-raised); color: var(--ink); }
-
-        .status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin: 18px 0 20px; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); min-height: 1.2em; }
-        .clear { font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--blue); border-bottom: 1px solid currentColor; padding: 0; }
-
-        /* ---- Poster grid ---- */
-        .grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(20px, 2.4vw, 32px) clamp(14px, 1.6vw, 24px); }
-        .grid.is-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .card { display: flex; flex-direction: column; min-width: 0; color: var(--ink); }
-        .cover { position: relative; display: block; aspect-ratio: 2 / 3; border-radius: 4px; overflow: hidden; background: var(--paper-dim); box-shadow: var(--shadow); transition: transform 0.45s var(--exp), box-shadow 0.45s var(--exp); }
-        .cover::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.08); pointer-events: none; }
-        .cover img { width: 100%; height: 100%; object-fit: cover; }
-        @media (hover: hover) {
-            a.card:hover .cover { transform: translateY(-5px); }
-            a.card:hover .name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-        }
-        .card--book .cover { border-radius: 2px 4px 4px 2px; }
-        .card--book .cover::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(90deg, rgba(0,0,0,0.18), transparent); z-index: 1; pointer-events: none; }
-
-        /* Typographic stand-in when there is no image (or it fails to load) */
-        .tile { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; padding: 10% 10% 9%; background: var(--paper-dim); overflow: hidden; }
-        .tile-t { font-family: var(--serif); font-size: clamp(0.92rem, 1.25vw, 1.15rem); line-height: 1.08; letter-spacing: -0.01em; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
-        .tile-k { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
-        .tile--film { background: repeating-linear-gradient(180deg, transparent 0 13px, var(--rule-soft) 13px 14px), var(--paper-dim); border-top: 6px solid var(--ink); }
-        .tile--book { box-shadow: inset 7px 0 0 var(--rule); padding-left: 16%; }
-        .tile--book .tile-t { font-style: italic; font-weight: 300; }
-
-        .badge {
-            position: absolute; left: 8px; top: 8px; z-index: 2; display: inline-flex; align-items: center; gap: 6px;
-            padding: 4px 8px; border-radius: 999px; background: var(--paper-raised); color: var(--ink);
-            font-family: var(--mono); font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; box-shadow: 0 4px 12px -6px rgba(0,0,0,0.5);
-        }
-        .badge--now::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--leaf); }
-        .badge--now { color: var(--leaf); }
-
-        .card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 12px; min-height: 1.1em; }
-        .stars { font-size: 0.8rem; letter-spacing: 0.04em; color: var(--blue); white-space: nowrap; line-height: 1; }
-        .rw { display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 0.52rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; }
-        .rw svg { width: 11px; height: 11px; }
-        .name { display: block; margin-top: 6px; font-family: var(--serif); font-size: 1rem; line-height: 1.2; letter-spacing: -0.005em; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .by { display: block; margin-top: 3px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .when { display: block; margin-top: 4px; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-        /* ---- Listening cards ---- */
-        .card--listen { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 18px; align-items: start; padding: 18px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper-raised); transition: border-color 0.25s, transform 0.45s var(--exp); }
-        @media (hover: hover) { a.card--listen:hover { border-color: var(--ink-faint); transform: translateY(-3px); } a.card--listen:hover .cover { transform: none; } }
-        .card--listen .cover { aspect-ratio: 1; border-radius: 4px; }
-        .card--listen[data-type="podcast"] .cover, .card--listen[data-type="episode"] .cover { border-radius: 10px; }
-        .card--listen .name { margin-top: 8px; font-size: 1.14rem; -webkit-line-clamp: 3; }
-        .card--listen .by { white-space: normal; }
-        .note { display: block; margin-top: 10px; padding-left: 12px; border-left: 2px solid var(--blue); font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 0.95rem; line-height: 1.4; color: var(--ink-soft); }
-        .type { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
-        .type::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--blue)); }
-        [data-type="podcast"], [data-type="episode"] { --c: var(--blue); }
-        [data-type="article"] { --c: var(--vermilion); }
-        [data-type="album"], [data-type="song"] { --c: var(--leaf); }
-        [data-type="video"] { --c: var(--gold); }
-        .tile--listen { justify-content: flex-end; background: var(--c, var(--blue)); color: var(--paper); padding: 12px; }
-        .tile--listen .tile-t { font-size: 0.95rem; -webkit-line-clamp: 4; }
-        .tile--listen::before { content: ''; position: absolute; right: -18%; top: -18%; width: 70%; aspect-ratio: 1; border-radius: 50%; border: 10px solid color-mix(in srgb, var(--paper) 22%, transparent); }
-        :root[data-theme="dark"] .tile--listen { color: #12100C; }
-
-        /* ---- Empty states ---- */
-        .empty { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: center; padding: clamp(24px, 4vw, 48px); border: 1px dashed var(--rule); border-radius: 8px; max-width: 760px; }
-        .empty-art { position: relative; width: 120px; height: 150px; }
-        .empty-art span { position: absolute; bottom: 0; width: 64px; aspect-ratio: 2 / 3; border-radius: 3px; background: var(--paper-dim); box-shadow: inset 0 0 0 1px var(--rule), var(--shadow); }
-        .empty-art span:nth-child(1) { left: 0; transform: rotate(-8deg); }
-        .empty-art span:nth-child(2) { left: 28px; transform: rotate(2deg) translateY(-10px); background: repeating-linear-gradient(180deg, var(--paper-dim) 0 10px, var(--rule) 10px 11px); }
-        .empty-art span:nth-child(3) { left: 56px; transform: rotate(9deg); box-shadow: inset 7px 0 0 var(--rule), inset 0 0 0 1px var(--rule), var(--shadow); }
-        .empty-art.is-round span { border-radius: 50%; aspect-ratio: 1; width: 70px; }
-        .empty-art.is-round span:nth-child(2) { background: repeating-radial-gradient(circle, var(--paper-dim) 0 4px, var(--rule) 4px 5px); }
-        .empty h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.1; letter-spacing: -0.015em; }
-        .empty h2 em { font-weight: 300; color: var(--blue); }
-        .empty p { margin-top: 10px; color: var(--ink-soft); max-width: 34em; }
-        .empty .btn { margin-top: 20px; }
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 0 22px; border-radius: 999px;
-            background: var(--ink); color: var(--paper); font-size: 0.92rem; font-weight: 600; white-space: nowrap;
-            transition: background 0.3s var(--exp), transform 0.3s var(--exp);
-        }
-        .btn:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
-        .btn svg { width: 15px; height: 15px; }
-
-        /* ---- Pager ---- */
-        .pager { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: clamp(40px, 5vw, 64px); padding-top: 24px; border-top: 1px solid var(--rule-soft); }
-        .pg {
-            min-width: 40px; height: 40px; padding: 0 10px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-soft);
-            border: 1px solid transparent; transition: border-color 0.2s, background 0.2s, color 0.2s;
-        }
-        .pg:hover:not(:disabled) { border-color: var(--rule); color: var(--ink); }
-        .pg[aria-current="page"] { background: var(--ink); color: var(--paper); }
-        .pg:disabled { opacity: 0.35; cursor: default; }
-        .pg--step { padding: 0 16px; border-color: var(--rule); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; }
-        .pg--step svg { width: 13px; height: 13px; }
-        .pg-gap { min-width: 22px; text-align: center; color: var(--ink-mid); font-family: var(--mono); }
-        .pg-of { display: none; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); padding: 0 10px; }
+        .shelf { padding-bottom: var(--s7); }
+        .md-app { --md-offset: 68px; } /* the sticky bar, plus breathing room */
 
         /* =====================================================
            Footer
@@ -353,52 +195,23 @@
             .rise { animation: rise 0.9s var(--exp) both; }
             .rise.d1 { animation-delay: 0.06s; } .rise.d2 { animation-delay: 0.14s; } .rise.d3 { animation-delay: 0.22s; }
             @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-            .grid.is-fresh > * { animation: fade 0.5s var(--exp) both; }
-            @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
         }
 
         /* =====================================================
-           Responsive
+           Responsive (the shelf handles its own)
            ===================================================== */
-        @media (max-width: 1100px) {
-            .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-            .grid.is-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
         @media (max-width: 860px) {
             .hero-grid { grid-template-columns: minmax(0, 1fr); }
             .stack { justify-self: start; width: min(100%, 300px); height: 200px; margin: var(--s2) 0 var(--s3); }
-            .selects { margin-left: 0; width: 100%; }
-            .search { max-width: none; flex-basis: 100%; }
         }
         @media (max-width: 640px) {
-            .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 12px; }
-            .grid.is-list { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-            .tab { flex-direction: column; gap: 6px; padding-right: 4px; }
-            .tab-num { align-self: flex-start; }
-            .tab-count { font-size: 0.54rem; letter-spacing: 0.08em; }
-            .chips { flex-wrap: nowrap; overflow-x: auto; width: 100%; margin: 0 calc(var(--edge) * -1); padding: 2px var(--edge); scrollbar-width: none; }
-            .chips::-webkit-scrollbar { display: none; }
-            .sel { flex: 1 1 calc(50% - 4px); min-width: 0; }
-            .sel select { flex: 1; }
-            .name { font-size: 0.86rem; }
-            .by { font-size: 0.74rem; }
-            .stars { font-size: 0.68rem; letter-spacing: 0; }
-            .rw span, .wv { display: none; }
             .stack { display: none !important; }
-            .when { font-size: 0.5rem; letter-spacing: 0.08em; white-space: normal; }
-            .card--listen { grid-template-columns: 84px minmax(0, 1fr); gap: 14px; padding: 14px; }
-            .card--listen .name { font-size: 1.02rem; }
-            .empty { grid-template-columns: minmax(0, 1fr); }
-            .empty-art { height: 120px; }
-            .pg-num { display: none; }
-            .pg-of { display: inline; }
             .foot-base { flex-direction: column; align-items: flex-start; }
         }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
-            a.card:hover .cover, a.stack-item:hover { transform: none; }
         }
     </style>
 </head>
@@ -443,92 +256,17 @@
             </div>
         </section>
 
-        <!-- ===================== SHELVES ===================== -->
-        <div class="wrap">
-            <div class="tabs" role="tablist" aria-label="Media diet shelves" id="tabs">
-                <button class="tab" type="button" role="tab" id="tab-watching" data-tab="watching" aria-controls="panel" aria-selected="true">
-                    <span class="tab-num" aria-hidden="true">01</span><span class="tab-name">Watching</span><span class="tab-count" data-count="watching"></span>
-                </button>
-                <button class="tab" type="button" role="tab" id="tab-reading" data-tab="reading" aria-controls="panel" aria-selected="false" tabindex="-1">
-                    <span class="tab-num" aria-hidden="true">02</span><span class="tab-name">Reading</span><span class="tab-count" data-count="reading"></span>
-                </button>
-                <button class="tab" type="button" role="tab" id="tab-listening" data-tab="listening" aria-controls="panel" aria-selected="false" tabindex="-1">
-                    <span class="tab-num" aria-hidden="true">03</span><span class="tab-name">Listening</span><span class="tab-count" data-count="listening"></span>
-                </button>
-            </div>
-
-            <section class="panel" id="panel" role="tabpanel" aria-labelledby="tab-watching" tabindex="-1">
-                <div class="panel-head">
-                    <p class="dek" id="dek">Every film I log, with the stars to prove it.</p>
-                    <a class="source" id="source" href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener"><span id="sourceName">Letterboxd</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-                </div>
-
-                <div class="tools" id="tools" hidden>
-                    <div class="search">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-                        <label class="sr-only" for="q">Search this shelf</label>
-                        <input type="search" id="q" placeholder="Search films" autocomplete="off" spellcheck="false">
-                    </div>
-                    <div class="chips" id="chips" role="group" aria-label="Show"></div>
-                    <div class="selects">
-                        <label class="sel" id="ratingWrap"><span class="sel-k">Rating</span><select id="fRating"></select></label>
-                        <label class="sel" id="decadeWrap"><span class="sel-k">Decade</span><select id="fDecade"></select></label>
-                        <label class="sel"><span class="sel-k">Sort</span><select id="sort"></select></label>
-                    </div>
-                </div>
-
-                <p class="status" id="status" aria-live="polite"><span id="statusText">Loading the shelves&hellip;</span></p>
-                <div class="grid" id="grid"></div>
-                <div id="empty" hidden></div>
-                <nav class="pager" id="pager" aria-label="Pages" hidden></nav>
-
+        <!-- ===================== SHELVES =====================
+             Built by ../assets/media-diet.js: tabs, sort, filters, search, pages.
+             This page owns the hash (#watching / #reading / #listening). -->
+        <div class="wrap shelf">
+            <div class="md-app" data-root="../" data-hash-prefix="" data-per-page="24" data-heading-level="2"
+                 data-doc-title="Media Diet | Joshua McKenzie German" data-stack="#stack" data-synced="#synced">
                 <noscript>
-                    <p class="dek">This shelf loads with JavaScript. Meanwhile: <a href="https://letterboxd.com/jgerms/">Letterboxd</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german">Goodreads</a>.</p>
+                    <p class="lede">This shelf loads with JavaScript. Meanwhile: <a href="https://letterboxd.com/jgerms/">Letterboxd</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german">Goodreads</a>.</p>
                 </noscript>
-            </section>
+            </div>
         </div>
-
-        <!-- Empty states: static copy, cloned into #empty -->
-        <template id="empty-watching">
-            <div class="empty">
-                <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div>
-                    <h2>The reel is <em>rewinding.</em></h2>
-                    <p>Every film I log lands here with its stars. Until the next sync, the full diary lives on Letterboxd.</p>
-                    <a class="btn" href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">See my Letterboxd diary <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-                </div>
-            </div>
-        </template>
-        <template id="empty-reading">
-            <div class="empty">
-                <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div>
-                    <h2>The nightstand is <em>on Goodreads.</em></h2>
-                    <p>What I&rsquo;m reading now and every book I&rsquo;ve finished, with ratings. The shelf here fills itself in from there.</p>
-                    <a class="btn" href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">See my Goodreads shelves <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
-                </div>
-            </div>
-        </template>
-        <template id="empty-listening">
-            <div class="empty">
-                <div class="empty-art is-round" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div>
-                    <h2>In my ears &mdash; <em>coming soon.</em></h2>
-                    <p>Podcasts, articles and records I&rsquo;m into, picked by hand. The first few are on their way.</p>
-                </div>
-            </div>
-        </template>
-        <template id="empty-filtered">
-            <div class="empty">
-                <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div>
-                    <h2>Nothing on this shelf <em>matches.</em></h2>
-                    <p>Try a different search, or clear the filters to see everything.</p>
-                    <button class="btn" type="button" data-clear>Clear filters</button>
-                </div>
-            </div>
-        </template>
     </main>
 
     <!-- ===================== FOOTER ===================== -->
@@ -538,9 +276,9 @@
                 <span>Joshua McKenzie German &middot; Los Angeles, CA</span>
                 <nav class="foot-links" aria-label="More from Joshua">
                     <a href="../index.html">Home</a>
+                    <a href="../index.html#work">Brand Work</a>
                     <a href="../index.html#podcasts">Podcasts</a>
                     <a href="../photography/">Photography</a>
-                    <a href="../index.html#work">Brand Work</a>
                     <a href="../index.html#contact" class="foot-hire">Work with me &rarr;</a>
                     <a href="#top">Top &uarr;</a>
                 </nav>
@@ -551,7 +289,6 @@
     <script>
     (function () {
         'use strict';
-
         // ---- Theme toggle (shared 'jmg-theme' key with the rest of the site) ----
         var root = document.documentElement;
         var toggle = document.getElementById('themeToggle');
@@ -566,485 +303,8 @@
             try { localStorage.setItem('jmg-theme', dark ? 'light' : 'dark'); } catch (e) {}
             syncToggleLabel();
         });
-
-        // ---- Helpers: every piece of data goes in through textContent ----
-        var PER_PAGE = 24;
-        var $ = function (id) { return document.getElementById(id); };
-        function el(tag, cls, text) {
-            var n = document.createElement(tag);
-            if (cls) n.className = cls;
-            if (text != null && text !== '') n.textContent = String(text);
-            return n;
-        }
-        function https(u) { return (typeof u === 'string' && /^https:\/\/[^\s"'<>]+$/.test(u.trim())) ? u.trim() : ''; }
-        function str(v, max) { return typeof v === 'string' ? v.trim().slice(0, max || 200) : (typeof v === 'number' ? String(v) : ''); }
-        function isoDate(v) { return (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v)) ? v.slice(0, 10) : ''; }
-        function fmtDate(d, withYear) {
-            if (!d) return '';
-            var x = new Date(d + 'T00:00:00Z');
-            if (isNaN(x)) return '';
-            return x.toLocaleDateString('en-US', withYear === false ? { month: 'short', day: 'numeric', timeZone: 'UTC' } : { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-        }
-        function num(v, max) { var n = typeof v === 'number' ? v : parseFloat(v); return (isFinite(n) && n > 0 && n <= max) ? n : null; }
-        function stars(r) { return r ? '★'.repeat(Math.floor(r)) + (r % 1 ? '½' : '') : ''; }
-        function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
-        function sortTitle(t) { return t.toLowerCase().replace(/^(the|a|an)\s+/, ''); }
-        function arrow() {
-            var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor');
-            s.setAttribute('stroke-width', '2'); s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round'); s.setAttribute('aria-hidden', 'true');
-            return s;
-        }
-        function svgPath(d) { var s = arrow(); var p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', d); s.appendChild(p); return s; }
-        function link(url, cls) {
-            var a = el(url ? 'a' : 'div', cls);
-            if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
-            return a;
-        }
-        // Image with a typographic fallback: no image, or a broken one, becomes a designed tile
-        function cover(src, makeTile) {
-            var box = el('span', 'cover');
-            var url = https(src);
-            if (url) {
-                var img = el('img');
-                img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.referrerPolicy = 'no-referrer';
-                img.addEventListener('error', function () { img.replaceWith(makeTile()); });
-                img.src = url;
-                box.appendChild(img);
-            } else box.appendChild(makeTile());
-            return box;
-        }
-        function tile(kind, title, k) {
-            return function () {
-                var t = el('span', 'tile tile--' + kind);
-                t.appendChild(el('span', 'tile-t', title));
-                if (k) t.appendChild(el('span', 'tile-k', k));
-                return t;
-            };
-        }
-
-        // ---- Normalise the two data files into one item shape per shelf ----
-        var TYPES = {
-            podcast: ['Podcast', 'Podcasts'], episode: ['Episode', 'Episodes'], article: ['Article', 'Articles'],
-            album: ['Album', 'Albums'], song: ['Song', 'Songs'], video: ['Video', 'Videos']
-        };
-        function films(data) {
-            return (Array.isArray(data && data.letterboxd) ? data.letterboxd : []).filter(function (f) { return f && str(f.title); }).map(function (f) {
-                var year = /^\d{4}$/.test(str(f.year)) ? str(f.year) : '';
-                return {
-                    kind: 'film', title: str(f.title, 160), year: year, decade: year ? year.slice(0, 3) + '0s' : '',
-                    rating: num(f.rating, 5), date: isoDate(f.watched), rewatch: f.rewatch === true,
-                    image: https(f.poster), url: https(f.url)
-                };
-            });
-        }
-        function books(data) {
-            var list = [];
-            var seen = {};
-            function add(b, now) {
-                if (!b || !str(b.title)) return;
-                var key = https(b.url) || str(b.title);
-                if (seen[key]) return;
-                seen[key] = 1;
-                list.push({
-                    kind: 'book', title: str(b.title, 160), author: str(b.author, 100), rating: num(b.rating, 5),
-                    date: isoDate(b.date), now: now, image: https(b.cover), url: https(b.url)
-                });
-            }
-            (Array.isArray(data && data.reading) ? data.reading : []).forEach(function (b) { add(b, true); });
-            (Array.isArray(data && data.read) ? data.read : []).forEach(function (b) { add(b, false); });
-            return list;
-        }
-        function listening(data) {
-            return (Array.isArray(data && data.items) ? data.items : []).filter(function (x) { return x && str(x.title); }).map(function (x) {
-                var type = TYPES.hasOwnProperty(str(x.type).toLowerCase()) ? str(x.type).toLowerCase() : 'article';
-                return {
-                    kind: 'listen', type: type, title: str(x.title, 160), creator: str(x.creator, 100), note: str(x.note, 220),
-                    date: isoDate(x.date), image: https(x.image), url: https(x.url)
-                };
-            });
-        }
-
-        // ---- Shelves ----
-        var SHELVES = {
-            watching: {
-                dek: 'Every film I log, with the stars to prove it.', source: 'Letterboxd', href: 'https://letterboxd.com/jgerms/',
-                noun: ['film', 'films'], search: 'Search films or years',
-                chips: function () { return [['all', 'All'], ['first', 'First watch'], ['rewatch', 'Rewatches']]; },
-                chip: function (it, c) { return c === 'all' || (c === 'rewatch' ? it.rewatch : !it.rewatch); },
-                count: function (n) { return n ? plural(n, 'film logged', 'films logged') : 'Soon'; }
-            },
-            reading: {
-                dek: 'On the nightstand now, and everything I’ve finished.', source: 'Goodreads', href: 'https://www.goodreads.com/user/show/95365432-joshua-german',
-                noun: ['book', 'books'], search: 'Search titles or authors',
-                chips: function () { return [['all', 'All'], ['now', 'Now reading'], ['done', 'Finished']]; },
-                chip: function (it, c) { return c === 'all' || (c === 'now' ? it.now : !it.now); },
-                count: function (n) { return n ? plural(n, 'book', 'books') : 'On Goodreads'; }
-            },
-            listening: {
-                dek: 'Podcasts, articles and records I’m into, picked by hand.', source: '', href: '',
-                noun: ['pick', 'picks'], search: 'Search titles, hosts, artists',
-                chips: function (items) {
-                    var out = [['all', 'All']];
-                    Object.keys(TYPES).forEach(function (t) { if (items.some(function (i) { return i.type === t; })) out.push([t, TYPES[t][1]]); });
-                    return out;
-                },
-                chip: function (it, c) { return c === 'all' || it.type === c; },
-                count: function (n) { return n ? plural(n, 'pick', 'picks') : 'Coming soon'; }
-            }
-        };
-        var ORDER = ['watching', 'reading', 'listening'];
-        var items = { watching: [], reading: [], listening: [] };
-        var state = {};
-        ORDER.forEach(function (k) { state[k] = { q: '', chip: 'all', rating: 'any', decade: 'any', sort: 'new', page: 1 }; });
-        var current = 'watching';
-        var loaded = false;
-
-        function hashTab() {
-            var h = (location.hash || '').replace(/^#/, '').split(/[/?]/)[0].toLowerCase();
-            return SHELVES[h] ? h : 'watching';
-        }
-
-        // ---- Filtering + sorting ----
-        function matches(it, st, shelf) {
-            if (!shelf.chip(it, st.chip)) return false;
-            if (st.rating !== 'any') {
-                if (st.rating === 'unrated') { if (it.rating) return false; }
-                else if (st.rating === 'under3') { if (!it.rating || it.rating >= 3) return false; }
-                else if (!it.rating || it.rating < parseFloat(st.rating)) return false;
-            }
-            if (st.decade !== 'any' && it.decade !== st.decade) return false;
-            if (st.q) {
-                var hay = [it.title, it.year, it.author, it.creator, it.note, it.type && TYPES[it.type][0]].join(' ').toLowerCase();
-                var words = st.q.toLowerCase().split(/\s+/).filter(Boolean);
-                for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) === -1) return false;
-            }
-            return true;
-        }
-        function byDate(a, b) { return (b.date || '').localeCompare(a.date || ''); }
-        function sorted(list, st, key) {
-            var out = list.slice();
-            var cmp = {
-                'new': byDate,
-                'old': function (a, b) { return (a.date || '9999').localeCompare(b.date || '9999'); },
-                'rated': function (a, b) { return (b.rating || 0) - (a.rating || 0) || byDate(a, b); },
-                'title': function (a, b) { return sortTitle(a.title).localeCompare(sortTitle(b.title)); },
-                'release': function (a, b) { return (b.year || '0').localeCompare(a.year || '0') || byDate(a, b); }
-            }[st.sort] || byDate;
-            out.sort(cmp);
-            // On the default sort, what's on the nightstand comes first
-            if (key === 'reading' && st.sort === 'new') out.sort(function (a, b) { return (b.now ? 1 : 0) - (a.now ? 1 : 0); });
-            return out;
-        }
-
-        // ---- Controls ----
-        function fillSelect(sel, options, value) {
-            sel.textContent = '';
-            options.forEach(function (o) { var op = el('option', null, o[1]); op.value = o[0]; sel.appendChild(op); });
-            sel.value = options.some(function (o) { return o[0] === value; }) ? value : options[0][0];
-            return sel.value;
-        }
-        function buildControls() {
-            var key = current, st = state[key], shelf = SHELVES[key], list = items[key];
-            var hasRatings = list.some(function (i) { return i.rating; });
-            var q = $('q');
-            q.placeholder = shelf.search;
-            q.value = st.q;
-
-            var chips = $('chips');
-            chips.textContent = '';
-            var defs = shelf.chips(list);
-            if (!defs.some(function (d) { return d[0] === st.chip; })) st.chip = 'all';
-            defs.forEach(function (d) {
-                var n = list.filter(function (i) { return shelf.chip(i, d[0]); }).length;
-                if (d[0] !== 'all' && !n) return;
-                var b = el('button', 'chip', d[1]);
-                b.type = 'button';
-                b.dataset.chip = d[0];
-                b.setAttribute('aria-pressed', String(st.chip === d[0]));
-                b.appendChild(el('span', 'n', n));
-                chips.appendChild(b);
-            });
-            chips.hidden = chips.children.length < 3;
-
-            $('ratingWrap').hidden = !hasRatings;
-            if (hasRatings) {
-                var ro = key === 'watching'
-                    ? [['any', 'Any'], ['5', '★★★★★'], ['4.5', '4½★ & up'], ['4', '4★ & up'], ['3', '3★ & up'], ['under3', 'Under 3★'], ['unrated', 'Unrated']]
-                    : [['any', 'Any'], ['5', '★★★★★'], ['4', '4★ & up'], ['3', '3★ & up'], ['unrated', 'Unrated']];
-                st.rating = fillSelect($('fRating'), ro, st.rating);
-            } else st.rating = 'any';
-
-            var decades = [];
-            list.forEach(function (i) { if (i.decade && decades.indexOf(i.decade) === -1) decades.push(i.decade); });
-            decades.sort().reverse();
-            $('decadeWrap').hidden = key !== 'watching' || decades.length < 2;
-            if (!$('decadeWrap').hidden) st.decade = fillSelect($('fDecade'), [['any', 'Any']].concat(decades.map(function (d) { return [d, d]; })), st.decade);
-            else st.decade = 'any';
-
-            var so = [['new', key === 'watching' ? 'Recently watched' : 'Newest'], ['old', 'Oldest']];
-            if (hasRatings) so.push(['rated', 'Highest rated']);
-            if (key === 'watching') so.push(['release', 'Release year']);
-            so.push(['title', 'Title A–Z']);
-            st.sort = fillSelect($('sort'), so, st.sort);
-
-            $('tools').hidden = list.length < 2;
-        }
-
-        // ---- Cards ----
-        function filmCard(f) {
-            var a = link(f.url, 'card card--film');
-            a.setAttribute('aria-label', f.title + (f.year ? ' (' + f.year + ')' : '') + (f.rating ? ', rated ' + f.rating + ' out of 5' : '') + (f.rewatch ? ', rewatch' : ''));
-            a.appendChild(cover(f.image, tile('film', f.title, f.year)));
-            var meta = el('span', 'card-meta');
-            meta.appendChild(el('span', 'stars', stars(f.rating)));
-            if (f.rewatch) {
-                var rw = el('span', 'rw');
-                rw.appendChild(svgPath('M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5'));
-                rw.appendChild(el('span', null, 'Rewatch'));
-                meta.appendChild(rw);
-            }
-            a.appendChild(meta);
-            a.appendChild(el('span', 'name', f.title));
-            var when = el('span', 'when', f.year);
-            if (f.date) {
-                if (f.year) when.appendChild(document.createTextNode(' · '));
-                when.appendChild(el('span', 'wv', 'Watched '));
-                when.appendChild(document.createTextNode(fmtDate(f.date, false) + ' ’' + f.date.slice(2, 4)));
-            }
-            a.appendChild(when);
-            return a;
-        }
-        function bookCard(b) {
-            var a = link(b.url, 'card card--book');
-            a.setAttribute('aria-label', b.title + (b.author ? ' by ' + b.author : '') + (b.now ? ', reading now' : '') + (b.rating ? ', rated ' + b.rating + ' out of 5' : ''));
-            var c = cover(b.image, tile('book', b.title, b.author));
-            if (b.now) c.appendChild(el('span', 'badge badge--now', 'Now reading'));
-            a.appendChild(c);
-            var meta = el('span', 'card-meta');
-            meta.appendChild(el('span', 'stars', stars(b.rating)));
-            a.appendChild(meta);
-            a.appendChild(el('span', 'name', b.title));
-            if (b.author) a.appendChild(el('span', 'by', b.author));
-            if (b.date) a.appendChild(el('span', 'when', (b.now ? 'Started ' : '') + fmtDate(b.date)));
-            return a;
-        }
-        function listenCard(x) {
-            var a = link(x.url, 'card card--listen');
-            a.dataset.type = x.type;
-            a.setAttribute('aria-label', TYPES[x.type][0] + ': ' + x.title + (x.creator ? ', ' + x.creator : ''));
-            a.appendChild(cover(x.image, function () {
-                var t = el('span', 'tile tile--listen');
-                t.appendChild(el('span', 'tile-t', x.creator || x.title));
-                return t;
-            }));
-            var body = el('span');
-            var top = el('span', 'card-meta');
-            top.style.marginTop = '0';
-            top.appendChild(el('span', 'type', TYPES[x.type][0]));
-            if (x.date) top.appendChild(el('span', 'when', fmtDate(x.date)));
-            body.appendChild(top);
-            body.appendChild(el('span', 'name', x.title));
-            if (x.creator) body.appendChild(el('span', 'by', x.creator));
-            if (x.note) body.appendChild(el('span', 'note', x.note));
-            a.appendChild(body);
-            return a;
-        }
-
-        // ---- Pager: prev, 1 … 4 5 6 … 12, next ----
-        function pageList(page, pages) {
-            var out = [];
-            for (var p = 1; p <= pages; p++) {
-                if (p === 1 || p === pages || Math.abs(p - page) <= 1 || (page <= 3 && p <= 4) || (page >= pages - 2 && p >= pages - 3)) out.push(p);
-                else if (out[out.length - 1] !== '…') out.push('…');
-            }
-            return out;
-        }
-        function stepBtn(label, dir, disabled, page) {
-            var b = el('button', 'pg pg--step');
-            b.type = 'button';
-            b.disabled = disabled;
-            b.dataset.page = String(page);
-            var icon = svgPath(dir < 0 ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6');
-            if (dir < 0) { b.appendChild(icon); b.appendChild(el('span', null, label)); }
-            else { b.appendChild(el('span', null, label)); b.appendChild(icon); }
-            b.setAttribute('aria-label', (dir < 0 ? 'Previous' : 'Next') + ' page');
-            return b;
-        }
-        function renderPager(page, pages) {
-            var nav = $('pager');
-            nav.textContent = '';
-            nav.hidden = pages < 2;
-            if (pages < 2) return;
-            nav.appendChild(stepBtn('Prev', -1, page <= 1, page - 1));
-            pageList(page, pages).forEach(function (p) {
-                if (p === '…') { nav.appendChild(el('span', 'pg-gap pg-num', '…')).setAttribute('aria-hidden', 'true'); return; }
-                var b = el('button', 'pg pg-num', p);
-                b.type = 'button';
-                b.dataset.page = String(p);
-                b.setAttribute('aria-label', 'Page ' + p);
-                if (p === page) b.setAttribute('aria-current', 'page');
-                nav.appendChild(b);
-            });
-            nav.appendChild(el('span', 'pg-of', 'Page ' + page + ' of ' + pages));
-            nav.appendChild(stepBtn('Next', 1, page >= pages, page + 1));
-        }
-
-        // ---- Render the current shelf ----
-        function render(opts) {
-            var key = current, st = state[key], shelf = SHELVES[key], all = items[key];
-            var shown = sorted(all.filter(function (i) { return matches(i, st, shelf); }), st, key);
-            var pages = Math.max(1, Math.ceil(shown.length / PER_PAGE));
-            st.page = Math.min(Math.max(1, st.page), pages);
-            var start = (st.page - 1) * PER_PAGE;
-            var slice = shown.slice(start, start + PER_PAGE);
-
-            var grid = $('grid');
-            grid.textContent = '';
-            grid.className = 'grid' + (key === 'listening' ? ' is-list' : '') + (opts && opts.fresh ? ' is-fresh' : '');
-            var make = key === 'watching' ? filmCard : key === 'reading' ? bookCard : listenCard;
-            slice.forEach(function (it) { grid.appendChild(make(it)); });
-
-            var empty = $('empty');
-            empty.textContent = '';
-            empty.hidden = slice.length > 0 || !loaded;
-            if (!slice.length && loaded) {
-                var tpl = $(all.length ? 'empty-filtered' : 'empty-' + key);
-                empty.appendChild(tpl.content.cloneNode(true));
-            }
-
-            var status = $('statusText');
-            var filtered = st.q || st.chip !== 'all' || st.rating !== 'any' || st.decade !== 'any';
-            var noun = shelf.noun;
-            var bits = [];
-            if (!loaded) bits.push('Loading the shelves…');
-            else if (!all.length) bits.push('');
-            else if (shown.length > PER_PAGE) bits.push('Showing ' + (start + 1) + '–' + (start + slice.length) + ' of ' + plural(shown.length, noun[0], noun[1]) + (filtered ? ' (of ' + all.length + ')' : ''));
-            else if (filtered) bits.push(shown.length + ' of ' + plural(all.length, noun[0], noun[1]));
-            else bits.push(plural(all.length, noun[0], noun[1]));
-            status.textContent = bits.join('');
-            var old = $('status').querySelector('.clear');
-            if (old) old.remove();
-            if (filtered && shown.length) {
-                var c = el('button', 'clear', 'Clear filters');
-                c.type = 'button';
-                c.setAttribute('data-clear', '');
-                $('status').appendChild(c);
-            }
-            renderPager(st.page, pages);
-        }
-
-        function selectTab(key, focus) {
-            current = key;
-            ORDER.forEach(function (k) {
-                var t = $('tab-' + k);
-                var on = k === key;
-                t.setAttribute('aria-selected', String(on));
-                t.tabIndex = on ? 0 : -1;
-            });
-            var shelf = SHELVES[key];
-            $('panel').setAttribute('aria-labelledby', 'tab-' + key);
-            $('dek').textContent = shelf.dek;
-            $('source').hidden = !shelf.href;
-            if (shelf.href) { $('source').href = shelf.href; $('sourceName').textContent = shelf.source; }
-            document.title = key.charAt(0).toUpperCase() + key.slice(1) + ' · Media Diet | Joshua McKenzie German';
-            buildControls();
-            render({ fresh: true });
-            if (focus) $('tab-' + key).focus();
-        }
-
-        // ---- Wiring ----
-        $('tabs').addEventListener('click', function (e) {
-            var t = e.target.closest('[data-tab]');
-            if (!t) return;
-            var key = t.dataset.tab;
-            if (('#' + key) !== location.hash) history.pushState(null, '', '#' + key);
-            selectTab(key);
-        });
-        $('tabs').addEventListener('keydown', function (e) {
-            var i = ORDER.indexOf(current), next = null;
-            if (e.key === 'ArrowRight') next = ORDER[(i + 1) % ORDER.length];
-            else if (e.key === 'ArrowLeft') next = ORDER[(i + ORDER.length - 1) % ORDER.length];
-            else if (e.key === 'Home') next = ORDER[0];
-            else if (e.key === 'End') next = ORDER[ORDER.length - 1];
-            if (!next) return;
-            e.preventDefault();
-            history.replaceState(null, '', '#' + next);
-            selectTab(next, true);
-        });
-        window.addEventListener('hashchange', function () { if (hashTab() !== current) selectTab(hashTab()); });
-        window.addEventListener('popstate', function () { if (hashTab() !== current) selectTab(hashTab()); });
-
-        var typing;
-        $('q').addEventListener('input', function (e) {
-            clearTimeout(typing);
-            var v = e.target.value;
-            typing = setTimeout(function () { state[current].q = v.trim(); state[current].page = 1; render(); }, 120);
-        });
-        $('chips').addEventListener('click', function (e) {
-            var b = e.target.closest('[data-chip]');
-            if (!b) return;
-            state[current].chip = b.dataset.chip; state[current].page = 1;
-            [].forEach.call($('chips').children, function (c) { c.setAttribute('aria-pressed', String(c === b)); });
-            render();
-        });
-        [['fRating', 'rating'], ['fDecade', 'decade'], ['sort', 'sort']].forEach(function (pair) {
-            $(pair[0]).addEventListener('change', function (e) { state[current][pair[1]] = e.target.value; state[current].page = 1; render(); });
-        });
-        $('pager').addEventListener('click', function (e) {
-            var b = e.target.closest('[data-page]');
-            if (!b || b.disabled) return;
-            state[current].page = parseInt(b.dataset.page, 10) || 1;
-            render({ fresh: true });
-            var tabs = $('tabs');
-            if (tabs.getBoundingClientRect().top < 0) tabs.scrollIntoView({ block: 'start' });
-        });
-        $('panel').addEventListener('click', function (e) {
-            if (!e.target.closest('[data-clear]')) return;
-            state[current] = { q: '', chip: 'all', rating: 'any', decade: 'any', sort: state[current].sort, page: 1 };
-            buildControls();
-            render();
-        });
-
-        // ---- The latest three things, fanned in the masthead ----
-        function renderStack() {
-            var all = items.watching.concat(items.reading, items.listening).filter(function (i) { return i.image; });
-            all.sort(byDate);
-            var pick = all.slice(0, 3);
-            var box = $('stack');
-            box.textContent = '';
-            if (pick.length < 2) { box.hidden = true; return; }
-            pick.forEach(function (it) {
-                var a = link(it.url, 'stack-item');
-                if (it.url) a.setAttribute('aria-label', it.title);
-                a.appendChild(cover(it.image, tile(it.kind === 'book' ? 'book' : 'film', it.title, it.year || it.author || '')).firstChild);
-                box.appendChild(a);
-            });
-            box.appendChild(el('span', 'stack-cap', 'Lately'));
-            box.hidden = false;
-        }
-
-        function getJSON(url) {
-            return fetch(url, { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
-        }
-
-        selectTab(hashTab());
-        Promise.all([getJSON('../data/media-diet.json'), getJSON('../data/listening.json')]).then(function (res) {
-            var diet = res[0] || {}, listen = res[1] || {};
-            items.watching = films(diet);
-            items.reading = books(diet);
-            items.listening = listening(listen);
-            loaded = true;
-            ORDER.forEach(function (k) {
-                var c = document.querySelector('[data-count="' + k + '"]');
-                if (c) c.textContent = SHELVES[k].count(items[k].length);
-            });
-            var upd = isoDate(diet.updated);
-            if (upd) $('synced').textContent = 'Synced ' + fmtDate(upd);
-            renderStack();
-            selectTab(current);
-        });
     })();
     </script>
+    <script src="../assets/media-diet.js" defer></script>
 </body>
 </html>

@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
     <meta name="description" content="MLB: Baseball Is Something Else — Wieden+Kennedy. Brand strategy that brought a new generation to the ballpark. Case Study by Joshua McKenzie German.">
     <title>MLB: Baseball Is Something Else | Joshua McKenzie German</title>
     <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
@@ -417,6 +421,17 @@
             box-shadow: 0 24px 54px -26px rgba(23,21,18,0.4);
         }
         .film-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .film-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: var(--s4); margin: var(--s4) 0;
+        }
+        .film-grid figure { margin: 0; }
+        .film-caption {
+            display: flex; justify-content: space-between; gap: var(--s3); flex-wrap: wrap;
+            font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--ink-mid);
+            padding: 12px 2px 0;
+        }
 
         /* =====================================================
            CASE-STUDY BLOCKS
@@ -587,7 +602,9 @@
                 MLB's first brand campaign in eight years — a platform that welcomed a new generation to the ballpark by celebrating what only baseball can do.
             </p>
             <figure class="plate-media plate-hero rv in rv-d2">
-                <div class="film-frame mv-frame" data-yt="VRHr8IwbSMI" data-title="Baseball Is Something Else — Opening Day 2023"></div>
+                <!-- The three Opening Day films, as linked from MLB's launch press release:
+                     "Overture" youtu.be/RuezgkQvkuQ · "62" youtu.be/ff0JRU0cFtM · "Hot Dogs" youtu.be/VRHr8IwbSMI -->
+                <div class="film-frame mv-frame" data-yt="RuezgkQvkuQ" data-title="Overture — Baseball Is Something Else"></div>
             </figure>
 
             <!-- Scoreboard stats -->
@@ -724,6 +741,17 @@
                 <h2 class="cs-title">The Work</h2>
                 <p>The launch spot — "Overture" — features Cameron J.'s a cappella version of the William Tell Overture laid over a montage of pregame ritual: ticket takers, sizzling hot dogs, grounds crews, batting practice, an Air Force flyover, ending on a Shohei Ohtani pitch. It didn't explain baseball. It made you feel it.</p>
 
+                <div class="film-grid">
+                    <figure>
+                        <div class="film-frame mv-frame" data-yt="ff0JRU0cFtM" data-title="62"></div>
+                        <figcaption class="film-caption"><span>"62" — Aaron Judge</span><span>Opening Day 2023</span></figcaption>
+                    </figure>
+                    <figure>
+                        <div class="film-frame mv-frame" data-yt="VRHr8IwbSMI" data-title="Hot Dogs"></div>
+                        <figcaption class="film-caption"><span>"Hot Dogs"</span><span>Opening Day 2023</span></figcaption>
+                    </figure>
+                </div>
+
                 <div class="cs-list">
                     <div class="cs-li">60-second TV :60 "Overture" spot</div>
                     <div class="cs-li">OOH — Times Square, NYC</div>
@@ -770,6 +798,13 @@
                         <div class="cell-desc">Bryan Cranston watches baseball clips celebrating that the greatest game in the world is now even greater — a master class in deadpan delivery.</div>
                         <div class="cell-note">Cranston's one-of-a-kind delivery turned a rules update into a celebration of the sport itself.</div>
                     </div>
+                </div>
+
+                <div class="film-grid" style="max-width: 760px;">
+                    <figure>
+                        <div class="film-frame mv-frame" data-yt="VPxEMljutAM" data-title="Now Even Better — Bryan Cranston"></div>
+                        <figcaption class="film-caption"><span>"Now Even Better" — Bryan Cranston</span><span>2023 Rules Changes</span></figcaption>
+                    </figure>
                 </div>
 
                 <p>The rules spots ran ahead of the "Baseball Is Something Else" brand launch — priming fans for a new era of the game before the emotional platform landed on Opening Day.</p>
@@ -856,10 +891,10 @@
                 <a href="../index.html#work" class="rule-link">← Back to Brand Work</a>
             </div>
             <nav class="footer-links" aria-label="More from Joshua">
+                <a href="../index.html#work">Brand Work</a>
                 <a href="../index.html#podcasts">Podcasts</a>
                 <a href="../photography/">Photography</a>
                 <a href="../index.html#ai">AI</a>
-                <a href="../index.html#work">Brand Work</a>
                 <a href="../shop.html">Shop</a>
                 <a href="../photography/#book" class="book">Book a shoot &rarr;</a>
             </nav>

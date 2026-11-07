@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
     <meta name="description" content="Sephora Campaigns - Case Study by Joshua McKenzie German">
     <title>Sephora Campaigns | Joshua McKenzie German</title>
     <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
@@ -725,7 +729,7 @@
                     </div>
                     <div class="gallery">
                         <figure class="plate-media">
-                            <img src="https://i.ytimg.com/vi/8xsxYoCI4uc/maxresdefault.jpg" data-fallbacks="yt:8xsxYoCI4uc" alt="Sephora — Don't Overthink It" data-label="Sephora — Don't Overthink It" loading="lazy">
+                            <img src="https://i.ytimg.com/vi/8xsxYoCI4uc/maxresdefault.jpg" data-fallbacks="yt:8xsxYoCI4uc https://vumbnail.com/1025092511.jpg ../brand/sephora/holiday-2024/hqdefault.jpg" alt="Sephora — Don't Overthink It" data-label="Sephora — Don't Overthink It" loading="lazy">
                         </figure>
                     </div>
                 </section>
@@ -814,13 +818,16 @@
                         <span class="cs-idx">№ 05</span>
                         <h2 class="cs-h">Skincare Spots</h2>
                     </div>
+                    <!-- Both :30s are hosted on Vimeo (no official YouTube upload found):
+                         Security = vimeo.com/1075746491, The Hunt = vimeo.com/1088246390 (Hungry Man, dir. Taika Waititi).
+                         Poster for The Hunt is the local campaign still; Security falls back to it. -->
                     <div class="film-grid">
                         <div class="film">
-                            <div class="film-frame mv-frame" data-yt="dMD94-fjyAQ" data-title="Skin Obsessed — Security"></div>
+                            <div class="film-frame mv-frame" data-vimeo="1075746491" data-poster="https://vumbnail.com/1075746491.jpg" data-fallbacks="../brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg" data-title="Skin Obsessed — Security"></div>
                             <span class="film-label">Skin Obsessed - Security</span>
                         </div>
                         <div class="film">
-                            <div class="film-frame mv-frame" data-yt="l8RRLQiTEks" data-title="Skin Obsessed — The Hunt"></div>
+                            <div class="film-frame mv-frame" data-vimeo="1088246390" data-poster="../brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg" data-fallbacks="https://vumbnail.com/1088246390.jpg" data-title="Skin Obsessed — The Hunt"></div>
                             <span class="film-label">Skin Obsessed - The Hunt</span>
                         </div>
                     </div>
@@ -900,10 +907,10 @@
                 <a href="../index.html#work" class="rule-link" style="font-size:0.58rem;">← Back to Brand Work</a>
             </div>
             <nav class="footer-links" aria-label="More from Joshua">
+                <a href="../index.html#work">Brand Work</a>
                 <a href="../index.html#podcasts">Podcasts</a>
                 <a href="../photography/">Photography</a>
                 <a href="../index.html#ai">AI</a>
-                <a href="../index.html#work">Brand Work</a>
                 <a href="../shop.html">Shop</a>
                 <a href="../photography/#book" class="book">Book a shoot &rarr;</a>
             </nav>
@@ -911,6 +918,58 @@
     </footer>
 
     <script>
+        /* ---- Vimeo films ----
+           Same click-to-play facade as ../assets/media.js (which handles
+           YouTube / iSpot / mp4): poster + play button, player loads on
+           click, "Watch on Vimeo" link underneath. media.js guards the
+           poster's data-fallbacks once it loads. */
+        function mvVimeo(frame) {
+            const id = frame.getAttribute('data-vimeo');
+            if (!id || frame._mvDone) return;
+            frame._mvDone = true;
+            const title = frame.getAttribute('data-title') || 'Watch the film';
+            const poster = frame.getAttribute('data-poster') || '';
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'mv-film' + (poster ? '' : ' mv-noposter');
+            btn.setAttribute('aria-label', 'Play: ' + title);
+            if (poster) {
+                const img = document.createElement('img');
+                img.className = 'mv-poster'; img.alt = ''; img.decoding = 'async';
+                const fb = frame.getAttribute('data-fallbacks');
+                if (fb) img.setAttribute('data-fallbacks', fb);
+                img.src = poster;
+                btn.appendChild(img);
+            }
+            btn.insertAdjacentHTML('beforeend',
+                '<span class="mv-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6,3 21,12 6,21"/></svg></span>' +
+                '<span class="mv-cap"><span class="mv-cap-title"></span><span class="mv-cap-src">▶ Vimeo</span></span>');
+            btn.querySelector('.mv-cap-title').textContent = title;
+            btn.addEventListener('click', function () {
+                const el = document.createElement('iframe');
+                el.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+                el.allow = 'autoplay; fullscreen; picture-in-picture';
+                el.allowFullscreen = true;
+                el.className = 'mv-frame-live';
+                el.title = title;
+                frame.innerHTML = '';
+                frame.appendChild(el);
+            });
+            frame.innerHTML = '';
+            frame.appendChild(btn);
+            const holder = frame.parentElement;
+            if (holder && !holder.querySelector('.mv-out')) {
+                const a = document.createElement('a');
+                a.className = 'mv-out';
+                a.href = 'https://vimeo.com/' + id; a.target = '_blank'; a.rel = 'noopener';
+                a.textContent = 'Watch on Vimeo ↗';
+                frame.insertAdjacentElement('afterend', a);
+            }
+            const img = btn.querySelector('img');
+            if (img && window.MV) window.MV.guard(img);
+        }
+        document.querySelectorAll('.mv-frame[data-vimeo]').forEach(mvVimeo);
+
         /* ---- Theme toggle ---- */
         (function () {
             const btn = document.getElementById('themeToggle');
@@ -976,7 +1035,9 @@
                     name: 'Skin Obsessed',
                     sub: 'A campaign that treated skincare obsessives as the researchers and evangelists they actually are.',
                     plate: 'PLATE 01 — SKIN OBSESSED',
-                    yt: 'dMD94-fjyAQ'
+                    vimeo: '1088246390',
+                    poster: '../brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg',
+                    title: 'Skin Obsessed — The Hunt'
                 }
             };
 
@@ -999,6 +1060,13 @@
                     heroFrame.setAttribute('data-yt', m.yt);
                     heroFrame.setAttribute('data-title', m.name);
                     if (window.MV) window.MV.init(heroFrame.parentElement);
+                } else if (heroFrame && m.vimeo) {
+                    heroFrame._mvDone = false;
+                    heroFrame.removeAttribute('data-yt');
+                    heroFrame.setAttribute('data-vimeo', m.vimeo);
+                    heroFrame.setAttribute('data-poster', m.poster);
+                    heroFrame.setAttribute('data-title', m.title || m.name);
+                    mvVimeo(heroFrame);
                 }
 
                 document.title = 'Sephora: ' + m.name + ' | Joshua McKenzie German';

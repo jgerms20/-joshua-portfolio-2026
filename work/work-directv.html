@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
     <meta name="description" content="DIRECTV Campaigns - Case Study by Joshua McKenzie German">
     <title>DIRECTV Campaigns | Joshua McKenzie German</title>
     <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
@@ -789,18 +793,25 @@
         <div class="campaign-panel" id="nothing-on-roof">
 
         <figure class="plate-media rv" style="margin-bottom: var(--s5);">
-            <img loading="lazy" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4" alt="DIRECTV — Nothing On Your Roof 2.0" data-label="DIRECTV — Nothing On Your Roof">
+            <img loading="lazy" src="https://i.ytimg.com/vi/TfOH2h2mt1U/maxresdefault.jpg" data-fallbacks="yt:TfOH2h2mt1U yt:nIIr8ukVUMw" alt="DIRECTV — Nothing On Your Roof 2.0" data-label="DIRECTV — Nothing On Your Roof">
         </figure>
 
         <section class="cs-sec rv">
             <div class="cs-label">05 — The Film</div>
             <div class="cs-body">
-                <h2 class="cs-h">Campaign Spot</h2>
+                <h2 class="cs-h">Campaign Spots</h2>
 
-                <figure style="margin-top: var(--s4);">
-                    <div class="film-frame mv-frame" data-yt="9PhxP53igb4" data-title="DIRECTV — Nothing on Your Roof V2"></div>
-                    <figcaption class="film-caption"><span>Nothing On Your Roof 2.0</span><span>:44 — Reel A</span></figcaption>
-                </figure>
+                <!-- Official DIRECTV-channel uploads of the 2025 MLB "bald roof" spots -->
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--s4); margin-top: var(--s4);">
+                    <figure>
+                        <div class="film-frame mv-frame" data-yt="TfOH2h2mt1U" data-title="DIRECTV — Nothing On Your Roof 2.0"></div>
+                        <figcaption class="film-caption"><span>Nothing On Your Roof 2.0</span><span>MLB · Spot 1</span></figcaption>
+                    </figure>
+                    <figure>
+                        <div class="film-frame mv-frame" data-yt="nIIr8ukVUMw" data-title="DIRECTV — Nothing On Your Roof 2.0"></div>
+                        <figcaption class="film-caption"><span>Nothing On Your Roof 2.0</span><span>MLB · Spot 2</span></figcaption>
+                    </figure>
+                </div>
 
             </div>
         </section>
@@ -879,10 +890,10 @@
                 <a href="../index.html#work" class="rule-link">← Back to Brand Work</a>
             </div>
             <nav class="footer-links" aria-label="More from Joshua">
+                <a href="../index.html#work">Brand Work</a>
                 <a href="../index.html#podcasts">Podcasts</a>
                 <a href="../photography/">Photography</a>
                 <a href="../index.html#ai">AI</a>
-                <a href="../index.html#work">Brand Work</a>
                 <a href="../shop.html">Shop</a>
                 <a href="../photography/#book" class="book">Book a shoot &rarr;</a>
             </nav>
@@ -919,13 +930,15 @@
                     name: "Like You've Never Seen It",
                     sub: 'Introducing a streaming-first DIRECTV to an audience who still pictured a satellite dish.',
                     plate: 'PLATE 01 — LIKE YOU’VE NEVER SEEN IT',
-                    img: 'https://img.youtube.com/vi/-xYYHOXzUeY/maxresdefault.jpg'
+                    img: 'https://img.youtube.com/vi/-xYYHOXzUeY/maxresdefault.jpg',
+                    fallbacks: 'yt:-xYYHOXzUeY yt:Be2pf8kXAKw'
                 },
                 'nothing-on-roof': {
                     name: 'Nothing On Your Roof 2.0',
                     sub: 'The sequel to the campaign built on one idea: no dish required.',
                     plate: 'PLATE 01 — NOTHING ON YOUR ROOF',
-                    img: 'https://img.youtube.com/vi/9PhxP53igb4/maxresdefault.jpg'
+                    img: 'https://img.youtube.com/vi/TfOH2h2mt1U/maxresdefault.jpg',
+                    fallbacks: 'yt:TfOH2h2mt1U yt:nIIr8ukVUMw'
                 }
             };
 
@@ -947,7 +960,7 @@
                     plateImg._mvQueue = null;
                     const box = plateImg.closest('.plate-media'); if (box) box.classList.remove('mv-empty');
                     const yt = (m.img.match(/vi\/([A-Za-z0-9_-]+)\//) || [])[1];
-                    plateImg.setAttribute('data-fallbacks', yt ? 'yt:' + yt : '');
+                    plateImg.setAttribute('data-fallbacks', m.fallbacks || (yt ? 'yt:' + yt : ''));
                     plateImg.src = m.img; plateImg.alt = 'DIRECTV — ' + m.name;
                 }
 
