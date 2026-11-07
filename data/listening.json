@@ -2,21 +2,13 @@
   "_readme": [
     "Listening shelf: the third tab of the Media Diet on the homepage (#md-listening) and at joshuamgerman.com/media-diet/#listening. Podcasts, episodes and articles all live here. Hand-edited: no sync script touches this file.",
     "Add one object per thing to the top of \"items\" (newest first is tidiest, but the page sorts by date anyway).",
-    "Fields: type (podcast | episode | article | album | song | video), title, creator, url (https only), date (YYYY-MM-DD: the publish date for an article, or when you listened/read it).",
+    "Fields: type (podcast | episode | article | album | song | video), title, creator, url (https only), date (YYYY-MM-DD, or YYYY-MM when only the month is known: the publish date for an article, or when you listened/read it).",
     "creator: the show, artist or publication. For articles, \"Author · Publication\" works: the card shows both and the cover tile shows the publication.",
     "Optional: image (https URL to square cover art), note (one line, what grabbed you).",
     "Example: {\"type\": \"episode\", \"title\": \"How to Think About Taste\", \"creator\": \"Design Matters with Debbie Millman\", \"url\": \"https://example.com/episode\", \"image\": \"https://example.com/art.jpg\", \"date\": \"2026-11-01\", \"note\": \"The best ten minutes on taste I've heard.\"}",
     "Entries missing a title, or with a non-https url/image, are skipped or shown without the link/image."
   ],
   "items": [
-    {
-      "type": "article",
-      "title": "On the Phenomenon of Bullshit Jobs: A Work Rant",
-      "creator": "David Graeber · Strike! Magazine",
-      "url": "https://strikemag.org/bullshit-jobs/",
-      "date": "2026-11-06",
-      "note": "The 2013 essay that became the book Bullshit Jobs: A Theory."
-    },
     {
       "type": "article",
       "title": "What is work for? Human wellbeing and the value of work in the AGI era",
@@ -31,6 +23,14 @@
       "url": "https://www.currentaffairs.org/news/jay-z-and-the-pitfalls-of-black-capitalism",
       "date": "2025-08-04",
       "note": "Janel Moore and I talked this one through."
+    },
+    {
+      "type": "article",
+      "title": "On the Phenomenon of Bullshit Jobs: A Work Rant",
+      "creator": "David Graeber · Strike! Magazine",
+      "url": "https://strikemag.org/bullshit-jobs/",
+      "date": "2013-08",
+      "note": "The 2013 essay that became the book Bullshit Jobs: A Theory."
     }
   ]
 }

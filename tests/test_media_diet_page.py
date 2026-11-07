@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "media-diet/index.html"
 JS = ROOT / "assets/media-diet.js"
 CSS = ROOT / "assets/media-diet.css"
-PARTIAL = ROOT / "partials/media-diet-section.html"
+HOME = ROOT / "index.html"
 
 LETTERBOXD = "https://letterboxd.com/jgerms/"
 GOODREADS = "https://www.goodreads.com/user/show/95365432-joshua-german"
@@ -156,13 +156,21 @@ class MediaDietPageTests(unittest.TestCase):
         self.assertRegex((ROOT / "tests/browser/smoke.js").read_text(), r"PAGES = \[[^\]]*'media-diet/'")
 
 
-class MediaDietHomepagePartialTests(unittest.TestCase):
-    """partials/media-diet-section.html: the homepage chapter that embeds the shelf."""
+class MediaDietHomepageTests(unittest.TestCase):
+    """index.html#media-diet: the homepage chapter embeds the full shelf, not a teaser."""
 
     @classmethod
     def setUpClass(cls):
-        cls.html = PARTIAL.read_text(encoding="utf-8")
+        page = HOME.read_text(encoding="utf-8")
+        cls.page = page
+        start = page.index('<section id="media-diet"')
+        cls.html = page[start: page.index("</section>", start) + len("</section>")]
         cls.soup = BeautifulSoup(cls.html, "html.parser")
+
+    def test_homepage_loads_the_component(self):
+        self.assertIn('<link rel="stylesheet" href="assets/media-diet.css">', self.page)
+        self.assertIn('<script src="assets/media-diet.js" defer></script>', self.page)
+        self.assertNotIn('id="intake"', self.page)  # the old three-column teaser is gone
 
     def test_is_the_media_diet_chapter(self):
         section = self.soup.find("section")
@@ -209,6 +217,14 @@ class ListeningArticlesTests(unittest.TestCase):
         for a in articles:
             self.assertTrue(a["url"].startswith("https://"), a["url"])
             self.assertTrue(a["creator"])
+            # a publish date, or just the month when the day isn't known; never a made-up day
+            self.assertRegex(a["date"], r"^\d{4}-\d{2}(-\d{2})?$")
+        graeber = next(a for a in articles if "bullshit-jobs" in a["url"])
+        self.assertEqual(graeber["date"], "2013-08")
+
+    def test_month_only_dates_are_supported(self):
+        js = (ROOT / "assets/media-diet.js").read_text(encoding="utf-8")
+        self.assertIn("/^\\d{4}-\\d{2}$/", js)
 
 
 if __name__ == "__main__":

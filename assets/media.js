@@ -11,6 +11,8 @@
    Films:   <div class="film-frame mv-frame" data-yt="ID" data-title="…">
             <div class="film-frame mv-frame" data-ispot="ID" data-poster="x.jpg" data-title="…">
             <div class="film-frame mv-frame" data-mp4="x.mp4" data-poster="x.jpg" data-title="…">
+            <div class="film-frame mv-frame" data-vimeo="ID" data-poster="x.jpg" data-title="…">
+            Any film can also carry data-fallbacks="…" for its poster.
             Renders a poster + play button. The player only loads on
             click, and a "Watch on …" link always sits underneath so a
             blocked or pulled embed never leaves a dead box.
@@ -94,6 +96,7 @@
         var yt = frame.getAttribute('data-yt');
         var ispot = frame.getAttribute('data-ispot');
         var mp4 = frame.getAttribute('data-mp4');
+        var vimeo = frame.getAttribute('data-vimeo');
         var title = frame.getAttribute('data-title') || 'Watch the film';
         var poster = frame.getAttribute('data-poster') || '';
         var src, fallbacks, outHref, outLabel;
@@ -107,6 +110,11 @@
             src = poster; fallbacks = '';
             outHref = 'https://www.ispot.tv/ad/' + ispot;
             outLabel = 'iSpot';
+        } else if (vimeo) {
+            var thumb = 'https://vumbnail.com/' + encodeURIComponent(vimeo) + '.jpg';
+            src = poster || thumb; fallbacks = poster ? thumb : '';
+            outHref = 'https://vimeo.com/' + encodeURIComponent(vimeo);
+            outLabel = 'Vimeo';
         } else if (mp4) {
             src = poster; fallbacks = '';
             outHref = mp4;
@@ -114,6 +122,9 @@
         } else {
             return;
         }
+
+        var extra = frame.getAttribute('data-fallbacks') || '';
+        if (extra) fallbacks = (fallbacks ? fallbacks + ' ' : '') + extra;
 
         var btn = document.createElement('button');
         btn.type = 'button';
@@ -137,6 +148,11 @@
                 el.src = 'https://www.youtube-nocookie.com/embed/' + yt + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
                 el.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
                 el.allowFullscreen = true;
+            } else if (vimeo) {
+                el = document.createElement('iframe');
+                el.src = 'https://player.vimeo.com/video/' + encodeURIComponent(vimeo) + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+                el.allow = 'autoplay; fullscreen; picture-in-picture';
+                el.allowFullscreen = true;
             } else if (ispot) {
                 el = document.createElement('iframe');
                 el.src = 'https://www.ispot.tv/share/' + ispot;
@@ -155,10 +171,15 @@
         });
 
         // Escape hatch under every film, unless the page already has one.
+        // (A link this script made earlier is updated when the frame is re-pointed.)
         var holder = frame.parentElement;
-        if (holder && !holder.querySelector('.mv-out') && outLabel !== 'Film') {
+        var auto = frame.nextElementSibling && frame.nextElementSibling.hasAttribute('data-mv-auto') ? frame.nextElementSibling : null;
+        if (auto && outLabel !== 'Film') {
+            auto.href = outHref; auto.textContent = 'Watch on ' + outLabel + ' ↗';
+        } else if (holder && !holder.querySelector('.mv-out') && outLabel !== 'Film') {
             var a = document.createElement('a');
             a.className = 'mv-out';
+            a.setAttribute('data-mv-auto', '');
             a.href = outHref; a.target = '_blank'; a.rel = 'noopener';
             a.textContent = 'Watch on ' + outLabel + ' ↗';
             frame.insertAdjacentElement('afterend', a);
@@ -167,7 +188,7 @@
 
     function init(root) {
         root = root || document;
-        root.querySelectorAll('.mv-frame[data-yt], .mv-frame[data-ispot], .mv-frame[data-mp4]').forEach(hydrateFilm);
+        root.querySelectorAll('.mv-frame[data-yt], .mv-frame[data-ispot], .mv-frame[data-mp4], .mv-frame[data-vimeo]').forEach(hydrateFilm);
         root.querySelectorAll('img').forEach(function (img) {
             if (img.closest('.mv-film') && img._mvGuarded) return;
             guard(img);

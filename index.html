@@ -1187,48 +1187,6 @@
            MEDIA DIET — the shelf
            ===================================================== */
 
-        /* ---- Media diet: live intake shelf ---- */
-        .intake { display: grid; grid-template-columns: 1.15fr 1.15fr 0.9fr; gap: clamp(24px, 3.4vw, 48px); margin-top: var(--s5); }
-        .intake-col { min-width: 0; }
-        .intake-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; margin-bottom: 18px; border-bottom: 1.5px solid var(--ink); }
-        .intake-label { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
-        .intake-head a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mid); }
-        .intake-head a:hover { color: var(--ink); }
-        .intake-col.has-data .intake-empty { display: none; }
-        .intake-empty { display: flex; align-items: center; gap: 16px; padding: 18px; border: 1px dashed var(--rule); border-radius: 4px; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); transition: border-color .25s, background .25s; }
-        .intake-empty:hover { border-color: var(--ink-faint); background: var(--paper-raised); }
-        .intake-empty-art { flex: none; width: 54px; height: 76px; border-radius: 3px; background: var(--paper-dim); box-shadow: inset 0 0 0 1px var(--rule); position: relative; }
-        .intake-empty-art--film { background: repeating-linear-gradient(180deg, var(--paper-dim) 0 9px, var(--rule) 9px 10px); }
-        .intake-empty-art--book { width: 50px; box-shadow: inset 6px 0 0 var(--rule), inset 0 0 0 1px var(--rule); }
-        .intake-empty-art--pen { height: 54px; border-radius: 50%; }
-        .intake-posters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-        .intake-film { display: block; position: relative; }
-        .intake-film img, .intake-film .intake-film-tile { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; border-radius: 3px; background: var(--paper-dim); box-shadow: 0 12px 24px -16px rgba(23,21,18,.55); transition: transform .4s var(--exp); }
-        .intake-film-tile { display: flex !important; align-items: flex-end; padding: 8px; font-family: var(--serif); font-size: 0.82rem; line-height: 1.1; color: var(--ink); }
-        @media (hover: hover) { .intake-film:hover img, .intake-film:hover .intake-film-tile { transform: translateY(-4px); } }
-        .intake-stars { display: block; margin-top: 6px; font-size: 0.72rem; letter-spacing: .06em; color: var(--blue); }
-        .intake-film-name { display: block; font-size: 0.72rem; line-height: 1.3; color: var(--ink-mid); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .intake-books { display: grid; gap: 14px; }
-        .intake-book { display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: center; }
-        .intake-book img, .intake-book .intake-book-tile { width: 54px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 2px; background: var(--paper-dim); box-shadow: 0 10px 20px -14px rgba(23,21,18,.6); display: block; }
-        .intake-book b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.02rem; line-height: 1.2; }
-        .intake-book small { display: block; font-size: 0.8rem; color: var(--ink-mid); margin-top: 2px; }
-        .intake-book .intake-now { font-family: var(--mono); font-size: 0.56rem; letter-spacing: .16em; text-transform: uppercase; color: var(--leaf); }
-        .intake-posts { list-style: none; margin: 0; padding: 0; }
-        .intake-posts li { border-bottom: 1px solid var(--rule-soft); }
-        .intake-posts a { display: block; padding: 12px 0; }
-        .intake-posts time { font-family: var(--mono); font-size: 0.58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
-        .intake-posts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; line-height: 1.25; margin-top: 4px; }
-        .intake-posts a:hover b { text-decoration: underline; text-underline-offset: 3px; }
-        .intake-covers { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .intake-film { position: relative; }
-        .intake-badge { position: absolute; top: 6px; left: 6px; font-family: var(--mono); font-size: 0.5rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 3px 6px; border-radius: 999px; background: var(--leaf); color: #fff; }
-        .intake-more { margin-top: var(--s4); }
-        .intake-also { margin-top: var(--s5); font-size: 0.9rem; color: var(--ink-mid); }
-        .intake-also a { border-bottom: 1px solid var(--rule); }
-        .intake-also a:hover { border-color: var(--ink); color: var(--ink); }
-        @media (max-width: 980px) { .intake { grid-template-columns: 1fr 1fr; } .intake-col[data-shelf="watching"] { grid-column: 1 / -1; } }
-        @media (max-width: 620px) { .intake { grid-template-columns: 1fr; } .intake-posters { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; } }
         .diet-note { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.6; }
         @media (max-width: 820px) {
         }
@@ -1344,6 +1302,7 @@
         }
     </style>
 <link rel="stylesheet" href="assets/media.css">
+<link rel="stylesheet" href="assets/media-diet.css">
 </head>
 <body>
 
@@ -1718,7 +1677,7 @@
                     </div>
                 </a>
                 <a href="work/work-gatorade.html#lower-sugar" class="plate rv" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/2e4e68a6-7edf-45d3-9211-5af269317d69/gatorade-lower-sugar-hero?w=1400&amp;q=75" data-fallbacks="yt:iZjpjBxSHg4" alt="Gatorade — Lower Sugar" data-label="Gatorade — Lower Sugar"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://digitalassets.pepsico.com/transform/2e4e68a6-7edf-45d3-9211-5af269317d69/gatorade-lower-sugar-hero?w=1400&amp;q=75" data-fallbacks="yt:iZjpjBxSHg4 https://digitalassets.pepsico.com/transform/82f384e5-a698-4dfd-99a4-ec56773e2c4e/gatorade-lower-sugar-six-individuals?w=1400&amp;q=75" alt="Gatorade — Lower Sugar" data-label="Gatorade — Lower Sugar"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">Gatorade: Lower Sugar <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -1726,7 +1685,7 @@
                     </div>
                 </a>
                 <a href="work/work-directv.html#like-never-seen" class="plate rv rv-d1" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/-xYYHOXzUeY/maxresdefault.jpg" data-fallbacks="yt:-xYYHOXzUeY" alt="DIRECTV — Like You&#x27;ve Never Seen It" data-label="DIRECTV — Like You&#x27;ve Never Seen It"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/-xYYHOXzUeY/maxresdefault.jpg" data-fallbacks="yt:-xYYHOXzUeY yt:Be2pf8kXAKw" alt="DIRECTV — Like You&#x27;ve Never Seen It" data-label="DIRECTV — Like You&#x27;ve Never Seen It"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">DIRECTV: Like Never Seen <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -1734,7 +1693,7 @@
                     </div>
                 </a>
                 <a href="work/work-sephora.html#skincare" class="plate rv" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg" data-fallbacks="yt:dMD94-fjyAQ" alt="Sephora — Skin Obsessed" data-label="Sephora — Skin Obsessed"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="brand/sephora/skincare-2025/Sephora-Skincare.NhwUe2HM.jpg" data-fallbacks="https://vumbnail.com/1088246390.jpg" alt="Sephora — Skin Obsessed" data-label="Sephora — Skin Obsessed"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">Sephora: Skin Obsessed <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -1742,7 +1701,7 @@
                     </div>
                 </a>
                 <a href="work/work-sephora.html#holiday" class="plate rv rv-d1" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/8xsxYoCI4uc/maxresdefault.jpg" data-fallbacks="yt:8xsxYoCI4uc" alt="Sephora — Don&#x27;t Overthink It" data-label="Sephora — Don&#x27;t Overthink It"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/8xsxYoCI4uc/maxresdefault.jpg" data-fallbacks="yt:8xsxYoCI4uc https://vumbnail.com/1025092511.jpg brand/sephora/holiday-2024/hqdefault.jpg" alt="Sephora — Don&#x27;t Overthink It" data-label="Sephora — Don&#x27;t Overthink It"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Senior Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">Sephora: Don't Overthink It <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -1750,18 +1709,18 @@
                     </div>
                 </a>
                 <a href="work/work-xfinity.html" class="plate rv" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/63o9tgPK9r8/maxresdefault.jpg" data-fallbacks="yt:63o9tgPK9r8" alt="Xfinity — The Greatest Gift" data-label="Xfinity — The Greatest Gift"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://vumbnail.com/489634274.jpg" data-fallbacks="yt:SmnSlDfM6RU yt:63o9tgPK9r8" alt="Xfinity — The Greatest Gift" data-label="Xfinity — The Greatest Gift"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Communications Strategist • Goodby, Silverstein &amp; Partners</span>
                         <h3 class="plate-title">Xfinity: The Greatest Gift <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="plate-desc">Steven Carell as Santa. Holiday campaign orchestration with strategic influencer partnerships.</p>
+                        <p class="plate-desc">Steve Carell as Santa. Holiday campaign orchestration with strategic influencer partnerships.</p>
                         <div class="plate-awards">
                             <span class="award-chip">🎖️ The One Club Merit — Casting 2021</span>
                         </div>
                     </div>
                 </a>
                 <a href="work/work-directv.html#nothing-on-roof" class="plate rv rv-d1" data-agency="tbwa">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/9PhxP53igb4/maxresdefault.jpg" data-fallbacks="yt:9PhxP53igb4 brand/directv/directv-rebranding-bringing-flexibility-2025.webp" alt="DIRECTV — Nothing On Your Roof" data-label="DIRECTV — Nothing On Your Roof"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/TfOH2h2mt1U/maxresdefault.jpg" data-fallbacks="yt:TfOH2h2mt1U yt:nIIr8ukVUMw brand/directv/directv-rebranding-bringing-flexibility-2025.webp" alt="DIRECTV — Nothing On Your Roof" data-label="DIRECTV — Nothing On Your Roof"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Connections Strategist • TBWA\Chiat\Day</span>
                         <h3 class="plate-title">DIRECTV: Nothing On Your Roof <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -1811,7 +1770,7 @@
                     </div>
                 </a>
                 <a href="work/work-mlb.html" class="plate rv hidden-card" data-agency="wk">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/VRHr8IwbSMI/maxresdefault.jpg" data-fallbacks="yt:VRHr8IwbSMI brand/mlb/mlb-hero.jpg" alt="MLB — Baseball Is Something Else" data-label="MLB — Baseball Is Something Else"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/RuezgkQvkuQ/maxresdefault.jpg" data-fallbacks="yt:RuezgkQvkuQ yt:VRHr8IwbSMI yt:ff0JRU0cFtM yt:VPxEMljutAM brand/mlb/mlb-hero.jpg" alt="MLB — Baseball Is Something Else" data-label="MLB — Baseball Is Something Else"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Brand Strategist • Wieden+Kennedy Portland</span>
                         <h3 class="plate-title">MLB: Baseball Is Something Else <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -1870,7 +1829,7 @@
                     </div>
                 </a>
                 <a href="work/work-califia.html" class="plate rv rv-d1 hidden-card" data-agency="gsp">
-                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" alt="Califia Farms — Calilujah!" data-label="Califia Farms — Calilujah!"></div>
+                    <div class="plate-media"><img loading="lazy" decoding="async" src="https://goodbysilverstein.com/public/upload/work/images/desktop/6125b3d544db1.jpg" data-fallbacks="https://vumbnail.com/611339591.jpg" alt="Califia Farms — Calilujah!" data-label="Califia Farms — Calilujah!"></div>
                     <div class="plate-body">
                         <span class="plate-tag">Communication Strategist • Goodby, Silverstein &amp; Partners</span>
                         <h3 class="plate-title">Califia Farms: Calilujah! <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
@@ -2427,6 +2386,10 @@
 
     <!-- =====================================================
          06 — MEDIA DIET
+         The full shelf, right on the homepage: flip, sort and filter.
+         Built by assets/media-diet.js (+ assets/media-diet.css) from
+         data/media-diet.json and data/listening.json. Deep links:
+         #md-watching, #md-reading, #md-listening.
          ===================================================== -->
     <section id="media-diet" class="chapter">
         <div class="wrap">
@@ -2437,27 +2400,15 @@
                 </div>
                 <div class="ch-meta">What a curious, creative<br>strategist consumes</div>
             </div>
-            <p class="ch-intro rv">Inputs become outputs. Here&rsquo;s what&rsquo;s been going in lately, pulled live from where I log it.</p>
+            <p class="ch-intro rv">Inputs become outputs. Here&rsquo;s everything going in, pulled live from where I log it. Flip, sort and filter.</p>
 
-            <div class="intake rv" id="intake">
-                <div class="intake-col" data-shelf="watching">
-                    <div class="intake-head"><span class="intake-label">Watching</span><a href="media-diet/#watching">See all &rarr;</a></div>
-                    <div class="intake-posters" id="intakeFilms"></div>
-                    <a class="intake-empty" href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--film" aria-hidden="true"></span><span>Every film I log, with the stars to prove it.</span></a>
-                </div>
-                <div class="intake-col" data-shelf="reading">
-                    <div class="intake-head"><span class="intake-label">Reading</span><a href="media-diet/#reading">See all &rarr;</a></div>
-                    <div class="intake-posters intake-covers" id="intakeBooks"></div>
-                    <a class="intake-empty" href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener"><span class="intake-empty-art intake-empty-art--book" aria-hidden="true"></span><span>What&rsquo;s on the nightstand and what I finished.</span></a>
-                </div>
-                <div class="intake-col" data-shelf="listening">
-                    <div class="intake-head"><span class="intake-label">Listening</span><a href="media-diet/#listening">See all &rarr;</a></div>
-                    <ol class="intake-posts" id="intakeListening"></ol>
-                    <div class="intake-empty"><span class="intake-empty-art intake-empty-art--pen" aria-hidden="true"></span><span>Podcasts, articles and records I&rsquo;m into. Coming soon.</span></div>
-                </div>
+            <div class="md-app rv" data-root="./" data-hash-prefix="md-" data-per-page="12" data-pager="compact" data-heading-level="3">
+                <noscript>
+                    <p class="md-also">This shelf loads with JavaScript. Meanwhile: <a href="https://letterboxd.com/jgerms/">Letterboxd</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german">Goodreads</a>.</p>
+                </noscript>
             </div>
-            <p class="intake-more rv"><a href="media-diet/" class="rule-link">The full media diet: flip, sort and filter &#8599;</a></p>
-            <p class="intake-also rv">Also: <a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">Letterboxd &#8599;</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">Goodreads &#8599;</a> &middot; <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener">my chess games &#8599;</a> &middot; <a href="https://jgerms20.substack.com" target="_blank" rel="noopener">Substack &#8599;</a></p>
+
+            <p class="md-also rv">Also: <a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">Letterboxd &#8599;</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">Goodreads &#8599;</a> &middot; <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener">Chess.com &#8599;</a> &middot; <a href="https://jgerms20.substack.com" target="_blank" rel="noopener">Substack &#8599;</a></p>
         </div>
     </section>
 
@@ -2846,55 +2797,6 @@
             });
             trail.querySelector('.trail-stops').addEventListener('mouseleave', () => light(null));
         })();
-        // ---- Media diet: live intake (data/media-diet.json synced every 6 hours; data/listening.json hand-edited) ----
-        (function () {
-            const root = document.getElementById('intake');
-            if (!root || !window.fetch) return;
-            const el = (t, c, txt) => { const n = document.createElement(t); if (c) n.className = c; if (txt != null) n.textContent = txt; return n; };
-            const https = u => (typeof u === 'string' && /^https:\/\//.test(u)) ? u : '';
-            const stars = r => typeof r === 'number' && r > 0 ? '★'.repeat(Math.floor(r)) + (r % 1 ? '½' : '') : '';
-            const link = (url, cls) => { const a = el(url ? 'a' : 'div', cls); if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; } return a; };
-            function tile(item, label, badge) {
-                const a = link(https(item.url), 'intake-film');
-                a.setAttribute('aria-label', label);
-                const fallback = el('span', 'intake-film-tile', item.title);
-                const src = https(item.poster || item.cover || item.image);
-                if (src) { const img = el('img'); img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.src = src; img.addEventListener('error', () => img.replaceWith(fallback)); a.appendChild(img); }
-                else a.appendChild(fallback);
-                if (badge) a.appendChild(el('span', 'intake-badge', badge));
-                a.appendChild(el('span', 'intake-stars', stars(item.rating) || ' '));
-                a.appendChild(el('span', 'intake-film-name', item.title));
-                return a;
-            }
-            const get = url => fetch(url, { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).catch(() => null);
-            Promise.all([get('data/media-diet.json'), get('data/listening.json')]).then(([diet, listening]) => {
-                const films = ((diet && diet.letterboxd) || []).filter(f => f && f.title).slice(0, 8);
-                if (films.length) {
-                    const box = document.getElementById('intakeFilms');
-                    films.forEach(f => box.appendChild(tile(f, f.title + (f.year ? ' (' + f.year + ')' : '') + (f.rating ? ', ' + f.rating + ' stars' : ''))));
-                    root.querySelector('[data-shelf="watching"]').classList.add('has-data');
-                }
-                const now = ((diet && diet.reading) || []).filter(b => b && b.title);
-                const done = ((diet && diet.read) || []).filter(b => b && b.title);
-                const books = now.map(b => [b, 'Now']).concat(done.map(b => [b, ''])).slice(0, 8);
-                if (books.length) {
-                    const box = document.getElementById('intakeBooks');
-                    books.forEach(([b, badge]) => box.appendChild(tile(b, b.title + (b.author ? ' by ' + b.author : ''), badge)));
-                    root.querySelector('[data-shelf="reading"]').classList.add('has-data');
-                }
-                const items = ((listening && listening.items) || []).filter(i => i && i.title).slice(0, 5);
-                if (items.length) {
-                    const box = document.getElementById('intakeListening');
-                    items.forEach(i => {
-                        const li = el('li'); const a = link(https(i.url));
-                        a.appendChild(el('time', null, [i.type, i.creator].filter(Boolean).join(' · ')));
-                        a.appendChild(el('b', null, i.title));
-                        li.appendChild(a); box.appendChild(li);
-                    });
-                    root.querySelector('[data-shelf="listening"]').classList.add('has-data');
-                }
-            });
-        })();
         // ---- Art: open a collage full size ----
         (function () {
             const box = document.getElementById('artLightbox');
@@ -3168,5 +3070,6 @@
 
     </script>
 <script src="assets/media.js" defer></script>
+<script src="assets/media-diet.js" defer></script>
 </body>
 </html>

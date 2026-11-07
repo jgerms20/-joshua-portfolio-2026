@@ -918,58 +918,6 @@
     </footer>
 
     <script>
-        /* ---- Vimeo films ----
-           Same click-to-play facade as ../assets/media.js (which handles
-           YouTube / iSpot / mp4): poster + play button, player loads on
-           click, "Watch on Vimeo" link underneath. media.js guards the
-           poster's data-fallbacks once it loads. */
-        function mvVimeo(frame) {
-            const id = frame.getAttribute('data-vimeo');
-            if (!id || frame._mvDone) return;
-            frame._mvDone = true;
-            const title = frame.getAttribute('data-title') || 'Watch the film';
-            const poster = frame.getAttribute('data-poster') || '';
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'mv-film' + (poster ? '' : ' mv-noposter');
-            btn.setAttribute('aria-label', 'Play: ' + title);
-            if (poster) {
-                const img = document.createElement('img');
-                img.className = 'mv-poster'; img.alt = ''; img.decoding = 'async';
-                const fb = frame.getAttribute('data-fallbacks');
-                if (fb) img.setAttribute('data-fallbacks', fb);
-                img.src = poster;
-                btn.appendChild(img);
-            }
-            btn.insertAdjacentHTML('beforeend',
-                '<span class="mv-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6,3 21,12 6,21"/></svg></span>' +
-                '<span class="mv-cap"><span class="mv-cap-title"></span><span class="mv-cap-src">▶ Vimeo</span></span>');
-            btn.querySelector('.mv-cap-title').textContent = title;
-            btn.addEventListener('click', function () {
-                const el = document.createElement('iframe');
-                el.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
-                el.allow = 'autoplay; fullscreen; picture-in-picture';
-                el.allowFullscreen = true;
-                el.className = 'mv-frame-live';
-                el.title = title;
-                frame.innerHTML = '';
-                frame.appendChild(el);
-            });
-            frame.innerHTML = '';
-            frame.appendChild(btn);
-            const holder = frame.parentElement;
-            if (holder && !holder.querySelector('.mv-out')) {
-                const a = document.createElement('a');
-                a.className = 'mv-out';
-                a.href = 'https://vimeo.com/' + id; a.target = '_blank'; a.rel = 'noopener';
-                a.textContent = 'Watch on Vimeo ↗';
-                frame.insertAdjacentElement('afterend', a);
-            }
-            const img = btn.querySelector('img');
-            if (img && window.MV) window.MV.guard(img);
-        }
-        document.querySelectorAll('.mv-frame[data-vimeo]').forEach(mvVimeo);
-
         /* ---- Theme toggle ---- */
         (function () {
             const btn = document.getElementById('themeToggle');
@@ -1066,7 +1014,7 @@
                     heroFrame.setAttribute('data-vimeo', m.vimeo);
                     heroFrame.setAttribute('data-poster', m.poster);
                     heroFrame.setAttribute('data-title', m.title || m.name);
-                    mvVimeo(heroFrame);
+                    if (window.MV) window.MV.init(heroFrame.parentElement);
                 }
 
                 document.title = 'Sephora: ' + m.name + ' | Joshua McKenzie German';

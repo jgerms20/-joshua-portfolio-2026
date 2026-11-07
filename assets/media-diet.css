@@ -303,6 +303,8 @@
     .md-when { font-size: 0.5rem; letter-spacing: 0.08em; white-space: normal; }
     .md-card--listen { grid-template-columns: 84px minmax(0, 1fr); gap: 14px; padding: 14px; }
     .md-card--listen .md-name { font-size: 1.02rem; }
+    .md-tile--listen { padding: 9px; }
+    .md-tile--listen .md-tile-t { font-size: 0.8rem; overflow-wrap: break-word; }
     .md-empty { grid-template-columns: minmax(0, 1fr); }
     .md-empty-art { height: 120px; }
     .md-pg-num { display: none; }

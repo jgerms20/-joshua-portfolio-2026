@@ -47,9 +47,18 @@
     }
     function https(u) { return (typeof u === 'string' && /^https:\/\/[^\s"'<>]+$/.test(u.trim())) ? u.trim() : ''; }
     function str(v, max) { return typeof v === 'string' ? v.trim().slice(0, max || 200) : (typeof v === 'number' ? String(v) : ''); }
-    function isoDate(v) { return (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v)) ? v.slice(0, 10) : ''; }
+    // YYYY-MM-DD, or YYYY-MM when only the month is known (shown as "Aug 2013")
+    function isoDate(v) {
+        if (typeof v !== 'string') return '';
+        if (/^\d{4}-\d{2}-\d{2}/.test(v)) return v.slice(0, 10);
+        return /^\d{4}-\d{2}$/.test(v) ? v : '';
+    }
     function fmtDate(d, withYear) {
         if (!d) return '';
+        if (d.length === 7) {
+            var m = new Date(d + '-01T00:00:00Z');
+            return isNaN(m) ? '' : m.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+        }
         var x = new Date(d + 'T00:00:00Z');
         if (isNaN(x)) return '';
         return x.toLocaleDateString('en-US', withYear === false

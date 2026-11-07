@@ -219,7 +219,7 @@ class MediaDietSyncTests(unittest.TestCase):
             self.assertIn(item.get("type"), allowed)
             self.assertTrue(item.get("title"))
             self.assertTrue(item.get("url", "").startswith("https://"))
-            self.assertRegex(item.get("date", ""), r"^\d{4}-\d{2}-\d{2}$")
+            self.assertRegex(item.get("date", ""), r"^\d{4}-\d{2}(-\d{2})?$")  # a day, or just the month
             if item.get("image"):
                 self.assertTrue(item["image"].startswith("https://"))
 
