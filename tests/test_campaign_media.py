@@ -46,5 +46,26 @@ class CampaignMediaTests(unittest.TestCase):
             self.assertTrue(not src.startswith("http") or "data-fallbacks=" in tag, f"{href} has one remote image and no fallback")
 
 
+class CampaignChannelTests(unittest.TestCase):
+    def test_every_case_page_maps_its_channels_and_culture(self):
+        for name, html in PAGES.items():
+            if name == "work-template.html":
+                continue
+            self.assertIn('href="../assets/channels.css"', html, name)
+            self.assertIn('class="chm"', html, name)
+            self.assertIn('class="culture-note', html, name)
+
+    def test_channel_rows_cite_sources(self):
+        for name, html in PAGES.items():
+            self.assertGreater(html.count('class="chm-src"'), 0, name) if 'class="chm"' in html else None
+
+    def test_homepage_cards_show_channels_and_culture(self):
+        work = HOME[HOME.index('<section id="work"'):]
+        work = work[: work.index("</section>")]
+        for href, body in re.findall(r'<a href="(work/[^"]+)" class="plate\b(.*?)</a>', work, re.S):
+            self.assertIn('class="plate-channels"', body, href)
+            self.assertIn('class="plate-culture"', body, href)
+
+
 if __name__ == "__main__":
     unittest.main()
