@@ -779,6 +779,13 @@
         .plate:hover .plate-title .arr { transform: translate(4px, -4px); color: var(--blue); }
         .plate-desc { font-size: 0.92rem; line-height: 1.65; color: var(--ink-soft); margin-top: 10px; max-width: 560px; }
         .plate-awards { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        /* Where the campaign showed up, and the cultural truth under it */
+        .plate-channels { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 0; margin-top: 12px; font-family: var(--mono); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+        .plate-channels li { list-style: none; display: inline-flex; align-items: center; }
+        .plate-channels li + li::before { content: ''; width: 14px; height: 1px; background: var(--blue); opacity: .45; margin: 0 8px; }
+        .plate-channels { padding: 0; }
+        .plate-culture { margin-top: 8px; font-family: var(--serif); font-style: italic; font-size: 0.98rem; line-height: 1.4; color: var(--ink); }
+        .plate-culture::before { content: 'Cultural insight \2014  '; font-family: var(--mono); font-style: normal; font-size: 0.56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--vermilion); }
         .award-chip {
             font-family: var(--mono); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.08em;
             padding: 5px 11px; border-radius: 999px;
@@ -1607,8 +1614,9 @@
                     <span class="ch-num">CH. 02</span>
                     <h2 class="ch-title">Brand <span class="it">Work</span></h2>
                 </div>
-                <div class="ch-meta">Campaigns &amp; Advisory<br>TBWA · W+K · GS&amp;P · Independent</div>
+                <div class="ch-meta">Campaigns across channels<br>TBWA · W+K · GS&amp;P · Independent</div>
             </div>
+            <p class="ch-intro rv">Connections and cultural strategy: finding the truth a community already lives by, then carrying one idea across film, social, out-of-home, partnerships and real-world moments so every piece hands off to the next.</p>
 
             <div class="camp-filters rv" id="campFilters">
                 <button class="camp-filter active" data-agency="all">All</button>
