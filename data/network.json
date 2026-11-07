@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-06T18:08:18Z",
+  "generated_at": "2026-11-07T02:56:36Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,9 +20,9 @@
       "count": 6
     },
     {
-      "key": "coltsdaily",
-      "name": "Colts Daily",
-      "short": "Colts Daily",
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
@@ -30,42 +30,26 @@
       ],
       "tagline": "",
       "about": "",
-      "url": "https://open.spotify.com/show/44iglaK8xQPnHHAVpUAgyx",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
-      "latest": "2026-11-06",
-      "count": 8
-    },
-    {
-      "key": "tvinsider",
-      "name": "The TV Insider",
-      "short": "The TV Insider",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
-      "latest": "2026-11-06",
-      "count": 6
-    },
-    {
-      "key": "hollywoodinsider",
-      "name": "The Business of Hollywood",
-      "short": "The Business of Hollywood",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
       "latest": "2026-11-06",
       "count": 5
+    },
+    {
+      "key": "riff",
+      "name": "The Jazz Riff",
+      "short": "The Jazz Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "Jazz only, four times a week.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46952241/46952241-1791842086815-d3dc0a841baa5.jpg",
+      "latest": "2026-11-06",
+      "count": 32
     },
     {
       "key": "blitz",
@@ -82,70 +66,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
       "latest": "2026-11-06",
       "count": 7
-    },
-    {
-      "key": "celticsdaily",
-      "name": "Celtics Daily",
-      "short": "Celtics Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
-      "latest": "2026-11-06",
-      "count": 6
-    },
-    {
-      "key": "globalread",
-      "name": "The Global Read",
-      "short": "The Global Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-06",
-      "count": 9
-    },
-    {
-      "key": "ladaily",
-      "name": "The LA Daily",
-      "short": "The LA Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
-      "latest": "2026-11-06",
-      "count": 11
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
-      "latest": "2026-11-06",
-      "count": 13
     },
     {
       "key": "polymath",
@@ -228,6 +148,38 @@
       "count": 7
     },
     {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
+      "latest": "2026-11-04",
+      "count": 11
+    },
+    {
+      "key": "globalread",
+      "name": "The Global Read",
+      "short": "The Global Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
+      "latest": "2026-11-04",
+      "count": 7
+    },
+    {
       "key": "airead",
       "name": "The AI Read",
       "short": "The AI Read",
@@ -242,6 +194,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
       "latest": "2026-11-04",
       "count": 7
+    },
+    {
+      "key": "ladaily",
+      "name": "The LA Daily",
+      "short": "The LA Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
+      "latest": "2026-11-04",
+      "count": 9
     },
     {
       "key": "optionsdesk",
@@ -308,6 +276,22 @@
       "count": 4
     },
     {
+      "key": "celticsdaily",
+      "name": "Celtics Daily",
+      "short": "Celtics Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
+      "latest": "2026-11-03",
+      "count": 5
+    },
+    {
       "key": "waiverwire",
       "name": "The Waiver Wire",
       "short": "The Waiver Wire",
@@ -322,6 +306,54 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
       "latest": "2026-11-03",
       "count": 2
+    },
+    {
+      "key": "hollywoodinsider",
+      "name": "The Business of Hollywood",
+      "short": "The Business of Hollywood",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
+      "latest": "2026-11-03",
+      "count": 4
+    },
+    {
+      "key": "coltsdaily",
+      "name": "Colts Daily",
+      "short": "Colts Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/44iglaK8xQPnHHAVpUAgyx",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
+      "latest": "2026-11-03",
+      "count": 7
+    },
+    {
+      "key": "tvinsider",
+      "name": "The TV Insider",
+      "short": "The TV Insider",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
+      "latest": "2026-11-03",
+      "count": 5
     },
     {
       "key": "abolitionist",
@@ -354,22 +386,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46721993/46721993-1789009717963-59de87d6384f7.jpg",
       "latest": "2026-11-02",
       "count": 46
-    },
-    {
-      "key": "riff",
-      "name": "The Jazz Riff",
-      "short": "The Jazz Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "Jazz only, four times a week.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46952241/46952241-1791842086815-d3dc0a841baa5.jpg",
-      "latest": "2026-11-02",
-      "count": 31
     },
     {
       "key": "designdigest",
@@ -434,22 +450,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123691/47123691-1793486223429-91e29c29b26a.jpg",
       "latest": "2026-11-02",
       "count": 2
-    },
-    {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-01",
-      "count": 4
     },
     {
       "key": "harlem",
@@ -520,31 +520,22 @@
   ],
   "latest": [
     {
-      "show": "coltsdaily",
-      "show_name": "Colts Daily",
+      "show": "gamecocksdaily",
+      "show_name": "Gamecocks Daily",
       "kind": "episode",
-      "title": "Taylor Calls It Noise, Rookies Step In: Indianapolis Is 2-6 | Friday, November 6, 2026",
+      "title": "Gamecocks Target Bowl Eligibility Against Texas A&M: Gamecocks Daily | Friday, November 6, 2026",
       "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/0h0gLm2kHx2mMqyHVVYLsf",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107277/47107277-1793972196125-a2faa06849385.jpg"
+      "url": "https://open.spotify.com/episode/0lopOhw98cx4QzA0zqqlfj",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1793990507022-64adb7113f3e8.jpg"
     },
     {
-      "show": "tvinsider",
-      "show_name": "The TV Insider",
+      "show": "riff",
+      "show_name": "The Jazz Riff",
       "kind": "episode",
-      "title": "Channel 4 Axes 'Married at First Sight UK' After 10 Years and Scraps a Filmed Series | Friday, November 6, 2026",
+      "title": "Los Angeles: From Central Avenue to Sunset",
       "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/4z0Vb5lEGT3OXbhHQgSEJc",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1793966662989-23331eafa7faa.jpg"
-    },
-    {
-      "show": "hollywoodinsider",
-      "show_name": "The Business of Hollywood",
-      "kind": "episode",
-      "title": "Godzilla Minus Zero's $6M Previews Triple Minus One and Break GKIDS' Record | Friday, November 6, 2026",
-      "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/3KE2cAttt6lMtE2FO2M0ex",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105424/47105424-1793966624706-95791390cd382.jpg"
+      "url": "https://open.spotify.com/episode/6FXRdpHvhKpOmSrGM2YTr1",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46952241/46952241-1793979774768-3c2a8865e7686.jpg"
     },
     {
       "show": "blitz",
@@ -552,44 +543,8 @@
       "kind": "episode",
       "title": "Thursday, November 5, 2026",
       "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/3oGdcnXuBvjj8HEXcUOGE8",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms209/episodes/Thursday--November-5--2026-e3rs9t8",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1793942045001-eb9d444640a2b.jpg"
-    },
-    {
-      "show": "celticsdaily",
-      "show_name": "Celtics Daily",
-      "kind": "episode",
-      "title": "Celtics Survive Near Collapse Against Bucks, Boston Is 6-2 | Thursday, November 5, 2026",
-      "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/7jQT0R2RSlxXCBkD2UmfCx",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1793939585894-11dc0dab3c76d.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "Thursday, November 5, 2026 — AM Edition",
-      "date": "2026-11-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Thursday--November-5--2026--AM-Edition-e3rs84a",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Thursday, November 5, 2026 — AM Edition",
-      "date": "2026-11-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20487/episodes/Thursday--November-5--2026--AM-Edition-e3rs81c",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "Thursday, November 5, 2026 — AM Edition",
-      "date": "2026-11-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Thursday--November-5--2026--AM-Edition-e3rs7uh",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg"
     },
     {
       "show": "polymath",
@@ -601,31 +556,76 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793937037745-105e513b3ebf6.jpg"
     },
     {
-      "show": "globalread",
-      "show_name": "The Global Read",
+      "show": "blitz",
+      "show_name": "The Blitz",
       "kind": "episode",
-      "title": "Thursday, November 5, 2026 — PM Edition",
-      "date": "2026-11-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Thursday--November-5--2026--PM-Edition-e3rs586",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1793935847926-adf812f7b4d5e.jpg"
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-05",
+      "url": "https://open.spotify.com/episode/3aXGGUjtTHaSQJB8A99DcP",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1793864707668-77fd565c49db8.jpg"
+    },
+    {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-05",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms203/episodes/Wednesday--November-4--2026-e3rq17f",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1793863870665-932b4efa3a52d.jpg"
+    },
+    {
+      "show": "cfbdaily",
+      "show_name": "College Football Daily",
+      "kind": "episode",
+      "title": "UMass Wins a MACtion Overtime Classic on a Missed Extra Point, and Toledo Escapes Sacramento | Wednesday, November 4, 2026",
+      "date": "2026-11-05",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2009/episodes/UMass-Wins-a-MACtion-Overtime-Classic-on-a-Missed-Extra-Point--and-Toledo-Escapes-Sacramento--Wednesday--November-4--2026-e3rq0ea",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1793862784758-09e079463ba42.jpg"
+    },
+    {
+      "show": "techread",
+      "show_name": "The Tech Read",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/28uwbVNg6dtHLBCGWFctKo",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115008/47115008-1793830386903-bc64d0b749996.jpg"
+    },
+    {
+      "show": "nyread",
+      "show_name": "The New York Read",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://open.spotify.com/episode/41FB3rvQSFZ4doxAUDimlF",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1793828723562-7014ad83044a3.jpg"
     },
     {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
-      "title": "Thursday, November 5, 2026 — PM Edition",
-      "date": "2026-11-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Thursday--November-5--2026--PM-Edition-e3rs582",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1793935832833-c7dc3afb26a62.jpg"
+      "title": "Wednesday, November 4, 2026 — AM Edition",
+      "date": "2026-11-04",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Wednesday--November-4--2026--AM-Edition-e3rp56m",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1793828791182-4b3f46353ff88.jpg"
     },
     {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
+      "show": "globalread",
+      "show_name": "The Global Read",
       "kind": "episode",
-      "title": "Thursday, November 5, 2026 — PM Edition",
-      "date": "2026-11-06",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20487/episodes/Thursday--November-5--2026--PM-Edition-e3rs49u",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793934664195-61cad6a93713.jpg"
+      "title": "Wednesday, November 4, 2026 — AM Edition",
+      "date": "2026-11-04",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Wednesday--November-4--2026--AM-Edition-e3rp4vd",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1793828663023-04a572b5e2593.jpg"
+    },
+    {
+      "show": "airead",
+      "show_name": "The AI Read",
+      "kind": "episode",
+      "title": "Wednesday, November 4, 2026",
+      "date": "2026-11-04",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2047/episodes/Wednesday--November-4--2026-e3rp512",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1793828655898-169b736c3357c.jpg"
     }
   ]
 }
