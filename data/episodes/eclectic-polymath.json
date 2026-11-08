@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-07T13:36:56Z",
+  "updated": "2026-11-08T06:45:28Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
+      "date": "2026-11-08",
+      "url": "https://open.spotify.com/episode/2uGjSXVoFbdMGNDRmeMpQH",
+      "description": "On November 3, 1954, Japanese audiences filed into theaters to watch a monster destroy Tokyo. Gojira was not escapism. It arrived nine years after Hiroshima and Nagasaki, two years after an Allied occupation that had forbidden the country…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794098615462-56c2bc7443e1b.jpg",
+      "duration": "54 min"
+    },
+    {
       "title": "#251 Arnold Schwarzenegger: The Recall That Invented the Celebrity Candidate",
       "date": "2026-11-07",
-      "url": "https://open.spotify.com/episode/3fL4OY3OMjL1gUeerRXcye",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/251-Arnold-Schwarzenegger-The-Recall-That-Invented-the-Celebrity-Candidate-e3rs65v",
       "description": "In October 2003, California fired its governor mid-term — and replaced him with a movie star. This episode traces how the 2003 gubernatorial recall worked, who paid for it, why Gray Davis was so unpopular, and how Arnold Schwarzenegger…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793937037745-105e513b3ebf6.jpg",
       "duration": "56 min"
@@ -19,6 +27,14 @@
       "description": "250 episodes in, and this little experiment in curiosity has grown into something much bigger than I ever imagined. We're back for another milestone check-in, revisiting the last 50 episodes and the questions that inspired them. From…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794041439946-998b01371d145.jpg",
       "duration": "24 min"
+    },
+    {
+      "title": "#251 Arnold Schwarzenegger: The Recall That Invented the Celebrity Candidate",
+      "date": "2026-11-07",
+      "url": "https://open.spotify.com/episode/3fL4OY3OMjL1gUeerRXcye",
+      "description": "In October 2003, California fired its governor mid-term — and replaced him with a movie star. This episode traces how the 2003 gubernatorial recall worked, who paid for it, why Gray Davis was so unpopular, and how Arnold Schwarzenegger…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793937037745-105e513b3ebf6.jpg",
+      "duration": "56 min"
     },
     {
       "title": "#249 The Audio Century: How Audio Is Replacing Screens",
@@ -83,22 +99,6 @@
       "description": "An Instagram reel argued Los Angeles is destined to become the greatest city in the world, and its comments kept returning to one phrase: the third wave. This episode audits the claim — the waves of LA's history, the city it never…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg",
       "duration": "1 hr 6 min"
-    },
-    {
-      "title": "#244 Anthropic: By the Numbers",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/244-Anthropic-By-the-Numbers-e3r9vlo",
-      "description": "Everyone has an opinion about Anthropic's IPO. This episode ignores all of them. It is built from one document and one document only: the S-1 Anthropic filed with the SEC on October 26, 2026 — the registration statement for its Nasdaq…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793218576272-4d619a5b1ad13.jpg",
-      "duration": "56 min"
-    },
-    {
-      "title": "#243 Serbia's Student List: The Movement With No Leader That Beat the Strongman",
-      "date": "2026-10-28",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/243-Serbias-Student-List-The-Movement-With-No-Leader-That-Beat-the-Strongman-e3ra156",
-      "description": "On October 25, 2026, Serbia handed power to something with no precedent in Europe: a candidate list designed by a leaderless movement — 250 names chosen by student plenums, under rules written to make sure none of them could ever become…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793223364606-532aaa1876cf3.jpg",
-      "duration": "46 min"
     }
   ]
 }
