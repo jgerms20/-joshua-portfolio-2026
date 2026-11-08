@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-08T00:47:53Z",
+  "generated_at": "2026-11-08T07:30:58Z",
   "shows": [
     {
       "key": "ccpod",
@@ -32,24 +32,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-08",
-      "count": 251
-    },
-    {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-08",
-      "count": 6
+      "latest": "2026-11-07",
+      "count": 250
     },
     {
       "key": "blitz",
@@ -66,6 +50,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
       "latest": "2026-11-06",
       "count": 7
+    },
+    {
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
+      "latest": "2026-11-06",
+      "count": 5
     },
     {
       "key": "gamecockshoops",
@@ -495,7 +495,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -519,24 +519,6 @@
     }
   ],
   "latest": [
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
-      "date": "2026-11-08",
-      "url": "https://open.spotify.com/episode/2uGjSXVoFbdMGNDRmeMpQH",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794098615462-56c2bc7443e1b.jpg"
-    },
-    {
-      "show": "gamecocksdaily",
-      "show_name": "Gamecocks Daily",
-      "kind": "episode",
-      "title": "Sellers Seals It on One Ankle, Bowl Bound at Last: South Carolina Is 6-3 | Saturday, November 7, 2026",
-      "date": "2026-11-08",
-      "url": "https://open.spotify.com/episode/2jkS5vgIlELSRb2Uff6Exj",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1794096177461-28985c5bcbc98.jpg"
-    },
     {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
@@ -626,6 +608,24 @@
       "date": "2026-11-06",
       "url": "https://open.spotify.com/episode/46hCM2EMeVYM7CDmT97LSh",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1793989894988-dfc2376cef2ec.jpg"
+    },
+    {
+      "show": "ladaily",
+      "show_name": "The LA Daily",
+      "kind": "episode",
+      "title": "Friday, November 6, 2026",
+      "date": "2026-11-06",
+      "url": "https://open.spotify.com/episode/2qRn8MWsOyEgrYOHtDMnCL",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793984818351-7f0d59bb3533f.jpg"
+    },
+    {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "Friday, November 6, 2026 — AM Edition",
+      "date": "2026-11-06",
+      "url": "https://open.spotify.com/episode/0azNkB2Zn3PphnkrWPGlX5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1793984798811-6a33cc9c7d163.jpg"
     }
   ]
 }
