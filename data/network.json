@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-08T19:52:07Z",
+  "generated_at": "2026-11-09T06:54:13Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 6
     },
     {
+      "key": "polymath",
+      "name": "The Eclectic Polymath Podcast",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-11-08",
+      "count": 252
+    },
+    {
       "key": "gamecocksdaily",
       "name": "Gamecocks Daily",
       "short": "Gamecocks Daily",
@@ -34,22 +50,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
       "latest": "2026-11-08",
       "count": 6
-    },
-    {
-      "key": "polymath",
-      "name": "The Eclectic Polymath Podcast",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-07",
-      "count": 250
     },
     {
       "key": "blitz",
@@ -520,6 +520,24 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#253 The Missing Pact: Why Asia Never Built Its NATO",
+      "date": "2026-11-08",
+      "url": "https://open.spotify.com/episode/0yGI2M4k420Ap0vR2COAL2",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794105969963-c6a72b03873ee.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
+      "date": "2026-11-08",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/252-Godzilla-The-Monster-Japan-Built-to-Carry-Its-Grief-e3rvvd4",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794101398140-66708e9cfe289.jpg"
+    },
+    {
       "show": "gamecocksdaily",
       "show_name": "Gamecocks Daily",
       "kind": "episode",
@@ -608,24 +626,6 @@
       "date": "2026-11-06",
       "url": "https://open.spotify.com/episode/66fHaJMzDfL5BLgMGrTkLu",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1793990093701-f40761b8cbc5c.jpg"
-    },
-    {
-      "show": "columbiaread",
-      "show_name": "The Columbia Read",
-      "kind": "episode",
-      "title": "Friday, November 6, 2026",
-      "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/46hCM2EMeVYM7CDmT97LSh",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1793989894988-dfc2376cef2ec.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Friday, November 6, 2026",
-      "date": "2026-11-06",
-      "url": "https://open.spotify.com/episode/2qRn8MWsOyEgrYOHtDMnCL",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1793984818351-7f0d59bb3533f.jpg"
     }
   ]
 }

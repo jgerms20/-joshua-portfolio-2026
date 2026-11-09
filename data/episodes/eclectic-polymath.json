@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-08T06:45:28Z",
+  "updated": "2026-11-09T07:16:22Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#253 The Missing Pact: Why Asia Never Built Its NATO",
+      "date": "2026-11-08",
+      "url": "https://open.spotify.com/episode/0yGI2M4k420Ap0vR2COAL2",
+      "description": "Europe came out of the Second World War and built a table: NATO, pooled coal and steel, eventually a shared history textbook between France and Germany. East Asia came out of the same war and built a wheel. The United States sits at the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794105969963-c6a72b03873ee.jpg",
+      "duration": "1 hr 24 min"
+    },
+    {
+      "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
+      "date": "2026-11-08",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/252-Godzilla-The-Monster-Japan-Built-to-Carry-Its-Grief-e3rvvd4",
+      "description": "On November 3, 1954, Japanese audiences filed into theaters to watch a monster destroy Tokyo. Gojira was not escapism. It arrived nine years after Hiroshima and Nagasaki, two years after an Allied occupation that had forbidden the country…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794101398140-66708e9cfe289.jpg",
+      "duration": "54 min"
+    },
     {
       "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
       "date": "2026-11-08",
@@ -83,22 +99,6 @@
       "description": "A movie about a murdered poet just won at Cannes — and it opens the door on the biggest buried story in Western culture. Spain has been one of the world's great cultural capitals not once but three times: the Golden Age that invented the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg",
       "duration": "1 hr 10 min"
-    },
-    {
-      "title": "#246 Los Angeles: The Capital of the Pacific Century",
-      "date": "2026-10-29",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/246-Los-Angeles-The-Capital-of-the-Pacific-Century-e3ramns",
-      "description": "An Instagram reel argued Los Angeles is destined to become the greatest city in the world, and its comments kept returning to one phrase: the third wave. This episode audits the claim — the waves of LA's history, the city it never…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg",
-      "duration": "1 hr 6 min"
-    },
-    {
-      "title": "#246 Los Angeles: The Capital of the Pacific Century",
-      "date": "2026-10-29",
-      "url": "https://open.spotify.com/episode/2hVT2KVrMP5SIZzoOP4Xbn",
-      "description": "An Instagram reel argued Los Angeles is destined to become the greatest city in the world, and its comments kept returning to one phrase: the third wave. This episode audits the claim — the waves of LA's history, the city it never…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793240279536-a76e6add7bd6c.jpg",
-      "duration": "1 hr 6 min"
     }
   ]
 }
