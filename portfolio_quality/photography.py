@@ -55,6 +55,11 @@ def load_photography_manifest(path: Path) -> list[dict[str, object]]:
             raise ValueError(f"photography set must be a set slug like north-carolina: {entry['set']}")
         if entry.get("project") is not None and not str(entry["project"]).strip():
             raise ValueError("photography project must be a non-empty name when set")
+        for flag in ("commissioned", "spec"):
+            if flag in entry and not isinstance(entry[flag], bool):
+                raise ValueError(f"photography {flag} must be true or false")
+        if entry.get("commissioned") is True and entry.get("spec") is True:
+            raise ValueError(f"photography entry {identifier} cannot be both commissioned and spec")
 
         seen_ids.add(identifier)
         seen_sources.add(source)
@@ -266,12 +271,18 @@ def _gallery_tile(photo: dict[str, object], index: int, *, extra: bool) -> str:
     )
 
 
-def render_darkroom(photos: list[dict[str, object]], sets: list[dict[str, object]] | None = None) -> str:
-    """Homepage photography chapter: straight to the pictures.
+def render_darkroom(
+    photos: list[dict[str, object]],
+    sets: list[dict[str, object]] | None = None,
+    coverage: list[dict[str, object]] | None = None,
+) -> str:
+    """Homepage photography chapter.
 
-    One justified grid (every frame keeps its own ratio), curated sequence
-    first, then the rest of the archive behind "See more". A row of set
-    links (Rio de Janeiro, ...) sits under the filters when sets exist.
+    A short offer band first (what Joshua shoots, booking through the
+    Studio, the latest event coverage), then one justified grid (every frame
+    keeps its own ratio), curated sequence first, then the rest of the
+    archive behind "See more". A row of set links (Rio de Janeiro, ...) sits
+    under the filters when sets exist.
     """
     if sets is None:
         sets = load_photo_sets(REPO_ROOT / SETS_FILE)
@@ -293,15 +304,18 @@ def render_darkroom(photos: list[dict[str, object]], sets: list[dict[str, object
         if hidden
         else ""
     )
+    if coverage is None:
+        coverage = load_photo_site_settings(REPO_ROOT / "data/photography.json")["coverage"]
     return f'''<section id="photography" class="chapter chapter-dark">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
-                    <span class="ch-num">CH. 04</span>
+                    <span class="ch-num">CH. 03</span>
                     <h2 class="ch-title"><span class="it">Photography</span></h2>
                 </div>
-                <div class="ch-meta">People · Places<br>Gatherings</div>
+                <div class="ch-meta">Portraits · Fashion<br>Event coverage</div>
             </div>
+            {_darkroom_offer(photos, coverage)}
             <div class="gallery-bar rv">
                 <div class="photo-chapters" aria-label="Filter photographs">
                     <button class="photo-chapter active" data-filter="all" aria-pressed="true">All</button>
@@ -320,12 +334,84 @@ def render_darkroom(photos: list[dict[str, object]], sets: list[dict[str, object
     </section>'''
 
 
+def _external(url: str) -> str:
+    """href plus the new-tab attributes every off-site link here carries."""
+    return f'href="{_attr(url)}" target="_blank" rel="noopener"'
+
+
+# Inline styles for the homepage offer band: index.html is hand-authored and
+# owned elsewhere, so the band uses only its existing tokens and classes.
+_HP_LABEL = (
+    "font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;"
+    "color:var(--paper-on-dark-mid);margin:0 0 14px"
+)
+_HP_SOFT = "color:var(--paper-on-dark-soft);font-size:0.98rem;line-height:1.55;margin:0;max-width:46ch"
+
+
+def _darkroom_offer(photos: list[dict[str, object]], coverage: list[dict[str, object]]) -> str:
+    """What Joshua shoots, where paid shoots are booked, and the latest coverage."""
+    specialties = "".join(
+        f'<li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;'
+        f'padding:12px 0;border-bottom:1px solid var(--dark-rule)">'
+        f'<span style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.1">{escape(name)}</span>'
+        f'<span style="font-family:var(--mono);font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;'
+        f'color:var(--paper-on-dark-mid);text-align:right">{escape(short)}</span></li>'
+        for name, short, _ in SERVICES
+    )
+    offer = (
+        '<div style="min-width:0">'
+        f'<p style="{_HP_LABEL}">What I shoot</p>'
+        f'<ul style="list-style:none;margin:0 0 18px;padding:0;border-top:1px solid var(--dark-rule)">{specialties}</ul>'
+        f'<p style="{_HP_SOFT}">Client shoots are booked through my company, The Curious &amp; Creative Company.</p>'
+        '<div class="gallery-links" style="margin-top:18px">'
+        f'<a class="gallery-link gallery-link--book" {_external(STUDIO_PHOTO_URL)}>{STUDIO_BOOK_LABEL}</a>'
+        f'<a class="gallery-link gallery-link--book" {_external(STUDIO_EVENTS_URL)}>{STUDIO_EVENTS_LABEL}</a>'
+        "</div></div>"
+    )
+    latest = next((item for item in coverage if item.get("published", True)), None)
+    entry = _darkroom_coverage(latest, {str(p["id"]): p for p in photos}) if latest else ""
+    return (
+        '<div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));'
+        'gap:clamp(32px,5vw,72px);align-items:start;padding-bottom:clamp(32px,4vw,48px);'
+        f'margin-bottom:clamp(28px,4vw,44px);border-bottom:1px solid var(--dark-rule)">{offer}{entry}</div>'
+    )
+
+
+def _darkroom_coverage(item: dict[str, object], by_id: dict[str, dict[str, object]]) -> str:
+    """The latest event coverage entry: type-led, with stills when the data has them."""
+    stills = _coverage_stills(item, by_id)[:3]
+    stills_markup = ""
+    if stills:
+        frames = "".join(
+            f'<a href="photography/#{_attr(_stills_id(item))}" style="display:block;flex:1;min-width:0">'
+            f'<img loading="lazy" decoding="async" src="{_attr(still["src"])}" alt="{_attr(still["alt"])}" '
+            f'width="{_image_size(str(REPO_ROOT), str(still["src"]))[0]}" height="{_image_size(str(REPO_ROOT), str(still["src"]))[1]}" '
+            f'style="width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--dark-raised)"></a>'
+            for still in stills
+        )
+        stills_markup = f'<div style="display:flex;gap:8px;margin-top:20px">{frames}</div>'
+    credits = "".join(f'<p style="{_HP_SOFT};margin-top:8px">{escape(line)}</p>' for line in item["credits"])
+    title_id = f"hp-{_coverage_id(item)}-title"
+    return (
+        f'<article aria-labelledby="{title_id}" style="min-width:0;border-top:2px solid var(--vermilion);padding-top:18px">'
+        f'<p style="{_HP_LABEL}"><span style="color:var(--vermilion)">{escape(str(item["specialty"]))}</span>'
+        f' &middot; <time datetime="{_attr(item["date"])}">{escape(_date_label(item["date"]))}</time></p>'
+        f'<h3 id="{title_id}" style="font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3.4vw,2.8rem);'
+        f'line-height:1.02;letter-spacing:-0.015em;margin:0 0 14px">{escape(str(item["title"]))}</h3>'
+        f'<p style="{_HP_SOFT};color:var(--paper-on-dark)">{escape(str(item["summary"]))}</p>'
+        f"{credits}{stills_markup}"
+        '<div class="gallery-links" style="margin-top:20px">'
+        f'<a class="gallery-link" href="photography/#{_attr(_coverage_id(item))}">On the photography site&nbsp;&rarr;</a>'
+        "</div></article>"
+    )
+
+
 def _darkroom_cta() -> str:
-    """Two quiet links beside the filters: book, or open the full photo site."""
+    """Quiet links beside the filters: the full photo site and Instagram."""
     return (
         '<div class="gallery-links">'
-        '<a class="gallery-link gallery-link--book" href="photography/#book">Book a shoot&nbsp;&rarr;</a>'
         '<a class="gallery-link" href="photography/">Full photography site&nbsp;&rarr;</a>'
+        f'<a class="gallery-link" {_external(INSTAGRAM_URL)}>Instagram {escape(INSTAGRAM_HANDLE)}&nbsp;&#8599;</a>'
         "</div>"
     )
 
@@ -364,11 +450,18 @@ def _darkroom_sets(photo_sets: list[dict[str, object]]) -> str:
 # Optional keys the renderer understands on a manifest entry:
 #   set           a set slug from data/photo-sets.json (place/theme collection)
 #   project       a group name for "More work"; overrides the folder mapping
-#   commissioned  true shows a "Commissioned" tag in the viewer
+#   commissioned  true shows a "Commissioned" tag in the viewer. Only for
+#                 work a client actually paid for.
+#   spec          true shows a "Spec" tag in the viewer: self-initiated or
+#                 speculative work that must not read as a client commission.
+#                 An entry cannot be both.
 #   recent        true adds the frame to a "Recent" strip under the hero
 # Optional top-level manifest keys:
 #   site.shoots   list of {"project", "type", "year"} for a "Selected shoots"
 #                 rundown under the Work view. Real shoots only; empty hides it.
+#   site.coverage list of event coverage entries (see _load_coverage), newest
+#                 first. Rendered text-led on the Work view and in the
+#                 homepage band; "stills" (published entry ids) add frames.
 #
 # Network mirror contract: github.com/jgerms20/curious-and-creative scrapes
 # this page and mirrors every <img> whose src (or last srcset candidate)
@@ -383,9 +476,19 @@ PHOTO_SITE_URL = "https://joshuamgerman.com/photography/"
 # under "How did you find me?" so card inquiries can be told apart.
 PHOTO_SITE_CARD_URL = PHOTO_SITE_URL + "?src=card"
 PHOTO_SITE_PREFIX = "../"
+# Personal "say hi" address. Paid shoots are not booked here (see STUDIO_*).
 INQUIRY_EMAIL = "jgerms20@gmail.com"
-INSTAGRAM_URL = "https://instagram.com/jgerms20"
-INSTAGRAM_HANDLE = "@jgerms20"
+INSTAGRAM_URL = "https://www.instagram.com/viewsbygerm/"
+INSTAGRAM_HANDLE = "@viewsbygerm"
+
+# Client photography is booked through Joshua's company, The Curious &
+# Creative Company ("The Studio"), on its inquiry form. Every booking CTA on
+# the photo site and in the homepage block goes to one of these.
+STUDIO_PHOTO_URL = "https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo"
+STUDIO_EVENTS_URL = "https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=events"
+STUDIO_BOOK_TEXT = "Book through The Curious &amp; Creative Studio"
+STUDIO_BOOK_LABEL = STUDIO_BOOK_TEXT + "&nbsp;&#8599;"
+STUDIO_EVENTS_LABEL = "Book event coverage through the Studio&nbsp;&#8599;"
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -404,25 +507,11 @@ ABOUT_PORTRAIT = {
 SERVICES_PHOTO = "artist-in-studio"
 SERVICES_PHOTO_POSITION = "50% 40%"
 
-SHOOT_TYPES = (
-    ("portrait", "Portraits & headshots"),
-    ("fashion", "Fashion & editorial"),
-    ("event", "Events & live music"),
-    ("product", "Product"),
-    ("food", "Food & restaurants"),
-    ("space", "Spaces & interiors"),
-    ("other", "Something else"),
-)
-SHOOT_VALUES = {value for value, _ in SHOOT_TYPES}
-
-# Budget is the client's own free text. No preset bands: Joshua has not set
-# any, and bands would read as a public rate card.
-REFERRAL_SOURCES = ("Business card", "Instagram", "Referral", "Main site", "Other")
-
+# The named specialties: (name, short tag for the homepage band, description).
 SERVICES = (
-    ("Portraits", "People, headshots, personal sessions."),
-    ("Fashion & editorial", "Lookbooks, styling tests, campaigns."),
-    ("Events & live", "Concerts, parties, launches."),
+    ("Portraits", "People & headshots", "People, headshots, personal sessions."),
+    ("Fashion & editorial", "Lookbooks & tests", "Lookbooks, styling tests, campaigns."),
+    ("Event coverage", "Documentary & BTS", "Documentary and behind-the-scenes coverage of presentations, concerts, parties and launches."),
 )
 ALSO_BOOKING = "Also booking: product, food and spaces."
 
@@ -440,9 +529,11 @@ FALLBACK_PROJECT = {"slug": "archive", "title": "Archive", "match": (), "cover":
 
 # Element ids a group slug must not take over.
 RESERVED_IDS = {
-    "top", "main", "hero", "recent", "work", "sets", "more", "shoots", "galleries",
+    "top", "main", "hero", "recent", "work", "sets", "coverage", "more", "shoots", "galleries",
     "about", "services", "book", "inquiry", "lightbox", *VIEWS,
 }
+# Id prefixes owned by sets and coverage entries.
+RESERVED_PREFIXES = ("set-", "coverage-", "stills-")
 
 
 @lru_cache(maxsize=None)
@@ -573,7 +664,7 @@ def _order_frames(frames: list[dict[str, object]], cover: object) -> list[dict[s
 
 
 def _safe_slug(slug: str) -> str:
-    return f"work-{slug}" if slug in RESERVED_IDS or slug.startswith("set-") else slug
+    return f"work-{slug}" if slug in RESERVED_IDS or slug.startswith(RESERVED_PREFIXES) else slug
 
 
 def group_photo_site(photos: list[dict[str, object]]) -> list[dict[str, object]]:
@@ -636,11 +727,102 @@ def load_photo_site_settings(path: Path) -> dict[str, object]:
         if not isinstance(shoot, dict) or not str(shoot.get("project", "")).strip():
             raise ValueError("each photography 'site.shoots' entry needs a project name")
         cleaned.append({key: str(shoot.get(key) or "").strip() for key in ("project", "type", "year")})
-    return {"shoots": cleaned}
+    return {"shoots": cleaned, "coverage": _load_coverage(site.get("coverage") or [])}
+
+
+COVERAGE_FIELDS = {"slug", "specialty", "title", "date", "summary", "credits", "stills", "published"}
+
+
+def _load_coverage(items: object) -> list[dict[str, object]]:
+    """site.coverage: event coverage entries, newest first. Text-led; stills optional.
+
+    Each entry: slug, title, date (YYYY-MM-DD), summary, credits (list of
+    lines), optional specialty (default "Event coverage"), optional stills
+    (ids of published manifest entries, shown when present), optional
+    published (default true; false keeps a draft out of both outputs).
+    """
+    if not isinstance(items, list):
+        raise ValueError("photography manifest 'site.coverage' must be a list")
+    cleaned: list[dict[str, object]] = []
+    seen: set[str] = set()
+    for item in items:
+        if not isinstance(item, dict):
+            raise ValueError("each 'site.coverage' entry must be an object")
+        unknown = set(item).difference(COVERAGE_FIELDS)
+        if unknown:
+            raise ValueError(f"coverage entry has unknown fields: {', '.join(sorted(unknown))}")
+        slug = str(item.get("slug") or "").strip()
+        if not SET_SLUG.match(slug) or slug in seen:
+            raise ValueError(f"duplicate or invalid coverage slug: {slug!r}")
+        for key in ("title", "date", "summary"):
+            if not str(item.get(key) or "").strip():
+                raise ValueError(f"coverage entry {slug} needs a {key}")
+        _date_label(str(item["date"]))  # raises on a malformed date
+        credits = item.get("credits") or []
+        stills = item.get("stills") or []
+        if not isinstance(credits, list) or not all(isinstance(line, str) and line.strip() for line in credits):
+            raise ValueError(f"coverage entry {slug}: credits must be a list of lines")
+        if not isinstance(stills, list) or not all(isinstance(still, str) and still.strip() for still in stills):
+            raise ValueError(f"coverage entry {slug}: stills must be a list of photograph ids")
+        published = item.get("published", True)
+        if not isinstance(published, bool):
+            raise ValueError(f"coverage entry {slug}: published must be true or false")
+        seen.add(slug)
+        if not published:
+            continue
+        cleaned.append({
+            "slug": slug,
+            "specialty": str(item.get("specialty") or "Event coverage").strip(),
+            "title": str(item["title"]).strip(),
+            "date": str(item["date"]).strip(),
+            "summary": str(item["summary"]).strip(),
+            "credits": [line.strip() for line in credits],
+            "stills": [still.strip() for still in stills],
+        })
+    return cleaned
+
+
+_MONTHS = (
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+)
+
+
+def _date_label(value: str) -> str:
+    """2026-11-07 -> November 7, 2026."""
+    from datetime import date
+
+    try:
+        day = date.fromisoformat(str(value).strip())
+    except ValueError as error:
+        raise ValueError(f"coverage date must be YYYY-MM-DD: {value!r}") from error
+    return f"{_MONTHS[day.month - 1]} {day.day}, {day.year}"
+
+
+def _coverage_id(item: dict[str, object]) -> str:
+    return f"coverage-{item['slug']}"
+
+
+def _stills_id(item: dict[str, object]) -> str:
+    return f"stills-{item['slug']}"
+
+
+def _coverage_stills(item: dict[str, object], by_id: dict[str, dict[str, object]]) -> list[dict[str, object]]:
+    missing = [still for still in item["stills"] if still not in by_id]
+    if missing:
+        raise ValueError(
+            f"coverage entry {item['slug']} names stills that are not published photographs: {', '.join(missing)}"
+        )
+    return [by_id[still] for still in item["stills"]]
 
 
 def _arrow() -> str:
     return '<span class="arr" aria-hidden="true">&rarr;</span>'
+
+
+def _ext_arrow() -> str:
+    """Off-site arrow, with words for screen readers."""
+    return '<span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span>'
 
 
 def _tail_arrow() -> str:
@@ -706,9 +888,9 @@ def _render_hero(
             <div class="hero-copy">
                 <p class="kicker">Photography <span aria-hidden="true">&middot;</span> Los Angeles</p>
                 <h1 class="hero-title" id="hero-title" tabindex="-1" data-view-heading>Joshua McKenzie <em>German</em></h1>
-                <p class="hero-line">Portraits, fashion, live events and travel. On 35mm film and digital.</p>
+                <p class="hero-line">Portraits, fashion, event coverage and travel. On 35mm film and digital.</p>
                 <div class="hero-actions">
-                    <a class="btn btn-safelight" href="#book">Book a shoot {_arrow()}</a>
+                    <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>Book a shoot {_ext_arrow()}</a>
                     <a class="btn btn-line" href="{see_href}">See the work</a>
                 </div>
                 {strip}
@@ -785,6 +967,58 @@ def _render_sets(photo_sets: list[dict[str, object]], root: Path) -> str:
     </section>'''
 
 
+def _render_coverage(
+    coverage: list[dict[str, object]], by_id: dict[str, dict[str, object]], root: Path
+) -> str:
+    """Event coverage: one text-led entry per job. Reads complete without
+    stills; when an entry lists stills they show as a strip that opens the viewer."""
+    if not coverage:
+        return ""
+    entries = []
+    for item in coverage:
+        entry_id = _attr(_coverage_id(item))
+        stills = _coverage_stills(item, by_id)
+        stills_markup = ""
+        if stills:
+            gallery = _attr(_stills_id(item))
+            thumbs = "".join(
+                f'<li><a href="#{gallery}" data-open="{gallery}" data-index="{index}">'
+                f"{_site_img(still, root=root, widths=WIDTHS_THUMB, sizes=SIZES_THUMB)}</a></li>"
+                for index, still in enumerate(stills[:6])
+            )
+            stills_markup = f'<ul class="cov-stills" aria-label="Stills from {_attr(item["title"])}">{thumbs}</ul>'
+        credits = "".join(f"<li>{escape(line)}</li>" for line in item["credits"])
+        credits_markup = f'<ul class="cov-credits">{credits}</ul>' if credits else ""
+        entries.append(
+            f'''<article class="cov-entry rv" id="{entry_id}" aria-labelledby="{entry_id}-title">
+                    <div class="cov-head">
+                        <p class="cov-meta"><span class="cov-kind">{escape(str(item["specialty"]))}</span> <span aria-hidden="true">&middot;</span> <time datetime="{_attr(item["date"])}">{escape(_date_label(str(item["date"])))}</time></p>
+                        <h3 class="cov-title" id="{entry_id}-title">{escape(str(item["title"]))}</h3>
+                    </div>
+                    <div class="cov-body">
+                        <p class="cov-summary">{escape(str(item["summary"]))}</p>
+                        {credits_markup}
+                        {stills_markup}
+                        <p class="cov-foot"><a class="card-aside" {_external(STUDIO_EVENTS_URL)}>Book event coverage{_tail_ext()}</a></p>
+                    </div>
+                </article>'''
+        )
+    head = _section_head("Event <em>coverage</em>", "Documentary &middot; Behind the scenes", "coverage")
+    body = "\n                ".join(entries)
+    return f'''<section class="sec sec--coverage" id="coverage" aria-labelledby="coverage-title">
+        <div class="wrap">
+            {head}
+            <div class="cov-list">
+                {body}
+            </div>
+        </div>
+    </section>'''
+
+
+def _tail_ext() -> str:
+    return "&nbsp;" + _ext_arrow()
+
+
 def _render_shoots(shoots: list[dict[str, str]]) -> str:
     if not shoots:
         return ""
@@ -844,7 +1078,7 @@ def _render_galleries(galleries: list[dict[str, object]], root: Path) -> str:
         figures = []
         for frame in gallery["frames"]:
             width, height = _image_size(str(root), str(frame["src"]))
-            tag = "Commissioned" if frame.get("commissioned") is True else ""
+            tag = "Commissioned" if frame.get("commissioned") is True else "Spec" if frame.get("spec") is True else ""
             full = PHOTO_SITE_PREFIX + str(frame["src"])
             figures.append(
                 f'<figure class="gallery-frame" data-full="{_attr(full)}" data-w="{width}" data-h="{height}" '
@@ -891,7 +1125,7 @@ def _render_about(root: Path) -> str:
 def _render_services(by_id: dict[str, dict[str, object]], root: Path) -> str:
     rows = "".join(
         f'<li class="svc-row"><span class="svc-name">{escape(name)}</span><span class="svc-desc">{escape(text)}</span></li>'
-        for name, text in SERVICES
+        for name, _, text in SERVICES
     )
     photo = by_id.get(SERVICES_PHOTO)
     figure = (
@@ -908,8 +1142,8 @@ def _render_services(by_id: dict[str, dict[str, object]], root: Path) -> str:
                 <div class="svc rv">
                     <ul class="svc-list">{rows}</ul>
                     <p class="svc-also">{escape(ALSO_BOOKING)}</p>
-                    <a class="btn btn-safelight" href="#book">Book a shoot {_arrow()}</a>
-                    <p class="svc-how">Send a note, get a quote, we shoot, you get edited full&#8209;resolution files.</p>
+                    <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>{STUDIO_BOOK_TEXT} {_ext_arrow()}</a>
+                    <p class="svc-how">Booking event coverage? <a {_external(STUDIO_EVENTS_URL)}>Use the events form{_tail_ext()}</a></p>
                 </div>
             </div>
         </div>
@@ -917,78 +1151,38 @@ def _render_services(by_id: dict[str, dict[str, object]], root: Path) -> str:
 
 
 def _render_book() -> str:
-    shoot_options = '<option value="">Choose one</option>' + "".join(
-        f'<option value="{_attr(value)}">{escape(label)}</option>' for value, label in SHOOT_TYPES
-    )
-    source_options = '<option value="">Choose one (optional)</option>' + "".join(
-        f"<option>{escape(label)}</option>" for label in REFERRAL_SOURCES
-    )
-    head = _section_head("Book a <em>shoot</em>", "Inquiries by email", "book", view_heading=True)
+    """#book: other pages and old links land here. Paid shoots are booked
+    through the Studio's form; this view says so and links there, and keeps
+    a personal line for anything that is not a booking."""
+    head = _section_head("Book a <em>shoot</em>", "Through The Curious &amp; Creative Studio", "book", view_heading=True)
     email = escape(INQUIRY_EMAIL)
+    options = (
+        ("Portraits, fashion &amp; general shoots", STUDIO_PHOTO_URL, STUDIO_BOOK_TEXT),
+        ("Event coverage", STUDIO_EVENTS_URL, "Book event coverage through the Studio"),
+    )
+    rows = "".join(
+        f'<li class="book-route"><span class="book-route__name">{name}</span>'
+        f'<a class="btn btn-safelight" {_external(url)}>{label} {_ext_arrow()}</a></li>'
+        for name, url, label in options
+    )
     return f'''<section class="view view--book sec sec--book" id="book" data-view="book" aria-labelledby="book-title">
         <div class="wrap">
             {head}
             <div class="book-grid">
                 <div class="book-aside rv">
-                    <p class="book-lede">Tell me what you&rsquo;re making.</p>
-                    <p>Fill this in and your email app opens with it written up. Nothing sends until you hit send.</p>
+                    <p class="book-lede">Paid shoots are booked through my company.</p>
+                    <p>Client photography runs through The Curious &amp; Creative Company. Pick the form that fits and it goes straight to the Studio.</p>
                     <p class="book-price">Rates quoted per project.</p>
+                </div>
+                <div class="book-main rv">
+                    <ul class="book-routes">{rows}</ul>
                     <div class="direct">
-                        <p class="direct-label">Rather write it yourself?</p>
+                        <p class="direct-label">Not a booking? Just say hi.</p>
                         <p class="direct-row"><a class="direct-email" href="mailto:{email}">{email}</a>
                             <button type="button" class="copy-btn" data-copy="{email}">Copy</button></p>
-                        <p class="direct-row"><a href="{_attr(INSTAGRAM_URL)}" rel="noopener" target="_blank">Instagram {escape(INSTAGRAM_HANDLE)}</a></p>
+                        <p class="direct-row"><a {_external(INSTAGRAM_URL)}>Instagram {escape(INSTAGRAM_HANDLE)}</a></p>
                     </div>
                 </div>
-                <form class="inquiry rv" id="inquiry" action="mailto:{email}" method="post" enctype="text/plain" data-email="{email}" novalidate>
-                    <div class="field">
-                        <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
-                        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
-                        <p class="field-err" id="f-name-err"></p>
-                    </div>
-                    <div class="field">
-                        <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-                        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
-                        <p class="field-err" id="f-email-err"></p>
-                    </div>
-                    <div class="field">
-                        <label for="f-shoot">What do you need? <span class="req" aria-hidden="true">*</span></label>
-                        <select id="f-shoot" name="shoot" required aria-describedby="f-shoot-err">{shoot_options}</select>
-                        <p class="field-err" id="f-shoot-err"></p>
-                    </div>
-                    <div class="field">
-                        <label for="f-company">Company or brand</label>
-                        <input id="f-company" name="company" type="text" autocomplete="organization">
-                    </div>
-                    <div class="field">
-                        <label for="f-date">Date</label>
-                        <input id="f-date" name="date" type="text" placeholder="A date, a month, or flexible">
-                    </div>
-                    <div class="field">
-                        <label for="f-location">Location</label>
-                        <input id="f-location" name="location" type="text" placeholder="City, venue or address">
-                    </div>
-                    <div class="field">
-                        <label for="f-budget">Your budget</label>
-                        <input id="f-budget" name="budget" type="text" placeholder="A range or a number (optional)">
-                    </div>
-                    <div class="field">
-                        <label for="f-source">How did you find me?</label>
-                        <select id="f-source" name="source">{source_options}</select>
-                    </div>
-                    <div class="field field--wide">
-                        <label for="f-details">Details <span class="req" aria-hidden="true">*</span></label>
-                        <p class="field-hint" id="f-details-hint">What are we making, and where will the photos live?</p>
-                        <textarea id="f-details" name="details" rows="5" required aria-describedby="f-details-hint f-details-err"></textarea>
-                        <p class="field-err" id="f-details-err"></p>
-                    </div>
-                    <div class="form-foot field--wide">
-                        <button class="btn btn-safelight" type="submit">Open my email draft {_arrow()}</button>
-                        <p class="form-note"><span class="req" aria-hidden="true">*</span> Required</p>
-                    </div>
-                    <p class="form-status field--wide" id="form-status" role="status" aria-live="polite"></p>
-                    <p class="form-fallback field--wide" id="form-fallback" hidden>Email app didn&rsquo;t open? <a id="mailto-link" href="mailto:{email}">Open the draft here</a> or copy the address above.</p>
-                </form>
             </div>
         </div>
     </section>'''
@@ -1000,6 +1194,7 @@ def render_photo_site(
     root: Path | None = None,
     sets: list[dict[str, object]] | None = None,
     shoots: list[dict[str, str]] | tuple[dict[str, str], ...] = (),
+    coverage: list[dict[str, object]] | tuple[dict[str, object], ...] = (),
 ) -> str:
     """Render everything between the PHOTO-SITE markers of photography/index.html."""
     root = Path(root or REPO_ROOT)
@@ -1011,6 +1206,15 @@ def render_photo_site(
 
     galleries = [{"slug": item["id"], "title": item["title"], "frames": item["frames"]} for item in photo_sets]
     galleries += [{"slug": project["slug"], "title": project["title"], "frames": project["frames"]} for project in projects]
+    by_id = {str(photo["id"]): photo for photo in photos}
+    coverage = list(coverage)
+    # Coverage stills get their own viewer gallery, after the groups so a
+    # still's first placement (hero links, mirror alt) stays its folder group.
+    galleries += [
+        {"slug": _stills_id(item), "title": item["title"], "frames": _coverage_stills(item, by_id)}
+        for item in coverage
+        if item["stills"]
+    ]
 
     titles: dict[str, str] = {}
     placement: dict[str, tuple[str, int]] = {}
@@ -1019,11 +1223,11 @@ def render_photo_site(
         for index, frame in enumerate(gallery["frames"]):
             placement.setdefault(str(frame["id"]), (str(gallery["slug"]), index))
 
-    by_id = {str(photo["id"]): photo for photo in photos}
     work_parts = [
         _render_hero(by_id, placement, titles, root, "#sets" if photo_sets else "#more"),
         _render_recent(photos, placement, root),
         _render_sets(photo_sets, root),
+        _render_coverage(coverage, by_id, root),
         _render_more(projects, root, list(shoots), bool(photo_sets)),
         _render_galleries(galleries, root),
     ]

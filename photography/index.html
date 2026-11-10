@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     <title>Photography | Joshua McKenzie German, Los Angeles</title>
-    <meta name="description" content="Joshua McKenzie German: portraits, fashion, live events and travel sets, from Los Angeles. On 35mm film and digital.">
+    <meta name="description" content="Joshua McKenzie German: portraits, fashion, event coverage and travel sets, from Los Angeles. On 35mm film and digital.">
     <link rel="canonical" href="https://joshuamgerman.com/photography/">
     <meta name="theme-color" content="#F5F1E8">
     <script>(function(){var d=document.documentElement;d.classList.add('js');try{if(localStorage.getItem('jmg-theme')==='dark')d.setAttribute('data-theme','dark');}catch(e){}
@@ -18,7 +18,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Joshua McKenzie German">
     <meta property="og:title" content="Photography | Joshua McKenzie German">
-    <meta property="og:description" content="Portraits, fashion, live events and travel sets, from Los Angeles. On 35mm film and digital.">
+    <meta property="og:description" content="Portraits, fashion, event coverage and travel sets, from Los Angeles. On 35mm film and digital.">
     <meta property="og:url" content="https://joshuamgerman.com/photography/">
     <meta property="og:image" content="https://joshuamgerman.com/photos/portraits/JMG_1763.jpg">
     <meta property="og:image:width" content="2048">
@@ -26,7 +26,7 @@
     <meta property="og:image:alt" content="Two people stand in red and blue light against a wall covered in newspaper pages.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Photography | Joshua McKenzie German">
-    <meta name="twitter:description" content="Portraits, fashion, live events and travel sets, from Los Angeles. On 35mm film and digital.">
+    <meta name="twitter:description" content="Portraits, fashion, event coverage and travel sets, from Los Angeles. On 35mm film and digital.">
     <meta name="twitter:image" content="https://joshuamgerman.com/photos/portraits/JMG_1763.jpg">
     <meta name="twitter:image:alt" content="Two people stand in red and blue light against a wall covered in newspaper pages.">
 
@@ -54,7 +54,8 @@
                 "email": "mailto:jgerms20@gmail.com",
                 "address": {"@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US"},
                 "founder": {"@id": "https://joshuamgerman.com/#person"},
-                "knowsAbout": ["Portrait photography", "Fashion photography", "Event photography", "Travel photography", "Film photography"]
+                "sameAs": ["https://www.instagram.com/viewsbygerm/"],
+                "knowsAbout": ["Portrait photography", "Fashion photography", "Event coverage", "Travel photography", "Film photography"]
             }
         ]
     }
@@ -332,39 +333,32 @@
         .direct-row a { font-family: var(--serif); font-size: 1.12rem; border-bottom: 1px solid var(--accent-rule); overflow-wrap: anywhere; transition: border-color 0.25s, color 0.25s; }
         .copy-btn { min-height: 32px; padding: 0 12px; border: 1px solid var(--rule); border-radius: 999px; font-family: var(--mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); transition: border-color 0.25s, color 0.25s; }
 
-        .inquiry { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px 24px; align-content: start; }
-        @media (min-width: 620px) { .inquiry { grid-template-columns: repeat(2, minmax(0, 1fr)); } .field--wide { grid-column: 1 / -1; } }
-        .field { min-width: 0; }
-        .field label { display: block; margin-bottom: 7px; font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
-        .req { color: var(--accent); }
-        .field-hint { font-size: 0.9rem; color: var(--ink-mid); margin: -2px 0 8px; }
-        .field input, .field select, .field textarea {
-            display: block; width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 0;
-            background: var(--paper-raised); border: 1px solid var(--rule); color: var(--ink);
-            font-family: var(--sans); font-size: 1rem; line-height: 1.4;
-            -webkit-appearance: none; appearance: none; transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .field textarea { resize: vertical; min-height: 140px; }
-        .field select {
-            padding-right: 40px; cursor: pointer;
-            background-image: linear-gradient(45deg, transparent 50%, var(--ink-mid) 50%), linear-gradient(135deg, var(--ink-mid) 50%, transparent 50%);
-            background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
-            background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
-        }
-        .field input::placeholder { color: var(--ink-faint); }
-        .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-        .field [aria-invalid="true"] { border-color: var(--accent); background-color: var(--accent-soft); }
-        .field-err { margin-top: 6px; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--accent); }
-        .field-err:empty { display: none; }
-        .field.flash select { animation: flash 1.2s var(--exp); }
-        @keyframes flash { 0% { box-shadow: 0 0 0 3px var(--accent); } 100% { box-shadow: 0 0 0 0 transparent; } }
-        .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 4px; }
-        .form-note { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); }
-        .form-status { font-family: var(--serif); font-style: italic; font-size: 1.12rem; line-height: 1.4; }
-        .form-status:empty { display: none; }
-        .form-fallback { font-size: 0.92rem; color: var(--ink-soft); }
-        .form-fallback a { color: var(--ink); border-bottom: 1px solid var(--accent); }
-        @media (max-width: 619px) { .form-foot .btn { width: 100%; } }
+        /* Two routes to the Studio's inquiry form */
+        .book-routes { border-top: 1px solid var(--ink); }
+        :root[data-theme="dark"] .book-routes { border-top-color: var(--head-rule); }
+        .book-route { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+        .book-route__name { font-family: var(--serif); font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.1; letter-spacing: -0.012em; }
+        @media (max-width: 619px) { .book-route .btn { width: 100%; } }
+        .book-main .direct { margin-top: 36px; }
+
+        /* ---- Event coverage: type-led entries, stills optional ---- */
+        .cov-entry { display: grid; gap: 18px 48px; padding: 26px 0 30px; border-top: 1px solid var(--ink); }
+        :root[data-theme="dark"] .cov-entry { border-top-color: var(--head-rule); }
+        .cov-entry + .cov-entry { border-top-color: var(--rule); }
+        @media (min-width: 900px) { .cov-entry { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); } }
+        .cov-meta { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); }
+        .cov-kind { color: var(--accent); font-weight: 700; }
+        .cov-title { margin-top: 10px; font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.6vw, 3.8rem); line-height: 0.98; letter-spacing: -0.022em; max-width: 16ch; }
+        .cov-summary { font-family: var(--serif); font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.35; max-width: 34ch; }
+        .cov-credits { margin-top: 14px; display: grid; gap: 6px; }
+        .cov-credits li { position: relative; padding-left: 18px; color: var(--ink-soft); max-width: 46ch; }
+        .cov-credits li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1px; background: var(--accent); }
+        .cov-stills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+        .cov-stills a { display: block; overflow: hidden; background: var(--paper-dim); }
+        .cov-stills img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .cov-foot { margin-top: 18px; }
+        .cov-foot .card-aside { margin-top: 0; }
+        .svc-how a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-rule); text-underline-offset: 4px; }
 
         /* ---- Galleries: plain thumbnails without JS, viewer data with it ---- */
         .galleries { padding-top: clamp(56px, 8vw, 110px); }
@@ -473,7 +467,7 @@
             .reveal-on .rv { opacity: 1; transform: none; }
         }
         @media print {
-            .nav, .book-bar, .lb, .inquiry { display: none !important; }
+            .nav, .book-bar, .lb { display: none !important; }
             :root[data-page] .view { display: block !important; }
             .reveal-on .rv { opacity: 1 !important; transform: none !important; }
         }
@@ -500,7 +494,7 @@
                     <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
                     <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
                 </button>
-                <a class="nav-book" href="#book" data-nav="book">Book</a>
+                <a class="nav-book" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener" aria-label="Book a shoot through The Curious &amp; Creative Studio (opens in a new tab)">Book <span aria-hidden="true">&#8599;</span></a>
             </div>
         </div>
     </header>
@@ -719,8 +713,8 @@
         <div class="wrap foot-row">
             <a class="foot-home" href="../index.html">&larr; Back to joshuamgerman.com</a>
             <nav class="foot-links" aria-label="Elsewhere">
-                <a href="mailto:jgerms20@gmail.com">Email</a>
-                <a href="https://instagram.com/jgerms20" rel="noopener" target="_blank">Instagram</a>
+                <a href="mailto:jgerms20@gmail.com">Say hi</a>
+                <a href="https://www.instagram.com/viewsbygerm/" rel="noopener" target="_blank">Instagram @viewsbygerm</a>
                 <a href="../shop.html">Prints</a>
                 <a href="../shop.html#photobooks">Photo books</a>
                 <a href="../index.html#podcasts">Podcasts</a>
@@ -730,7 +724,7 @@
     </footer>
 
     <div class="book-bar" id="book-bar">
-        <a class="btn btn-safelight" href="#book">Book a shoot <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book through the Studio <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
     </div>
 
     <dialog class="lb" id="lightbox" aria-labelledby="lb-title">
@@ -1002,106 +996,6 @@
                     if (dlg.open && document.activeElement === document.body) closeBtn.focus({ preventScroll: true });
                 });
             }
-        }
-
-        /* ---- Inquiry form: validate, then open a filled-in email draft ---- */
-        var form = byId('inquiry');
-        if (form) {
-            var field = function (name) { return form.elements.namedItem(name); };
-            var shoot = field('shoot'), source = field('source');
-            var status = byId('form-status'), fallback = byId('form-fallback'), mailtoLink = byId('mailto-link');
-            var hasOption = function (select, value) {
-                return Array.prototype.some.call(select.options, function (o) { return o.value === value; });
-            };
-            var chosenText = function (select) {
-                var o = select.options[select.selectedIndex];
-                return o && o.value ? o.text : '';
-            };
-            var setError = function (input, message) {
-                var err = byId(input.id + '-err');
-                if (message) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
-                if (err) err.textContent = message || '';
-            };
-            /* old ?shoot= values from earlier links and cards */
-            var SHOOT_ALIASES = { hospitality: 'space', 'real-estate': 'space', portraits: 'portrait', events: 'event' };
-            var preselect = function (value) {
-                value = SHOOT_ALIASES[value] || value;
-                if (!value || !hasOption(shoot, value)) return;
-                shoot.value = value;
-                setError(shoot, '');
-                var wrap = closest(shoot, '.field');
-                if (wrap && !reduceMotion) { wrap.classList.remove('flash'); void wrap.offsetWidth; wrap.classList.add('flash'); }
-            };
-
-            var params = new URLSearchParams(location.search);
-            if (params.get('src') === 'card' && source) source.value = 'Business card';
-            if (params.get('shoot')) preselect(params.get('shoot'));
-
-            document.addEventListener('click', function (e) {
-                var link = closest(e.target, '[data-shoot]');
-                if (link) preselect(link.getAttribute('data-shoot'));
-            });
-
-            var messages = {
-                name: 'Add your name.',
-                email: 'Add an email I can reply to.',
-                emailFormat: 'That email looks off. Mind checking it?',
-                shoot: 'Pick the closest option.',
-                details: 'A line or two about the shoot helps.'
-            };
-            var validate = function () {
-                var bad = [];
-                ['name', 'email', 'shoot', 'details'].forEach(function (name) {
-                    var input = field(name), value = input.value.trim(), message = '';
-                    if (!value) message = messages[name];
-                    else if (name === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+/.test(value)) message = messages.emailFormat;
-                    setError(input, message);
-                    if (message) bad.push(input);
-                });
-                return bad;
-            };
-            var clearOnEdit = function (e) {
-                var input = e.target;
-                if (input.getAttribute && input.getAttribute('aria-invalid') === 'true' && input.value.trim()) setError(input, '');
-            };
-            form.addEventListener('input', clearOnEdit);
-            form.addEventListener('change', clearOnEdit);
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                var bad = validate();
-                if (bad.length) {
-                    fallback.hidden = true;
-                    status.textContent = bad.length === 1 ? 'One field needs a look.' : bad.length + ' fields need a look.';
-                    bad[0].focus();
-                    return;
-                }
-                var name = field('name').value.trim();
-                var type = chosenText(shoot);
-                var lines = [
-                    'Name: ' + name,
-                    'Email: ' + field('email').value.trim(),
-                    'Shoot type: ' + type,
-                    'Company or brand: ' + (field('company').value.trim() || '-'),
-                    'Date: ' + (field('date').value.trim() || '-'),
-                    'Location: ' + (field('location').value.trim() || '-'),
-                    'Budget: ' + (field('budget').value || '-'),
-                    'Found me through: ' + (source.value || '-'),
-                    '',
-                    'Details:',
-                    field('details').value.trim(),
-                    '',
-                    'Sent from joshuamgerman.com/photography'
-                ];
-                var subject = 'Photo inquiry: ' + type + ' / ' + name;
-                var href = 'mailto:' + form.getAttribute('data-email') +
-                    '?subject=' + encodeURIComponent(subject) +
-                    '&body=' + encodeURIComponent(lines.join('\r\n'));
-                mailtoLink.href = href;
-                fallback.hidden = false;
-                status.textContent = 'Your email app should open with this filled in. Nothing sends until you hit send.';
-                window.location.href = href;
-            });
         }
 
         /* ---- Copy the email address (for phones where mailto does nothing) ---- */

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if(/[?&]draft\b/.test(location.search))document.documentElement.classList.add('draft')</script>
+    <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Gen Alpha Intelligence Lab | Joshua McKenzie German</title>
+    <meta name="description" content="Gen Alpha Intelligence Lab: a living research lab on the forces shaping Gen Alpha culture, built with Next.js 16, Supabase and Codex. A build case study by Joshua McKenzie German.">
+    <link rel="canonical" href="https://joshuamgerman.com/builds/gen-alpha-intelligence-lab.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Gen Alpha Intelligence Lab | Joshua McKenzie German">
+    <meta property="og:description" content="A living research lab on the forces shaping Gen Alpha culture, built with Next.js 16, Supabase and Codex.">
+    <meta property="og:url" content="https://joshuamgerman.com/builds/gen-alpha-intelligence-lab.html">
+    <meta property="og:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gen Alpha Intelligence Lab | Joshua McKenzie German">
+    <meta name="twitter:description" content="A living research lab on the forces shaping Gen Alpha culture, built with Next.js 16, Supabase and Codex.">
+    <meta name="twitter:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="builds.css">
+</head>
+<body>
+    <a class="skip" href="#main">Skip to the case study</a>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="draft-banner" role="note">Draft view: notes for Joshua are showing. Remove ?draft to see the public page.</div>
+
+    <nav class="nav" id="nav">
+        <div class="nav-row">
+            <a href="../index.html" class="nav-brand" aria-label="Joshua McKenzie German – Home">
+                <span class="dot"></span> <span class="name">Joshua McKenzie German</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#builds">← All Builds</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="../index.html#contact" class="nav-cta">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="cs-hero">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">BUILD · CASE STUDY</span>
+                    <h1 class="ch-title">Gen Alpha <em>Intelligence Lab</em></h1>
+                    <div class="status-row">
+                        <span class="status-chip is-invite" data-status="Invite only"><span class="dot" aria-hidden="true"></span>Invite only</span>
+                        <span class="kind-chip">Cultural intelligence</span>
+                    </div>
+                </div>
+                <div class="ch-meta">
+                    Next.js 16 · Supabase<br>Built with Codex
+                </div>
+            </div>
+
+            <div class="todo" data-todo="genalpha-rights"><strong>TODO for Joshua:</strong> Confirm you have the right to show this publicly. It began as an agency assignment; using your own AI tools on it does not by itself make it yours to republish. (Note: the public AgencyThings README on GitHub describes the Lab as an "internal agency research site". If you cannot confirm the rights, unlink this page before Nov 16.)</div>
+
+            <p class="t-lede cs-sub rv rv-d1">A living research lab on the forces shaping Gen Alpha culture: insights, findings, creators, and the spaces they actually occupy, with an ingest pipeline for reports, interviews, and field notes.</p>
+
+            <figure class="plate-media hero-plate rv rv-d2">
+                <img src="../assets/genalpha.svg" width="800" height="500" alt="Cover art for the Gen Alpha Intelligence Lab">
+            </figure>
+
+            <div class="meta-grid rv">
+                <div class="meta-cell">
+                    <span class="meta-label">Type</span>
+                    <div class="meta-value">Research lab · web app</div>
+                </div>
+                <div class="meta-cell">
+                    <span class="meta-label">Stack</span>
+                    <div class="meta-value">Next.js 16 · Supabase · Vercel</div>
+                </div>
+                <div class="meta-cell">
+                    <span class="meta-label">AI tools</span>
+                    <div class="meta-value">Codex</div>
+                </div>
+                <div class="meta-cell">
+                    <span class="meta-label">Access</span>
+                    <div class="meta-value">Invite only</div>
+                </div>
+            </div>
+
+            <aside class="note rv" aria-label="Where the Lab lives">
+                <span class="note-k">Where it lives</span>
+                <p>The Curious &amp; Creative Company presents the Lab as its Consultancy's research product on the next generation of audiences. The Lab itself is invite only, so this page describes it rather than reproducing it. <a href="https://agencythings-gen-alpha.vercel.app" target="_blank" rel="noopener">Go to the Lab (invite only) ↗</a></p>
+            </aside>
+        </div>
+    </header>
+
+    <main class="wrap" id="main">
+
+        <section class="cs-sec is-pending rv" id="problem" data-section="problem">
+            <div class="cs-label">01 — The problem</div>
+            <div class="cs-body">
+                <h2 class="cs-h">The problem</h2>
+                <div class="todo" data-todo="genalpha-problem"><strong>TODO for Joshua:</strong> What problem did you see? In two or three sentences: what was missing or broken in how Gen Alpha was being understood, and who needed it. Keep any client or agency names out unless you have permission to name them.</div>
+            </div>
+        </section>
+
+        <section class="cs-sec is-pending rv" id="insight" data-section="insight">
+            <div class="cs-label">02 — The insight</div>
+            <div class="cs-body">
+                <h2 class="cs-h">The insight</h2>
+                <div class="todo" data-todo="genalpha-insight"><strong>TODO for Joshua:</strong> Your reasoning. Why a living lab instead of a one-off deck or report? What did you notice about Gen Alpha (or about how research gets used) that shaped the build?</div>
+            </div>
+        </section>
+
+        <section class="cs-sec rv" id="build" data-section="build">
+            <div class="cs-label">03 — How it was built</div>
+            <div class="cs-body">
+                <h2 class="cs-h">How it was built</h2>
+                <ul class="ruled">
+                    <li><span class="k">Front end</span><span>Next.js 16.</span></li>
+                    <li><span class="k">Data</span><span>Supabase holds the research records and uploaded files. Without a Supabase connection the Lab runs in a browser demo mode that stores records locally.</span></li>
+                    <li><span class="k">Hosting</span><span>Deployed on Vercel.</span></li>
+                    <li><span class="k">AI tools</span><span>Built with Codex.</span></li>
+                </ul>
+                <div class="todo" data-todo="genalpha-orchestration"><strong>TODO for Joshua:</strong> How did you orchestrate the build? Say what you decided and wrote yourself (the research framework, the categories, the copy) and what you handed to Codex. Did you use Claude at any point (research, writing, code)? If so, for what? Roughly how long did it take?</div>
+                <span class="src">Sources: the AI Lab card on this site; the project README on GitHub</span>
+            </div>
+        </section>
+
+        <section class="cs-sec rv" id="what" data-section="what">
+            <div class="cs-label">04 — What it does</div>
+            <div class="cs-body">
+                <h2 class="cs-h">What it does</h2>
+                <p>It maps Gen Alpha signals and how they contrast with Gen Z, together with the source evidence and interviews behind them.</p>
+                <ul class="ruled">
+                    <li><span class="k">Signal map</span><span>Opens on an insight overview and a map of the signals the Lab is tracking.</span></li>
+                    <li><span class="k">Research records</span><span>Tracks records across reports, articles, podcasts, interviews and field notes.</span></li>
+                    <li><span class="k">Filters</span><span>Search, then narrow by type, status and tag.</span></li>
+                    <li><span class="k">Intake</span><span>An intake form adds new sources or interviews, with file upload for transcripts, source documents, and audio or video interviews.</span></li>
+                </ul>
+                <div class="todo" data-todo="genalpha-screens"><strong>TODO for Joshua:</strong> Add two or three screenshots of the Lab (with any client or confidential material removed), with one-line captions, once the rights question is settled.</div>
+                <span class="src">Sources: the AI Lab card on this site; the project README on GitHub</span>
+            </div>
+        </section>
+
+        <section class="cs-sec rv" id="limits" data-section="limits">
+            <div class="cs-label">05 — Its limits</div>
+            <div class="cs-body">
+                <h2 class="cs-h">Its limits</h2>
+                <p>Access is invite only, so most people can't open it, and this page can only describe it.</p>
+                <div class="todo" data-todo="genalpha-limits"><strong>TODO for Joshua:</strong> What doesn't it do well yet? Where is the research thin, what is manual that should be automated, and what would you change first?</div>
+            </div>
+        </section>
+
+        <section class="cs-sec is-pending rv" id="changed" data-section="changed">
+            <div class="cs-label">06 — What changed</div>
+            <div class="cs-body">
+                <h2 class="cs-h">What changed because of it</h2>
+                <div class="todo" data-todo="genalpha-outcome"><strong>TODO for Joshua:</strong> What changed because the Lab exists? A decision it informed, work it fed, or how it changed the way you research. Only things you can stand behind; no numbers you can't source.</div>
+            </div>
+        </section>
+
+        <section class="next-case rv">
+            <span class="kicker">Next Build</span>
+            <a href="meme-library.html">Meme Library →</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-row">
+                <span>© 2026 Joshua McKenzie German</span>
+                <a href="../index.html#builds" class="rule-link">← Back to Builds</a>
+            </div>
+            <nav class="footer-links" aria-label="More from Joshua">
+                <a href="../index.html#builds">Builds</a>
+                <a href="../index.html#work">Brand Work</a>
+                <a href="../photography/">Photography</a>
+                <a href="../shop.html">Shop</a>
+                <a href="../photography/#book" class="book">Book a shoot &rarr;</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="builds.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "_readme": [
+    "Field Notes: short posts on the homepage (index.html#notes). While posts is empty the section and its nav link stay hidden: never add sample posts or placeholder dates.",
+    "Add one object per post, newest first. Fields: title, lane, date (YYYY-MM-DD, the day it was published), url (https; the LinkedIn post or wherever it lives), summary (one or two sentences, optional).",
+    "lane must be one of: build-in-public (demos, workflows, prototypes, AI experiments, lessons learned), strategists-perspective (culture, technology, the creative industry, media, the future of work), behind-the-work (photography, video, editing, podcasting, life as an independent creative).",
+    "Example: {\"title\": \"...\", \"lane\": \"build-in-public\", \"date\": \"2026-11-20\", \"url\": \"https://www.linkedin.com/posts/...\", \"summary\": \"...\"}"
+  ],
+  "posts": []
+}

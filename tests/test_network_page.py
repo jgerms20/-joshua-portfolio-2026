@@ -1,8 +1,10 @@
 from html.parser import HTMLParser
+import html as html_lib
 from pathlib import Path
 import json
 import re
 import unittest
+from urllib.parse import parse_qs, urlparse
 
 from portfolio_quality.html_checks import check_page
 
@@ -11,15 +13,34 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "network/index.html"
 NETWORK_SITE = "https://jgerms20.github.io/curious-and-creative/"
 CONTACT = NETWORK_SITE + "pages/contact.html"
-GEN_ALPHA_LAB = "https://agencythings-gen-alpha.vercel.app"
-COMPANY = "The Curious &amp; Creative Company"
-# The studio's six offers, as the Curious Creative Company site names them.
-STUDIO_OFFERS = (
-    "Photography", "Videography", "Podcasts from zero",
-    "Brand assets", "Strategy &amp; consulting", "Events",
+# The company's current pitch, used verbatim as the page's lead.
+PITCH = (
+    "Curious &amp; Creative is a Los Angeles creative company built by Joshua German and Janel Moore. "
+    "We run a media network, produce photography, video, editing, and podcasts through our studio, "
+    "and advise founders, brands, and marketing teams on culture, audience, and AI."
 )
+# The three legs of the company and the company-site page each one links out to.
+LEGS = {
+    "The Network": NETWORK_SITE + "pages/network.html",
+    "The Studio": NETWORK_SITE + "pages/studio.html",
+    "The Consultancy": NETWORK_SITE + "pages/consultancy.html",
+}
+STUDIO_OFFERS = (
+    "Photography", "Event coverage", "Video", "Editing", "Podcast production", "Websites",
+)
+CONSULTANCY_OFFERS = (
+    "Brand and cultural strategy", "Audience systems", "Podcast strategy",
+    "AI workflow design and enablement",
+)
+# Brand work is agency work; if the page names it, it uses exactly this line.
+FOUNDERS_LINE = (
+    "Our founders bring experience from work on Levi's, Gatorade, DoorDash, DIRECTV, "
+    "Sephora, MLB, and BMW."
+)
+CONTACT_LEGS = {"network", "studio", "consultancy"}
+CONTACT_TOPICS = {"photo", "events", "strategy", "ai", "project"}
 
-# Every show in the Curious & Creative Network and where each card must link:
+# Every show in the network's static roster and where each card must link:
 # Joshua's shows go to his own show pages in this repo, the others to Spotify.
 SHOWS = {
     "ccpod": ("The Curious", "../podcasts/podcast-curious-creative.html"),
@@ -32,6 +53,12 @@ SHOWS = {
     "abolitionist": ("Aspiring Abolitionist", "https://open.spotify.com/show/7natfWFnBgakjLLZcEDZaw"),
     "dominate": ("Dominate the Decade", "../podcasts/podcast-dominate.html"),
 }
+
+
+def _text(html):
+    """Visible-ish text: tags stripped, entities kept as written, whitespace collapsed."""
+    html = re.sub(r"<(script|style)\b.*?</\1>", " ", html, flags=re.S)
+    return " ".join(re.sub(r"<[^>]+>", " ", html).split())
 
 
 class _Collector(HTMLParser):
@@ -108,14 +135,104 @@ class NetworkPageTests(unittest.TestCase):
         self.assertIn("Curious", self.meta("og:title"))
         self.assertIn("Curious", self.meta("twitter:title"))
         self.assertEqual(self.meta("twitter:card"), "summary_large_image")
-        self.assertTrue(self.meta("description"))
-        self.assertIn(COMPANY, re.search(r"<title>(.*?)</title>", self.html).group(1))
-        self.assertIn("The Curious & Creative Company", self.meta("description"))
+        self.assertIn("Curious &amp; Creative", re.search(r"<title>(.*?)</title>", self.html).group(1))
+        # every description carries the current pitch
+        pitch = html_lib.unescape(PITCH)
+        for key in ("description", "og:description", "twitter:description"):
+            self.assertEqual(self.meta(key), pitch, key)
+        ld = json.loads(next(
+            s["text"] for s in self.parsed.scripts if s["attrs"].get("type") == "application/ld+json"
+        ))
+        self.assertEqual(ld["description"], pitch)
+        self.assertEqual(ld["url"], NETWORK_SITE)
         # the share image is a real file in this repo
         for key in ("og:image", "twitter:image"):
             url = self.meta(key)
             self.assertTrue(url.startswith("https://joshuamgerman.com/"), url)
             self.assertTrue((ROOT / url.removeprefix("https://joshuamgerman.com/")).is_file(), url)
+
+    def test_pitch_is_the_lead(self):
+        hero = self.html[self.html.index('<section class="hero"'):self.html.index('id="shows"')]
+        lede = re.search(r'<p class="lede[^"]*"[^>]*>(.*?)</p>', hero, re.S).group(1)
+        self.assertEqual(" ".join(lede.split()), PITCH)
+
+    def test_three_legs_link_out_to_the_company_site(self):
+        legs = re.search(r'<nav class="arms.*?</nav>', self.html, re.S).group(0)
+        cards = re.findall(r'<a class="arm" href="([^"]+)"([^>]*)>(.*?)</a>', legs, re.S)
+        self.assertEqual(len(cards), 3)
+        for (href, attrs, body), (name, target) in zip(cards, LEGS.items()):
+            self.assertEqual(href, target)
+            self.assertIn(name, body)
+            self.assertIn('target="_blank" rel="noopener"', attrs)
+        hrefs = {a.get("href", "") for a in self.parsed.anchors}
+        for target in LEGS.values():
+            self.assertIn(target, hrefs)
+        self.assertIn(NETWORK_SITE, hrefs)
+        for section in ("shows", "latest", "studio", "consultancy", "photos", "duo", "pitch"):
+            self.assertIn(f'id="{section}"', self.html)
+
+    def test_contact_links_use_supported_parameters(self):
+        contacts = [a.get("href", "") for a in self.parsed.anchors if a.get("href", "").startswith(CONTACT)]
+        self.assertTrue(contacts)
+        legs = set()
+        for href in contacts:
+            query = parse_qs(urlparse(href).query)
+            self.assertTrue(query, href)
+            self.assertLessEqual(set(query), {"leg", "topic"}, href)
+            for value in query.get("leg", []):
+                self.assertIn(value, CONTACT_LEGS, href)
+                legs.add(value)
+            for value in query.get("topic", []):
+                self.assertIn(value, CONTACT_TOPICS, href)
+        self.assertEqual(legs, CONTACT_LEGS)  # every leg has its own door
+
+    def test_studio_and_consultancy_list_their_offers(self):
+        studio = self.html[self.html.index('id="studio"'):self.html.index('id="consultancy"')]
+        consult = self.html[self.html.index('id="consultancy"'):self.html.index('id="photos"')]
+        for section, offers in ((studio, STUDIO_OFFERS), (consult, CONSULTANCY_OFFERS)):
+            lists = re.findall(r'<ul class="svc[^"]*".*?</ul>', section, re.S)
+            self.assertEqual(len(lists), 1)
+            self.assertEqual(tuple(re.findall(r"<h3>(.*?)</h3>", lists[0])), offers)
+
+    def test_no_counts_anywhere(self):
+        text = _text(self.html)
+        self.assertNotRegex(
+            text, r"(?i)\d[\d,]*\+?\s*(episodes|shows|podcasts|videos|followers|listeners|subscribers)"
+        )
+        self.assertNotRegex(text, r"(?i)\b(eight|nine|ten|dozen)\s+(podcasts|shows)")
+        self.assertNotIn("data-fact", self.html)
+        # the live data never writes counts either
+        self.assertNotRegex(self.script, r"\.count\b")
+        self.assertNotIn("total", self.script)
+
+    def test_no_inventions_arm(self):
+        for phrase in ("Inventions", "inventions", "things we invent", "Kindling", "Gen Alpha", "kindling/"):
+            self.assertNotIn(phrase, self.html, phrase)
+        builds = [a for a in self.parsed.anchors if a.get("href") == "../index.html#builds"]
+        self.assertTrue(builds, "no link to Joshua's builds on his portfolio")
+        self.assertIn("Joshua&rsquo;s own builds and experiments live on", self.html)
+
+    def test_company_is_not_called_an_llc(self):
+        self.assertNotRegex(self.html, r"\bL\.?L\.?C\b")
+
+    def test_brand_work_is_framed_as_agency_experience(self):
+        text = html_lib.unescape(_text(self.html))
+        brands = ("Levi", "Gatorade", "DoorDash", "DIRECTV", "Sephora", "MLB", "BMW")
+        if any(b in text for b in brands):
+            self.assertIn(FOUNDERS_LINE, text)
+            stripped = text.replace(FOUNDERS_LINE, "")
+            for brand in brands:
+                self.assertNotIn(brand, stripped, brand)
+
+    def test_agency_roles_are_past_tense(self):
+        text = html_lib.unescape(_text(self.html))
+        self.assertNotRegex(text, r"(?i)\bis an? (Senior )?(Connections )?Strategist at TBWA")
+        self.assertNotRegex(text, r"(?i)Senior Connections Strategist at TBWA")
+        self.assertIn(
+            "Joshua spent his agency years at Goodby Silverstein & Partners, Wieden+Kennedy, "
+            "and TBWA\\Chiat\\Day",
+            text,
+        )
 
     def test_fetched_data_is_never_written_as_html(self):
         for sink in ("innerHTML", "outerHTML", "insertAdjacentHTML", "document.write", "eval("):
@@ -132,47 +249,11 @@ class NetworkPageTests(unittest.TestCase):
         for field in ("shows", "latest", "generated_at"):
             self.assertIn(field, data)
             self.assertIn(f"data.{field}", self.script)
-        for field in ("key", "name", "hosts", "tagline", "url", "art", "latest", "count"):
+        for field in ("key", "name", "hosts", "tagline", "url", "art", "latest"):
             self.assertIn(field, data["shows"][0])
         for field in ("show", "show_name", "title", "date", "url", "image"):
             self.assertIn(field, data["latest"][0])
             self.assertIn(f"item.{field}", self.script)
-
-    def test_page_is_framed_as_the_company_with_three_arms(self):
-        h1 = re.search(r"<h1\b.*?</h1>", self.html, re.S).group(0)
-        h1_text = " ".join(re.sub(r"<[^>]+>", " ", h1).split())
-        self.assertEqual(h1_text, "Curious &amp; Creative Company")
-        self.assertIn("Curious first. Then creative.", self.html)
-        arms = re.search(r'<nav class="arms.*?</nav>', self.html, re.S).group(0)
-        for target, name in (("#shows", "The Network"), ("#studio", "The Studio"), ("#inventions", "Inventions")):
-            self.assertIn(f'href="{target}"', arms)
-            self.assertIn(name, arms)
-        for section in ("shows", "latest", "studio", "inventions", "photos", "duo", "pitch"):
-            self.assertIn(f'id="{section}"', self.html)
-
-    def test_studio_lists_the_six_offers(self):
-        studio = self.html[self.html.index('id="studio"'):self.html.index('id="inventions"')]
-        offers = re.findall(r'<ul class="svc".*?</ul>', studio, re.S)
-        self.assertEqual(len(offers), 1)
-        names = re.findall(r"<h3>(.*?)</h3>", offers[0])
-        self.assertEqual(tuple(names), STUDIO_OFFERS)
-
-    def test_gen_alpha_lab_is_the_featured_invention(self):
-        inventions = self.html[self.html.index('id="inventions"'):self.html.index('id="photos"')]
-        lab = re.search(r'<a class="lab".*?</a>', inventions, re.S).group(0)
-        self.assertIn(f'href="{GEN_ALPHA_LAB}"', lab)
-        self.assertIn('target="_blank" rel="noopener"', lab)
-        self.assertIn("Gen Alpha <em>Intelligence Lab</em>", lab)
-        self.assertIn(">Live<", lab)
-        self.assertIn("Built with", lab)
-        self.assertIn('src="../assets/genalpha.svg"', lab)
-        self.assertTrue((ROOT / "assets/genalpha.svg").is_file())
-        # Kindling and the other inventions carry their own art, copied locally
-        self.assertIn(NETWORK_SITE + "kindling/", inventions)
-        arts = re.findall(r'<img src="(art/[^"]+\.svg)"', inventions)
-        self.assertGreaterEqual(len(arts), 3)
-        for src in arts:
-            self.assertTrue((PAGE.parent / src).is_file(), src)
 
     def test_photo_strip_links_to_the_photography_site(self):
         photos = self.html[self.html.index('id="photos"'):self.html.index('id="duo"')]
@@ -191,7 +272,6 @@ class NetworkPageTests(unittest.TestCase):
             self.assertEqual(cards[key]["href"], href, key)
             self.assertRegex(cards[key]["text"], r"Joshua|Janel", f"{key} card names no host")
         self.assertIn("The flagship", cards["ccpod"]["text"])
-        self.assertIn("Joshua McKenzie German &", self.html)
         self.assertIn("Hosted by Janel Moore", cards["tmtt"]["text"])
         self.assertIn("Hosted by Janel Moore", cards["abolitionist"]["text"])
         self.assertIn("2020", cards["dominate"]["text"])
@@ -204,14 +284,13 @@ class NetworkPageTests(unittest.TestCase):
             self.assertTrue((PAGE.parent / block.group(1)).resolve().is_file(), block.group(1))
 
     def test_eclectic_polymath_leads_the_roster_after_the_flagship(self):
-        html = PAGE.read_text(encoding="utf-8")
-        roster = html[html.index('id="roster"'):]
+        roster = self.html[self.html.index('id="roster"'):]
         roster = roster[: roster.index("</ul>")]
         order = re.findall(r'<li data-show="([a-z]+)"', roster)
         self.assertEqual(order[0], "polymath")
         self.assertEqual(order[-1], "dominate")  # the archive closes the list
         # the live re-sort keeps the same rule: polymath, hosted shows, AI-generated, archive
-        self.assertIn("key === 'polymath' ? 0", html)
+        self.assertIn("key === 'polymath' ? 0", self.script)
 
     def test_script_knows_every_static_show(self):
         for key in SHOWS:
@@ -221,17 +300,7 @@ class NetworkPageTests(unittest.TestCase):
     def test_janel_is_spelled_correctly(self):
         self.assertIn("Janel Moore", self.html)
         self.assertNotRegex(self.html, r"(?i)janelle")
-        # her bio uses the Curious Creative Company site's current wording
         self.assertIn("Technology and finance at Truist; political fundraising veteran; artist. Hosts Too Much to Tweet.", self.html)
-
-    def test_links_to_the_network_site_and_its_doors(self):
-        hrefs = [a.get("href", "") for a in self.parsed.anchors]
-        self.assertIn(NETWORK_SITE, hrefs)
-        self.assertIn(CONTACT + "?topic=project", hrefs)
-        self.assertIn(CONTACT + "?topic=guest", hrefs)
-        self.assertIn(NETWORK_SITE + "kindling/", hrefs)
-        for label in ("Visit the site", "Work with the studio", "Pitch a guest"):
-            self.assertIn(label, self.html)
 
     def test_external_links_open_safely(self):
         for a in self.parsed.anchors:

@@ -101,12 +101,12 @@ def main(argv: list[str] | None = None) -> int:
 
     if not args.page_only:
         original = HOMEPAGE.read_text(encoding="utf-8")
-        updated = replace_darkroom(original, render_darkroom(manifest, sets))
+        updated = replace_darkroom(original, render_darkroom(manifest, sets, settings["coverage"]))
         stale |= _write_if_changed(HOMEPAGE, original, updated, f"index.html Darkroom ({len(manifest)} photographs)", args.check)
 
     shell = PHOTO_SITE.read_text(encoding="utf-8")
     page = apply_photo_site(
-        shell, render_photo_site(manifest, root=ROOT, sets=sets, shoots=settings["shoots"])
+        shell, render_photo_site(manifest, root=ROOT, sets=sets, shoots=settings["shoots"], coverage=settings["coverage"])
     )
     stale |= _write_if_changed(PHOTO_SITE, shell, page, f"photography/index.html ({len(manifest)} photographs)", args.check)
 

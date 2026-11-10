@@ -7,18 +7,18 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="description" content="Creative and cultural strategist, photographer, podcaster and AI builder in Los Angeles. Agency strategy on Levi&#39;s, DoorDash, Gatorade and more, plus photo shoots, podcasts and AI tools. Now booking independent work.">
+    <meta name="description" content="Creative and cultural strategist in Los Angeles who finds the idea and builds the thing: AI tools, campaigns, photography and podcasts. Co-founder of The Curious &amp; Creative Company.">
     <meta name="keywords" content="Joshua McKenzie German, photographer, Los Angeles photographer, product photography, podcaster, AI builder, creative strategist, cultural strategist, TBWA Chiat Day, Levi's, Beyoncé, artificial intelligence, connections strategy">
-    <title>Joshua McKenzie German | Creative &amp; Cultural Strategist, Photographer, Podcaster, AI Builder</title>
+    <title>Joshua McKenzie German | Creative &amp; Cultural Strategist Who Builds</title>
     <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Joshua McKenzie German | Creative &amp; Cultural Strategist, Photographer, Podcaster, AI Builder">
-    <meta property="og:description" content="Creative and cultural strategist, photographer, podcaster and AI builder in Los Angeles. Now booking strategy projects, shoots and AI builds.">
+    <meta property="og:title" content="Joshua McKenzie German | Creative &amp; Cultural Strategist Who Builds">
+    <meta property="og:description" content="Creative and cultural strategist in Los Angeles who finds the idea and builds the thing. Co-founder of The Curious &amp; Creative Company.">
     <meta property="og:url" content="https://joshuamgerman.com">
     <meta property="og:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Joshua McKenzie German | Creative &amp; Cultural Strategist, Photographer, Podcaster, AI Builder">
-    <meta name="twitter:description" content="Creative and cultural strategist, photographer, podcaster and AI builder in Los Angeles. Now booking strategy projects, shoots and AI builds.">
+    <meta name="twitter:title" content="Joshua McKenzie German | Creative &amp; Cultural Strategist Who Builds">
+    <meta name="twitter:description" content="Creative and cultural strategist in Los Angeles who finds the idea and builds the thing. Co-founder of The Curious &amp; Creative Company.">
     <meta name="twitter:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -519,6 +519,12 @@
             flex-wrap: wrap;
             padding-bottom: var(--s4);
         }
+        .hero-claim { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.01em; margin: var(--s3) 0 var(--s2); max-width: 22ch; }
+        .hero-claim em { font-style: italic; color: var(--blue); }
+        .hero-now dd a { border-bottom: 1px solid var(--rule); }
+        .hero-now dd a:hover { color: var(--blue); border-color: var(--blue); }
+        .hero-book { align-self: center; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+        .hero-book:hover { color: var(--blue); border-color: var(--blue); }
         .hero-intro {
             max-width: 460px;
             font-size: 1.02rem; line-height: 1.75; color: var(--ink-soft);
@@ -815,6 +821,12 @@
            PODCASTS — record sleeves
            ===================================================== */
         .pod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.2vw, 28px); }
+        .pod-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .pod-also { margin-top: var(--s5); font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7; }
+        .pod-also a { border-bottom: 1px solid var(--rule); color: var(--ink-soft); }
+        .pod-also a:hover { color: var(--blue); border-color: var(--blue); }
+        @media (max-width: 900px) { .pod-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 540px) { .pod-grid-3 { grid-template-columns: 1fr; } }
         .pod-card { display: block; }
         .pod-cover {
             position: relative; overflow: hidden;
@@ -890,6 +902,44 @@
         .lab-hero .lab-art { aspect-ratio: auto; min-height: 100%; }
         .lab-hero .lab-art img { position: absolute; inset: 0; }
         .lab-hero .lab-art-img .lab-badge-live { top: auto; left: auto; bottom: 14px; right: 14px; }
+        /* ---- Field Notes ---- */
+        #notes[hidden], [data-notes-link][hidden] { display: none !important; }
+        .notes-list { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); }
+        .notes-list li { border-bottom: 1px solid var(--rule); }
+        .notes-list a { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 18px; align-items: baseline; padding: 18px 0; }
+        .note-lane { font-family: var(--mono); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+        .note-title { font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.2; }
+        .note-sum { display: block; font-size: 0.86rem; line-height: 1.55; color: var(--ink-soft); margin-top: 6px; }
+        .note-date { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; }
+        .notes-list a:hover .note-title { color: var(--blue); }
+        @media (max-width: 700px) { .notes-list a { grid-template-columns: 1fr; gap: 6px; } }
+        /* ---- Builds: case-study status + the lab index ---- */
+        .anchor-alias { position: relative; top: -80px; height: 0; }
+        .lab-status { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--mono); font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: rgba(245,241,232,0.94); color: var(--ink); border: 1px solid var(--rule); }
+        .lab-hero .lab-status { top: auto; left: auto; bottom: 14px; right: 14px; }
+        .lab-index { margin-top: clamp(48px, 6vw, 80px); border-top: 1.5px solid var(--ink); }
+        .lab-index-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; padding: 18px 0 10px; }
+        .lab-index-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+        .lab-index-note { font-size: 0.8rem; color: var(--ink-mid); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+        .lab-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(20px, 3vw, 40px); }
+        .lab-row { border-bottom: 1px solid var(--rule); }
+        .lab-row a { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 16px 0; }
+        .lab-row img { width: 64px; height: 40px; object-fit: cover; border-radius: 4px; border: 1px solid var(--rule-soft); }
+        .lab-row-main { min-width: 0; }
+        .lab-row-name { display: block; font-family: var(--serif); font-size: 1.12rem; line-height: 1.2; }
+        .lab-row-tag { display: block; font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); margin-top: 4px; }
+        .lab-row-desc { display: block; font-size: 0.82rem; line-height: 1.55; color: var(--ink-soft); margin-top: 6px; }
+        .lab-row-side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+        .lab-row-go { font-family: var(--mono); font-size: 0.54rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; }
+        .lab-row a:hover .lab-row-name { color: var(--blue); }
+        .lab-row a:hover .lab-row-go { color: var(--blue); }
+        .lab-chip { display: inline-block; font-family: var(--mono); font-size: 0.5rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-soft); white-space: nowrap; }
+        .lab-chip.is-live { border-color: var(--leaf); color: var(--leaf); }
+        .lab-chip.is-prototype { border-color: var(--gold); color: var(--gold); }
+        .lab-chip.is-in-development { border-color: var(--ink-faint); color: var(--ink-mid); }
+        .lab-index-foot { margin-top: 20px; }
+        @media (max-width: 860px) { .lab-list { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) { .lab-row a { grid-template-columns: 48px minmax(0, 1fr); } .lab-row img { width: 48px; height: 32px; } .lab-row-side { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; } }
         .lab-hero .lab-body { padding: clamp(24px, 3.4vw, 48px); justify-content: center; }
         .lab-hero .lab-tag { color: var(--blue); }
         .lab-hero .lab-title { font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.02; }
@@ -1062,6 +1112,9 @@
         .net-title .it { font-style: italic; color: #37B34A; }
         .net-sub { margin: -8px 0 20px; font-family: var(--mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
         .net-lede { font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.6; color: var(--ink-soft); max-width: 520px; }
+        .net-legs { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+        .net-legs a { color: #1F7A2E; border-bottom: 1px solid currentColor; }
+        :root[data-theme="dark"] .net-legs a { color: #6FD57E; }
         .net-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
         .net-stack { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; position: relative; }
         .net-stack img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--paper-dim); box-shadow: 0 18px 40px -26px rgba(23,21,18,0.55); transition: transform .5s var(--exp); }
@@ -1333,13 +1386,12 @@
             </a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#work">Brand Work</a>
-                <a href="#podcasts">Podcasts</a>
-                <a href="#network">Curious &amp; Creative</a>
+                <a href="#builds">Work</a>
+                <a href="#lab">Lab</a>
                 <a href="#photography">Photography</a>
-                <a href="#ai">AI</a>
-                <a href="#art">Art</a>
-                <a href="shop.html">Shop</a>
+                <a href="#podcasts">On Air</a>
+                <a href="#notes" data-notes-link hidden>Notes</a>
+                <a href="network/">Curious &amp; Creative</a>
             </div>
             <div class="nav-right">
                 <span class="nav-clock" id="navClock">LOS ANGELES —:—</span>
@@ -1353,16 +1405,18 @@
         </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#about"><span class="idx">01</span> About</a>
+        <a href="#builds"><span class="idx">01</span> Builds</a>
+        <a href="#lab"><span class="idx" aria-hidden="true">&rarr;</span> The Lab</a>
         <a href="#work"><span class="idx">02</span> Brand Work</a>
-        <a href="#podcasts"><span class="idx">03</span> Podcasts</a>
-        <a href="#network"><span class="idx" aria-hidden="true">&rarr;</span> Curious &amp; Creative</a>
-        <a href="#photography"><span class="idx">04</span> Photography</a>
-        <a href="#ai"><span class="idx">05</span> AI</a>
+        <a href="#photography"><span class="idx">03</span> Photography</a>
+        <a href="#podcasts"><span class="idx">04</span> On Air</a>
+        <a href="network/"><span class="idx" aria-hidden="true">&rarr;</span> Curious &amp; Creative</a>
+        <a href="#notes" data-notes-link hidden><span class="idx" aria-hidden="true">&rarr;</span> Notes</a>
+        <a href="#about"><span class="idx">05</span> About</a>
         <a href="#art"><span class="idx" aria-hidden="true">&rarr;</span> Art</a>
         <a href="shop.html"><span class="idx" aria-hidden="true">&rarr;</span> Shop</a>
         <a href="#contact"><span class="idx" aria-hidden="true">&rarr;</span> Contact</a>
-        <a href="photography/#book" class="mm-book">Book a shoot <span aria-hidden="true">&rarr;</span></a>
+        <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" class="mm-book" target="_blank" rel="noopener">Book a shoot <span aria-hidden="true">&#8599;</span></a>
     </div>
 
     <!-- =====================================================
@@ -1372,7 +1426,7 @@
         <div class="wrap" style="display:flex; flex-direction:column; flex:1;">
             <div class="hero-topline rv in">
                 <span>Portfolio — <span class="mark">2026 Edition</span></span>
-                <span>Strategy × Photography × Podcasts × AI</span>
+                <span>Strategy × Culture × AI × Photography</span>
                 <span>Los Angeles, CA — 34.05°N, 118.24°W</span>
             </div>
             <div class="hero-main">
@@ -1394,23 +1448,24 @@
                         </figcaption>
                     </figure>
                 </div>
+                <p class="hero-claim rv rv-d2">I find the idea and <em>build the thing.</em></p>
                 <div class="hero-roles rv rv-d2">
-                    <span class="hero-role">Creative &amp; Cultural Strategist</span>
+                    <span class="hero-role">Creative &amp; cultural strategist who builds with AI</span>
                     <span class="hero-role">Photographer</span>
                     <span class="hero-role">Podcaster</span>
-                    <span class="hero-role">AI Builder &amp; Creator</span>
                 </div>
             </div>
             <div class="hero-bottom rv rv-d3">
                 <p class="hero-intro">Strategy, stories, and the things I build when nobody assigned them. <span class="hero-booking">Now booking independent work.</span></p>
                 <dl class="hero-stats hero-now" aria-label="What I&rsquo;m doing now">
-                    <div><dt>Strategy</dt><dd>TBWA\Chiat\Day, Los Angeles</dd></div>
-                    <div><dt>On air</dt><dd>The Eclectic Polymath</dd></div>
-                    <div><dt>Behind the lens</dt><dd>Portraits, places, nights out</dd></div>
+                    <div><dt>Now</dt><dd><a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">Co-founder, The Curious &amp; Creative Company&nbsp;&#8599;</a></dd></div>
+                    <div><dt>Independent</dt><dd>Strategist &amp; AI builder</dd></div>
+                    <div><dt>Previously</dt><dd>TBWA\Chiat\Day, Wieden+Kennedy, Goodby Silverstein &amp; Partners</dd></div>
                 </dl>
                 <div class="hero-ctas">
-                    <a href="photography/#book" class="btn btn-ink">Book a Shoot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    <a href="#contact" class="btn btn-line">Start a Project</a>
+                    <a href="#builds" class="btn btn-ink">See the work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="#contact" class="btn btn-line">Work with me</a>
+                    <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" class="hero-book" target="_blank" rel="noopener">Book a shoot through the Studio&nbsp;&#8599;</a>
                 </div>
             </div>
         </div>
@@ -1459,117 +1514,155 @@
     </div>
 
     <!-- =====================================================
-         01 — ABOUT
+         01 — BUILDS: three case studies, then the full lab
          ===================================================== -->
-    <section id="about" class="chapter">
+    <section id="builds" class="chapter">
+        <div id="ai" class="anchor-alias" aria-hidden="true"></div>
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
                     <span class="ch-num">CH. 01</span>
-                    <h2 class="ch-title">About <span class="it">Joshua</span></h2>
+                    <h2 class="ch-title"><span class="it">Builds</span></h2>
                 </div>
-                <div class="ch-meta">Hello<br>Columbia, SC → Los Angeles, CA</div>
+                <div class="ch-meta">Strategy, built<br>Case studies &amp; the lab</div>
             </div>
+            <p class="ch-intro rv">I don&rsquo;t stop at the recommendation. When a question about culture is worth answering, I build the tool that answers it, with AI as a collaborator and my own hands on the production. Three case studies first, then everything in the lab, labeled for what it is.</p>
 
-            <div class="about-grid">
-                <div class="about-left rv rv-d1">
-                    <figure class="self-roll" aria-label="Photos of Joshua McKenzie German">
-                        <div class="hero-frame" id="selfRotator">
-                            <img decoding="async" data-cap="35mm Film · Lab Scan" src="photos/self/000070270013.JPEG" alt="Portrait of Joshua McKenzie German" class="rot-slide active">
-                            <img loading="lazy" decoding="async" data-cap="Jul 2025 · Sony a6100" src="photos/self/DSC01484.JPG" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" data-cap="Jul 2024 · iPhone" src="photos/self/IMG_0680.JPG" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" data-cap="Self · Archive" src="photos/self/IMG_1912.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" data-cap="Nov 2022 · Nikon D500" src="photos/self/JMG_7456.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" data-cap="Jan 2023 · Nikon D500" src="photos/self/JMG_8976.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" data-cap="Apr 2025 · Sony a6100" src="photos/self/DSC00827.jpg" alt="" class="rot-slide">
-                            <img loading="lazy" decoding="async" data-cap="Aug 2024 · Nikon D500" src="photos/self/JMG_7538.jpg" alt="" class="rot-slide">
-                        </div>
-                        <figcaption class="hero-cap t-mono-sm">
-                            <span class="hero-cap-count"><span id="selfCapIdx">01</span> / <span id="selfCapTotal">08</span></span>
-                            <span class="hero-cap-meta" id="selfCapMeta">35mm Film · Lab Scan</span>
-                        </figcaption>
-                        <div class="hero-cap-rail" aria-hidden="true"><span id="selfCapBar"></span></div>
-                    </figure>
-                    <dl class="about-facts">
-                        <div class="about-fact"><dt>Based</dt><dd>Los Angeles, CA</dd></div>
-                        <div class="about-fact"><dt>From</dt><dd>Columbia, South Carolina</dd></div>
-                        <div class="about-fact"><dt>Making</dt><dd>Strategy, podcasts, photos, AI tools</dd></div>
-                        <div class="about-fact"><dt>Status</dt><dd style="color:var(--leaf);">● Now booking shoots &amp; projects</dd></div>
-                    </dl>
-                </div>
-
-                <div class="about-right rv rv-d2">
-                    <p class="t-lede about-lede">I&rsquo;m Joshua. Curious and creative, and happiest telling stories in <span class="accent-word">whatever medium fits</span>.</p>
-                    <div class="about-body">
-                        <p>Born and raised in South Carolina, and I&rsquo;ve always loved connecting with people: seeing them, hearing them, figuring out what makes them tick. That pulled me into journalism, then advertising. As a strategist I work out where, how, and most importantly <em>why</em> an idea reaches people, on brands like Levi&rsquo;s, Sephora and DIRECTV, with some of that work landing at the Super Bowl and in Cannes.</p>
-                        <p>I&rsquo;m a podcaster and producer, because I love a deep conversation. <em>The Eclectic Polymath</em> is where I chase rabbit holes in history, power and culture; <em>Approachable AI</em> is where I build things on camera and show my work.</p>
-                        <p>I&rsquo;ve been all in on AI since the ChatGPT moment: building tools, testing everything, and helping brands keep up. With Janel Moore I run The Curious &amp; Creative Company, a podcast network and creative studio that grew out of the same itch.</p>
-                        <p>And I shoot, on film and digital: people, places, nights out, the moments in between. When the news gets loud, I cut it up and make collages. Most of what you&rsquo;ll find here started as a question I couldn&rsquo;t leave alone. Look around, and say hi.</p>
+            <div class="lab-grid">
+                <a href="builds/gen-alpha-intelligence-lab.html" class="lab-card lab-hero rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/genalpha.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        <span class="lab-status">Invite only</span>
                     </div>
-                </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Case study · Cultural Intelligence</span>
+                        <h3 class="lab-title">Gen Alpha Intelligence Lab <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">A living research lab on the forces shaping Gen Alpha culture — insights, findings, creators, and the spaces they actually occupy, with an ingest pipeline for reports, interviews, and field notes. Built with Next.js 16 and Supabase.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform">Cultural intelligence</span>
+                            <span class="lab-cta">Read the case study →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="builds/meme-library.html" class="lab-card lab-feat rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/memelibrary.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        <span class="lab-status">Live</span>
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Case study · Cultural Search</span>
+                        <h3 class="lab-title">Meme Library <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">Describe the meme you half remember and it finds it. Natural-language recall across 1,000+ source-linked clips, reactions, and GIFs — each with provenance and a spread timeline showing how it travelled.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform">Cultural search</span>
+                            <span class="lab-cta">Read the case study →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="builds/life-gamified.html" class="lab-card lab-feat rv">
+                    <div class="lab-art lab-art-img">
+                        <img src="assets/lab/lifegamified.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
+                        <span class="lab-status">Live</span>
+                    </div>
+                    <div class="lab-body">
+                        <span class="lab-tag">Case study · Life Gamification</span>
+                        <h3 class="lab-title">Life Gamified <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+                        <p class="lab-desc">A fully-gamified RPG quest journal for real life. Track tasks as quests, earn XP, level up your character, unlock achievements, and build a talent tree. Because life should feel like an epic adventure. Built with React 19 and Claude Code.</p>
+                        <div class="lab-foot">
+                            <span class="lab-platform">Consumer app</span>
+                            <span class="lab-cta">Read the case study →</span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <!-- Where I'm from, where I've been -->
-            <div class="trail rv">
-                <div class="trail-head">
-                    <h3 class="trail-title">Where I&rsquo;m from. <span class="it">Where I&rsquo;ve been.</span></h3>
-                    <span class="t-mono-sm trail-sub">Columbia &rarr; Charlotte &rarr; San Francisco &rarr; Portland &rarr; Los Angeles</span>
+            <div class="lab-index rv" id="lab">
+                <div class="lab-index-head">
+                    <h3 class="lab-index-title">The <span class="it">Lab</span></h3>
+                    <p class="lab-index-note"><span class="lab-chip is-live">Live</span> you can use it today &middot; <span class="lab-chip is-prototype">Prototype</span> working build, not a finished product</p>
                 </div>
-                <div class="trail-grid">
-                    <figure class="trail-map" aria-hidden="true">
-                        <img src="photos/route-map-dots.png" alt="" width="1020" height="670" loading="lazy" decoding="async">
-                        <svg viewBox="0 0 510 335" preserveAspectRatio="xMidYMid meet">
-                            <path class="trail-route" d="M407 192 L399 176 Q 220 60 12 146 Q 0 100 22 58 Q 140 110 62 215" pathLength="1"></path>
-                        <g class="trail-pin" data-stop="cola" transform="translate(407 192)">
-                            <circle class="trail-pulse" r="9"></circle>
-                            <circle class="trail-dot" r="4.2"></circle>
-                            <text x="12" y="14">Columbia</text>
-                        </g>
-                        <g class="trail-pin" data-stop="clt" transform="translate(399 176)">
-                            <circle class="trail-pulse" r="9"></circle>
-                            <circle class="trail-dot" r="4.2"></circle>
-                            <text x="10" y="-8">Charlotte</text>
-                        </g>
-                        <g class="trail-pin" data-stop="sf" transform="translate(12 146)">
-                            <circle class="trail-pulse" r="9"></circle>
-                            <circle class="trail-dot" r="4.2"></circle>
-                            <text x="10" y="4">San Francisco</text>
-                        </g>
-                        <g class="trail-pin" data-stop="pdx" transform="translate(22 58)">
-                            <circle class="trail-pulse" r="9"></circle>
-                            <circle class="trail-dot" r="4.2"></circle>
-                            <text x="10" y="4">Portland</text>
-                        </g>
-                        <g class="trail-pin" data-stop="la" transform="translate(62 215)">
-                            <circle class="trail-pulse" r="9"></circle>
-                            <circle class="trail-dot" r="4.2"></circle>
-                            <text x="10" y="6">Los Angeles</text>
-                        </g>
-                        </svg>
-                    </figure>
-                    <ol class="trail-stops">
-                        <li class="trail-stop" data-stop="cola" tabindex="0">
-                            <span class="trail-when">Origin</span>
-                            <span class="trail-where">Columbia, South Carolina</span>
-                            <span class="trail-what">Born and raised. Where the curiosity started.</span>
-                        </li>
-                        <li class="trail-stop" data-stop="clt" data-also="sf" tabindex="0">
-                            <span class="trail-when">2021&ndash;23</span>
-                            <span class="trail-where">Charlotte, NC &rarr; San Francisco</span>
-                            <span class="trail-what">Goodby Silverstein &amp; Partners, remote: BMW, Samuel Adams, Xfinity.</span>
-                        </li>
-                        <li class="trail-stop" data-stop="pdx" tabindex="0">
-                            <span class="trail-when">2023&ndash;24</span>
-                            <span class="trail-where">Portland, Oregon</span>
-                            <span class="trail-what">Wieden+Kennedy: on the team behind DoorDash &ldquo;All The Ads,&rdquo; a Cannes Grand Prix winner.</span>
-                        </li>
-                        <li class="trail-stop is-now" data-stop="la" tabindex="0">
-                            <span class="trail-when">2024&ndash;Now</span>
-                            <span class="trail-where">Los Angeles, California</span>
-                            <span class="trail-what">TBWA\Chiat\Day: Levi&rsquo;s &times; Beyonc&eacute;, Sephora, DIRECTV. Home base.</span>
-                        </li>
-                    </ol>
-                </div>
+                <ul class="lab-list">
+                    <li class="lab-row">
+                        <a href="https://jgerms20.github.io/curious-and-creative/kindling/" target="_blank" rel="noopener">
+                            <img src="assets/lab/kindling.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Kindling</span><span class="lab-row-tag">Card game</span><span class="lab-row-desc">A card game for people who want more of each other: four decks, heat 1 to 5, with consent built into every rule. Play it free online; the box is on pre-order.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Play it &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://jgerms20.github.io/the_man_and_the_machine/" target="_blank" rel="noopener">
+                            <img src="assets/lab/manmachine.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">The Man and the Machine</span><span class="lab-row-tag">AI Music Collaboration</span><span class="lab-row-desc">Play bass or connect MIDI — and the AI plays back. A real-time jam session tool with 10 AI musician personalities: from Supportive to Adversary, Listen to Free. Built with React, TypeScript, Web Audio API, and Claude Code.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Open it &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://jgerms20.github.io/Dreamcatcher/" target="_blank" rel="noopener">
+                            <img src="assets/lab/dreamcatcher.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Dreamcatcher</span><span class="lab-row-tag">Dream Journal · Voice</span><span class="lab-row-desc">Speak your dream the second you wake up, before it's gone. An adaptive AI interview deepens the recall, then reads it back through four lenses — Jungian, Freudian, cognitive, and cultural — and correlates it against your sleep data.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Open it &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://jgerms20.github.io/Grandmaster/" target="_blank" rel="noopener">
+                            <img src="assets/lab/grandmaster.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Grandmaster</span><span class="lab-row-tag">Chess · Real-Time</span><span class="lab-row-desc">A live, shared chess tournament hub. Think ESPN Tournament Challenge — but for your friend group. Live bracket tracking, Chess.com integration, auto-seeding by rating.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Open it &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Veritas" target="_blank" rel="noopener">
+                            <img src="assets/lab/veritas.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Veritas</span><span class="lab-row-tag">Media Intelligence</span><span class="lab-row-desc">AI-powered bias detection for news and media. Analyze content for perspective, compare sources, and see the full picture.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Creator-Search" target="_blank" rel="noopener">
+                            <img src="assets/lab/creatorsearch.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Creator Search</span><span class="lab-row-tag">Creator Discovery</span><span class="lab-row-desc">AI-powered influencer and creator discovery. Find the perfect creators for your brand based on audience, style, and engagement.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Archive" target="_blank" rel="noopener">
+                            <img src="assets/lab/closet.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Digital Closet Archive</span><span class="lab-row-tag">Digital Closet</span><span class="lab-row-desc">AI-powered wardrobe organizer. Catalog, style, and manage your closet with intelligent outfit recommendations.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Jukeboxd" target="_blank" rel="noopener">
+                            <img src="assets/lab/jukeboxd.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Jukeboxd</span><span class="lab-row-tag">Music Social</span><span class="lab-row-desc">Letterboxd for music. Track, rate, and review albums. Share your musical journey and discover new sounds.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Aetheria" target="_blank" rel="noopener">
+                            <img src="assets/lab/aetheria.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Ætheria</span><span class="lab-row-tag">Sound Therapy</span><span class="lab-row-desc">AI-generated binaural beats for focus, relaxation, and meditation. Custom soundscapes tailored to your mental state.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Momentum" target="_blank" rel="noopener">
+                            <img src="assets/lab/momentum.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Momentum</span><span class="lab-row-tag">Productivity</span><span class="lab-row-desc">AI-powered productivity and goal tracking. Build momentum with intelligent task management and progress insights.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                    <li class="lab-row">
+                        <a href="https://github.com/jgerms20/Perfect-Day-Crafter" target="_blank" rel="noopener">
+                            <img src="assets/lab/perfectday.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
+                            <span class="lab-row-main"><span class="lab-row-name">Perfect Day Crafter</span><span class="lab-row-tag">Life Design</span><span class="lab-row-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</span></span>
+                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="lab-index-foot"><a href="https://github.com/jgerms20" target="_blank" rel="noopener" class="rule-link">Everything on GitHub &#8599;</a></p>
             </div>
         </div>
     </section>
@@ -1895,138 +1988,6 @@
         </div>
     </section>
 
-    <!-- Breaker: podcasts (blue) -->
-    <div class="brk brk-blue" aria-hidden="true">
-        <div class="brk-track">
-            <span class="brk-item"><span class="hi">THE ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
-            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
-            <span class="brk-item"><span class="hi">APPROACHABLE AI</span> <span class="up">▲</span> +4.2%</span>
-            <span class="brk-item"><span class="hi">DEEP DIVES</span> <span class="up">▲</span> +3.3%</span>
-            <span class="brk-item"><span class="hi">NO NICHE</span> <span class="up">▲</span> +2.7%</span>
-            <span class="brk-item"><span class="hi">CURIOUS & CREATIVE</span> <span class="up">▲</span> +2.6%</span>
-            <span class="brk-item"><span class="hi">THE ARCHIVE</span> <span class="up">▲</span> +1.4%</span>
-            <span class="brk-item"><span class="hi">SMALL TALK</span> <span class="down">▼</span> -3.2%</span>
-            <span class="brk-item"><span class="hi">ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
-            <span class="brk-item"><span class="hi">POWER & CULTURE</span> <span class="up">▲</span> +4.0%</span>
-            <span class="brk-item"><span class="hi">HISTORY</span> <span class="up">▲</span> +3.9%</span>
-            <span class="brk-item"><span class="hi">THE ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
-            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
-            <span class="brk-item"><span class="hi">APPROACHABLE AI</span> <span class="up">▲</span> +4.2%</span>
-            <span class="brk-item"><span class="hi">DEEP DIVES</span> <span class="up">▲</span> +3.3%</span>
-            <span class="brk-item"><span class="hi">NO NICHE</span> <span class="up">▲</span> +2.7%</span>
-            <span class="brk-item"><span class="hi">CURIOUS & CREATIVE</span> <span class="up">▲</span> +2.6%</span>
-            <span class="brk-item"><span class="hi">THE ARCHIVE</span> <span class="up">▲</span> +1.4%</span>
-            <span class="brk-item"><span class="hi">SMALL TALK</span> <span class="down">▼</span> -3.2%</span>
-            <span class="brk-item"><span class="hi">ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
-            <span class="brk-item"><span class="hi">POWER & CULTURE</span> <span class="up">▲</span> +4.0%</span>
-            <span class="brk-item"><span class="hi">HISTORY</span> <span class="up">▲</span> +3.9%</span>
-        </div>
-    </div>
-
-    <!-- =====================================================
-         03 — PODCASTS
-         ===================================================== -->
-    <section id="podcasts" class="chapter">
-        <div class="wrap">
-            <div class="ch-head rv">
-                <div class="ch-head-left">
-                    <span class="ch-num">CH. 03</span>
-                    <h2 class="ch-title">On <span class="it">Air</span></h2>
-                </div>
-                <div class="ch-meta">My Voice<br>Four Shows · 2020 – Present</div>
-            </div>
-            <p class="ch-intro rv">Four shows I host, produce, and edit myself. History and power. AI without the jargon. Creative strategy. Long conversations with people who make things.</p>
-
-            <div class="pod-grid">
-                <a href="podcasts/podcast-eclectic-polymath.html" class="pod-card rv">
-                    <div class="pod-cover ep-cover-wrap">
-                        <!-- Designed cover sits underneath; the live Spotify art fades in over it once it loads.
-                             The img stays rendered (opacity, never display:none) so the browser always fetches it. -->
-                        <div class="ep-fallback" aria-hidden="true">
-                            <span class="ep-kicker">A podcast by Joshua McKenzie German</span>
-                            <span class="ep-word">
-                                <span class="the">The</span>
-                                <span class="big">Eclectic</span>
-                                <span class="big it">Polymath</span>
-                            </span>
-                            <span class="rule"></span>
-                        </div>
-                        <img id="ep-show-cover" class="ep-cover-img" src="photos/podcasts/eclectic-polymath-cover.jpg" width="900" height="900" alt="The Eclectic Polymath Podcast" decoding="async">
-                    </div>
-                    <div class="pod-meta">
-                        <span class="pod-tag">2026 – Present</span>
-                        <h3 class="pod-title">The Eclectic Polymath</h3>
-                        <p class="pod-desc">Everything is interesting when you dig deep enough. Deep dives on history, geopolitics, power, culture, and human behavior. No lane. No niche. Curiosity without borders.</p>
-                        <span class="pod-live"><span class="pulse"></span> Now Airing</span>
-                    </div>
-                </a>
-
-                <a href="podcasts/podcast-approachable-ai.html" class="pod-card rv rv-d1">
-                    <div class="pod-cover">
-                        <img loading="lazy" src="photos/podcasts/approachable-ai-logo.jpg" alt="Approachable AI" onerror="this.parentElement.style.background='linear-gradient(135deg, #4ECDC4, #2C9E8F)'; this.parentElement.innerHTML='&lt;span style=&quot;display:flex;align-items:center;justify-content:center;height:100%;font-size:2rem;color:white;font-weight:700;&quot;&gt;AI&lt;/span&gt;';">
-                    </div>
-                    <div class="pod-meta">
-                        <span class="pod-tag">2026 – Present</span>
-                        <h3 class="pod-title">Approachable AI</h3>
-                        <p class="pod-desc">Demystifying AI, one episode at a time. No jargon, just what's actually happening and why it matters.</p>
-                        <span class="pod-live"><span class="pulse"></span> Now Airing</span>
-                    </div>
-                </a>
-
-                <a href="podcasts/podcast-curious-creative.html" class="pod-card rv rv-d2">
-                    <div class="pod-cover">
-                        <img loading="lazy" src="photos/podcasts/curious-creative-logo.jpg" alt="Curious &amp; Creative" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0533 0%,#3b0764 40%,#0f172a 100%)'; this.style.display='none';">
-                    </div>
-                    <div class="pod-meta">
-                        <span class="pod-tag">2026 – Present</span>
-                        <h3 class="pod-title">Curious &amp; Creative</h3>
-                        <p class="pod-desc">With co-host Janel Moore. Where creative strategy meets real conversation: the ideas, decisions, and cultural moments that shape how we see, and sell, the world.</p>
-                        <span class="pod-live"><span class="pulse"></span> Now Airing</span>
-                    </div>
-                </a>
-
-                <a href="podcasts/podcast-dominate.html" class="pod-card rv rv-d3">
-                    <div class="pod-cover">
-                        <img loading="lazy" src="brand/dominate-the-decade/Hero Image.jpeg" alt="Dominate The Decade">
-                    </div>
-                    <div class="pod-meta">
-                        <span class="pod-tag">2020 – 2023</span>
-                        <h3 class="pod-title">Dominate The Decade</h3>
-                        <p class="pod-desc">Weekly conversations about growth, culture, and building a meaningful decade. Exploring what it means to live intentionally and dominate your own path.</p>
-                        <span class="pod-live" style="color:var(--ink-faint);">Archive · 3 Seasons</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         THE NETWORK: Curious & Creative (feature band, links to /network/)
-         ===================================================== -->
-    <section id="network" class="net-band" aria-labelledby="network-title">
-        <div class="wrap net-grid">
-            <div class="net-copy rv">
-                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> The Curious &amp; Creative Company</p>
-                <h2 class="net-title" id="network-title">Curious <span class="it">&amp;</span> Creative</h2>
-                <p class="net-sub">The Curious &amp; Creative Network</p>
-                <p class="net-lede">The company Janel Moore and I run. Curious first, then creative: a podcast network, a studio that shoots, films and builds for brands, and the things we&rsquo;re inventing.</p>
-                <div class="net-ctas">
-                    <a href="network/" class="btn btn-ink">Explore the company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                    <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=project" class="btn btn-line" target="_blank" rel="noopener">Work with the studio &#8599;</a>
-                </div>
-            </div>
-            <a href="network/" class="net-stack rv rv-d1" aria-label="Explore The Curious &amp; Creative Company: the network, the studio and inventions">
-                <img loading="lazy" decoding="async" src="photos/podcasts/curious-creative-logo.jpg" alt="" width="400" height="400">
-                <img loading="lazy" decoding="async" src="photos/podcasts/eclectic-polymath-cover.jpg" alt="" width="400" height="400">
-                <img loading="lazy" decoding="async" src="network/art/dominate.jpg" alt="" width="400" height="400">
-                <img loading="lazy" decoding="async" src="photos/podcasts/approachable-ai-logo.jpg" alt="" width="400" height="400">
-                <img loading="lazy" decoding="async" src="network/art/tmtt.jpg" alt="" width="400" height="400">
-                <img loading="lazy" decoding="async" src="network/art/abolitionist.jpg" alt="" width="400" height="400">
-                <span class="net-stack-cap">The Network &middot; The Studio &middot; Inventions</span>
-            </a>
-        </div>
-    </section>
-
     <!-- Breaker: darkroom (ink) -->
     <div class="brk brk-ink" aria-hidden="true">
         <div class="brk-track">
@@ -2127,280 +2088,264 @@
     </section>
     <!-- PHOTOGRAPHY:END -->
 
-    <dialog class="art-lightbox" id="artLightbox" aria-label="Collage, full size">
-        <button type="button" class="art-lb-close" aria-label="Close">&times;</button>
-        <img alt="">
-        <p class="art-lb-cap"></p>
-    </dialog>
-
-    <!-- Breaker: AI (paper: closes the dark Darkroom chapter above) -->
-    <div class="brk" aria-hidden="true">
+    <!-- Breaker: podcasts (blue) -->
+    <div class="brk brk-blue" aria-hidden="true">
         <div class="brk-track">
-            <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
-            <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
-            <span class="brk-item"><span class="hi">GEMINI</span> <span class="up">▲</span> +5.2%</span>
-            <span class="brk-item"><span class="hi">THE FUTURE</span> <span class="up">▲</span> +8.0%</span>
-            <span class="brk-item"><span class="hi">GRANDMASTER</span> <span class="up">▲</span> +4.1%</span>
-            <span class="brk-item"><span class="hi">LIFE GAMIFIED</span> <span class="up">▲</span> +3.7%</span>
-            <span class="brk-item"><span class="hi">AI BUILDER</span> <span class="up">▲</span> +7.7%</span>
-            <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
-            <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
-            <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
-            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
-            <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
-            <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
-            <span class="brk-item"><span class="hi">CLAUDE CODE</span> <span class="up">▲</span> +9.4%</span>
-            <span class="brk-item"><span class="hi">CODEX</span> <span class="up">▲</span> +6.8%</span>
-            <span class="brk-item"><span class="hi">GEMINI</span> <span class="up">▲</span> +5.2%</span>
-            <span class="brk-item"><span class="hi">THE FUTURE</span> <span class="up">▲</span> +8.0%</span>
-            <span class="brk-item"><span class="hi">GRANDMASTER</span> <span class="up">▲</span> +4.1%</span>
-            <span class="brk-item"><span class="hi">LIFE GAMIFIED</span> <span class="up">▲</span> +3.7%</span>
-            <span class="brk-item"><span class="hi">AI BUILDER</span> <span class="up">▲</span> +7.7%</span>
-            <span class="brk-item"><span class="hi">BUSYWORK</span> <span class="down">▼</span> -6.0%</span>
-            <span class="brk-item"><span class="hi">FRONTIER MODELS</span> <span class="up">▲</span> +6.6%</span>
-            <span class="brk-item"><span class="hi">SHIPPING</span> <span class="up">▲</span> +5.5%</span>
-            <span class="brk-item"><span class="hi">CLIENT SITES</span> <span class="up">▲</span> +4.3%</span>
-            <span class="brk-item"><span class="hi">THE MACHINE</span> <span class="up">▲</span> +4.9%</span>
-            <span class="brk-item"><span class="hi">REACT + TS</span> <span class="up">▲</span> +2.8%</span>
+            <span class="brk-item"><span class="hi">THE ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
+            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
+            <span class="brk-item"><span class="hi">APPROACHABLE AI</span> <span class="up">▲</span> +4.2%</span>
+            <span class="brk-item"><span class="hi">DEEP DIVES</span> <span class="up">▲</span> +3.3%</span>
+            <span class="brk-item"><span class="hi">NO NICHE</span> <span class="up">▲</span> +2.7%</span>
+            <span class="brk-item"><span class="hi">CURIOUS & CREATIVE</span> <span class="up">▲</span> +2.6%</span>
+            <span class="brk-item"><span class="hi">THE ARCHIVE</span> <span class="up">▲</span> +1.4%</span>
+            <span class="brk-item"><span class="hi">SMALL TALK</span> <span class="down">▼</span> -3.2%</span>
+            <span class="brk-item"><span class="hi">ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
+            <span class="brk-item"><span class="hi">POWER & CULTURE</span> <span class="up">▲</span> +4.0%</span>
+            <span class="brk-item"><span class="hi">HISTORY</span> <span class="up">▲</span> +3.9%</span>
+            <span class="brk-item"><span class="hi">THE ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
+            <span class="brk-item"><span class="hi">CURIOSITY</span> <span class="up">▲</span> +∞</span>
+            <span class="brk-item"><span class="hi">APPROACHABLE AI</span> <span class="up">▲</span> +4.2%</span>
+            <span class="brk-item"><span class="hi">DEEP DIVES</span> <span class="up">▲</span> +3.3%</span>
+            <span class="brk-item"><span class="hi">NO NICHE</span> <span class="up">▲</span> +2.7%</span>
+            <span class="brk-item"><span class="hi">CURIOUS & CREATIVE</span> <span class="up">▲</span> +2.6%</span>
+            <span class="brk-item"><span class="hi">THE ARCHIVE</span> <span class="up">▲</span> +1.4%</span>
+            <span class="brk-item"><span class="hi">SMALL TALK</span> <span class="down">▼</span> -3.2%</span>
+            <span class="brk-item"><span class="hi">ECLECTIC POLYMATH</span> <span class="up">▲</span> +5.6%</span>
+            <span class="brk-item"><span class="hi">POWER & CULTURE</span> <span class="up">▲</span> +4.0%</span>
+            <span class="brk-item"><span class="hi">HISTORY</span> <span class="up">▲</span> +3.9%</span>
         </div>
     </div>
 
     <!-- =====================================================
-         05 — THE AI LAB
+         03 — PODCASTS
          ===================================================== -->
-    <section id="ai" class="chapter">
+    <section id="podcasts" class="chapter">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <span class="ch-num">CH. 04</span>
+                    <h2 class="ch-title">On <span class="it">Air</span></h2>
+                </div>
+                <div class="ch-meta">The shows I host<br>On the Curious &amp; Creative Network</div>
+            </div>
+            <p class="ch-intro rv">Shows I host, produce, and edit myself. History and power. AI without the jargon. Creative strategy and culture with Janel Moore.</p>
+
+            <div class="pod-grid pod-grid-3">
+                <a href="podcasts/podcast-eclectic-polymath.html" class="pod-card rv">
+                    <div class="pod-cover ep-cover-wrap">
+                        <!-- Designed cover sits underneath; the live Spotify art fades in over it once it loads.
+                             The img stays rendered (opacity, never display:none) so the browser always fetches it. -->
+                        <div class="ep-fallback" aria-hidden="true">
+                            <span class="ep-kicker">A podcast by Joshua McKenzie German</span>
+                            <span class="ep-word">
+                                <span class="the">The</span>
+                                <span class="big">Eclectic</span>
+                                <span class="big it">Polymath</span>
+                            </span>
+                            <span class="rule"></span>
+                        </div>
+                        <img id="ep-show-cover" class="ep-cover-img" src="photos/podcasts/eclectic-polymath-cover.jpg" width="900" height="900" alt="The Eclectic Polymath Podcast" decoding="async">
+                    </div>
+                    <div class="pod-meta">
+                        <span class="pod-tag">2026 – Present</span>
+                        <h3 class="pod-title">The Eclectic Polymath</h3>
+                        <p class="pod-desc">Everything is interesting when you dig deep enough. Deep dives on history, geopolitics, power, culture, and human behavior. No lane. No niche. Curiosity without borders.</p>
+                        <span class="pod-live"><span class="pulse"></span> Now Airing</span>
+                    </div>
+                </a>
+
+                <a href="podcasts/podcast-approachable-ai.html" class="pod-card rv rv-d1">
+                    <div class="pod-cover">
+                        <img loading="lazy" src="photos/podcasts/approachable-ai-logo.jpg" alt="Approachable AI" onerror="this.parentElement.style.background='linear-gradient(135deg, #4ECDC4, #2C9E8F)'; this.parentElement.innerHTML='&lt;span style=&quot;display:flex;align-items:center;justify-content:center;height:100%;font-size:2rem;color:white;font-weight:700;&quot;&gt;AI&lt;/span&gt;';">
+                    </div>
+                    <div class="pod-meta">
+                        <span class="pod-tag">2026 – Present</span>
+                        <h3 class="pod-title">Approachable AI</h3>
+                        <p class="pod-desc">Demystifying AI, one episode at a time. No jargon, just what's actually happening and why it matters.</p>
+                        <span class="pod-live"><span class="pulse"></span> Now Airing</span>
+                    </div>
+                </a>
+
+                <a href="podcasts/podcast-curious-creative.html" class="pod-card rv rv-d2">
+                    <div class="pod-cover">
+                        <img loading="lazy" src="photos/podcasts/curious-creative-logo.jpg" alt="Curious &amp; Creative" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0533 0%,#3b0764 40%,#0f172a 100%)'; this.style.display='none';">
+                    </div>
+                    <div class="pod-meta">
+                        <span class="pod-tag">2026 – Present</span>
+                        <h3 class="pod-title">Curious &amp; Creative</h3>
+                        <p class="pod-desc">With co-host Janel Moore. Where creative strategy meets real conversation: the ideas, decisions, and cultural moments that shape how we see, and sell, the world.</p>
+                        <span class="pod-live"><span class="pulse"></span> Now Airing</span>
+                    </div>
+                </a>
+            </div>
+            <p class="pod-also rv">The archive: <a href="podcasts/podcast-dominate.html">Dominate the Decade</a> (2020&ndash;2023), with Adarius Simpkins and Matthew Anderson. &middot; <a href="https://jgerms20.github.io/curious-and-creative/shows/eclectic-polymath/" target="_blank" rel="noopener">The Eclectic Polymath on the network&nbsp;&#8599;</a> &middot; <a href="https://jgerms20.github.io/curious-and-creative/pages/shows.html" target="_blank" rel="noopener">Every show&nbsp;&#8599;</a></p>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         THE NETWORK: Curious & Creative (feature band, links to /network/)
+         ===================================================== -->
+    <section id="network" class="net-band" aria-labelledby="network-title">
+        <div class="wrap net-grid">
+            <div class="net-copy rv">
+                <p class="net-kicker"><span class="net-dot" aria-hidden="true"></span> The Curious &amp; Creative Company</p>
+                <h2 class="net-title" id="network-title">Curious <span class="it">&amp;</span> Creative</h2>
+                <p class="net-sub">The Curious &amp; Creative Network</p>
+                <p class="net-lede">Curious &amp; Creative is a Los Angeles creative company built by Joshua German and Janel Moore. We run a media network, produce photography, video, editing, and podcasts through our studio, and advise founders, brands, and marketing teams on culture, audience, and AI.</p>
+                <ul class="net-legs">
+                    <li><a href="https://jgerms20.github.io/curious-and-creative/pages/network.html" target="_blank" rel="noopener">The Network&nbsp;&#8599;</a></li>
+                    <li><a href="https://jgerms20.github.io/curious-and-creative/pages/studio.html" target="_blank" rel="noopener">The Studio&nbsp;&#8599;</a></li>
+                    <li><a href="https://jgerms20.github.io/curious-and-creative/pages/consultancy.html" target="_blank" rel="noopener">The Consultancy&nbsp;&#8599;</a></li>
+                </ul>
+                <div class="net-ctas">
+                    <a href="network/" class="btn btn-ink">Explore the company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html" class="btn btn-line" target="_blank" rel="noopener">Work with us &#8599;</a>
+                </div>
+            </div>
+            <a href="network/" class="net-stack rv rv-d1" aria-label="Explore The Curious &amp; Creative Company: the network, the studio and the consultancy">
+                <img loading="lazy" decoding="async" src="photos/podcasts/curious-creative-logo.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="photos/podcasts/eclectic-polymath-cover.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/dominate.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="photos/podcasts/approachable-ai-logo.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/tmtt.jpg" alt="" width="400" height="400">
+                <img loading="lazy" decoding="async" src="network/art/abolitionist.jpg" alt="" width="400" height="400">
+                <span class="net-stack-cap">The Network &middot; The Studio &middot; The Consultancy</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         FIELD NOTES — rendered from data/notes.json. Hidden (with its nav
+         link) until a real post exists. Three lanes: Build in Public,
+         The Strategist's Perspective, Behind the Work.
+         ===================================================== -->
+    <section id="notes" class="chapter notes-band" hidden aria-labelledby="notesTitle">
+        <div class="wrap">
+            <div class="ch-head rv">
+                <div class="ch-head-left">
+                    <h2 class="ch-title" id="notesTitle">Field <span class="it">Notes</span></h2>
+                </div>
+                <div class="ch-meta">Build in Public · The Strategist&rsquo;s Perspective<br>Behind the Work</div>
+            </div>
+            <ol class="notes-list" id="notesList"></ol>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         05 — ABOUT
+         ===================================================== -->
+    <section id="about" class="chapter">
         <div class="wrap">
             <div class="ch-head rv">
                 <div class="ch-head-left">
                     <span class="ch-num">CH. 05</span>
-                    <h2 class="ch-title">The AI <span class="it">Lab</span></h2>
+                    <h2 class="ch-title">About <span class="it">Joshua</span></h2>
                 </div>
-                <div class="ch-meta">Superintelligence<br>Built end-to-end</div>
-            </div>
-            <p class="ch-intro rv">Apps, tools, and prototypes, from quick experiments to full platforms shipped end to end. Built because I wanted to know if they could work.</p>
-            <div class="rv" style="margin: calc(-1 * var(--s5)) 0 var(--s5);">
-                <a href="https://github.com/jgerms20" target="_blank" rel="noopener" class="rule-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+                <div class="ch-meta">Hello<br>Columbia, SC → Los Angeles, CA</div>
             </div>
 
-            <div class="lab-grid">
-                <!-- Gen Alpha Intelligence Lab — the big one -->
-                <a href="https://agencythings-gen-alpha.vercel.app" target="_blank" rel="noopener" class="lab-card lab-hero rv">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/genalpha.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        <span class="lab-badge-live"><span class="dot"></span> Live</span>
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Cultural Intelligence</span>
-                        <h3 class="lab-title">Gen Alpha Intelligence Lab <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">A living research lab on the forces shaping Gen Alpha culture — insights, findings, creators, and the spaces they actually occupy, with an ingest pipeline for reports, interviews, and field notes. Built with Next.js 16 and Supabase.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
-                            <span class="lab-cta">View Live →</span>
+            <div class="about-grid">
+                <div class="about-left rv rv-d1">
+                    <figure class="self-roll" aria-label="Photos of Joshua McKenzie German">
+                        <div class="hero-frame" id="selfRotator">
+                            <img decoding="async" data-cap="35mm Film · Lab Scan" src="photos/self/000070270013.JPEG" alt="Portrait of Joshua McKenzie German" class="rot-slide active">
+                            <img loading="lazy" decoding="async" data-cap="Jul 2025 · Sony a6100" src="photos/self/DSC01484.JPG" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Jul 2024 · iPhone" src="photos/self/IMG_0680.JPG" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Self · Archive" src="photos/self/IMG_1912.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Nov 2022 · Nikon D500" src="photos/self/JMG_7456.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Jan 2023 · Nikon D500" src="photos/self/JMG_8976.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Apr 2025 · Sony a6100" src="photos/self/DSC00827.jpg" alt="" class="rot-slide">
+                            <img loading="lazy" decoding="async" data-cap="Aug 2024 · Nikon D500" src="photos/self/JMG_7538.jpg" alt="" class="rot-slide">
                         </div>
-                    </div>
-                </a>
+                        <figcaption class="hero-cap t-mono-sm">
+                            <span class="hero-cap-count"><span id="selfCapIdx">01</span> / <span id="selfCapTotal">08</span></span>
+                            <span class="hero-cap-meta" id="selfCapMeta">35mm Film · Lab Scan</span>
+                        </figcaption>
+                        <div class="hero-cap-rail" aria-hidden="true"><span id="selfCapBar"></span></div>
+                    </figure>
+                    <dl class="about-facts">
+                        <div class="about-fact"><dt>Based</dt><dd>Los Angeles, CA</dd></div>
+                        <div class="about-fact"><dt>From</dt><dd>Columbia, South Carolina</dd></div>
+                        <div class="about-fact"><dt>Making</dt><dd>Strategy, podcasts, photos, AI tools</dd></div>
+                        <div class="about-fact"><dt>Status</dt><dd style="color:var(--leaf);">● Now booking shoots &amp; projects</dd></div>
+                    </dl>
+                </div>
 
-                <!-- Life Gamified -->
-                <a href="https://jgerms20.github.io/Life_Gamified/" target="_blank" rel="noopener" class="lab-card lab-feat rv">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/lifegamified.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
+                <div class="about-right rv rv-d2">
+                    <p class="t-lede about-lede">I&rsquo;m Joshua. Curious and creative, and happiest telling stories in <span class="accent-word">whatever medium fits</span>.</p>
+                    <div class="about-body">
+                        <p>Born and raised in South Carolina, and I&rsquo;ve always loved connecting with people: seeing them, hearing them, figuring out what makes them tick. That pulled me into journalism, then advertising. As a strategist I work out where, how, and most importantly <em>why</em> an idea reaches people, on brands like Levi&rsquo;s, Sephora and DIRECTV, with some of that work landing at the Super Bowl and in Cannes.</p>
+                        <p>I&rsquo;m a podcaster and producer, because I love a deep conversation. <em>The Eclectic Polymath</em> is where I chase rabbit holes in history, power and culture; <em>Approachable AI</em> is where I build things on camera and show my work.</p>
+                        <p>I&rsquo;ve been all in on AI since the ChatGPT moment: building tools, testing everything, and helping brands keep up. With Janel Moore I run The Curious &amp; Creative Company, a podcast network and creative studio that grew out of the same itch.</p>
+                        <p>And I shoot, on film and digital: people, places, nights out, the moments in between. When the news gets loud, I cut it up and make collages. Most of what you&rsquo;ll find here started as a question I couldn&rsquo;t leave alone. Look around, and say hi.</p>
                     </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Life Gamification</span>
-                        <h3 class="lab-title">Life Gamified <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">A fully-gamified RPG quest journal for real life. Track tasks as quests, earn XP, level up your character, unlock achievements, and build a talent tree. Because life should feel like an epic adventure. Built with React 19 and Claude Code.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
+                </div>
+            </div>
 
-                <!-- Archive -->
-                <a href="https://jgerms20.github.io/Archive/" target="_blank" rel="noopener" class="lab-card lab-feat rv rv-d1">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/closet.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Digital Closet</span>
-                        <h3 class="lab-title">Archive <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered wardrobe organizer. Catalog, style, and manage your closet with intelligent outfit recommendations.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Veritas -->
-                <a href="https://jgerms20.github.io/Veritas/" target="_blank" rel="noopener" class="lab-card lab-feat rv">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/veritas.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Media Intelligence</span>
-                        <h3 class="lab-title">Veritas <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered bias detection for news and media. Analyze content for perspective, compare sources, and see the full picture.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- The Man and the Machine -->
-                <a href="https://jgerms20.github.io/the_man_and_the_machine/" target="_blank" rel="noopener" class="lab-card lab-feat rv rv-d1">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/manmachine.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">AI Music Collaboration</span>
-                        <h3 class="lab-title">The Man and the Machine <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Play bass or connect MIDI — and the AI plays back. A real-time jam session tool with 10 AI musician personalities: from Supportive to Adversary, Listen to Free. Built with React, TypeScript, Web Audio API, and Claude Code.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Creator Search -->
-                <a href="https://jgerms20.github.io/Creator-Search/" target="_blank" rel="noopener" class="lab-card lab-feat rv">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/creatorsearch.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Creator Discovery</span>
-                        <h3 class="lab-title">Creator Search <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered influencer and creator discovery. Find the perfect creators for your brand based on audience, style, and engagement.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Dreamcatcher -->
-                <a href="https://jgerms20.github.io/Dreamcatcher/" target="_blank" rel="noopener" class="lab-card lab-feat rv rv-d1">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/dreamcatcher.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Dream Journal · Voice</span>
-                        <h3 class="lab-title">Dreamcatcher <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Speak your dream the second you wake up, before it's gone. An adaptive AI interview deepens the recall, then reads it back through four lenses — Jungian, Freudian, cognitive, and cultural — and correlates it against your sleep data.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Meme Library -->
-                <a href="https://meme-atlas.vercel.app/" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/memelibrary.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Cultural Search</span>
-                        <h3 class="lab-title">Meme Library <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Describe the meme you half remember and it finds it. Natural-language recall across 1,000+ source-linked clips, reactions, and GIFs — each with provenance and a spread timeline showing how it travelled.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform codex"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Codex</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Grandmaster -->
-                <a href="https://jgerms20.github.io/Grandmaster/" target="_blank" rel="noopener" class="lab-card rv rv-d1">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/grandmaster.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Chess · Real-Time</span>
-                        <h3 class="lab-title">Grandmaster <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">A live, shared chess tournament hub. Think ESPN Tournament Challenge — but for your friend group. Live bracket tracking, Chess.com integration, auto-seeding by rating.</p>
-                        <div class="lab-foot">
-                            <span class="lab-platform claude"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Claude Code</span>
-                            <span class="lab-cta">View Live →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Jukeboxd -->
-                <a href="https://jgerms20.github.io/Jukeboxd/" target="_blank" rel="noopener" class="lab-card rv rv-d2">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/jukeboxd.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Music Social</span>
-                        <h3 class="lab-title">Jukeboxd <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Letterboxd for music. Track, rate, and review albums. Share your musical journey and discover new sounds.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Ætheria -->
-                <a href="https://jgerms20.github.io/Aetheria/" target="_blank" rel="noopener" class="lab-card rv">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/aetheria.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Sound Therapy</span>
-                        <h3 class="lab-title">Ætheria <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-generated binaural beats for focus, relaxation, and meditation. Custom soundscapes tailored to your mental state.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Momentum -->
-                <a href="https://jgerms20.github.io/Momentum/" target="_blank" rel="noopener" class="lab-card rv rv-d1">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/momentum.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Productivity</span>
-                        <h3 class="lab-title">Momentum <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">AI-powered productivity and goal tracking. Build momentum with intelligent task management and progress insights.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Perfect Day Crafter -->
-                <a href="https://jgerms20.github.io/Perfect-Day-Crafter/" target="_blank" rel="noopener" class="lab-card rv rv-d2">
-                    <div class="lab-art lab-art-img">
-                        <img src="assets/lab/perfectday.svg" alt="" width="800" height="500" loading="lazy" decoding="async">
-                        
-                    </div>
-                    <div class="lab-body">
-                        <span class="lab-tag">Life Design</span>
-                        <h3 class="lab-title">Perfect Day Crafter <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
-                        <p class="lab-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</p>
-                        <div class="lab-foot">
-                            <span class="lab-cta">Launch App →</span>
-                        </div>
-                    </div>
-                </a>
+            <!-- Where I'm from, where I've been -->
+            <div class="trail rv">
+                <div class="trail-head">
+                    <h3 class="trail-title">Where I&rsquo;m from. <span class="it">Where I&rsquo;ve been.</span></h3>
+                    <span class="t-mono-sm trail-sub">Columbia &rarr; Charlotte &rarr; San Francisco &rarr; Portland &rarr; Los Angeles</span>
+                </div>
+                <div class="trail-grid">
+                    <figure class="trail-map" aria-hidden="true">
+                        <img src="photos/route-map-dots.png" alt="" width="1020" height="670" loading="lazy" decoding="async">
+                        <svg viewBox="0 0 510 335" preserveAspectRatio="xMidYMid meet">
+                            <path class="trail-route" d="M407 192 L399 176 Q 220 60 12 146 Q 0 100 22 58 Q 140 110 62 215" pathLength="1"></path>
+                        <g class="trail-pin" data-stop="cola" transform="translate(407 192)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="12" y="14">Columbia</text>
+                        </g>
+                        <g class="trail-pin" data-stop="clt" transform="translate(399 176)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="-8">Charlotte</text>
+                        </g>
+                        <g class="trail-pin" data-stop="sf" transform="translate(12 146)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="4">San Francisco</text>
+                        </g>
+                        <g class="trail-pin" data-stop="pdx" transform="translate(22 58)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="4">Portland</text>
+                        </g>
+                        <g class="trail-pin" data-stop="la" transform="translate(62 215)">
+                            <circle class="trail-pulse" r="9"></circle>
+                            <circle class="trail-dot" r="4.2"></circle>
+                            <text x="10" y="6">Los Angeles</text>
+                        </g>
+                        </svg>
+                    </figure>
+                    <ol class="trail-stops">
+                        <li class="trail-stop" data-stop="cola" tabindex="0">
+                            <span class="trail-when">Origin</span>
+                            <span class="trail-where">Columbia, South Carolina</span>
+                            <span class="trail-what">Born and raised. Where the curiosity started.</span>
+                        </li>
+                        <li class="trail-stop" data-stop="clt" data-also="sf" tabindex="0">
+                            <span class="trail-when">2021&ndash;23</span>
+                            <span class="trail-where">Charlotte, NC &rarr; San Francisco</span>
+                            <span class="trail-what">Goodby Silverstein &amp; Partners, remote: BMW, Samuel Adams, Xfinity.</span>
+                        </li>
+                        <li class="trail-stop" data-stop="pdx" tabindex="0">
+                            <span class="trail-when">2023&ndash;24</span>
+                            <span class="trail-where">Portland, Oregon</span>
+                            <span class="trail-what">Wieden+Kennedy: on the team behind DoorDash &ldquo;All The Ads,&rdquo; a Cannes Grand Prix winner.</span>
+                        </li>
+                        <li class="trail-stop is-now" data-stop="la" tabindex="0">
+                            <span class="trail-when">2024&ndash;Now</span>
+                            <span class="trail-where">Los Angeles, California</span>
+                            <span class="trail-what">TBWA\Chiat\Day: Levi&rsquo;s &times; Beyonc&eacute;, Sephora, DIRECTV. Home base.</span>
+                        </li>
+                    </ol>
+                </div>
             </div>
         </div>
     </section>
-
-
 
     <!-- Breaker: media diet -->
     <div class="brk" aria-hidden="true">
@@ -2457,6 +2402,12 @@
             <p class="md-also rv">Also: <a href="https://letterboxd.com/jgerms/" target="_blank" rel="noopener">Letterboxd &#8599;</a> &middot; <a href="https://www.goodreads.com/user/show/95365432-joshua-german" target="_blank" rel="noopener">Goodreads &#8599;</a> &middot; <a href="https://www.chess.com/member/jgerms" target="_blank" rel="noopener">Chess.com &#8599;</a> &middot; <a href="https://jgerms20.substack.com" target="_blank" rel="noopener">Substack &#8599;</a></p>
         </div>
     </section>
+
+    <dialog class="art-lightbox" id="artLightbox" aria-label="Collage, full size">
+        <button type="button" class="art-lb-close" aria-label="Close">&times;</button>
+        <img alt="">
+        <p class="art-lb-cap"></p>
+    </dialog>
 
     <!-- =====================================================
          07 — IN THE WORKS (compact band: The Collection + On the Record)
@@ -2598,14 +2549,14 @@
                 Now booking independent work
             </span>
             <h2 class="contact-hello rv">Let&rsquo;s create<br><span class="it">together.</span></h2>
-            <p class="contact-sub rv rv-d1">Creative and cultural strategist, photographer, podcaster and AI builder in Los Angeles. Send the brief, the shot list, or the half-formed idea.</p>
+            <p class="contact-sub rv rv-d1">Strategy projects, AI builds, speaking, writing, or a good conversation about culture and technology: write to me directly. Shoots and Studio work go through <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html" target="_blank" rel="noopener" class="rule-link">The Curious &amp; Creative Company&nbsp;&#8599;</a>.</p>
             <div class="contact-actions rv rv-d2">
                 <a href="mailto:Jgerms20@gmail.com" class="contact-email">
                     Jgerms20@gmail.com
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
                 </a>
                 <div class="contact-btns">
-                    <a href="photography/#book" class="btn btn-ink">Book a Shoot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener" class="btn btn-ink">Book a Shoot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     <a href="mailto:Jgerms20@gmail.com?subject=Project%20inquiry&amp;body=What%20are%20you%20working%20on%3F%20(strategy%2C%20AI%20build%2C%20website%2C%20podcast%2C%20other)%0A%0ATimeline%3A%0ABudget%20range%3A%0A" class="btn btn-line">Start a Project</a>
                 </div>
             </div>
@@ -2614,9 +2565,10 @@
                 <div>
                     <span class="t-mono" style="color:var(--blue); display:block; padding-bottom:12px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">Available For</span>
                     <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Creative &amp; cultural strategy &mdash; positioning, audience, go-to-market</div>
-                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Photography bookings &mdash; portraits, events, product, food &amp; hospitality, spaces</div>
-                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Podcast collaborations &mdash; guest spots, co-hosting, production</div>
-                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">AI builds &amp; websites &mdash; custom tools, prototypes, small-business sites</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">AI builds &amp; workflow design &mdash; prototypes, tools, enablement</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Speaking, writing &amp; conversations about AI and culture</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Podcast guest spots &amp; collaborations</div>
+                    <div class="diet-note contact-lead" style="padding:10px 0; border-bottom:1px solid var(--rule-soft);">Photography, video &amp; podcast production &mdash; <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?leg=studio" target="_blank" rel="noopener" class="rule-link">through the Studio&nbsp;&#8599;</a></div>
                 </div>
                 <div>
                     <span class="t-mono" style="color:var(--blue); display:block; padding-bottom:12px; border-bottom:1.5px solid var(--ink); margin-bottom:6px;">Focused On</span>
@@ -2842,6 +2794,35 @@
                 li.addEventListener('focus', () => light(li));
             });
             trail.querySelector('.trail-stops').addEventListener('mouseleave', () => light(null));
+        })();
+        // ---- Field Notes: renders only real posts from data/notes.json ----
+        (function () {
+            const section = document.getElementById('notes');
+            const list = document.getElementById('notesList');
+            if (!section || !list || !window.fetch) return;
+            const LANES = { 'build-in-public': 'Build in Public', 'strategists-perspective': 'The Strategist\u2019s Perspective', 'behind-the-work': 'Behind the Work' };
+            fetch('data/notes.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(data => {
+                const posts = (data && Array.isArray(data.posts) ? data.posts : []).filter(p =>
+                    p && typeof p.title === 'string' && p.title.trim() && LANES[p.lane] &&
+                    typeof p.url === 'string' && p.url.startsWith('https://') && /^\d{4}-\d{2}-\d{2}$/.test(p.date || ''));
+                if (!posts.length) return;
+                posts.sort((a, b) => b.date.localeCompare(a.date));
+                posts.forEach(p => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+                    const lane = document.createElement('span'); lane.className = 'note-lane'; lane.textContent = LANES[p.lane];
+                    const main = document.createElement('span');
+                    const t = document.createElement('span'); t.className = 'note-title'; t.textContent = p.title;
+                    main.appendChild(t);
+                    if (typeof p.summary === 'string' && p.summary.trim()) { const d = document.createElement('span'); d.className = 'note-sum'; d.textContent = p.summary; main.appendChild(d); }
+                    const when = document.createElement('time'); when.className = 'note-date'; when.dateTime = p.date;
+                    when.textContent = new Date(p.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+                    a.append(lane, main, when); li.appendChild(a); list.appendChild(li);
+                });
+                section.hidden = false;
+                document.querySelectorAll('[data-notes-link]').forEach(el => { el.hidden = false; });
+            }).catch(() => {});
         })();
         // ---- Art: open a collage full size ----
         (function () {

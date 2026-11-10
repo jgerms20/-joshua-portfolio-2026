@@ -5,6 +5,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+STUDIO = "https://jgerms20.github.io/curious-and-creative/pages/contact.html"
 PAGE = (ROOT / "index.html").read_text(encoding="utf-8")
 
 
@@ -57,58 +58,39 @@ class HomepageStructureTests(unittest.TestCase):
         cls.page = _Collector()
         cls.page.feed(PAGE)
 
-    def test_chapters_run_brand_work_podcasts_network_photography_ai(self):
+    def test_builds_lead_then_brand_work_photography_on_air(self):
         self.assertEqual(
             self.page.body_sections,
-            [
-                "hero",
-                "about",
-                "work",
-                "podcasts",
-                "network",
-                "photography",
-                "ai",
-                "media-diet",
-                "in-the-works",
-                "contact",
-            ],
+            ["hero", "builds", "work", "photography", "podcasts", "network", "notes",
+             "about", "media-diet", "in-the-works", "contact"],
         )
-
+        for number, section in (("01", "builds"), ("02", "work"), ("03", "photography"), ("04", "podcasts"), ("05", "about")):
+            head = PAGE[PAGE.index(f'<section id="{section}"'):]
+            self.assertIn(f'<span class="ch-num">CH. {number}</span>', head[:900], section)
     def test_desktop_nav_follows_the_new_order(self):
         self.assertEqual(
             self.page.nav_links,
             [
                 ("#about", "About"),
-                ("#work", "Brand Work"),
-                ("#podcasts", "Podcasts"),
-                ("#network", "Curious & Creative"),
+                ("#builds", "Work"),
+                ("#lab", "Lab"),
                 ("#photography", "Photography"),
-                ("#ai", "AI"),
-                ("#art", "Art"),
-                ("shop.html", "Shop"),
+                ("#podcasts", "On Air"),
+                ("#notes", "Notes"),
+                ("network/", "Curious & Creative"),
             ],
         )
-
+        # Notes only shows once a real post exists
+        self.assertRegex(PAGE, r'<a href="#notes" data-notes-link hidden>Notes</a>')
     def test_mobile_menu_matches_nav_and_ends_with_contact(self):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
-            [
-                "#about", "#work", "#podcasts", "#network", "#photography", "#ai", "#art",
-                "shop.html", "#contact", "photography/#book",
-            ],
+            ["#builds", "#lab", "#work", "#photography", "#podcasts", "network/", "#notes", "#about",
+             "#art", "shop.html", "#contact", STUDIO + "?topic=photo"],
         )
-        # Chapter links carry the same numbers as the chapter heads (CH. 01-05);
-        # Shop and Contact are not chapters, so they must not borrow CH. 07/08.
         numbered = [label for _, label in self.page.mobile_links if label[:2].isdigit()]
-        self.assertEqual(numbered, ["01 About", "02 Brand Work", "03 Podcasts", "04 Photography", "05 AI"])
-        for number, section in (("02", "work"), ("03", "podcasts"), ("04", "photography"), ("05", "ai")):
-            head = PAGE[PAGE.index(f'<section id="{section}"'):]
-            self.assertIn(f'<span class="ch-num">CH. {number}</span>', head[:600], section)
-        # the Network band is a feature, not a numbered chapter
-        network = dict(self.page.mobile_links)["#network"]
-        self.assertFalse(network[:2].isdigit(), network)
+        self.assertEqual(numbered, ["01 Builds", "02 Brand Work", "03 Photography", "04 On Air", "05 About"])
         self.assertTrue(self.page.mobile_links[-1][1].startswith("Book a shoot"))
-
     def test_collection_and_interviews_are_one_compact_band_after_media_diet(self):
         band = PAGE[PAGE.index('<section id="in-the-works"'):]
         band = band[: band.index("</section>")]
@@ -178,29 +160,33 @@ class HomepageStructureTests(unittest.TestCase):
         for phrase in ("solo", "no guests", "live catalog", "twice weekly", "newest first"):
             self.assertNotIn(phrase, text)
 
-    def test_hero_cta_block_is_booking_first(self):
+    def test_hero_leads_with_the_strategist_who_builds(self):
         hero = PAGE[PAGE.index('<section id="hero"'):]
         hero = hero[: hero.index("</section>")]
+        self.assertIn("I find the idea and <em>build the thing.</em>", hero)
+        self.assertIn("Strategy, stories, and the things I build when nobody assigned them.", hero)
         self.assertIn("Now booking independent work", hero)
-        self.assertIn('href="photography/#book"', hero)
-
-    def test_contact_pitches_independent_work_only(self):
+        self.assertIn("Co-founder, The Curious &amp; Creative Company", hero)
+        # the agency is history, never the current job
+        now = hero[hero.index('class="hero-stats hero-now"'):]
+        now = now[: now.index("</dl>")]
+        self.assertIn("<dt>Previously</dt>", now)
+        self.assertNotRegex(now, r"<dt>(Now|Strategy)</dt><dd>TBWA")
+        self.assertIn(STUDIO + "?topic=photo", hero)
+    def test_contact_routes_studio_work_to_the_company(self):
         contact = PAGE[PAGE.index('<section id="contact"'):]
         contact = contact[: contact.index("</section>")]
         self.assertNotIn("Full-time", contact)
-        self.assertIn('href="photography/#book"', contact)
-        self.assertIn("subject=Project%20inquiry", contact)
-
+        self.assertIn(STUDIO + "?topic=photo", contact)
+        self.assertIn(STUDIO + "?leg=studio", contact)
+        self.assertIn("subject=Project%20inquiry", contact)  # personal projects still come to Joshua
     def test_metadata_leads_with_the_new_positioning(self):
         head = PAGE[: PAGE.index("</head>")]
-        self.assertNotIn("| Creative Strategist</title>", head)
-        lead = "Joshua McKenzie German | Creative &amp; Cultural Strategist, Photographer, Podcaster, AI Builder"
+        lead = "Joshua McKenzie German | Creative &amp; Cultural Strategist Who Builds"
         self.assertIn(f"<title>{lead}</title>", head)
         self.assertIn(f'property="og:title" content="{lead}"', head)
-        hero = PAGE[PAGE.index('<section id="hero"'):]
-        roles = re.findall(r'<span class="hero-role">(.*?)</span>', hero[: hero.index("</section>")])
-        self.assertEqual(roles, ["Creative &amp; Cultural Strategist", "Photographer", "Podcaster", "AI Builder &amp; Creator"])
-
+        self.assertIn("Co-founder of The Curious &amp; Creative Company", head)
+        self.assertNotIn("LLC", PAGE)
     def test_in_the_works_does_not_overclaim(self):
         self.assertNotIn("In production", PAGE)
         self.assertNotIn("in production", PAGE.lower().replace("post-production", ""))
@@ -223,15 +209,21 @@ class HomepageStructureTests(unittest.TestCase):
         for card in re.findall(r'<a href="[^"]+" class="plate\b.*?</a>', work, re.S):
             self.assertTrue("<img" in card or "plate-media-brand" in card, card[:120])
 
-    def test_ai_lab_leads_with_gen_alpha_then_life_gamified(self):
-        ai = PAGE[PAGE.index('<section id="ai"'):]
-        ai = ai[: ai.index("</section>")]
-        titles = re.findall(r'class="lab-title">(.*?) <svg', ai)
-        self.assertEqual(titles[:6], ["Gen Alpha Intelligence Lab", "Life Gamified", "Archive", "Veritas",
-                                      "The Man and the Machine", "Creator Search"])
-        self.assertIn('class="lab-card lab-hero', ai)
-        self.assertLess(titles.index("Creator Search"), titles.index("Dreamcatcher"))
-
+    def test_builds_open_with_three_case_studies_then_an_honest_lab(self):
+        builds = PAGE[PAGE.index('<section id="builds"'):]
+        builds = builds[: builds.index("</section>")]
+        cases = re.findall(r'<a href="(builds/[^"]+)" class="lab-card', builds)
+        self.assertEqual(cases, ["builds/gen-alpha-intelligence-lab.html", "builds/meme-library.html", "builds/life-gamified.html"])
+        self.assertIn('<span class="lab-status">Invite only</span>', builds)  # Gen Alpha is not public
+        lab = builds[builds.index('id="lab"'):]
+        names = re.findall(r'class="lab-row-name">(.*?)</span>', lab)
+        self.assertIn("Kindling", names)
+        for row in re.findall(r'<li class="lab-row">.*?</li>', lab, re.S):
+            status = re.search(r'class="lab-chip is-([a-z-]+)"', row).group(1)
+            self.assertIn(status, {"live", "prototype", "in-development"})
+            if status == "prototype":
+                self.assertIn("See the code", row)  # never dressed up as a finished app
+        self.assertIn('id="ai"', builds)  # old #ai links still land here
     def test_network_band_names_the_network_and_drops_god_is_brazilian(self):
         band = PAGE[PAGE.index('<section id="network"'):]
         band = band[: band.index("</section>")]
@@ -255,6 +247,26 @@ class HomepageStructureTests(unittest.TestCase):
             self.assertIn(f'<link rel="apple-touch-icon" href="{up}apple-touch-icon.png">', page, rel)
         for asset in ("favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest"):
             self.assertTrue((ROOT / asset).is_file(), asset)
+
+
+    def test_field_notes_stay_hidden_until_a_real_post_exists(self):
+        import json
+        self.assertRegex(PAGE, r'<section id="notes"[^>]* hidden')
+        data = json.loads((ROOT / "data/notes.json").read_text(encoding="utf-8"))
+        self.assertIsInstance(data["posts"], list)
+        for post in data["posts"]:
+            self.assertIn(post["lane"], {"build-in-public", "strategists-perspective", "behind-the-work"})
+            self.assertTrue(post["url"].startswith("https://"))
+        script = PAGE[PAGE.index("// ---- Field Notes"):]
+        script = script[: script.index("})();")]
+        self.assertNotIn("innerHTML", script)
+
+    def test_on_air_is_the_three_hosted_shows(self):
+        pods = PAGE[PAGE.index('<section id="podcasts"'):]
+        pods = pods[: pods.index("</section>")]
+        self.assertEqual(len(re.findall(r'class="pod-card', pods)), 3)
+        self.assertIn("podcasts/podcast-dominate.html", pods)  # the archive, as a line
+        self.assertNotRegex(pods, r"\b(Four|Three|Eight) [Ss]hows\b")
 
 
 if __name__ == "__main__":
