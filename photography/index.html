@@ -338,7 +338,11 @@
         :root[data-theme="dark"] .book-routes { border-top-color: var(--head-rule); }
         .book-route { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
         .book-route__name { font-family: var(--serif); font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.1; letter-spacing: -0.012em; }
-        @media (max-width: 619px) { .book-route .btn { width: 100%; } }
+        .book-aside, .book-main { min-width: 0; }
+        /* The Studio labels are long: let them wrap on phones instead of pushing the page wide */
+        @media (max-width: 619px) {
+            .book-route .btn, .svc .btn { width: 100%; white-space: normal; text-align: center; line-height: 1.5; padding: 12px 20px; }
+        }
         .book-main .direct { margin-top: 36px; }
 
         /* ---- Event coverage: type-led entries, stills optional ---- */
