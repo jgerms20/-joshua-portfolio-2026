@@ -99,8 +99,8 @@ class PhotographyManifestTests(unittest.TestCase):
         # no booking on the personal photo site any more
         self.assertNotIn("photography/#book", markup)
         self.assertNotIn("mailto:", markup)
-        self.assertIn(f'href="{STUDIO_PHOTO_URL}" {EXTERNAL}>Book through The Curious &amp; Creative Studio&nbsp;&#8599;</a>', markup)
-        self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}>Book event coverage through the Studio&nbsp;&#8599;</a>', markup)
+        self.assertIn(f'style="white-space:normal" href="{STUDIO_PHOTO_URL}" {EXTERNAL}>Book through The Curious &amp; Creative Studio&nbsp;&#8599;</a>', markup)
+        self.assertIn(f'style="white-space:normal" href="{STUDIO_EVENTS_URL}" {EXTERNAL}>Book event coverage through the Studio&nbsp;&#8599;</a>', markup)
         self.assertIn("The Curious &amp; Creative Company", markup)
         self.assertIn(f'href="{INSTAGRAM_URL}" {EXTERNAL}>Instagram @viewsbygerm', markup)
         self.assertNotIn("jgerms20", markup.replace("jgerms20.github.io", ""))

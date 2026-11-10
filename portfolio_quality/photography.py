@@ -364,8 +364,8 @@ def _darkroom_offer(photos: list[dict[str, object]], coverage: list[dict[str, ob
         f'<ul style="list-style:none;margin:0 0 18px;padding:0;border-top:1px solid var(--dark-rule)">{specialties}</ul>'
         f'<p style="{_HP_SOFT}">Client shoots are booked through my company, The Curious &amp; Creative Company.</p>'
         '<div class="gallery-links" style="margin-top:18px">'
-        f'<a class="gallery-link gallery-link--book" {_external(STUDIO_PHOTO_URL)}>{STUDIO_BOOK_LABEL}</a>'
-        f'<a class="gallery-link gallery-link--book" {_external(STUDIO_EVENTS_URL)}>{STUDIO_EVENTS_LABEL}</a>'
+        f'<a class="gallery-link gallery-link--book" style="white-space:normal" {_external(STUDIO_PHOTO_URL)}>{STUDIO_BOOK_LABEL}</a>'
+        f'<a class="gallery-link gallery-link--book" style="white-space:normal" {_external(STUDIO_EVENTS_URL)}>{STUDIO_EVENTS_LABEL}</a>'
         "</div></div>"
     )
     latest = next((item for item in coverage if item.get("published", True)), None)
