@@ -511,7 +511,7 @@ SERVICES_PHOTO_POSITION = "50% 40%"
 SERVICES = (
     ("Portraits", "People & headshots", "People, headshots, personal sessions."),
     ("Fashion & editorial", "Lookbooks & tests", "Lookbooks, styling tests, campaigns."),
-    ("Event coverage", "Documentary & BTS", "Documentary and behind-the-scenes coverage of presentations, concerts, parties and launches."),
+    ("Event coverage", "Documentary & BTS", "Documentary and behind the scenes: presentations, concerts, parties, launches."),
 )
 ALSO_BOOKING = "Also booking: product, food and spaces."
 

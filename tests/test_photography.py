@@ -12,6 +12,9 @@ from PIL import Image
 from portfolio_quality.html_checks import check_page
 from portfolio_quality.photography import (
     INQUIRY_EMAIL,
+    INSTAGRAM_URL,
+    STUDIO_EVENTS_URL,
+    STUDIO_PHOTO_URL,
     PHOTO_SITE_END,
     PHOTO_SITE_CARD_URL,
     PHOTO_SITE_START,
@@ -37,6 +40,16 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data/photography.json"
 SETS = ROOT / "data/photo-sets.json"
 PHOTO_SITE = ROOT / "photography/index.html"
+KOAT = {
+    "title": "KOAT SS27 presentation coverage",
+    "date": "November 7, 2026",
+    "summary": "Documentary and behind-the-scenes coverage of a fashion presentation.",
+    "credits": (
+        "Joshua shot stills and video on a two-camera setup.",
+        "Janel Moore covered the room on camcorder.",
+    ),
+}
+EXTERNAL = 'target="_blank" rel="noopener"'
 RIO_IDS = {"rio-brahma-corner", "rio-fog-islands-moon", "rio-two-brothers", "rio-santa-teresa-trams"}
 
 
@@ -71,14 +84,40 @@ class PhotographyManifestTests(unittest.TestCase):
         photos = load_photography_manifest(MANIFEST)
         markup = render_darkroom(photos)
 
-        self.assertIn('<span class="ch-num">CH. 04</span>', markup)
+        self.assertIn('<span class="ch-num">CH. 03</span>', markup)
         self.assertIn("Photography", markup)
-        # no Darkroom preamble: header, filters, then pictures
+        # no Darkroom preamble
         for gone in ("Darkroom", "darkroom-note", "Selected sequence", "Continue the sequence", "The archive"):
             self.assertNotIn(gone, markup)
-        self.assertIn('href="photography/#book"', markup)
         self.assertIn('href="photography/"', markup)
         self.assertIn("Full photography site&nbsp;&rarr;", markup)
+        # the offer band sits between the header and the pictures
+        self.assertLess(markup.index("What I shoot"), markup.index('id="photoGallery"'))
+
+    def test_homepage_booking_goes_to_the_studio_form(self):
+        markup = render_darkroom(load_photography_manifest(MANIFEST))
+        # no booking on the personal photo site any more
+        self.assertNotIn("photography/#book", markup)
+        self.assertNotIn("mailto:", markup)
+        self.assertIn(f'href="{STUDIO_PHOTO_URL}" {EXTERNAL}>Book through The Curious &amp; Creative Studio&nbsp;&#8599;</a>', markup)
+        self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}>Book event coverage through the Studio&nbsp;&#8599;</a>', markup)
+        self.assertIn("The Curious &amp; Creative Company", markup)
+        self.assertIn(f'href="{INSTAGRAM_URL}" {EXTERNAL}>Instagram @viewsbygerm', markup)
+        self.assertNotIn("jgerms20", markup.replace("jgerms20.github.io", ""))
+
+    def test_homepage_names_event_coverage_and_the_koat_entry(self):
+        markup = render_darkroom(load_photography_manifest(MANIFEST))
+        self.assertIn('<div class="ch-meta">Portraits · Fashion<br>Event coverage</div>', markup)
+        self.assertIn(">Event coverage</span>", markup)
+        self.assertIn(KOAT["title"], markup)
+        self.assertIn(f'<time datetime="2026-11-07">{KOAT["date"]}</time>', markup)
+        self.assertIn(KOAT["summary"], markup)
+        for line in KOAT["credits"]:
+            self.assertIn(line, markup)
+        self.assertIn('href="photography/#coverage-koat-ss27"', markup)
+        # no stills supplied yet: the entry is text-only, no empty frames
+        entry = markup[markup.index("<article"): markup.index("</article>")]
+        self.assertNotIn("<img", entry)
 
     def test_gallery_shows_a_preview_and_a_see_more_toggle(self):
         photos = load_photography_manifest(MANIFEST)
@@ -328,7 +367,10 @@ class PhotoSiteTests(unittest.TestCase):
         settings = load_photo_site_settings(MANIFEST)
         rendered = apply_photo_site(
             self.page,
-            render_photo_site(self.photos, root=ROOT, sets=load_photo_sets(SETS), shoots=settings["shoots"]),
+            render_photo_site(
+                self.photos, root=ROOT, sets=load_photo_sets(SETS),
+                shoots=settings["shoots"], coverage=settings["coverage"],
+            ),
         )
         self.assertEqual(rendered, self.page, "run python3 scripts/render-photography.py --page-only")
         self.assertIn(PHOTO_SITE_START, self.page)
@@ -348,7 +390,7 @@ class PhotoSiteTests(unittest.TestCase):
         nav = self.page[self.page.index('<nav class="nav-links"'):]
         nav = nav[: nav.index("</nav>")]
         self.assertEqual(re.findall(r'href="([^"]+)"', nav), ["#work", "#about", "#services"])
-        self.assertIn('class="nav-book" href="#book" data-nav="book"', self.page)
+        self.assertIn(f'class="nav-book" href="{STUDIO_PHOTO_URL}" {EXTERNAL}', self.page)
         header = self.page[: self.page.index("</header>")]
         self.assertIn("Joshua McKenzie German", header)
         self.assertIn(">Photography<", header)
@@ -390,7 +432,8 @@ class PhotoSiteTests(unittest.TestCase):
         hero = self.page[self.page.index('<section class="hero"'):]
         hero = hero[: hero.index("</section>")]
         self.assertIn("Joshua McKenzie <em>German</em>", hero)
-        self.assertIn('href="#book">Book a shoot', hero)
+        self.assertIn(f'href="{STUDIO_PHOTO_URL}" {EXTERNAL}>Book a shoot', hero)
+        self.assertNotIn('href="#book"', hero)
         self.assertIn('fetchpriority="high"', hero)
         self.assertEqual(self.page.count('fetchpriority="high"'), 1)
         self.assertEqual(self.page.count('loading="eager"'), 1)
@@ -440,6 +483,9 @@ class PhotoSiteTests(unittest.TestCase):
         services = _view(self.page, "services")
         self.assertEqual(services.count('class="svc-row"'), 3)
         self.assertEqual(services.count('class="btn btn-safelight"'), 1)
+        self.assertIn(f'class="btn btn-safelight" href="{STUDIO_PHOTO_URL}" {EXTERNAL}', services)
+        self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}', services)
+        self.assertIn('<span class="svc-name">Event coverage</span>', services)
         self.assertIn("Rates quoted per project", services)
         text = _visible_text(services).lower()
         for gone in ("strategy", "strategist", "brief", "add-on", "cut-downs", "how it works"):
@@ -457,27 +503,66 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn('href="../"', about)
         self.assertEqual(about.count("<img"), 1)
 
-    def test_inquiry_form_builds_an_email_to_joshua(self):
-        form = self.page[self.page.index('<form class="inquiry'):]
-        form = form[: form.index("</form>")]
-        self.assertIn(f'action="mailto:{INQUIRY_EMAIL}"', form)
-        self.assertIn(f'data-email="{INQUIRY_EMAIL}"', form)
-        for name in ("name", "email", "shoot", "company", "date", "location", "budget", "source", "details"):
-            self.assertIn(f'name="{name}"', form)
-        # budget is the client's own words: no preset bands that read as a rate card
-        self.assertRegex(form, r'<input id="f-budget" name="budget" type="text"')
-        self.assertNotRegex(form, r"\d,\d{3}")
-        self.assertNotIn("USD", self.page)
-        for field in ("name", "email", "shoot", "details"):
-            self.assertRegex(form, rf'name="{field}"[^>]*required')
-        for value in ("portrait", "fashion", "event", "product", "food", "space", "other"):
-            self.assertIn(f'<option value="{value}">', form)
-        self.assertIn("<option>Business card</option>", form)
-        self.assertIn("Photo inquiry: ", self.page)
-        self.assertIn(f'href="mailto:{INQUIRY_EMAIL}"', self.page)
-        self.assertIn('href="https://instagram.com/jgerms20"', self.page)
-        # old ?shoot= links still land on a real option
-        self.assertIn("'real-estate': 'space'", self.page)
+    def test_book_view_routes_paid_shoots_to_the_studio(self):
+        """#book stays a working anchor (work pages and old links use it), but
+        paid shoots are booked on The Curious & Creative Company's form."""
+        book = _view(self.page, "book")
+        self.assertNotIn("<form", self.page)
+        self.assertNotIn("Photo inquiry: ", self.page)
+        self.assertIn("Paid shoots are booked through my company.", book)
+        self.assertIn("The Curious &amp; Creative Company", book)
+        self.assertIn(f'href="{STUDIO_PHOTO_URL}" {EXTERNAL}', book)
+        self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}', book)
+        # a personal line stays, but only for saying hi
+        self.assertIn("Not a booking? Just say hi.", book)
+        self.assertIn(f'href="mailto:{INQUIRY_EMAIL}"', book)
+        self.assertIn(f'href="{INSTAGRAM_URL}" {EXTERNAL}>Instagram @viewsbygerm</a>', book)
+        self.assertIn("'|about|services|book|'", self.page)  # #book still opens this view
+        self.assertIn("h==='inquiry'?'book'", self.page)    # and so does the old #inquiry
+
+    def test_every_booking_cta_goes_to_the_studio(self):
+        """Hero, top bar, mobile book bar, services and booking buttons."""
+        ctas = [attrs for tag, attrs in self.tags.tags if tag == "a" and (
+            "btn-safelight" in attrs.get("class", "") or "nav-book" in attrs.get("class", ""))]
+        self.assertGreaterEqual(len(ctas), 5)
+        for attrs in ctas:
+            self.assertIn(attrs["href"], {STUDIO_PHOTO_URL, STUDIO_EVENTS_URL}, attrs)
+            self.assertEqual((attrs.get("target"), attrs.get("rel")), ("_blank", "noopener"), attrs)
+        bar = self.page[self.page.index('<div class="book-bar"'):]
+        self.assertIn(f'href="{STUDIO_PHOTO_URL}"', bar[: bar.index("</div>")])
+        self.assertNotIn('href="#book"', self.page.replace('href="#book-title"', ""))
+
+    def test_instagram_is_viewsbygerm(self):
+        self.assertEqual(INSTAGRAM_URL, "https://www.instagram.com/viewsbygerm/")
+        foot = self.page[self.page.index('<footer'):]
+        self.assertIn(f'href="{INSTAGRAM_URL}"', foot)
+        # visible links use @viewsbygerm (the JSON-LD Person keeps Joshua's own profile)
+        self.assertNotIn("instagram.com/jgerms20", re.sub(r"<script.*?</script>", "", self.page, flags=re.S))
+        data = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', self.page, re.S).group(1))
+        studio = next(node for node in data["@graph"] if node["@type"] == "ProfessionalService")
+        self.assertIn(INSTAGRAM_URL, studio["sameAs"])
+        # the section keeps its name
+        self.assertNotIn("Views by Germ", self.page)
+        self.assertIn('<span class="brand-sub">Photography</span>', self.page)
+
+    def test_event_coverage_entry_reads_without_stills(self):
+        work = _view(self.page, "work")
+        self.assertLess(work.index('id="sets"'), work.index('id="coverage"'))
+        self.assertLess(work.index('id="coverage"'), work.index('id="more"'))
+        entry = work[work.index('<article class="cov-entry'):]
+        entry = entry[: entry.index("</article>")]
+        self.assertIn('id="coverage-koat-ss27"', entry)
+        self.assertIn(KOAT["title"], entry)
+        self.assertIn(f'<time datetime="2026-11-07">{KOAT["date"]}</time>', entry)
+        self.assertIn(KOAT["summary"], entry)
+        for line in KOAT["credits"]:
+            self.assertIn(line, entry)
+        self.assertIn(f'href="{STUDIO_EVENTS_URL}"', entry)
+        self.assertNotIn("<img", entry)
+        self.assertNotIn("stills-koat-ss27", self.page)
+        text = _visible_text(entry).lower()
+        for invented in ("client", "commissioned", "coming soon"):
+            self.assertNotIn(invented, text)
 
     def test_seo_tags_use_the_canonical_url_and_a_real_photo(self):
         self.assertIn(f'<link rel="canonical" href="{PHOTO_SITE_URL}">', self.page)
@@ -558,8 +643,8 @@ class PhotoSiteTests(unittest.TestCase):
         except ImportError:  # pragma: no cover
             self.skipTest("qrcode is not installed")
         self.assertEqual(PHOTO_SITE_CARD_URL, PHOTO_SITE_URL + "?src=card")
-        # the card URL is what preselects "Business card" in the form
-        self.assertIn("params.get('src') === 'card'", self.page)
+        # the card lands on the photo site, whose booking CTAs go to the Studio
+        self.assertTrue(PHOTO_SITE_CARD_URL.startswith(PHOTO_SITE_URL))
         code = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_Q, box_size=40, border=4)
         code.add_data(PHOTO_SITE_CARD_URL)
         code.make(fit=True)
@@ -596,6 +681,54 @@ class MoreWorkTests(unittest.TestCase):
         page = render_photo_site(photos, root=ROOT, shoots=[{"project": "Test shoot", "type": "Event", "year": "2025"}])
         self.assertIn("Selected shoots", page)
         self.assertIn("Test shoot", page)
+
+    def test_coverage_stills_render_a_strip_and_a_viewer_gallery(self):
+        photos = load_photography_manifest(MANIFEST)
+        coverage = load_photo_site_settings(MANIFEST)["coverage"]
+        self.assertEqual([item["slug"] for item in coverage], ["koat-ss27"])
+        with_stills = [dict(coverage[0], stills=["concert-light", "club-dj"])]
+        page = render_photo_site(photos, root=ROOT, coverage=with_stills)
+        self.assertIn('<ul class="cov-stills"', page)
+        self.assertIn('data-open="stills-koat-ss27" data-index="1"', page)
+        self.assertIn('<section class="gallery" id="stills-koat-ss27"', page)
+        home = render_darkroom(photos, load_photo_sets(SETS), with_stills)
+        self.assertIn('href="photography/#stills-koat-ss27"', home)
+        # a still that is not a published photograph fails loudly
+        with self.assertRaises(ValueError):
+            render_photo_site(photos, root=ROOT, coverage=[dict(coverage[0], stills=["nope"])])
+
+    def test_coverage_entries_are_validated(self):
+        base = {"slug": "x", "title": "X", "date": "2026-11-07", "summary": "S.", "credits": [], "stills": []}
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "photography.json"
+            for bad in (
+                dict(base, date="Nov 7"),
+                dict(base, slug="Bad Slug"),
+                dict(base, title=""),
+                dict(base, client="Someone"),
+                dict(base, stills="concert-light"),
+            ):
+                path.write_text(json.dumps({"version": 1, "entries": [], "site": {"coverage": [bad]}}), encoding="utf-8")
+                with self.assertRaises(ValueError, msg=bad):
+                    load_photo_site_settings(path)
+            # a draft entry stays out of both outputs
+            path.write_text(json.dumps({"version": 1, "entries": [], "site": {"coverage": [dict(base, published=False)]}}), encoding="utf-8")
+            self.assertEqual(load_photo_site_settings(path)["coverage"], [])
+
+    def test_spec_work_is_labelled_and_never_commissioned(self):
+        photos = [dict(photo) for photo in load_photography_manifest(MANIFEST)]
+        # nothing in the manifest claims a commission it cannot back up
+        self.assertFalse(any(photo.get("commissioned") for photo in photos))
+        photos[0]["spec"] = True
+        page = render_photo_site(photos, root=ROOT)
+        self.assertIn('data-tag="Spec"', page)
+        self.assertNotIn('data-tag="Commissioned"', page)
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "photography.json"
+            entry = dict(photos[0], commissioned=True)
+            path.write_text(json.dumps({"version": 1, "entries": [entry]}), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                load_photography_manifest(path)
 
     def test_manifest_shoots_need_a_project_name(self):
         with TemporaryDirectory() as directory:

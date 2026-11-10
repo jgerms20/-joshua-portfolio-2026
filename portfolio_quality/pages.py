@@ -8,6 +8,7 @@ PRODUCTION_GLOBS = (
     "media/media-*.html",
     "podcasts/podcast-*.html",
     "work/work-*.html",
+    "builds/*.html",
 )
 
 EXCLUDED_NAMES = {"work-template.html"}

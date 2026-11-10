@@ -261,6 +261,8 @@
             letter-spacing: 0.42em; text-transform: uppercase; line-height: 1; color: var(--ink);
         }
         .mh-net::before { content: ''; height: 2px; width: clamp(40px, 6vw, 88px); background: var(--net); flex-shrink: 0; }
+        .mh-net { letter-spacing: 0.24em; font-size: clamp(0.7rem, 1.05vw, 0.9rem); white-space: nowrap; }
+        @media (max-width: 400px) { .mh-net { gap: 12px; letter-spacing: 0.16em; } .mh-net::before { width: 32px; } }
         .tagline {
             font-family: var(--serif); font-style: italic; font-weight: 300; color: var(--ink);
             font-size: clamp(1.35rem, 2.2vw, 1.85rem); line-height: 1.25; margin-top: var(--s5); max-width: 20em;
