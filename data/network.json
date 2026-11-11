@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-11T06:48:17Z",
+  "generated_at": "2026-11-11T15:27:03Z",
   "shows": [
     {
       "key": "ccpod",
@@ -36,54 +36,6 @@
       "count": 11
     },
     {
-      "key": "airead",
-      "name": "The AI Read",
-      "short": "The AI Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
-      "latest": "2026-11-11",
-      "count": 10
-    },
-    {
-      "key": "globalread",
-      "name": "The Global Read",
-      "short": "The Global Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-11",
-      "count": 13
-    },
-    {
-      "key": "polymath",
-      "name": "The Eclectic Polymath Podcast",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-11",
-      "count": 255
-    },
-    {
       "key": "fastbreak",
       "name": "The Fast Break",
       "short": "The Fast Break",
@@ -116,22 +68,6 @@
       "count": 8
     },
     {
-      "key": "hollywoodinsider",
-      "name": "The Business of Hollywood",
-      "short": "The Business of Hollywood",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
-      "latest": "2026-11-10",
-      "count": 6
-    },
-    {
       "key": "ladaily",
       "name": "The LA Daily",
       "short": "The LA Daily",
@@ -162,6 +98,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
       "latest": "2026-11-10",
       "count": 17
+    },
+    {
+      "key": "globalread",
+      "name": "The Global Read",
+      "short": "The Global Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
+      "latest": "2026-11-10",
+      "count": 12
     },
     {
       "key": "blitz",
@@ -210,6 +162,38 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
       "latest": "2026-11-09",
       "count": 10
+    },
+    {
+      "key": "airead",
+      "name": "The AI Read",
+      "short": "The AI Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
+      "latest": "2026-11-09",
+      "count": 9
+    },
+    {
+      "key": "polymath",
+      "name": "The Eclectic Polymath Podcast",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-11-08",
+      "count": 252
     },
     {
       "key": "gamecocksdaily",
@@ -322,6 +306,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
       "latest": "2026-11-06",
       "count": 6
+    },
+    {
+      "key": "hollywoodinsider",
+      "name": "The Business of Hollywood",
+      "short": "The Business of Hollywood",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
+      "latest": "2026-11-06",
+      "count": 5
     },
     {
       "key": "techread",
@@ -538,33 +538,6 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794363221073-f33971d4b9194.jpg"
     },
     {
-      "show": "airead",
-      "show_name": "The AI Read",
-      "kind": "episode",
-      "title": "Tuesday, November 10, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/64g01StaqTf5evvGgvmTJj",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1794362907346-915350a860a7e.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "Tuesday, November 10, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/5kNJjrVvZUXpUy4FnwvLHN",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794362730643-e3982c9d61c08.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#258 Two Daughters of South London: How Grace Wales Bonner and Martine Rose Took the Two Biggest Jobs in Fashion",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/2ozYMgjeCwJTW4yExPVaCU",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794358279749-59cded6dc4622.jpg"
-    },
-    {
       "show": "fastbreak",
       "show_name": "The Fast Break",
       "kind": "episode",
@@ -572,24 +545,6 @@
       "date": "2026-11-11",
       "url": "https://open.spotify.com/episode/2Z3dICCEXN2WAZjZ3SjRaW",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794357596660-e58c6f597118e.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#256 Oracle: The Company That Sold IBM's Future First",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/256-Oracle-The-Company-That-Sold-IBMs-Future-First-e3s6dqr",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794366376799-c0dde82328066.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#255 VaynerMedia: The Agency Built on Underpriced Attention",
-      "date": "2026-11-10",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/255-VaynerMedia-The-Agency-Built-on-Underpriced-Attention-e3s6dl4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794366106561-671695245d0ff.jpg"
     },
     {
       "show": "dominatedconvo",
@@ -610,15 +565,6 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1794329595625-50ab24f64df14.jpg"
     },
     {
-      "show": "hollywoodinsider",
-      "show_name": "The Business of Hollywood",
-      "kind": "episode",
-      "title": "Godzilla Minus Zero's $31.6 Million Opening Is the Biggest Ever for a Live-Action Foreign-Language Film | Monday, November 9, 2026",
-      "date": "2026-11-10",
-      "url": "https://open.spotify.com/episode/5sdKoirb6tgVnZLvMHTpXP",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105424/47105424-1794329455643-d9b9e0ae98422.jpg"
-    },
-    {
       "show": "ladaily",
       "show_name": "The LA Daily",
       "kind": "episode",
@@ -626,6 +572,60 @@
       "date": "2026-11-10",
       "url": "https://open.spotify.com/episode/57OOIctNlGmwEVInrxlg36",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794329307661-8c1da2ae4ed47.jpg"
+    },
+    {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "Tuesday, November 10, 2026",
+      "date": "2026-11-10",
+      "url": "https://open.spotify.com/episode/4Vhn4Pgn5CytuHiZVVBlqN",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794329137742-49e9940e83103.jpg"
+    },
+    {
+      "show": "ladaily",
+      "show_name": "The LA Daily",
+      "kind": "episode",
+      "title": "Monday, November 9, 2026",
+      "date": "2026-11-10",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20487/episodes/Monday--November-9--2026-e3s43dj",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794270840147-85f4e5b9f8cb2.jpg"
+    },
+    {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "Monday, November 9, 2026",
+      "date": "2026-11-10",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Monday--November-9--2026-e3s431s",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794270206398-1694c0e9bb1b5.jpg"
+    },
+    {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "Monday, November 9, 2026",
+      "date": "2026-11-10",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Monday--November-9--2026-e3s42oj",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794269701454-8f7c24344f97d.jpg"
+    },
+    {
+      "show": "blitz",
+      "show_name": "The Blitz",
+      "kind": "episode",
+      "title": "Sunday, November 8, 2026",
+      "date": "2026-11-09",
+      "url": "https://open.spotify.com/episode/4DtRfBJgErYvXfoS7aXYNu",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1794259997905-abed514ddccf6.jpg"
+    },
+    {
+      "show": "blitz",
+      "show_name": "The Blitz",
+      "kind": "episode",
+      "title": "Saturday, November 7, 2026",
+      "date": "2026-11-09",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms209/episodes/Saturday--November-7--2026-e3s3rcf",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1794259654023-c8cb18f0e2e9.jpg"
     }
   ]
 }
