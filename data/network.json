@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-12T03:55:59Z",
+  "generated_at": "2026-11-12T12:57:38Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 6
     },
     {
+      "key": "cfbdaily",
+      "name": "College Football Daily",
+      "short": "College Football Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
+      "latest": "2026-11-12",
+      "count": 13
+    },
+    {
       "key": "celticsdaily",
       "name": "Celtics Daily",
       "short": "Celtics Daily",
@@ -36,20 +52,20 @@
       "count": 9
     },
     {
-      "key": "cfbdaily",
-      "name": "College Football Daily",
-      "short": "College Football Daily",
+      "key": "polymath",
+      "name": "The Eclectic Polymath Podcast",
+      "short": "Eclectic Polymath",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
-        "AI-generated"
+        "Joshua German"
       ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
-      "latest": "2026-11-11",
-      "count": 12
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-11-12",
+      "count": 259
     },
     {
       "key": "waiverwire",
@@ -68,6 +84,54 @@
       "count": 3
     },
     {
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
+      "latest": "2026-11-11",
+      "count": 7
+    },
+    {
+      "key": "riff",
+      "name": "The Jazz Riff",
+      "short": "The Jazz Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "Jazz only, four times a week.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46952241/46952241-1791842086815-d3dc0a841baa5.jpg",
+      "latest": "2026-11-11",
+      "count": 33
+    },
+    {
+      "key": "airead",
+      "name": "The AI Read",
+      "short": "The AI Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
+      "latest": "2026-11-11",
+      "count": 11
+    },
+    {
       "key": "columbiaread",
       "name": "The Columbia Read",
       "short": "The Columbia Read",
@@ -82,6 +146,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
       "latest": "2026-11-11",
       "count": 4
+    },
+    {
+      "key": "nyread",
+      "name": "The New York Read",
+      "short": "The New York Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
+      "latest": "2026-11-11",
+      "count": 8
     },
     {
       "key": "fastbreak",
@@ -132,6 +212,22 @@
       "count": 14
     },
     {
+      "key": "dominatedconvo",
+      "name": "Dominated the Conversation",
+      "short": "Dominated the Conversation",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
+      "latest": "2026-11-11",
+      "count": 9
+    },
+    {
       "key": "ladaily",
       "name": "The LA Daily",
       "short": "The LA Daily",
@@ -162,54 +258,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
       "latest": "2026-11-11",
       "count": 18
-    },
-    {
-      "key": "airead",
-      "name": "The AI Read",
-      "short": "The AI Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
-      "latest": "2026-11-11",
-      "count": 10
-    },
-    {
-      "key": "polymath",
-      "name": "The Eclectic Polymath Podcast",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-11",
-      "count": 255
-    },
-    {
-      "key": "dominatedconvo",
-      "name": "Dominated the Conversation",
-      "short": "Dominated the Conversation",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
-      "latest": "2026-11-10",
-      "count": 8
     },
     {
       "key": "hollywoodinsider",
@@ -260,22 +308,6 @@
       "count": 10
     },
     {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-08",
-      "count": 6
-    },
-    {
       "key": "gamecockshoops",
       "name": "Gamecocks Basketball Daily",
       "short": "Gamecocks Basketball Daily",
@@ -308,22 +340,6 @@
       "count": 3
     },
     {
-      "key": "riff",
-      "name": "The Jazz Riff",
-      "short": "The Jazz Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "Jazz only, four times a week.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46952241/46952241-1791842086815-d3dc0a841baa5.jpg",
-      "latest": "2026-11-06",
-      "count": 32
-    },
-    {
       "key": "tvinsider",
       "name": "The TV Insider",
       "short": "The TV Insider",
@@ -354,22 +370,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115008/47115008-1793403471813-faf390ffca731.jpg",
       "latest": "2026-11-04",
       "count": 5
-    },
-    {
-      "key": "nyread",
-      "name": "The New York Read",
-      "short": "The New York Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
-      "latest": "2026-11-04",
-      "count": 7
     },
     {
       "key": "optionsdesk",
@@ -520,6 +520,15 @@
   ],
   "latest": [
     {
+      "show": "cfbdaily",
+      "show_name": "College Football Daily",
+      "kind": "episode",
+      "title": "Buffalo Runs for 296 Yards, Toledo Shuts Out UMass, and the MAC Race Tightens Into a Four-Way Tie | Wednesday, November 11, 2026",
+      "date": "2026-11-12",
+      "url": "https://open.spotify.com/episode/0m9nz4DotmyFuFs477xiXP",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794458903567-b040ce3a6644c.jpg"
+    },
+    {
       "show": "celticsdaily",
       "show_name": "Celtics Daily",
       "kind": "episode",
@@ -529,12 +538,21 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1794454516309-6127c89c1086.jpg"
     },
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#261 The Light They Sell You: What Red Light, Pressure Chambers, and the Longevity Stack Actually Prove",
+      "date": "2026-11-12",
+      "url": "https://open.spotify.com/episode/7Gp8sYnIYQPUrKcFEbmOCx",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794442157306-214ef88644727.jpg"
+    },
+    {
       "show": "cfbdaily",
       "show_name": "College Football Daily",
       "kind": "episode",
       "title": "Georgia Takes No. 1, Notre Dame Vaults to No. 5, and Saturday Brings Elimination Games in Baton Rouge and Bloomington | Wednesday, November 11, 2026",
       "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/7iOjdxfl9QKCRE7PzuQRiP",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2009/episodes/Georgia-Takes-No--1--Notre-Dame-Vaults-to-No--5--and-Saturday-Brings-Elimination-Games-in-Baton-Rouge-and-Bloomington--Wednesday--November-11--2026-e3s82uq",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794439703558-1d8f3a142cd68.jpg"
     },
     {
@@ -547,6 +565,33 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1794439555186-34309f118ea7b.jpg"
     },
     {
+      "show": "gamecocksdaily",
+      "show_name": "Gamecocks Daily",
+      "kind": "episode",
+      "title": "No. 17 and Climbing, With One Ankle to Watch: South Carolina Is 6-3 | Wednesday, November 11, 2026",
+      "date": "2026-11-11",
+      "url": "https://open.spotify.com/episode/7jU8WBS7zd8yNnRJB9kHcd",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1794439417169-4a717de61518f.jpg"
+    },
+    {
+      "show": "riff",
+      "show_name": "The Jazz Riff",
+      "kind": "episode",
+      "title": "Tyreek McDole: A Voice in Full Color",
+      "date": "2026-11-11",
+      "url": "https://open.spotify.com/episode/3OfFApQ6dXLggS61bc731Q",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46952241/46952241-1794439213761-c6c216693624e.jpg"
+    },
+    {
+      "show": "airead",
+      "show_name": "The AI Read",
+      "kind": "episode",
+      "title": "Wednesday, November 11, 2026",
+      "date": "2026-11-11",
+      "url": "https://open.spotify.com/episode/4FzbTtMDjOdFqNiwRxHEp0",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1794438917305-0654720a6879e.jpg"
+    },
+    {
       "show": "columbiaread",
       "show_name": "The Columbia Read",
       "kind": "episode",
@@ -554,6 +599,15 @@
       "date": "2026-11-11",
       "url": "https://open.spotify.com/episode/4WTeEgjJWqDO3FQe43CRHw",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1794438748228-273140cd23b1a.jpg"
+    },
+    {
+      "show": "nyread",
+      "show_name": "The New York Read",
+      "kind": "episode",
+      "title": "Wednesday, November 11, 2026",
+      "date": "2026-11-11",
+      "url": "https://open.spotify.com/episode/2n0YVUCpl7GcyQXyg9R67O",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1794438575994-8959b8ac238f6.jpg"
     },
     {
       "show": "cfbdaily",
@@ -572,60 +626,6 @@
       "date": "2026-11-11",
       "url": "https://open.spotify.com/episode/1MIi9K10BSKXvMDdghwUt4",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794429255082-7db51e858da2.jpg"
-    },
-    {
-      "show": "celticsdaily",
-      "show_name": "Celtics Daily",
-      "kind": "episode",
-      "title": "Celtics Beat the 76ers 123-101: George Drops 36 in His Philly Return, Boston Is 9-2 | Tuesday, November 10, 2026",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2032/episodes/Celtics-Beat-the-76ers-123-101-George-Drops-36-in-His-Philly-Return--Boston-Is-9-2--Tuesday--November-10--2026-e3s7re0",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1794428892397-9a937264b0a75.jpg"
-    },
-    {
-      "show": "marketread",
-      "show_name": "The Market Read",
-      "kind": "episode",
-      "title": "Wednesday, November 11, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/0Bt5RoQiGH3AsTMBSsInpQ",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794428530079-06f59b0b8fe28.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "Wednesday, November 11, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/0J5NWqFDkQKwge4D6n7MlS",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794427736515-91ebee1253f8d.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Wednesday, November 11, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/1vfvvqTS2AcvHrL0ZhrH21",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794426918537-5099c05efe49b.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "Wednesday, November 11, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/6hUfZBO3vdsXtBgIIhX0HC",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794417888690-1db7feced49ed.jpg"
-    },
-    {
-      "show": "marketread",
-      "show_name": "The Market Read",
-      "kind": "episode",
-      "title": "Monday, November 9, 2026",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2050/episodes/Monday--November-9--2026-e3s6eds",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794367503739-6e40c05d066c6.jpg"
     }
   ]
 }
