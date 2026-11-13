@@ -1,9 +1,17 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-13T07:25:01Z",
+  "updated": "2026-11-13T20:06:14Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/71ViA2GtDLwBb9LUWHzBr5",
+      "description": "In the 1970s, Barry and Samahria Kaufman said they had cured their young son's autism by joining his world, rocking when he rocked and spinning plates when he spun plates, for twelve hours a day in a converted bathroom. The book became a…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg",
+      "duration": "44 min"
+    },
     {
       "title": "#261 The Light They Sell You: What Red Light, Pressure Chambers, and the Longevity Stack Actually Prove",
       "date": "2026-11-12",
@@ -91,14 +99,6 @@
       "description": "On November 3, 1954, Japanese audiences filed into theaters to watch a monster destroy Tokyo. Gojira was not escapism. It arrived nine years after Hiroshima and Nagasaki, two years after an Allied occupation that had forbidden the country…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794101398140-66708e9cfe289.jpg",
       "duration": "54 min"
-    },
-    {
-      "title": "#253 The Missing Pact: Why Asia Never Built Its NATO",
-      "date": "2026-11-08",
-      "url": "https://open.spotify.com/episode/0yGI2M4k420Ap0vR2COAL2",
-      "description": "Europe came out of the Second World War and built a table: NATO, pooled coal and steel, eventually a shared history textbook between France and Germany. East Asia came out of the same war and built a wheel. The United States sits at the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794105969963-c6a72b03873ee.jpg",
-      "duration": "1 hr 24 min"
     }
   ]
 }

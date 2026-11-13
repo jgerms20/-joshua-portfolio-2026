@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-13T01:58:39Z",
+  "generated_at": "2026-11-13T17:54:13Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,9 +20,9 @@
       "count": 6
     },
     {
-      "key": "celticsdaily",
-      "name": "Celtics Daily",
-      "short": "Celtics Daily",
+      "key": "hollywoodinsider",
+      "name": "The Business of Hollywood",
+      "short": "The Business of Hollywood",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
@@ -30,10 +30,26 @@
       ],
       "tagline": "",
       "about": "",
-      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
-      "latest": "2026-11-12",
-      "count": 9
+      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
+      "latest": "2026-11-13",
+      "count": 7
+    },
+    {
+      "key": "marketread",
+      "name": "The Market Read",
+      "short": "The Market Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-13",
+      "count": 13
     },
     {
       "key": "polymath",
@@ -48,8 +64,8 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-12",
-      "count": 259
+      "latest": "2026-11-13",
+      "count": 260
     },
     {
       "key": "cfbdaily",
@@ -64,8 +80,24 @@
       "about": "",
       "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
-      "latest": "2026-11-11",
-      "count": 12
+      "latest": "2026-11-12",
+      "count": 13
+    },
+    {
+      "key": "celticsdaily",
+      "name": "Celtics Daily",
+      "short": "Celtics Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
+      "latest": "2026-11-12",
+      "count": 9
     },
     {
       "key": "waiverwire",
@@ -180,22 +212,6 @@
       "count": 12
     },
     {
-      "key": "marketread",
-      "name": "The Market Read",
-      "short": "The Market Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-11",
-      "count": 12
-    },
-    {
       "key": "globalread",
       "name": "The Global Read",
       "short": "The Global Read",
@@ -258,22 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
       "latest": "2026-11-11",
       "count": 18
-    },
-    {
-      "key": "hollywoodinsider",
-      "name": "The Business of Hollywood",
-      "short": "The Business of Hollywood",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
-      "latest": "2026-11-10",
-      "count": 6
     },
     {
       "key": "blitz",
@@ -520,6 +520,42 @@
   ],
   "latest": [
     {
+      "show": "hollywoodinsider",
+      "show_name": "The Business of Hollywood",
+      "kind": "episode",
+      "title": "GTA VI Is Projected to Make $3.2 Billion, and Hollywood Is Terrified | Friday, November 13, 2026",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/33F0SMnEBNHKiZwXpf54JJ",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105424/47105424-1794588006067-e08c0089db5a9.jpg"
+    },
+    {
+      "show": "marketread",
+      "show_name": "The Market Read",
+      "kind": "episode",
+      "title": "Friday, November 13, 2026",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/0CGCCqHaacoDf44IPACsHc",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794585836779-c73a48a4baadd.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/71ViA2GtDLwBb9LUWHzBr5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg"
+    },
+    {
+      "show": "cfbdaily",
+      "show_name": "College Football Daily",
+      "kind": "episode",
+      "title": "Buffalo Runs for 296 Yards, Toledo Shuts Out UMass, and the MAC Race Tightens Into a Four-Way Tie | Wednesday, November 11, 2026",
+      "date": "2026-11-12",
+      "url": "https://open.spotify.com/episode/0m9nz4DotmyFuFs477xiXP",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794458903567-b040ce3a6644c.jpg"
+    },
+    {
       "show": "celticsdaily",
       "show_name": "Celtics Daily",
       "kind": "episode",
@@ -561,7 +597,7 @@
       "kind": "episode",
       "title": "No. 17 and Climbing, With One Ankle to Watch: South Carolina Is 6-3 | Wednesday, November 11, 2026",
       "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/7jU8WBS7zd8yNnRJB9kHcd",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2094/episodes/No--17-and-Climbing--With-One-Ankle-to-Watch-South-Carolina-Is-6-3--Wednesday--November-11--2026-e3s82p4",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1794439417169-4a717de61518f.jpg"
     },
     {
@@ -579,7 +615,7 @@
       "kind": "episode",
       "title": "Wednesday, November 11, 2026",
       "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/4FzbTtMDjOdFqNiwRxHEp0",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2047/episodes/Wednesday--November-11--2026-e3s82fm",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1794438917305-0654720a6879e.jpg"
     },
     {
@@ -590,42 +626,6 @@
       "date": "2026-11-11",
       "url": "https://open.spotify.com/episode/4WTeEgjJWqDO3FQe43CRHw",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1794438748228-273140cd23b1a.jpg"
-    },
-    {
-      "show": "nyread",
-      "show_name": "The New York Read",
-      "kind": "episode",
-      "title": "Wednesday, November 11, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/2n0YVUCpl7GcyQXyg9R67O",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1794438575994-8959b8ac238f6.jpg"
-    },
-    {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "Miami Scores 34 Straight to Stun Ohio in the Battle of the Bricks | Tuesday, November 10, 2026",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2009/episodes/Miami-Scores-34-Straight-to-Stun-Ohio-in-the-Battle-of-the-Bricks--Tuesday--November-10--2026-e3s7s0n",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794429609689-8be1e137a3e73.jpg"
-    },
-    {
-      "show": "fastbreak",
-      "show_name": "The Fast Break",
-      "kind": "episode",
-      "title": "Tuesday, November 10, 2026",
-      "date": "2026-11-11",
-      "url": "https://open.spotify.com/episode/1MIi9K10BSKXvMDdghwUt4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794429255082-7db51e858da2.jpg"
-    },
-    {
-      "show": "celticsdaily",
-      "show_name": "Celtics Daily",
-      "kind": "episode",
-      "title": "Celtics Beat the 76ers 123-101: George Drops 36 in His Philly Return, Boston Is 9-2 | Tuesday, November 10, 2026",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2032/episodes/Celtics-Beat-the-76ers-123-101-George-Drops-36-in-His-Philly-Return--Boston-Is-9-2--Tuesday--November-10--2026-e3s7re0",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1794428892397-9a937264b0a75.jpg"
     }
   ]
 }
