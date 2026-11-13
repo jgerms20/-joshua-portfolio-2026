@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-12T12:57:38Z",
+  "generated_at": "2026-11-13T01:58:39Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,22 +18,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
-    },
-    {
-      "key": "cfbdaily",
-      "name": "College Football Daily",
-      "short": "College Football Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
-      "latest": "2026-11-12",
-      "count": 13
     },
     {
       "key": "celticsdaily",
@@ -66,6 +50,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-11-12",
       "count": 259
+    },
+    {
+      "key": "cfbdaily",
+      "name": "College Football Daily",
+      "short": "College Football Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
+      "latest": "2026-11-11",
+      "count": 12
     },
     {
       "key": "waiverwire",
@@ -520,15 +520,6 @@
   ],
   "latest": [
     {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "Buffalo Runs for 296 Yards, Toledo Shuts Out UMass, and the MAC Race Tightens Into a Four-Way Tie | Wednesday, November 11, 2026",
-      "date": "2026-11-12",
-      "url": "https://open.spotify.com/episode/0m9nz4DotmyFuFs477xiXP",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794458903567-b040ce3a6644c.jpg"
-    },
-    {
       "show": "celticsdaily",
       "show_name": "Celtics Daily",
       "kind": "episode",
@@ -543,7 +534,7 @@
       "kind": "episode",
       "title": "#261 The Light They Sell You: What Red Light, Pressure Chambers, and the Longevity Stack Actually Prove",
       "date": "2026-11-12",
-      "url": "https://open.spotify.com/episode/7Gp8sYnIYQPUrKcFEbmOCx",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/261-The-Light-They-Sell-You-What-Red-Light--Pressure-Chambers--and-the-Longevity-Stack-Actually-Prove-e3s84a4",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794442157306-214ef88644727.jpg"
     },
     {
@@ -626,6 +617,15 @@
       "date": "2026-11-11",
       "url": "https://open.spotify.com/episode/1MIi9K10BSKXvMDdghwUt4",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794429255082-7db51e858da2.jpg"
+    },
+    {
+      "show": "celticsdaily",
+      "show_name": "Celtics Daily",
+      "kind": "episode",
+      "title": "Celtics Beat the 76ers 123-101: George Drops 36 in His Philly Return, Boston Is 9-2 | Tuesday, November 10, 2026",
+      "date": "2026-11-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2032/episodes/Celtics-Beat-the-76ers-123-101-George-Drops-36-in-His-Philly-Return--Boston-Is-9-2--Tuesday--November-10--2026-e3s7re0",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1794428892397-9a937264b0a75.jpg"
     }
   ]
 }
