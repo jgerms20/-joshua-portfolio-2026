@@ -61,10 +61,10 @@ class HomepageStructureTests(unittest.TestCase):
     def test_builds_lead_then_brand_work_photography_on_air(self):
         self.assertEqual(
             self.page.body_sections,
-            ["hero", "builds", "work", "photography", "podcasts", "notes",
-             "about", "media-diet", "in-the-works", "contact"],
+            ["hero", "about", "work", "photography", "podcasts", "builds", "notes",
+             "media-diet", "in-the-works", "contact"],
         )
-        for number, section in (("01", "builds"), ("02", "work"), ("03", "photography"), ("04", "podcasts"), ("05", "about")):
+        for number, section in (("01", "about"), ("02", "work"), ("03", "photography"), ("04", "podcasts"), ("05", "builds")):
             head = PAGE[PAGE.index(f'<section id="{section}"'):]
             self.assertIn(f'<span class="ch-num">CH. {number}</span>', head[:900], section)
     def test_desktop_nav_follows_the_new_order(self):
@@ -72,10 +72,10 @@ class HomepageStructureTests(unittest.TestCase):
             self.page.nav_links,
             [
                 ("#about", "About"),
-                ("#builds", "Work"),
-                ("#lab", "Lab"),
+                ("#work", "Work"),
                 ("#photography", "Photography"),
                 ("#podcasts", "On Air"),
+                ("#builds", "Builds"),
                 ("#notes", "Notes"),
                 ("network/", "Curious & Creative"),
             ],
@@ -85,11 +85,11 @@ class HomepageStructureTests(unittest.TestCase):
     def test_mobile_menu_matches_nav_and_ends_with_contact(self):
         self.assertEqual(
             [href for href, _ in self.page.mobile_links],
-            ["#builds", "#lab", "#work", "#photography", "#podcasts", "network/", "#notes", "#about",
+            ["#about", "#work", "#photography", "#podcasts", "#builds", "network/", "#notes",
              "#art", "shop.html", "#contact", STUDIO + "?topic=photo"],
         )
         numbered = [label for _, label in self.page.mobile_links if label[:2].isdigit()]
-        self.assertEqual(numbered, ["01 Builds", "02 Brand Work", "03 Photography", "04 On Air", "05 About"])
+        self.assertEqual(numbered, ["01 About", "02 Brand Work", "03 Photography", "04 On Air", "05 Builds"])
         self.assertTrue(self.page.mobile_links[-1][1].startswith("Book a shoot"))
     def test_collection_and_interviews_are_one_compact_band_after_media_diet(self):
         band = PAGE[PAGE.index('<section id="in-the-works"'):]
@@ -175,7 +175,7 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn("subject=Project%20inquiry", contact)  # personal projects still come to Joshua
     def test_metadata_leads_with_the_new_positioning(self):
         head = PAGE[: PAGE.index("</head>")]
-        lead = "Joshua McKenzie German | Creative &amp; Cultural Strategist Who Builds"
+        lead = "Joshua McKenzie German | Creative, Cultural &amp; Content Strategist"
         self.assertIn(f"<title>{lead}</title>", head)
         self.assertIn(f'property="og:title" content="{lead}"', head)
         self.assertIn("Co-founder and CEO of The Curious &amp; Creative Company", head)
