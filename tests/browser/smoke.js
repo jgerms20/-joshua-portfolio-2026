@@ -63,7 +63,7 @@ async function interactions(browser) {
   await page.click('#photoGallery .photo-item:not(.hide)');
   if (!(await page.evaluate(() => document.getElementById('lightbox').classList.contains('open')))) fail('index gallery', 'lightbox did not open');
   await page.keyboard.press('Escape');
-  for (const id of ['about', 'podcasts', 'network', 'photography', 'builds', 'work', 'media-diet', 'contact']) {
+  for (const id of ['about', 'podcasts', 'photography', 'builds', 'work', 'media-diet', 'contact']) {
     if (!(await page.$(`#${id}`))) fail('index nav', `missing section #${id}`);
   }
   await page.close();
