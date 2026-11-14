@@ -1,9 +1,33 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-13T20:06:14Z",
+  "updated": "2026-11-14T07:05:33Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#264 Alexandr Wang: The $14.3 Billion Hire",
+      "date": "2026-11-14",
+      "url": "https://open.spotify.com/episode/3eHuA1Y1LY211A0FVn8mtj",
+      "description": "In June 2025, Meta paid a reported $14.3 billion for 49 percent of Scale AI, and got its founder as the real prize: Alexandr Wang, a 28-year-old MIT dropout from Los Alamos, became the first Chief AI Officer in Meta's history. This is the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636663466-9a51873bcdb2d.jpg",
+      "duration": "53 min"
+    },
+    {
+      "title": "#263 Alexander Wang: The Comeback That Never Went to Court",
+      "date": "2026-11-14",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/263-Alexander-Wang-The-Comeback-That-Never-Went-to-Court-e3sbvu4",
+      "description": "Alexander Wang turned six cashmere sweaters and the clothes models wore between shows into a luxury empire, then ran Balenciaga before he turned thirty-two. In December 2020, a wave of sexual-assault allegations, which he denied…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636297573-4fbb337d5823c.jpg",
+      "duration": "44 min"
+    },
+    {
+      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
+      "date": "2026-11-13",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/262-The-Son-Rise-Program-How-One-Family-Turned-a-Claimed-Cure-Into-an-Empire-e3sa257",
+      "description": "In the 1970s, Barry and Samahria Kaufman said they had cured their young son's autism by joining his world, rocking when he rocked and spinning plates when he spun plates, for twelve hours a day in a converted bathroom. The book became a…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg",
+      "duration": "44 min"
+    },
     {
       "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
       "date": "2026-11-13",
@@ -75,30 +99,6 @@
       "description": "In 2009, Gary Vaynerchuk started an advertising agency whose entire product was embarrassingly simple: his brother AJ on a laptop, creating brands' Facebook and Twitter accounts, posting, and answering customers. Two years in, the agency…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794366106561-671695245d0ff.jpg",
       "duration": "45 min"
-    },
-    {
-      "title": "#254 Susie Wiles: The Most Powerful Person in Washington Nobody Voted For",
-      "date": "2026-11-10",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/254-Susie-Wiles-The-Most-Powerful-Person-in-Washington-Nobody-Voted-For-e3s7ipt",
-      "description": "On Tuesday, November 3, 2026, Republicans lost both chambers of Congress in the midterm elections. Three days later, a former White House adviser named Calley Means went on The Joe Rogan Experience and named the people he said had…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794418287108-6c3a18baece9b.jpg",
-      "duration": "45 min"
-    },
-    {
-      "title": "#253 The Missing Pact: Why Asia Never Built Its NATO",
-      "date": "2026-11-08",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/253-The-Missing-Pact-Why-Asia-Never-Built-Its-NATO-e3s03pq",
-      "description": "Europe came out of the Second World War and built a table: NATO, pooled coal and steel, eventually a shared history textbook between France and Germany. East Asia came out of the same war and built a wheel. The United States sits at the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794105969963-c6a72b03873ee.jpg",
-      "duration": "1 hr 24 min"
-    },
-    {
-      "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
-      "date": "2026-11-08",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/252-Godzilla-The-Monster-Japan-Built-to-Carry-Its-Grief-e3rvvd4",
-      "description": "On November 3, 1954, Japanese audiences filed into theaters to watch a monster destroy Tokyo. Gojira was not escapism. It arrived nine years after Hiroshima and Nagasaki, two years after an Allied occupation that had forbidden the country…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794101398140-66708e9cfe289.jpg",
-      "duration": "54 min"
     }
   ]
 }
