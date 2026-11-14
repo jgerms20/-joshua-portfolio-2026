@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-14T06:45:41Z",
+  "generated_at": "2026-11-14T14:20:16Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 6
     },
     {
+      "key": "fastbreak",
+      "name": "The Fast Break",
+      "short": "The Fast Break",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
+      "latest": "2026-11-14",
+      "count": 13
+    },
+    {
       "key": "polymath",
       "name": "The Eclectic Polymath Podcast",
       "short": "Eclectic Polymath",
@@ -36,6 +52,38 @@
       "count": 262
     },
     {
+      "key": "harlem",
+      "name": "Once Upon a Time in Harlem",
+      "short": "Once Upon a Time in Harlem",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0eKxqwy7sMDyNXkCRR2IMN",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47058065/47058065-1792877027478-e10b06672d3e3.jpg",
+      "latest": "2026-11-13",
+      "count": 7
+    },
+    {
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
+      "latest": "2026-11-13",
+      "count": 8
+    },
+    {
       "key": "tvinsider",
       "name": "The TV Insider",
       "short": "The TV Insider",
@@ -50,6 +98,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
       "latest": "2026-11-13",
       "count": 7
+    },
+    {
+      "key": "nyread",
+      "name": "The New York Read",
+      "short": "The New York Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
+      "latest": "2026-11-13",
+      "count": 9
     },
     {
       "key": "hollywoodinsider",
@@ -212,22 +276,6 @@
       "count": 3
     },
     {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-11",
-      "count": 7
-    },
-    {
       "key": "riff",
       "name": "The Jazz Riff",
       "short": "The Jazz Riff",
@@ -258,38 +306,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
       "latest": "2026-11-11",
       "count": 4
-    },
-    {
-      "key": "nyread",
-      "name": "The New York Read",
-      "short": "The New York Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
-      "latest": "2026-11-11",
-      "count": 8
-    },
-    {
-      "key": "fastbreak",
-      "name": "The Fast Break",
-      "short": "The Fast Break",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
-      "latest": "2026-11-11",
-      "count": 12
     },
     {
       "key": "blitz",
@@ -452,22 +468,6 @@
       "count": 2
     },
     {
-      "key": "harlem",
-      "name": "Once Upon a Time in Harlem",
-      "short": "Once Upon a Time in Harlem",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0eKxqwy7sMDyNXkCRR2IMN",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47058065/47058065-1792877027478-e10b06672d3e3.jpg",
-      "latest": "2026-10-26",
-      "count": 6
-    },
-    {
       "key": "approachable",
       "name": "Approachable AI",
       "short": "Approachable AI",
@@ -495,7 +495,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -520,6 +520,15 @@
   ],
   "latest": [
     {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Friday, November 13, 2026",
+      "date": "2026-11-14",
+      "url": "https://open.spotify.com/episode/0yC4F6RcjArJ4a2efi1zra",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794640995334-478e661847c2.jpg"
+    },
+    {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
@@ -538,6 +547,24 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636297573-4fbb337d5823c.jpg"
     },
     {
+      "show": "harlem",
+      "show_name": "Once Upon a Time in Harlem",
+      "kind": "episode",
+      "title": "#006 Aaron Douglas: The Man Who Gave a Movement Its Face",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/4wVHhF477UtLKNXoXK9I1l",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47058065/47058065-1794588796197-66433ce6a6cdb.jpg"
+    },
+    {
+      "show": "gamecocksdaily",
+      "show_name": "Gamecocks Daily",
+      "kind": "episode",
+      "title": "Trap Game in Fayetteville: Sellers Probable, Harbor Doubtful for 6-3 South Carolina | Friday, November 13, 2026",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/3HabzY44qNoi52TK8gnZ77",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1794588380692-51acee7ea2685.jpg"
+    },
+    {
       "show": "tvinsider",
       "show_name": "The TV Insider",
       "kind": "episode",
@@ -545,6 +572,15 @@
       "date": "2026-11-13",
       "url": "https://open.spotify.com/episode/6WPcuMhMiHsv8prbMMh2vB",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1794587689396-fd1b36a5d2916.jpg"
+    },
+    {
+      "show": "nyread",
+      "show_name": "The New York Read",
+      "kind": "episode",
+      "title": "Friday, November 13, 2026",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/3t6fYzz6L20NSYZEwjXiRE",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1794587335605-c8ece50a5e779.jpg"
     },
     {
       "show": "hollywoodinsider",
@@ -590,42 +626,6 @@
       "date": "2026-11-13",
       "url": "https://open.spotify.com/episode/6d3BqKiY9vbGBBKR5vj20E",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794585027077-1a182b0f0cc2d.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "Friday, November 13, 2026",
-      "date": "2026-11-13",
-      "url": "https://open.spotify.com/episode/0paOwLvL7v4WKt83QukfSj",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794584644204-c3eecc0b26d24.jpg"
-    },
-    {
-      "show": "dominatedconvo",
-      "show_name": "Dominated the Conversation",
-      "kind": "episode",
-      "title": "Microsoft Goes Down on Friday the 13th and the Internet Asks If It Can Legally Go Home | Friday, November 13, 2026",
-      "date": "2026-11-13",
-      "url": "https://open.spotify.com/episode/4SSmQ4w8KNZO4C99OloGeO",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1794583476891-9ed2f2316a7d2.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
-      "date": "2026-11-13",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/262-The-Son-Rise-Program-How-One-Family-Turned-a-Claimed-Cure-Into-an-Empire-e3sa257",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg"
-    },
-    {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "Buffalo Runs for 296 Yards, Toledo Shuts Out UMass, and the MAC Race Tightens Into a Four-Way Tie | Wednesday, November 11, 2026",
-      "date": "2026-11-12",
-      "url": "https://open.spotify.com/episode/0m9nz4DotmyFuFs477xiXP",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794458903567-b040ce3a6644c.jpg"
     }
   ]
 }
