@@ -38,10 +38,15 @@ class MediaDietComponentTests(unittest.TestCase):
         self.assertIn("setAttribute('role', 'tabpanel')", self.js)
         self.assertNotIn("substack", self.js.lower())
 
-    def test_listening_covers_podcasts_episodes_and_articles(self):
+    def test_articles_are_read_and_episodes_are_listened_to(self):
         for t in ("podcast", "episode", "article"):
             self.assertRegex(self.js, rf"\b{t}: \['")
-        self.assertIn("Podcasts, episodes and articles", self.js)
+        # articles sit on the Reading shelf with the books; Listening is audio only
+        self.assertIn("Books on the nightstand and articles worth passing on.", self.js)
+        self.assertIn("Podcasts and episodes I keep bringing up", self.js)
+        self.assertIn("i.type === 'article'", self.js)
+        self.assertIn("i.type !== 'article'", self.js)
+        self.assertIn("function articleCard", self.js)
 
     def test_fetches_both_data_files_relative_to_the_root(self):
         self.assertIn("root + 'data/media-diet.json'", self.js)

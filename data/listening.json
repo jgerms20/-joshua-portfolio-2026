@@ -1,12 +1,10 @@
 {
   "_readme": [
-    "Listening shelf: the third tab of the Media Diet on the homepage (#md-listening) and at joshuamgerman.com/media-diet/#listening. Podcasts, episodes and articles all live here. Hand-edited: no sync script touches this file.",
-    "Add one object per thing to the top of \"items\" (newest first is tidiest, but the page sorts by date anyway).",
-    "Fields: type (podcast | episode | article | album | song | video), title, creator, url (https only), date (YYYY-MM-DD, or YYYY-MM when only the month is known: the publish date for an article, or when you listened/read it).",
-    "creator: the show, artist or publication. For articles, \"Author · Publication\" works: the card shows both and the cover tile shows the publication.",
+    "Hand-edited picks for the Media Diet (homepage #md-reading / #md-listening and /media-diet/). No sync script touches this file.",
+    "type 'article' shows on the READING shelf next to the books. Every other type (podcast | episode | album | song | video) shows on the LISTENING shelf.",
+    "Fields: type, title, creator (show, artist or publication; 'Author · Publication' works), url (https only; leave it out if you don't have the real link and the card shows without one), date (YYYY-MM-DD, or YYYY-MM when only the month is known).",
     "Optional: image (https URL to square cover art), note (one line, what grabbed you).",
-    "Example: {\"type\": \"episode\", \"title\": \"How to Think About Taste\", \"creator\": \"Design Matters with Debbie Millman\", \"url\": \"https://example.com/episode\", \"image\": \"https://example.com/art.jpg\", \"date\": \"2026-11-01\", \"note\": \"The best ten minutes on taste I've heard.\"}",
-    "Entries missing a title, or with a non-https url/image, are skipped or shown without the link/image."
+    "Episode links: the Spotify share link for the episode is best. Entries here that point at a show's home page are waiting for the exact episode link."
   ],
   "items": [
     {
@@ -15,6 +13,54 @@
       "creator": "Stephanie Chan, Julian Jacobs & Logan Cross · DeepMind Institute",
       "url": "https://institute.deepmind.com/essays/what-is-work-for-human-wellbeing-and-the-value-of-work-in-the-agi-era/",
       "date": "2026-10-29"
+    },
+    {
+      "type": "episode",
+      "title": "#222 What's going on in France?… and why?",
+      "creator": "The Eclectic Polymath",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/222-Whats-going-on-in-France--and-why-e3qm71l",
+      "date": "2026-10-18"
+    },
+    {
+      "type": "episode",
+      "title": "The It Bag",
+      "creator": "Articles of Interest",
+      "url": "https://articlesofinterest.substack.com/",
+      "date": "2026-10-09"
+    },
+    {
+      "type": "episode",
+      "title": "#185 Erykah Badu: Music, Mysticism, and the Black Cosmic Tradition",
+      "creator": "The Eclectic Polymath",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/185-Erykah-Badu-Music--Mysticism--and-the-Black-Cosmic-Tradition-e3plp8s",
+      "date": "2026-09-30"
+    },
+    {
+      "type": "episode",
+      "title": "How 9/11 became a meme",
+      "creator": "Today, Explained · Vox",
+      "url": "https://www.vox.com/today-explained-podcast",
+      "date": "2026-09-11"
+    },
+    {
+      "type": "episode",
+      "title": "What Even Is a “Podcast” Anymore?",
+      "creator": "Decoder Ring · Slate",
+      "url": "https://www.slate.com/culture/decoder-ring",
+      "date": "2026-09-09"
+    },
+    {
+      "type": "episode",
+      "title": "Luigi Mangione’s High-Risk Legal Strategy",
+      "creator": "The Daily · The New York Times",
+      "url": "https://www.nytimes.com/column/the-daily",
+      "date": "2026-08-17"
+    },
+    {
+      "type": "episode",
+      "title": "Gen Z-ers Are Ditching Sex. They Might Be On to Something.",
+      "creator": "The Opinions · The New York Times",
+      "date": "2026-07-22"
     },
     {
       "type": "article",

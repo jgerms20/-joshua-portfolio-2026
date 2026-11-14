@@ -163,11 +163,17 @@
             }
         },
         reading: {
-            name: 'Reading', dek: 'On the nightstand now, and everything I’ve finished.', source: 'Goodreads', href: GOODREADS,
-            noun: ['book', 'books'], search: 'Search titles or authors',
-            chips: function () { return [['all', 'All'], ['now', 'Now reading'], ['done', 'Finished']]; },
-            chip: function (it, c) { return c === 'all' || (c === 'now' ? it.now : !it.now); },
-            count: function (n) { return n ? plural(n, 'book', 'books') : 'On Goodreads'; },
+            name: 'Reading', dek: 'Books on the nightstand and articles worth passing on.', source: 'Goodreads', href: GOODREADS,
+            noun: ['read', 'reads'], search: 'Search titles, authors, publications',
+            chips: function (items) {
+                var out = [['all', 'All']];
+                if (items.some(function (i) { return i.kind === 'book'; })) out.push(['books', 'Books']);
+                if (items.some(function (i) { return i.kind === 'listen'; })) out.push(['articles', 'Articles']);
+                if (items.some(function (i) { return i.now; })) out.push(['now', 'Now reading']);
+                return out;
+            },
+            chip: function (it, c) { return c === 'all' || (c === 'articles' ? it.kind === 'listen' : c === 'books' ? it.kind === 'book' : !!it.now); },
+            count: function (n) { return n ? plural(n, 'read', 'reads') : 'On Goodreads'; },
             empty: {
                 title: ['The nightstand is ', 'on Goodreads.'],
                 text: 'What I’m reading now and every book I’ve finished, with ratings. The shelf here fills itself in from there.',
@@ -175,7 +181,7 @@
             }
         },
         listening: {
-            name: 'Listening', dek: 'Podcasts, episodes and articles I keep bringing up, picked by hand.', source: '', href: '',
+            name: 'Listening', dek: 'Podcasts and episodes I keep bringing up, picked by hand.', source: '', href: '',
             noun: ['pick', 'picks'], search: 'Search titles, hosts, authors',
             chips: function (items) {
                 var out = [['all', 'All']];
@@ -187,7 +193,7 @@
             empty: {
                 round: true,
                 title: ['In my ears — ', 'coming soon.'],
-                text: 'Podcasts, episodes and articles I’m into, picked by hand. The first few are on their way.'
+                text: 'Podcasts and episodes I’m into, picked by hand. The first few are on their way.'
             }
         }
     };
@@ -290,7 +296,19 @@
         a.appendChild(body);
         return a;
     }
-    var CARD = { watching: filmCard, reading: bookCard, listening: listenCard };
+    // Articles sit on the Reading shelf next to the books: same card shape, the publication on the cover
+    function articleCard(x) {
+        var a = link(x.url, 'md-card md-card--book md-card--article');
+        a.setAttribute('aria-label', 'Article: ' + x.title + (x.creator ? ', ' + x.creator : ''));
+        var parts = x.creator ? x.creator.split(' · ') : [];
+        var c = cover(x.image, tile('book', parts.length ? parts[parts.length - 1] : x.title, 'Article'));
+        a.appendChild(c);
+        a.appendChild(el('span', 'md-name', x.title));
+        if (x.creator) a.appendChild(el('span', 'md-by', x.creator));
+        if (x.date) a.appendChild(el('span', 'md-when', fmtDate(x.date)));
+        return a;
+    }
+    var CARD = { watching: filmCard, reading: function (it) { return it.kind === 'listen' ? articleCard(it) : bookCard(it); }, listening: listenCard };
 
     // ---- Empty states: static copy, built as text ----
     function emptyState(def, heading) {
@@ -352,7 +370,9 @@
             loads[root] = Promise.all([getJSON(root + 'data/media-diet.json'), getJSON(root + 'data/listening.json')]).then(function (res) {
                 var diet = res[0] || {}, listen = res[1] || {};
                 return {
-                    watching: films(diet), reading: books(diet), listening: listening(listen),
+                    watching: films(diet),
+                    reading: books(diet).concat(listening(listen).filter(function (i) { return i.type === 'article'; })),
+                    listening: listening(listen).filter(function (i) { return i.type !== 'article'; }),
                     updated: isoDate(diet.updated)
                 };
             }).catch(function () { return { watching: [], reading: [], listening: [], updated: '' }; });
