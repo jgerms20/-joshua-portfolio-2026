@@ -254,15 +254,15 @@ class PhotoSetTests(unittest.TestCase):
                 photo["set"] = "oregon"
         sets = load_photo_sets(SETS) + [{"slug": "oregon", "title": "Oregon", "year": "2024", "blurb": "Fog and pines."}]
         page = render_photo_site(photos, root=ROOT, sets=sets)
-        self.assertIn('<article class="set-card rv" data-set="set-oregon">', page)
+        self.assertRegex(page, r'<article class="set-card[^"]*" data-set="set-oregon">')
         self.assertIn('href="#set-oregon" data-open="set-oregon" data-index="0"', page)
         self.assertIn('<section class="gallery" id="set-oregon"', page)
         self.assertIn("2024 &middot; 09 frames", page)
         self.assertIn("Fog and pines.", page)
         # set order follows the file: Rio first
         self.assertLess(page.index('data-set="set-rio-de-janeiro"'), page.index('data-set="set-oregon"'))
-        # a set frame from a folder group still shows in that group too
-        self.assertIn('<section class="gallery" id="landscapes"', page)
+        # a set frame from a folder group still shows in that series too
+        self.assertIn('<section class="gallery" id="places"', page)
 
     def test_unknown_set_reference_fails_loudly(self):
         photos = [dict(photo) for photo in load_photography_manifest(MANIFEST)]
@@ -410,23 +410,47 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn("aria-current", self.page)
         self.assertIn("heading.focus({ preventScroll: true })", self.page)
 
-    def test_work_view_leads_with_sets_then_more_work(self):
+    def test_work_view_is_told_as_series(self):
+        """Rio first, then Event coverage (with the KOAT job), Portraits,
+        Fashion & editorial and Places. Travel is folded into Places."""
         work = _view(self.page, "work")
         self.assertIn('id="hero"', work)
-        self.assertLess(work.index('id="sets"'), work.index('id="more"'))
-        self.assertLess(work.index('id="more"'), work.index('id="galleries"'))
+        self.assertLess(work.index('id="series"'), work.index('id="galleries"'))
+        self.assertIn("Selected <em>series</em>", work)
+        self.assertIn("05 series &middot; 37 frames", work)
+        order = re.findall(r'<article class="set-card[^"]*" data-set="([^"]+)">', work)
+        self.assertEqual(order, ["set-rio-de-janeiro", "events", "portraits", "fashion", "places"])
+        titles = re.findall(r'<h3 class="set-card__title"><a [^>]+>([^<]+)<', work)
+        self.assertEqual(titles, ["Rio de Janeiro", "Event coverage", "Portraits", "Fashion &amp; editorial", "Places"])
+        # every series has a one-line caption
+        self.assertEqual(work.count('class="set-card__blurb"'), 5)
         card = work[work.index('<article class="set-card'): ]
         card = card[: card.index("</article>")]
-        self.assertIn("Rio de Janeiro", card)
         self.assertIn("Brazil &middot; 04 frames", card)
+        self.assertIn("Dois Irmãos at dusk", card)
         self.assertIn('href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro"', card)
         self.assertIn('href="../shop.html#photosets"', card)
-        for slug in ("portraits", "fashion", "events", "landscapes", "travel"):
-            self.assertIn(f'<article class="card rv" data-set="{slug}">', work)
+        for slug in ("portraits", "fashion", "events", "places"):
             self.assertIn(f'<section class="gallery" id="{slug}"', work)
         self.assertIn('<section class="gallery" id="set-rio-de-janeiro"', work)
+        # thin groups are folded, not shown as weak sections
+        for gone in ('id="travel"', 'id="landscapes"', 'id="more"', "More <em>work</em>", "Events &amp; Live"):
+            self.assertNotIn(gone, work)
+        self.assertIn("Landscapes &amp; travel &middot; 12 frames", work)
         # Rio frames live in the set, not in a leftover group
         self.assertNotIn('id="archive"', work)
+        # old group links still open the merged series
+        self.assertIn("landscapes: 'places', travel: 'places'", self.page)
+
+    def test_positioning_line_names_specialty_and_place(self):
+        hero = self.page[self.page.index('<section class="hero"'):]
+        hero = hero[: hero.index("</section>")]
+        self.assertIn(
+            '<p class="hero-line">Portraits, fashion and event coverage in Los Angeles, with a documentary eye. '
+            "On 35mm film and digital.</p>",
+            hero,
+        )
+        self.assertIn('href="#series">See the work</a>', hero)
 
     def test_hero_is_short_and_leads_with_booking(self):
         hero = self.page[self.page.index('<section class="hero"'):]
@@ -479,24 +503,34 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn("Also booking: product, food and spaces.", services)
         self.assertNotIn("card--locked", self.page)
 
-    def test_services_is_a_short_list_and_one_button(self):
+    def test_services_say_what_who_and_how_with_one_button(self):
         services = _view(self.page, "services")
         self.assertEqual(services.count('class="svc-row"'), 3)
+        self.assertEqual(services.count('class="svc-for"'), 3)
         self.assertEqual(services.count('class="btn btn-safelight"'), 1)
         self.assertIn(f'class="btn btn-safelight" href="{STUDIO_PHOTO_URL}" {EXTERNAL}', services)
         self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}', services)
         self.assertIn('<span class="svc-name">Event coverage</span>', services)
         self.assertIn("Rates quoted per project", services)
+        # how a shoot runs: inquiry, plan, shoot, delivery
+        self.assertIn("How it works", services)
+        steps = re.findall(r'<span class="svc-step__name">([^<]+)</span>', services)
+        self.assertEqual(steps, ["Inquiry", "Plan", "Shoot", "Delivery"])
+        # the one button comes after the steps
+        self.assertLess(services.index('class="svc-steps"'), services.index('class="btn btn-safelight"'))
         text = _visible_text(services).lower()
-        for gone in ("strategy", "strategist", "brief", "add-on", "cut-downs", "how it works"):
+        for gone in ("strategy", "strategist", "brief", "add-on", "cut-downs", "within", "days", "hours"):
             self.assertNotIn(gone, text)
-        self.assertLess(len(text.split()), 70)
+        self.assertLess(len(text.split()), 200)
 
     def test_about_is_short_and_names_no_agencies(self):
         about = _view(self.page, "about")
         copy = about[about.index('class="about-copy'):]
         text = _visible_text(copy)
-        self.assertLessEqual(len(re.findall(r"[.!?](?:\s|$)", text.replace("joshuamgerman.com", ""))), 3)
+        self.assertLessEqual(len(re.findall(r"[.!?](?:\s|$)", text.replace("joshuamgerman.com", ""))), 5)
+        # only facts the main site already states
+        for fact in ("Los Angeles", "South Carolina", "journalism", "35mm film and digital", "Nikon D500", "Sony a6100"):
+            self.assertIn(fact, text)
         page_text = _visible_text(self.page).lower()
         for name in ("goodby", "wieden", "tbwa", "chiat", "strategist", "brand strategy"):
             self.assertNotIn(name, page_text)
@@ -547,8 +581,12 @@ class PhotoSiteTests(unittest.TestCase):
 
     def test_event_coverage_entry_reads_without_stills(self):
         work = _view(self.page, "work")
-        self.assertLess(work.index('id="sets"'), work.index('id="coverage"'))
-        self.assertLess(work.index('id="coverage"'), work.index('id="more"'))
+        # the KOAT job sits under the Event coverage series, before Portraits
+        self.assertLess(work.index('data-set="events"'), work.index('id="coverage-koat-ss27"'))
+        self.assertLess(work.index('id="coverage-koat-ss27"'), work.index('data-set="portraits"'))
+        block = work[work.index('<div class="series-block" id="coverage">'): work.index('data-set="portraits"')]
+        self.assertIn('data-set="events"', block)
+        self.assertIn('id="coverage-koat-ss27"', block)
         entry = work[work.index('<article class="cov-entry'):]
         entry = entry[: entry.index("</article>")]
         self.assertIn('id="coverage-koat-ss27"', entry)

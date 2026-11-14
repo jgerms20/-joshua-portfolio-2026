@@ -1,6 +1,7 @@
 {
   "version": 1,
   "sets": [
-    {"slug": "rio-de-janeiro", "title": "Rio de Janeiro", "place": "Brazil", "cover": "rio-santa-teresa-trams", "prints": true}
+    {"slug": "rio-de-janeiro", "title": "Rio de Janeiro", "place": "Brazil", "cover": "rio-santa-teresa-trams", "prints": true,
+     "blurb": "Trams in Santa Teresa, a corner bar, Dois Irmãos at dusk and the moon over Guanabara Bay."}
   ]
 }

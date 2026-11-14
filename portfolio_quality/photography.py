@@ -356,7 +356,7 @@ def _darkroom_offer(photos: list[dict[str, object]], coverage: list[dict[str, ob
         f'<span style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.1">{escape(name)}</span>'
         f'<span style="font-family:var(--mono);font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;'
         f'color:var(--paper-on-dark-mid);text-align:right">{escape(short)}</span></li>'
-        for name, short, _ in SERVICES
+        for name, short, *_ in SERVICES
     )
     offer = (
         '<div style="min-width:0">'
@@ -449,7 +449,7 @@ def _darkroom_sets(photo_sets: list[dict[str, object]]) -> str:
 #
 # Optional keys the renderer understands on a manifest entry:
 #   set           a set slug from data/photo-sets.json (place/theme collection)
-#   project       a group name for "More work"; overrides the folder mapping
+#   project       a series name; overrides the folder mapping
 #   commissioned  true shows a "Commissioned" tag in the viewer. Only for
 #                 work a client actually paid for.
 #   spec          true shows a "Spec" tag in the viewer: self-initiated or
@@ -458,10 +458,10 @@ def _darkroom_sets(photo_sets: list[dict[str, object]]) -> str:
 #   recent        true adds the frame to a "Recent" strip under the hero
 # Optional top-level manifest keys:
 #   site.shoots   list of {"project", "type", "year"} for a "Selected shoots"
-#                 rundown under the Work view. Real shoots only; empty hides it.
+#                 rundown under the series. Real shoots only; empty hides it.
 #   site.coverage list of event coverage entries (see _load_coverage), newest
-#                 first. Rendered text-led on the Work view and in the
-#                 homepage band; "stills" (published entry ids) add frames.
+#                 first. Rendered text-led under the Event coverage series and
+#                 in the homepage band; "stills" (published entry ids) add frames.
 #
 # Network mirror contract: github.com/jgerms20/curious-and-creative scrapes
 # this page and mirrors every <img> whose src (or last srcset candidate)
@@ -496,7 +496,13 @@ VIEWS = ("work", "about", "services", "book")
 
 HERO_LEAD = "red-coat-studio"
 HERO_LEAD_POSITION = "50% 18%"
-HERO_STRIP = ("rio-santa-teresa-trams", "plates-in-progress", "concert-light")
+# Frames that are not a series cover or card thumbnail, one per kind of work.
+HERO_STRIP = ("window-light-portrait", "club-dj", "palms-at-dusk")
+# The positioning line under the name: specialty + place, from what the work shows.
+HERO_LINE = (
+    "Portraits, fashion and event coverage in Los Angeles, with a documentary eye. "
+    "On 35mm film and digital."
+)
 
 # Joshua picks the About portrait; this one is him behind a camera.
 ABOUT_PORTRAIT = {
@@ -507,29 +513,52 @@ ABOUT_PORTRAIT = {
 SERVICES_PHOTO = "artist-in-studio"
 SERVICES_PHOTO_POSITION = "50% 40%"
 
-# The named specialties: (name, short tag for the homepage band, description).
+# The named specialties: (name, short tag for the homepage band, description,
+# who it is for on the Services view).
 SERVICES = (
-    ("Portraits", "People & headshots", "People, headshots, personal sessions."),
-    ("Fashion & editorial", "Lookbooks & tests", "Lookbooks, styling tests, campaigns."),
-    ("Event coverage", "Documentary & BTS", "Documentary and behind the scenes: presentations, concerts, parties, launches."),
+    ("Portraits", "People & headshots", "People, headshots, personal sessions.",
+     "For people, families, graduates and artists."),
+    ("Fashion & editorial", "Lookbooks & tests", "Lookbooks, styling tests, campaigns.",
+     "For designers, stylists and models."),
+    ("Event coverage", "Documentary & BTS", "Documentary and behind the scenes: presentations, concerts, parties, launches.",
+     "For hosts, brands and venues."),
 )
 ALSO_BOOKING = "Also booking: product, food and spaces."
-
-# The "More work" groups: folder-based, kept beside the sets for the
-# single frames and loose groupings Joshua wants to show too.
-PHOTO_PROJECTS = (
-    {"slug": "portraits", "title": "Portraits", "match": ("photos/portraits/",), "cover": "father-and-child", "position": "38% 50%"},
-    {"slug": "fashion", "title": "Fashion", "match": ("photos/fashion/",), "cover": "red-accent-studio", "position": "50% 40%"},
-    {"slug": "events", "title": "Events & Live", "match": ("photos/events/",), "cover": "blue-lit-performer", "position": "50% 30%"},
-    {"slug": "landscapes", "title": "Landscapes", "match": ("photos/landscape/",), "cover": "misty-valley", "position": "50% 50%"},
-    {"slug": "travel", "title": "Travel", "match": ("photos/travel/",), "cover": "palms-at-dusk", "position": "72% 50%"},
+# How a shoot runs, on the Services view: (step, what happens). No rates, no
+# turnaround promises: those are quoted per project.
+SERVICE_STEPS = (
+    ("Inquiry", "Send the date, the place and what the photos are for through the Studio form."),
+    ("Plan", "We agree on what to shoot, the timing and where the images will be used. You get a quote for the project."),
+    ("Shoot", "On location or on set, on digital or 35mm film."),
+    ("Delivery", "An edited selection of finished images, ready for where they are going."),
 )
+
+# The folder series, shown after the place sets (data/photo-sets.json) in
+# this order. "kind" and "caption" are the one line under each title; the
+# captions only name what the frames' alt text shows. Travel is folded into
+# Places: three frames are too thin to stand alone.
+PHOTO_PROJECTS = (
+    {"slug": "events", "title": "Event coverage", "match": ("photos/events/",), "cover": "concert-light",
+     "position": "50% 50%", "kind": "Documentary",
+     "caption": "Concerts, club nights, a night market, a culinary set and commencement day."},
+    {"slug": "portraits", "title": "Portraits", "match": ("photos/portraits/",), "cover": "father-and-child",
+     "position": "50% 40%", "kind": "People",
+     "caption": "A father and his child, an artist in his studio, faces against graffiti, newsprint and window light."},
+    {"slug": "fashion", "title": "Fashion & editorial", "match": ("photos/fashion/",), "cover": "patterned-fashion",
+     "position": "50% 35%", "kind": "Studio & street",
+     "caption": "A red coat, painted denim, copper hair against concrete, a couple at a graffiti wall."},
+    {"slug": "places", "title": "Places", "match": ("photos/landscape/", "photos/travel/"), "cover": "misty-valley",
+     "position": "50% 50%", "kind": "Landscapes & travel",
+     "caption": "Mist in the pines, rock off the coast, a museum, palms at dusk and swimmers under a pastel sky."},
+)
+# Old group names a manifest "project" may still use.
+PROJECT_ALIASES = {"events-live": "events", "landscapes": "places", "landscape": "places", "travel": "places"}
 # Published frames that are in no set and no folder group.
 FALLBACK_PROJECT = {"slug": "archive", "title": "Archive", "match": (), "cover": None, "position": "50% 50%"}
 
 # Element ids a group slug must not take over.
 RESERVED_IDS = {
-    "top", "main", "hero", "recent", "work", "sets", "coverage", "more", "shoots", "galleries",
+    "top", "main", "hero", "recent", "work", "series", "sets", "coverage", "more", "shoots", "galleries",
     "about", "services", "book", "inquiry", "lightbox", *VIEWS,
 }
 # Id prefixes owned by sets and coverage entries.
@@ -668,13 +697,14 @@ def _safe_slug(slug: str) -> str:
 
 
 def group_photo_site(photos: list[dict[str, object]]) -> list[dict[str, object]]:
-    """The "More work" groups: folder groups, then named projects, then an archive.
+    """The folder series: folder groups, then named projects, then an archive.
 
-    A frame in a set also shows in its folder group (Portraits, Landscapes...),
+    A frame in a set also shows in its folder group (Portraits, Places...),
     but never falls through to the archive just because no folder matched.
     """
     known = {project["slug"]: project for project in PHOTO_PROJECTS}
     titles = {_slugify(project["title"]): project["slug"] for project in PHOTO_PROJECTS}
+    titles.update(PROJECT_ALIASES)
     buckets: dict[str, list[dict[str, object]]] = {}
     custom: dict[str, dict[str, object]] = {}
 
@@ -888,7 +918,7 @@ def _render_hero(
             <div class="hero-copy">
                 <p class="kicker">Photography <span aria-hidden="true">&middot;</span> Los Angeles</p>
                 <h1 class="hero-title" id="hero-title" tabindex="-1" data-view-heading>Joshua McKenzie <em>German</em></h1>
-                <p class="hero-line">Portraits, fashion, event coverage and travel. On 35mm film and digital.</p>
+                <p class="hero-line">{escape(HERO_LINE)}</p>
                 <div class="hero-actions">
                     <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>Book a shoot {_ext_arrow()}</a>
                     <a class="btn btn-line" href="{see_href}">See the work</a>
@@ -919,61 +949,53 @@ def _render_recent(photos: list[dict[str, object]], placement: dict[str, tuple[s
     </section>'''
 
 
-def _render_sets(photo_sets: list[dict[str, object]], root: Path) -> str:
-    """The place/theme sets: one big image-led card each, leading the Work view."""
-    if not photo_sets:
-        return ""
-    cards = []
-    for item in photo_sets:
-        frames = item["frames"]
-        set_id = _attr(item["id"])
-        title = escape(str(item["title"]))
-        meta = [escape(str(item[key])) for key in ("place", "year") if item.get(key)]
-        meta.append(_count(len(frames), "frame"))
-        blurb = f'<p class="set-card__blurb">{escape(str(item["blurb"]))}</p>' if item.get("blurb") else ""
-        thumbs = "".join(
-            f'<li><a href="#{set_id}" data-open="{set_id}" data-index="{index}">'
-            f"{_site_img(frame, root=root, widths=WIDTHS_THUMB, sizes=SIZES_THUMB)}</a></li>"
-            for index, frame in enumerate(frames[1:4], start=1)
-        )
-        thumbs_markup = (
-            f'<ul class="set-card__frames" aria-label="More from {_attr(item["title"])}">{thumbs}</ul>' if thumbs else ""
-        )
-        prints = (
-            f'<a class="card-aside" href="../shop.html#photosets">In the shop{_tail_arrow()}</a>' if item.get("prints") else ""
-        )
-        cards.append(
-            f'''<article class="set-card rv" data-set="{set_id}">
-                    <div class="set-card__cover">{_site_img(frames[0], root=root, alt="", widths=WIDTHS_SET, sizes=SIZES_SET)}</div>
+def _series_count(number: int) -> str:
+    return f"{number:02d} series"
+
+
+def _render_series_card(item: dict[str, object], number: int, root: Path, *, lead: bool) -> str:
+    """One series: a big cover, the title, one caption line and three more frames."""
+    frames = item["frames"]
+    gallery = _attr(item["id"])
+    title = escape(str(item["title"]))
+    meta = [f'<span class="fig-no">{number:02d}</span>']
+    meta += [escape(str(item[key])) for key in ("kind", "place", "year") if item.get(key)]
+    meta.append(_count(len(frames), "frame"))
+    caption = item.get("caption") or item.get("blurb")
+    caption_markup = f'<p class="set-card__blurb">{escape(str(caption))}</p>' if caption else ""
+    thumbs = "".join(
+        f'<li><a href="#{gallery}" data-open="{gallery}" data-index="{index}">'
+        f"{_site_img(frame, root=root, widths=WIDTHS_THUMB, sizes=SIZES_THUMB)}</a></li>"
+        for index, frame in enumerate(frames[1:4], start=1)
+    )
+    thumbs_markup = (
+        f'<ul class="set-card__frames" aria-label="More from {_attr(item["title"])}">{thumbs}</ul>' if thumbs else ""
+    )
+    prints = (
+        f'<a class="card-aside" href="../shop.html#photosets">Prints in the shop{_tail_arrow()}</a>' if item.get("prints") else ""
+    )
+    cover = _site_img(
+        frames[0], root=root, alt="", position=str(item.get("position") or ""),
+        widths=WIDTHS_SET if lead else WIDTHS_COVER, sizes=SIZES_SET,
+    )
+    flip = " set-card--flip" if number % 2 == 0 else ""
+    return f'''<article class="set-card{flip} rv" data-set="{gallery}">
+                    <div class="set-card__cover">{cover}</div>
                     <div class="set-card__body">
                         <p class="set-card__meta">{" &middot; ".join(meta)}</p>
-                        <h3 class="set-card__title"><a class="card-link" href="#{set_id}" data-open="{set_id}" data-index="0">{title}<span class="visually-hidden">, {len(frames)} frames</span></a></h3>
-                        {blurb}
+                        <h3 class="set-card__title"><a class="card-link" href="#{gallery}" data-open="{gallery}" data-index="0">{title}<span class="visually-hidden">, {len(frames)} frames</span></a></h3>
+                        {caption_markup}
                         {thumbs_markup}
-                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View set {_arrow()}</span>{prints}</p>
+                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series {_arrow()}</span>{prints}</p>
                     </div>
                 </article>'''
-        )
-    total = sum(len(item["frames"]) for item in photo_sets)
-    head = _section_head("Sets", f"{_count(len(photo_sets), 'set')} &middot; {_count(total, 'frame')}", "sets")
-    body = "\n                ".join(cards)
-    return f'''<section class="sec sec--sets" id="sets" aria-labelledby="sets-title">
-        <div class="wrap">
-            {head}
-            <div class="set-cards">
-                {body}
-            </div>
-        </div>
-    </section>'''
 
 
-def _render_coverage(
+def _render_coverage_entries(
     coverage: list[dict[str, object]], by_id: dict[str, dict[str, object]], root: Path
 ) -> str:
-    """Event coverage: one text-led entry per job. Reads complete without
+    """Event coverage jobs, one text-led entry each. Reads complete without
     stills; when an entry lists stills they show as a strip that opens the viewer."""
-    if not coverage:
-        return ""
     entries = []
     for item in coverage:
         entry_id = _attr(_coverage_id(item))
@@ -991,26 +1013,65 @@ def _render_coverage(
         credits_markup = f'<ul class="cov-credits">{credits}</ul>' if credits else ""
         entries.append(
             f'''<article class="cov-entry rv" id="{entry_id}" aria-labelledby="{entry_id}-title">
-                    <div class="cov-head">
-                        <p class="cov-meta"><span class="cov-kind">{escape(str(item["specialty"]))}</span> <span aria-hidden="true">&middot;</span> <time datetime="{_attr(item["date"])}">{escape(_date_label(str(item["date"])))}</time></p>
-                        <h3 class="cov-title" id="{entry_id}-title">{escape(str(item["title"]))}</h3>
-                    </div>
-                    <div class="cov-body">
-                        <p class="cov-summary">{escape(str(item["summary"]))}</p>
-                        {credits_markup}
-                        {stills_markup}
-                        <p class="cov-foot"><a class="card-aside" {_external(STUDIO_EVENTS_URL)}>Book event coverage{_tail_ext()}</a></p>
-                    </div>
-                </article>'''
+                        <div class="cov-head">
+                            <p class="cov-meta"><span class="cov-kind">{escape(str(item["specialty"]))}</span> <span aria-hidden="true">&middot;</span> <time datetime="{_attr(item["date"])}">{escape(_date_label(str(item["date"])))}</time></p>
+                            <h4 class="cov-title" id="{entry_id}-title">{escape(str(item["title"]))}</h4>
+                        </div>
+                        <div class="cov-body">
+                            <p class="cov-summary">{escape(str(item["summary"]))}</p>
+                            {credits_markup}
+                            {stills_markup}
+                            <p class="cov-foot"><a class="card-aside" {_external(STUDIO_EVENTS_URL)}>Book event coverage{_tail_ext()}</a></p>
+                        </div>
+                    </article>'''
         )
-    head = _section_head("Event <em>coverage</em>", "Documentary &middot; Behind the scenes", "coverage")
-    body = "\n                ".join(entries)
-    return f'''<section class="sec sec--coverage" id="coverage" aria-labelledby="coverage-title">
+    body = "\n                    ".join(entries)
+    return f'''<div class="cov-list" aria-label="Event coverage jobs">
+                    <p class="cov-list__title">Latest coverage</p>
+                    {body}
+                </div>'''
+
+
+def _render_series(
+    photo_sets: list[dict[str, object]],
+    projects: list[dict[str, object]],
+    coverage: list[dict[str, object]],
+    by_id: dict[str, dict[str, object]],
+    root: Path,
+    shoots: list[dict[str, str]],
+) -> str:
+    """The work as series: the place sets first (Rio de Janeiro), then the
+    folder series (Event coverage, Portraits, Fashion & editorial, Places).
+    The event coverage jobs sit under the Event coverage series, in #coverage."""
+    series = [dict(item) for item in photo_sets]
+    series += [{**project, "id": project["slug"]} for project in projects]
+    if not series and not coverage and not shoots:
+        return ""
+    coverage_markup = _render_coverage_entries(coverage, by_id, root) if coverage else ""
+    blocks = []
+    placed_coverage = False
+    for number, item in enumerate(series, start=1):
+        card = _render_series_card(item, number, root, lead=number == 1)
+        if coverage_markup and item["id"] == "events":
+            card = f'''<div class="series-block" id="coverage">
+                {card}
+                {coverage_markup}
+                </div>'''
+            placed_coverage = True
+        blocks.append(card)
+    if coverage_markup and not placed_coverage:
+        blocks.append(f'<div class="series-block" id="coverage">{coverage_markup}</div>')
+    total = len({str(frame["id"]) for item in series for frame in item["frames"]})
+    meta = f"{_series_count(len(series))} &middot; {_count(total, 'frame')}" if series else ""
+    head = _section_head("Selected <em>series</em>", meta, "series")
+    body = "\n                ".join(blocks)
+    return f'''<section class="sec sec--series" id="series" aria-labelledby="series-title">
         <div class="wrap">
             {head}
-            <div class="cov-list">
+            <div class="set-cards">
                 {body}
             </div>
+            {_render_shoots(shoots)}
         </div>
     </section>'''
 
@@ -1032,39 +1093,6 @@ def _render_shoots(shoots: list[dict[str, str]]) -> str:
                 <h3 class="shoots-title">Selected shoots</h3>
                 <ol class="shoots-list">{rows}</ol>
             </div>'''
-
-
-def _render_more(projects: list[dict[str, object]], root: Path, shoots: list[dict[str, str]], has_sets: bool) -> str:
-    """Folder groups (Portraits, Fashion...) as smaller cards under the sets."""
-    if not projects and not shoots:
-        return ""
-    cards = []
-    for project in projects:
-        frames = project["frames"]
-        slug = _attr(project["slug"])
-        cover_image = _site_img(frames[0], root=root, position=str(project.get("position") or ""), alt="")
-        cards.append(
-            f'''<article class="card rv" data-set="{slug}">
-                    <div class="card-cover">{cover_image}<span class="card-open" aria-hidden="true">View {_arrow()}</span></div>
-                    <div class="card-body">
-                        <h3 class="card-title"><a class="card-link" href="#{slug}" data-open="{slug}" data-index="0">{escape(str(project["title"]))}<span class="visually-hidden">, {len(frames)} frames</span></a></h3>
-                        <p class="card-meta">{_count(len(frames), "frame")}</p>
-                    </div>
-                </article>'''
-        )
-    grid = "\n                ".join(cards)
-    title = "More <em>work</em>" if has_sets else "Selected <em>work</em>"
-    total = sum(len(project["frames"]) for project in projects)
-    head = _section_head(title, f"{_count(total, 'frame')}" if projects else "", "more")
-    return f'''<section class="sec sec--more" id="more" aria-labelledby="more-title">
-        <div class="wrap">
-            {head}
-            <div class="cards cards--work">
-                {grid}
-            </div>
-            {_render_shoots(shoots)}
-        </div>
-    </section>'''
 
 
 def _render_galleries(galleries: list[dict[str, object]], root: Path) -> str:
@@ -1106,7 +1134,7 @@ def _render_about(root: Path) -> str:
         portrait = (
             f'<figure class="about-portrait rv">{_site_img(ABOUT_PORTRAIT, root=root, sizes=SIZES_ABOUT)}</figure>'
         )
-    head = _section_head("About", "Los Angeles", "about", view_heading=True)
+    head = _section_head("About", "Los Angeles &middot; From South Carolina", "about", view_heading=True)
     return f'''<section class="view view--about sec" id="about" data-view="about" aria-labelledby="about-title">
         <div class="wrap">
             {head}
@@ -1114,8 +1142,9 @@ def _render_about(root: Path) -> str:
                 {portrait}
                 <div class="about-copy rv">
                     <p class="about-lede">I&rsquo;m Joshua, a photographer in Los Angeles.</p>
-                    <p>I shoot portraits, fashion, live events and travel, on 35mm film and digital. I also host podcasts.</p>
-                    <p class="about-more"><a href="../">More at joshuamgerman.com{_tail_arrow()}</a></p>
+                    <p>I grew up in South Carolina and started out in journalism, because I&rsquo;ve always wanted to know what makes people tick. That curiosity is still what I bring to a shoot.</p>
+                    <p>I photograph portraits, fashion and events, on 35mm film and digital (a Nikon D500 and a Sony a6100).</p>
+                    <p class="about-more"><a href="../">My strategy and podcast work is at joshuamgerman.com{_tail_arrow()}</a></p>
                 </div>
             </div>
         </div>
@@ -1124,8 +1153,16 @@ def _render_about(root: Path) -> str:
 
 def _render_services(by_id: dict[str, dict[str, object]], root: Path) -> str:
     rows = "".join(
-        f'<li class="svc-row"><span class="svc-name">{escape(name)}</span><span class="svc-desc">{escape(text)}</span></li>'
-        for name, _, text in SERVICES
+        f'<li class="svc-row"><span class="svc-name">{escape(name)}</span>'
+        f'<span class="svc-for">{escape(audience)}</span>'
+        f'<span class="svc-desc">{escape(text)}</span></li>'
+        for name, _, text, audience in SERVICES
+    )
+    steps = "".join(
+        f'<li class="svc-step"><span class="svc-step__no">{number:02d}</span>'
+        f'<span class="svc-step__name">{escape(name)}</span>'
+        f'<span class="svc-step__text">{escape(text)}</span></li>'
+        for number, (name, text) in enumerate(SERVICE_STEPS, start=1)
     )
     photo = by_id.get(SERVICES_PHOTO)
     figure = (
@@ -1140,8 +1177,11 @@ def _render_services(by_id: dict[str, dict[str, object]], root: Path) -> str:
             <div class="svc-grid">
                 {figure}
                 <div class="svc rv">
+                    <h3 class="svc-sub">What I shoot</h3>
                     <ul class="svc-list">{rows}</ul>
                     <p class="svc-also">{escape(ALSO_BOOKING)}</p>
+                    <h3 class="svc-sub">How it works</h3>
+                    <ol class="svc-steps">{steps}</ol>
                     <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>{STUDIO_BOOK_TEXT} {_ext_arrow()}</a>
                     <p class="svc-how">Booking event coverage? <a {_external(STUDIO_EVENTS_URL)}>Use the events form{_tail_ext()}</a></p>
                 </div>
@@ -1224,11 +1264,9 @@ def render_photo_site(
             placement.setdefault(str(frame["id"]), (str(gallery["slug"]), index))
 
     work_parts = [
-        _render_hero(by_id, placement, titles, root, "#sets" if photo_sets else "#more"),
+        _render_hero(by_id, placement, titles, root, "#series"),
         _render_recent(photos, placement, root),
-        _render_sets(photo_sets, root),
-        _render_coverage(coverage, by_id, root),
-        _render_more(projects, root, list(shoots), bool(photo_sets)),
+        _render_series(photo_sets, projects, coverage, by_id, root, list(shoots)),
         _render_galleries(galleries, root),
     ]
     work = "\n    ".join(part for part in work_parts if part)

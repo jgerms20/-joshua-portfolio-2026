@@ -188,20 +188,21 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertNotIn("sites-rail", PAGE)
         self.assertNotIn("data-gate", PAGE)
 
-    def test_brand_work_leads_with_the_best_campaigns(self):
+    def test_brand_work_shows_only_the_best_then_links_to_the_rest(self):
         work = PAGE[PAGE.index('<section id="work"'):]
         work = work[: work.index("</section>")]
         hrefs = re.findall(r'<a href="([^"]+)" class="plate\b', work)
-        self.assertEqual(hrefs[:7], [
+        self.assertEqual(hrefs, [
             "work/work-levis.html", "work/work-gatorade.html#stranger-things", "work/work-doordash.html",
-            "work/work-dwb.html", "work/work-gatorade.html#body-of-science", "work/work-gatorade.html#lower-sugar",
-            "work/work-directv.html#like-never-seen",
+            "work/work-directv.html#nothing-on-roof", "work/work-gatorade.html#body-of-science",
+            "work/work-dwb.html", "https://hiike.com/", "https://www.uandai.co/",
         ])
-        self.assertLess(hrefs.index("work/work-sephora.html#skincare"), hrefs.index("work/work-gatorade.html#nfl"))
-        # every campaign card shows a picture (or a brand tile), never an empty box
+        self.assertIn('<a href="work/" class="btn btn-line">All brand work', work)
+        self.assertNotIn("hidden-card", work)
+        self.assertNotIn("toggleSeeLess", PAGE)
         for card in re.findall(r'<a href="[^"]+" class="plate\b.*?</a>', work, re.S):
             self.assertTrue("<img" in card or "plate-media-brand" in card, card[:120])
-
+            self.assertNotRegex(card, r'class="(plate-desc|plate-tag|award-chip[^"]*)">[^<]*\u2014')
     def test_builds_open_with_three_case_studies_then_an_honest_lab(self):
         builds = PAGE[PAGE.index('<section id="builds"'):]
         builds = builds[: builds.index("</section>")]

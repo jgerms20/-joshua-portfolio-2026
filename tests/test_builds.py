@@ -128,7 +128,7 @@ class BuildPagesTests(unittest.TestCase):
             footer = [(a.get_text(strip=True), a["href"]) for a in soup.select(".footer-links a")]
             self.assertEqual(
                 [h for _, h in footer],
-                ["../index.html#builds", "../index.html#work", "../photography/", "../shop.html", "../photography/#book"],
+                ["../index.html#builds", "../work/", "../photography/", "../shop.html", "../photography/#book"],
             )
             for img in soup.find_all("img"):
                 self.assertTrue(img.get("alt", "").strip(), f"{name}: {img.get('src')}")

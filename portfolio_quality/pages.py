@@ -7,6 +7,7 @@ PRODUCTION_GLOBS = (
     "media-diet/index.html",
     "media/media-*.html",
     "podcasts/podcast-*.html",
+    "work/index.html",
     "work/work-*.html",
     "builds/*.html",
 )

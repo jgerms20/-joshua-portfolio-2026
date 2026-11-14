@@ -17,7 +17,7 @@ const PAGES = [
   'index.html', 'photography/', 'network/', 'media-diet/', 'shop.html',
   'podcasts/podcast-eclectic-polymath.html', 'podcasts/podcast-dominate.html',
   'podcasts/podcast-approachable-ai.html', 'podcasts/podcast-curious-creative.html',
-  'work/work-gatorade.html', 'work/work-levis.html', 'work/work-sephora.html',
+  'work/', 'work/work-gatorade.html', 'work/work-levis.html', 'work/work-sephora.html',
   'work/work-xfinity.html', 'work/work-directv.html', 'work/work-doordash.html',
   'builds/gen-alpha-intelligence-lab.html', 'builds/meme-library.html', 'builds/life-gamified.html', 'builds/index.html',
 ];
@@ -86,6 +86,17 @@ async function interactions(browser) {
   await page.click('#addToCartBtn');
   const count = await page.textContent('#cartCount');
   if (count.trim() !== '1') fail('shop', `cart count is "${count}" after adding one print`);
+  await page.close();
+
+  // Brand Work index: the agency filter shows only that agency's cards, All brings every card back
+  page = await checkPage(browser, 'work/', [390, 844]);
+  const shownAgencies = () => page.evaluate(() => [...document.querySelectorAll('#work .plate')].filter(p => p.offsetParent).map(p => p.dataset.agency));
+  const total = (await shownAgencies()).length;
+  await page.click('.camp-filter[data-agency="gsp"]');
+  const gsp = await shownAgencies();
+  if (!gsp.length || gsp.some(a => a !== 'gsp')) fail('work index', 'GS&P filter shows other agencies');
+  await page.click('.camp-filter[data-agency="all"]');
+  if ((await shownAgencies()).length !== total) fail('work index', 'All filter did not bring every card back');
   await page.close();
 }
 
