@@ -1,13 +1,93 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-09T07:16:22Z",
+  "updated": "2026-11-13T20:06:14Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
+      "date": "2026-11-13",
+      "url": "https://open.spotify.com/episode/71ViA2GtDLwBb9LUWHzBr5",
+      "description": "In the 1970s, Barry and Samahria Kaufman said they had cured their young son's autism by joining his world, rocking when he rocked and spinning plates when he spun plates, for twelve hours a day in a converted bathroom. The book became a…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg",
+      "duration": "44 min"
+    },
+    {
+      "title": "#261 The Light They Sell You: What Red Light, Pressure Chambers, and the Longevity Stack Actually Prove",
+      "date": "2026-11-12",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/261-The-Light-They-Sell-You-What-Red-Light--Pressure-Chambers--and-the-Longevity-Stack-Actually-Prove-e3s84a4",
+      "description": "Healthy people are paying up to $136,000 to sit in pressurized oxygen chambers in their basements, and thousands more for home red light panels that can output less therapeutic energy than a sunny afternoon. This episode grades the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794442157306-214ef88644727.jpg",
+      "duration": "59 min"
+    },
+    {
+      "title": "#261 The Light They Sell You: What Red Light, Pressure Chambers, and the Longevity Stack Actually Prove",
+      "date": "2026-11-12",
+      "url": "https://open.spotify.com/episode/7Gp8sYnIYQPUrKcFEbmOCx",
+      "description": "Healthy people are paying up to $136,000 to sit in pressurized oxygen chambers in their basements, and thousands more for home red light panels that can output less therapeutic energy than a sunny afternoon. This episode grades the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794442157306-214ef88644727.jpg",
+      "duration": "59 min"
+    },
+    {
+      "title": "#260 Demna: The Refugee Who Repriced Luxury",
+      "date": "2026-11-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/260-Demna-The-Refugee-Who-Repriced-Luxury-e3s7jg9",
+      "description": "On March 13, 2025, Kering announced that Demna would become the artistic director of Gucci, the biggest and most troubled house in the group. The market's verdict arrived the next morning: Kering shares fell as much as 13 percent, wiping…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794419121093-ef895006a7f65.jpg",
+      "duration": "53 min"
+    },
+    {
+      "title": "#258 Two Daughters of South London: How Grace Wales Bonner and Martine Rose Took the Two Biggest Jobs in Fashion",
+      "date": "2026-11-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/258-Two-Daughters-of-South-London-How-Grace-Wales-Bonner-and-Martine-Rose-Took-the-Two-Biggest-Jobs-in-Fashion-e3s697s",
+      "description": "Thirteen months apart, two designers from South London's Black British culture took the two most storied menswear chairs in Paris. In October 2025, Hermès named Grace Wales Bonner creative director of menswear, ending Véronique…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794358279749-59cded6dc4622.jpg",
+      "duration": "42 min"
+    },
+    {
+      "title": "#257 The Cockroach Summer: How a Leaked Exam Ruined India's Faith in Merit",
+      "date": "2026-11-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/257-The-Cockroach-Summer-How-a-Leaked-Exam-Ruined-Indias-Faith-in-Merit-e3s7j5b",
+      "description": "On May 15, 2026, the Chief Justice of India, Surya Kant, described unemployed young people drifting into activism as behaving like cockroaches. The clarification came the next day, and it made no difference at all. Within twenty-four…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794418689176-4656b8ccadc81.jpg",
+      "duration": "39 min"
+    },
+    {
+      "title": "#256 Oracle: The Company That Sold IBM's Future First",
+      "date": "2026-11-11",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/256-Oracle-The-Company-That-Sold-IBMs-Future-First-e3s6dqr",
+      "description": "In 1970, an IBM researcher named Edgar Codd published a paper describing a radically simpler way to organize data, and IBM largely sat on it, because the idea threatened a profitable product. Seven years later, three programmers in Santa…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794366376799-c0dde82328066.jpg",
+      "duration": "52 min"
+    },
+    {
+      "title": "#258 Two Daughters of South London: How Grace Wales Bonner and Martine Rose Took the Two Biggest Jobs in Fashion",
+      "date": "2026-11-11",
+      "url": "https://open.spotify.com/episode/2ozYMgjeCwJTW4yExPVaCU",
+      "description": "Thirteen months apart, two designers from South London's Black British culture took the two most storied menswear chairs in Paris. In October 2025, Hermès named Grace Wales Bonner creative director of menswear, ending Véronique…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794358279749-59cded6dc4622.jpg",
+      "duration": "42 min"
+    },
+    {
+      "title": "#255 VaynerMedia: The Agency Built on Underpriced Attention",
+      "date": "2026-11-10",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/255-VaynerMedia-The-Agency-Built-on-Underpriced-Attention-e3s6dl4",
+      "description": "In 2009, Gary Vaynerchuk started an advertising agency whose entire product was embarrassingly simple: his brother AJ on a laptop, creating brands' Facebook and Twitter accounts, posting, and answering customers. Two years in, the agency…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794366106561-671695245d0ff.jpg",
+      "duration": "45 min"
+    },
+    {
+      "title": "#254 Susie Wiles: The Most Powerful Person in Washington Nobody Voted For",
+      "date": "2026-11-10",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/254-Susie-Wiles-The-Most-Powerful-Person-in-Washington-Nobody-Voted-For-e3s7ipt",
+      "description": "On Tuesday, November 3, 2026, Republicans lost both chambers of Congress in the midterm elections. Three days later, a former White House adviser named Calley Means went on The Joe Rogan Experience and named the people he said had…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794418287108-6c3a18baece9b.jpg",
+      "duration": "45 min"
+    },
+    {
       "title": "#253 The Missing Pact: Why Asia Never Built Its NATO",
       "date": "2026-11-08",
-      "url": "https://open.spotify.com/episode/0yGI2M4k420Ap0vR2COAL2",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/253-The-Missing-Pact-Why-Asia-Never-Built-Its-NATO-e3s03pq",
       "description": "Europe came out of the Second World War and built a table: NATO, pooled coal and steel, eventually a shared history textbook between France and Germany. East Asia came out of the same war and built a wheel. The United States sits at the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794105969963-c6a72b03873ee.jpg",
       "duration": "1 hr 24 min"
@@ -19,86 +99,6 @@
       "description": "On November 3, 1954, Japanese audiences filed into theaters to watch a monster destroy Tokyo. Gojira was not escapism. It arrived nine years after Hiroshima and Nagasaki, two years after an Allied occupation that had forbidden the country…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794101398140-66708e9cfe289.jpg",
       "duration": "54 min"
-    },
-    {
-      "title": "#252 Godzilla: The Monster Japan Built to Carry Its Grief",
-      "date": "2026-11-08",
-      "url": "https://open.spotify.com/episode/2uGjSXVoFbdMGNDRmeMpQH",
-      "description": "On November 3, 1954, Japanese audiences filed into theaters to watch a monster destroy Tokyo. Gojira was not escapism. It arrived nine years after Hiroshima and Nagasaki, two years after an Allied occupation that had forbidden the country…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794098615462-56c2bc7443e1b.jpg",
-      "duration": "54 min"
-    },
-    {
-      "title": "#251 Arnold Schwarzenegger: The Recall That Invented the Celebrity Candidate",
-      "date": "2026-11-07",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/251-Arnold-Schwarzenegger-The-Recall-That-Invented-the-Celebrity-Candidate-e3rs65v",
-      "description": "In October 2003, California fired its governor mid-term — and replaced him with a movie star. This episode traces how the 2003 gubernatorial recall worked, who paid for it, why Gray Davis was so unpopular, and how Arnold Schwarzenegger…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793937037745-105e513b3ebf6.jpg",
-      "duration": "56 min"
-    },
-    {
-      "title": "#250: Curious... & Creative",
-      "date": "2026-11-07",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/250-Curious-----Creative-e3rulbd",
-      "description": "250 episodes in, and this little experiment in curiosity has grown into something much bigger than I ever imagined. We're back for another milestone check-in, revisiting the last 50 episodes and the questions that inspired them. From…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794041439946-998b01371d145.jpg",
-      "duration": "24 min"
-    },
-    {
-      "title": "#251 Arnold Schwarzenegger: The Recall That Invented the Celebrity Candidate",
-      "date": "2026-11-07",
-      "url": "https://open.spotify.com/episode/3fL4OY3OMjL1gUeerRXcye",
-      "description": "In October 2003, California fired its governor mid-term — and replaced him with a movie star. This episode traces how the 2003 gubernatorial recall worked, who paid for it, why Gray Davis was so unpopular, and how Arnold Schwarzenegger…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793937037745-105e513b3ebf6.jpg",
-      "duration": "56 min"
-    },
-    {
-      "title": "#249 The Audio Century: How Audio Is Replacing Screens",
-      "date": "2026-11-01",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/249-The-Audio-Century-How-Audio-Is-Replacing-Screens-e3rgs60",
-      "description": "Two decades in, podcasting still cannot agree on what a listener is. This episode is a deep dive into the business of podcasting and the future of audio itself: where the industry stands, why it is still being formed, and where it goes…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793492549346-19396cafcbe29.jpg",
-      "duration": "49 min"
-    },
-    {
-      "title": "#249 The Audio Century: How Audio Is Replacing Screens",
-      "date": "2026-11-01",
-      "url": "https://open.spotify.com/episode/4sj5COhOYOqEzxNHT9YCqc",
-      "description": "Two decades in, podcasting still cannot agree on what a listener is. This episode is a deep dive into the business of podcasting and the future of audio itself: where the industry stands, why it is still being formed, and where it goes…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793492549346-19396cafcbe29.jpg",
-      "duration": "49 min"
-    },
-    {
-      "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
-      "date": "2026-10-31",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/248-Los-Angeles-Votes-Bass--Raman--and-the-Ballot-That-Rewrites-Two-Governments-e3rgel0",
-      "description": "Fourteen statewide propositions, two county charter amendments, seven city measures, and a mayoral runoff, all on one ballot, all decided on Tuesday. This episode is the complete voting prep for the November 3, 2026 California general…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793474032492-8d27403cd3c15.jpg",
-      "duration": "1 hr 5 min"
-    },
-    {
-      "title": "#248 Los Angeles Votes: Bass, Raman, and the Ballot That Rewrites Two Governments",
-      "date": "2026-10-31",
-      "url": "https://open.spotify.com/episode/1LsiABpQamM6OE2RWfD9l5",
-      "description": "Fourteen statewide propositions, two county charter amendments, seven city measures, and a mayoral runoff, all on one ballot, all decided on Tuesday. This episode is the complete voting prep for the November 3, 2026 California general…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793474032492-8d27403cd3c15.jpg",
-      "duration": "1 hr 4 min"
-    },
-    {
-      "title": "#247 Spain: The Cultural Superpower History Tried to Erase",
-      "date": "2026-10-30",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/247-Spain-The-Cultural-Superpower-History-Tried-to-Erase-e3req0o",
-      "description": "A movie about a murdered poet just won at Cannes — and it opens the door on the biggest buried story in Western culture. Spain has been one of the world's great cultural capitals not once but three times: the Golden Age that invented the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg",
-      "duration": "1 hr 10 min"
-    },
-    {
-      "title": "Spain: The Cultural Superpower History Tried to Erase",
-      "date": "2026-10-30",
-      "url": "https://open.spotify.com/episode/2Z9arv5aDPS69xU1mdWgo2",
-      "description": "A movie about a murdered poet just won at Cannes — and it opens the door on the biggest buried story in Western culture. Spain has been one of the world's great cultural capitals not once but three times: the Golden Age that invented the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1793400290492-51d7daa4e9bd6.jpg",
-      "duration": "1 hr 10 min"
     }
   ]
 }
