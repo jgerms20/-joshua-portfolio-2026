@@ -46,7 +46,7 @@ SHOWS = {
     "ccpod": ("The Curious", "../podcasts/podcast-curious-creative.html"),
     "polymath": ("The Eclectic Polymath", "../podcasts/podcast-eclectic-polymath.html"),
     "brazil": ("God Is Brazilian", "https://open.spotify.com/show/4tAY78JV37aIgmJ2d1iF3w"),
-    "riff": ("The Daily Riff", "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk"),
+    "riff": ("The Jazz Riff", "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk"),
     "morningread": ("The Morning Read", "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp"),
     "approachable": ("Approachable AI", "../podcasts/podcast-approachable-ai.html"),
     "tmtt": ("Too Much to Tweet", "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa"),
@@ -168,7 +168,7 @@ class NetworkPageTests(unittest.TestCase):
         for target in LEGS.values():
             self.assertIn(target, hrefs)
         self.assertIn(NETWORK_SITE, hrefs)
-        for section in ("shows", "latest", "studio", "consultancy", "photos", "duo", "pitch"):
+        for section in ("shows", "studio", "consultancy", "duo", "pitch"):
             self.assertIn(f'id="{section}"', self.html)
 
     def test_contact_links_use_supported_parameters(self):
@@ -188,7 +188,7 @@ class NetworkPageTests(unittest.TestCase):
 
     def test_studio_and_consultancy_list_their_offers(self):
         studio = self.html[self.html.index('id="studio"'):self.html.index('id="consultancy"')]
-        consult = self.html[self.html.index('id="consultancy"'):self.html.index('id="photos"')]
+        consult = self.html[self.html.index('id="consultancy"'):self.html.index('id="duo"')]
         for section, offers in ((studio, STUDIO_OFFERS), (consult, CONSULTANCY_OFFERS)):
             lists = re.findall(r'<ul class="svc[^"]*".*?</ul>', section, re.S)
             self.assertEqual(len(lists), 1)
@@ -255,15 +255,12 @@ class NetworkPageTests(unittest.TestCase):
             self.assertIn(field, data["latest"][0])
             self.assertIn(f"item.{field}", self.script)
 
-    def test_photo_strip_links_to_the_photography_site(self):
-        photos = self.html[self.html.index('id="photos"'):self.html.index('id="duo"')]
-        shots = re.findall(r'<a class="shot" href="([^"]+)"><img src="([^"]+)" alt="([^"]+)"', photos)
-        self.assertGreaterEqual(len(shots), 4)
-        for href, src, alt in shots:
-            self.assertEqual(href, "../photography/")
-            self.assertTrue((PAGE.parent / src).is_file(), src)
-            self.assertTrue(alt.strip(), src)
-
+    def test_short_page_told_from_the_founder_seat(self):
+        # the feed and photo strip moved off this page; the founder says why it exists
+        self.assertNotIn('id="latest"', self.html)
+        self.assertNotIn('id="photos"', self.html)
+        self.assertIn("co-founder and CEO", self.html)
+        self.assertNotIn("The Daily Riff", self.html)  # renamed: The Jazz Riff
     def test_static_markup_lists_every_show(self):
         cards = self.parsed.cards
         for key, (name, href) in SHOWS.items():

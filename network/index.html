@@ -678,6 +678,8 @@
             .btn:hover, .sc:hover, .sc:hover .art > img, .flagship:hover .art > img, .lead:hover .lead-media > img, .lead:hover .lead-media.is-art .art,
             .shot:hover img { transform: none; }
         }
+            .founder-note { margin-top: 14px; font-size: 0.98rem; line-height: 1.6; color: var(--ink-soft, rgba(23,21,18,.72)); max-width: 560px; }
+        .founder-note a { border-bottom: 1px solid currentColor; }
     </style>
 </head>
 <body>
@@ -726,6 +728,7 @@
                         </h1>
                         <p class="tagline rise d2">Curious first. Then creative.</p>
                         <p class="lede rise d2" id="pitch-lead">Curious &amp; Creative is a Los Angeles creative company built by Joshua German and Janel Moore. We run a media network, produce photography, video, editing, and podcasts through our studio, and advise founders, brands, and marketing teams on culture, audience, and AI.</p>
+                        <p class="founder-note rise d2">I&rsquo;m Joshua, co-founder and CEO. Janel and I started Curious &amp; Creative to make our own media and to help other people bring their ideas into the world. This page is the short version; the full company lives on <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener">our site<span class="sr-only"> (opens in a new tab)</span></a>.</p>
                         <div class="actions rise d3">
                             <a href="https://jgerms20.github.io/curious-and-creative/" target="_blank" rel="noopener" class="btn btn-ink">
                                 Visit the site
@@ -777,10 +780,8 @@
                 </nav>
                 <nav class="jump" aria-label="On this page">
                     <a href="#shows">The Network</a>
-                    <a href="#latest">The latest</a>
                     <a href="#studio">The Studio</a>
                     <a href="#consultancy">The Consultancy</a>
-                    <a href="#photos">Photography</a>
                     <a href="#duo">Joshua &amp; Janel</a>
                 </nav>
             </div>
@@ -882,12 +883,12 @@
                     <li data-show="riff" style="--c:#2F5BEA">
                         <a class="sc" href="https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk" target="_blank" rel="noopener">
                             <span class="art" data-art="riff">
-                                <span class="tile" aria-hidden="true"><span class="tile-k">Podcast</span><span class="tile-n">The Daily <em>Riff</em></span></span>
+                                <span class="tile" aria-hidden="true"><span class="tile-k">Podcast</span><span class="tile-n">The Jazz <em>Riff</em></span></span>
                                 <img src="art/riff.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
                             </span>
                             <span class="sc-body">
                                 <span class="sc-kind">Podcast &middot; AI-generated</span>
-                                <h3 class="sc-name">The Daily Riff</h3>
+                                <h3 class="sc-name">The Jazz Riff</h3>
                                 <span class="sc-hosts">AI-generated &middot; Joshua, principal</span>
                                 <span class="sc-tag">A daily dose of jazz, made with AI.</span>
                                 <span class="sc-foot"><span class="meta" data-meta></span><span class="sc-go">Spotify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only">(opens in a new tab)</span></span></span>
@@ -944,74 +945,6 @@
             </div>
         </section>
 
-        <!-- ===================== 01 · THE LATEST ===================== -->
-        <section class="band" id="latest" aria-labelledby="latest-title">
-            <div class="wrap">
-                <div class="sec-head">
-                    <div>
-                        <p class="label"><span class="label-num">On air</span> The latest</p>
-                        <h2 class="h2" id="latest-title">Fresh off <em>the network.</em></h2>
-                    </div>
-                    <div>
-                        <p class="sub">The newest episodes and videos from across the Network, newest first. This list refreshes on its own.</p>
-                        <p class="stamp-line" id="feedStamp" aria-live="polite"></p>
-                    </div>
-                </div>
-
-                <div class="feed-wrap" id="feedWrap" data-state="static" aria-busy="false">
-                    <!-- Loading sketch (only while JS fetches) -->
-                    <div class="sk" aria-hidden="true">
-                        <div class="sk-lead"><b></b><i></i><i></i></div>
-                        <div>
-                            <div class="sk-row"><b></b><span><i></i><i></i></span></div>
-                            <div class="sk-row"><b></b><span><i></i><i></i></span></div>
-                            <div class="sk-row"><b></b><span><i></i><i></i></span></div>
-                            <div class="sk-row"><b></b><span><i></i><i></i></span></div>
-                        </div>
-                    </div>
-
-                    <!-- Filled from ../data/network.json -->
-                    <div class="feed-grid">
-                        <div id="feedLead"></div>
-                        <div>
-                            <ol class="feed" id="feed" aria-label="Latest episodes and videos across the network"></ol>
-                            <div class="feed-more">
-                                <a class="text-link" href="https://jgerms20.github.io/curious-and-creative/pages/network.html" target="_blank" rel="noopener">The Network on the site
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-                                    <span class="sr-only">(opens in a new tab)</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Without JS, or if the feed can't load: a designed card, never an empty box -->
-                    <div class="fallback">
-                        <div class="fb-covers" aria-hidden="true">
-                            <span class="art" style="--c:#37B34A"><img src="../photos/podcasts/curious-creative-logo.jpg" alt="" width="1024" height="1024" loading="lazy"></span>
-                            <span class="art" style="--c:#8E6FE0"><img src="art/polymath.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                            <span class="art" style="--c:#2F5BEA"><img src="art/riff.jpg" alt="" width="640" height="640" loading="lazy"></span>
-                            <span class="art" style="--c:#46C7E8"><img src="../photos/podcasts/approachable-ai-logo.jpg" alt="" width="1024" height="1024" loading="lazy"></span>
-                            <span class="art" style="--c:#EC3F8E"><img src="art/tmtt.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                            <span class="art" style="--c:#009C3B"><img src="art/brazil.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                            <span class="art" style="--c:#C9781C"><img src="art/morningread.jpg" alt="" width="640" height="640" loading="lazy"></span>
-                            <span class="art" style="--c:#FFC93C"><img src="art/abolitionist.jpg" alt="" width="600" height="600" loading="lazy"></span>
-                        </div>
-                        <div>
-                            <p class="fb-kicker">The Network</p>
-                            <h3 class="fb-title">Every show, in one place.</h3>
-                            <p class="fb-text">The newest episodes and videos from every show live on the Curious &amp; Creative site.</p>
-                            <div class="actions">
-                                <a class="btn btn-net" href="https://jgerms20.github.io/curious-and-creative/pages/network.html" target="_blank" rel="noopener">Go to the Network
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-                                    <span class="sr-only">(opens in a new tab)</span>
-                                </a>
-                                <a class="btn btn-ghost" href="#shows">See the shows</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- ===================== 02 THE STUDIO ===================== -->
         <section class="section" id="studio" aria-labelledby="studio-title" style="padding-top: clamp(72px, 9vw, 128px)">
@@ -1084,32 +1017,6 @@
             </div>
         </section>
 
-        <!-- ===================== 04 PHOTOGRAPHY ===================== -->
-        <section class="section" id="photos" aria-labelledby="photos-title">
-            <div class="wrap">
-                <div class="sec-head">
-                    <div>
-                        <p class="label"><span class="label-num">04</span> Photography</p>
-                        <h2 class="h2" id="photos-title">People, places, <em>and nights&nbsp;out.</em></h2>
-                    </div>
-                    <p class="sub">A handful of favorites from Joshua&rsquo;s camera: portraits, fashion, live events, and Rio, on 35mm film and digital. The same eye the studio brings to every shoot.</p>
-                </div>
-                <div class="strip">
-                    <a class="shot" href="../photography/"><img src="img/fashion-jmg_1601-sm.jpg" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." width="427" height="640" loading="lazy" decoding="async"><span>Fashion</span></a>
-                    <a class="shot" href="../photography/"><img src="img/events-jmg_2228-sm.jpg" alt="A performer in a quilted jacket stands beneath intense blue stage light." width="427" height="640" loading="lazy" decoding="async"><span>Events &amp; Live</span></a>
-                    <a class="shot" href="../photography/"><img src="img/portraits-jmg_9553-sm.jpg" alt="A woman holds a red rose in a brightly colored portrait setting." width="427" height="640" loading="lazy" decoding="async"><span>Portraits</span></a>
-                    <a class="shot" href="../photography/"><img src="img/shop-rio-brahma-corner-sm.jpg" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." width="449" height="640" loading="lazy" decoding="async"><span>Rio de Janeiro</span></a>
-                    <a class="shot" href="../photography/"><img src="img/events-dsc00028-sm.jpg" alt="Friends pose together during a crowded evening market event." width="480" height="480" loading="lazy" decoding="async"><span>Events &amp; Live</span></a>
-                    <a class="shot" href="../photography/"><img src="img/landscape-jmg_5742-sm.jpg" alt="A tall waterfall drops through a granite valley framed by green trees." width="480" height="320" loading="lazy" decoding="async"><span>Landscapes</span></a>
-                </div>
-                <div class="strip-foot">
-                    <p>Photography by Joshua McKenzie German.</p>
-                    <a class="text-link" href="../photography/">See the photography
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <!-- ===================== 05 JOSHUA & JANEL ===================== -->
         <section class="section" id="duo" aria-labelledby="duo-title">
@@ -1459,6 +1366,7 @@
             }).slice(0, MAX_FEED);
             if (!latest.length) return false;
             var leadBox = document.getElementById('feedLead');
+            if (!leadBox) return false;
             leadBox.appendChild(buildLead(latest[0], byKey));
             var list = document.getElementById('feed');
             latest.slice(1).forEach(function (it) { list.appendChild(buildRow(it, byKey)); });
@@ -1472,6 +1380,7 @@
         }
 
         function setState(state) {
+            if (!wrap) return;
             wrap.setAttribute('data-state', state);
             wrap.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
         }
