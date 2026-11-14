@@ -177,15 +177,17 @@ class BuildsLandingTests(unittest.TestCase):
         for name in PAGES:
             self.assertEqual(soup_for(name).select_one(".nav-links a")["href"], "./", name)
 
-    def test_lab_rows_match_homepage(self):
-        home = BeautifulSoup((ROOT / "index.html").read_text(encoding="utf-8"), "lxml")
-        expected = self.lab_rows(home.select_one("#builds"))
+    def test_the_lab_lives_on_the_landing(self):
         found = self.lab_rows(self.landing())
-        self.assertTrue(found)
-        self.assertEqual([r[:2] for r in found], [r[:2] for r in expected])
-        self.assertEqual(found, expected)
-        self.assertIn("Kindling", [r[0] for r in found])
-        self.assertTrue(all(r[1] in ("Live", "Prototype") for r in found))
+        live = {"Kindling", "The Man and the Machine", "Dreamcatcher", "Grandmaster"}
+        self.assertEqual(len(found), 11)
+        for name, status, *rest in found:
+            self.assertEqual(status, "Live" if name in live else "Prototype", name)
+            if status == "Prototype":
+                self.assertTrue(rest[-1].startswith("https://github.com/jgerms20/"), name)  # code, not a fake app
+        self.assertNotIn("\u2014", (ROOT / "builds/index.html").read_text(encoding="utf-8"))  # no em dashes
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('href="builds/"', home)  # the homepage points here for the full lab
         github = self.landing().select_one(".lab-index-foot a")
         self.assertEqual(github["href"], "https://github.com/jgerms20")
 

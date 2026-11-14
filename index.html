@@ -938,6 +938,7 @@
         .lab-chip.is-prototype { border-color: var(--gold); color: var(--gold); }
         .lab-chip.is-in-development { border-color: var(--ink-faint); color: var(--ink-mid); }
         .lab-index-foot { margin-top: 20px; }
+        .lab-more { margin-top: clamp(28px, 4vw, 44px); font-size: 0.95rem; }
         @media (max-width: 860px) { .lab-list { grid-template-columns: 1fr; } }
         @media (max-width: 480px) { .lab-row a { grid-template-columns: 48px minmax(0, 1fr); } .lab-row img { width: 48px; height: 32px; } .lab-row-side { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; } }
         .lab-hero .lab-body { padding: clamp(24px, 3.4vw, 48px); justify-content: center; }
@@ -1578,92 +1579,7 @@
                 </a>
             </div>
 
-            <div class="lab-index rv" id="lab">
-                <div class="lab-index-head">
-                    <h3 class="lab-index-title">The <span class="it">Lab</span></h3>
-                    <p class="lab-index-note"><span class="lab-chip is-live">Live</span> you can use it today &middot; <span class="lab-chip is-prototype">Prototype</span> working build, not a finished product</p>
-                </div>
-                <ul class="lab-list">
-                    <li class="lab-row">
-                        <a href="https://jgerms20.github.io/curious-and-creative/kindling/" target="_blank" rel="noopener">
-                            <img src="assets/lab/kindling.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Kindling</span><span class="lab-row-tag">Card game</span><span class="lab-row-desc">A card game for people who want more of each other: four decks, heat 1 to 5, with consent built into every rule. Play it free online; the box is on pre-order.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Play it &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://jgerms20.github.io/the_man_and_the_machine/" target="_blank" rel="noopener">
-                            <img src="assets/lab/manmachine.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">The Man and the Machine</span><span class="lab-row-tag">AI Music Collaboration</span><span class="lab-row-desc">Play bass or connect MIDI — and the AI plays back. A real-time jam session tool with 10 AI musician personalities: from Supportive to Adversary, Listen to Free. Built with React, TypeScript, Web Audio API, and Claude Code.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Open it &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://jgerms20.github.io/Dreamcatcher/" target="_blank" rel="noopener">
-                            <img src="assets/lab/dreamcatcher.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Dreamcatcher</span><span class="lab-row-tag">Dream Journal · Voice</span><span class="lab-row-desc">Speak your dream the second you wake up, before it's gone. An adaptive AI interview deepens the recall, then reads it back through four lenses — Jungian, Freudian, cognitive, and cultural — and correlates it against your sleep data.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Open it &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://jgerms20.github.io/Grandmaster/" target="_blank" rel="noopener">
-                            <img src="assets/lab/grandmaster.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Grandmaster</span><span class="lab-row-tag">Chess · Real-Time</span><span class="lab-row-desc">A live, shared chess tournament hub. Think ESPN Tournament Challenge — but for your friend group. Live bracket tracking, Chess.com integration, auto-seeding by rating.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-live">Live</span><span class="lab-row-go">Open it &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Veritas" target="_blank" rel="noopener">
-                            <img src="assets/lab/veritas.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Veritas</span><span class="lab-row-tag">Media Intelligence</span><span class="lab-row-desc">AI-powered bias detection for news and media. Analyze content for perspective, compare sources, and see the full picture.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Creator-Search" target="_blank" rel="noopener">
-                            <img src="assets/lab/creatorsearch.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Creator Search</span><span class="lab-row-tag">Creator Discovery</span><span class="lab-row-desc">AI-powered influencer and creator discovery. Find the perfect creators for your brand based on audience, style, and engagement.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Archive" target="_blank" rel="noopener">
-                            <img src="assets/lab/closet.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Digital Closet Archive</span><span class="lab-row-tag">Digital Closet</span><span class="lab-row-desc">AI-powered wardrobe organizer. Catalog, style, and manage your closet with intelligent outfit recommendations.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Jukeboxd" target="_blank" rel="noopener">
-                            <img src="assets/lab/jukeboxd.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Jukeboxd</span><span class="lab-row-tag">Music Social</span><span class="lab-row-desc">Letterboxd for music. Track, rate, and review albums. Share your musical journey and discover new sounds.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Aetheria" target="_blank" rel="noopener">
-                            <img src="assets/lab/aetheria.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Ætheria</span><span class="lab-row-tag">Sound Therapy</span><span class="lab-row-desc">AI-generated binaural beats for focus, relaxation, and meditation. Custom soundscapes tailored to your mental state.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Momentum" target="_blank" rel="noopener">
-                            <img src="assets/lab/momentum.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Momentum</span><span class="lab-row-tag">Productivity</span><span class="lab-row-desc">AI-powered productivity and goal tracking. Build momentum with intelligent task management and progress insights.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                    <li class="lab-row">
-                        <a href="https://github.com/jgerms20/Perfect-Day-Crafter" target="_blank" rel="noopener">
-                            <img src="assets/lab/perfectday.svg" alt="" width="64" height="40" loading="lazy" decoding="async">
-                            <span class="lab-row-main"><span class="lab-row-name">Perfect Day Crafter</span><span class="lab-row-tag">Life Design</span><span class="lab-row-desc">Design your ideal day with AI. Plan routines, optimize your schedule, and build habits that align with your goals.</span></span>
-                            <span class="lab-row-side"><span class="lab-chip is-prototype">Prototype</span><span class="lab-row-go">See the code &#8599;</span></span>
-                        </a>
-                    </li>
-                </ul>
-                <p class="lab-index-foot"><a href="https://github.com/jgerms20" target="_blank" rel="noopener" class="rule-link">Everything on GitHub &#8599;</a></p>
-            </div>
+            <p class="lab-more rv" id="lab"><a href="builds/" class="rule-link">The whole lab: eleven more builds, labeled Live or Prototype &rarr;</a></p>
         </div>
     </section>
 

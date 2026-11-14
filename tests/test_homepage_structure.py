@@ -61,7 +61,7 @@ class HomepageStructureTests(unittest.TestCase):
     def test_builds_lead_then_brand_work_photography_on_air(self):
         self.assertEqual(
             self.page.body_sections,
-            ["hero", "builds", "work", "photography", "podcasts", "network", "notes",
+            ["hero", "builds", "work", "photography", "podcasts", "notes",
              "about", "media-diet", "in-the-works", "contact"],
         )
         for number, section in (("01", "builds"), ("02", "work"), ("03", "photography"), ("04", "podcasts"), ("05", "about")):
@@ -99,13 +99,6 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn('href="shop.html"', band)
         self.assertIn('href="mailto:', band)
         self.assertNotIn("veil", PAGE)
-
-    def test_network_band_follows_podcasts_and_links_to_the_hub(self):
-        band = PAGE[PAGE.index('<section id="network"'):]
-        band = band[: band.index("</section>")]
-        self.assertIn('href="network/"', band)
-        self.assertIn("Janel Moore", band)
-        self.assertIn("jgerms20.github.io/curious-and-creative", band)
 
     def test_no_culture_chapter_and_advisory_work_is_public_in_brand_work(self):
         self.assertNotIn('id="projects"', PAGE)
@@ -166,7 +159,7 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn("I find the idea and <em>build the thing.</em>", hero)
         self.assertIn("Strategy, stories, and the things I build when nobody assigned them.", hero)
         self.assertIn("Now booking independent work", hero)
-        self.assertIn("Co-founder, The Curious &amp; Creative Company", hero)
+        self.assertIn("Co-founder &amp; CEO, The Curious &amp; Creative Company", hero)
         # the agency is history, never the current job
         now = hero[hero.index('class="hero-stats hero-now"'):]
         now = now[: now.index("</dl>")]
@@ -185,7 +178,7 @@ class HomepageStructureTests(unittest.TestCase):
         lead = "Joshua McKenzie German | Creative &amp; Cultural Strategist Who Builds"
         self.assertIn(f"<title>{lead}</title>", head)
         self.assertIn(f'property="og:title" content="{lead}"', head)
-        self.assertIn("Co-founder of The Curious &amp; Creative Company", head)
+        self.assertIn("Co-founder and CEO of The Curious &amp; Creative Company", head)
         self.assertNotIn("LLC", PAGE)
     def test_in_the_works_does_not_overclaim(self):
         self.assertNotIn("In production", PAGE)
@@ -215,22 +208,8 @@ class HomepageStructureTests(unittest.TestCase):
         cases = re.findall(r'<a href="(builds/[^"]+)" class="lab-card', builds)
         self.assertEqual(cases, ["builds/gen-alpha-intelligence-lab.html", "builds/meme-library.html", "builds/life-gamified.html"])
         self.assertIn('<span class="lab-status">Invite only</span>', builds)  # Gen Alpha is not public
-        lab = builds[builds.index('id="lab"'):]
-        names = re.findall(r'class="lab-row-name">(.*?)</span>', lab)
-        self.assertIn("Kindling", names)
-        for row in re.findall(r'<li class="lab-row">.*?</li>', lab, re.S):
-            status = re.search(r'class="lab-chip is-([a-z-]+)"', row).group(1)
-            self.assertIn(status, {"live", "prototype", "in-development"})
-            if status == "prototype":
-                self.assertIn("See the code", row)  # never dressed up as a finished app
+        self.assertIn('href="builds/"', builds)  # the full lab lives on its own page
         self.assertIn('id="ai"', builds)  # old #ai links still land here
-    def test_network_band_names_the_network_and_drops_god_is_brazilian(self):
-        band = PAGE[PAGE.index('<section id="network"'):]
-        band = band[: band.index("</section>")]
-        self.assertIn("The Curious &amp; Creative Network", band)
-        self.assertNotIn("brazil", band)
-        self.assertIn("network/art/dominate.jpg", band)
-
     def test_contact_invites_collaboration(self):
         contact = PAGE[PAGE.index('<section id="contact"'):]
         contact = contact[: contact.index("</section>")]
@@ -267,6 +246,16 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r'class="pod-card', pods)), 3)
         self.assertIn("podcasts/podcast-dominate.html", pods)  # the archive, as a line
         self.assertNotRegex(pods, r"\b(Four|Three|Eight) [Ss]hows\b")
+
+
+    def test_curious_creative_is_the_founder_story_not_a_band(self):
+        self.assertNotIn('<section id="network"', PAGE)
+        about = PAGE[PAGE.index('<section id="about"'):]
+        about = about[: about.index("</section>")]
+        self.assertIn("co-founder and CEO of The Curious &amp; Creative Company", about)
+        self.assertIn("My work starts with curiosity.", about)
+        self.assertIn("a journalist&rsquo;s instinct to ask questions", about)
+        self.assertIn('<a href="network/">Curious &amp; Creative</a>', PAGE)
 
 
 if __name__ == "__main__":
