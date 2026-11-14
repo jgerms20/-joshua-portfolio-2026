@@ -254,13 +254,14 @@ class PhotoSetTests(unittest.TestCase):
                 photo["set"] = "oregon"
         sets = load_photo_sets(SETS) + [{"slug": "oregon", "title": "Oregon", "year": "2024", "blurb": "Fog and pines."}]
         page = render_photo_site(photos, root=ROOT, sets=sets)
-        self.assertRegex(page, r'<article class="set-card[^"]*" data-set="set-oregon">')
+        self.assertRegex(page, r'<article class="set-card[^"]*" id="series-set-oregon" data-set="set-oregon">')
         self.assertIn('href="#set-oregon" data-open="set-oregon" data-index="0"', page)
         self.assertIn('<section class="gallery" id="set-oregon"', page)
         self.assertIn("2024 &middot; 09 frames", page)
         self.assertIn("Fog and pines.", page)
-        # set order follows the file: Rio first
+        # set order follows the file: Rio first, and both sit after Places
         self.assertLess(page.index('data-set="set-rio-de-janeiro"'), page.index('data-set="set-oregon"'))
+        self.assertLess(page.index('data-set="places"'), page.index('data-set="set-rio-de-janeiro"'))
         # a set frame from a folder group still shows in that series too
         self.assertIn('<section class="gallery" id="places"', page)
 
@@ -383,25 +384,39 @@ class PhotoSiteTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
-    def test_four_views_in_nav_order(self):
+    def test_three_views_and_a_booking_verb_in_the_nav(self):
+        """Work, About, Book a shoot. Services folded into Book."""
         views = re.findall(r'<(?:div|section) class="view view--(\w+)[^"]*" id="(\w+)" data-view="(\w+)"', self.page)
-        self.assertEqual([v[0] for v in views], ["work", "about", "services", "book"])
+        self.assertEqual([v[0] for v in views], ["work", "about", "book"])
         self.assertTrue(all(a == b == c for a, b, c in views))
         nav = self.page[self.page.index('<nav class="nav-links"'):]
         nav = nav[: nav.index("</nav>")]
-        self.assertEqual(re.findall(r'href="([^"]+)"', nav), ["#work", "#about", "#services"])
-        self.assertIn(f'class="nav-book" href="{STUDIO_PHOTO_URL}" {EXTERNAL}', self.page)
-        header = self.page[: self.page.index("</header>")]
+        self.assertEqual(re.findall(r'href="([^"]+)"', nav), ["#work", "#about", "#book"])
+        self.assertEqual(re.findall(r">([^<]+)</a>", nav), ["Work", "About", "Book a shoot"])
+        self.assertIn('<a class="nav-book" href="#book" data-nav="book">Book a shoot</a>', nav)
+        self.assertNotIn("Services", nav)
+        self.assertNotIn('data-view="services"', self.page)
+        header = self.page[self.page.index('<header class="nav"'): self.page.index("</header>")]
+        self.assertEqual(header.count("nav-book"), 1)
         self.assertIn("Joshua McKenzie German", header)
         self.assertIn(">Photography<", header)
         self.assertIn('class="nav-home" href="../"', self.page)
         # each view has one heading the router focuses
-        for view in ("work", "about", "services", "book"):
+        for view in ("work", "about", "book"):
             self.assertEqual(_view(self.page, view).count("data-view-heading"), 1, view)
+
+    def test_old_hashes_still_open_the_right_view(self):
+        """#book, and the retired #services and #inquiry, all open Book."""
+        head_script = self.page[self.page.index("<script>"): self.page.index("</script>")]
+        self.assertIn("if(h==='services'||h==='inquiry')h='book';", head_script)
+        self.assertIn("'|about|book|'", head_script)
+        self.assertIn("var ALIASES = { services: 'book', inquiry: 'book' };", self.page)
+        self.assertIn('id="book" data-view="book"', self.page)
 
     def test_views_are_plain_sections_without_js(self):
         """Hidden only under :root[data-page], which only the scripts set."""
         self.assertIn(":root[data-page] .view { display: none; }", self.page)
+        self.assertNotIn('data-page="services"', self.page)
         self.assertNotRegex(self.page, r'class="view[^"]*"[^>]*\shidden\b')
         head_script = self.page[self.page.index("<script>"): self.page.index("</script>")]
         self.assertIn("data-page", head_script)
@@ -410,21 +425,29 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn("aria-current", self.page)
         self.assertIn("heading.focus({ preventScroll: true })", self.page)
 
-    def test_work_view_is_told_as_series(self):
-        """Rio first, then Event coverage (with the KOAT job), Portraits,
-        Fashion & editorial and Places. Travel is folded into Places."""
+    def test_work_is_grouped_by_what_a_buyer_hires_for(self):
+        """Portraits, Fashion & Editorial, Events (with the KOAT job), Places,
+        then the Rio set. Travel is folded into Places."""
         work = _view(self.page, "work")
         self.assertIn('id="hero"', work)
         self.assertLess(work.index('id="series"'), work.index('id="galleries"'))
         self.assertIn("Selected <em>series</em>", work)
-        self.assertIn("05 series &middot; 37 frames", work)
-        order = re.findall(r'<article class="set-card[^"]*" data-set="([^"]+)">', work)
-        self.assertEqual(order, ["set-rio-de-janeiro", "events", "portraits", "fashion", "places"])
+        order = re.findall(r'<article class="set-card[^"]*" id="series-([^"]+)" data-set="\1">', work)
+        self.assertEqual(order, ["portraits", "fashion", "events", "places", "set-rio-de-janeiro"])
         titles = re.findall(r'<h3 class="set-card__title"><a [^>]+>([^<]+)<', work)
-        self.assertEqual(titles, ["Rio de Janeiro", "Event coverage", "Portraits", "Fashion &amp; editorial", "Places"])
-        # every series has a one-line caption
+        self.assertEqual(titles, ["Portraits", "Fashion &amp; Editorial", "Events", "Places", "Rio de Janeiro"])
+        # one row of plain jump links: the four things a buyer hires for
+        index = work[work.index('<nav class="work-index'):]
+        index = index[: index.index("</nav>")]
+        self.assertEqual(
+            re.findall(r'<a href="#(series-[^"]+)">([^<]+)</a>', index),
+            [("series-portraits", "Portraits"), ("series-fashion", "Fashion &amp; Editorial"),
+             ("series-events", "Events"), ("series-places", "Places")],
+        )
+        # every series has a one-line caption, and no frame/series counter in the head
         self.assertEqual(work.count('class="set-card__blurb"'), 5)
-        card = work[work.index('<article class="set-card'): ]
+        self.assertNotIn("05 series", work)
+        card = work[work.index('data-set="set-rio-de-janeiro"'):]
         card = card[: card.index("</article>")]
         self.assertIn("Brazil &middot; 04 frames", card)
         self.assertIn("Dois Irmãos at dusk", card)
@@ -434,7 +457,8 @@ class PhotoSiteTests(unittest.TestCase):
             self.assertIn(f'<section class="gallery" id="{slug}"', work)
         self.assertIn('<section class="gallery" id="set-rio-de-janeiro"', work)
         # thin groups are folded, not shown as weak sections
-        for gone in ('id="travel"', 'id="landscapes"', 'id="more"', "More <em>work</em>", "Events &amp; Live"):
+        for gone in ('id="travel"', 'id="landscapes"', 'id="more"', "More <em>work</em>", "Events &amp; Live",
+                     ">Event coverage<a", "Fashion &amp; editorial"):
             self.assertNotIn(gone, work)
         self.assertIn("Landscapes &amp; travel &middot; 12 frames", work)
         # Rio frames live in the set, not in a leftover group
@@ -442,15 +466,39 @@ class PhotoSiteTests(unittest.TestCase):
         # old group links still open the merged series
         self.assertIn("landscapes: 'places', travel: 'places'", self.page)
 
+    def test_series_read_as_notes_with_previous_and_next(self):
+        """The viewer steps between series in card order and shows a set's
+        location; the no-JS blocks link to their neighbours."""
+        galleries = re.findall(r'<section class="gallery" id="([^"]+)"', self.page)
+        self.assertEqual(galleries, ["portraits", "fashion", "events", "places", "set-rio-de-janeiro"])
+        self.assertIn('id="set-rio-de-janeiro" data-title="Rio de Janeiro" data-note="Rio de Janeiro, Brazil"', self.page)
+        # only the set has a place in the data: no invented locations elsewhere
+        self.assertEqual(self.page.count("data-note="), 1)
+        self.assertIn('<a href="#portraits">&larr;&nbsp;Portraits</a><a href="#events">Events&nbsp;&rarr;</a>', self.page)
+        first = self.page[self.page.index('<section class="gallery" id="portraits"'):]
+        first = first[: first.index("</section>")]
+        self.assertNotIn("&larr;", first)
+        last = self.page[self.page.index('<section class="gallery" id="set-rio-de-janeiro"'):]
+        last = last[: last.index("</section>")]
+        self.assertIn('<a href="#places">&larr;&nbsp;Places</a></p>', last)
+        # the viewer
+        self.assertIn('id="lb-prev-set"', self.page)
+        self.assertIn('id="lb-next-set"', self.page)
+        self.assertIn("if (el.id.indexOf('stills-') !== 0) seriesOrder.push(el.id);", self.page)
+        self.assertIn("history.replaceState(null, '', '#' + slug)", self.page)
+
     def test_positioning_line_names_specialty_and_place(self):
         hero = self.page[self.page.index('<section class="hero"'):]
         hero = hero[: hero.index("</section>")]
         self.assertIn(
-            '<p class="hero-line">Portraits, fashion and event coverage in Los Angeles, with a documentary eye. '
-            "On 35mm film and digital.</p>",
+            '<p class="hero-line">Los Angeles photographer: portraits, fashion and event coverage, '
+            "on 35mm film and digital.</p>",
             hero,
         )
         self.assertIn('href="#series">See the work</a>', hero)
+        # one line, no kicker repeating it
+        self.assertNotIn('class="kicker"', hero)
+        self.assertNotIn("documentary eye", self.page)
 
     def test_hero_is_short_and_leads_with_booking(self):
         hero = self.page[self.page.index('<section class="hero"'):]
@@ -499,35 +547,43 @@ class PhotoSiteTests(unittest.TestCase):
         for gone in ("locked", "now booking", "in development", "good fits", "real estate & spaces",
                      "hospitality & locations", "not client work", "shot list"):
             self.assertNotIn(gone, text)
-        services = _view(self.page, "services")
-        self.assertIn("Also booking: product, food and spaces.", services)
+        book = _view(self.page, "book")
+        self.assertIn("Also booking: product, food and spaces.", book)
         self.assertNotIn("card--locked", self.page)
 
-    def test_services_say_what_who_and_how_with_one_button(self):
-        services = _view(self.page, "services")
-        self.assertEqual(services.count('class="svc-row"'), 3)
-        self.assertEqual(services.count('class="svc-for"'), 3)
-        self.assertEqual(services.count('class="btn btn-safelight"'), 1)
-        self.assertIn(f'class="btn btn-safelight" href="{STUDIO_PHOTO_URL}" {EXTERNAL}', services)
-        self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}', services)
-        self.assertIn('<span class="svc-name">Event coverage</span>', services)
-        self.assertIn("Rates quoted per project", services)
-        # how a shoot runs: inquiry, plan, shoot, delivery
-        self.assertIn("How it works", services)
-        steps = re.findall(r'<span class="svc-step__name">([^<]+)</span>', services)
-        self.assertEqual(steps, ["Inquiry", "Plan", "Shoot", "Delivery"])
-        # the one button comes after the steps
-        self.assertLess(services.index('class="svc-steps"'), services.index('class="btn btn-safelight"'))
-        text = _visible_text(services).lower()
-        for gone in ("strategy", "strategist", "brief", "add-on", "cut-downs", "within", "days", "hours"):
+    def test_book_states_the_ask_then_the_form_then_email(self):
+        """Services folded into Book: the ask, one Studio button, the events
+        form, a direct email, and what Joshua shoots in the Work group names."""
+        book = _view(self.page, "book")
+        self.assertIn('<p class="book-lede">Tell me the date, the place and what the photos are for.</p>', book)
+        self.assertEqual(book.count('class="btn btn-safelight"'), 1)
+        self.assertIn(f'class="btn btn-safelight" href="{STUDIO_PHOTO_URL}" {EXTERNAL}>Book a shoot', book)
+        self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}>Use the events form', book)
+        self.assertIn(f'href="mailto:{INQUIRY_EMAIL}"', book)
+        # the ask, then the button, then email
+        self.assertLess(book.index('class="book-lede"'), book.index('class="btn btn-safelight"'))
+        self.assertLess(book.index('class="btn btn-safelight"'), book.index("mailto:"))
+        names = re.findall(r'<span class="svc-name">([^<]+)</span>', book)
+        self.assertEqual(names, ["Portraits", "Fashion &amp; Editorial", "Events"])
+        self.assertEqual(book.count('class="svc-for"'), 3)
+        self.assertIn("Rates quoted per project", book)
+        # no process steps, no reply-time promise
+        self.assertNotIn("svc-step", self.page)
+        text = _visible_text(book).lower()
+        for gone in ("strategy", "strategist", "brief", "add-on", "cut-downs", "within", "days", "hours",
+                     "as soon as possible", "get back", "reply"):
             self.assertNotIn(gone, text)
-        self.assertLess(len(text.split()), 200)
+        self.assertLess(len(text.split()), 110)
 
     def test_about_is_short_and_names_no_agencies(self):
         about = _view(self.page, "about")
         copy = about[about.index('class="about-copy'):]
         text = _visible_text(copy)
-        self.assertLessEqual(len(re.findall(r"[.!?](?:\s|$)", text.replace("joshuamgerman.com", ""))), 5)
+        self.assertLessEqual(len(re.findall(r"[.!?](?:\s|$)", text.replace("joshuamgerman.com", ""))), 4)
+        self.assertLess(len(text.split()), 120)
+        # leads with place and trade, in the first person
+        self.assertIn('<p class="about-lede">I&rsquo;m Joshua, a photographer in Los Angeles.</p>', about)
+        self.assertNotIn("That curiosity", about)
         # only facts the main site already states
         for fact in ("Los Angeles", "South Carolina", "journalism", "35mm film and digital", "Nikon D500", "Sony a6100"):
             self.assertIn(fact, text)
@@ -537,34 +593,66 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn('href="../"', about)
         self.assertEqual(about.count("<img"), 1)
 
+    def test_about_has_the_contact_block_right_under_it(self):
+        about = _view(self.page, "about")
+        contact = about[about.index('class="direct about-contact"'):]
+        self.assertIn(f'class="btn btn-safelight" href="{STUDIO_PHOTO_URL}" {EXTERNAL}>Book a shoot', contact)
+        self.assertIn(f'href="mailto:{INQUIRY_EMAIL}"', contact)
+        self.assertIn(f'href="{INSTAGRAM_URL}" {EXTERNAL}>Instagram @viewsbygerm</a>', contact)
+        # directly after the bio, before the link to the main site
+        self.assertLess(about.index("what makes people tick"), about.index("about-contact"))
+        self.assertLess(about.index("about-contact"), about.index('class="about-more"'))
+
     def test_book_view_routes_paid_shoots_to_the_studio(self):
         """#book stays a working anchor (work pages and old links use it), but
         paid shoots are booked on The Curious & Creative Company's form."""
         book = _view(self.page, "book")
         self.assertNotIn("<form", self.page)
         self.assertNotIn("Photo inquiry: ", self.page)
-        self.assertIn("Paid shoots are booked through my company.", book)
-        self.assertIn("The Curious &amp; Creative Company", book)
+        self.assertIn("Shoots are booked through my company, The Curious &amp; Creative Company.", book)
         self.assertIn(f'href="{STUDIO_PHOTO_URL}" {EXTERNAL}', book)
         self.assertIn(f'href="{STUDIO_EVENTS_URL}" {EXTERNAL}', book)
-        # a personal line stays, but only for saying hi
-        self.assertIn("Not a booking? Just say hi.", book)
+        # direct email under the form
+        self.assertIn("Or email me directly", book)
         self.assertIn(f'href="mailto:{INQUIRY_EMAIL}"', book)
         self.assertIn(f'href="{INSTAGRAM_URL}" {EXTERNAL}>Instagram @viewsbygerm</a>', book)
-        self.assertIn("'|about|services|book|'", self.page)  # #book still opens this view
-        self.assertIn("h==='inquiry'?'book'", self.page)    # and so does the old #inquiry
 
     def test_every_booking_cta_goes_to_the_studio(self):
-        """Hero, top bar, mobile book bar, services and booking buttons."""
-        ctas = [attrs for tag, attrs in self.tags.tags if tag == "a" and (
-            "btn-safelight" in attrs.get("class", "") or "nav-book" in attrs.get("class", ""))]
-        self.assertGreaterEqual(len(ctas), 5)
+        """Hero, mobile book bar, About and Book buttons go to the Studio form.
+        The nav's "Book a shoot" and the footer line open the Book view, which
+        holds the ask and both Studio forms."""
+        ctas = [attrs for tag, attrs in self.tags.tags if tag == "a" and "btn-safelight" in attrs.get("class", "")]
+        self.assertGreaterEqual(len(ctas), 4)
         for attrs in ctas:
             self.assertIn(attrs["href"], {STUDIO_PHOTO_URL, STUDIO_EVENTS_URL}, attrs)
             self.assertEqual((attrs.get("target"), attrs.get("rel")), ("_blank", "noopener"), attrs)
         bar = self.page[self.page.index('<div class="book-bar"'):]
-        self.assertIn(f'href="{STUDIO_PHOTO_URL}"', bar[: bar.index("</div>")])
-        self.assertNotIn('href="#book"', self.page.replace('href="#book-title"', ""))
+        bar = bar[: bar.index("</div>")]
+        self.assertIn(f'href="{STUDIO_PHOTO_URL}"', bar)
+        self.assertIn(">Book a shoot <", bar)
+        # the booking verb is the same wherever it appears
+        self.assertNotIn("Book through the Studio", self.page)
+        for tag, attrs in self.tags.tags:
+            if tag == "a" and attrs.get("href") == "#book":
+                self.assertIn(attrs.get("class", ""), {"nav-book", ""}, attrs)
+
+    def test_footer_line_on_every_view(self):
+        """Outside the views, so it shows under Work, About and Book."""
+        foot = self.page[self.page.index('<footer class="foot">'): self.page.index("</footer>")]
+        self.assertIn(
+            '<p class="foot-line">Joshua McKenzie German &middot; Photography &middot; Los Angeles &middot; '
+            '<a href="#book">Book a shoot</a></p>',
+            foot,
+        )
+        self.assertGreater(self.page.index('<footer class="foot">'), self.page.index(PHOTO_SITE_END))
+        self.assertIn('href="../shop.html"', foot)
+        self.assertIn('href="../shop.html#photobooks"', foot)
+
+    def test_no_em_dashes_in_the_copy(self):
+        block = self.page[self.page.index(PHOTO_SITE_START): self.page.index("</footer>")]
+        text = _visible_text(block)
+        self.assertNotIn("\u2014", text)
+        self.assertNotIn("&mdash;", text)
 
     def test_instagram_is_viewsbygerm(self):
         self.assertEqual(INSTAGRAM_URL, "https://www.instagram.com/viewsbygerm/")
@@ -581,10 +669,10 @@ class PhotoSiteTests(unittest.TestCase):
 
     def test_event_coverage_entry_reads_without_stills(self):
         work = _view(self.page, "work")
-        # the KOAT job sits under the Event coverage series, before Portraits
+        # the KOAT job sits under the Events series, before Places
         self.assertLess(work.index('data-set="events"'), work.index('id="coverage-koat-ss27"'))
-        self.assertLess(work.index('id="coverage-koat-ss27"'), work.index('data-set="portraits"'))
-        block = work[work.index('<div class="series-block" id="coverage">'): work.index('data-set="portraits"')]
+        self.assertLess(work.index('id="coverage-koat-ss27"'), work.index('data-set="places"'))
+        block = work[work.index('<div class="series-block" id="coverage">'): work.index('data-set="places"')]
         self.assertIn('data-set="events"', block)
         self.assertIn('id="coverage-koat-ss27"', block)
         entry = work[work.index('<article class="cov-entry'):]
@@ -598,6 +686,8 @@ class PhotoSiteTests(unittest.TestCase):
         self.assertIn(f'href="{STUDIO_EVENTS_URL}"', entry)
         self.assertNotIn("<img", entry)
         self.assertNotIn("stills-koat-ss27", self.page)
+        # no location in the data, so no location line
+        self.assertNotIn("cov-place", entry)
         text = _visible_text(entry).lower()
         for invented in ("client", "commissioned", "coming soon"):
             self.assertNotIn(invented, text)
@@ -735,6 +825,14 @@ class MoreWorkTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render_photo_site(photos, root=ROOT, coverage=[dict(coverage[0], stills=["nope"])])
 
+    def test_coverage_location_shows_only_when_the_data_has_one(self):
+        photos = load_photography_manifest(MANIFEST)
+        coverage = load_photo_site_settings(MANIFEST)["coverage"]
+        self.assertEqual(coverage[0]["location"], "")
+        page = render_photo_site(photos, root=ROOT, coverage=[dict(coverage[0], location="Test Hall")])
+        self.assertIn('<span class="cov-place">Test Hall</span>', page)
+        self.assertNotIn("cov-place", render_photo_site(photos, root=ROOT, coverage=coverage))
+
     def test_coverage_entries_are_validated(self):
         base = {"slug": "x", "title": "X", "date": "2026-11-07", "summary": "S.", "credits": [], "stills": []}
         with TemporaryDirectory() as directory:
@@ -745,6 +843,8 @@ class MoreWorkTests(unittest.TestCase):
                 dict(base, title=""),
                 dict(base, client="Someone"),
                 dict(base, stills="concert-light"),
+                dict(base, location=""),
+                dict(base, location=["LA"]),
             ):
                 path.write_text(json.dumps({"version": 1, "entries": [], "site": {"coverage": [bad]}}), encoding="utf-8")
                 with self.assertRaises(ValueError, msg=bad):

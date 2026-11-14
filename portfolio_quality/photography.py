@@ -356,7 +356,7 @@ def _darkroom_offer(photos: list[dict[str, object]], coverage: list[dict[str, ob
         f'<span style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.1">{escape(name)}</span>'
         f'<span style="font-family:var(--mono);font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;'
         f'color:var(--paper-on-dark-mid);text-align:right">{escape(short)}</span></li>'
-        for name, short, *_ in SERVICES
+        for name, short, _ in SERVICES
     )
     offer = (
         '<div style="min-width:0">'
@@ -441,11 +441,12 @@ def _darkroom_sets(photo_sets: list[dict[str, object]]) -> str:
 # markers is rendered here from data/photography.json and
 # data/photo-sets.json.
 #
-# The page is four views: Work, About, Services, Book. Each is a
-# server-rendered <section data-view>. Without JavaScript they stack as one
-# page; with it, the shell's router shows one view per hash (#about,
-# #services, #book; empty or #work is Work; #set-<slug> opens Work and that
-# set in the viewer).
+# The page is three views: Work, About, Book. Each is a server-rendered
+# <section data-view>. Without JavaScript they stack as one page; with it,
+# the shell's router shows one view per hash (#about, #book; the old
+# #services and #inquiry open Book; empty or #work is Work; #set-<slug>
+# opens Work and that set in the viewer). The nav reads Work, About,
+# Book a shoot, and "Book a shoot" repeats as the main button everywhere.
 #
 # Optional keys the renderer understands on a manifest entry:
 #   set           a set slug from data/photo-sets.json (place/theme collection)
@@ -492,61 +493,46 @@ STUDIO_EVENTS_LABEL = "Book event coverage through the Studio&nbsp;&#8599;"
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
-VIEWS = ("work", "about", "services", "book")
+VIEWS = ("work", "about", "book")
+BOOK_VERB = "Book a shoot"
 
 HERO_LEAD = "red-coat-studio"
 HERO_LEAD_POSITION = "50% 18%"
 # Frames that are not a series cover or card thumbnail, one per kind of work.
 HERO_STRIP = ("window-light-portrait", "club-dj", "palms-at-dusk")
-# The positioning line under the name: specialty + place, from what the work shows.
-HERO_LINE = (
-    "Portraits, fashion and event coverage in Los Angeles, with a documentary eye. "
-    "On 35mm film and digital."
-)
+# One line under the name: who, what, where. Facts only.
+HERO_LINE = "Los Angeles photographer: portraits, fashion and event coverage, on 35mm film and digital."
 
 # Joshua picks the About portrait; this one is him behind a camera.
 ABOUT_PORTRAIT = {
     "src": "photos/self/IMG_1912.jpg",
     "alt": "Joshua McKenzie German raising a camera to his eye outdoors.",
 }
-# One frame beside the Services list, so the view stays image-led.
-SERVICES_PHOTO = "artist-in-studio"
-SERVICES_PHOTO_POSITION = "50% 40%"
-
-# The named specialties: (name, short tag for the homepage band, description,
-# who it is for on the Services view).
+# What a buyer hires for: (name, short tag for the homepage band, who it is
+# for on the Book view). Same words as the Work groups.
 SERVICES = (
-    ("Portraits", "People & headshots", "People, headshots, personal sessions.",
-     "For people, families, graduates and artists."),
-    ("Fashion & editorial", "Lookbooks & tests", "Lookbooks, styling tests, campaigns.",
-     "For designers, stylists and models."),
-    ("Event coverage", "Documentary & BTS", "Documentary and behind the scenes: presentations, concerts, parties, launches.",
-     "For hosts, brands and venues."),
+    ("Portraits", "People & headshots", "For people, families, graduates and artists."),
+    ("Fashion & Editorial", "Lookbooks & tests", "For designers, stylists and models."),
+    ("Events", "Documentary & BTS", "For hosts, brands and venues."),
 )
 ALSO_BOOKING = "Also booking: product, food and spaces."
-# How a shoot runs, on the Services view: (step, what happens). No rates, no
-# turnaround promises: those are quoted per project.
-SERVICE_STEPS = (
-    ("Inquiry", "Send the date, the place and what the photos are for through the Studio form."),
-    ("Plan", "We agree on what to shoot, the timing and where the images will be used. You get a quote for the project."),
-    ("Shoot", "On location or on set, on digital or 35mm film."),
-    ("Delivery", "An edited selection of finished images, ready for where they are going."),
-)
+# The ask on the Book view: one sentence, a plain next step. No reply-time promise.
+BOOK_ASK = "Tell me the date, the place and what the photos are for."
 
-# The folder series, shown after the place sets (data/photo-sets.json) in
-# this order. "kind" and "caption" are the one line under each title; the
-# captions only name what the frames' alt text shows. Travel is folded into
-# Places: three frames are too thin to stand alone.
+# The work, grouped by what a buyer hires for, in this order. The place sets
+# (data/photo-sets.json) follow Places. "kind" and "caption" are the one line
+# under each title; the captions only name what the frames' alt text shows.
+# Travel is folded into Places: three frames are too thin to stand alone.
 PHOTO_PROJECTS = (
-    {"slug": "events", "title": "Event coverage", "match": ("photos/events/",), "cover": "concert-light",
-     "position": "50% 50%", "kind": "Documentary",
-     "caption": "Concerts, club nights, a night market, a culinary set and commencement day."},
     {"slug": "portraits", "title": "Portraits", "match": ("photos/portraits/",), "cover": "father-and-child",
      "position": "50% 40%", "kind": "People",
      "caption": "A father and his child, an artist in his studio, faces against graffiti, newsprint and window light."},
-    {"slug": "fashion", "title": "Fashion & editorial", "match": ("photos/fashion/",), "cover": "patterned-fashion",
+    {"slug": "fashion", "title": "Fashion & Editorial", "match": ("photos/fashion/",), "cover": "patterned-fashion",
      "position": "50% 35%", "kind": "Studio & street",
      "caption": "A red coat, painted denim, copper hair against concrete, a couple at a graffiti wall."},
+    {"slug": "events", "title": "Events", "match": ("photos/events/",), "cover": "concert-light",
+     "position": "50% 50%", "kind": "Documentary",
+     "caption": "Concerts, club nights, a night market, a culinary set and commencement day."},
     {"slug": "places", "title": "Places", "match": ("photos/landscape/", "photos/travel/"), "cover": "misty-valley",
      "position": "50% 50%", "kind": "Landscapes & travel",
      "caption": "Mist in the pines, rock off the coast, a museum, palms at dusk and swimmers under a pastel sky."},
@@ -561,8 +547,8 @@ RESERVED_IDS = {
     "top", "main", "hero", "recent", "work", "series", "sets", "coverage", "more", "shoots", "galleries",
     "about", "services", "book", "inquiry", "lightbox", *VIEWS,
 }
-# Id prefixes owned by sets and coverage entries.
-RESERVED_PREFIXES = ("set-", "coverage-", "stills-")
+# Id prefixes owned by sets, coverage entries and series cards.
+RESERVED_PREFIXES = ("set-", "coverage-", "stills-", "series-")
 
 
 @lru_cache(maxsize=None)
@@ -760,16 +746,17 @@ def load_photo_site_settings(path: Path) -> dict[str, object]:
     return {"shoots": cleaned, "coverage": _load_coverage(site.get("coverage") or [])}
 
 
-COVERAGE_FIELDS = {"slug", "specialty", "title", "date", "summary", "credits", "stills", "published"}
+COVERAGE_FIELDS = {"slug", "specialty", "title", "date", "summary", "credits", "stills", "published", "location"}
 
 
 def _load_coverage(items: object) -> list[dict[str, object]]:
     """site.coverage: event coverage entries, newest first. Text-led; stills optional.
 
     Each entry: slug, title, date (YYYY-MM-DD), summary, credits (list of
-    lines), optional specialty (default "Event coverage"), optional stills
-    (ids of published manifest entries, shown when present), optional
-    published (default true; false keeps a draft out of both outputs).
+    lines), optional specialty (default "Event coverage"), optional location
+    (where it was shot; shown only when given), optional stills (ids of
+    published manifest entries, shown when present), optional published
+    (default true; false keeps a draft out of both outputs).
     """
     if not isinstance(items, list):
         raise ValueError("photography manifest 'site.coverage' must be a list")
@@ -794,6 +781,9 @@ def _load_coverage(items: object) -> list[dict[str, object]]:
             raise ValueError(f"coverage entry {slug}: credits must be a list of lines")
         if not isinstance(stills, list) or not all(isinstance(still, str) and still.strip() for still in stills):
             raise ValueError(f"coverage entry {slug}: stills must be a list of photograph ids")
+        location = item.get("location")
+        if location is not None and (not isinstance(location, str) or not location.strip()):
+            raise ValueError(f"coverage entry {slug}: location must be a place name when set")
         published = item.get("published", True)
         if not isinstance(published, bool):
             raise ValueError(f"coverage entry {slug}: published must be true or false")
@@ -806,6 +796,7 @@ def _load_coverage(items: object) -> list[dict[str, object]]:
             "title": str(item["title"]).strip(),
             "date": str(item["date"]).strip(),
             "summary": str(item["summary"]).strip(),
+            "location": (location or "").strip(),
             "credits": [line.strip() for line in credits],
             "stills": [still.strip() for still in stills],
         })
@@ -916,11 +907,10 @@ def _render_hero(
     return f'''<section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="hero-grid">
             <div class="hero-copy">
-                <p class="kicker">Photography <span aria-hidden="true">&middot;</span> Los Angeles</p>
                 <h1 class="hero-title" id="hero-title" tabindex="-1" data-view-heading>Joshua McKenzie <em>German</em></h1>
                 <p class="hero-line">{escape(HERO_LINE)}</p>
                 <div class="hero-actions">
-                    <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>Book a shoot {_ext_arrow()}</a>
+                    <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>{BOOK_VERB} {_ext_arrow()}</a>
                     <a class="btn btn-line" href="{see_href}">See the work</a>
                 </div>
                 {strip}
@@ -949,10 +939,6 @@ def _render_recent(photos: list[dict[str, object]], placement: dict[str, tuple[s
     </section>'''
 
 
-def _series_count(number: int) -> str:
-    return f"{number:02d} series"
-
-
 def _render_series_card(item: dict[str, object], number: int, root: Path, *, lead: bool) -> str:
     """One series: a big cover, the title, one caption line and three more frames."""
     frames = item["frames"]
@@ -979,7 +965,7 @@ def _render_series_card(item: dict[str, object], number: int, root: Path, *, lea
         widths=WIDTHS_SET if lead else WIDTHS_COVER, sizes=SIZES_SET,
     )
     flip = " set-card--flip" if number % 2 == 0 else ""
-    return f'''<article class="set-card{flip} rv" data-set="{gallery}">
+    return f'''<article class="set-card{flip} rv" id="series-{gallery}" data-set="{gallery}">
                     <div class="set-card__cover">{cover}</div>
                     <div class="set-card__body">
                         <p class="set-card__meta">{" &middot; ".join(meta)}</p>
@@ -1011,10 +997,14 @@ def _render_coverage_entries(
             stills_markup = f'<ul class="cov-stills" aria-label="Stills from {_attr(item["title"])}">{thumbs}</ul>'
         credits = "".join(f"<li>{escape(line)}</li>" for line in item["credits"])
         credits_markup = f'<ul class="cov-credits">{credits}</ul>' if credits else ""
+        location = str(item.get("location") or "")
+        location_markup = (
+            f' <span aria-hidden="true">&middot;</span> <span class="cov-place">{escape(location)}</span>' if location else ""
+        )
         entries.append(
             f'''<article class="cov-entry rv" id="{entry_id}" aria-labelledby="{entry_id}-title">
                         <div class="cov-head">
-                            <p class="cov-meta"><span class="cov-kind">{escape(str(item["specialty"]))}</span> <span aria-hidden="true">&middot;</span> <time datetime="{_attr(item["date"])}">{escape(_date_label(str(item["date"])))}</time></p>
+                            <p class="cov-meta"><span class="cov-kind">{escape(str(item["specialty"]))}</span> <span aria-hidden="true">&middot;</span> <time datetime="{_attr(item["date"])}">{escape(_date_label(str(item["date"])))}</time>{location_markup}</p>
                             <h4 class="cov-title" id="{entry_id}-title">{escape(str(item["title"]))}</h4>
                         </div>
                         <div class="cov-body">
@@ -1032,19 +1022,44 @@ def _render_coverage_entries(
                 </div>'''
 
 
+def order_series(
+    photo_sets: list[dict[str, object]], projects: list[dict[str, object]]
+) -> list[dict[str, object]]:
+    """The work in buyer order: Portraits, Fashion & Editorial, Events, Places,
+    then the place sets (Rio de Janeiro) right after Places, then anything else."""
+    series = [{**project, "id": project["slug"]} for project in projects]
+    at = next((index + 1 for index, item in enumerate(series) if item["id"] == "places"), len(series))
+    return series[:at] + [dict(item) for item in photo_sets] + series[at:]
+
+
+def _location_note(item: dict[str, object]) -> str:
+    """A set's location line for the viewer: "Rio de Janeiro, Brazil"."""
+    title, place = str(item.get("title") or ""), str(item.get("place") or "")
+    if not place:
+        return ""
+    return title if place in title else f"{title}, {place}"
+
+
+def _render_work_index(series: list[dict[str, object]]) -> str:
+    """One row of jump links: the four things a buyer hires for."""
+    groups = {project["slug"] for project in PHOTO_PROJECTS}
+    links = "".join(
+        f'<li><a href="#series-{_attr(item["id"])}">{escape(str(item["title"]))}</a></li>'
+        for item in series
+        if item["id"] in groups
+    )
+    return f'<nav class="work-index rv" aria-label="Kinds of work"><ul>{links}</ul></nav>' if links else ""
+
+
 def _render_series(
-    photo_sets: list[dict[str, object]],
-    projects: list[dict[str, object]],
+    series: list[dict[str, object]],
     coverage: list[dict[str, object]],
     by_id: dict[str, dict[str, object]],
     root: Path,
     shoots: list[dict[str, str]],
 ) -> str:
-    """The work as series: the place sets first (Rio de Janeiro), then the
-    folder series (Event coverage, Portraits, Fashion & editorial, Places).
-    The event coverage jobs sit under the Event coverage series, in #coverage."""
-    series = [dict(item) for item in photo_sets]
-    series += [{**project, "id": project["slug"]} for project in projects]
+    """The work as series, grouped by what a buyer hires for. The event
+    coverage jobs sit under the Events series, in #coverage."""
     if not series and not coverage and not shoots:
         return ""
     coverage_markup = _render_coverage_entries(coverage, by_id, root) if coverage else ""
@@ -1061,13 +1076,12 @@ def _render_series(
         blocks.append(card)
     if coverage_markup and not placed_coverage:
         blocks.append(f'<div class="series-block" id="coverage">{coverage_markup}</div>')
-    total = len({str(frame["id"]) for item in series for frame in item["frames"]})
-    meta = f"{_series_count(len(series))} &middot; {_count(total, 'frame')}" if series else ""
-    head = _section_head("Selected <em>series</em>", meta, "series")
+    head = _section_head("Selected <em>series</em>", "", "series")
     body = "\n                ".join(blocks)
     return f'''<section class="sec sec--series" id="series" aria-labelledby="series-title">
         <div class="wrap">
             {head}
+            {_render_work_index(series)}
             <div class="set-cards">
                 {body}
             </div>
@@ -1097,10 +1111,12 @@ def _render_shoots(shoots: list[dict[str, str]]) -> str:
 
 def _render_galleries(galleries: list[dict[str, object]], root: Path) -> str:
     """Every set and group as a plain thumbnail block. Scripted pages hide these
-    and read them to fill the viewer; without JS the card links jump here.
+    and read them to fill the viewer (Previous/Next series included); without
+    JS the card links jump here and each block links to its neighbours.
 
     These are also the images the network mirror reads: 480px only, real alt.
     """
+    series = [gallery for gallery in galleries if not str(gallery["slug"]).startswith("stills-")]
     blocks = []
     for gallery in galleries:
         figures = []
@@ -1113,11 +1129,22 @@ def _render_galleries(galleries: list[dict[str, object]], root: Path) -> str:
                 f'data-alt="{_attr(frame["alt"])}" data-tag="{_attr(tag)}">'
                 f'<a href="{_attr(full)}">{_site_img(frame, root=root, widths=WIDTHS_THUMB, sizes=SIZES_THUMB)}</a></figure>'
             )
+        steps = ""
+        if gallery in series:
+            at = series.index(gallery)
+            neighbours = []
+            if at > 0:
+                neighbours.append(f'<a href="#{_attr(series[at - 1]["slug"])}">&larr;&nbsp;{escape(str(series[at - 1]["title"]))}</a>')
+            if at < len(series) - 1:
+                neighbours.append(f'<a href="#{_attr(series[at + 1]["slug"])}">{escape(str(series[at + 1]["title"]))}&nbsp;&rarr;</a>')
+            steps = "".join(neighbours)
+        note = str(gallery.get("note") or "")
+        note_attr = f' data-note="{_attr(note)}"' if note else ""
         blocks.append(
-            f'''<section class="gallery" id="{_attr(gallery["slug"])}" data-title="{_attr(gallery["title"])}" aria-label="{_attr(gallery["title"])}">
+            f'''<section class="gallery" id="{_attr(gallery["slug"])}" data-title="{_attr(gallery["title"])}"{note_attr} aria-label="{_attr(gallery["title"])}">
                 <h3 class="gallery-title">{escape(str(gallery["title"]))} <span>{_count(len(gallery["frames"]), "frame")}</span></h3>
                 <div class="gallery-grid">{"".join(figures)}</div>
-                <p class="gallery-back"><a href="#work">Back to the work</a></p>
+                <p class="gallery-back"><a href="#work">Back to the work</a>{steps}</p>
             </section>'''
         )
     body = "\n            ".join(blocks)
@@ -1128,7 +1155,18 @@ def _render_galleries(galleries: list[dict[str, object]], root: Path) -> str:
     </div>'''
 
 
+def _render_direct() -> str:
+    """Email (with a copy button for phones) and Instagram."""
+    email = escape(INQUIRY_EMAIL)
+    return (
+        f'<p class="direct-row"><a class="direct-email" href="mailto:{email}">{email}</a>'
+        f'<button type="button" class="copy-btn" data-copy="{email}">Copy</button></p>'
+        f'<p class="direct-row"><a {_external(INSTAGRAM_URL)}>Instagram {escape(INSTAGRAM_HANDLE)}</a></p>'
+    )
+
+
 def _render_about(root: Path) -> str:
+    """First person, under ~120 words, place and trade first, contact right under it."""
     portrait = ""
     if (Path(root) / ABOUT_PORTRAIT["src"]).is_file():
         portrait = (
@@ -1142,8 +1180,12 @@ def _render_about(root: Path) -> str:
                 {portrait}
                 <div class="about-copy rv">
                     <p class="about-lede">I&rsquo;m Joshua, a photographer in Los Angeles.</p>
-                    <p>I grew up in South Carolina and started out in journalism, because I&rsquo;ve always wanted to know what makes people tick. That curiosity is still what I bring to a shoot.</p>
-                    <p>I photograph portraits, fashion and events, on 35mm film and digital (a Nikon D500 and a Sony a6100).</p>
+                    <p>I shoot portraits, fashion and events, on 35mm film and digital (a Nikon D500 and a Sony a6100).</p>
+                    <p>I grew up in South Carolina and started out in journalism, because I&rsquo;ve always wanted to know what makes people tick.</p>
+                    <div class="direct about-contact">
+                        <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>{BOOK_VERB} {_ext_arrow()}</a>
+                        {_render_direct()}
+                    </div>
                     <p class="about-more"><a href="../">My strategy and podcast work is at joshuamgerman.com{_tail_arrow()}</a></p>
                 </div>
             </div>
@@ -1151,77 +1193,35 @@ def _render_about(root: Path) -> str:
     </section>'''
 
 
-def _render_services(by_id: dict[str, dict[str, object]], root: Path) -> str:
+def _render_book() -> str:
+    """#book: the nav's "Book a shoot" lands here, and so do other pages and
+    old links (#services, #inquiry). It states the ask, then the Studio form
+    (paid shoots are booked through The Curious & Creative Company), then a
+    direct email. What Joshua shoots sits beside it, in the Work group names."""
+    head = _section_head("Book a <em>shoot</em>", "Rates quoted per project", "book", view_heading=True)
     rows = "".join(
         f'<li class="svc-row"><span class="svc-name">{escape(name)}</span>'
-        f'<span class="svc-for">{escape(audience)}</span>'
-        f'<span class="svc-desc">{escape(text)}</span></li>'
-        for name, _, text, audience in SERVICES
-    )
-    steps = "".join(
-        f'<li class="svc-step"><span class="svc-step__no">{number:02d}</span>'
-        f'<span class="svc-step__name">{escape(name)}</span>'
-        f'<span class="svc-step__text">{escape(text)}</span></li>'
-        for number, (name, text) in enumerate(SERVICE_STEPS, start=1)
-    )
-    photo = by_id.get(SERVICES_PHOTO)
-    figure = (
-        f'<figure class="svc-photo rv">{_site_img(photo, root=root, alt="", position=SERVICES_PHOTO_POSITION, sizes=SIZES_ABOUT)}</figure>'
-        if photo
-        else ""
-    )
-    head = _section_head("Services", "Rates quoted per project", "services", view_heading=True)
-    return f'''<section class="view view--services sec" id="services" data-view="services" aria-labelledby="services-title">
-        <div class="wrap">
-            {head}
-            <div class="svc-grid">
-                {figure}
-                <div class="svc rv">
-                    <h3 class="svc-sub">What I shoot</h3>
-                    <ul class="svc-list">{rows}</ul>
-                    <p class="svc-also">{escape(ALSO_BOOKING)}</p>
-                    <h3 class="svc-sub">How it works</h3>
-                    <ol class="svc-steps">{steps}</ol>
-                    <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>{STUDIO_BOOK_TEXT} {_ext_arrow()}</a>
-                    <p class="svc-how">Booking event coverage? <a {_external(STUDIO_EVENTS_URL)}>Use the events form{_tail_ext()}</a></p>
-                </div>
-            </div>
-        </div>
-    </section>'''
-
-
-def _render_book() -> str:
-    """#book: other pages and old links land here. Paid shoots are booked
-    through the Studio's form; this view says so and links there, and keeps
-    a personal line for anything that is not a booking."""
-    head = _section_head("Book a <em>shoot</em>", "Through The Curious &amp; Creative Studio", "book", view_heading=True)
-    email = escape(INQUIRY_EMAIL)
-    options = (
-        ("Portraits, fashion &amp; general shoots", STUDIO_PHOTO_URL, STUDIO_BOOK_TEXT),
-        ("Event coverage", STUDIO_EVENTS_URL, "Book event coverage through the Studio"),
-    )
-    rows = "".join(
-        f'<li class="book-route"><span class="book-route__name">{name}</span>'
-        f'<a class="btn btn-safelight" {_external(url)}>{label} {_ext_arrow()}</a></li>'
-        for name, url, label in options
+        f'<span class="svc-for">{escape(audience)}</span></li>'
+        for name, _, audience in SERVICES
     )
     return f'''<section class="view view--book sec sec--book" id="book" data-view="book" aria-labelledby="book-title">
         <div class="wrap">
             {head}
             <div class="book-grid">
-                <div class="book-aside rv">
-                    <p class="book-lede">Paid shoots are booked through my company.</p>
-                    <p>Client photography runs through The Curious &amp; Creative Company. Pick the form that fits and it goes straight to the Studio.</p>
-                    <p class="book-price">Rates quoted per project.</p>
-                </div>
                 <div class="book-main rv">
-                    <ul class="book-routes">{rows}</ul>
+                    <p class="book-lede">{escape(BOOK_ASK)}</p>
+                    <p class="book-note">Shoots are booked through my company, The Curious &amp; Creative Company.</p>
+                    <a class="btn btn-safelight" {_external(STUDIO_PHOTO_URL)}>{BOOK_VERB} {_ext_arrow()}</a>
+                    <p class="book-alt">Booking an event? <a {_external(STUDIO_EVENTS_URL)}>Use the events form{_tail_ext()}</a></p>
                     <div class="direct">
-                        <p class="direct-label">Not a booking? Just say hi.</p>
-                        <p class="direct-row"><a class="direct-email" href="mailto:{email}">{email}</a>
-                            <button type="button" class="copy-btn" data-copy="{email}">Copy</button></p>
-                        <p class="direct-row"><a {_external(INSTAGRAM_URL)}>Instagram {escape(INSTAGRAM_HANDLE)}</a></p>
+                        <p class="direct-label">Or email me directly</p>
+                        {_render_direct()}
                     </div>
+                </div>
+                <div class="book-aside rv">
+                    <h3 class="svc-sub">What I shoot</h3>
+                    <ul class="svc-list">{rows}</ul>
+                    <p class="svc-also">{escape(ALSO_BOOKING)}</p>
                 </div>
             </div>
         </div>
@@ -1241,14 +1241,17 @@ def render_photo_site(
     _requested_variants.clear()
     if sets is None:
         sets = load_photo_sets(root / SETS_FILE)
-    photo_sets = build_photo_sets(photos, sets)
-    projects = group_photo_site(photos)
+    series = order_series(build_photo_sets(photos, sets), group_photo_site(photos))
 
-    galleries = [{"slug": item["id"], "title": item["title"], "frames": item["frames"]} for item in photo_sets]
-    galleries += [{"slug": project["slug"], "title": project["title"], "frames": project["frames"]} for project in projects]
+    # One viewer gallery per series, in the order the cards show (the viewer's
+    # Previous/Next series follows it).
+    galleries = [
+        {"slug": item["id"], "title": item["title"], "frames": item["frames"], "note": _location_note(item)}
+        for item in series
+    ]
     by_id = {str(photo["id"]): photo for photo in photos}
     coverage = list(coverage)
-    # Coverage stills get their own viewer gallery, after the groups so a
+    # Coverage stills get their own viewer gallery, after the series so a
     # still's first placement (hero links, mirror alt) stays its folder group.
     galleries += [
         {"slug": _stills_id(item), "title": item["title"], "frames": _coverage_stills(item, by_id)}
@@ -1266,14 +1269,13 @@ def render_photo_site(
     work_parts = [
         _render_hero(by_id, placement, titles, root, "#series"),
         _render_recent(photos, placement, root),
-        _render_series(photo_sets, projects, coverage, by_id, root, list(shoots)),
+        _render_series(series, coverage, by_id, root, list(shoots)),
         _render_galleries(galleries, root),
     ]
     work = "\n    ".join(part for part in work_parts if part)
     parts = [
         f'<div class="view view--work" id="work" data-view="work">\n    {work}\n    </div>',
         _render_about(root),
-        _render_services(by_id, root),
         _render_book(),
     ]
     return "\n    ".join(parts)

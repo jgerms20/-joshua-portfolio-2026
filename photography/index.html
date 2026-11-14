@@ -8,17 +8,18 @@
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     <title>Photography | Joshua McKenzie German, Los Angeles</title>
-    <meta name="description" content="Joshua McKenzie German photographs portraits, fashion and event coverage in Los Angeles, with a documentary eye. On 35mm film and digital.">
+    <meta name="description" content="Joshua McKenzie German, los Angeles photographer: portraits, fashion and event coverage, on 35mm film and digital.">
     <link rel="canonical" href="https://joshuamgerman.com/photography/">
     <meta name="theme-color" content="#F5F1E8">
     <script>(function(){var d=document.documentElement;d.classList.add('js');try{if(localStorage.getItem('jmg-theme')==='dark')d.setAttribute('data-theme','dark');}catch(e){}
-    /* Pick the view before first paint so #about never flashes the Work view. */
-    var h=location.hash.slice(1);d.setAttribute('data-page','|about|services|book|'.indexOf('|'+h+'|')>-1?h:(h==='inquiry'?'book':'work'));})();</script>
+    /* Pick the view before first paint so #about never flashes the Work view.
+       The old #services and #inquiry open Book. */
+    var h=location.hash.slice(1);if(h==='services'||h==='inquiry')h='book';d.setAttribute('data-page','|about|book|'.indexOf('|'+h+'|')>-1?h:'work');})();</script>
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Joshua McKenzie German">
     <meta property="og:title" content="Photography | Joshua McKenzie German">
-    <meta property="og:description" content="Portraits, fashion and event coverage in Los Angeles, with a documentary eye. On 35mm film and digital.">
+    <meta property="og:description" content="Los Angeles photographer: portraits, fashion and event coverage, on 35mm film and digital.">
     <meta property="og:url" content="https://joshuamgerman.com/photography/">
     <meta property="og:image" content="https://joshuamgerman.com/photos/portraits/JMG_1763.jpg">
     <meta property="og:image:width" content="2048">
@@ -26,7 +27,7 @@
     <meta property="og:image:alt" content="Two people stand in red and blue light against a wall covered in newspaper pages.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Photography | Joshua McKenzie German">
-    <meta name="twitter:description" content="Portraits, fashion and event coverage in Los Angeles, with a documentary eye. On 35mm film and digital.">
+    <meta name="twitter:description" content="Los Angeles photographer: portraits, fashion and event coverage, on 35mm film and digital.">
     <meta name="twitter:image" content="https://joshuamgerman.com/photos/portraits/JMG_1763.jpg">
     <meta name="twitter:image:alt" content="Two people stand in red and blue light against a wall covered in newspaper pages.">
 
@@ -151,21 +152,25 @@
         .nav-links a[aria-current="page"] { color: var(--ink); }
         .nav-links a[aria-current="page"]::after { content: ''; position: absolute; left: 22%; right: 22%; bottom: -1px; height: 2px; background: var(--accent); }
         .nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+        /* "Book a shoot": the third tab on phones, a safelight pill from 700px */
+        .nav-links a.nav-book { flex: 1.5; color: var(--accent); }
         .nav-home { display: none; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; color: var(--ink-mid); white-space: nowrap; transition: color 0.25s; }
         .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule); display: grid; place-items: center; color: var(--ink-soft); flex-shrink: 0; transition: border-color 0.3s, color 0.3s; }
         .theme-toggle svg { width: 15px; height: 15px; }
         .theme-toggle .sun { display: none; }
         :root[data-theme="dark"] .theme-toggle .sun { display: block; }
         :root[data-theme="dark"] .theme-toggle .moon { display: none; }
-        .nav-book { display: inline-flex; align-items: center; min-height: 36px; padding: 0 16px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.3s, color 0.3s, box-shadow 0.3s; }
-        .nav-book[aria-current="page"] { box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--accent); }
         @media (max-width: 699px) { :root { --nav-h: 96px; } }
         @media (min-width: 700px) {
             .nav-row { height: var(--nav-h); flex-wrap: nowrap; }
             .brand { padding: 0; }
-            .nav-links { order: 0; flex: 0 1 auto; gap: clamp(18px, 2.4vw, 34px); margin: 0 0 0 clamp(16px, 3vw, 48px); padding: 0; border: 0; }
+            .nav-links { order: 0; flex: 1 1 auto; align-items: center; gap: clamp(18px, 2.4vw, 34px); margin: 0 0 0 clamp(16px, 3vw, 48px); padding: 0; border: 0; }
             .nav-links a { flex: none; min-height: 0; padding: 6px 0; font-size: 0.62rem; }
             .nav-links a[aria-current="page"]::after { left: 0; right: 0; bottom: 0; }
+            .nav-links a.nav-book { flex: none; margin-left: auto; min-height: 36px; padding: 0 16px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); letter-spacing: 0.14em; transition: background 0.3s, color 0.3s, box-shadow 0.3s; }
+            .nav-links a.nav-book[aria-current="page"] { box-shadow: 0 0 0 3px var(--paper), 0 0 0 4px var(--accent); }
+            .nav-links a.nav-book[aria-current="page"]::after { content: none; }
+            .nav-right { margin-left: 0; }
         }
         @media (min-width: 960px) {
             .brand { flex-direction: row; align-items: baseline; gap: 0.45em; }
@@ -178,7 +183,7 @@
         /* ---- Views: one per hash once the script runs; stacked without it ---- */
         :root[data-page] .view { display: none; }
         :root[data-page="work"] .view--work, :root[data-page="about"] .view--about,
-        :root[data-page="services"] .view--services, :root[data-page="book"] .view--book { display: block; animation: view-in 0.5s var(--exp); }
+        :root[data-page="book"] .view--book { display: block; animation: view-in 0.5s var(--exp); }
         :root[data-page] .view:not(.view--work) { padding-top: clamp(28px, 5vw, 72px); }
         @keyframes view-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
         [data-view-heading]:focus { outline: none; }
@@ -195,9 +200,7 @@
             display: flex; justify-content: space-between; gap: 12px; margin-top: 10px;
             font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid);
         }
-        .kicker { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mid); }
-        .kicker::before { content: ''; width: 26px; height: 1.5px; background: var(--accent); flex-shrink: 0; }
-        .hero-title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.35rem, 10.4vw, 3.3rem); line-height: 0.96; letter-spacing: -0.025em; margin: 10px 0 12px; font-optical-sizing: auto; }
+        .hero-title { font-family: var(--serif); font-weight: 400; font-size: clamp(2.35rem, 10.4vw, 3.3rem); line-height: 0.96; letter-spacing: -0.025em; margin: 4px 0 12px; font-optical-sizing: auto; }
         .hero-title em { font-weight: 300; }
         .hero-line { font-size: 1rem; line-height: 1.5; color: var(--ink-soft); max-width: 36ch; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
@@ -210,7 +213,7 @@
             .hero-grid { grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr); align-items: end; gap: clamp(28px, 5vw, 96px); }
             .hero-lead { order: 0; justify-self: end; width: min(100%, max(300px, calc((100svh - var(--nav-h) - 150px) * 2 / 3))); }
             .hero-lead__link { height: auto; aspect-ratio: 2 / 3; }
-            .hero-title { font-size: clamp(3rem, 6.1vw, 6.6rem); margin: 18px 0 22px; }
+            .hero-title { font-size: clamp(3rem, 6.1vw, 6.6rem); margin: 0 0 22px; }
             .hero-line { font-size: clamp(1.05rem, 1.4vw, 1.3rem); max-width: 30ch; }
             .hero-actions { margin-top: 28px; }
             .hero-actions .btn { flex: 0 0 auto; }
@@ -232,6 +235,12 @@
             .sec-head { grid-template-columns: minmax(0, 1fr); }
             .sec-meta { text-align: left; padding-bottom: 0; }
         }
+
+        /* ---- Work index: what a buyer hires for, one row of jump links ---- */
+        .work-index { margin: calc(clamp(20px, 3vw, 40px) * -0.5) 0 clamp(36px, 5vw, 64px); }
+        .work-index ul { display: flex; flex-wrap: wrap; gap: 0 22px; }
+        .work-index a { display: inline-flex; align-items: center; min-height: 40px; font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--accent-rule); text-underline-offset: 5px; transition: color 0.25s, text-decoration-color 0.25s; }
+        .set-card { scroll-margin-top: calc(var(--nav-h) + 16px); }
 
         /* ---- Sets: one big image-led card per place or theme ---- */
         .set-cards { display: grid; gap: clamp(56px, 7vw, 112px); }
@@ -278,33 +287,14 @@
         .shoot-name { font-family: var(--serif); font-size: 1.2rem; }
         .shoot-type, .shoot-year { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); }
 
-        /* ---- Services: a short list, one button ---- */
-        .svc-grid { display: grid; gap: 28px; }
-        .svc-photo { margin: 0; }
-        .svc-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--paper-dim); }
-        .svc { display: flex; flex-direction: column; align-items: flex-start; }
+        /* ---- What I shoot (on the Book view) ---- */
         .svc-list { width: 100%; border-top: 1px solid var(--ink); }
         :root[data-theme="dark"] .svc-list { border-top-color: var(--head-rule); }
         .svc-row { display: flex; flex-direction: column; gap: 2px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
         .svc-name { font-family: var(--serif); font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.1; letter-spacing: -0.012em; }
         .svc-for { margin-top: 4px; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-        .svc-desc { font-size: 0.96rem; color: var(--ink-mid); }
         .svc-sub { width: 100%; font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 10px; }
-        .svc-steps { width: 100%; margin-bottom: 30px; counter-reset: none; }
-        .svc-step { display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 2px 12px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
-        .svc-step:first-child { border-top: 1px solid var(--ink); }
-        :root[data-theme="dark"] .svc-step:first-child { border-top-color: var(--head-rule); }
-        .svc-step__no { grid-row: span 2; font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.45em; }
-        .svc-step__name { font-family: var(--serif); font-size: 1.3rem; line-height: 1.15; }
-        .svc-step__text { font-size: 0.96rem; color: var(--ink-mid); max-width: 52ch; }
-        @media (min-width: 1100px) { .svc-step { grid-template-columns: 2.4em 8.5em minmax(0, 1fr); align-items: baseline; } .svc-step__no { grid-row: auto; padding-top: 0; } }
-        .svc-also { margin: 18px 0 40px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); line-height: 1.7; }
-        .svc-how { margin-top: 22px; font-size: 0.92rem; color: var(--ink-mid); max-width: 44ch; }
-        @media (max-width: 619px) { .svc .btn { width: 100%; } }
-        @media (min-width: 800px) {
-            .svc-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(40px, 6vw, 110px); align-items: start; }
-            .svc-photo img { aspect-ratio: 4 / 5; }
-        }
+        .svc-also { margin-top: 18px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); line-height: 1.7; }
 
         /* ---- About ---- */
         .about-grid { display: grid; gap: 28px; }
@@ -313,34 +303,28 @@
         .about-lede { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.04; letter-spacing: -0.02em; margin-bottom: 18px; max-width: 16ch; }
         .about-copy > p:not(.about-lede):not(.about-more) { font-size: 1.1rem; line-height: 1.55; color: var(--ink-soft); max-width: 40ch; }
         .about-copy > p:not(.about-lede) + p { margin-top: 14px; }
+        .about-contact { margin-top: 26px; max-width: 40ch; }
+        .about-contact .btn { margin-bottom: 14px; }
         .about-more { margin-top: 26px; }
         .about-more a { display: inline-flex; align-items: center; min-height: 40px; font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: underline; text-decoration-color: var(--accent-rule); text-underline-offset: 5px; transition: color 0.25s, text-decoration-color 0.25s; }
         @media (max-width: 799px) { .about-portrait img { aspect-ratio: 4 / 3; } }
         @media (min-width: 800px) { .about-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(40px, 6vw, 110px); align-items: center; } }
 
-        /* ---- Book ---- */
-        .book-grid { display: grid; gap: 36px; }
-        @media (min-width: 900px) { .book-grid { grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: clamp(48px, 6vw, 110px); } }
-        .book-lede { font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3.4vw, 2.8rem); line-height: 1.08; letter-spacing: -0.015em; margin-bottom: 14px; }
-        .book-aside > p:not(.book-lede) { color: var(--ink-soft); max-width: 40ch; }
-        .book-price { margin-top: 12px; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid) !important; }
-        .direct { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--rule); }
+        /* ---- Book: the ask, the Studio form, a direct line ---- */
+        .book-grid { display: grid; gap: 48px; }
+        @media (min-width: 900px) { .book-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(48px, 6vw, 110px); align-items: start; } }
+        .book-aside, .book-main { min-width: 0; }
+        .book-lede { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.04; letter-spacing: -0.02em; max-width: 18ch; }
+        .book-note { margin: 16px 0 26px; color: var(--ink-soft); max-width: 40ch; }
+        .book-alt { margin-top: 16px; font-size: 0.92rem; color: var(--ink-mid); max-width: 44ch; }
+        .book-alt a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-rule); text-underline-offset: 4px; }
+        .direct { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--rule); }
+        .about-contact.direct { border-top: 0; padding-top: 0; }
         .direct-label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 8px; }
         .direct-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 6px; }
         .direct-row a { font-family: var(--serif); font-size: 1.12rem; border-bottom: 1px solid var(--accent-rule); overflow-wrap: anywhere; transition: border-color 0.25s, color 0.25s; }
         .copy-btn { min-height: 32px; padding: 0 12px; border: 1px solid var(--rule); border-radius: 999px; font-family: var(--mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); transition: border-color 0.25s, color 0.25s; }
-
-        /* Two routes to the Studio's inquiry form */
-        .book-routes { border-top: 1px solid var(--ink); }
-        :root[data-theme="dark"] .book-routes { border-top-color: var(--head-rule); }
-        .book-route { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
-        .book-route__name { font-family: var(--serif); font-size: clamp(1.45rem, 2.6vw, 2.1rem); line-height: 1.1; letter-spacing: -0.012em; }
-        .book-aside, .book-main { min-width: 0; }
-        /* The Studio labels are long: let them wrap on phones instead of pushing the page wide */
-        @media (max-width: 619px) {
-            .book-route .btn, .svc .btn { width: 100%; white-space: normal; text-align: center; line-height: 1.5; padding: 12px 20px; }
-        }
-        .book-main .direct { margin-top: 36px; }
+        @media (max-width: 619px) { .book-main .btn, .about-contact .btn { width: 100%; } }
 
         /* ---- Event coverage: type-led entries, stills optional ---- */
         .cov-entry { display: grid; gap: 18px 48px; padding: 26px 0 30px; border-top: 1px solid var(--ink); }
@@ -359,7 +343,6 @@
         .cov-stills img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
         .cov-foot { margin-top: 18px; }
         .cov-foot .card-aside { margin-top: 0; }
-        .svc-how a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-rule); text-underline-offset: 4px; }
 
         /* ---- Galleries: plain thumbnails without JS, viewer data with it ---- */
         .galleries { padding-top: clamp(56px, 8vw, 110px); }
@@ -370,7 +353,7 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
         .gallery-frame { margin: 0; }
         .gallery-frame img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--paper-dim); }
-        .gallery-back { margin-top: 16px; }
+        .gallery-back { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 16px; }
 
         /* ---- Recent strip (fills when entries carry "recent": true) ---- */
         .recent { padding-top: 36px; }
@@ -381,9 +364,11 @@
         /* ---- Footer ---- */
         .foot { margin-top: clamp(80px, 10vw, 150px); border-top: 1px solid var(--head-rule); padding: 28px 0 calc(32px + env(safe-area-inset-bottom)); }
         .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px 32px; }
+        .foot-line { flex-basis: 100%; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); }
+        .foot-line a { color: var(--accent); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent-rule); text-underline-offset: 4px; }
         .foot-home { font-family: var(--serif); font-size: 1.2rem; border-bottom: 1px solid var(--accent-rule); }
         .foot-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-        .foot-links a, .foot-note { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); }
+        .foot-links a { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); }
         @media (max-width: 699px) { .foot { padding-bottom: calc(96px + env(safe-area-inset-bottom)); } }
 
         /* ---- Mobile "Book a shoot" bar ---- */
@@ -406,7 +391,7 @@
             margin: 0; padding: 0; border: 0; overflow: hidden;
             background: #0B0907; color: #F0EAE0;
         }
-        .lb[open] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; }
+        .lb[open] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto auto; }
         .lb::backdrop { background: rgba(8,6,5,0.92); }
         .lb-head, .lb-foot { display: flex; align-items: center; gap: 14px; padding: 10px var(--edge); }
         .lb-head { border-bottom: 1px solid rgba(255,92,51,0.26); padding-top: calc(10px + env(safe-area-inset-top)); }
@@ -421,7 +406,13 @@
         .lb-stage { position: relative; min-height: 0; display: flex; align-items: center; justify-content: center; padding: clamp(8px, 2vw, 28px); touch-action: pan-y; cursor: zoom-out; }
         .lb-img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; cursor: e-resize; transition: opacity 0.3s ease; }
         .lb-img.is-loading { opacity: 0; }
-        .lb-foot { align-items: flex-start; border-top: 1px solid rgba(240,234,224,0.1); padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+        .lb-foot { align-items: flex-start; border-top: 1px solid rgba(240,234,224,0.1); }
+        /* Previous / next series, under the caption */
+        .lb-series { display: flex; justify-content: space-between; gap: 12px; padding: 0 var(--edge) calc(8px + env(safe-area-inset-bottom)); }
+        .lb-series__btn { display: inline-flex; align-items: center; min-height: 40px; max-width: 48%; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(240,234,224,0.7); text-align: left; transition: color 0.25s; }
+        .lb-series__btn[hidden] { display: none; }
+        .lb-series__btn--next { margin-left: auto; text-align: right; }
+        .lb-series__btn:focus-visible { outline: 2px solid #FF5C33; outline-offset: 2px; }
         .lb-text { flex: 1; min-width: 0; }
         .lb-cap { font-size: 0.92rem; line-height: 1.45; color: rgba(240,234,224,0.8); max-width: 70ch; }
         .lb-note { margin-top: 4px; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: #FF5C33; }
@@ -441,13 +432,14 @@
             .btn-line:hover { border-color: var(--ink); transform: translateY(-1px); }
             .nav-home:hover { color: var(--ink); }
             .theme-toggle:hover { border-color: var(--ink); color: var(--ink); }
-            .nav-book:hover { background: var(--ink); color: var(--paper); }
+            .nav-links a.nav-book:hover { color: var(--ink); }
             .nav-links a:hover { color: var(--ink); }
             .hero-lead__link:hover img { transform: scale(1.02); }
             .strip-frame a:hover img { transform: scale(1.04); }
             .set-card:hover .set-card__cover img { transform: scale(1.025); }
             .set-card__frames a:hover img { opacity: 0.85; }
-            .card-aside:hover, .about-more a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+            .card-aside:hover, .about-more a:hover, .work-index a:hover, .foot-line a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+            .lb-series__btn:hover { color: #F0EAE0; }
             .direct-row a:hover { color: var(--accent); border-color: var(--accent); }
             .copy-btn:hover { border-color: var(--ink); color: var(--ink); }
             .foot-home:hover { color: var(--accent); }
@@ -463,6 +455,9 @@
             html { scroll-behavior: auto; }
             *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
             .reveal-on .rv { opacity: 1; transform: none; }
+        }
+        @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+            .nav-links a.nav-book:hover { background: var(--ink); color: var(--paper); }
         }
         @media print {
             .nav, .book-bar, .lb { display: none !important; }
@@ -484,7 +479,7 @@
             <nav class="nav-links" aria-label="Photography">
                 <a href="#work" data-nav="work">Work</a>
                 <a href="#about" data-nav="about">About</a>
-                <a href="#services" data-nav="services">Services</a>
+                <a class="nav-book" href="#book" data-nav="book">Book a shoot</a>
             </nav>
             <div class="nav-right">
                 <a class="nav-home" href="../">&larr; joshuamgerman.com</a>
@@ -492,7 +487,6 @@
                     <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
                     <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
                 </button>
-                <a class="nav-book" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener" aria-label="Book a shoot through The Curious &amp; Creative Studio (opens in a new tab)">Book <span aria-hidden="true">&#8599;</span></a>
             </div>
         </div>
     </header>
@@ -503,40 +497,50 @@
     <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="hero-grid">
             <div class="hero-copy">
-                <p class="kicker">Photography <span aria-hidden="true">&middot;</span> Los Angeles</p>
                 <h1 class="hero-title" id="hero-title" tabindex="-1" data-view-heading>Joshua McKenzie <em>German</em></h1>
-                <p class="hero-line">Portraits, fashion and event coverage in Los Angeles, with a documentary eye. On 35mm film and digital.</p>
+                <p class="hero-line">Los Angeles photographer: portraits, fashion and event coverage, on 35mm film and digital.</p>
                 <div class="hero-actions">
                     <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book a shoot <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
                     <a class="btn btn-line" href="#series">See the work</a>
                 </div>
-                <ol class="hero-strip" aria-label="More frames"><li class="strip-frame"><a href="#portraits" data-open="portraits" data-index="4" aria-label="Open Portraits at this frame"><img src="../photos/_sized/portraits-JMG_8386-960.webp" srcset="../photos/_sized/portraits-JMG_8386-480.webp 480w, ../photos/_sized/portraits-JMG_8386-960.webp 960w" sizes="(min-width: 700px) 18vw, 1px" width="2048" height="1344" alt="Portrait of a woman in warm window light beside a chrome pole." loading="lazy" decoding="async" fetchpriority="low"></a><span class="strip-cap"><span class="fig-no">02</span>Portraits</span></li><li class="strip-frame"><a href="#events" data-open="events" data-index="5" aria-label="Open Event coverage at this frame"><img src="../photos/_sized/events-JMG_2854-960.webp" srcset="../photos/_sized/events-JMG_2854-480.webp 480w, ../photos/_sized/events-JMG_2854-960.webp 960w" sizes="(min-width: 700px) 18vw, 1px" width="2048" height="1365" alt="A DJ works behind a booth in a club lit with purple and green light." loading="lazy" decoding="async" fetchpriority="low"></a><span class="strip-cap"><span class="fig-no">03</span>Event coverage</span></li><li class="strip-frame"><a href="#places" data-open="places" data-index="5" aria-label="Open Places at this frame"><img src="../photos/_sized/travel-JMG_3086-960.webp" srcset="../photos/_sized/travel-JMG_3086-480.webp 480w, ../photos/_sized/travel-JMG_3086-960.webp 960w" sizes="(min-width: 700px) 18vw, 1px" width="2048" height="1365" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." loading="lazy" decoding="async" fetchpriority="low"></a><span class="strip-cap"><span class="fig-no">04</span>Places</span></li></ol>
+                <ol class="hero-strip" aria-label="More frames"><li class="strip-frame"><a href="#portraits" data-open="portraits" data-index="4" aria-label="Open Portraits at this frame"><img src="../photos/_sized/portraits-JMG_8386-960.webp" srcset="../photos/_sized/portraits-JMG_8386-480.webp 480w, ../photos/_sized/portraits-JMG_8386-960.webp 960w" sizes="(min-width: 700px) 18vw, 1px" width="2048" height="1344" alt="Portrait of a woman in warm window light beside a chrome pole." loading="lazy" decoding="async" fetchpriority="low"></a><span class="strip-cap"><span class="fig-no">02</span>Portraits</span></li><li class="strip-frame"><a href="#events" data-open="events" data-index="5" aria-label="Open Events at this frame"><img src="../photos/_sized/events-JMG_2854-960.webp" srcset="../photos/_sized/events-JMG_2854-480.webp 480w, ../photos/_sized/events-JMG_2854-960.webp 960w" sizes="(min-width: 700px) 18vw, 1px" width="2048" height="1365" alt="A DJ works behind a booth in a club lit with purple and green light." loading="lazy" decoding="async" fetchpriority="low"></a><span class="strip-cap"><span class="fig-no">03</span>Events</span></li><li class="strip-frame"><a href="#places" data-open="places" data-index="5" aria-label="Open Places at this frame"><img src="../photos/_sized/travel-JMG_3086-960.webp" srcset="../photos/_sized/travel-JMG_3086-480.webp 480w, ../photos/_sized/travel-JMG_3086-960.webp 960w" sizes="(min-width: 700px) 18vw, 1px" width="2048" height="1365" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." loading="lazy" decoding="async" fetchpriority="low"></a><span class="strip-cap"><span class="fig-no">04</span>Places</span></li></ol>
             </div>
-            <figure class="hero-lead"><a class="hero-lead__link" href="#fashion" data-open="fashion" data-index="1" aria-label="Open Fashion &amp; editorial at this frame"><img src="../photos/_sized/fashion-JMG_1601-1280.webp" srcset="../photos/_sized/fashion-JMG_1601-640.webp 640w, ../photos/_sized/fashion-JMG_1601-960.webp 960w, ../photos/_sized/fashion-JMG_1601-1280.webp 1280w" sizes="(min-width: 700px) min(40vw, 580px), calc(100vw - 32px)" width="1365" height="2048" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." loading="eager" decoding="async" fetchpriority="high" style="object-position: 50% 18%;"></a><figcaption><span class="fig-no">Fig. 01</span><span>Fashion &amp; editorial</span></figcaption></figure>
+            <figure class="hero-lead"><a class="hero-lead__link" href="#fashion" data-open="fashion" data-index="1" aria-label="Open Fashion &amp; Editorial at this frame"><img src="../photos/_sized/fashion-JMG_1601-1280.webp" srcset="../photos/_sized/fashion-JMG_1601-640.webp 640w, ../photos/_sized/fashion-JMG_1601-960.webp 960w, ../photos/_sized/fashion-JMG_1601-1280.webp 1280w" sizes="(min-width: 700px) min(40vw, 580px), calc(100vw - 32px)" width="1365" height="2048" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." loading="eager" decoding="async" fetchpriority="high" style="object-position: 50% 18%;"></a><figcaption><span class="fig-no">Fig. 01</span><span>Fashion &amp; Editorial</span></figcaption></figure>
         </div>
     </section>
     <section class="sec sec--series" id="series" aria-labelledby="series-title">
         <div class="wrap">
-            <header class="sec-head rv"><h2 class="sec-title" id="series-title">Selected <em>series</em></h2><p class="sec-meta">05 series &middot; 37 frames</p></header>
+            <header class="sec-head rv"><h2 class="sec-title" id="series-title">Selected <em>series</em></h2></header>
+            <nav class="work-index rv" aria-label="Kinds of work"><ul><li><a href="#series-portraits">Portraits</a></li><li><a href="#series-fashion">Fashion &amp; Editorial</a></li><li><a href="#series-events">Events</a></li><li><a href="#series-places">Places</a></li></ul></nav>
             <div class="set-cards">
-                <article class="set-card rv" data-set="set-rio-de-janeiro">
-                    <div class="set-card__cover"><img src="../photos/_sized/shop-rio-santa-teresa-trams-1280.webp" srcset="../photos/_sized/shop-rio-santa-teresa-trams-480.webp 480w, ../photos/_sized/shop-rio-santa-teresa-trams-960.webp 960w, ../photos/_sized/shop-rio-santa-teresa-trams-1280.webp 1280w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2000" height="1333" alt="" loading="lazy" decoding="async"></div>
+                <article class="set-card rv" id="series-portraits" data-set="portraits">
+                    <div class="set-card__cover"><img src="../photos/_sized/portraits-JMG_1520-1280.webp" srcset="../photos/_sized/portraits-JMG_1520-480.webp 480w, ../photos/_sized/portraits-JMG_1520-960.webp 960w, ../photos/_sized/portraits-JMG_1520-1280.webp 1280w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2048" height="1365" alt="" loading="lazy" decoding="async" style="object-position: 50% 40%;"></div>
                     <div class="set-card__body">
-                        <p class="set-card__meta"><span class="fig-no">01</span> &middot; Brazil &middot; 04 frames</p>
-                        <h3 class="set-card__title"><a class="card-link" href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="0">Rio de Janeiro<span class="visually-hidden">, 4 frames</span></a></h3>
-                        <p class="set-card__blurb">Trams in Santa Teresa, a corner bar, Dois Irmãos at dusk and the moon over Guanabara Bay.</p>
-                        <ul class="set-card__frames" aria-label="More from Rio de Janeiro"><li><a href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="1"><img src="../photos/_sized/shop-rio-brahma-corner-480.webp" srcset="../photos/_sized/shop-rio-brahma-corner-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1404" height="2000" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." loading="lazy" decoding="async"></a></li><li><a href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="2"><img src="../photos/_sized/shop-rio-fog-islands-moon-480.webp" srcset="../photos/_sized/shop-rio-fog-islands-moon-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1334" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." loading="lazy" decoding="async"></a></li><li><a href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="3"><img src="../photos/_sized/shop-rio-two-brothers-480.webp" srcset="../photos/_sized/shop-rio-two-brothers-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1333" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." loading="lazy" decoding="async"></a></li></ul>
-                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span><a class="card-aside" href="../shop.html#photosets">Prints in the shop&nbsp;<span class="arr" aria-hidden="true">&rarr;</span></a></p>
+                        <p class="set-card__meta"><span class="fig-no">01</span> &middot; People &middot; 07 frames</p>
+                        <h3 class="set-card__title"><a class="card-link" href="#portraits" data-open="portraits" data-index="0">Portraits<span class="visually-hidden">, 7 frames</span></a></h3>
+                        <p class="set-card__blurb">A father and his child, an artist in his studio, faces against graffiti, newsprint and window light.</p>
+                        <ul class="set-card__frames" aria-label="More from Portraits"><li><a href="#portraits" data-open="portraits" data-index="1"><img src="../photos/_sized/portraits-JMG_1763-480.webp" srcset="../photos/_sized/portraits-JMG_1763-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Two people stand in red and blue light against a wall covered in newspaper pages." loading="lazy" decoding="async"></a></li><li><a href="#portraits" data-open="portraits" data-index="2"><img src="../photos/_sized/portraits-JMG_8929-480.webp" srcset="../photos/_sized/portraits-JMG_8929-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." loading="lazy" decoding="async"></a></li><li><a href="#portraits" data-open="portraits" data-index="3"><img src="../photos/_sized/portraits-JMG_8750-480.webp" srcset="../photos/_sized/portraits-JMG_8750-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Portrait of a woman standing beside railway tracks in warm evening light." loading="lazy" decoding="async"></a></li></ul>
+                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span></p>
+                    </div>
+                </article>
+                <article class="set-card set-card--flip rv" id="series-fashion" data-set="fashion">
+                    <div class="set-card__cover"><img src="../photos/_sized/fashion-JMG_3641-960.webp" srcset="../photos/_sized/fashion-JMG_3641-480.webp 480w, ../photos/_sized/fashion-JMG_3641-960.webp 960w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2048" height="1365" alt="" loading="lazy" decoding="async" style="object-position: 50% 35%;"></div>
+                    <div class="set-card__body">
+                        <p class="set-card__meta"><span class="fig-no">02</span> &middot; Studio &amp; street &middot; 05 frames</p>
+                        <h3 class="set-card__title"><a class="card-link" href="#fashion" data-open="fashion" data-index="0">Fashion &amp; Editorial<span class="visually-hidden">, 5 frames</span></a></h3>
+                        <p class="set-card__blurb">A red coat, painted denim, copper hair against concrete, a couple at a graffiti wall.</p>
+                        <ul class="set-card__frames" aria-label="More from Fashion &amp; Editorial"><li><a href="#fashion" data-open="fashion" data-index="1"><img src="../photos/_sized/fashion-JMG_1601-480.webp" srcset="../photos/_sized/fashion-JMG_1601-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." loading="lazy" decoding="async"></a></li><li><a href="#fashion" data-open="fashion" data-index="2"><img src="../photos/_sized/fashion-JMG_4379-480.webp" srcset="../photos/_sized/fashion-JMG_4379-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." loading="lazy" decoding="async"></a></li><li><a href="#fashion" data-open="fashion" data-index="3"><img src="../photos/_sized/fashion-JMG_8075-480.webp" srcset="../photos/_sized/fashion-JMG_8075-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." loading="lazy" decoding="async"></a></li></ul>
+                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span></p>
                     </div>
                 </article>
                 <div class="series-block" id="coverage">
-                <article class="set-card set-card--flip rv" data-set="events">
+                <article class="set-card rv" id="series-events" data-set="events">
                     <div class="set-card__cover"><img src="../photos/_sized/events-JMG_2254-960.webp" srcset="../photos/_sized/events-JMG_2254-480.webp 480w, ../photos/_sized/events-JMG_2254-960.webp 960w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2048" height="1365" alt="" loading="lazy" decoding="async" style="object-position: 50% 50%;"></div>
                     <div class="set-card__body">
-                        <p class="set-card__meta"><span class="fig-no">02</span> &middot; Documentary &middot; 09 frames</p>
-                        <h3 class="set-card__title"><a class="card-link" href="#events" data-open="events" data-index="0">Event coverage<span class="visually-hidden">, 9 frames</span></a></h3>
+                        <p class="set-card__meta"><span class="fig-no">03</span> &middot; Documentary &middot; 09 frames</p>
+                        <h3 class="set-card__title"><a class="card-link" href="#events" data-open="events" data-index="0">Events<span class="visually-hidden">, 9 frames</span></a></h3>
                         <p class="set-card__blurb">Concerts, club nights, a night market, a culinary set and commencement day.</p>
-                        <ul class="set-card__frames" aria-label="More from Event coverage"><li><a href="#events" data-open="events" data-index="1"><img src="../photos/_sized/events-JMG_7895-480.webp" srcset="../photos/_sized/events-JMG_7895-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A small production crew gathers around a plated dish on a culinary set." loading="lazy" decoding="async"></a></li><li><a href="#events" data-open="events" data-index="2"><img src="../photos/_sized/events-DSC00021-480.webp" srcset="../photos/_sized/events-DSC00021-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A crowd gathers beneath the glowing sign of a night market." loading="lazy" decoding="async"></a></li><li><a href="#events" data-open="events" data-index="3"><img src="../photos/_sized/events-JMG_7787-480.webp" srcset="../photos/_sized/events-JMG_7787-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Hands finish a row of carefully plated dishes at an event." loading="lazy" decoding="async"></a></li></ul>
+                        <ul class="set-card__frames" aria-label="More from Events"><li><a href="#events" data-open="events" data-index="1"><img src="../photos/_sized/events-JMG_7895-480.webp" srcset="../photos/_sized/events-JMG_7895-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A small production crew gathers around a plated dish on a culinary set." loading="lazy" decoding="async"></a></li><li><a href="#events" data-open="events" data-index="2"><img src="../photos/_sized/events-DSC00021-480.webp" srcset="../photos/_sized/events-DSC00021-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A crowd gathers beneath the glowing sign of a night market." loading="lazy" decoding="async"></a></li><li><a href="#events" data-open="events" data-index="3"><img src="../photos/_sized/events-JMG_7787-480.webp" srcset="../photos/_sized/events-JMG_7787-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Hands finish a row of carefully plated dishes at an event." loading="lazy" decoding="async"></a></li></ul>
                         <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span></p>
                     </div>
                 </article>
@@ -556,34 +560,24 @@
                     </article>
                 </div>
                 </div>
-                <article class="set-card rv" data-set="portraits">
-                    <div class="set-card__cover"><img src="../photos/_sized/portraits-JMG_1520-960.webp" srcset="../photos/_sized/portraits-JMG_1520-480.webp 480w, ../photos/_sized/portraits-JMG_1520-960.webp 960w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2048" height="1365" alt="" loading="lazy" decoding="async" style="object-position: 50% 40%;"></div>
-                    <div class="set-card__body">
-                        <p class="set-card__meta"><span class="fig-no">03</span> &middot; People &middot; 07 frames</p>
-                        <h3 class="set-card__title"><a class="card-link" href="#portraits" data-open="portraits" data-index="0">Portraits<span class="visually-hidden">, 7 frames</span></a></h3>
-                        <p class="set-card__blurb">A father and his child, an artist in his studio, faces against graffiti, newsprint and window light.</p>
-                        <ul class="set-card__frames" aria-label="More from Portraits"><li><a href="#portraits" data-open="portraits" data-index="1"><img src="../photos/_sized/portraits-JMG_1763-480.webp" srcset="../photos/_sized/portraits-JMG_1763-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Two people stand in red and blue light against a wall covered in newspaper pages." loading="lazy" decoding="async"></a></li><li><a href="#portraits" data-open="portraits" data-index="2"><img src="../photos/_sized/portraits-JMG_8929-480.webp" srcset="../photos/_sized/portraits-JMG_8929-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." loading="lazy" decoding="async"></a></li><li><a href="#portraits" data-open="portraits" data-index="3"><img src="../photos/_sized/portraits-JMG_8750-480.webp" srcset="../photos/_sized/portraits-JMG_8750-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Portrait of a woman standing beside railway tracks in warm evening light." loading="lazy" decoding="async"></a></li></ul>
-                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span></p>
-                    </div>
-                </article>
-                <article class="set-card set-card--flip rv" data-set="fashion">
-                    <div class="set-card__cover"><img src="../photos/_sized/fashion-JMG_3641-960.webp" srcset="../photos/_sized/fashion-JMG_3641-480.webp 480w, ../photos/_sized/fashion-JMG_3641-960.webp 960w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2048" height="1365" alt="" loading="lazy" decoding="async" style="object-position: 50% 35%;"></div>
-                    <div class="set-card__body">
-                        <p class="set-card__meta"><span class="fig-no">04</span> &middot; Studio &amp; street &middot; 05 frames</p>
-                        <h3 class="set-card__title"><a class="card-link" href="#fashion" data-open="fashion" data-index="0">Fashion &amp; editorial<span class="visually-hidden">, 5 frames</span></a></h3>
-                        <p class="set-card__blurb">A red coat, painted denim, copper hair against concrete, a couple at a graffiti wall.</p>
-                        <ul class="set-card__frames" aria-label="More from Fashion &amp; editorial"><li><a href="#fashion" data-open="fashion" data-index="1"><img src="../photos/_sized/fashion-JMG_1601-480.webp" srcset="../photos/_sized/fashion-JMG_1601-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." loading="lazy" decoding="async"></a></li><li><a href="#fashion" data-open="fashion" data-index="2"><img src="../photos/_sized/fashion-JMG_4379-480.webp" srcset="../photos/_sized/fashion-JMG_4379-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." loading="lazy" decoding="async"></a></li><li><a href="#fashion" data-open="fashion" data-index="3"><img src="../photos/_sized/fashion-JMG_8075-480.webp" srcset="../photos/_sized/fashion-JMG_8075-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." loading="lazy" decoding="async"></a></li></ul>
-                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span></p>
-                    </div>
-                </article>
-                <article class="set-card rv" data-set="places">
+                <article class="set-card set-card--flip rv" id="series-places" data-set="places">
                     <div class="set-card__cover"><img src="../photos/_sized/landscape-JMG_5693-960.webp" srcset="../photos/_sized/landscape-JMG_5693-480.webp 480w, ../photos/_sized/landscape-JMG_5693-960.webp 960w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2048" height="1365" alt="" loading="lazy" decoding="async" style="object-position: 50% 50%;"></div>
                     <div class="set-card__body">
-                        <p class="set-card__meta"><span class="fig-no">05</span> &middot; Landscapes &amp; travel &middot; 12 frames</p>
+                        <p class="set-card__meta"><span class="fig-no">04</span> &middot; Landscapes &amp; travel &middot; 12 frames</p>
                         <h3 class="set-card__title"><a class="card-link" href="#places" data-open="places" data-index="0">Places<span class="visually-hidden">, 12 frames</span></a></h3>
                         <p class="set-card__blurb">Mist in the pines, rock off the coast, a museum, palms at dusk and swimmers under a pastel sky.</p>
                         <ul class="set-card__frames" aria-label="More from Places"><li><a href="#places" data-open="places" data-index="1"><img src="../photos/_sized/landscape-DSC00659-480.webp" srcset="../photos/_sized/landscape-DSC00659-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A red sun hangs over a hazy landscape lined with palm trees." loading="lazy" decoding="async"></a></li><li><a href="#places" data-open="places" data-index="2"><img src="../photos/_sized/travel-JMG_7419-480.webp" srcset="../photos/_sized/travel-JMG_7419-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Two visitors share a quiet conversation inside an art museum." loading="lazy" decoding="async"></a></li><li><a href="#places" data-open="places" data-index="3"><img src="../photos/_sized/landscape-JMG_6799-480.webp" srcset="../photos/_sized/landscape-JMG_6799-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." loading="lazy" decoding="async"></a></li></ul>
                         <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span></p>
+                    </div>
+                </article>
+                <article class="set-card rv" id="series-set-rio-de-janeiro" data-set="set-rio-de-janeiro">
+                    <div class="set-card__cover"><img src="../photos/_sized/shop-rio-santa-teresa-trams-960.webp" srcset="../photos/_sized/shop-rio-santa-teresa-trams-480.webp 480w, ../photos/_sized/shop-rio-santa-teresa-trams-960.webp 960w" sizes="(min-width: 900px) min(60vw, 880px), calc(100vw - 32px)" width="2000" height="1333" alt="" loading="lazy" decoding="async"></div>
+                    <div class="set-card__body">
+                        <p class="set-card__meta"><span class="fig-no">05</span> &middot; Brazil &middot; 04 frames</p>
+                        <h3 class="set-card__title"><a class="card-link" href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="0">Rio de Janeiro<span class="visually-hidden">, 4 frames</span></a></h3>
+                        <p class="set-card__blurb">Trams in Santa Teresa, a corner bar, Dois Irmãos at dusk and the moon over Guanabara Bay.</p>
+                        <ul class="set-card__frames" aria-label="More from Rio de Janeiro"><li><a href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="1"><img src="../photos/_sized/shop-rio-brahma-corner-480.webp" srcset="../photos/_sized/shop-rio-brahma-corner-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1404" height="2000" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." loading="lazy" decoding="async"></a></li><li><a href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="2"><img src="../photos/_sized/shop-rio-fog-islands-moon-480.webp" srcset="../photos/_sized/shop-rio-fog-islands-moon-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1334" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." loading="lazy" decoding="async"></a></li><li><a href="#set-rio-de-janeiro" data-open="set-rio-de-janeiro" data-index="3"><img src="../photos/_sized/shop-rio-two-brothers-480.webp" srcset="../photos/_sized/shop-rio-two-brothers-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1333" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." loading="lazy" decoding="async"></a></li></ul>
+                        <p class="set-card__foot"><span class="set-card__open" aria-hidden="true">View the series <span class="arr" aria-hidden="true">&rarr;</span></span><a class="card-aside" href="../shop.html#photosets">Prints in the shop&nbsp;<span class="arr" aria-hidden="true">&rarr;</span></a></p>
                     </div>
                 </article>
             </div>
@@ -592,30 +586,30 @@
     </section>
     <div class="galleries" id="galleries">
         <div class="wrap">
-            <section class="gallery" id="set-rio-de-janeiro" data-title="Rio de Janeiro" aria-label="Rio de Janeiro">
-                <h3 class="gallery-title">Rio de Janeiro <span>04 frames</span></h3>
-                <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/shop/rio-santa-teresa-trams.jpg" data-w="2000" data-h="1333" data-alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." data-tag=""><a href="../photos/shop/rio-santa-teresa-trams.jpg"><img src="../photos/_sized/shop-rio-santa-teresa-trams-480.webp" srcset="../photos/_sized/shop-rio-santa-teresa-trams-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1333" alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/shop/rio-brahma-corner.jpg" data-w="1404" data-h="2000" data-alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." data-tag=""><a href="../photos/shop/rio-brahma-corner.jpg"><img src="../photos/_sized/shop-rio-brahma-corner-480.webp" srcset="../photos/_sized/shop-rio-brahma-corner-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1404" height="2000" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/shop/rio-fog-islands-moon.jpg" data-w="2000" data-h="1334" data-alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." data-tag=""><a href="../photos/shop/rio-fog-islands-moon.jpg"><img src="../photos/_sized/shop-rio-fog-islands-moon-480.webp" srcset="../photos/_sized/shop-rio-fog-islands-moon-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1334" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/shop/rio-two-brothers.jpg" data-w="2000" data-h="1333" data-alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." data-tag=""><a href="../photos/shop/rio-two-brothers.jpg"><img src="../photos/_sized/shop-rio-two-brothers-480.webp" srcset="../photos/_sized/shop-rio-two-brothers-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1333" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." loading="lazy" decoding="async"></a></figure></div>
-                <p class="gallery-back"><a href="#work">Back to the work</a></p>
-            </section>
-            <section class="gallery" id="events" data-title="Event coverage" aria-label="Event coverage">
-                <h3 class="gallery-title">Event coverage <span>09 frames</span></h3>
-                <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/events/JMG_2254.jpg" data-w="2048" data-h="1365" data-alt="A concert crowd faces intersecting beams of white and blue stage light." data-tag=""><a href="../photos/events/JMG_2254.jpg"><img src="../photos/_sized/events-JMG_2254-480.webp" srcset="../photos/_sized/events-JMG_2254-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A concert crowd faces intersecting beams of white and blue stage light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_7895.jpg" data-w="2048" data-h="1365" data-alt="A small production crew gathers around a plated dish on a culinary set." data-tag=""><a href="../photos/events/JMG_7895.jpg"><img src="../photos/_sized/events-JMG_7895-480.webp" srcset="../photos/_sized/events-JMG_7895-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A small production crew gathers around a plated dish on a culinary set." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/DSC00021.jpg" data-w="2048" data-h="1365" data-alt="A crowd gathers beneath the glowing sign of a night market." data-tag=""><a href="../photos/events/DSC00021.jpg"><img src="../photos/_sized/events-DSC00021-480.webp" srcset="../photos/_sized/events-DSC00021-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A crowd gathers beneath the glowing sign of a night market." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_7787.jpg" data-w="2048" data-h="1365" data-alt="Hands finish a row of carefully plated dishes at an event." data-tag=""><a href="../photos/events/JMG_7787.jpg"><img src="../photos/_sized/events-JMG_7787-480.webp" srcset="../photos/_sized/events-JMG_7787-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Hands finish a row of carefully plated dishes at an event." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2228.jpg" data-w="1365" data-h="2048" data-alt="A performer in a quilted jacket stands beneath intense blue stage light." data-tag=""><a href="../photos/events/JMG_2228.jpg"><img src="../photos/_sized/events-JMG_2228-480.webp" srcset="../photos/_sized/events-JMG_2228-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="A performer in a quilted jacket stands beneath intense blue stage light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2854.jpg" data-w="2048" data-h="1365" data-alt="A DJ works behind a booth in a club lit with purple and green light." data-tag=""><a href="../photos/events/JMG_2854.jpg"><img src="../photos/_sized/events-JMG_2854-480.webp" srcset="../photos/_sized/events-JMG_2854-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A DJ works behind a booth in a club lit with purple and green light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2437.jpg" data-w="2048" data-h="1365" data-alt="A graduate smiles in cap and gown outdoors after commencement." data-tag=""><a href="../photos/events/JMG_2437.jpg"><img src="../photos/_sized/events-JMG_2437-480.webp" srcset="../photos/_sized/events-JMG_2437-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A graduate smiles in cap and gown outdoors after commencement." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2560.jpg" data-w="2048" data-h="1365" data-alt="A graduate celebrates on the steps of an engineering building." data-tag=""><a href="../photos/events/JMG_2560.jpg"><img src="../photos/_sized/events-JMG_2560-480.webp" srcset="../photos/_sized/events-JMG_2560-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A graduate celebrates on the steps of an engineering building." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/DSC00028.jpg" data-w="2048" data-h="2048" data-alt="Friends pose together during a crowded evening market event." data-tag=""><a href="../photos/events/DSC00028.jpg"><img src="../photos/_sized/events-DSC00028-480.webp" srcset="../photos/_sized/events-DSC00028-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="2048" alt="Friends pose together during a crowded evening market event." loading="lazy" decoding="async"></a></figure></div>
-                <p class="gallery-back"><a href="#work">Back to the work</a></p>
-            </section>
             <section class="gallery" id="portraits" data-title="Portraits" aria-label="Portraits">
                 <h3 class="gallery-title">Portraits <span>07 frames</span></h3>
                 <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/portraits/JMG_1520.jpg" data-w="2048" data-h="1365" data-alt="Black-and-white portrait of a father holding a baby outdoors." data-tag=""><a href="../photos/portraits/JMG_1520.jpg"><img src="../photos/_sized/portraits-JMG_1520-480.webp" srcset="../photos/_sized/portraits-JMG_1520-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Black-and-white portrait of a father holding a baby outdoors." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/portraits/JMG_1763.jpg" data-w="2048" data-h="1365" data-alt="Two people stand in red and blue light against a wall covered in newspaper pages." data-tag=""><a href="../photos/portraits/JMG_1763.jpg"><img src="../photos/_sized/portraits-JMG_1763-480.webp" srcset="../photos/_sized/portraits-JMG_1763-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Two people stand in red and blue light against a wall covered in newspaper pages." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/portraits/JMG_8929.jpg" data-w="2048" data-h="1365" data-alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." data-tag=""><a href="../photos/portraits/JMG_8929.jpg"><img src="../photos/_sized/portraits-JMG_8929-480.webp" srcset="../photos/_sized/portraits-JMG_8929-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Portrait of a man in dark glasses and a leather jacket against vivid graffiti." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/portraits/JMG_8750.jpg" data-w="2048" data-h="1365" data-alt="Portrait of a woman standing beside railway tracks in warm evening light." data-tag=""><a href="../photos/portraits/JMG_8750.jpg"><img src="../photos/_sized/portraits-JMG_8750-480.webp" srcset="../photos/_sized/portraits-JMG_8750-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Portrait of a woman standing beside railway tracks in warm evening light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/portraits/JMG_8386.jpg" data-w="2048" data-h="1344" data-alt="Portrait of a woman in warm window light beside a chrome pole." data-tag=""><a href="../photos/portraits/JMG_8386.jpg"><img src="../photos/_sized/portraits-JMG_8386-480.webp" srcset="../photos/_sized/portraits-JMG_8386-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1344" alt="Portrait of a woman in warm window light beside a chrome pole." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/portraits/JMG_6968.jpg" data-w="1365" data-h="2048" data-alt="Portrait of an artist seated in a colorful studio surrounded by his work." data-tag=""><a href="../photos/portraits/JMG_6968.jpg"><img src="../photos/_sized/portraits-JMG_6968-480.webp" srcset="../photos/_sized/portraits-JMG_6968-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Portrait of an artist seated in a colorful studio surrounded by his work." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/portraits/JMG_9553.jpg" data-w="1365" data-h="2048" data-alt="A woman holds a red rose in a brightly colored portrait setting." data-tag=""><a href="../photos/portraits/JMG_9553.jpg"><img src="../photos/_sized/portraits-JMG_9553-480.webp" srcset="../photos/_sized/portraits-JMG_9553-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="A woman holds a red rose in a brightly colored portrait setting." loading="lazy" decoding="async"></a></figure></div>
-                <p class="gallery-back"><a href="#work">Back to the work</a></p>
+                <p class="gallery-back"><a href="#work">Back to the work</a><a href="#fashion">Fashion &amp; Editorial&nbsp;&rarr;</a></p>
             </section>
-            <section class="gallery" id="fashion" data-title="Fashion &amp; editorial" aria-label="Fashion &amp; editorial">
-                <h3 class="gallery-title">Fashion &amp; editorial <span>05 frames</span></h3>
+            <section class="gallery" id="fashion" data-title="Fashion &amp; Editorial" aria-label="Fashion &amp; Editorial">
+                <h3 class="gallery-title">Fashion &amp; Editorial <span>05 frames</span></h3>
                 <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/fashion/JMG_3641.jpg" data-w="2048" data-h="1365" data-alt="Fashion portrait of a model seated in a patterned green look and white trousers." data-tag=""><a href="../photos/fashion/JMG_3641.jpg"><img src="../photos/_sized/fashion-JMG_3641-480.webp" srcset="../photos/_sized/fashion-JMG_3641-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Fashion portrait of a model seated in a patterned green look and white trousers." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/fashion/JMG_1601.jpg" data-w="1365" data-h="2048" data-alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." data-tag=""><a href="../photos/fashion/JMG_1601.jpg"><img src="../photos/_sized/fashion-JMG_1601-480.webp" srcset="../photos/_sized/fashion-JMG_1601-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Fashion portrait of a model in a red coat and knit hat against a pale studio wall." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/fashion/JMG_4379.jpg" data-w="2048" data-h="1365" data-alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." data-tag=""><a href="../photos/fashion/JMG_4379.jpg"><img src="../photos/_sized/fashion-JMG_4379-480.webp" srcset="../photos/_sized/fashion-JMG_4379-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Fashion portrait of a woman with copper hair seated against a rough concrete wall." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/fashion/JMG_8075.jpg" data-w="1365" data-h="2048" data-alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." data-tag=""><a href="../photos/fashion/JMG_8075.jpg"><img src="../photos/_sized/fashion-JMG_8075-480.webp" srcset="../photos/_sized/fashion-JMG_8075-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="Fashion portrait of a man with red-tipped hair, red boots, and a painted black denim look." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/fashion/JMG_8986.jpg" data-w="2048" data-h="1365" data-alt="A couple in dark clothing stands close together before a graffiti-covered wall." data-tag=""><a href="../photos/fashion/JMG_8986.jpg"><img src="../photos/_sized/fashion-JMG_8986-480.webp" srcset="../photos/_sized/fashion-JMG_8986-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A couple in dark clothing stands close together before a graffiti-covered wall." loading="lazy" decoding="async"></a></figure></div>
-                <p class="gallery-back"><a href="#work">Back to the work</a></p>
+                <p class="gallery-back"><a href="#work">Back to the work</a><a href="#portraits">&larr;&nbsp;Portraits</a><a href="#events">Events&nbsp;&rarr;</a></p>
+            </section>
+            <section class="gallery" id="events" data-title="Events" aria-label="Events">
+                <h3 class="gallery-title">Events <span>09 frames</span></h3>
+                <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/events/JMG_2254.jpg" data-w="2048" data-h="1365" data-alt="A concert crowd faces intersecting beams of white and blue stage light." data-tag=""><a href="../photos/events/JMG_2254.jpg"><img src="../photos/_sized/events-JMG_2254-480.webp" srcset="../photos/_sized/events-JMG_2254-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A concert crowd faces intersecting beams of white and blue stage light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_7895.jpg" data-w="2048" data-h="1365" data-alt="A small production crew gathers around a plated dish on a culinary set." data-tag=""><a href="../photos/events/JMG_7895.jpg"><img src="../photos/_sized/events-JMG_7895-480.webp" srcset="../photos/_sized/events-JMG_7895-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A small production crew gathers around a plated dish on a culinary set." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/DSC00021.jpg" data-w="2048" data-h="1365" data-alt="A crowd gathers beneath the glowing sign of a night market." data-tag=""><a href="../photos/events/DSC00021.jpg"><img src="../photos/_sized/events-DSC00021-480.webp" srcset="../photos/_sized/events-DSC00021-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A crowd gathers beneath the glowing sign of a night market." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_7787.jpg" data-w="2048" data-h="1365" data-alt="Hands finish a row of carefully plated dishes at an event." data-tag=""><a href="../photos/events/JMG_7787.jpg"><img src="../photos/_sized/events-JMG_7787-480.webp" srcset="../photos/_sized/events-JMG_7787-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Hands finish a row of carefully plated dishes at an event." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2228.jpg" data-w="1365" data-h="2048" data-alt="A performer in a quilted jacket stands beneath intense blue stage light." data-tag=""><a href="../photos/events/JMG_2228.jpg"><img src="../photos/_sized/events-JMG_2228-480.webp" srcset="../photos/_sized/events-JMG_2228-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1365" height="2048" alt="A performer in a quilted jacket stands beneath intense blue stage light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2854.jpg" data-w="2048" data-h="1365" data-alt="A DJ works behind a booth in a club lit with purple and green light." data-tag=""><a href="../photos/events/JMG_2854.jpg"><img src="../photos/_sized/events-JMG_2854-480.webp" srcset="../photos/_sized/events-JMG_2854-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A DJ works behind a booth in a club lit with purple and green light." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2437.jpg" data-w="2048" data-h="1365" data-alt="A graduate smiles in cap and gown outdoors after commencement." data-tag=""><a href="../photos/events/JMG_2437.jpg"><img src="../photos/_sized/events-JMG_2437-480.webp" srcset="../photos/_sized/events-JMG_2437-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A graduate smiles in cap and gown outdoors after commencement." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/JMG_2560.jpg" data-w="2048" data-h="1365" data-alt="A graduate celebrates on the steps of an engineering building." data-tag=""><a href="../photos/events/JMG_2560.jpg"><img src="../photos/_sized/events-JMG_2560-480.webp" srcset="../photos/_sized/events-JMG_2560-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A graduate celebrates on the steps of an engineering building." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/events/DSC00028.jpg" data-w="2048" data-h="2048" data-alt="Friends pose together during a crowded evening market event." data-tag=""><a href="../photos/events/DSC00028.jpg"><img src="../photos/_sized/events-DSC00028-480.webp" srcset="../photos/_sized/events-DSC00028-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="2048" alt="Friends pose together during a crowded evening market event." loading="lazy" decoding="async"></a></figure></div>
+                <p class="gallery-back"><a href="#work">Back to the work</a><a href="#fashion">&larr;&nbsp;Fashion &amp; Editorial</a><a href="#places">Places&nbsp;&rarr;</a></p>
             </section>
             <section class="gallery" id="places" data-title="Places" aria-label="Places">
                 <h3 class="gallery-title">Places <span>12 frames</span></h3>
                 <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/landscape/JMG_5693.jpg" data-w="2048" data-h="1365" data-alt="Mist moves through a pine forest and mountain valley." data-tag=""><a href="../photos/landscape/JMG_5693.jpg"><img src="../photos/_sized/landscape-JMG_5693-480.webp" srcset="../photos/_sized/landscape-JMG_5693-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Mist moves through a pine forest and mountain valley." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/DSC00659.jpg" data-w="2048" data-h="1365" data-alt="A red sun hangs over a hazy landscape lined with palm trees." data-tag=""><a href="../photos/landscape/DSC00659.jpg"><img src="../photos/_sized/landscape-DSC00659-480.webp" srcset="../photos/_sized/landscape-DSC00659-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A red sun hangs over a hazy landscape lined with palm trees." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/travel/JMG_7419.jpg" data-w="2048" data-h="1365" data-alt="Two visitors share a quiet conversation inside an art museum." data-tag=""><a href="../photos/travel/JMG_7419.jpg"><img src="../photos/_sized/travel-JMG_7419-480.webp" srcset="../photos/_sized/travel-JMG_7419-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Two visitors share a quiet conversation inside an art museum." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/JMG_6799.jpg" data-w="2048" data-h="1365" data-alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." data-tag=""><a href="../photos/landscape/JMG_6799.jpg"><img src="../photos/_sized/landscape-JMG_6799-480.webp" srcset="../photos/_sized/landscape-JMG_6799-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A lone walker crosses a mountain overlook as sunlight breaks through cloud." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/JMG_6109.jpg" data-w="2048" data-h="1365" data-alt="Rock formations sit offshore beneath a pale band of ocean haze." data-tag=""><a href="../photos/landscape/JMG_6109.jpg"><img src="../photos/_sized/landscape-JMG_6109-480.webp" srcset="../photos/_sized/landscape-JMG_6109-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Rock formations sit offshore beneath a pale band of ocean haze." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/travel/JMG_3086.jpg" data-w="2048" data-h="1365" data-alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." data-tag=""><a href="../photos/travel/JMG_3086.jpg"><img src="../photos/_sized/travel-JMG_3086-480.webp" srcset="../photos/_sized/travel-JMG_3086-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Palm trees and beach umbrellas form silhouettes against a blue-orange dusk sky." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/travel/DSC00870.jpg" data-w="2048" data-h="1365" data-alt="Swimmers appear as small figures in a calm sea beneath a pastel sky." data-tag=""><a href="../photos/travel/DSC00870.jpg"><img src="../photos/_sized/travel-DSC00870-480.webp" srcset="../photos/_sized/travel-DSC00870-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Swimmers appear as small figures in a calm sea beneath a pastel sky." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/JMG_6986.jpg" data-w="2048" data-h="1365" data-alt="Sailboats fill a marina with a city skyline rising beyond them." data-tag=""><a href="../photos/landscape/JMG_6986.jpg"><img src="../photos/_sized/landscape-JMG_6986-480.webp" srcset="../photos/_sized/landscape-JMG_6986-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Sailboats fill a marina with a city skyline rising beyond them." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/JMG_5742.jpg" data-w="2048" data-h="1365" data-alt="A tall waterfall drops through a granite valley framed by green trees." data-tag=""><a href="../photos/landscape/JMG_5742.jpg"><img src="../photos/_sized/landscape-JMG_5742-480.webp" srcset="../photos/_sized/landscape-JMG_5742-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A tall waterfall drops through a granite valley framed by green trees." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/DSC00488.jpg" data-w="2048" data-h="1365" data-alt="A snow-covered mountain rises behind dark trees at blue hour." data-tag=""><a href="../photos/landscape/DSC00488.jpg"><img src="../photos/_sized/landscape-DSC00488-480.webp" srcset="../photos/_sized/landscape-DSC00488-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A snow-covered mountain rises behind dark trees at blue hour." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/JMG_7535.jpg" data-w="2048" data-h="1365" data-alt="A lifeguard house and palm trees sit on a quiet beach beneath a pink sky." data-tag=""><a href="../photos/landscape/JMG_7535.jpg"><img src="../photos/_sized/landscape-JMG_7535-480.webp" srcset="../photos/_sized/landscape-JMG_7535-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="A lifeguard house and palm trees sit on a quiet beach beneath a pink sky." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/landscape/JMG_5559.jpg" data-w="2048" data-h="1365" data-alt="Two rock formations rise from bright blue water along the coast." data-tag=""><a href="../photos/landscape/JMG_5559.jpg"><img src="../photos/_sized/landscape-JMG_5559-480.webp" srcset="../photos/_sized/landscape-JMG_5559-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2048" height="1365" alt="Two rock formations rise from bright blue water along the coast." loading="lazy" decoding="async"></a></figure></div>
-                <p class="gallery-back"><a href="#work">Back to the work</a></p>
+                <p class="gallery-back"><a href="#work">Back to the work</a><a href="#events">&larr;&nbsp;Events</a><a href="#set-rio-de-janeiro">Rio de Janeiro&nbsp;&rarr;</a></p>
+            </section>
+            <section class="gallery" id="set-rio-de-janeiro" data-title="Rio de Janeiro" data-note="Rio de Janeiro, Brazil" aria-label="Rio de Janeiro">
+                <h3 class="gallery-title">Rio de Janeiro <span>04 frames</span></h3>
+                <div class="gallery-grid"><figure class="gallery-frame" data-full="../photos/shop/rio-santa-teresa-trams.jpg" data-w="2000" data-h="1333" data-alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." data-tag=""><a href="../photos/shop/rio-santa-teresa-trams.jpg"><img src="../photos/_sized/shop-rio-santa-teresa-trams-480.webp" srcset="../photos/_sized/shop-rio-santa-teresa-trams-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1333" alt="Two yellow trams meet on the tracks in Santa Teresa, Rio de Janeiro, passengers and pedestrians filling the street." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/shop/rio-brahma-corner.jpg" data-w="1404" data-h="2000" data-alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." data-tag=""><a href="../photos/shop/rio-brahma-corner.jpg"><img src="../photos/_sized/shop-rio-brahma-corner-480.webp" srcset="../photos/_sized/shop-rio-brahma-corner-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="1404" height="2000" alt="Two men share a conversation outside a corner bar in Rio de Janeiro, a golden dog resting at their feet, a mural of a painted face on the wall behind them." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/shop/rio-fog-islands-moon.jpg" data-w="2000" data-h="1334" data-alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." data-tag=""><a href="../photos/shop/rio-fog-islands-moon.jpg"><img src="../photos/_sized/shop-rio-fog-islands-moon-480.webp" srcset="../photos/_sized/shop-rio-fog-islands-moon-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1334" alt="A full moon rises over fog-shrouded islands in Guanabara Bay, Rio de Janeiro." loading="lazy" decoding="async"></a></figure><figure class="gallery-frame" data-full="../photos/shop/rio-two-brothers.jpg" data-w="2000" data-h="1333" data-alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." data-tag=""><a href="../photos/shop/rio-two-brothers.jpg"><img src="../photos/_sized/shop-rio-two-brothers-480.webp" srcset="../photos/_sized/shop-rio-two-brothers-480.webp 480w" sizes="(min-width: 900px) 160px, 31vw" width="2000" height="1333" alt="The peak of Dois Irmãos rises over a lagoon and the Rio de Janeiro skyline at dusk." loading="lazy" decoding="async"></a></figure></div>
+                <p class="gallery-back"><a href="#work">Back to the work</a><a href="#places">&larr;&nbsp;Places</a></p>
             </section>
         </div>
     </div>
@@ -627,47 +621,35 @@
                 <figure class="about-portrait rv"><img src="../photos/_sized/self-IMG_1912-480.webp" srcset="../photos/_sized/self-IMG_1912-480.webp 480w" sizes="(min-width: 800px) 440px, calc(100vw - 32px)" width="770" height="795" alt="Joshua McKenzie German raising a camera to his eye outdoors." loading="lazy" decoding="async"></figure>
                 <div class="about-copy rv">
                     <p class="about-lede">I&rsquo;m Joshua, a photographer in Los Angeles.</p>
-                    <p>I grew up in South Carolina and started out in journalism, because I&rsquo;ve always wanted to know what makes people tick. That curiosity is still what I bring to a shoot.</p>
-                    <p>I photograph portraits, fashion and events, on 35mm film and digital (a Nikon D500 and a Sony a6100).</p>
+                    <p>I shoot portraits, fashion and events, on 35mm film and digital (a Nikon D500 and a Sony a6100).</p>
+                    <p>I grew up in South Carolina and started out in journalism, because I&rsquo;ve always wanted to know what makes people tick.</p>
+                    <div class="direct about-contact">
+                        <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book a shoot <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+                        <p class="direct-row"><a class="direct-email" href="mailto:jgerms20@gmail.com">jgerms20@gmail.com</a><button type="button" class="copy-btn" data-copy="jgerms20@gmail.com">Copy</button></p><p class="direct-row"><a href="https://www.instagram.com/viewsbygerm/" target="_blank" rel="noopener">Instagram @viewsbygerm</a></p>
+                    </div>
                     <p class="about-more"><a href="../">My strategy and podcast work is at joshuamgerman.com&nbsp;<span class="arr" aria-hidden="true">&rarr;</span></a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="view view--services sec" id="services" data-view="services" aria-labelledby="services-title">
-        <div class="wrap">
-            <header class="sec-head rv"><h2 class="sec-title" id="services-title" tabindex="-1" data-view-heading>Services</h2><p class="sec-meta">Rates quoted per project</p></header>
-            <div class="svc-grid">
-                <figure class="svc-photo rv"><img src="../photos/_sized/portraits-JMG_6968-960.webp" srcset="../photos/_sized/portraits-JMG_6968-480.webp 480w, ../photos/_sized/portraits-JMG_6968-960.webp 960w" sizes="(min-width: 800px) 440px, calc(100vw - 32px)" width="1365" height="2048" alt="" loading="lazy" decoding="async" style="object-position: 50% 40%;"></figure>
-                <div class="svc rv">
-                    <h3 class="svc-sub">What I shoot</h3>
-                    <ul class="svc-list"><li class="svc-row"><span class="svc-name">Portraits</span><span class="svc-for">For people, families, graduates and artists.</span><span class="svc-desc">People, headshots, personal sessions.</span></li><li class="svc-row"><span class="svc-name">Fashion &amp; editorial</span><span class="svc-for">For designers, stylists and models.</span><span class="svc-desc">Lookbooks, styling tests, campaigns.</span></li><li class="svc-row"><span class="svc-name">Event coverage</span><span class="svc-for">For hosts, brands and venues.</span><span class="svc-desc">Documentary and behind the scenes: presentations, concerts, parties, launches.</span></li></ul>
-                    <p class="svc-also">Also booking: product, food and spaces.</p>
-                    <h3 class="svc-sub">How it works</h3>
-                    <ol class="svc-steps"><li class="svc-step"><span class="svc-step__no">01</span><span class="svc-step__name">Inquiry</span><span class="svc-step__text">Send the date, the place and what the photos are for through the Studio form.</span></li><li class="svc-step"><span class="svc-step__no">02</span><span class="svc-step__name">Plan</span><span class="svc-step__text">We agree on what to shoot, the timing and where the images will be used. You get a quote for the project.</span></li><li class="svc-step"><span class="svc-step__no">03</span><span class="svc-step__name">Shoot</span><span class="svc-step__text">On location or on set, on digital or 35mm film.</span></li><li class="svc-step"><span class="svc-step__no">04</span><span class="svc-step__name">Delivery</span><span class="svc-step__text">An edited selection of finished images, ready for where they are going.</span></li></ol>
-                    <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book through The Curious &amp; Creative Studio <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
-                    <p class="svc-how">Booking event coverage? <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=events" target="_blank" rel="noopener">Use the events form&nbsp;<span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a></p>
                 </div>
             </div>
         </div>
     </section>
     <section class="view view--book sec sec--book" id="book" data-view="book" aria-labelledby="book-title">
         <div class="wrap">
-            <header class="sec-head rv"><h2 class="sec-title" id="book-title" tabindex="-1" data-view-heading>Book a <em>shoot</em></h2><p class="sec-meta">Through The Curious &amp; Creative Studio</p></header>
+            <header class="sec-head rv"><h2 class="sec-title" id="book-title" tabindex="-1" data-view-heading>Book a <em>shoot</em></h2><p class="sec-meta">Rates quoted per project</p></header>
             <div class="book-grid">
-                <div class="book-aside rv">
-                    <p class="book-lede">Paid shoots are booked through my company.</p>
-                    <p>Client photography runs through The Curious &amp; Creative Company. Pick the form that fits and it goes straight to the Studio.</p>
-                    <p class="book-price">Rates quoted per project.</p>
-                </div>
                 <div class="book-main rv">
-                    <ul class="book-routes"><li class="book-route"><span class="book-route__name">Portraits, fashion &amp; general shoots</span><a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book through The Curious &amp; Creative Studio <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a></li><li class="book-route"><span class="book-route__name">Event coverage</span><a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=events" target="_blank" rel="noopener">Book event coverage through the Studio <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a></li></ul>
+                    <p class="book-lede">Tell me the date, the place and what the photos are for.</p>
+                    <p class="book-note">Shoots are booked through my company, The Curious &amp; Creative Company.</p>
+                    <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book a shoot <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+                    <p class="book-alt">Booking an event? <a href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=events" target="_blank" rel="noopener">Use the events form&nbsp;<span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a></p>
                     <div class="direct">
-                        <p class="direct-label">Not a booking? Just say hi.</p>
-                        <p class="direct-row"><a class="direct-email" href="mailto:jgerms20@gmail.com">jgerms20@gmail.com</a>
-                            <button type="button" class="copy-btn" data-copy="jgerms20@gmail.com">Copy</button></p>
-                        <p class="direct-row"><a href="https://www.instagram.com/viewsbygerm/" target="_blank" rel="noopener">Instagram @viewsbygerm</a></p>
+                        <p class="direct-label">Or email me directly</p>
+                        <p class="direct-row"><a class="direct-email" href="mailto:jgerms20@gmail.com">jgerms20@gmail.com</a><button type="button" class="copy-btn" data-copy="jgerms20@gmail.com">Copy</button></p><p class="direct-row"><a href="https://www.instagram.com/viewsbygerm/" target="_blank" rel="noopener">Instagram @viewsbygerm</a></p>
                     </div>
+                </div>
+                <div class="book-aside rv">
+                    <h3 class="svc-sub">What I shoot</h3>
+                    <ul class="svc-list"><li class="svc-row"><span class="svc-name">Portraits</span><span class="svc-for">For people, families, graduates and artists.</span></li><li class="svc-row"><span class="svc-name">Fashion &amp; Editorial</span><span class="svc-for">For designers, stylists and models.</span></li><li class="svc-row"><span class="svc-name">Events</span><span class="svc-for">For hosts, brands and venues.</span></li></ul>
+                    <p class="svc-also">Also booking: product, food and spaces.</p>
                 </div>
             </div>
         </div>
@@ -677,20 +659,18 @@
 
     <footer class="foot">
         <div class="wrap foot-row">
+            <p class="foot-line">Joshua McKenzie German &middot; Photography &middot; Los Angeles &middot; <a href="#book">Book a shoot</a></p>
             <a class="foot-home" href="../index.html">&larr; Back to joshuamgerman.com</a>
             <nav class="foot-links" aria-label="Elsewhere">
-                <a href="mailto:jgerms20@gmail.com">Say hi</a>
                 <a href="https://www.instagram.com/viewsbygerm/" rel="noopener" target="_blank">Instagram @viewsbygerm</a>
                 <a href="../shop.html">Prints</a>
                 <a href="../shop.html#photobooks">Photo books</a>
-                <a href="../index.html#podcasts">Podcasts</a>
             </nav>
-            <p class="foot-note">&copy; 2026 Joshua McKenzie German &middot; Los Angeles</p>
         </div>
     </footer>
 
     <div class="book-bar" id="book-bar">
-        <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book through the Studio <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a class="btn btn-safelight" href="https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo" target="_blank" rel="noopener">Book a shoot <span class="arr" aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span></a>
     </div>
 
     <dialog class="lb" id="lightbox" aria-labelledby="lb-title">
@@ -718,6 +698,10 @@
                 </button>
             </div>
         </div>
+        <nav class="lb-series" aria-label="Other series">
+            <button class="lb-series__btn" id="lb-prev-set" type="button" hidden></button>
+            <button class="lb-series__btn lb-series__btn--next" id="lb-next-set" type="button" hidden></button>
+        </nav>
         <p class="visually-hidden" id="lb-live" aria-live="polite"></p>
     </dialog>
 
@@ -750,10 +734,13 @@
             });
         }
 
-        /* ---- Views: Work, About, Services, Book. One per hash, like pages.
-           Without this script they simply stack, and the nav links scroll. ---- */
-        var VIEWS = { work: true, about: true, services: true, book: true };
-        var VIEW_TITLES = { about: 'About', services: 'Services', book: 'Book a shoot' };
+        /* ---- Views: Work, About, Book. One per hash, like pages.
+           Without this script they simply stack, and the nav links scroll.
+           The old #services and #inquiry open Book. ---- */
+        var VIEWS = { work: true, about: true, book: true };
+        var ALIASES = { services: 'book', inquiry: 'book' };
+        var isView = function (id) { return !!(VIEWS[id] || ALIASES[id]); };
+        var VIEW_TITLES = { about: 'About', book: 'Book a shoot' };
         var baseTitle = document.title;
         var navLinks = document.querySelectorAll('[data-nav]');
         var currentView = null;
@@ -764,6 +751,7 @@
         var viewOf = function (id) {
             if (!id) return 'work';
             if (VIEWS[id]) return id;
+            if (ALIASES[id]) return ALIASES[id];
             var owner = closest(byId(id), '[data-view]');
             return owner ? owner.getAttribute('data-view') : (currentView || 'work');
         };
@@ -780,11 +768,11 @@
         };
         var route = function () {
             var id = hashId(), view = viewOf(id), changed = showView(view);
-            var target = id && !VIEWS[id] ? byId(id) : null;
+            var target = id && !isView(id) ? byId(id) : null;
             /* a set's gallery: the viewer opens it over the page, nothing to scroll to */
             if (target && closest(target, '.galleries') && root.classList.contains('lb-ready')) return;
             if (target && changed) { target.scrollIntoView({ block: 'start' }); return; }
-            if (!changed && !VIEWS[id]) return;  /* same view: the browser's own jump stands */
+            if (!changed && !isView(id)) return;  /* same view: the browser's own jump stands */
             window.scrollTo({ top: 0, behavior: 'instant' });
             var heading = document.querySelector('.view--' + view + ' [data-view-heading]');
             if (heading) heading.focus({ preventScroll: true });
@@ -794,8 +782,10 @@
 
         /* ---- Lightbox, fed by the plain .gallery blocks ---- */
         var dlg = byId('lightbox');
-        var sets = {};
+        var sets = {}, seriesOrder = [];
         Array.prototype.forEach.call(document.querySelectorAll('.gallery[id]'), function (el) {
+            /* every series in card order; coverage stills are not a series */
+            if (el.id.indexOf('stills-') !== 0) seriesOrder.push(el.id);
             sets[el.id] = {
                 title: el.getAttribute('data-title') || '',
                 note: el.getAttribute('data-note') || '',
@@ -816,6 +806,13 @@
             var img = byId('lb-img'), stage = byId('lb-stage');
             var titleEl = byId('lb-title'), countEl = byId('lb-count'), capEl = byId('lb-cap'), noteEl = byId('lb-note'), liveEl = byId('lb-live');
             var closeBtn = byId('lb-close'), prevBtn = byId('lb-prev'), nextBtn = byId('lb-next');
+            var prevSet = byId('lb-prev-set'), nextSet = byId('lb-next-set');
+            var showSeriesBtn = function (btn, slug, label) {
+                btn.hidden = !slug;
+                btn.setAttribute('data-series', slug || '');
+                btn.textContent = slug ? (label === 'prev' ? '\u2190 ' + sets[slug].title : sets[slug].title + ' \u2192') : '';
+                if (slug) btn.setAttribute('aria-label', (label === 'prev' ? 'Previous series: ' : 'Next series: ') + sets[slug].title);
+            };
             var state = { slug: null, i: 0, viaHash: false, opener: null, closingFromHash: false, scrollY: 0 };
             var pending = { index: 0, opener: null };
             var warmed = {};
@@ -854,6 +851,9 @@
                 liveEl.textContent = 'Photograph ' + (state.i + 1) + ' of ' + n + '. ' + frame.alt;
                 warm(set.frames[(state.i + 1) % n]);
                 warm(set.frames[(state.i - 1 + n) % n]);
+                var at = seriesOrder.indexOf(state.slug);
+                showSeriesBtn(prevSet, at > 0 ? seriesOrder[at - 1] : null, 'prev');
+                showSeriesBtn(nextSet, at > -1 && at < seriesOrder.length - 1 ? seriesOrder[at + 1] : null, 'next');
             };
             var open = function (slug, index, viaHash, opener) {
                 var set = sets[slug];
@@ -923,6 +923,19 @@
             });
 
             closeBtn.addEventListener('click', function () { dlg.close(); });
+            /* Previous/next series: swap the set in place; the hash follows
+               without a new history entry, so Back still closes the viewer */
+            var goSeries = function (e) {
+                var btn = e.currentTarget, slug = btn.getAttribute('data-series');
+                if (!sets[slug]) return;
+                var hashed = slugFromHash() === state.slug;
+                open(slug, 0, state.viaHash, null);
+                if (hashed) { try { history.replaceState(null, '', '#' + slug); } catch (err) {} }
+                liveEl.textContent = sets[slug].title + '. ' + liveEl.textContent;
+                if (!btn.hidden) btn.focus();
+            };
+            prevSet.addEventListener('click', goSeries);
+            nextSet.addEventListener('click', goSeries);
             prevBtn.addEventListener('click', function () { step(-1); });
             nextBtn.addEventListener('click', function () { step(1); });
             img.addEventListener('click', function (e) { e.stopPropagation(); step(1); });
@@ -936,7 +949,7 @@
                 if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
                 else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
                 else if (e.key === 'Tab') {
-                    var items = [closeBtn, prevBtn, nextBtn].filter(function (b) { return !b.disabled; });
+                    var items = [closeBtn, prevBtn, nextBtn, prevSet, nextSet].filter(function (b) { return !b.disabled && !b.hidden; });
                     var first = items[0], last = items[items.length - 1];
                     var inside = items.indexOf(document.activeElement) !== -1;
                     if (e.shiftKey && (document.activeElement === first || !inside)) { e.preventDefault(); last.focus(); }
