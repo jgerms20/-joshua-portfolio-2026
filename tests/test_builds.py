@@ -122,7 +122,7 @@ class BuildPagesTests(unittest.TestCase):
             self.assertIsNotNone(soup.find("link", rel="manifest", href="../site.webmanifest"))
             self.assertIn("jmg-theme", " ".join(s.get_text() for s in soup.head.find_all("script")))
             back = soup.select_one(".nav-links a")
-            self.assertEqual(back["href"], "../index.html#builds")
+            self.assertEqual(back["href"], "./")
             self.assertIn("All Builds", back.get_text())
             self.assertIsNotNone(soup.find(id="themeToggle"))
             footer = [(a.get_text(strip=True), a["href"]) for a in soup.select(".footer-links a")]
@@ -139,6 +139,60 @@ class BuildPagesTests(unittest.TestCase):
         found = {p.relative_to(ROOT).as_posix() for p in discover_production_pages(ROOT)}
         for name in PAGES:
             self.assertIn(f"builds/{name}", found)
+
+
+class BuildsLandingTests(unittest.TestCase):
+    def landing(self):
+        return soup_for("index.html")
+
+    @staticmethod
+    def lab_rows(soup):
+        return [
+            (
+                row.select_one(".lab-row-name").get_text(strip=True),
+                row.select_one(".lab-chip").get_text(strip=True),
+                row.select_one(".lab-row-desc").get_text(strip=True),
+                row.a["href"],
+            )
+            for row in soup.select(".lab-list .lab-row")
+        ]
+
+    def test_landing_exists_and_head(self):
+        self.assertTrue((ROOT / "builds" / "index.html").is_file())
+        soup = self.landing()
+        self.assertEqual(soup.title.get_text(), "Builds | Joshua McKenzie German")
+        self.assertEqual(soup.find("link", rel="canonical")["href"], "https://joshuamgerman.com/builds/")
+        self.assertEqual(soup.find("meta", property="og:url")["content"], "https://joshuamgerman.com/builds/")
+        self.assertIsNotNone(soup.find("link", rel="manifest", href="../site.webmanifest"))
+        self.assertIsNotNone(soup.find("link", href="builds.css"))
+        self.assertIn("jmg-theme", " ".join(s.get_text() for s in soup.head.find_all("script")))
+        self.assertIsNotNone(soup.find(id="themeToggle"))
+        self.assertEqual(len(soup.find_all("h1")), 1)
+
+    def test_landing_links_three_case_studies(self):
+        hrefs = [a["href"] for a in self.landing().select(".lab-grid a.lab-card")]
+        self.assertEqual(hrefs, list(PAGES))
+
+    def test_case_studies_link_back_to_landing(self):
+        for name in PAGES:
+            self.assertEqual(soup_for(name).select_one(".nav-links a")["href"], "./", name)
+
+    def test_lab_rows_match_homepage(self):
+        home = BeautifulSoup((ROOT / "index.html").read_text(encoding="utf-8"), "lxml")
+        expected = self.lab_rows(home.select_one("#builds"))
+        found = self.lab_rows(self.landing())
+        self.assertTrue(found)
+        self.assertEqual([r[:2] for r in found], [r[:2] for r in expected])
+        self.assertEqual(found, expected)
+        self.assertIn("Kindling", [r[0] for r in found])
+        self.assertTrue(all(r[1] in ("Live", "Prototype") for r in found))
+        github = self.landing().select_one(".lab-index-foot a")
+        self.assertEqual(github["href"], "https://github.com/jgerms20")
+
+    def test_landing_images_have_local_targets(self):
+        for img in self.landing().find_all("img"):
+            self.assertTrue(img["src"].startswith("../assets/"), img["src"])
+            self.assertTrue((ROOT / "builds" / img["src"]).is_file(), img["src"])
 
 
 if __name__ == "__main__":

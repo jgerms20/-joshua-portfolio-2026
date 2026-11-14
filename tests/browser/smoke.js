@@ -19,7 +19,7 @@ const PAGES = [
   'podcasts/podcast-approachable-ai.html', 'podcasts/podcast-curious-creative.html',
   'work/work-gatorade.html', 'work/work-levis.html', 'work/work-sephora.html',
   'work/work-xfinity.html', 'work/work-directv.html', 'work/work-doordash.html',
-  'builds/gen-alpha-intelligence-lab.html', 'builds/meme-library.html', 'builds/life-gamified.html',
+  'builds/gen-alpha-intelligence-lab.html', 'builds/meme-library.html', 'builds/life-gamified.html', 'builds/index.html',
 ];
 const SIZES = [[390, 844], [1440, 900]];
 
