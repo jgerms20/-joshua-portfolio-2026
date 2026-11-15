@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{if(localStorage.getItem('jmg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+    <link rel="icon" href="../favicon.ico" sizes="48x48">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>Resume | Joshua McKenzie German</title>
+    <meta name="description" content="Resume of Joshua McKenzie German, creative, cultural and content strategist in Los Angeles. Co-founder and CEO of The Curious &amp; Creative Company.">
+    <link rel="canonical" href="https://joshuamgerman.com/resume/">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Resume | Joshua McKenzie German">
+    <meta property="og:description" content="Creative, cultural and content strategist in Los Angeles. TBWA\Chiat\Day, Wieden+Kennedy, Goodby, Silverstein &amp; Partners, and now The Curious &amp; Creative Company.">
+    <meta property="og:url" content="https://joshuamgerman.com/resume/">
+    <meta property="og:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resume | Joshua McKenzie German">
+    <meta name="twitter:description" content="Creative, cultural and content strategist in Los Angeles. Co-founder and CEO of The Curious &amp; Creative Company.">
+    <meta name="twitter:image" content="https://joshuamgerman.com/photos/self/German_Joshua_898-0831.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* The Paper Edition tokens, copied from index.html */
+        :root {
+            --paper: #F5F1E8;
+            --paper-warm: #EFEADF;
+            --paper-raised: #FBF8F1;
+            --paper-dim: #E9E3D5;
+            --ink: #171512;
+            --ink-soft: rgba(23, 21, 18, 0.72);
+            --ink-mid: rgba(23, 21, 18, 0.52);
+            --ink-faint: rgba(23, 21, 18, 0.34);
+            --ink-ghost: rgba(23, 21, 18, 0.14);
+            --rule: rgba(23, 21, 18, 0.16);
+            --rule-soft: rgba(23, 21, 18, 0.09);
+            --blue: #1F1DDB;
+            --blue-deep: #14129E;
+            --blue-wash: rgba(31, 29, 219, 0.07);
+            --vermilion: #E8380D;
+            --serif: 'Fraunces', Georgia, 'Times New Roman', 'Liberation Serif', serif;
+            --sans: 'Space Grotesk', Helvetica, Arial, 'Liberation Sans', sans-serif;
+            --mono: 'Space Mono', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+            --s-1: 4px; --s0: 8px; --s1: 12px; --s2: 16px; --s3: 24px;
+            --s4: 32px; --s5: 48px; --s6: 64px; --s7: 96px;
+            --edge: clamp(16px, 5vw, 72px);
+            --exp: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        :root[data-theme="dark"] {
+            --paper: #14110D;
+            --paper-warm: #191511;
+            --paper-raised: #1C1813;
+            --paper-dim: #0E0C09;
+            --ink: #F0EAE0;
+            --ink-soft: rgba(240, 234, 224, 0.74);
+            --ink-mid: rgba(240, 234, 224, 0.52);
+            --ink-faint: rgba(240, 234, 224, 0.34);
+            --ink-ghost: rgba(240, 234, 224, 0.13);
+            --rule: rgba(240, 234, 224, 0.17);
+            --rule-soft: rgba(240, 234, 224, 0.09);
+            --blue: #7B79FF;
+            --blue-deep: #9D9BFF;
+            --blue-wash: rgba(123, 121, 255, 0.10);
+            --vermilion: #FF5C33;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        ::selection { background: var(--blue); color: var(--paper); }
+        a { color: inherit; }
+        .skip { position: absolute; left: -9999px; }
+        .skip:focus { left: var(--s2); top: var(--s2); background: var(--paper-raised); padding: var(--s0) var(--s2); z-index: 10; }
+
+        /* Nav */
+        .nav { border-bottom: 1px solid var(--rule); background: var(--paper); position: sticky; top: 0; z-index: 5; }
+        .nav-row {
+            max-width: 980px; margin: 0 auto; padding: var(--s2) var(--edge);
+            display: flex; align-items: center; justify-content: space-between; gap: var(--s2);
+        }
+        .nav-home {
+            font-family: var(--mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; text-decoration: none; color: var(--ink);
+        }
+        .nav-home:hover { color: var(--blue); }
+        .nav-right { display: flex; align-items: center; gap: var(--s1); }
+        .theme-toggle {
+            width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--rule);
+            background: transparent; color: var(--ink); cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .theme-toggle svg { width: 16px; height: 16px; }
+        .theme-toggle .sun { display: none; }
+        :root[data-theme="dark"] .theme-toggle .sun { display: block; }
+        :root[data-theme="dark"] .theme-toggle .moon { display: none; }
+        .btn {
+            font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em;
+            text-transform: uppercase; text-decoration: none;
+            padding: 12px 22px; border-radius: 999px;
+            background: var(--blue); color: var(--paper); border: 1px solid var(--blue);
+            transition: background 0.3s var(--exp);
+            white-space: nowrap;
+        }
+        .btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+
+        /* Sheet */
+        .sheet { max-width: 980px; margin: 0 auto; padding: var(--s6) var(--edge) var(--s7); }
+        .masthead { padding-bottom: var(--s4); border-bottom: 1px solid var(--ink); }
+        .kicker {
+            font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--blue); display: flex; align-items: center; gap: var(--s0);
+        }
+        .kicker::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--vermilion); }
+        .name {
+            font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 0.92;
+            font-size: clamp(2.6rem, 8vw, 4.8rem); margin: var(--s2) 0 var(--s1);
+        }
+        .name .it { font-style: italic; font-weight: 300; }
+        .role { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: var(--ink-soft); }
+        .contact {
+            list-style: none; display: flex; flex-wrap: wrap; gap: var(--s0) var(--s3);
+            margin-top: var(--s3);
+            font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em;
+        }
+        .contact a { text-decoration: none; border-bottom: 1px solid var(--ink-faint); }
+        .contact a:hover { color: var(--blue); border-color: var(--blue); }
+
+        .sec {
+            display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: var(--s3);
+            padding: var(--s4) 0; border-bottom: 1px solid var(--rule);
+        }
+        .sec-label {
+            font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ink-mid); padding-top: 4px;
+        }
+        .sec-label .n { color: var(--blue); display: block; margin-bottom: 2px; }
+        .summary { font-family: var(--serif); font-weight: 300; font-size: 1.12rem; line-height: 1.5; }
+        .summary + .summary { margin-top: var(--s1); font-family: var(--sans); font-size: 0.95rem; color: var(--ink-soft); }
+
+        .job { padding-bottom: var(--s3); }
+        .job + .job { padding-top: var(--s3); border-top: 1px solid var(--rule-soft); }
+        .job:last-child { padding-bottom: 0; }
+        .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s2); flex-wrap: wrap; }
+        .org { font-family: var(--serif); font-weight: 500; font-size: 1.28rem; line-height: 1.2; }
+        .when { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; }
+        .title { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-top: 4px; }
+        .job ul, .list { list-style: none; margin-top: var(--s1); }
+        .job li, .list li {
+            position: relative; padding-left: 16px; font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft);
+        }
+        .job li + li, .list li + li { margin-top: 4px; }
+        .job li::before, .list li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 7px; height: 1px; background: var(--ink-mid); }
+        .job li strong, .list li strong { color: var(--ink); font-weight: 600; }
+        .list { margin-top: 0; }
+
+        .awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s2) var(--s4); }
+        .award-group h3 { font-family: var(--serif); font-weight: 500; font-size: 1rem; line-height: 1.3; }
+        .award-group h3 span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); font-weight: 400; display: block; margin-top: 2px; }
+        .award-group ul { list-style: none; margin-top: 6px; }
+        .award-group li { font-size: 0.86rem; line-height: 1.55; color: var(--ink-soft); }
+
+        .skills { display: flex; flex-wrap: wrap; gap: var(--s0); list-style: none; }
+        .skills li {
+            font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+            border: 1px solid var(--rule); border-radius: 999px; padding: 6px 12px;
+        }
+        .foot-note { margin-top: var(--s4); font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); }
+        .foot-note a { color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--ink); }
+        .foot-note a:hover { color: var(--blue); border-color: var(--blue); }
+
+        @media (max-width: 640px) {
+            .sec { grid-template-columns: minmax(0, 1fr); gap: var(--s2); }
+            .awards { grid-template-columns: minmax(0, 1fr); }
+            .btn { padding: 10px 16px; }
+        }
+
+        /* Print: one clean sheet, black on white */
+        @page { size: Letter; margin: 0.5in 0.55in; }
+        @media print {
+            :root, :root[data-theme="dark"] {
+                --paper: #FFFFFF; --paper-raised: #FFFFFF;
+                --ink: #000000; --ink-soft: #1A1A1A; --ink-mid: #444444; --ink-faint: #888888;
+                --rule: #BBBBBB; --rule-soft: #DDDDDD;
+                --blue: #000000; --blue-deep: #000000; --vermilion: #000000;
+            }
+            html { font-size: 12.5px; }
+            body { background: #FFFFFF; color: #000000; line-height: 1.45; }
+            .nav, .skip, .no-print { display: none !important; }
+            .sheet { max-width: none; padding: 0; }
+            .masthead { padding-bottom: 10px; }
+            .kicker::before { display: none; }
+            .name { font-size: 3rem; margin: 4px 0 2px; }
+            .role { font-size: 1.3rem; }
+            .contact { margin-top: 10px; font-size: 0.82rem; gap: 2px 18px; }
+            .contact a { border: 0; text-decoration: none; }
+            .sec { grid-template-columns: 118px minmax(0, 1fr); gap: 16px; padding: 12px 0; }
+            .sec-label { font-size: 0.72rem; }
+            .summary { font-size: 1.2rem; }
+            .summary + .summary { font-size: 1rem; }
+            .job { padding-bottom: 7px; break-inside: avoid; page-break-inside: avoid; }
+            .job + .job { padding-top: 7px; }
+            .org { font-size: 1.32rem; }
+            .when, .title { font-size: 0.76rem; }
+            .job ul { margin-top: 4px; }
+            .job li, .list li { font-size: 1rem; line-height: 1.45; }
+            .job li + li, .list li + li { margin-top: 1px; }
+            .awards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+            .award-group { break-inside: avoid; page-break-inside: avoid; }
+            .award-group li { font-size: 0.96rem; line-height: 1.4; }
+            .award-group ul { margin-top: 2px; }
+            .skills { gap: 4px; }
+            .skills li { font-size: 0.74rem; padding: 3px 9px; }
+            .foot-note { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to the resume</a>
+
+    <nav class="nav" aria-label="Resume">
+        <div class="nav-row">
+            <a href="../index.html" class="nav-home">&larr; Home</a>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light/dark mode">
+                    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="joshua-mckenzie-german-resume.pdf" class="btn" id="downloadPdf" download>Download PDF</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main" class="sheet">
+        <header class="masthead">
+            <p class="kicker">Resume</p>
+            <h1 class="name">Joshua McKenzie <span class="it">German</span></h1>
+            <p class="role">Creative, Cultural &amp; Content Strategist</p>
+            <ul class="contact">
+                <li>Los Angeles, CA</li>
+                <li><a href="mailto:jgerms20@gmail.com">jgerms20@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/joshua-german/" target="_blank" rel="noopener">linkedin.com/in/joshua-german</a></li>
+                <li><a href="https://joshuamgerman.com/">joshuamgerman.com</a></li>
+            </ul>
+        </header>
+
+        <section class="sec" id="summary">
+            <h2 class="sec-label"><span class="n">01</span>Summary</h2>
+            <div>
+                <p class="summary">My work starts with curiosity. I have a journalist&rsquo;s instinct to ask questions, a strategist&rsquo;s interest in understanding why things work, and a maker&rsquo;s desire to bring ideas into the world.</p>
+                <p class="summary">Today I&rsquo;m co-founder and CEO of The Curious &amp; Creative Company, which I run with Janel Moore, and I take on independent strategy work, build AI tools, host podcasts and shoot photography.</p>
+            </div>
+        </section>
+
+        <section class="sec" id="experience">
+            <h2 class="sec-label"><span class="n">02</span>Experience</h2>
+            <div>
+                <article class="job" data-org="curious-creative">
+                    <div class="job-head"><h3 class="org">The Curious &amp; Creative Company</h3><span class="when">Now</span></div>
+                    <p class="title">Co-founder &amp; CEO</p>
+                    <ul>
+                        <li>Run the company with Janel Moore: a media network, a production arm, and a strategy practice.</li>
+                    </ul>
+                </article>
+                <article class="job" data-org="tbwa">
+                    <div class="job-head"><h3 class="org">TBWA\Chiat\Day, Los Angeles</h3><span class="when">2024&ndash;2026</span></div>
+                    <p class="title">Senior Connections Strategist, later AI Strategy and Systems Lead</p>
+                    <ul>
+                        <li>Worked out where, how, and most importantly why an idea reaches people.</li>
+                        <li><strong>Levi&rsquo;s x Beyonc&eacute;: REIIMAGINE</strong>, <strong>Gatorade &times; Stranger Things</strong>, <strong>Gatorade: Body of Science</strong>, <strong>DIRECTV: Nothing On Your Roof</strong> and <strong>Sephora</strong>.</li>
+                    </ul>
+                </article>
+                <article class="job" data-org="wk">
+                    <div class="job-head"><h3 class="org">Wieden+Kennedy</h3><span class="when">2023&ndash;2024</span></div>
+                    <p class="title">Creative &amp; Content Strategist</p>
+                    <ul>
+                        <li><strong>DoorDash: All The Ads</strong>. Cannes Grand Prix winning Super Bowl phenomenon.</li>
+                        <li><strong>MLB: Baseball Is Something Else</strong>. MLB&rsquo;s first brand platform in 8 years.</li>
+                    </ul>
+                </article>
+                <article class="job" data-org="gsp">
+                    <div class="job-head"><h3 class="org">Goodby, Silverstein &amp; Partners</h3><span class="when">2020&ndash;2023</span></div>
+                    <p class="title">Creative &amp; Content Strategist</p>
+                    <ul>
+                        <li><strong>Driving While Black</strong>. A concept car designed to survive racial profiling, launched at the Detroit Auto Show.</li>
+                        <li><strong>Xfinity</strong>, <strong>BMW</strong>, <strong>Sam Adams</strong> and <strong>Califia</strong> campaigns, plus <strong>Preach</strong>, an Instagram game built in-house by GS&amp;P BLK for Black History Month 2021.</li>
+                    </ul>
+                </article>
+                <article class="job" data-org="independent">
+                    <div class="job-head"><h3 class="org">Independent</h3><span class="when">Startups</span></div>
+                    <p class="title">HIIKE, Advisor &amp; Strategist &middot; U&amp;AI, Fractional CMO</p>
+                    <ul>
+                        <li><strong>HIIKE</strong>. Brand, audience, and go-to-market strategy for a film festival research and submission platform.</li>
+                        <li><strong>U&amp;AI</strong>. Marketing strategy, brand direction, and go-to-market for an AI-visibility venture.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="sec" id="recognition">
+            <h2 class="sec-label"><span class="n">03</span>Selected recognition</h2>
+            <div class="awards">
+                <div class="award-group">
+                    <h3>DoorDash: All The Ads <span>Wieden+Kennedy</span></h3>
+                    <ul>
+                        <li>Cannes Titanium Grand Prix &middot; 2024</li>
+                        <li>D&amp;AD Yellow Pencil &middot; 2024</li>
+                        <li>8&times; Cannes Lions &middot; 2024</li>
+                        <li>7&times; One Show Gold Pencil &middot; 2024</li>
+                        <li>7&times; One Show Silver/Bronze/Merit &middot; 2024</li>
+                    </ul>
+                </div>
+                <div class="award-group">
+                    <h3>Driving While Black <span>Goodby, Silverstein &amp; Partners</span></h3>
+                    <ul>
+                        <li>Clio Grand &middot; 2024</li>
+                        <li>Shorty Award Winner</li>
+                        <li>One Show Bronze + Merit &middot; 2024</li>
+                        <li>D&amp;AD Shortlisted</li>
+                    </ul>
+                </div>
+                <div class="award-group">
+                    <h3>Levi&rsquo;s x Beyonc&eacute;: REIIMAGINE <span>TBWA\Chiat\Day</span></h3>
+                    <ul>
+                        <li>Clio Silver &middot; Fashion &amp; Beauty 2026</li>
+                        <li>2&times; One Show Merit &middot; 2026</li>
+                    </ul>
+                </div>
+                <div class="award-group">
+                    <h3>Xfinity &amp; Samuel Adams <span>Goodby, Silverstein &amp; Partners</span></h3>
+                    <ul>
+                        <li>Xfinity: The One Club Merit &middot; Casting 2021</li>
+                        <li>Samuel Adams: Clio Shortlist &middot; 2023</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec" id="builds">
+            <h2 class="sec-label"><span class="n">04</span>Builds</h2>
+            <ul class="list">
+                <li><strong>Gen Alpha Intelligence Lab</strong>. A living research lab on the forces shaping Gen Alpha culture, with an ingest pipeline for reports, interviews, and field notes.</li>
+                <li><strong>Meme Library</strong>. Describe the meme you half remember and it finds it, across 1,000+ source-linked clips, reactions, and GIFs.</li>
+                <li><strong>Life Gamified</strong>. A gamified RPG quest journal for real life: quests, XP, levels, achievements and a talent tree.</li>
+                <li>Plus 11 more in the lab at joshuamgerman.com/builds/.</li>
+            </ul>
+        </section>
+
+        <section class="sec" id="podcasts">
+            <h2 class="sec-label"><span class="n">05</span>Podcasts</h2>
+            <ul class="list">
+                <li><strong>The Eclectic Polymath</strong>. Host. Rabbit holes in history, power and culture.</li>
+                <li><strong>Approachable AI</strong>. Host. Building things on camera and showing the work.</li>
+                <li><strong>Curious &amp; Creative</strong>. Co-host with Janel Moore. Where creative strategy meets real conversation.</li>
+            </ul>
+        </section>
+
+        <section class="sec" id="photography">
+            <h2 class="sec-label"><span class="n">06</span>Photography</h2>
+            <ul class="list">
+                <li>Portraits, fashion and event coverage in Los Angeles, on 35mm film and digital.</li>
+            </ul>
+        </section>
+
+        <section class="sec" id="skills">
+            <h2 class="sec-label"><span class="n">07</span>Skills</h2>
+            <ul class="skills">
+                <li>Connections planning</li>
+                <li>Cultural strategy</li>
+                <li>Brand strategy</li>
+                <li>Content strategy</li>
+                <li>AI workflow design</li>
+                <li>Prototyping with Claude Code &amp; Codex</li>
+                <li>Photography</li>
+                <li>Podcast production</li>
+            </ul>
+        </section>
+
+        <p class="foot-note no-print">Full case studies at <a href="../work/">Brand Work</a> and <a href="../builds/">Builds</a>.</p>
+    </main>
+
+    <script>
+    (function () {
+        var btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            var root = document.documentElement;
+            var dark = root.getAttribute('data-theme') === 'dark';
+            if (dark) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', 'dark');
+            try { localStorage.setItem('jmg-theme', dark ? 'light' : 'dark'); } catch (e) {}
+        });
+    })();
+    </script>
+</body>
+</html>
