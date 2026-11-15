@@ -10,6 +10,7 @@ PRODUCTION_GLOBS = (
     "work/index.html",
     "work/work-*.html",
     "builds/*.html",
+    "resume/index.html",
 )
 
 EXCLUDED_NAMES = {"work-template.html"}
