@@ -483,3 +483,5 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 860px) { .lab-hero { grid-template-columns: 1fr; } .lab-hero .lab-art { aspect-ratio: 16/9; min-height: 0; } .lab-list { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .lab-card, .lab-hero { grid-column: span 12; } }
 @media (max-width: 480px) { .lab-row a { grid-template-columns: 48px minmax(0, 1fr); } .lab-row img { width: 48px; height: 32px; } .lab-row-side { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; } }
+
+[id] { scroll-margin-top: 84px; }

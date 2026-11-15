@@ -28,10 +28,26 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
+      # Publish the site only: no drafts, archives, tooling, notes or raw originals.
+      - name: Stage the public site
+        run: |
+          mkdir _site
+          rsync -a ./ _site/ \
+            --exclude '_site' --exclude '.git' --exclude '.github' --exclude '.claude' \
+            --exclude 'archives' --exclude 'versions' --exclude 'concepts' --exclude 'docs' \
+            --exclude 'tests' --exclude 'scripts' --exclude 'portfolio_quality' \
+            --exclude 'portfolio_sourcer' --exclude 'portfolio_updates' --exclude 'photos/inbox' \
+            --exclude '*.py' --exclude '*.sh' --exclude '*.md' --exclude 'requirements.txt' \
+            --exclude 'index-gemini-ultra.html' --exclude 'work/work-template.html' \
+            --exclude 'portfolio-memory.json' --exclude 'sourcer_config.json' --exclude 'design-system.json' \
+            --exclude '.DS_Store' --exclude '__pycache__' --exclude 'node_modules' \
+            --exclude '*.heic' --exclude '*.HEIC'
+          test -f _site/index.html && test -f _site/CNAME && test -f _site/work/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
       
       - name: Deploy to GitHub Pages
         id: deployment
