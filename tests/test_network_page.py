@@ -16,14 +16,14 @@ CONTACT = NETWORK_SITE + "pages/contact.html"
 # The company's current pitch, used verbatim as the page's lead.
 PITCH = (
     "Curious &amp; Creative is a Los Angeles creative company built by Joshua German and Janel Moore. "
-    "We run a media network, produce photography, video, editing, and podcasts through our studio, "
+    "We run a media network, produce photography, video, editing, and podcasts through Productions, "
     "and advise founders, brands, and marketing teams on culture, audience, and AI."
 )
 # The three legs of the company and the company-site page each one links out to.
 LEGS = {
     "The Network": NETWORK_SITE + "pages/network.html",
-    "The Studio": NETWORK_SITE + "pages/studio.html",
-    "The Consultancy": NETWORK_SITE + "pages/consultancy.html",
+    "Productions": NETWORK_SITE + "pages/studio.html",
+    "Strategy": NETWORK_SITE + "pages/consultancy.html",
 }
 STUDIO_OFFERS = (
     "Photography", "Event coverage", "Video", "Editing", "Podcast production", "Websites",

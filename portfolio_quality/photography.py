@@ -487,9 +487,9 @@ INSTAGRAM_HANDLE = "@viewsbygerm"
 # the photo site and in the homepage block goes to one of these.
 STUDIO_PHOTO_URL = "https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=photo"
 STUDIO_EVENTS_URL = "https://jgerms20.github.io/curious-and-creative/pages/contact.html?topic=events"
-STUDIO_BOOK_TEXT = "Book through The Curious &amp; Creative Studio"
+STUDIO_BOOK_TEXT = "Book through Curious &amp; Creative Productions"
 STUDIO_BOOK_LABEL = STUDIO_BOOK_TEXT + "&nbsp;&#8599;"
-STUDIO_EVENTS_LABEL = "Book event coverage through the Studio&nbsp;&#8599;"
+STUDIO_EVENTS_LABEL = "Book event coverage through Productions&nbsp;&#8599;"
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
