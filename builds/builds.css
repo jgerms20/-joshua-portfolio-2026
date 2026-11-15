@@ -178,6 +178,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transition: color 0.3s var(--exp), border-color 0.3s var(--exp), gap 0.3s var(--exp);
 }
 .rule-link:hover { color: var(--blue); border-color: var(--blue); gap: 16px; }
+.rule-link.is-back { min-height: 40px; align-items: flex-end; } /* tap area for the back link */
 
 /* Buttons */
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--s4); }
@@ -219,6 +220,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-brand {
     font-family: var(--serif); font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em;
     display: flex; align-items: center; gap: 10px; white-space: nowrap;
+    min-height: 44px; min-width: 44px; /* tap area; the mobile dot stays 7px */
 }
 .nav-brand .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); display: inline-block; }
 .nav-links { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 30px); }
@@ -226,10 +228,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     font-family: var(--mono); font-size: 0.6rem; font-weight: 700;
     letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-mid);
     transition: color 0.25s; white-space: nowrap;
-    position: relative; padding: 4px 0;
+    position: relative; padding: 0;
+    display: inline-flex; align-items: center; min-height: 44px; /* tap area */
 }
 .nav-links a::after {
-    content: ''; position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0%;
+    content: ''; position: absolute; left: 0; bottom: 10px; height: 1.5px; width: 0%;
     background: var(--blue); transition: width 0.3s var(--exp);
 }
 .nav-links a:hover { color: var(--ink); }
