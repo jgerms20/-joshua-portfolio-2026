@@ -922,7 +922,7 @@
         @media (max-width: 700px) { .notes-list a { grid-template-columns: 1fr; gap: 6px; } }
         /* ---- Builds: case-study status + the lab index ---- */
         .anchor-alias { position: relative; top: -80px; height: 0; }
-        .lab-status { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--mono); font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: rgba(245,241,232,0.94); color: var(--ink); border: 1px solid var(--rule); }
+        .lab-status { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--mono); font-size: 0.52rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: var(--paper-raised); color: var(--ink); border: 1px solid var(--rule); }
         .lab-hero .lab-status { top: auto; left: auto; bottom: 14px; right: 14px; }
         .lab-index { margin-top: clamp(48px, 6vw, 80px); border-top: 1.5px solid var(--ink); }
         .lab-index-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; padding: 18px 0 10px; }
@@ -2466,11 +2466,15 @@
             const burger = document.getElementById('navBurger');
             const menu = document.getElementById('mobileMenu');
             if (!burger || !menu) return;
-            const close = () => { menu.classList.remove('open'); document.body.style.overflow = ''; };
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-controls', 'mobileMenu');
+            const close = () => { menu.classList.remove('open'); document.body.style.overflow = ''; burger.setAttribute('aria-expanded', 'false'); };
             burger.addEventListener('click', () => {
                 const open = menu.classList.toggle('open');
                 document.body.style.overflow = open ? 'hidden' : '';
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
             });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { close(); burger.focus(); } });
             menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
         })();
 
