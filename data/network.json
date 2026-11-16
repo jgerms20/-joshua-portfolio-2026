@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-15T17:52:27Z",
+  "generated_at": "2026-11-16T02:53:06Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
+    },
+    {
+      "key": "globalread",
+      "name": "The Global Read",
+      "short": "The Global Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
+      "latest": "2026-11-15",
+      "count": 17
     },
     {
       "key": "morningread",
@@ -50,70 +66,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
       "latest": "2026-11-15",
       "count": 19
-    },
-    {
-      "key": "waiverwire",
-      "name": "The Waiver Wire",
-      "short": "The Waiver Wire",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
-      "latest": "2026-11-15",
-      "count": 4
-    },
-    {
-      "key": "cfbdaily",
-      "name": "College Football Daily",
-      "short": "College Football Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
-      "latest": "2026-11-15",
-      "count": 16
-    },
-    {
-      "key": "columbiaread",
-      "name": "The Columbia Read",
-      "short": "The Columbia Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0dTaZgM38D6shA8x5BTITR",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
-      "latest": "2026-11-15",
-      "count": 5
-    },
-    {
-      "key": "tvinsider",
-      "name": "The TV Insider",
-      "short": "The TV Insider",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
-      "latest": "2026-11-15",
-      "count": 8
     },
     {
       "key": "gamecocksdaily",
@@ -212,6 +164,22 @@
       "count": 34
     },
     {
+      "key": "cfbdaily",
+      "name": "College Football Daily",
+      "short": "College Football Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1fl00ImvclkYpwWiZzHtna",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
+      "latest": "2026-11-14",
+      "count": 15
+    },
+    {
       "key": "techread",
       "name": "The Tech Read",
       "short": "The Tech Read",
@@ -244,22 +212,6 @@
       "count": 11
     },
     {
-      "key": "globalread",
-      "name": "The Global Read",
-      "short": "The Global Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-14",
-      "count": 16
-    },
-    {
       "key": "marketread",
       "name": "The Market Read",
       "short": "The Market Read",
@@ -288,6 +240,22 @@
       "about": "",
       "url": "https://open.spotify.com/show/0eKxqwy7sMDyNXkCRR2IMN",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47058065/47058065-1792877027478-e10b06672d3e3.jpg",
+      "latest": "2026-11-13",
+      "count": 7
+    },
+    {
+      "key": "tvinsider",
+      "name": "The TV Insider",
+      "short": "The TV Insider",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
       "latest": "2026-11-13",
       "count": 7
     },
@@ -338,6 +306,38 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
       "latest": "2026-11-12",
       "count": 9
+    },
+    {
+      "key": "waiverwire",
+      "name": "The Waiver Wire",
+      "short": "The Waiver Wire",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
+      "latest": "2026-11-11",
+      "count": 3
+    },
+    {
+      "key": "columbiaread",
+      "name": "The Columbia Read",
+      "short": "The Columbia Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0dTaZgM38D6shA8x5BTITR",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
+      "latest": "2026-11-11",
+      "count": 4
     },
     {
       "key": "blitz",
@@ -520,12 +520,21 @@
   ],
   "latest": [
     {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "Sunday, November 15, 2026",
+      "date": "2026-11-15",
+      "url": "https://open.spotify.com/episode/01XzPiUR7lM2kjIep02grB",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794780952015-c3717ec14b328.jpg"
+    },
+    {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
       "title": "Sunday, November 15, 2026",
       "date": "2026-11-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Sunday--November-15--2026-e3sdoiv",
+      "url": "https://open.spotify.com/episode/0368i238apA6tODuG7mtSm",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794738908534-1902d7bcc3582.jpg"
     },
     {
@@ -536,42 +545,6 @@
       "date": "2026-11-15",
       "url": "https://open.spotify.com/episode/3nvwt1H1QLIcs8dnzyMObu",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794738797478-be5933cda2dc5.jpg"
-    },
-    {
-      "show": "waiverwire",
-      "show_name": "The Waiver Wire",
-      "kind": "episode",
-      "title": "Stroud's Five Touchdowns, Burrow in Madrid, and Nacua's Knee: Week 9 Studs, Duds & News | Monday, November 9, 2026",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/0ehUiWAlrVE3oZhwsmUoQ4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1794732813194-59a051408fd8f.jpg"
-    },
-    {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "Texas Stuns LSU at the Death, Utah Survives a Tucson Shootout | Saturday, November 14, 2026",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/1SO2eYk5RafdYU1JOjcAKw",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794730109386-7668c311738e.jpg"
-    },
-    {
-      "show": "columbiaread",
-      "show_name": "The Columbia Read",
-      "kind": "episode",
-      "title": "Monday, November 9, 2026",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/2jlMjpdEXY3919ddSE7ZSt",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1794733151232-26d9a10cb945f.jpg"
-    },
-    {
-      "show": "tvinsider",
-      "show_name": "The TV Insider",
-      "kind": "episode",
-      "title": "Nobody Wants This Renewed for Season 4 Two Weeks After Season 3 as Netflix Locks In Its Flagship Rom-Com | Monday, November 9, 2026",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/0X793CTJoLxRXF8biHsLFj",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1794719334875-4f7b314026852.jpg"
     },
     {
       "show": "gamecocksdaily",
@@ -626,6 +599,33 @@
       "date": "2026-11-15",
       "url": "https://podcasters.spotify.com/pod/show/jgerms204/episodes/24-CPF--Cameras-and-the-Brazilian-Data-State-English-e3sd6k2",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46721993/46721993-1794700774309-0208be327dbe5.jpg"
+    },
+    {
+      "show": "airead",
+      "show_name": "The AI Read",
+      "kind": "episode",
+      "title": "Monday, November 9, 2026",
+      "date": "2026-11-14",
+      "url": "https://open.spotify.com/episode/7ggzc2H9i7IiOtfy7qKdK3",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1794698886827-ea90988027435.jpg"
+    },
+    {
+      "show": "riff",
+      "show_name": "The Jazz Riff",
+      "kind": "episode",
+      "title": "Hampton Hawes: The Pianist a President Set Free",
+      "date": "2026-11-14",
+      "url": "https://open.spotify.com/episode/0T3eNhCrAn3uH97wDFXmYp",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46952241/46952241-1794697066704-db2781f7c1edb.jpg"
+    },
+    {
+      "show": "cfbdaily",
+      "show_name": "College Football Daily",
+      "kind": "episode",
+      "title": "Memphis Blows a 21-Point Lead, Then Wins a 52-41 Shootout at South Florida | Thursday, November 12, 2026",
+      "date": "2026-11-14",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2009/episodes/Memphis-Blows-a-21-Point-Lead--Then-Wins-a-52-41-Shootout-at-South-Florida--Thursday--November-12--2026-e3scvr2",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794696567196-838a2111c6384.jpg"
     }
   ]
 }
