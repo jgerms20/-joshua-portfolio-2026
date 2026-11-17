@@ -1,9 +1,25 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-17T08:34:10Z",
+  "updated": "2026-11-17T21:23:30Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#268 Frank Herbert: The Man Who Wrote Dune as a Warning",
+      "date": "2026-11-17",
+      "url": "https://open.spotify.com/episode/0VO9nABCQXNzni79QNTZMi",
+      "description": "In 1957, a working journalist with no college degree drove to the Oregon coast to write a magazine article about sand dunes. He never wrote it. The research swallowed him instead, and six years later it had become Dune — the most…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794876700457-e52f3f17a6e92.jpg",
+      "duration": "47 min"
+    },
+    {
+      "title": "#267 Gut Health: The Center Where Mood, Stress, and Intuition Actually Live",
+      "date": "2026-11-16",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/267-Gut-Health-The-Center-Where-Mood--Stress--and-Intuition-Actually-Live-e3sgnpo",
+      "description": "Your gut is not just where food goes. It is home to trillions of microbes, a nervous system of its own, and a constant conversation with your brain that shapes your mood, your sleep, your skin, and how stressed you feel on an ordinary…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794860873848-e74300b61e7e6.jpg",
+      "duration": "1 hr 16 min"
+    },
     {
       "title": "#267 Gut Health: The Center Where Mood, Stress, and Intuition Actually Live",
       "date": "2026-11-16",
@@ -11,22 +27,6 @@
       "description": "Your gut is not just where food goes. It is home to trillions of microbes, a nervous system of its own, and a constant conversation with your brain that shapes your mood, your sleep, your skin, and how stressed you feel on an ordinary…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794860873848-e74300b61e7e6.jpg",
       "duration": "1 hr 16 min"
-    },
-    {
-      "title": "The Future of War Is Already Here",
-      "date": "2026-11-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/The-Future-of-War-Is-Already-Here-e3sdc9m",
-      "description": "The future of war is not coming. In Ukraine, it has been in combat for years, and it looks less like a fighter jet than a workbench of cheap drones built like consumer electronics. A first-person-view drone costing a few hundred dollars…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794714076781-8bf3018cfe1cb.jpg",
-      "duration": "1 hr 6 min"
-    },
-    {
-      "title": "Donna Summer: The Mother of Modern Dance Music",
-      "date": "2026-11-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/Donna-Summer-The-Mother-of-Modern-Dance-Music-e3sdc5q",
-      "description": "She was called the Queen of Disco, but that title is too small. Donna Summer did not just rule an era — she started the ones that followed it. In 1975, “Love to Love You Baby” stretched a pop hit to seventeen minutes and helped invent the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794713860299-1bb6725df104a.jpg",
-      "duration": "48 min"
     },
     {
       "title": "#266 The Future of War Is Already Here",
@@ -40,6 +40,22 @@
       "title": "#265 Donna Summer: The Mother of Modern Dance Music",
       "date": "2026-11-15",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/265-Donna-Summer-The-Mother-of-Modern-Dance-Music-e3sdc5q",
+      "description": "She was called the Queen of Disco, but that title is too small. Donna Summer did not just rule an era — she started the ones that followed it. In 1975, “Love to Love You Baby” stretched a pop hit to seventeen minutes and helped invent the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794713860299-1bb6725df104a.jpg",
+      "duration": "48 min"
+    },
+    {
+      "title": "The Future of War Is Already Here",
+      "date": "2026-11-15",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/The-Future-of-War-Is-Already-Here-e3sdc9m",
+      "description": "The future of war is not coming. In Ukraine, it has been in combat for years, and it looks less like a fighter jet than a workbench of cheap drones built like consumer electronics. A first-person-view drone costing a few hundred dollars…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794714076781-8bf3018cfe1cb.jpg",
+      "duration": "1 hr 6 min"
+    },
+    {
+      "title": "Donna Summer: The Mother of Modern Dance Music",
+      "date": "2026-11-15",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/Donna-Summer-The-Mother-of-Modern-Dance-Music-e3sdc5q",
       "description": "She was called the Queen of Disco, but that title is too small. Donna Summer did not just rule an era — she started the ones that followed it. In 1975, “Love to Love You Baby” stretched a pop hit to seventeen minutes and helped invent the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794713860299-1bb6725df104a.jpg",
       "duration": "48 min"
@@ -83,22 +99,6 @@
       "description": "In the 1970s, Barry and Samahria Kaufman said they had cured their young son's autism by joining his world, rocking when he rocked and spinning plates when he spun plates, for twelve hours a day in a converted bathroom. The book became a…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg",
       "duration": "44 min"
-    },
-    {
-      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
-      "date": "2026-11-13",
-      "url": "https://open.spotify.com/episode/71ViA2GtDLwBb9LUWHzBr5",
-      "description": "In the 1970s, Barry and Samahria Kaufman said they had cured their young son's autism by joining his world, rocking when he rocked and spinning plates when he spun plates, for twelve hours a day in a converted bathroom. The book became a…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg",
-      "duration": "44 min"
-    },
-    {
-      "title": "#261 The Light They Sell You: What Red Light, Pressure Chambers, and the Longevity Stack Actually Prove",
-      "date": "2026-11-12",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/261-The-Light-They-Sell-You-What-Red-Light--Pressure-Chambers--and-the-Longevity-Stack-Actually-Prove-e3s84a4",
-      "description": "Healthy people are paying up to $136,000 to sit in pressurized oxygen chambers in their basements, and thousands more for home red light panels that can output less therapeutic energy than a sunny afternoon. This episode grades the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794442157306-214ef88644727.jpg",
-      "duration": "59 min"
     }
   ]
 }
