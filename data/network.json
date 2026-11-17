@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-16T22:21:10Z",
+  "generated_at": "2026-11-17T04:39:46Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,20 +20,36 @@
       "count": 6
     },
     {
-      "key": "polymath",
-      "name": "The Eclectic Polymath Podcast",
-      "short": "Eclectic Polymath",
+      "key": "marketread",
+      "name": "The Market Read",
+      "short": "The Market Read",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
-        "Joshua German"
+        "AI-generated"
       ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
       "latest": "2026-11-16",
-      "count": 265
+      "count": 16
+    },
+    {
+      "key": "dominatedconvo",
+      "name": "Dominated the Conversation",
+      "short": "Dominated the Conversation",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
+      "latest": "2026-11-16",
+      "count": 12
     },
     {
       "key": "globalread",
@@ -48,24 +64,8 @@
       "about": "",
       "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-16",
-      "count": 19
-    },
-    {
-      "key": "marketread",
-      "name": "The Market Read",
-      "short": "The Market Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-16",
-      "count": 15
+      "latest": "2026-11-15",
+      "count": 17
     },
     {
       "key": "morningread",
@@ -196,6 +196,22 @@
       "count": 14
     },
     {
+      "key": "polymath",
+      "name": "The Eclectic Polymath Podcast",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-11-15",
+      "count": 264
+    },
+    {
       "key": "brazil",
       "name": "God is Brazilian",
       "short": "God is Brazilian",
@@ -258,22 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115008/47115008-1793403471813-faf390ffca731.jpg",
       "latest": "2026-11-14",
       "count": 6
-    },
-    {
-      "key": "dominatedconvo",
-      "name": "Dominated the Conversation",
-      "short": "Dominated the Conversation",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
-      "latest": "2026-11-14",
-      "count": 11
     },
     {
       "key": "harlem",
@@ -520,22 +520,13 @@
   ],
   "latest": [
     {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
+      "show": "marketread",
+      "show_name": "The Market Read",
       "kind": "episode",
-      "title": "#267 Gut Health: The Center Where Mood, Stress, and Intuition Actually Live",
+      "title": "Sunday, November 8, 2026",
       "date": "2026-11-16",
-      "url": "https://open.spotify.com/episode/14Bl903yzOnm3BfZOV9UI7",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794860873848-e74300b61e7e6.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "China Confirms First Xi-Trump-Putin Summit in Shenzhen | Monday, November 16, 2026",
-      "date": "2026-11-16",
-      "url": "https://open.spotify.com/episode/43hWhx7sy12BS0fg3PeTDV",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794855805260-904fb7c6664cd.jpg"
+      "url": "https://open.spotify.com/episode/0T53wySpNj2RX1ahAtlKef",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794869448414-3b0d2bdc17d3.jpg"
     },
     {
       "show": "marketread",
@@ -543,17 +534,17 @@
       "kind": "episode",
       "title": "Monday, November 16, 2026",
       "date": "2026-11-16",
-      "url": "https://open.spotify.com/episode/0EDdrAfAn93KQ9UifmiL47",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2050/episodes/Monday--November-16--2026-e3sgdi8",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794849843973-a9627a302439.jpg"
     },
     {
-      "show": "globalread",
-      "show_name": "The Global Read",
+      "show": "dominatedconvo",
+      "show_name": "Dominated the Conversation",
       "kind": "episode",
-      "title": "Sunday, November 8, 2026",
+      "title": "The Lions Did a Human Centipede Celebration in Munich | Monday, November 16, 2026",
       "date": "2026-11-16",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Sunday--November-8--2026-e3sgbh5",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794848298347-dbe41fdb1b788.jpg"
+      "url": "https://open.spotify.com/episode/3uMWTwehKMwE4XIin8ZhDu",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1794843537964-9ab61722c301e.jpg"
     },
     {
       "show": "globalread",
@@ -588,7 +579,7 @@
       "kind": "episode",
       "title": "Stroud's Five Touchdowns, Burrow in Madrid, and Nacua's Knee: Week 9 Studs, Duds & News | Monday, November 9, 2026",
       "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/0ehUiWAlrVE3oZhwsmUoQ4",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2051/episodes/Strouds-Five-Touchdowns--Burrow-in-Madrid--and-Nacuas-Knee-Week-9-Studs--Duds--News--Monday--November-9--2026-e3sdlo7",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1794732813194-59a051408fd8f.jpg"
     },
     {
@@ -606,7 +597,7 @@
       "kind": "episode",
       "title": "Monday, November 9, 2026",
       "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/2jlMjpdEXY3919ddSE7ZSt",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20036/episodes/Monday--November-9--2026-e3sdhfe",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1794733151232-26d9a10cb945f.jpg"
     },
     {
@@ -626,6 +617,15 @@
       "date": "2026-11-15",
       "url": "https://open.spotify.com/episode/635TYFJRggm6hBa0f8Mufa",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1794733109068-168fd9f55b699.jpg"
+    },
+    {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Saturday, November 14, 2026",
+      "date": "2026-11-15",
+      "url": "https://open.spotify.com/episode/1DT9yWSMhmbN7sElMGqDLb",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794718127198-8925cd4254422.jpg"
     }
   ]
 }
