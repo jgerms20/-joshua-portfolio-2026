@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-15T17:52:27Z",
+  "generated_at": "2026-11-16T22:21:10Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,54 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
+    },
+    {
+      "key": "polymath",
+      "name": "The Eclectic Polymath Podcast",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-11-16",
+      "count": 265
+    },
+    {
+      "key": "globalread",
+      "name": "The Global Read",
+      "short": "The Global Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
+      "latest": "2026-11-16",
+      "count": 19
+    },
+    {
+      "key": "marketread",
+      "name": "The Market Read",
+      "short": "The Market Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-16",
+      "count": 15
     },
     {
       "key": "morningread",
@@ -148,22 +196,6 @@
       "count": 14
     },
     {
-      "key": "polymath",
-      "name": "The Eclectic Polymath Podcast",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-15",
-      "count": 264
-    },
-    {
       "key": "brazil",
       "name": "God is Brazilian",
       "short": "God is Brazilian",
@@ -242,38 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
       "latest": "2026-11-14",
       "count": 11
-    },
-    {
-      "key": "globalread",
-      "name": "The Global Read",
-      "short": "The Global Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-14",
-      "count": 16
-    },
-    {
-      "key": "marketread",
-      "name": "The Market Read",
-      "short": "The Market Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-14",
-      "count": 14
     },
     {
       "key": "harlem",
@@ -520,6 +520,51 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#267 Gut Health: The Center Where Mood, Stress, and Intuition Actually Live",
+      "date": "2026-11-16",
+      "url": "https://open.spotify.com/episode/14Bl903yzOnm3BfZOV9UI7",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794860873848-e74300b61e7e6.jpg"
+    },
+    {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "China Confirms First Xi-Trump-Putin Summit in Shenzhen | Monday, November 16, 2026",
+      "date": "2026-11-16",
+      "url": "https://open.spotify.com/episode/43hWhx7sy12BS0fg3PeTDV",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794855805260-904fb7c6664cd.jpg"
+    },
+    {
+      "show": "marketread",
+      "show_name": "The Market Read",
+      "kind": "episode",
+      "title": "Monday, November 16, 2026",
+      "date": "2026-11-16",
+      "url": "https://open.spotify.com/episode/0EDdrAfAn93KQ9UifmiL47",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794849843973-a9627a302439.jpg"
+    },
+    {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "Sunday, November 8, 2026",
+      "date": "2026-11-16",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Sunday--November-8--2026-e3sgbh5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794848298347-dbe41fdb1b788.jpg"
+    },
+    {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "Sunday, November 15, 2026",
+      "date": "2026-11-15",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2067/episodes/Sunday--November-15--2026-e3sellk",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794780952015-c3717ec14b328.jpg"
+    },
+    {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
@@ -534,7 +579,7 @@
       "kind": "episode",
       "title": "Sunday, November 15, 2026",
       "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/3nvwt1H1QLIcs8dnzyMObu",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20487/episodes/Sunday--November-15--2026-e3sdoh8",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794738797478-be5933cda2dc5.jpg"
     },
     {
@@ -581,51 +626,6 @@
       "date": "2026-11-15",
       "url": "https://open.spotify.com/episode/635TYFJRggm6hBa0f8Mufa",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1794733109068-168fd9f55b699.jpg"
-    },
-    {
-      "show": "fastbreak",
-      "show_name": "The Fast Break",
-      "kind": "episode",
-      "title": "Saturday, November 14, 2026",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/1DT9yWSMhmbN7sElMGqDLb",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794718127198-8925cd4254422.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "The Future of War Is Already Here",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/46Y2O8mXKUFnZLE55eIOA7",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794714076781-8bf3018cfe1cb.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "Donna Summer: The Mother of Modern Dance Music",
-      "date": "2026-11-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/Donna-Summer-The-Mother-of-Modern-Dance-Music-e3sdc5q",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794713860299-1bb6725df104a.jpg"
-    },
-    {
-      "show": "brazil",
-      "show_name": "God is Brazilian",
-      "kind": "episode",
-      "title": "#24 CPF, Câmeras e o Estado de Dados Brasileiro (Português)",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/2wX1fH7YXI6mkegO6aZceW",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46721993/46721993-1794701016269-ce3f062df98b9.jpg"
-    },
-    {
-      "show": "brazil",
-      "show_name": "God is Brazilian",
-      "kind": "episode",
-      "title": "#24 CPF, Cameras and the Brazilian Data State (English)",
-      "date": "2026-11-15",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms204/episodes/24-CPF--Cameras-and-the-Brazilian-Data-State-English-e3sd6k2",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46721993/46721993-1794700774309-0208be327dbe5.jpg"
     }
   ]
 }

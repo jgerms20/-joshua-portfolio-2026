@@ -1,9 +1,33 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-15T19:09:15Z",
+  "updated": "2026-11-16T22:34:32Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#267 Gut Health: The Center Where Mood, Stress, and Intuition Actually Live",
+      "date": "2026-11-16",
+      "url": "https://open.spotify.com/episode/14Bl903yzOnm3BfZOV9UI7",
+      "description": "Your gut is not just where food goes. It is home to trillions of microbes, a nervous system of its own, and a constant conversation with your brain that shapes your mood, your sleep, your skin, and how stressed you feel on an ordinary…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794860873848-e74300b61e7e6.jpg",
+      "duration": "1 hr 16 min"
+    },
+    {
+      "title": "#266 The Future of War Is Already Here",
+      "date": "2026-11-15",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/266-The-Future-of-War-Is-Already-Here-e3sdc9m",
+      "description": "The future of war is not coming. In Ukraine, it has been in combat for years, and it looks less like a fighter jet than a workbench of cheap drones built like consumer electronics. A first-person-view drone costing a few hundred dollars…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794714076781-8bf3018cfe1cb.jpg",
+      "duration": "1 hr 6 min"
+    },
+    {
+      "title": "#265 Donna Summer: The Mother of Modern Dance Music",
+      "date": "2026-11-15",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/265-Donna-Summer-The-Mother-of-Modern-Dance-Music-e3sdc5q",
+      "description": "She was called the Queen of Disco, but that title is too small. Donna Summer did not just rule an era — she started the ones that followed it. In 1975, “Love to Love You Baby” stretched a pop hit to seventeen minutes and helped invent the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794713860299-1bb6725df104a.jpg",
+      "duration": "48 min"
+    },
     {
       "title": "The Future of War Is Already Here",
       "date": "2026-11-15",
@@ -75,30 +99,6 @@
       "description": "Healthy people are paying up to $136,000 to sit in pressurized oxygen chambers in their basements, and thousands more for home red light panels that can output less therapeutic energy than a sunny afternoon. This episode grades the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794442157306-214ef88644727.jpg",
       "duration": "59 min"
-    },
-    {
-      "title": "#260 Demna: The Refugee Who Repriced Luxury",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/260-Demna-The-Refugee-Who-Repriced-Luxury-e3s7jg9",
-      "description": "On March 13, 2025, Kering announced that Demna would become the artistic director of Gucci, the biggest and most troubled house in the group. The market's verdict arrived the next morning: Kering shares fell as much as 13 percent, wiping…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794419121093-ef895006a7f65.jpg",
-      "duration": "53 min"
-    },
-    {
-      "title": "#258 Two Daughters of South London: How Grace Wales Bonner and Martine Rose Took the Two Biggest Jobs in Fashion",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/258-Two-Daughters-of-South-London-How-Grace-Wales-Bonner-and-Martine-Rose-Took-the-Two-Biggest-Jobs-in-Fashion-e3s697s",
-      "description": "Thirteen months apart, two designers from South London's Black British culture took the two most storied menswear chairs in Paris. In October 2025, Hermès named Grace Wales Bonner creative director of menswear, ending Véronique…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794358279749-59cded6dc4622.jpg",
-      "duration": "42 min"
-    },
-    {
-      "title": "#257 The Cockroach Summer: How a Leaked Exam Ruined India's Faith in Merit",
-      "date": "2026-11-11",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/257-The-Cockroach-Summer-How-a-Leaked-Exam-Ruined-Indias-Faith-in-Merit-e3s7j5b",
-      "description": "On May 15, 2026, the Chief Justice of India, Surya Kant, described unemployed young people drifting into activism as behaving like cockroaches. The clarification came the next day, and it made no difference at all. Within twenty-four…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794418689176-4656b8ccadc81.jpg",
-      "duration": "39 min"
     }
   ]
 }
