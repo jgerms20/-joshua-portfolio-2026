@@ -9,10 +9,19 @@
   "items": [
     {
       "type": "article",
+      "title": "Fugitive imagination",
+      "creator": "Shahram Khosravi · Aeon",
+      "url": "https://aeon.co/essays/the-fugitives-real-threat-is-to-imagine-another-world",
+      "date": "2026-11-13",
+      "image": "https://images.aeonmedia.co/images/250df91b-cb37-49ba-b1b1-4c14f75bb40e/essay-panos_00206717.jpg?width=1200&quality=75&format=jpeg"
+    },
+    {
+      "type": "article",
       "title": "What is work for? Human wellbeing and the value of work in the AGI era",
       "creator": "Stephanie Chan, Julian Jacobs & Logan Cross · DeepMind Institute",
       "url": "https://institute.deepmind.com/essays/what-is-work-for-human-wellbeing-and-the-value-of-work-in-the-agi-era/",
-      "date": "2026-10-29"
+      "date": "2026-10-29",
+      "image": "https://lh3.googleusercontent.com/VlvaGB2X4GeI84zKsqA2WG0xTqNWL3erGXQKMj9oIBLoGUBWC__nsB1N6DxMA2SDIycu2ZLN63o_jzXkOHMQdN-b70GNEZYnGMpK3wa8RrcP0l9V=w1200-h630-n-nu-rw"
     },
     {
       "type": "episode",
@@ -68,6 +77,7 @@
       "creator": "Yannick Giovanni Marshall · Current Affairs",
       "url": "https://www.currentaffairs.org/news/jay-z-and-the-pitfalls-of-black-capitalism",
       "date": "2025-08-04",
+      "image": "https://www.currentaffairs.org/hubfs/Issue%2054%20Online%20Images/Jay-Z-Online-Image1.jpg",
       "note": "Janel Moore and I talked this one through."
     },
     {
@@ -76,6 +86,7 @@
       "creator": "David Graeber · Strike! Magazine",
       "url": "https://strikemag.org/bullshit-jobs/",
       "date": "2013-08",
+      "image": "https://strikemag.org/content/2-magazine/20130817-issue-3/20130817-bullshit-jobs/bullshitjobs.jpg",
       "note": "The 2013 essay that became the book Bullshit Jobs: A Theory."
     }
   ]
