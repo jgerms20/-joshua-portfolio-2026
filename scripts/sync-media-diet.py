@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """Pull what Joshua is watching and reading into data/media-diet.json.
 
-Runs on the same schedule as the podcast sync (.github/workflows/sync-episodes.yml),
-where these hosts are reachable:
+Runs every hour in GitHub Actions (.github/workflows/sync-media-diet.yml), where
+these hosts are reachable:
   - Letterboxd diary   https://letterboxd.com/jgerms/rss/          (latest ~50 entries)
   - Goodreads shelves  currently-reading + read (list_rss for user 95365432, paged)
+
+Goodreads only serves these feeds for a public profile. If the sync logs HTTP 404 for
+user 95365432, set the profile to public: Goodreads > Account settings > Settings >
+Privacy > "Who can view my profile: anyone". Until then the Reading shelf has no books.
 
 The feeds only expose a recent window, so every run MERGES what it finds into the
 entries already in data/media-diet.json (deduped by url, newest first, capped at
@@ -12,8 +16,9 @@ MAX_ENTRIES). The archive grows past the feed window over time.
 
 Each source is optional: a failed fetch keeps that source's previous entries.
 
-Listening (podcasts, articles, records) is hand-edited in data/listening.json and
-this script never touches it.
+Listening (podcasts, articles, records) is hand-edited in data/listening.json, TV in
+data/watching.json, and Spotify saves are synced by scripts/sync-spotify.py. This
+script never touches any of them.
 
 Output shape:
   {"letterboxd": [film...], "reading": [book...], "read": [book...], "updated": "..."}
@@ -263,7 +268,7 @@ def main(argv=None) -> int:
     data["updated"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     OUT.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     log("[updated] data/media-diet.json")
-    return 0  # media diet is a nice-to-have; never fail the shared sync job
+    return 0  # media diet is a nice-to-have; never fail the sync job
 
 
 if __name__ == "__main__":

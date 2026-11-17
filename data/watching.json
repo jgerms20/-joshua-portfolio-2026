@@ -1,0 +1,11 @@
+{
+  "_readme": [
+    "Hand-edited TV log for the Watching shelf of the Media Diet (homepage #md-watching and /media-diet/#watching). Films come from Letterboxd by themselves; no sync script touches this file.",
+    "To add a show: put one object in \"items\" (newest first is tidy, but the shelf sorts by date anyway), separated from the next by a comma.",
+    "Example: {\"type\": \"tv\", \"title\": \"Show name\", \"season\": 2, \"date\": \"2026-11-12\", \"url\": \"https://...\", \"image\": \"https://...\", \"note\": \"One line on why.\"}",
+    "Required: type (always \"tv\"), title, date (the day you finished or logged it as YYYY-MM-DD, or YYYY-MM when only the month is known).",
+    "Optional: season (a number shows as 'Season 2'; text like 'Limited series' shows as written), url (https only: where to watch it or read about it), image (https URL to a portrait poster), note (one line).",
+    "Leave a field out rather than guessing. An empty list is fine: the shelf simply shows films."
+  ],
+  "items": []
+}

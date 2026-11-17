@@ -1,6 +1,8 @@
 from pathlib import Path
 import json
 import re
+import shutil
+import subprocess
 import unittest
 
 from bs4 import BeautifulSoup
@@ -53,8 +55,11 @@ class MediaDietComponentTests(unittest.TestCase):
         self.assertIn("root + 'data/listening.json'", self.js)
         # data-root can only be a plain relative/root path, never another origin
         self.assertIn("function safeRoot(v)", self.js)
-        self.assertTrue((ROOT / "data/media-diet.json").exists())
-        self.assertTrue((ROOT / "data/listening.json").exists())
+        self.assertIn("root + 'data/watching.json'", self.js)
+        self.assertIn("root + 'data/spotify.json'", self.js)
+        # every file the shelf asks for is committed, so the page never 404s
+        for name in ("media-diet", "listening", "watching", "spotify"):
+            self.assertTrue((ROOT / f"data/{name}.json").exists(), name)
 
     def test_hash_routing_is_opt_in_and_prefixed(self):
         self.assertIn("location.hash", self.js)
@@ -230,6 +235,202 @@ class ListeningArticlesTests(unittest.TestCase):
     def test_month_only_dates_are_supported(self):
         js = (ROOT / "assets/media-diet.js").read_text(encoding="utf-8")
         self.assertIn("/^\\d{4}-\\d{2}$/", js)
+
+
+NODE = shutil.which("node")
+
+
+def run_shelf(script: str):
+    """Run a snippet against the component's data-only helpers (no DOM) and return its JSON."""
+    code = "const md = require(process.argv[1]);\nconst out = (() => {" + script + "})();\nconsole.log(JSON.stringify(out));"
+    done = subprocess.run([NODE, "-e", code, str(JS)], capture_output=True, text=True, timeout=60, cwd=ROOT)
+    if done.returncode:
+        raise AssertionError(done.stderr)
+    return json.loads(done.stdout)
+
+
+DIET = {
+    "letterboxd": [
+        {"title": "Film A", "year": "2025", "watched": "2026-11-12", "url": "https://letterboxd.com/x/film/a/"},
+        {"title": "Film B", "year": "1999", "watched": "2026-10-30", "rewatch": True, "url": "https://letterboxd.com/x/film/b/"},
+        {"title": "Film C", "year": "1999", "watched": "2026-06-01", "url": "https://letterboxd.com/x/film/c/"},
+    ],
+    "reading": [{"title": "Book Now", "author": "A", "date": "2026-11-01", "url": "https://www.goodreads.com/book/show/1"}],
+    "read": [{"title": "Book Done", "author": "B", "date": "2026-09-20", "url": "https://www.goodreads.com/book/show/2"}],
+    "updated": "2026-11-17T00:00:00Z",
+}
+LISTEN = {"items": [
+    {"type": "article", "title": "Essay", "creator": "W · Mag", "url": "https://example.org/essay", "date": "2026-11-10"},
+    {"type": "article", "title": "Old essay", "creator": "W · Mag", "url": "https://example.org/old", "date": "2013-08"},
+    {"type": "episode", "title": "Picked episode", "creator": "A Show", "url": "https://open.spotify.com/episode/e1?si=abc", "date": "2026-11-05", "note": "Mine."},
+    {"type": "podcast", "title": "No link show", "creator": "Host", "date": "2026-01-02"},
+]}
+WATCH = {"items": [
+    {"type": "tv", "title": "Show A", "season": 2, "date": "2026-11-15", "url": "https://example.org/show-a"},
+    {"type": "tv", "title": "Show B", "season": "Limited series", "date": "2026-05", "url": "http://insecure.example/show-b"},
+    {"type": "film", "title": "Not TV", "date": "2026-11-16"},
+    {"type": "tv", "title": "", "date": "2026-11-16"},
+]}
+SPOTIFY = {
+    "albums": [{"title": "Album A", "artist": "Artist", "image": "https://i.scdn.co/a", "url": "https://open.spotify.com/album/a1", "added": "2026-11-14"}],
+    "shows": [{"title": "Saved show", "publisher": "Pub", "image": "", "url": "https://open.spotify.com/show/s1", "added": "2026-08-01"}],
+    "episodes": [
+        {"title": "Picked episode (Spotify copy)", "show": "A Show", "image": "", "url": "https://open.spotify.com/episode/e1", "added": "2026-11-06"},
+        {"title": "Saved episode", "show": "B Show", "image": "", "url": "https://open.spotify.com/episode/e2", "added": "2026-11-16"},
+        {"title": "Bad link", "show": "B Show", "image": "", "url": "javascript:alert(1)", "added": "2026-11-16"},
+    ],
+    "updated": "2026-11-17T00:00:00Z",
+}
+FIXTURES = "const [diet, listen, watch, spot] = " + json.dumps([DIET, LISTEN, WATCH, SPOTIFY]) + ";\n"
+
+
+@unittest.skipUnless(NODE, "node is not installed")
+class ShelfDataTests(unittest.TestCase):
+    """The data-only half of assets/media-diet.js, run in node with fixture data."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.shelves = run_shelf(FIXTURES + "return md.buildShelves(diet, listen, watch, spot);")
+
+    def chips(self, diet=DIET, listen=LISTEN, watch=WATCH, spot=SPOTIFY):
+        return run_shelf(
+            "const [diet, listen, watch, spot] = " + json.dumps([diet, listen, watch, spot]) + ";"
+            "const s = md.buildShelves(diet, listen, watch, spot);"
+            "return Object.fromEntries(['watching', 'reading', 'listening'].map(k => [k, md.chipList(k, s[k])]));"
+        )
+
+    def summary(self, key, today="2026-11-17", **files):
+        data = {"diet": DIET, "listen": LISTEN, "watch": WATCH, "spot": SPOTIFY, **files}
+        return run_shelf(
+            "const d = " + json.dumps(data) + ";"
+            "const s = md.buildShelves(d.diet, d.listen, d.watch, d.spot);"
+            f"return md.summaryLine({json.dumps(key)}, s[{json.dumps(key)}], {json.dumps(today)});"
+        )
+
+    # ---- TV by hand ----
+    def test_tv_merges_into_watching(self):
+        watching = self.shelves["watching"]
+        self.assertEqual([i["title"] for i in watching if i["kind"] == "tv"], ["Show A", "Show B"])
+        self.assertEqual(len([i for i in watching if i["kind"] == "film"]), 3)
+        show_a, show_b = [i for i in watching if i["kind"] == "tv"]
+        self.assertEqual(show_a["season"], "Season 2")
+        self.assertEqual(show_b["season"], "Limited series")
+        self.assertEqual(show_b["date"], "2026-05")
+        self.assertEqual(show_b["url"], "")  # http links are dropped
+
+    def test_missing_or_empty_files_are_fine(self):
+        for watch, spot in (({}, {}), ({"items": []}, {"albums": [], "shows": [], "episodes": []}), (None, None), ([], "x")):
+            shelves = run_shelf(f"return md.buildShelves({json.dumps(DIET)}, {json.dumps(LISTEN)}, {json.dumps(watch)}, {json.dumps(spot)});")
+            self.assertEqual(len(shelves["watching"]), 3)
+            self.assertEqual(len(shelves["listening"]), 2)
+        empty = run_shelf("return md.buildShelves(null, null, null, null);")
+        self.assertEqual([empty[k] for k in ("watching", "reading", "listening")], [[], [], []])
+
+    # ---- Spotify merges into Listening ----
+    def test_spotify_merges_into_listening_deduped_by_url(self):
+        listening = self.shelves["listening"]
+        titles = [i["title"] for i in listening]
+        # the hand pick wins over Spotify's copy of the same link (?si= share tags ignored)
+        self.assertIn("Picked episode", titles)
+        self.assertNotIn("Picked episode (Spotify copy)", titles)
+        self.assertEqual(len(titles), len(set(titles)))
+        by_title = {i["title"]: i for i in listening}
+        self.assertEqual(by_title["Album A"]["type"], "album")
+        self.assertEqual(by_title["Album A"]["creator"], "Artist")
+        self.assertEqual(by_title["Album A"]["date"], "2026-11-14")
+        self.assertEqual(by_title["Saved show"]["type"], "podcast")
+        self.assertEqual(by_title["Saved episode"]["type"], "episode")
+        self.assertEqual(by_title["Saved episode"]["creator"], "B Show")
+        self.assertEqual(by_title["Bad link"]["url"], "")
+        self.assertFalse(any(i["type"] == "article" for i in listening))
+
+    # ---- Type chips ----
+    def test_type_chips_on_every_shelf(self):
+        chips = self.chips()
+        self.assertEqual(chips["watching"], [["all", "All", 5], ["films", "Films", 3], ["tv", "TV", 2], ["first", "First watch", 2], ["rewatch", "Rewatches", 1]])
+        self.assertEqual(chips["reading"], [["all", "All", 4], ["books", "Books", 2], ["articles", "Articles", 2], ["now", "Now reading", 1]])
+        # episodes and shows both count as Podcasts
+        self.assertEqual(chips["listening"], [["all", "All", 6], ["album", "Albums", 1], ["podcast", "Podcasts", 5]])
+
+    def test_a_chip_with_nothing_behind_it_is_hidden(self):
+        chips = self.chips(watch={"items": []}, spot={})
+        self.assertNotIn("TV", [c[1] for c in chips["watching"]])
+        self.assertNotIn("Albums", [c[1] for c in chips["listening"]])
+        # a shelf holding one type does not repeat "All" as a type chip
+        self.assertEqual([c[1] for c in chips["watching"]], ["All", "First watch", "Rewatches"])
+        self.assertEqual(chips["listening"], [["all", "All", 2]])
+        no_books = self.chips(diet={"letterboxd": []})
+        self.assertEqual(no_books["reading"], [["all", "All", 2]])
+        self.assertEqual(no_books["watching"], [["all", "All", 2]])
+
+    def test_chips_are_wired_in_the_component(self):
+        js = JS.read_text(encoding="utf-8")
+        for label in ("'Films'", "'TV'", "'Books'", "'Articles'", "'Now reading'", "'Albums'", "'Podcasts'"):
+            self.assertIn(label, js)
+        self.assertIn("var defs = chipList(key, list);", js)
+
+    # ---- "Latest + how often" ----
+    def test_summary_lines(self):
+        self.assertEqual(self.summary("watching"), "Latest: Show A, Nov 15 · 2 films and 1 show in the last 30 days")
+        self.assertEqual(self.summary("reading"), "Latest: Essay · 2 books and 1 article in the last 90 days")
+        self.assertEqual(self.summary("listening"), "Latest: Saved episode · 1 album and 3 podcasts in the last 90 days")
+
+    def test_summary_leaves_out_what_it_cannot_say(self):
+        # nothing in the window: no count, and never a zero
+        self.assertEqual(self.summary("watching", watch={}, today="2027-03-01"), "Latest: Film A, Nov 12, 2026")
+        self.assertEqual(self.summary("watching", watch={}), "Latest: Film A, Nov 12 · 2 films in the last 30 days")
+        one = {"letterboxd": [{"title": "Solo", "watched": "2026-11-16"}]}
+        self.assertEqual(self.summary("watching", diet=one, watch={}), "Latest: Solo, Nov 16 · 1 film in the last 30 days")
+        self.assertEqual(self.summary("reading", diet={}), "Latest: Essay · 1 article in the last 90 days")
+        # no dates at all: no line
+        undated = {"letterboxd": [{"title": "No date"}]}
+        self.assertEqual(self.summary("watching", diet=undated, watch={}), "")
+        self.assertEqual(self.summary("listening", listen={}, spot={}), "")
+        self.assertEqual(self.summary("watching", today="not a date"), "")
+        for key in ("watching", "reading", "listening"):
+            for today in ("2026-11-17", "2027-06-01", "2030-01-01"):
+                self.assertNotRegex(self.summary(key, today=today), r"(^|\D)0 ")
+
+    def test_summary_handles_month_only_and_future_dates(self):
+        month = {"items": [{"type": "tv", "title": "Month show", "date": "2026-11"}]}
+        self.assertEqual(self.summary("watching", diet={}, watch=month), "Latest: Month show, Nov 2026 · 1 show in the last 30 days")
+        future = {"items": [{"type": "tv", "title": "Not yet", "date": "2027-01-01"}]}
+        self.assertEqual(self.summary("watching", diet={}, watch=future), "")
+
+    def test_summary_is_computed_and_written_as_text(self):
+        js = JS.read_text(encoding="utf-8")
+        self.assertIn("latest.textContent = line;", js)
+        self.assertIn("summaryLine(key, items[key], todayISO())", js)
+        body = js[js.index("function summaryLine("): js.index("// ---- Shelves ----")]
+        self.assertNotRegex(body, r"\b\d+ (films?|books?|articles?|albums?|podcasts?|shows?)\b")  # no hard-coded counts
+        self.assertIn(".md-latest", CSS.read_text(encoding="utf-8"))
+
+
+class WatchingFileTests(unittest.TestCase):
+    """data/watching.json: TV, logged by hand."""
+
+    def test_watching_file_is_valid_and_documented(self):
+        data = json.loads((ROOT / "data/watching.json").read_text(encoding="utf-8"))
+        self.assertEqual(set(data), {"_readme", "items"})
+        readme = " ".join(data["_readme"])
+        for word in ("type", "title", "season", "date", "url", "image", "note", "YYYY-MM-DD"):
+            self.assertIn(word, readme)
+        self.assertIsInstance(data["items"], list)
+        allowed = {"type", "title", "season", "date", "url", "image", "note"}
+        for item in data["items"]:
+            self.assertLessEqual(set(item), allowed)
+            self.assertEqual(item.get("type"), "tv")
+            self.assertTrue(item.get("title"))
+            self.assertRegex(item.get("date", ""), r"^\d{4}-\d{2}(-\d{2})?$")
+            for key in ("url", "image"):
+                if item.get(key):
+                    self.assertTrue(item[key].startswith("https://"), item[key])
+
+    def test_tv_cards_are_labelled(self):
+        js = JS.read_text(encoding="utf-8")
+        self.assertIn("function tvCard", js)
+        self.assertIn("el('span', 'md-tv', 'TV')", js)
+        self.assertIn(".md-tv", CSS.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,57 @@
+name: Sync media diet
+
+# Pulls what Joshua is watching, reading and listening to into
+# data/media-diet.json (Letterboxd, Goodreads) and data/spotify.json (saved
+# albums, shows and episodes), which the Media Diet shelf reads. Commits only
+# when something changed, then starts a deploy so it goes live.
+# Kept apart from the podcast sync (sync-episodes.yml) so the two never race.
+on:
+  schedule:
+    # Every hour, at 17 minutes past.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write   # to start a deploy; pushes made with GITHUB_TOKEN don't trigger one
+
+concurrency:
+  group: sync-media-diet
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch watching and reading (Letterboxd, Goodreads)
+        run: python3 scripts/sync-media-diet.py
+
+      - name: Fetch listening (Spotify saved albums, shows, episodes)
+        env:
+          # Optional: without all three the step logs a line and does nothing
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+        run: python3 scripts/sync-spotify.py
+
+      - name: Commit changes and redeploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain data/media-diet.json data/spotify.json)" ]; then
+            git config user.name "media-diet-sync"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/media-diet.json data/spotify.json
+            git commit -m "Sync media diet"
+            git pull --rebase   # the podcast sync may have pushed in the meantime
+            git push
+            gh workflow run deploy.yml --ref main
+          else
+            echo "Media diet unchanged."
+          fi

@@ -4,8 +4,11 @@
    <div class="md-app" data-root="./" data-hash-prefix="md-" data-per-page="12"></div>
 
    data-root           Path from the page to the site root. The shelf fetches
-                       data/media-diet.json (Letterboxd + Goodreads, synced) and
-                       data/listening.json (hand-edited) from there.
+                       data/media-diet.json (Letterboxd + Goodreads, synced),
+                       data/watching.json (TV, hand-edited), data/listening.json
+                       (hand-edited picks) and data/spotify.json (saved albums,
+                       shows and episodes, synced) from there. Any of them can be
+                       missing or empty.
                        "./" on the homepage, "../" on /media-diet/.
    data-hash-prefix    Deep links. "md-" gives #md-watching / #md-reading /
                        #md-listening and never touches any other hash on the page.
@@ -25,7 +28,8 @@
 (function () {
     'use strict';
 
-    if (!window.fetch || !window.Promise || !document.querySelectorAll) return;
+    var HAS_DOM = typeof window !== 'undefined' && typeof document !== 'undefined' &&
+        !!(window.fetch && window.Promise && document.querySelectorAll);
 
     var LETTERBOXD = 'https://letterboxd.com/jgerms/';
     var GOODREADS = 'https://www.goodreads.com/user/show/95365432-joshua-german';
@@ -116,7 +120,7 @@
         return (Array.isArray(data && data.letterboxd) ? data.letterboxd : []).filter(function (f) { return f && str(f.title); }).map(function (f) {
             var year = /^\d{4}$/.test(str(f.year)) ? str(f.year) : '';
             return {
-                kind: 'film', title: str(f.title, 160), year: year, decade: year ? year.slice(0, 3) + '0s' : '',
+                kind: 'film', group: 'film', title: str(f.title, 160), year: year, decade: year ? year.slice(0, 3) + '0s' : '',
                 rating: num(f.rating, 5), date: isoDate(f.watched), rewatch: f.rewatch === true,
                 image: https(f.poster), url: https(f.url)
             };
@@ -130,7 +134,7 @@
             if (seen[key]) return;
             seen[key] = 1;
             list.push({
-                kind: 'book', title: str(b.title, 160), author: str(b.author, 100), rating: num(b.rating, 5),
+                kind: 'book', group: 'book', title: str(b.title, 160), author: str(b.author, 100), rating: num(b.rating, 5),
                 date: isoDate(b.date), now: now, image: https(b.cover), url: https(b.url)
             });
         }
@@ -138,24 +142,125 @@
         (Array.isArray(data && data.read) ? data.read : []).forEach(function (b) { add(b, false); });
         return list;
     }
+    // TV is logged by hand in data/watching.json and sits with the films
+    function tv(data) {
+        return (Array.isArray(data && data.items) ? data.items : []).filter(function (x) {
+            return x && str(x.type).toLowerCase() === 'tv' && str(x.title);
+        }).map(function (x) {
+            var season = str(x.season, 40);
+            return {
+                kind: 'tv', group: 'tv', title: str(x.title, 160), season: /^\d+$/.test(season) ? 'Season ' + season : season,
+                year: '', decade: '', rating: null, date: isoDate(x.date), rewatch: false,
+                image: https(x.image), url: https(x.url), note: str(x.note, 220)
+            };
+        });
+    }
+    // Episodes and shows are both "Podcasts" when the shelf is filtered or counted
+    function listenGroup(type) { return type === 'episode' ? 'podcast' : type; }
     function listening(data) {
         return (Array.isArray(data && data.items) ? data.items : []).filter(function (x) { return x && str(x.title); }).map(function (x) {
             var type = TYPES.hasOwnProperty(str(x.type).toLowerCase()) ? str(x.type).toLowerCase() : 'article';
             return {
-                kind: 'listen', type: type, title: str(x.title, 160), creator: str(x.creator, 100), note: str(x.note, 220),
+                kind: 'listen', type: type, group: listenGroup(type), title: str(x.title, 160), creator: str(x.creator, 100), note: str(x.note, 220),
                 date: isoDate(x.date), image: https(x.image), url: https(x.url)
             };
         });
+    }
+    // data/spotify.json (scripts/sync-spotify.py): saved albums, shows and episodes
+    function spotify(data) {
+        var out = [];
+        function add(list, type, by) {
+            (Array.isArray(list) ? list : []).forEach(function (x) {
+                if (!x || !str(x.title)) return;
+                out.push({
+                    kind: 'listen', type: type, group: listenGroup(type), title: str(x.title, 160), creator: str(x[by], 100), note: '',
+                    date: isoDate(x.added), image: https(x.image), url: https(x.url)
+                });
+            });
+        }
+        add(data && data.albums, 'album', 'artist');
+        add(data && data.shows, 'podcast', 'publisher');
+        add(data && data.episodes, 'episode', 'show');
+        return out;
+    }
+    // Hand picks first (they carry the notes), then anything Spotify adds; one card per link
+    function dedupe(list) {
+        var seen = {};
+        return list.filter(function (it) {
+            var key = it.url ? it.url.split(/[?#]/)[0].replace(/\/$/, '') : '';
+            if (!key) return true;
+            if (seen[key]) return false;
+            seen[key] = 1;
+            return true;
+        });
+    }
+    function buildShelves(diet, listen, watch, spot) {
+        var picks = listening(listen);
+        return {
+            watching: films(diet).concat(tv(watch)),
+            reading: books(diet).concat(picks.filter(function (i) { return i.type === 'article'; })),
+            listening: dedupe(picks.filter(function (i) { return i.type !== 'article'; }).concat(spotify(spot))),
+            updated: isoDate(diet && diet.updated)
+        };
+    }
+
+    // ---- "Latest + how often": one line per shelf, worked out from the dates in the data ----
+    var SUMMARY = {
+        watching: { days: 30, when: true, groups: [['film', 'film', 'films'], ['tv', 'show', 'shows']] },
+        reading: { days: 90, groups: [['book', 'book', 'books'], ['article', 'article', 'articles']] },
+        listening: { days: 90, groups: [['album', 'album', 'albums'], ['podcast', 'podcast', 'podcasts']] }
+    };
+    function dayNumber(d) {
+        var m = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(d || '');
+        return m ? Date.UTC(+m[1], +m[2] - 1, m[3] ? +m[3] : 1) / 864e5 : NaN;
+    }
+    function todayISO() {
+        var n = new Date();
+        return n.getFullYear() + '-' + ('0' + (n.getMonth() + 1)).slice(-2) + '-' + ('0' + n.getDate()).slice(-2);
+    }
+    // summaryLine('watching', items, '2026-11-17') -> "Latest: Sinners, Nov 12 · 4 films in the last 30 days"
+    // No dates, no line. Nothing in the window, no count. Never a zero.
+    function summaryLine(key, list, today) {
+        var def = SUMMARY[key], now = dayNumber(today);
+        if (!def || !Array.isArray(list) || isNaN(now)) return '';
+        var latest = null;
+        list.forEach(function (it) {
+            // a day of slack for time zones; anything dated further ahead is not "latest" yet
+            if (!it || !it.date || !(dayNumber(it.date) <= now + 1)) return;
+            if (!latest || it.date.localeCompare(latest.date) > 0) latest = it;
+        });
+        if (!latest) return '';
+        var out = 'Latest: ' + latest.title;
+        if (def.when) {
+            var when = fmtDate(latest.date, latest.date.slice(0, 4) !== today.slice(0, 4));
+            if (when) out += ', ' + when;
+        }
+        var counts = [];
+        def.groups.forEach(function (g) {
+            var n = list.filter(function (it) {
+                var age = it && it.date ? now - dayNumber(it.date) : NaN;
+                return it.group === g[0] && age >= -1 && age <= def.days;
+            }).length;
+            if (n) counts.push(plural(n, g[1], g[2]));
+        });
+        if (counts.length) out += ' · ' + counts.join(' and ') + ' in the last ' + def.days + ' days';
+        return out;
     }
 
     // ---- Shelves ----
     var SHELVES = {
         watching: {
             name: 'Watching', dek: 'Every film I log, with the stars to prove it.', source: 'Letterboxd', href: LETTERBOXD,
-            noun: ['film', 'films'], search: 'Search films or years',
-            chips: function () { return [['all', 'All'], ['first', 'First watch'], ['rewatch', 'Rewatches']]; },
-            chip: function (it, c) { return c === 'all' || (c === 'rewatch' ? it.rewatch : !it.rewatch); },
-            count: function (n) { return n ? plural(n, 'film logged', 'films logged') : 'Soon'; },
+            noun: function (items) { return hasTV(items) ? ['title', 'titles'] : ['film', 'films']; },
+            search: function (items) { return hasTV(items) ? 'Search films, shows or years' : 'Search films or years'; },
+            chips: function () { return [['all', 'All'], ['films', 'Films', 1], ['tv', 'TV', 1], ['first', 'First watch'], ['rewatch', 'Rewatches']]; },
+            chip: function (it, c) {
+                if (c === 'all') return true;
+                if (c === 'films') return it.kind === 'film';
+                if (c === 'tv') return it.kind === 'tv';
+                return it.kind === 'film' && (c === 'rewatch' ? it.rewatch : !it.rewatch);
+            },
+            count: function (n, items) { return n ? (hasTV(items) ? n + ' logged' : plural(n, 'film logged', 'films logged')) : 'Soon'; },
             empty: {
                 title: ['The reel is ', 'rewinding.'],
                 text: 'Every film I log lands here with its stars. Until the next sync, the full diary lives on Letterboxd.',
@@ -165,13 +270,7 @@
         reading: {
             name: 'Reading', dek: 'Books on the nightstand and articles worth passing on.', source: 'Goodreads', href: GOODREADS,
             noun: ['read', 'reads'], search: 'Search titles, authors, publications',
-            chips: function (items) {
-                var out = [['all', 'All']];
-                if (items.some(function (i) { return i.kind === 'book'; })) out.push(['books', 'Books']);
-                if (items.some(function (i) { return i.kind === 'listen'; })) out.push(['articles', 'Articles']);
-                if (items.some(function (i) { return i.now; })) out.push(['now', 'Now reading']);
-                return out;
-            },
+            chips: function () { return [['all', 'All'], ['books', 'Books', 1], ['articles', 'Articles', 1], ['now', 'Now reading']]; },
             chip: function (it, c) { return c === 'all' || (c === 'articles' ? it.kind === 'listen' : c === 'books' ? it.kind === 'book' : !!it.now); },
             count: function (n) { return n ? plural(n, 'read', 'reads') : 'On Goodreads'; },
             empty: {
@@ -183,12 +282,8 @@
         listening: {
             name: 'Listening', dek: 'Podcasts and episodes I keep bringing up, picked by hand.', source: '', href: '',
             noun: ['pick', 'picks'], search: 'Search titles, hosts, authors',
-            chips: function (items) {
-                var out = [['all', 'All']];
-                Object.keys(TYPES).forEach(function (t) { if (items.some(function (i) { return i.type === t; })) out.push([t, TYPES[t][1]]); });
-                return out;
-            },
-            chip: function (it, c) { return c === 'all' || it.type === c; },
+            chips: function () { return [['all', 'All'], ['album', 'Albums', 1], ['podcast', 'Podcasts', 1], ['song', 'Songs', 1], ['video', 'Videos', 1]]; },
+            chip: function (it, c) { return c === 'all' || it.group === c; },
             count: function (n) { return n ? plural(n, 'pick', 'picks') : 'Coming soon'; },
             empty: {
                 round: true,
@@ -198,6 +293,18 @@
         }
     };
     var ORDER = ['watching', 'reading', 'listening'];
+    function hasTV(items) { return items.some(function (i) { return i.kind === 'tv'; }); }
+    // The chips a shelf shows: [id, label, count]. A chip with nothing behind it is left out,
+    // and so is a type chip that would only repeat "All" (a shelf holding one type).
+    function chipList(key, list) {
+        var shelf = SHELVES[key], out = [];
+        shelf.chips(list).forEach(function (d) {
+            var count = list.filter(function (i) { return shelf.chip(i, d[0]); }).length;
+            if (d[0] !== 'all' && (!count || (d[2] && count === list.length))) return;
+            out.push([d[0], d[1], count]);
+        });
+        return out;
+    }
     var FILTERED = {
         title: ['Nothing on this shelf ', 'matches.'],
         text: 'Try a different search, or clear the filters to see everything.',
@@ -214,7 +321,7 @@
         }
         if (st.decade !== 'any' && it.decade !== st.decade) return false;
         if (st.q) {
-            var hay = [it.title, it.year, it.author, it.creator, it.note, it.type && TYPES[it.type][0]].join(' ').toLowerCase();
+            var hay = [it.title, it.year, it.author, it.creator, it.note, it.season, it.kind === 'tv' && 'TV', it.type && TYPES[it.type][0]].join(' ').toLowerCase();
             var words = st.q.toLowerCase().split(/\s+/).filter(Boolean);
             for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) === -1) return false;
         }
@@ -258,6 +365,25 @@
             when.appendChild(document.createTextNode(fmtDate(f.date, false) + ' ’' + f.date.slice(2, 4)));
         }
         a.appendChild(when);
+        return a;
+    }
+    // A season of TV: same poster card as a film, labelled so nobody takes it for one
+    function tvCard(t) {
+        var a = link(t.url, 'md-card md-card--film md-card--tv');
+        a.setAttribute('aria-label', 'TV: ' + t.title + (t.season ? ', ' + t.season : ''));
+        a.appendChild(cover(t.image, tile('film', t.title, 'TV')));
+        var meta = el('span', 'md-card-meta');
+        meta.appendChild(el('span', 'md-tv', 'TV'));
+        a.appendChild(meta);
+        a.appendChild(el('span', 'md-name', t.title));
+        var when = el('span', 'md-when', t.season);
+        if (t.date) {
+            if (t.season) when.appendChild(document.createTextNode(' · '));
+            when.appendChild(el('span', 'md-wv', 'Watched '));
+            when.appendChild(document.createTextNode(t.date.length === 7 ? fmtDate(t.date) : fmtDate(t.date, false) + ' ’' + t.date.slice(2, 4)));
+        }
+        if (t.season || t.date) a.appendChild(when);
+        if (t.note) a.appendChild(el('span', 'md-by', t.note));
         return a;
     }
     function bookCard(b) {
@@ -308,7 +434,7 @@
         if (x.date) a.appendChild(el('span', 'md-when', fmtDate(x.date)));
         return a;
     }
-    var CARD = { watching: filmCard, reading: function (it) { return it.kind === 'listen' ? articleCard(it) : bookCard(it); }, listening: listenCard };
+    var CARD = { watching: function (it) { return it.kind === 'tv' ? tvCard(it) : filmCard(it); }, reading: function (it) { return it.kind === 'listen' ? articleCard(it) : bookCard(it); }, listening: listenCard };
 
     // ---- Empty states: static copy, built as text ----
     function emptyState(def, heading) {
@@ -367,14 +493,11 @@
     }
     function load(root) {
         if (!loads[root]) {
-            loads[root] = Promise.all([getJSON(root + 'data/media-diet.json'), getJSON(root + 'data/listening.json')]).then(function (res) {
-                var diet = res[0] || {}, listen = res[1] || {};
-                return {
-                    watching: films(diet),
-                    reading: books(diet).concat(listening(listen).filter(function (i) { return i.type === 'article'; })),
-                    listening: listening(listen).filter(function (i) { return i.type !== 'article'; }),
-                    updated: isoDate(diet.updated)
-                };
+            loads[root] = Promise.all([
+                getJSON(root + 'data/media-diet.json'), getJSON(root + 'data/listening.json'),
+                getJSON(root + 'data/watching.json'), getJSON(root + 'data/spotify.json')
+            ]).then(function (res) {
+                return buildShelves(res[0] || {}, res[1] || {}, res[2] || {}, res[3] || {});
             }).catch(function () { return { watching: [], reading: [], listening: [], updated: '' }; });
         }
         return loads[root];
@@ -448,7 +571,10 @@
         panel.tabIndex = -1;
 
         var head = el('div', 'md-panel-head');
-        var dek = head.appendChild(el('p', 'md-dek'));
+        var lede = head.appendChild(el('div', 'md-lede'));
+        var dek = lede.appendChild(el('p', 'md-dek'));
+        var latest = lede.appendChild(el('p', 'md-latest'));
+        latest.hidden = true;
         var source = link(LETTERBOXD, 'md-source');
         var sourceName = source.appendChild(el('span'));
         source.appendChild(icon(ICON.out, '2.2'));
@@ -527,23 +653,21 @@
         function buildControls() {
             var key = current, st = state[key], shelf = SHELVES[key], list = items[key];
             var hasRatings = list.some(function (i) { return i.rating; });
-            q.placeholder = shelf.search;
+            q.placeholder = typeof shelf.search === 'function' ? shelf.search(list) : shelf.search;
             q.value = st.q;
 
             chips.textContent = '';
-            var defs = shelf.chips(list);
+            var defs = chipList(key, list);
             if (!defs.some(function (d) { return d[0] === st.chip; })) st.chip = 'all';
             defs.forEach(function (d) {
-                var count = list.filter(function (i) { return shelf.chip(i, d[0]); }).length;
-                if (d[0] !== 'all' && !count) return;
                 var b = el('button', 'md-chip', d[1]);
                 b.type = 'button';
                 b.dataset.chip = d[0];
                 b.setAttribute('aria-pressed', String(st.chip === d[0]));
-                b.appendChild(el('span', 'md-chip-n', count));
+                b.appendChild(el('span', 'md-chip-n', d[2]));
                 chips.appendChild(b);
             });
-            chips.hidden = chips.children.length < 3;
+            chips.hidden = chips.children.length < 2;
 
             fRating.parentNode.hidden = !hasRatings;
             if (hasRatings) {
@@ -608,7 +732,7 @@
             if (!slice.length && loaded) empty.appendChild(emptyState(all.length ? FILTERED : shelf.empty, opt.heading));
 
             var filtered = st.q || st.chip !== 'all' || st.rating !== 'any' || st.decade !== 'any';
-            var noun = shelf.noun, text = '';
+            var noun = typeof shelf.noun === 'function' ? shelf.noun(all) : shelf.noun, text = '';
             if (!loaded) text = 'Loading the shelves…';
             else if (!all.length) text = '';
             else if (shown.length > per) text = 'Showing ' + (start + 1) + '–' + (start + slice.length) + ' of ' + plural(shown.length, noun[0], noun[1]) + (filtered ? ' (of ' + all.length + ')' : '');
@@ -636,6 +760,9 @@
             var shelf = SHELVES[key];
             panel.setAttribute('aria-labelledby', tabEl[key].id);
             dek.textContent = shelf.dek;
+            var line = loaded ? summaryLine(key, items[key], todayISO()) : '';
+            latest.textContent = line;
+            latest.hidden = !line;
             source.hidden = !shelf.href;
             if (shelf.href) { source.href = shelf.href; sourceName.textContent = shelf.source; }
             if (opt.docTitle) document.title = shelf.name + ' · ' + opt.docTitle;
@@ -739,7 +866,7 @@
         load(opt.root).then(function (data) {
             ORDER.forEach(function (k) { items[k] = data[k]; });
             loaded = true;
-            ORDER.forEach(function (k) { countEl[k].textContent = SHELVES[k].count(items[k].length); });
+            ORDER.forEach(function (k) { countEl[k].textContent = SHELVES[k].count(items[k].length, items[k]); });
             if (opt.synced && data.updated) opt.synced.textContent = 'Synced ' + fmtDate(data.updated);
             if (opt.stack) renderStack(opt.stack);
             selectTab(current);
@@ -755,6 +882,12 @@
             }
         });
     }
+
+    // The data-only helpers, for tests (node tests/... requires this file; no DOM needed)
+    if (typeof module === 'object' && module && module.exports) {
+        module.exports = { summaryLine: summaryLine, buildShelves: buildShelves, chipList: chipList };
+    }
+    if (!HAS_DOM) return;
 
     function init() {
         [].forEach.call(document.querySelectorAll('.md-app'), mount);
