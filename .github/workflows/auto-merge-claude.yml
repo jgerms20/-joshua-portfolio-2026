@@ -10,31 +10,32 @@ jobs:
   auto-merge:
     name: Auto-merge if from claude/ branch
     runs-on: ubuntu-latest
-    # Only run if the PR branch starts with claude/
-    if: startsWith(github.head_ref, 'claude/')
+    # Only same-repo branches named claude/* (never forks)
+    if: startsWith(github.head_ref, 'claude/') && github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       contents: write
       pull-requests: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      # Passed through the environment, never pasted into the script, so a branch
+      # name or PR title can't run as shell.
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_TITLE: ${{ github.event.pull_request.title }}
+      PR_BRANCH: ${{ github.head_ref }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Enable auto-merge
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Auto-merging PR #${{ github.event.pull_request.number }} from branch ${{ github.head_ref }}"
-          gh pr merge ${{ github.event.pull_request.number }} \
+          echo "Auto-merging PR #$PR_NUMBER from branch $PR_BRANCH"
+          gh pr merge "$PR_NUMBER" \
             --squash \
             --auto \
-            --subject "Auto-merge: ${{ github.event.pull_request.title }}" \
-            --body "Auto-merged from branch \`${{ github.head_ref }}\` by the auto-merge workflow."
+            --subject "Auto-merge: $PR_TITLE" \
+            --body "Auto-merged from branch $PR_BRANCH by the auto-merge workflow."
 
       - name: Post merge comment
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} \
-            --body "✅ **Auto-merge enabled** — this PR will merge automatically once checks pass. No action needed."
+          gh pr comment "$PR_NUMBER" \
+            --body "Auto-merge enabled. This PR will merge automatically once checks pass."
         continue-on-error: true
