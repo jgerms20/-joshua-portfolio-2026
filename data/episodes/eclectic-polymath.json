@@ -1,9 +1,33 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-17T21:23:30Z",
+  "updated": "2026-11-18T07:59:10Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#269 The Publishing Industry: The Editors, Agents, and Readers Who Decide What Gets Published",
+      "date": "2026-11-17",
+      "url": "https://open.spotify.com/episode/324jcVCmihtLbcUhTC49WV",
+      "description": "Publishing looks simple from the outside: a writer writes a book, and it appears on a shelf. This episode follows what actually happens in between, from the history of how publishing houses came to be to the jobs inside one today: the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794951623716-3f44a14c80912.jpg",
+      "duration": "1 hr 1 min"
+    },
+    {
+      "title": "#259 Everest: Thin Air, and the Mind That Goes Looking for God",
+      "date": "2026-11-17",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/259-Everest-Thin-Air--and-the-Mind-That-Goes-Looking-for-God-e3sivfl",
+      "description": "A single mountain that refuses every category: laboratory, puzzle, industry, temple. This episode follows Mount Everest through all four, from the 2026 film Everest: The Other Side and Jim Morrison's ski descent to the death-zone…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794950987344-bb88797d42004.jpg",
+      "duration": "1 hr 2 min"
+    },
+    {
+      "title": "#268 Frank Herbert: The Man Who Wrote Dune as a Warning",
+      "date": "2026-11-17",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/268-Frank-Herbert-The-Man-Who-Wrote-Dune-as-a-Warning-e3sh4sm",
+      "description": "In 1957, a working journalist with no college degree drove to the Oregon coast to write a magazine article about sand dunes. He never wrote it. The research swallowed him instead, and six years later it had become Dune — the most…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794876700457-e52f3f17a6e92.jpg",
+      "duration": "47 min"
+    },
     {
       "title": "#268 Frank Herbert: The Man Who Wrote Dune as a Warning",
       "date": "2026-11-17",
@@ -75,30 +99,6 @@
       "description": "In June 2025, Meta paid a reported $14.3 billion for 49 percent of Scale AI, and got its founder as the real prize: Alexandr Wang, a 28-year-old MIT dropout from Los Alamos, became the first Chief AI Officer in Meta's history. This is the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636663466-9a51873bcdb2d.jpg",
       "duration": "53 min"
-    },
-    {
-      "title": "#263 Alexander Wang: The Comeback That Never Went to Court",
-      "date": "2026-11-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/263-Alexander-Wang-The-Comeback-That-Never-Went-to-Court-e3sbvu4",
-      "description": "Alexander Wang turned six cashmere sweaters and the clothes models wore between shows into a luxury empire, then ran Balenciaga before he turned thirty-two. In December 2020, a wave of sexual-assault allegations, which he denied…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636297573-4fbb337d5823c.jpg",
-      "duration": "44 min"
-    },
-    {
-      "title": "#264 Alexandr Wang: The $14.3 Billion Hire",
-      "date": "2026-11-14",
-      "url": "https://open.spotify.com/episode/3eHuA1Y1LY211A0FVn8mtj",
-      "description": "In June 2025, Meta paid a reported $14.3 billion for 49 percent of Scale AI, and got its founder as the real prize: Alexandr Wang, a 28-year-old MIT dropout from Los Alamos, became the first Chief AI Officer in Meta's history. This is the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636663466-9a51873bcdb2d.jpg",
-      "duration": "53 min"
-    },
-    {
-      "title": "#262 The Son-Rise Program: How One Family Turned a Claimed Cure Into an Empire",
-      "date": "2026-11-13",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/262-The-Son-Rise-Program-How-One-Family-Turned-a-Claimed-Cure-Into-an-Empire-e3sa257",
-      "description": "In the 1970s, Barry and Samahria Kaufman said they had cured their young son's autism by joining his world, rocking when he rocked and spinning plates when he spun plates, for twelve hours a day in a converted bathroom. The book became a…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794530964125-9a7514a9302f3.jpg",
-      "duration": "44 min"
     }
   ]
 }
