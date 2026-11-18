@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-18T07:02:40Z",
+  "generated_at": "2026-11-18T14:19:46Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,38 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
+    },
+    {
+      "key": "marketread",
+      "name": "The Opening Bell",
+      "short": "The Opening Bell",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-18",
+      "count": 18
+    },
+    {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
+      "latest": "2026-11-18",
+      "count": 25
     },
     {
       "key": "polymath",
@@ -130,38 +162,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
       "latest": "2026-11-17",
       "count": 16
-    },
-    {
-      "key": "marketread",
-      "name": "The Opening Bell",
-      "short": "The Opening Bell",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-17",
-      "count": 17
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
-      "latest": "2026-11-17",
-      "count": 24
     },
     {
       "key": "ladaily",
@@ -616,6 +616,24 @@
   ],
   "latest": [
     {
+      "show": "marketread",
+      "show_name": "The Opening Bell",
+      "kind": "episode",
+      "title": "Wednesday, November 18, 2026",
+      "date": "2026-11-18",
+      "url": "https://open.spotify.com/episode/7FhroTOeYISBTwQ25lK9wC",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795001834534-95211fed287f2.jpg"
+    },
+    {
+      "show": "morningread",
+      "show_name": "The Morning Read",
+      "kind": "episode",
+      "title": "Wednesday, November 18, 2026",
+      "date": "2026-11-18",
+      "url": "https://open.spotify.com/episode/2ZZW2rIq8egt62aCwdrpN5",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794999443578-d4bf4b6532e28.jpg"
+    },
+    {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
@@ -657,7 +675,7 @@
       "kind": "episode",
       "title": "Tyson, Black and Harris Lead the Bye-pocalypse Waiver Board | Tuesday, November 17, 2026",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/6a9uVzCtQzjc3P8vr3Tlx9",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2051/episodes/Tyson--Black-and-Harris-Lead-the-Bye-pocalypse-Waiver-Board--Tuesday--November-17--2026-e3si7fh",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1794925867711-12a8a91d966cb.jpg"
     },
     {
@@ -675,7 +693,7 @@
       "kind": "episode",
       "title": "Arizona Survives TCU on a Last-Minute Field Goal, and East Carolina Walks Off South Florida | Friday, November 6, 2026",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/3Axev3e6B6xMrgk5D5L9fB",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2009/episodes/Arizona-Survives-TCU-on-a-Last-Minute-Field-Goal--and-East-Carolina-Walks-Off-South-Florida--Friday--November-6--2026-e3si1hh",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1794920227809-0f3bd3fdb9e37.jpg"
     },
     {
@@ -684,7 +702,7 @@
       "kind": "episode",
       "title": "Tuesday, November 17, 2026",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/4iHuETcwbidvSXnstI306i",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2047/episodes/Tuesday--November-17--2026-e3shvev",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1794917478193-f1df8e6651a4a.jpg"
     },
     {
@@ -693,7 +711,7 @@
       "kind": "episode",
       "title": "Tuesday, November 17, 2026",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/2yzDg6L7ZuQrA1MZnFiOBf",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2050/episodes/Tuesday--November-17--2026-e3shtk3",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794915013444-cf2690a8aff26.jpg"
     },
     {
@@ -702,26 +720,8 @@
       "kind": "episode",
       "title": "Tuesday, November 17, 2026",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/3Wttv9VbOHVC1dr19QUATQ",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Tuesday--November-17--2026-e3shsnr",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794913578003-a42941247826e.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Tuesday, November 17, 2026",
-      "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/5qnGUyG1cHdj1Sgsr9U3L0",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794913258743-f0455fa53a56d.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "Tanker Hit Off Oman as Hormuz Claims Multiply | Tuesday, November 17, 2026",
-      "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/7iroRsBCPVgkE1seE2Bo2M",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1794912954071-bbcfc15a5de15.jpg"
     }
   ]
 }
