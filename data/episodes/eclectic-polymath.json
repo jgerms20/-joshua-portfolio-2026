@@ -1,13 +1,13 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-18T07:59:10Z",
+  "updated": "2026-11-19T08:00:16Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
       "title": "#269 The Publishing Industry: The Editors, Agents, and Readers Who Decide What Gets Published",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/324jcVCmihtLbcUhTC49WV",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/269-The-Publishing-Industry-The-Editors--Agents--and-Readers-Who-Decide-What-Gets-Published-e3sivv2",
       "description": "Publishing looks simple from the outside: a writer writes a book, and it appears on a shelf. This episode follows what actually happens in between, from the history of how publishing houses came to be to the jobs inside one today: the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794951623716-3f44a14c80912.jpg",
       "duration": "1 hr 1 min"
@@ -27,6 +27,14 @@
       "description": "In 1957, a working journalist with no college degree drove to the Oregon coast to write a magazine article about sand dunes. He never wrote it. The research swallowed him instead, and six years later it had become Dune — the most…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794876700457-e52f3f17a6e92.jpg",
       "duration": "47 min"
+    },
+    {
+      "title": "#269 The Publishing Industry: The Editors, Agents, and Readers Who Decide What Gets Published",
+      "date": "2026-11-17",
+      "url": "https://open.spotify.com/episode/324jcVCmihtLbcUhTC49WV",
+      "description": "Publishing looks simple from the outside: a writer writes a book, and it appears on a shelf. This episode follows what actually happens in between, from the history of how publishing houses came to be to the jobs inside one today: the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794951623716-3f44a14c80912.jpg",
+      "duration": "1 hr 1 min"
     },
     {
       "title": "#268 Frank Herbert: The Man Who Wrote Dune as a Warning",
@@ -91,14 +99,6 @@
       "description": "The future of war is not coming. In Ukraine, it has been in combat for years, and it looks less like a fighter jet than a workbench of cheap drones built like consumer electronics. A first-person-view drone costing a few hundred dollars…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794714076781-8bf3018cfe1cb.jpg",
       "duration": "1 hr 6 min"
-    },
-    {
-      "title": "#264 Alexandr Wang: The $14.3 Billion Hire",
-      "date": "2026-11-14",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/264-Alexandr-Wang-The-14-3-Billion-Hire-e3sc02o",
-      "description": "In June 2025, Meta paid a reported $14.3 billion for 49 percent of Scale AI, and got its founder as the real prize: Alexandr Wang, a 28-year-old MIT dropout from Los Alamos, became the first Chief AI Officer in Meta's history. This is the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794636663466-9a51873bcdb2d.jpg",
-      "duration": "53 min"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-18T14:19:46Z",
+  "generated_at": "2026-11-19T03:42:14Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,9 +20,9 @@
       "count": 6
     },
     {
-      "key": "marketread",
-      "name": "The Opening Bell",
-      "short": "The Opening Bell",
+      "key": "nyread",
+      "name": "The New York Read",
+      "short": "The New York Read",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
@@ -30,10 +30,26 @@
       ],
       "tagline": "",
       "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
       "latest": "2026-11-18",
-      "count": 18
+      "count": 11
+    },
+    {
+      "key": "ladaily",
+      "name": "The LA Daily",
+      "short": "The LA Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
+      "latest": "2026-11-18",
+      "count": 23
     },
     {
       "key": "morningread",
@@ -50,6 +66,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
       "latest": "2026-11-18",
       "count": 25
+    },
+    {
+      "key": "fastbreak",
+      "name": "The Fast Break",
+      "short": "The Fast Break",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
+      "latest": "2026-11-18",
+      "count": 17
     },
     {
       "key": "polymath",
@@ -164,9 +196,9 @@
       "count": 16
     },
     {
-      "key": "ladaily",
-      "name": "The LA Daily",
-      "short": "The LA Daily",
+      "key": "marketread",
+      "name": "The Opening Bell",
+      "short": "The Opening Bell",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
@@ -174,10 +206,10 @@
       ],
       "tagline": "",
       "about": "",
-      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
       "latest": "2026-11-17",
-      "count": 22
+      "count": 17
     },
     {
       "key": "globalread",
@@ -194,22 +226,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
       "latest": "2026-11-17",
       "count": 20
-    },
-    {
-      "key": "fastbreak",
-      "name": "The Fast Break",
-      "short": "The Fast Break",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
-      "latest": "2026-11-17",
-      "count": 16
     },
     {
       "key": "celticsdaily",
@@ -274,22 +290,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
       "latest": "2026-11-17",
       "count": 6
-    },
-    {
-      "key": "nyread",
-      "name": "The New York Read",
-      "short": "The New York Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
-      "latest": "2026-11-16",
-      "count": 10
     },
     {
       "key": "tvinsider",
@@ -616,13 +616,22 @@
   ],
   "latest": [
     {
-      "show": "marketread",
-      "show_name": "The Opening Bell",
+      "show": "nyread",
+      "show_name": "The New York Read",
       "kind": "episode",
       "title": "Wednesday, November 18, 2026",
       "date": "2026-11-18",
-      "url": "https://open.spotify.com/episode/7FhroTOeYISBTwQ25lK9wC",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795001834534-95211fed287f2.jpg"
+      "url": "https://open.spotify.com/episode/6OotrBjxMzSae3unx8IKno",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1795001877213-98d700314ac0d.jpg"
+    },
+    {
+      "show": "ladaily",
+      "show_name": "The LA Daily",
+      "kind": "episode",
+      "title": "Wednesday, November 18, 2026",
+      "date": "2026-11-18",
+      "url": "https://open.spotify.com/episode/4opkne61tAkEBNTo3pMW6Z",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1794999624541-196053365c18f.jpg"
     },
     {
       "show": "morningread",
@@ -634,12 +643,21 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794999443578-d4bf4b6532e28.jpg"
     },
     {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Tuesday, November 17, 2026",
+      "date": "2026-11-18",
+      "url": "https://open.spotify.com/episode/24qNnXLy6KaiBcKX6sxJg9",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1794987510359-09e7d465de78f.jpg"
+    },
+    {
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
       "title": "#269 The Publishing Industry: The Editors, Agents, and Readers Who Decide What Gets Published",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/324jcVCmihtLbcUhTC49WV",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/269-The-Publishing-Industry-The-Editors--Agents--and-Readers-Who-Decide-What-Gets-Published-e3sivv2",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794951623716-3f44a14c80912.jpg"
     },
     {
@@ -666,7 +684,7 @@
       "kind": "episode",
       "title": "Robert Pattinson Is James Bond and the Internet Spent the Morning Checking If the Lights Were Still On | Tuesday, November 17, 2026",
       "date": "2026-11-17",
-      "url": "https://open.spotify.com/episode/0fKvrMbo7D4wobwXLsKetB",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20949/episodes/Robert-Pattinson-Is-James-Bond-and-the-Internet-Spent-the-Morning-Checking-If-the-Lights-Were-Still-On--Tuesday--November-17--2026-e3si9ti",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1794928818366-8fb8831b26c7c.jpg"
     },
     {
@@ -704,24 +722,6 @@
       "date": "2026-11-17",
       "url": "https://podcasters.spotify.com/pod/show/jgerms2047/episodes/Tuesday--November-17--2026-e3shvev",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1794917478193-f1df8e6651a4a.jpg"
-    },
-    {
-      "show": "marketread",
-      "show_name": "The Opening Bell",
-      "kind": "episode",
-      "title": "Tuesday, November 17, 2026",
-      "date": "2026-11-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2050/episodes/Tuesday--November-17--2026-e3shtk3",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1794915013444-cf2690a8aff26.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "Tuesday, November 17, 2026",
-      "date": "2026-11-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms206/episodes/Tuesday--November-17--2026-e3shsnr",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1794913578003-a42941247826e.jpg"
     }
   ]
 }
