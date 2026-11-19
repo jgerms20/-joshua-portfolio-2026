@@ -1,9 +1,17 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-19T08:00:16Z",
+  "updated": "2026-11-19T21:01:41Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#270 Starting an Agency: Why Four People Can Outrun Four Hundred",
+      "date": "2026-11-18",
+      "url": "https://open.spotify.com/episode/6Hid8QQqPq6EsNvOKAfUwt",
+      "description": "Es Muy Good did not exist until December 2025. Within months, the four-person agency — founders Steve Gonzalez and Steven Nasopoulos, plus a head of production and a head of operations — became the shop behind Kalshi's national TV blitz:…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795036742262-083d353cc6d9.jpg",
+      "duration": "47 min"
+    },
     {
       "title": "#269 The Publishing Industry: The Editors, Agents, and Readers Who Decide What Gets Published",
       "date": "2026-11-17",
@@ -11,14 +19,6 @@
       "description": "Publishing looks simple from the outside: a writer writes a book, and it appears on a shelf. This episode follows what actually happens in between, from the history of how publishing houses came to be to the jobs inside one today: the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794951623716-3f44a14c80912.jpg",
       "duration": "1 hr 1 min"
-    },
-    {
-      "title": "#259 Everest: Thin Air, and the Mind That Goes Looking for God",
-      "date": "2026-11-17",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/259-Everest-Thin-Air--and-the-Mind-That-Goes-Looking-for-God-e3sivfl",
-      "description": "A single mountain that refuses every category: laboratory, puzzle, industry, temple. This episode follows Mount Everest through all four, from the 2026 film Everest: The Other Side and Jim Morrison's ski descent to the death-zone…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794950987344-bb88797d42004.jpg",
-      "duration": "1 hr 2 min"
     },
     {
       "title": "#268 Frank Herbert: The Man Who Wrote Dune as a Warning",
