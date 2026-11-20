@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-19T13:32:31Z",
+  "generated_at": "2026-11-20T03:33:52Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,9 +20,9 @@
       "count": 6
     },
     {
-      "key": "airead",
-      "name": "The Tech Read",
-      "short": "The Tech Read",
+      "key": "dominatedconvo",
+      "name": "The Zeitgeist",
+      "short": "The Zeitgeist",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
@@ -30,15 +30,15 @@
       ],
       "tagline": "",
       "about": "",
-      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
       "latest": "2026-11-19",
-      "count": 18
+      "count": 16
     },
     {
-      "key": "marketread",
-      "name": "The Opening Bell",
-      "short": "The Opening Bell",
+      "key": "waiverwire",
+      "name": "The Waiver Wire",
+      "short": "The Waiver Wire",
       "kind": "podcast",
       "flagship": false,
       "hosts": [
@@ -46,10 +46,26 @@
       ],
       "tagline": "",
       "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
       "latest": "2026-11-19",
-      "count": 19
+      "count": 8
+    },
+    {
+      "key": "coltsdaily",
+      "name": "Colts Daily",
+      "short": "Colts Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/44iglaK8xQPnHHAVpUAgyx",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
+      "latest": "2026-11-19",
+      "count": 12
     },
     {
       "key": "globalread",
@@ -132,22 +148,6 @@
       "count": 12
     },
     {
-      "key": "dominatedconvo",
-      "name": "The Zeitgeist",
-      "short": "The Zeitgeist",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1793485587739-510b912fa9c43.jpg",
-      "latest": "2026-11-18",
-      "count": 15
-    },
-    {
       "key": "polymath",
       "name": "The Eclectic Polymath Podcast",
       "short": "Eclectic Polymath",
@@ -180,22 +180,6 @@
       "count": 10
     },
     {
-      "key": "waiverwire",
-      "name": "The Waiver Wire",
-      "short": "The Waiver Wire",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
-      "latest": "2026-11-18",
-      "count": 7
-    },
-    {
       "key": "cfbdaily",
       "name": "College Football Daily",
       "short": "College Football Daily",
@@ -210,6 +194,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
       "latest": "2026-11-18",
       "count": 18
+    },
+    {
+      "key": "airead",
+      "name": "The Tech Read",
+      "short": "The Tech Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
+      "latest": "2026-11-18",
+      "count": 17
     },
     {
       "key": "columbiaread",
@@ -244,6 +244,22 @@
       "count": 11
     },
     {
+      "key": "marketread",
+      "name": "The Opening Bell",
+      "short": "The Opening Bell",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-18",
+      "count": 18
+    },
+    {
       "key": "harlem",
       "name": "Once Upon a Time in Harlem",
       "short": "Once Upon a Time in Harlem",
@@ -258,22 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47058065/47058065-1792877027478-e10b06672d3e3.jpg",
       "latest": "2026-11-17",
       "count": 8
-    },
-    {
-      "key": "coltsdaily",
-      "name": "Colts Daily",
-      "short": "Colts Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/44iglaK8xQPnHHAVpUAgyx",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
-      "latest": "2026-11-17",
-      "count": 11
     },
     {
       "key": "blitz",
@@ -495,7 +495,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -616,22 +616,31 @@
   ],
   "latest": [
     {
-      "show": "airead",
-      "show_name": "The Tech Read",
+      "show": "dominatedconvo",
+      "show_name": "The Zeitgeist",
       "kind": "episode",
-      "title": "Thursday, November 19, 2026",
+      "title": "GTA 6 Is Finally Out and the First Reviews Are Already Fighting | Thursday, November 19, 2026",
       "date": "2026-11-19",
-      "url": "https://open.spotify.com/episode/5DNw2VgzE0OoLkT0eMO9H1",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1795090720747-69d0a2a73f5a3.jpg"
+      "url": "https://open.spotify.com/episode/2VkOhyRPephyBZ5amMFl2R",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1795103141236-f7e370ab36458.jpg"
     },
     {
-      "show": "marketread",
-      "show_name": "The Opening Bell",
+      "show": "waiverwire",
+      "show_name": "The Waiver Wire",
       "kind": "episode",
-      "title": "Thursday, November 19, 2026",
+      "title": "Stroud and Collins Tonight, Pollard's Smash Spot, and the Purdy Problem | Thursday, November 19, 2026",
       "date": "2026-11-19",
-      "url": "https://open.spotify.com/episode/3BBOFmTBsiNTjKW5ro9LCu",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795088366743-c6bd9a80ac21a.jpg"
+      "url": "https://open.spotify.com/episode/5iK9bOYSArtkQaXDZqwt5g",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg"
+    },
+    {
+      "show": "coltsdaily",
+      "show_name": "Colts Daily",
+      "kind": "episode",
+      "title": "Both Tackles Out, Anderson Waiting: Colts Walk Into Houston Short-Handed, Indianapolis Is 3-7 | Thursday, November 19, 2026",
+      "date": "2026-11-19",
+      "url": "https://open.spotify.com/episode/6XWalEN95kzsgiWvbGrYaJ",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107277/47107277-1795095253271-1b3975d023415.jpg"
     },
     {
       "show": "globalread",
@@ -684,7 +693,7 @@
       "kind": "episode",
       "title": "GTA 6 Reviews Land at 99 and the Whole Internet Clears Its Calendar for Tomorrow | Wednesday, November 18, 2026",
       "date": "2026-11-18",
-      "url": "https://open.spotify.com/episode/4YarPZLkJNvUCeA4RZCkG4",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20949/episodes/GTA-6-Reviews-Land-at-99-and-the-Whole-Internet-Clears-Its-Calendar-for-Tomorrow--Wednesday--November-18--2026-e3sl3ne",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1795037529287-e83a26af29d26.jpg"
     },
     {
@@ -693,7 +702,7 @@
       "kind": "episode",
       "title": "#270 Starting an Agency: Why Four People Can Outrun Four Hundred",
       "date": "2026-11-18",
-      "url": "https://open.spotify.com/episode/6Hid8QQqPq6EsNvOKAfUwt",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/270-Starting-an-Agency-Why-Four-People-Can-Outrun-Four-Hundred-e3sl344",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795036742262-083d353cc6d9.jpg"
     },
     {
@@ -711,17 +720,8 @@
       "kind": "episode",
       "title": "Olave and Nabers Are the Buys, Taylor Is the Sell: Week 11 Buy Low, Sell High | Wednesday, November 18, 2026",
       "date": "2026-11-18",
-      "url": "https://open.spotify.com/episode/16eixKjCyq8TM41fpjZtiy",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2051/episodes/Olave-and-Nabers-Are-the-Buys--Taylor-Is-the-Sell-Week-11-Buy-Low--Sell-High--Wednesday--November-18--2026-e3skb27",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1795010352950-94f06da9036b2.jpg"
-    },
-    {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "Texas Climbs to No. 5 and the Bubble Tightens Behind Boise State | Tuesday, November 17, 2026",
-      "date": "2026-11-18",
-      "url": "https://open.spotify.com/episode/1UHhT3sTmitaX8CxC1u3sD",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1795009790244-aea2260c6e6fa.jpg"
     }
   ]
 }

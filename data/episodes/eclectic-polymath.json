@@ -1,9 +1,17 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-19T21:01:41Z",
+  "updated": "2026-11-20T07:49:48Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#270 Starting an Agency: Why Four People Can Outrun Four Hundred",
+      "date": "2026-11-18",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/270-Starting-an-Agency-Why-Four-People-Can-Outrun-Four-Hundred-e3sl344",
+      "description": "Es Muy Good did not exist until December 2025. Within months, the four-person agency — founders Steve Gonzalez and Steven Nasopoulos, plus a head of production and a head of operations — became the shop behind Kalshi's national TV blitz:…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795036742262-083d353cc6d9.jpg",
+      "duration": "47 min"
+    },
     {
       "title": "#270 Starting an Agency: Why Four People Can Outrun Four Hundred",
       "date": "2026-11-18",
@@ -91,14 +99,6 @@
       "description": "She was called the Queen of Disco, but that title is too small. Donna Summer did not just rule an era — she started the ones that followed it. In 1975, “Love to Love You Baby” stretched a pop hit to seventeen minutes and helped invent the…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794713860299-1bb6725df104a.jpg",
       "duration": "48 min"
-    },
-    {
-      "title": "The Future of War Is Already Here",
-      "date": "2026-11-15",
-      "url": "https://open.spotify.com/episode/46Y2O8mXKUFnZLE55eIOA7",
-      "description": "The future of war is not coming. In Ukraine, it has been in combat for years, and it looks less like a fighter jet than a workbench of cheap drones built like consumer electronics. A first-person-view drone costing a few hundred dollars…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1794714076781-8bf3018cfe1cb.jpg",
-      "duration": "1 hr 6 min"
     }
   ]
 }
