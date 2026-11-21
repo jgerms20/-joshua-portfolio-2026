@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-20T13:14:45Z",
+  "generated_at": "2026-11-21T02:33:42Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,102 @@
       "count": 6
     },
     {
+      "key": "columbiaread",
+      "name": "The Columbia Read",
+      "short": "The Columbia Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0dTaZgM38D6shA8x5BTITR",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
+      "latest": "2026-11-20",
+      "count": 8
+    },
+    {
+      "key": "harlem",
+      "name": "Once Upon a Time in Harlem",
+      "short": "Once Upon a Time in Harlem",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0eKxqwy7sMDyNXkCRR2IMN",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47058065/47058065-1792877027478-e10b06672d3e3.jpg",
+      "latest": "2026-11-20",
+      "count": 9
+    },
+    {
+      "key": "dominatedconvo",
+      "name": "The Zeitgeist",
+      "short": "The Zeitgeist",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
+      "latest": "2026-11-20",
+      "count": 17
+    },
+    {
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
+      "latest": "2026-11-20",
+      "count": 11
+    },
+    {
+      "key": "followingthemoney",
+      "name": "Following the Money",
+      "short": "Following the Money",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7koV3RANtAstMaM5QUBxUm",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47239161/47239161-1794733992144-583ec3550a988.jpg",
+      "latest": "2026-11-20",
+      "count": 2
+    },
+    {
+      "key": "politicalread",
+      "name": "The Political Read",
+      "short": "The Political Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4otFTX6t7uMbjV1H1U1tyx",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47154157/47154157-1793809248835-8a00f6bd8fab7.jpg",
+      "latest": "2026-11-20",
+      "count": 15
+    },
+    {
       "key": "airead",
       "name": "The Tech Read",
       "short": "The Tech Read",
@@ -34,6 +130,54 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
       "latest": "2026-11-20",
       "count": 19
+    },
+    {
+      "key": "tvinsider",
+      "name": "Primetime TV",
+      "short": "Primetime TV",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
+      "latest": "2026-11-20",
+      "count": 9
+    },
+    {
+      "key": "hollywoodinsider",
+      "name": "The Business of Hollywood",
+      "short": "The Business of Hollywood",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
+      "latest": "2026-11-20",
+      "count": 9
+    },
+    {
+      "key": "marketread",
+      "name": "The Opening Bell",
+      "short": "The Opening Bell",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-20",
+      "count": 20
     },
     {
       "key": "nyread",
@@ -180,22 +324,6 @@
       "count": 2
     },
     {
-      "key": "dominatedconvo",
-      "name": "The Zeitgeist",
-      "short": "The Zeitgeist",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
-      "latest": "2026-11-19",
-      "count": 16
-    },
-    {
       "key": "waiverwire",
       "name": "The Waiver Wire",
       "short": "The Waiver Wire",
@@ -210,38 +338,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
       "latest": "2026-11-19",
       "count": 8
-    },
-    {
-      "key": "politicalread",
-      "name": "The Political Read",
-      "short": "The Political Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4otFTX6t7uMbjV1H1U1tyx",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47154157/47154157-1793809248835-8a00f6bd8fab7.jpg",
-      "latest": "2026-11-19",
-      "count": 14
-    },
-    {
-      "key": "marketread",
-      "name": "The Opening Bell",
-      "short": "The Opening Bell",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-19",
-      "count": 19
     },
     {
       "key": "celticsdaily",
@@ -260,22 +356,6 @@
       "count": 12
     },
     {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-18",
-      "count": 10
-    },
-    {
       "key": "cutandsew",
       "name": "Cut & Sew",
       "short": "Cut & Sew",
@@ -287,7 +367,7 @@
       "tagline": "",
       "about": "",
       "url": "https://open.spotify.com/show/6nwdYn042ClFOjyTc2cA3K",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
       "latest": "2026-11-18",
       "count": 1
     },
@@ -308,54 +388,6 @@
       "count": 18
     },
     {
-      "key": "columbiaread",
-      "name": "The Columbia Read",
-      "short": "The Columbia Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0dTaZgM38D6shA8x5BTITR",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
-      "latest": "2026-11-18",
-      "count": 7
-    },
-    {
-      "key": "harlem",
-      "name": "Once Upon a Time in Harlem",
-      "short": "Once Upon a Time in Harlem",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0eKxqwy7sMDyNXkCRR2IMN",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47058065/47058065-1792877027478-e10b06672d3e3.jpg",
-      "latest": "2026-11-17",
-      "count": 8
-    },
-    {
-      "key": "hollywoodinsider",
-      "name": "The Business of Hollywood",
-      "short": "The Business of Hollywood",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
-      "latest": "2026-11-17",
-      "count": 8
-    },
-    {
       "key": "cookedbooks",
       "name": "Cooked Books",
       "short": "Cooked Books",
@@ -370,38 +402,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47155725/47155725-1793820694154-de677474d800d.jpg",
       "latest": "2026-11-15",
       "count": 1
-    },
-    {
-      "key": "followingthemoney",
-      "name": "Following the Money",
-      "short": "Following the Money",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7koV3RANtAstMaM5QUBxUm",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47239161/47239161-1794733992144-583ec3550a988.jpg",
-      "latest": "2026-11-15",
-      "count": 1
-    },
-    {
-      "key": "tvinsider",
-      "name": "Primetime TV",
-      "short": "Primetime TV",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/5jXIg7zndmpXNrGRF3s68O",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105371/47105371-1793297259684-7aa906673a389.jpg",
-      "latest": "2026-11-15",
-      "count": 8
     },
     {
       "key": "brazil",
@@ -575,7 +575,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -600,6 +600,60 @@
   ],
   "latest": [
     {
+      "show": "columbiaread",
+      "show_name": "The Columbia Read",
+      "kind": "episode",
+      "title": "Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/0Kf7DZH1AAjLqVzPABoxkK",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1795189843240-aa89ff01d8b46.jpg"
+    },
+    {
+      "show": "harlem",
+      "show_name": "Once Upon a Time in Harlem",
+      "kind": "episode",
+      "title": "#008 Augusta Savage: The Sculptor Whose Monument Was Her Students",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/4QqInJpxd54sKoMeUDSTa0",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47058065/47058065-1795189159861-35e102ea8c077.jpg"
+    },
+    {
+      "show": "dominatedconvo",
+      "show_name": "The Zeitgeist",
+      "kind": "episode",
+      "title": "GTA 6 Sold 24 Million Copies in a Day and Half the Internet Spent Launch Day Doing Chores | Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/7mrGMPMY2FizDyzVPyhLYU",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1795188560767-8b572b9bd4389.jpg"
+    },
+    {
+      "show": "gamecocksdaily",
+      "show_name": "Gamecocks Daily",
+      "kind": "episode",
+      "title": "Sellers Is Back, No. 1 Is Here: South Carolina Is 6-4 | Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/7vwjoKCV7fEHLCJgC7oYaH",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1795182364193-50871639a122b.jpg"
+    },
+    {
+      "show": "followingthemoney",
+      "show_name": "Following the Money",
+      "kind": "episode",
+      "title": "Our Heritage Matters: $8.5 Million in Reported Independent Expenditures, No Donor Named in Any Public Record | Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/2jOfKyBiXpW1ljTAQ9lu4S",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47239161/47239161-1795181532450-2c637508b7d4e.jpg"
+    },
+    {
+      "show": "politicalread",
+      "show_name": "The Political Read",
+      "kind": "episode",
+      "title": "Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/73K4D3uAaGIHKBirJIfM5E",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47154157/47154157-1795178416135-4c7507a322cdb.jpg"
+    },
+    {
       "show": "airead",
       "show_name": "The Tech Read",
       "kind": "episode",
@@ -607,6 +661,33 @@
       "date": "2026-11-20",
       "url": "https://open.spotify.com/episode/6SLnZzGAMAzJmUpOASoyRb",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1795177665520-64dbfccb2dd6c.jpg"
+    },
+    {
+      "show": "tvinsider",
+      "show_name": "Primetime TV",
+      "kind": "episode",
+      "title": "HBO Renews 'The Gilded Age' for Season 5 Three Episodes Into Its Biggest Season Yet | Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/5sVTb9tx6MYTi0gdRuACIH",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1795177009521-8b4d20de45258.jpg"
+    },
+    {
+      "show": "hollywoodinsider",
+      "show_name": "The Business of Hollywood",
+      "kind": "episode",
+      "title": "Disney Beats the Street on Streaming, Then Hands Its Workforce a $3 Billion Bill | Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/6AOMgQabmUngZIms34cnNc",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105424/47105424-1795176901454-aa955986d003d.jpg"
+    },
+    {
+      "show": "marketread",
+      "show_name": "The Opening Bell",
+      "kind": "episode",
+      "title": "Friday, November 20, 2026",
+      "date": "2026-11-20",
+      "url": "https://open.spotify.com/episode/1q1MyQxR9lfKQ29BrnGE3D",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795175476011-3d34bd71999.jpg"
     },
     {
       "show": "nyread",
@@ -625,87 +706,6 @@
       "date": "2026-11-20",
       "url": "https://open.spotify.com/episode/1NfWVWxD9d04i101Nwea9Q",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1795172857544-9ea0ebf1aa394.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Friday, November 20, 2026",
-      "date": "2026-11-20",
-      "url": "https://open.spotify.com/episode/3wKKnozJFiz9c6X6uKE6RX",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1795172368251-57365a7b3d9a3.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "Russia Pounds Kyiv Hours After Shenzhen Peace Declaration | Friday, November 20, 2026",
-      "date": "2026-11-20",
-      "url": "https://open.spotify.com/episode/3feRrpT9QVPvZVhSv7StKW",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1795171541085-1b64cf39ba3b3.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#276 Jordan Firstman: How a Decade Behind the Scenes Earned Him the Lead",
-      "date": "2026-11-20",
-      "url": "https://open.spotify.com/episode/5pqL2SEFF9t3qMjvKcUmSA",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795164762613-1c56d93dc279.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#275 Black Boston: The Community That Made Study a Form of Resistance",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/275-Black-Boston-The-Community-That-Made-Study-a-Form-of-Resistance-e3snh03",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795158535554-f356430d188c6.jpg"
-    },
-    {
-      "show": "fastbreak",
-      "show_name": "The Fast Break",
-      "kind": "episode",
-      "title": "Thursday, November 19, 2026",
-      "date": "2026-11-20",
-      "url": "https://open.spotify.com/episode/1U1DL4jYAfrL0HDueBo1VP",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1795150739226-64ca79d5e9cee.jpg"
-    },
-    {
-      "show": "blitz",
-      "show_name": "The Blitz",
-      "kind": "episode",
-      "title": "Thursday, November 19, 2026",
-      "date": "2026-11-20",
-      "url": "https://open.spotify.com/episode/3tnYnwLYgZXxXCS4vrDXED",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1795152588617-b06d643d913af.jpg"
-    },
-    {
-      "show": "coltsdaily",
-      "show_name": "Colts Daily",
-      "kind": "episode",
-      "title": "Benched Again: Jones Pulled as Texans Roll 26-3, Indianapolis Is 3-8 | Thursday, November 19, 2026",
-      "date": "2026-11-20",
-      "url": "https://open.spotify.com/episode/5mvpETmHbXrnyi50YD3UZ7",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107277/47107277-1795150224278-4b41ff3275131.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#274 John Ballard: How a Man Born Enslaved Built a Homestead in the Santa Monica Mountains",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/274-John-Ballard-How-a-Man-Born-Enslaved-Built-a-Homestead-in-the-Santa-Monica-Mountains-e3sn8bb",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795141107313-e2807ea6a724e.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#273 The Video Game Industry: How a Game Is Made, Financed, and Played by Millions",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/273-The-Video-Game-Industry-How-a-Game-Is-Made--Financed--and-Played-by-Millions-e3sn6bl",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795142210678-9abd97ab1114.jpg"
     }
   ]
 }
