@@ -251,6 +251,13 @@ class MediaDietSyncTests(unittest.TestCase):
         self.assertEqual(films[1]["poster"], "https://a.ltrbxd.com/d.jpg")
         self.assertEqual(films[0]["url"], "https://letterboxd.com/jgerms/film/adaptation/")
 
+    def test_rewatch_follows_the_newest_diary_entry(self):
+        url = "https://letterboxd.com/jgerms/film/rocky/"
+        diary = [{"title": "Rocky", "watched": "2026-09-01", "rewatch": False, "url": url},
+                 {"title": "Rocky", "watched": "2024-01-01", "rewatch": True, "url": url}]
+        films = sync.build_films([{"slug": "rocky", "title": "Rocky", "year": "", "rating": 4.0}], True, diary, [])
+        self.assertEqual((films[0]["watched"], films[0]["rewatch"]), ("2026-09-01", False))
+
     def test_partial_read_keeps_the_rest_of_the_old_order(self):
         previous = [{"title": t, "url": f"https://letterboxd.com/jgerms/film/{t}/", "rated_rank": i}
                     for i, t in enumerate(["a", "b", "c"])]

@@ -270,9 +270,10 @@ def build_films(rated: list[dict], complete: bool, diary: list[dict], previous: 
         if not slug:
             continue
         mine = known.setdefault(slug, {})
-        for field in ("year", "poster", "watched", "rewatch", "title"):
+        for field in ("year", "poster", "title"):
             if entry.get(field) and not mine.get(field):
                 mine[field] = entry[field]
+        # watched date and rewatch flag come from the same (newest) diary entry
         if (entry.get("watched") or "") > (mine.get("watched") or ""):
             mine["watched"], mine["rewatch"] = entry["watched"], entry.get("rewatch") is True
 
