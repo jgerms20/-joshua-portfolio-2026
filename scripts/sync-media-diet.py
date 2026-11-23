@@ -3,8 +3,18 @@
 
 Runs every hour in GitHub Actions (.github/workflows/sync-media-diet.yml), where
 these hosts are reachable:
+  - Letterboxd ratings https://letterboxd.com/jgerms/films/by/rated-date/  (every page)
   - Letterboxd diary   https://letterboxd.com/jgerms/rss/          (latest ~50 entries)
   - Goodreads shelves  currently-reading + read (list_rss for user 95365432, paged)
+
+Films are ordered by WHEN JOSHUA RATED THEM, newest first. He rates most films
+without a diary entry, and the RSS only carries diary entries, so the RSS alone
+looks stale. The rated-date pages are the order; each film keeps its place as
+"rated_rank" (0 = rated most recently). Letterboxd shows no rating date, so the
+order is all there is: no date is invented. The diary only adds a watched date and
+the rewatch flag to films it knows. Films missing a poster or year are looked up on
+their film page, ENRICH_PER_RUN at a time, and the result is kept for later runs.
+If the rated-date pages can't be read, the last good order is kept.
 
 Goodreads only serves these feeds for a public profile. If the sync logs HTTP 404 for
 user 95365432, set the profile to public: Goodreads > Account settings > Settings >
@@ -22,7 +32,8 @@ script never touches any of them.
 
 Output shape:
   {"letterboxd": [film...], "reading": [book...], "read": [book...], "updated": "..."}
-  film: title, year, rating, watched, rewatch, poster, url
+  film: title, year, rating, watched, rewatch, poster, url, rated_rank (int, or null
+        for a diary film that isn't in the rated list)
   book: title, author, cover, rating, url, date, shelf
 
 Usage:
@@ -55,6 +66,10 @@ BROWSER_UA = (
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
 LETTERBOXD_URL = "https://letterboxd.com/jgerms/rss/"
+LETTERBOXD_USER = "jgerms"
+LETTERBOXD_RATED = f"https://letterboxd.com/{LETTERBOXD_USER}/films/by/rated-date/"
+LETTERBOXD_MAX_PAGES = 60
+ENRICH_PER_RUN = 40
 GOODREADS_USER = "95365432"
 GOODREADS_RSS = f"https://www.goodreads.com/review/list_rss/{GOODREADS_USER}"
 GOODREADS_SHELVES = {"reading": "currently-reading", "read": "read"}
@@ -141,6 +156,178 @@ def parse_letterboxd(xml_bytes: bytes) -> list[dict]:
     return films
 
 
+# ---- Letterboxd: films in the order they were rated ----
+_SLUG_ATTR = re.compile(r'data-(?:item|film)-slug="([^"]+)"')
+_FILM_SLUG = re.compile(r"/film/([^/?#]+)/")
+
+
+def film_slug(url: str) -> str:
+    found = _FILM_SLUG.search(url or "")
+    return found.group(1) if found else ""
+
+
+def _attr(chunk: str, *names: str) -> str:
+    for name in names:
+        found = re.search(rf'\b{name}="([^"]*)"', chunk)
+        if found and found.group(1).strip():
+            return html.unescape(found.group(1)).strip()
+    return ""
+
+
+def parse_rated_page(page: str) -> list[dict]:
+    """One /films/by/rated-date/ page -> films in page order: slug, title, year, rating.
+
+    Reads both grid markups Letterboxd has served: the poster <div data-film-slug ...>
+    and the react LazyPoster <div data-item-slug data-item-name="Title (Year)" ...>.
+    The rating is the "rated-N" class (N half-stars) inside the same grid item.
+    """
+    # each item starts at the tag that carries its slug, so attributes before the slug count too
+    found = [(page.rfind("<", 0, m.start()), m.group(1)) for m in _SLUG_ATTR.finditer(page)]
+    films, seen = [], set()
+    for i, (start, slug) in enumerate(found):
+        chunk = page[start: found[i + 1][0] if i + 1 < len(found) else len(page)]
+        rated = re.search(r"\brated-(\d{1,2})\b", chunk)
+        rating = int(rated.group(1)) / 2 if rated and 0 < int(rated.group(1)) <= 10 else None
+        if slug in seen:  # one item can carry the slug on more than one element
+            if films and films[-1]["slug"] == slug and films[-1]["rating"] is None:
+                films[-1]["rating"] = rating
+            continue
+        seen.add(slug)
+        tag_end = chunk.find(">")
+        head = chunk[:tag_end if tag_end > 0 else len(chunk)]
+        name = _attr(head, "data-item-full-display-name", "data-item-name", "data-film-name")
+        if not name:
+            alt = re.search(r'<img[^>]+alt="([^"]+)"', chunk)
+            name = html.unescape(alt.group(1)).strip() if alt else ""
+        name = re.sub(r"^Poster for\s+", "", name)
+        year = ""
+        titled = re.fullmatch(r"(.+?)\s+\((\d{4})\)", name)
+        if titled:
+            name, year = titled.group(1), titled.group(2)
+        year = year or _attr(head, "data-film-release-year", "data-item-release-year")
+        films.append({"slug": slug, "title": _plain(name or slug.replace("-", " "), 120),
+                      "year": year if re.fullmatch(r"\d{4}", year) else "", "rating": rating})
+    return films
+
+
+def fetch_rated_films() -> tuple[list[dict], bool]:
+    """Every rated-date page until one comes back empty. Returns (films, complete)."""
+    films, seen = [], set()
+    for page in range(1, LETTERBOXD_MAX_PAGES + 1):
+        url = LETTERBOXD_RATED if page == 1 else f"{LETTERBOXD_RATED}page/{page}/"
+        try:
+            raw = fetch(url, browser=True).decode("utf-8", "replace")
+        except Exception as error:
+            if page == 1:
+                raise
+            warn(f"letterboxd rated: page {page} failed ({error}); keeping the {len(films)} films read so far")
+            return films, False
+        page_films = [f for f in parse_rated_page(raw) if f["slug"] not in seen]
+        if not page_films:
+            if page == 1:
+                snippet = re.sub(r"\s+", " ", raw[:300])
+                raise ValueError(f"no films found on the rated-date page (blocked or new markup?) starts: {snippet!r}")
+            break
+        seen.update(f["slug"] for f in page_films)
+        films.extend(page_films)
+        log(f"[ok] letterboxd rated: page {page} -> {len(page_films)} films")
+    return films, True
+
+
+def parse_film_page(page: str) -> dict:
+    """A film page's JSON-LD -> {"poster", "year"} (either may be "")."""
+    out = {"poster": "", "year": ""}
+    block = re.search(r'<script type="application/ld\+json">(.*?)</script>', page, re.S)
+    if not block:
+        return out
+    text = re.sub(r"/\*.*?\*/", "", block.group(1), flags=re.S).strip()
+    try:
+        data = json.loads(text)
+    except ValueError:
+        return out
+    out["poster"] = _https(str(data.get("image") or ""))
+    released = data.get("releasedEvent") or []
+    if isinstance(released, list) and released and isinstance(released[0], dict):
+        year = str(released[0].get("startDate") or "")[:4]
+        out["year"] = year if re.fullmatch(r"\d{4}", year) else ""
+    return out
+
+
+def order_films(films: list[dict]) -> list[dict]:
+    """Ranked films in rated order, then unranked diary films newest watched first."""
+    ranked = sorted((f for f in films if isinstance(f.get("rated_rank"), int)), key=lambda f: f["rated_rank"])
+    rest = sorted((f for f in films if not isinstance(f.get("rated_rank"), int)),
+                  key=lambda f: f.get("watched") or "", reverse=True)
+    return ranked + rest
+
+
+def build_films(rated: list[dict], complete: bool, diary: list[dict], previous: list[dict]) -> list[dict]:
+    """The rated order, filled in from the diary and the last sync. Nothing is dropped
+    on a partial read: films past the pages read keep their old order after them."""
+    known: dict[str, dict] = {}
+    for entry in list(diary) + list(previous):  # diary first: its copy wins
+        slug = film_slug(entry.get("url", ""))
+        if not slug:
+            continue
+        mine = known.setdefault(slug, {})
+        for field in ("year", "poster", "title"):
+            if entry.get(field) and not mine.get(field):
+                mine[field] = entry[field]
+        # watched date and rewatch flag come from the same (newest) diary entry
+        if (entry.get("watched") or "") > (mine.get("watched") or ""):
+            mine["watched"], mine["rewatch"] = entry["watched"], entry.get("rewatch") is True
+
+    out, placed = [], set()
+    for film in rated:
+        old = known.get(film["slug"], {})
+        out.append({
+            "title": film["title"] or old.get("title", ""),
+            "year": film["year"] or old.get("year", ""),
+            "rating": film["rating"],
+            "watched": old.get("watched", ""),
+            "rewatch": old.get("rewatch") is True,
+            "poster": old.get("poster", ""),
+            "url": f"https://letterboxd.com/{LETTERBOXD_USER}/film/{film['slug']}/",
+            "rated_rank": len(out),
+        })
+        placed.add(film["slug"])
+    if not complete:  # the pages we couldn't read: keep their films, in their old order
+        for entry in order_films([e for e in previous if isinstance(e.get("rated_rank"), int)]):
+            slug = film_slug(entry.get("url", ""))
+            if slug and slug not in placed:
+                out.append(dict(entry, rated_rank=len(out)))
+                placed.add(slug)
+    for entry in list(diary) + list(previous):  # diary films never rated stay, after the rated ones
+        slug = film_slug(entry.get("url", ""))
+        if isinstance(entry, dict) and entry.get("title") and slug not in placed:
+            placed.add(slug)
+            out.append(dict(entry, rated_rank=None))
+    return order_films(out)[:MAX_ENTRIES]
+
+
+def enrich_films(films: list[dict], limit: int = ENRICH_PER_RUN) -> None:
+    """Fill a missing poster or year from the film page, top of the order first."""
+    done = 0
+    for film in films:
+        if done >= limit:
+            break
+        if film.get("poster") and film.get("year"):
+            continue
+        slug = film_slug(film.get("url", ""))
+        if not slug:
+            continue
+        done += 1
+        try:
+            found = parse_film_page(fetch(f"https://letterboxd.com/film/{slug}/", browser=True).decode("utf-8", "replace"))
+        except Exception as error:
+            warn(f"letterboxd film page {slug}: {error}")
+            continue
+        film["poster"] = film.get("poster") or found["poster"]
+        film["year"] = film.get("year") or found["year"]
+    if done:
+        log(f"[ok] letterboxd: looked up {done} film pages for posters/years")
+
+
 def _goodreads_cover(item) -> str:
     for tag in ("book_large_image_url", "book_medium_image_url", "book_image_url"):
         url = _https(_text(item, tag))
@@ -203,8 +390,10 @@ def fetch_goodreads_shelf(key: str) -> list[dict]:
 
 
 def _sort_key(key: str):
-    field = "watched" if key == "letterboxd" else "date"
-    return lambda entry: entry.get(field) or ""
+    if key == "letterboxd":  # rated order first (see order_films), then newest watched
+        return lambda entry: (
+            (1, -entry["rated_rank"], "") if isinstance(entry.get("rated_rank"), int) else (0, 0, entry.get("watched") or ""))
+    return lambda entry: entry.get("date") or ""
 
 
 def merge(key: str, fresh: list[dict], previous: list[dict]) -> list[dict]:
@@ -247,8 +436,24 @@ def main(argv=None) -> int:
             fresh[key] = None
             warn(f"{key}: {error} (keeping {len(data[key])} saved entries)")
 
-    if fresh["letterboxd"] is not None:
-        data["letterboxd"] = merge("letterboxd", fresh["letterboxd"], data["letterboxd"])
+    rated, complete = None, False
+    if "letterboxd" not in local:
+        try:
+            rated, complete = fetch_rated_films()
+            log(f"[ok] letterboxd rated: {len(rated)} films in rated order" + ("" if complete else " (partial)"))
+            for n, film in enumerate(rated[:8], 1):
+                log(f"       {n}. {film['title']} ({film['year'] or '?'}) {film['rating'] or 'unrated'}")
+        except Exception as error:  # keep the last good order
+            warn(f"letterboxd rated: {error} (keeping the saved order)")
+    if rated:
+        data["letterboxd"] = build_films(rated, complete, fresh["letterboxd"] or [], data["letterboxd"])
+        enrich_films(data["letterboxd"])
+    elif fresh["letterboxd"] is not None:
+        if any(isinstance(e.get("rated_rank"), int) for e in data["letterboxd"]):
+            # no fresh order this run: keep the saved one, add any new diary-only films after it
+            data["letterboxd"] = build_films([], False, fresh["letterboxd"], data["letterboxd"])
+        else:
+            data["letterboxd"] = merge("letterboxd", fresh["letterboxd"], data["letterboxd"])
     if fresh["read"] is not None:
         data["read"] = merge("read", fresh["read"], data["read"])
     # Currently-reading is a state, not a log: replace it, but only when Goodreads is

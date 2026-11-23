@@ -7,8 +7,14 @@ name: Sync media diet
 # Kept apart from the podcast sync (sync-episodes.yml) so the two never race.
 on:
   schedule:
-    # Every hour, at 17 minutes past.
+    # Every hour, at 17 minutes past. (GitHub throttles this; in practice it has run
+    # about every 6 hours.)
     - cron: "17 * * * *"
+  # A change to the sync script takes effect at once instead of at the next cron run.
+  # The sync's own commits only touch data/, so this never triggers itself.
+  push:
+    branches: [main]
+    paths: [scripts/sync-media-diet.py]
   workflow_dispatch:
 
 permissions:

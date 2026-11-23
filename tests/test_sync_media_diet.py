@@ -44,6 +44,25 @@ def goodreads_page(numbers) -> bytes:
     return ("<?xml version='1.0'?><rss><channel>" + "".join(goodreads_item(n) for n in numbers) + "</channel></rss>").encode()
 
 
+# Two grid markups Letterboxd has served on /films/ pages
+RATED_PAGE_REACT = """<ul class="grid">
+<li class="griditem"><div class="react-component" data-component-class="LazyPoster" data-item-name="The Hunger Games: The Ballad of Songbirds &amp; Snakes (2023)" data-item-slug="the-hunger-games-the-ballad-of-songbirds-snakes" data-item-link="/film/the-hunger-games-the-ballad-of-songbirds-snakes/"><img alt="The Hunger Games: The Ballad of Songbirds &amp; Snakes" src="empty.png"/></div>
+<p class="poster-viewingdata"><span class="rating -micro -darker rated-7">★★★½</span></p></li>
+<li class="griditem"><div class="react-component" data-item-name="Adaptation. (2002)" data-item-slug="adaptation" data-item-link="/film/adaptation/"></div>
+<p class="poster-viewingdata"><span class="rating -micro -darker rated-8">★★★★</span></p></li>
+</ul>"""
+RATED_PAGE_POSTER = """<ul class="poster-list">
+<li class="poster-container"><div class="really-lazy-load poster film-poster" data-film-id="1" data-film-slug="rocky" data-target-link="/film/rocky/"><img alt="Rocky" src="empty.png"/></div>
+<p class="poster-viewingdata"><span class="rating -micro -darker rated-8">★★★★</span></p></li>
+<li class="poster-container"><div class="poster film-poster" data-film-slug="dunkirk-2017" data-target-link="/film/dunkirk-2017/"><img alt="Dunkirk" src="e.png"/></div></li>
+</ul>"""
+FILM_PAGE = """<html><script type="application/ld+json">
+/* <![CDATA[ */
+{"name":"Adaptation.","image":"https://a.ltrbxd.com/resized/adaptation-0-230-0-345-crop.jpg","releasedEvent":[{"@type":"PublicationEvent","startDate":"2002"}]}
+/* ]]> */
+</script></html>"""
+
+
 class FakeFeeds:
     """Answers fetch(url, browser=...) like the live hosts, and records each call."""
 
@@ -196,6 +215,81 @@ class MediaDietSyncTests(unittest.TestCase):
         data = self.run_sync(previous, mock.Mock(side_effect=OSError("blocked")))
         self.assertEqual(data["letterboxd"], [{"title": "Old"}])
         self.assertEqual(data["read"], [{"title": "Kept"}])
+
+    # ---- rated order ----
+    def test_rated_page_reads_both_markups(self):
+        films = sync.parse_rated_page(RATED_PAGE_REACT)
+        self.assertEqual(films, [
+            {"slug": "the-hunger-games-the-ballad-of-songbirds-snakes",
+             "title": "The Hunger Games: The Ballad of Songbirds & Snakes", "year": "2023", "rating": 3.5},
+            {"slug": "adaptation", "title": "Adaptation.", "year": "2002", "rating": 4.0},
+        ])
+        films = sync.parse_rated_page(RATED_PAGE_POSTER)
+        self.assertEqual([(f["slug"], f["title"], f["year"], f["rating"]) for f in films],
+                         [("rocky", "Rocky", "", 4.0), ("dunkirk-2017", "Dunkirk", "", None)])
+        self.assertEqual(sync.parse_rated_page("<html>Just a moment...</html>"), [])
+
+    def test_film_page_gives_poster_and_year(self):
+        self.assertEqual(sync.parse_film_page(FILM_PAGE),
+                         {"poster": "https://a.ltrbxd.com/resized/adaptation-0-230-0-345-crop.jpg", "year": "2002"})
+        self.assertEqual(sync.parse_film_page("<html></html>"), {"poster": "", "year": ""})
+
+    def test_films_follow_the_rated_order_not_the_diary(self):
+        rated = [{"slug": "adaptation", "title": "Adaptation.", "year": "2002", "rating": 4.0},
+                 {"slug": "dunkirk-2017", "title": "Dunkirk", "year": "", "rating": 4.0}]
+        diary = [{"title": "Dunkirk", "year": "2017", "rating": 4.0, "watched": "2026-07-28", "rewatch": True,
+                  "poster": "https://a.ltrbxd.com/d.jpg", "url": "https://letterboxd.com/jgerms/film/dunkirk-2017/"},
+                 {"title": "Unrated", "year": "2001", "rating": None, "watched": "2026-08-01", "rewatch": False,
+                  "poster": "", "url": "https://letterboxd.com/jgerms/film/unrated/"}]
+        films = sync.build_films(rated, True, diary, [])
+        self.assertEqual([f["title"] for f in films], ["Adaptation.", "Dunkirk", "Unrated"])
+        self.assertEqual([f["rated_rank"] for f in films], [0, 1, None])
+        self.assertEqual(films[0]["watched"], "")  # no diary entry: no invented date
+        self.assertEqual(films[1]["watched"], "2026-07-28")
+        self.assertTrue(films[1]["rewatch"])
+        self.assertEqual(films[1]["year"], "2017")
+        self.assertEqual(films[1]["poster"], "https://a.ltrbxd.com/d.jpg")
+        self.assertEqual(films[0]["url"], "https://letterboxd.com/jgerms/film/adaptation/")
+
+    def test_rewatch_follows_the_newest_diary_entry(self):
+        url = "https://letterboxd.com/jgerms/film/rocky/"
+        diary = [{"title": "Rocky", "watched": "2026-09-01", "rewatch": False, "url": url},
+                 {"title": "Rocky", "watched": "2024-01-01", "rewatch": True, "url": url}]
+        films = sync.build_films([{"slug": "rocky", "title": "Rocky", "year": "", "rating": 4.0}], True, diary, [])
+        self.assertEqual((films[0]["watched"], films[0]["rewatch"]), ("2026-09-01", False))
+
+    def test_partial_read_keeps_the_rest_of_the_old_order(self):
+        previous = [{"title": t, "url": f"https://letterboxd.com/jgerms/film/{t}/", "rated_rank": i}
+                    for i, t in enumerate(["a", "b", "c"])]
+        films = sync.build_films([{"slug": "new", "title": "new", "year": "", "rating": 3.0}], False, [], previous)
+        self.assertEqual([f["title"] for f in films], ["new", "a", "b", "c"])
+        self.assertEqual([f["rated_rank"] for f in films], [0, 1, 2, 3])
+
+    def test_sync_uses_the_rated_pages_and_looks_up_missing_posters(self):
+        def fetch(url, browser=False):
+            if "/films/by/rated-date/page/2/" in url:
+                return RATED_PAGE_POSTER.encode()
+            if "/films/by/rated-date/" in url:
+                return RATED_PAGE_REACT.encode()
+            if "/film/" in url and "/jgerms/" not in url:
+                return FILM_PAGE.encode()
+            if "letterboxd.com" in url:
+                return LETTERBOXD  # the diary RSS
+            return goodreads_page([])
+        data = self.run_sync({"letterboxd": [], "reading": [], "read": []}, fetch)
+        self.assertEqual([f["title"] for f in data["letterboxd"]][:4],
+                         ["The Hunger Games: The Ballad of Songbirds & Snakes", "Adaptation.", "Rocky", "Dunkirk"])
+        self.assertEqual(data["letterboxd"][-1]["title"], "Sinners")  # diary-only, after the rated films
+        self.assertIsNone(data["letterboxd"][-1]["rated_rank"])
+        self.assertTrue(all(f["poster"] for f in data["letterboxd"]))
+
+    def test_blocked_rated_pages_keep_the_saved_order(self):
+        previous = {"letterboxd": [
+            {"title": "Top", "url": "https://letterboxd.com/jgerms/film/top/", "rated_rank": 0},
+            {"title": "Next", "url": "https://letterboxd.com/jgerms/film/next/", "rated_rank": 1}],
+            "reading": [], "read": []}
+        data = self.run_sync(previous, FakeFeeds({}))  # rated-date pages answer with RSS: no films
+        self.assertEqual([f["title"] for f in data["letterboxd"]], ["Top", "Next", "Sinners"])
 
     # ---- Substack is gone; listening is hand-edited ----
     def test_substack_is_dropped(self):
