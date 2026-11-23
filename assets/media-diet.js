@@ -122,10 +122,12 @@
             return {
                 kind: 'film', group: 'film', title: str(f.title, 160), year: year, decade: year ? year.slice(0, 3) + '0s' : '',
                 rating: num(f.rating, 5), date: isoDate(f.watched), rewatch: f.rewatch === true,
-                image: https(f.poster), url: https(f.url)
+                rank: rankOf(f.rated_rank), image: https(f.poster), url: https(f.url)
             };
         });
     }
+    // Letterboxd's "when rated" position (0 = rated most recently), or null
+    function rankOf(v) { return typeof v === 'number' && isFinite(v) && v >= 0 ? Math.floor(v) : null; }
     function books(data) {
         var list = [], seen = {};
         function add(b, now) {
@@ -224,14 +226,18 @@
         var def = SUMMARY[key], now = dayNumber(today);
         if (!def || !Array.isArray(list) || isNaN(now)) return '';
         var latest = null;
+        // Films carry the order they were rated in; the most recently rated one is the latest
         list.forEach(function (it) {
+            if (it && it.rank != null && (!latest || it.rank < latest.rank)) latest = it;
+        });
+        if (!latest) list.forEach(function (it) {
             // a day of slack for time zones; anything dated further ahead is not "latest" yet
             if (!it || !it.date || !(dayNumber(it.date) <= now + 1)) return;
             if (!latest || it.date.localeCompare(latest.date) > 0) latest = it;
         });
         if (!latest) return '';
         var out = 'Latest: ' + latest.title;
-        if (def.when) {
+        if (def.when && latest.date) {
             var when = fmtDate(latest.date, latest.date.slice(0, 4) !== today.slice(0, 4));
             if (when) out += ', ' + when;
         }
@@ -328,15 +334,22 @@
         return true;
     }
     function byDate(a, b) { return (b.date || '').localeCompare(a.date || ''); }
+    // Newest first: films in the order they were rated, then everything else by date
+    function byRecent(a, b) {
+        if (a.rank != null && b.rank != null) return a.rank - b.rank;
+        if (a.rank != null) return -1;
+        if (b.rank != null) return 1;
+        return byDate(a, b);
+    }
     function sorted(list, st, key) {
         var out = list.slice();
         var cmp = {
-            'new': byDate,
+            'new': byRecent,
             'old': function (a, b) { return (a.date || '9999').localeCompare(b.date || '9999'); },
             'rated': function (a, b) { return (b.rating || 0) - (a.rating || 0) || byDate(a, b); },
             'title': function (a, b) { return sortTitle(a.title).localeCompare(sortTitle(b.title)); },
             'release': function (a, b) { return (b.year || '0').localeCompare(a.year || '0') || byDate(a, b); }
-        }[st.sort] || byDate;
+        }[st.sort] || byRecent;
         out.sort(cmp);
         // On the default sort, what's on the nightstand comes first
         if (key === 'reading' && st.sort === 'new') out.sort(function (a, b) { return (b.now ? 1 : 0) - (a.now ? 1 : 0); });
@@ -684,7 +697,7 @@
             if (!fDecade.parentNode.hidden) st.decade = fillSelect(fDecade, [['any', 'Any']].concat(decades.map(function (d) { return [d, d]; })), st.decade);
             else st.decade = 'any';
 
-            var so = [['new', key === 'watching' ? 'Recently watched' : 'Newest'], ['old', 'Oldest']];
+            var so = [['new', key === 'watching' ? 'Recently rated' : 'Newest'], ['old', 'Oldest']];
             if (hasRatings) so.push(['rated', 'Highest rated']);
             if (key === 'watching') so.push(['release', 'Release year']);
             so.push(['title', 'Title A–Z']);
@@ -846,7 +859,7 @@
         // ---- The newest three covers, fanned (standalone masthead) ----
         function renderStack(box) {
             var all = items.watching.concat(items.reading, items.listening).filter(function (i) { return i.image; });
-            all.sort(byDate);
+            all.sort(byRecent);
             var pick = all.slice(0, 3);
             box.textContent = '';
             if (pick.length < 2) { box.hidden = true; return; }

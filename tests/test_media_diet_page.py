@@ -307,6 +307,22 @@ class ShelfDataTests(unittest.TestCase):
             f"return md.summaryLine({json.dumps(key)}, s[{json.dumps(key)}], {json.dumps(today)});"
         )
 
+    # ---- films in the order Joshua rated them ----
+    def test_rated_order_beats_the_watched_date(self):
+        diet = {"letterboxd": [
+            {"title": "Diary film", "watched": "2026-08-31", "rated_rank": 2, "url": "https://letterboxd.com/x/film/d/"},
+            {"title": "Rated last", "rated_rank": 0, "url": "https://letterboxd.com/x/film/r0/"},
+            {"title": "Rated before", "rated_rank": 1, "url": "https://letterboxd.com/x/film/r1/"},
+            {"title": "Never rated", "watched": "2026-09-01", "url": "https://letterboxd.com/x/film/n/"},
+        ]}
+        shelves = run_shelf("const d = " + json.dumps(diet) + "; return md.buildShelves(d, {}, {}, {});")
+        self.assertEqual([i["rank"] for i in shelves["watching"]], [2, 0, 1, None])
+        # no rating date exists, so the latest line names the film without a date
+        self.assertEqual(self.summary("watching", diet=diet, watch={"items": []}), "Latest: Rated last")
+        js = JS.read_text(encoding="utf-8")
+        self.assertIn("'new': byRecent", js)
+        self.assertIn("'Recently rated'", js)
+
     # ---- TV by hand ----
     def test_tv_merges_into_watching(self):
         watching = self.shelves["watching"]
