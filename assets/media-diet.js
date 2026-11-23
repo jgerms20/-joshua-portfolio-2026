@@ -334,6 +334,12 @@
         return true;
     }
     function byDate(a, b) { return (b.date || '').localeCompare(a.date || ''); }
+    // The default sort's name says what the order really is: "Recently rated" only when
+    // films carry their Letterboxd rated position, otherwise it is the diary order
+    function newestLabel(key, list) {
+        if (key !== 'watching') return 'Newest';
+        return list.some(function (i) { return i && i.rank != null; }) ? 'Recently rated' : 'Recently watched';
+    }
     // Newest first: films in the order they were rated, then everything else by date
     function byRecent(a, b) {
         if (a.rank != null && b.rank != null) return a.rank - b.rank;
@@ -697,7 +703,7 @@
             if (!fDecade.parentNode.hidden) st.decade = fillSelect(fDecade, [['any', 'Any']].concat(decades.map(function (d) { return [d, d]; })), st.decade);
             else st.decade = 'any';
 
-            var so = [['new', key === 'watching' ? 'Recently rated' : 'Newest'], ['old', 'Oldest']];
+            var so = [['new', newestLabel(key, list)], ['old', 'Oldest']];
             if (hasRatings) so.push(['rated', 'Highest rated']);
             if (key === 'watching') so.push(['release', 'Release year']);
             so.push(['title', 'Title A–Z']);
@@ -898,7 +904,7 @@
 
     // The data-only helpers, for tests (node tests/... requires this file; no DOM needed)
     if (typeof module === 'object' && module && module.exports) {
-        module.exports = { summaryLine: summaryLine, buildShelves: buildShelves, chipList: chipList };
+        module.exports = { summaryLine: summaryLine, buildShelves: buildShelves, chipList: chipList, newestLabel: newestLabel };
     }
     if (!HAS_DOM) return;
 
