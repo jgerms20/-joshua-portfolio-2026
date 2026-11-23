@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-22T16:28:37Z",
+  "generated_at": "2026-11-23T03:49:37Z",
   "shows": [
     {
       "key": "ccpod",
@@ -20,6 +20,22 @@
       "count": 6
     },
     {
+      "key": "polymath",
+      "name": "The Eclectic Polymath Podcast",
+      "short": "Eclectic Polymath",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "Joshua German"
+      ],
+      "tagline": "Everything is interesting when you dig deep enough.",
+      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
+      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
+      "latest": "2026-11-22",
+      "count": 281
+    },
+    {
       "key": "dominatedconvo",
       "name": "The Zeitgeist",
       "short": "The Zeitgeist",
@@ -34,6 +50,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
       "latest": "2026-11-22",
       "count": 19
+    },
+    {
+      "key": "waiverwire",
+      "name": "The Waiver Wire",
+      "short": "The Waiver Wire",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
+      "latest": "2026-11-22",
+      "count": 9
     },
     {
       "key": "gamecocksdaily",
@@ -98,6 +130,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
       "latest": "2026-11-22",
       "count": 22
+    },
+    {
+      "key": "globalread",
+      "name": "The Global Read",
+      "short": "The Global Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
+      "latest": "2026-11-22",
+      "count": 25
     },
     {
       "key": "morningread",
@@ -178,38 +226,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
       "latest": "2026-11-22",
       "count": 13
-    },
-    {
-      "key": "polymath",
-      "name": "The Eclectic Polymath Podcast",
-      "short": "Eclectic Polymath",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "Joshua German"
-      ],
-      "tagline": "Everything is interesting when you dig deep enough.",
-      "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
-      "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-21",
-      "count": 279
-    },
-    {
-      "key": "globalread",
-      "name": "The Global Read",
-      "short": "The Global Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0LOla5sXCGZ4pDLIk1qecU",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
-      "latest": "2026-11-21",
-      "count": 24
     },
     {
       "key": "riff",
@@ -370,22 +386,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47156478/47156478-1793826230120-ca706eed6ae58.jpg",
       "latest": "2026-11-19",
       "count": 2
-    },
-    {
-      "key": "waiverwire",
-      "name": "The Waiver Wire",
-      "short": "The Waiver Wire",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
-      "latest": "2026-11-19",
-      "count": 8
     },
     {
       "key": "cutandsew",
@@ -575,7 +575,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -600,6 +600,24 @@
   ],
   "latest": [
     {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#282 The Yalta Conference: How Roosevelt, Churchill, and Stalin Drew the Map of the Postwar World",
+      "date": "2026-11-22",
+      "url": "https://open.spotify.com/episode/6i9fUzDJ7sCvJbX4EXBXYM",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795386738624-cf6c79150403a.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#281 Converting to Mormonism: Why Baptism Is Only the Gate to a Year-Long Path to the Temple",
+      "date": "2026-11-22",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/281-Converting-to-Mormonism-Why-Baptism-Is-Only-the-Gate-to-a-Year-Long-Path-to-the-Temple-e3sr4gd",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795374881623-6339bef23b3a9.jpg"
+    },
+    {
       "show": "dominatedconvo",
       "show_name": "The Zeitgeist",
       "kind": "episode",
@@ -607,6 +625,15 @@
       "date": "2026-11-22",
       "url": "https://open.spotify.com/episode/5qA3eVEZfdvahe74M5wvz9",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1795355150276-0f37995601aae.jpg"
+    },
+    {
+      "show": "waiverwire",
+      "show_name": "The Waiver Wire",
+      "kind": "episode",
+      "title": "Walker Out, Johnson In, and Bowers Is the Game-Time Call: Week 11 In or Out | Sunday, November 22, 2026",
+      "date": "2026-11-22",
+      "url": "https://open.spotify.com/episode/2MZZTvxGKrhsL5pkd8t6HS",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1795354903883-3e69dc060bd42.jpg"
     },
     {
       "show": "gamecocksdaily",
@@ -645,6 +672,15 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795346802854-a9a58ad0309a8.jpg"
     },
     {
+      "show": "globalread",
+      "show_name": "The Global Read",
+      "kind": "episode",
+      "title": "COP31 Puts Its Final Deal to the Vote Without Naming Fossil Fuels | Sunday, November 22, 2026",
+      "date": "2026-11-22",
+      "url": "https://open.spotify.com/episode/5JBilNFZEcKt4ayB17UveW",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1795344186535-61c30cf3a27f.jpg"
+    },
+    {
       "show": "morningread",
       "show_name": "The Morning Read",
       "kind": "episode",
@@ -670,42 +706,6 @@
       "date": "2026-11-22",
       "url": "https://open.spotify.com/episode/3MGej8EuCpUxwZHBXpbRJp",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1795334557746-a884ffdb331ee.jpg"
-    },
-    {
-      "show": "fastbreak",
-      "show_name": "The Fast Break",
-      "kind": "episode",
-      "title": "Saturday, November 21, 2026",
-      "date": "2026-11-22",
-      "url": "https://open.spotify.com/episode/49QY0Vbr0KIsjimm8mLJZv",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1795329638645-dfeec2f628587.jpg"
-    },
-    {
-      "show": "celticsdaily",
-      "show_name": "Celtics Daily",
-      "kind": "episode",
-      "title": "Kings Beat the Celtics 97-96: Murray's Putback at Five Seconds Hands Boston a Third Straight Loss, Boston Is 11-5 | Saturday, November 21, 2026",
-      "date": "2026-11-22",
-      "url": "https://open.spotify.com/episode/5ZYdpSM6UHvYIqZguTO4Ke",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1795328919892-1603c556a4176.jpg"
-    },
-    {
-      "show": "gamecocksdaily",
-      "show_name": "Gamecocks Daily",
-      "kind": "episode",
-      "title": "A Fight for a Half, Then the Standard Showed: South Carolina Is 6-5 | Saturday, November 21, 2026",
-      "date": "2026-11-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms2094/episodes/A-Fight-for-a-Half--Then-the-Standard-Showed-South-Carolina-Is-6-5--Saturday--November-21--2026-e3sq818",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1795322535412-4e3cd46dbd103.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#280 Kyivstoner: Why Russia Tried to Kill a Rapper Nobody Knew",
-      "date": "2026-11-21",
-      "url": "https://open.spotify.com/episode/5yeNJWqnD3xqnN0fC40YtX",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795287524915-66232b6c9ab78.jpg"
     }
   ]
 }
