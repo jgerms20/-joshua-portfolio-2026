@@ -159,7 +159,12 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertIn("I find the idea and <em>build the thing.</em>", hero)
         self.assertIn("Strategy, stories, and the things I build when nobody assigned them.", hero)
         self.assertIn("Now booking independent work", hero)
-        self.assertIn("Co-founder &amp; CEO, The Curious &amp; Creative Company", hero)
+        self.assertIn("Founder &amp; CEO, The Curious &amp; Creative Company", hero)
+        self.assertNotIn("Co-founder", hero)
+        self.assertIn('<a href="https://jgerms20.github.io/SCAiL-Initiative" target="_blank" rel="noopener">President, SCAiL&nbsp;&#8599;</a>', hero)
+        self.assertNotIn("scailsc.org", PAGE)  # not registered yet
+        roles = re.findall(r'<span class="hero-role">([^<]*)</span>', hero)
+        self.assertEqual(roles, ["Creative, cultural &amp; content strategist", "Photographer &middot; Podcaster &middot; AI Builder"])
         # the agency is history, never the current job
         now = hero[hero.index('class="hero-stats hero-now"'):]
         now = now[: now.index("</dl>")]
@@ -178,7 +183,8 @@ class HomepageStructureTests(unittest.TestCase):
         lead = "Joshua McKenzie German | Creative, Cultural &amp; Content Strategist"
         self.assertIn(f"<title>{lead}</title>", head)
         self.assertIn(f'property="og:title" content="{lead}"', head)
-        self.assertIn("Co-founder and CEO of The Curious &amp; Creative Company", head)
+        self.assertIn("Founder and CEO of The Curious &amp; Creative Company", head)
+        self.assertNotIn("Co-founder", head)
         self.assertNotIn("LLC", PAGE)
     def test_in_the_works_does_not_overclaim(self):
         self.assertNotIn("In production", PAGE)
@@ -194,9 +200,13 @@ class HomepageStructureTests(unittest.TestCase):
         hrefs = re.findall(r'<a href="([^"]+)" class="plate\b', work)
         self.assertEqual(hrefs, [
             "work/work-levis.html", "work/work-gatorade.html#stranger-things", "work/work-doordash.html",
-            "work/work-directv.html#nothing-on-roof", "work/work-gatorade.html#body-of-science",
+            "work/work-gatorade.html#body-of-science", "work/work-sephora.html#skincare",
+            "work/work-directv.html#nothing-on-roof",
             "work/work-dwb.html", "https://hiike.com/", "https://www.uandai.co/",
         ])
+        # phones show the first six, so both Gatorades and Sephora stay on screen
+        self.assertIn("#work .plates > .plate:nth-child(n+7) { display: none; }", PAGE)
+        self.assertNotIn("Digital Task Brief", PAGE)
         self.assertIn('<a href="work/" class="btn btn-line">All brand work', work)
         self.assertNotIn("hidden-card", work)
         self.assertNotIn("toggleSeeLess", PAGE)
@@ -241,11 +251,17 @@ class HomepageStructureTests(unittest.TestCase):
         script = script[: script.index("})();")]
         self.assertNotIn("innerHTML", script)
 
-    def test_on_air_is_the_three_hosted_shows(self):
+    def test_on_air_is_the_three_hosted_shows_and_the_archive(self):
         pods = PAGE[PAGE.index('<section id="podcasts"'):]
         pods = pods[: pods.index("</section>")]
-        self.assertEqual(len(re.findall(r'class="pod-card', pods)), 3)
-        self.assertIn("podcasts/podcast-dominate.html", pods)  # the archive, as a line
+        cards = re.findall(r'<a href="([^"]+)" class="pod-card', pods)
+        self.assertEqual(cards, [
+            "podcasts/podcast-eclectic-polymath.html", "podcasts/podcast-approachable-ai.html",
+            "podcasts/podcast-curious-creative.html", "podcasts/podcast-dominate.html",
+        ])
+        dominate = pods[pods.index('<a href="podcasts/podcast-dominate.html" class="pod-card'):]
+        dominate = dominate[: dominate.index("</a>")]
+        self.assertIn(">Archive</span>", dominate)
         self.assertNotRegex(pods, r"\b(Four|Three|Eight) [Ss]hows\b")
 
 
@@ -253,7 +269,12 @@ class HomepageStructureTests(unittest.TestCase):
         self.assertNotIn('<section id="network"', PAGE)
         about = PAGE[PAGE.index('<section id="about"'):]
         about = about[: about.index("</section>")]
-        self.assertIn("co-founder and CEO of The Curious &amp; Creative Company", about)
+        self.assertIn("founder and CEO of The Curious &amp; Creative Company, an AI-native creative services company", about)
+        self.assertNotIn("co-founder", about.lower())
+        self.assertIn("Curious and creative, and happiest telling stories in <span class=\"accent-word\">whatever medium fits</span>", about)
+        self.assertIn("in the moment, in their most natural form", about)
+        self.assertNotIn("on film and digital", about)
+        self.assertNotIn("Janel", PAGE)  # her name stays off the homepage
         self.assertIn("My work starts with curiosity.", about)
         self.assertIn("a journalist&rsquo;s instinct to ask questions", about)
         self.assertIn('<a href="network/">Curious &amp; Creative</a>', PAGE)

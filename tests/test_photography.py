@@ -46,7 +46,6 @@ KOAT = {
     "summary": "Documentary and behind-the-scenes coverage of a fashion presentation.",
     "credits": (
         "Joshua shot stills and video on a two-camera setup.",
-        "Janel Moore covered the room on camcorder.",
     ),
 }
 EXTERNAL = 'target="_blank" rel="noopener"'
