@@ -321,7 +321,17 @@ class ShelfDataTests(unittest.TestCase):
         self.assertEqual(self.summary("watching", diet=diet, watch={"items": []}), "Latest: Rated last")
         js = JS.read_text(encoding="utf-8")
         self.assertIn("'new': byRecent", js)
-        self.assertIn("'Recently rated'", js)
+        self.assertIn("['new', newestLabel(key, list)]", js)
+
+    def test_sort_label_matches_the_order_it_shows(self):
+        def label(key, diet):
+            return run_shelf("const d = " + json.dumps(diet) + "; const s = md.buildShelves(d, {}, {}, {});"
+                             f"return md.newestLabel({json.dumps(key)}, s[{json.dumps(key)}]);")
+        ranked = {"letterboxd": [{"title": "A", "rated_rank": 0}, {"title": "B", "watched": "2026-08-31"}]}
+        diary = {"letterboxd": [{"title": "A", "watched": "2026-08-31"}, {"title": "B", "watched": "2026-07-28"}]}
+        self.assertEqual(label("watching", ranked), "Recently rated")
+        self.assertEqual(label("watching", diary), "Recently watched")  # diary order: never claim "rated"
+        self.assertEqual(label("reading", diary), "Newest")
 
     # ---- TV by hand ----
     def test_tv_merges_into_watching(self):
