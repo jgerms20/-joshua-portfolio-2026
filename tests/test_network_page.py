@@ -259,7 +259,7 @@ class NetworkPageTests(unittest.TestCase):
         # the feed and photo strip moved off this page; the founder says why it exists
         self.assertNotIn('id="latest"', self.html)
         self.assertNotIn('id="photos"', self.html)
-        self.assertIn("co-founder and CEO", self.html)
+        self.assertIn("founder and CEO", self.html)
         self.assertNotIn("The Daily Riff", self.html)  # renamed: The Jazz Riff
     def test_static_markup_lists_every_show(self):
         cards = self.parsed.cards

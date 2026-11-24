@@ -51,7 +51,7 @@ class ResumeTests(unittest.TestCase):
         self.assertIn("AI Strategy and Systems Lead", tbwa)
         for org in ("wk", "gsp"):
             self.assertEqual(job(org).select_one(".title").get_text(strip=True), "Creative & Content Strategist", org)
-        self.assertEqual(job("curious-creative").select_one(".title").get_text(strip=True), "Co-founder & CEO")
+        self.assertEqual(job("curious-creative").select_one(".title").get_text(strip=True), "Founder & CEO")
         text = soup().get_text(" ", strip=True)
         for old in ("Communication Strategist", "Communications Strategist", "Brand Strategist", "Media & Comms Supervisor"):
             self.assertNotIn(old, text)
