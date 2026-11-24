@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-23T14:58:23Z",
+  "generated_at": "2026-11-24T02:44:18Z",
   "shows": [
     {
       "key": "ccpod",
@@ -34,6 +34,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
       "latest": "2026-11-23",
       "count": 20
+    },
+    {
+      "key": "waiverwire",
+      "name": "The Waiver Wire",
+      "short": "The Waiver Wire",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
+      "latest": "2026-11-23",
+      "count": 10
     },
     {
       "key": "politicalread",
@@ -244,22 +260,6 @@
       "count": 14
     },
     {
-      "key": "waiverwire",
-      "name": "The Waiver Wire",
-      "short": "The Waiver Wire",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4DZg4aE2C8FF1nV31XWCf6",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
-      "latest": "2026-11-22",
-      "count": 9
-    },
-    {
       "key": "gamecocksdaily",
       "name": "Gamecocks Daily",
       "short": "Gamecocks Daily",
@@ -399,7 +399,7 @@
       "tagline": "",
       "about": "",
       "url": "https://open.spotify.com/show/6nwdYn042ClFOjyTc2cA3K",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
       "latest": "2026-11-18",
       "count": 1
     },
@@ -609,6 +609,15 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1795441860511-238c159c85c2c.jpg"
     },
     {
+      "show": "waiverwire",
+      "show_name": "The Waiver Wire",
+      "kind": "episode",
+      "title": "Prescott's Five Touchdowns, Coleman's Three, and Evans Is Back: Week 11 Studs, Duds & News | Monday, November 23, 2026",
+      "date": "2026-11-23",
+      "url": "https://open.spotify.com/episode/27BEmUwAdz4eL1YDwcEKsH",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1795441822072-d6aad5ca59c5.jpg"
+    },
+    {
       "show": "politicalread",
       "show_name": "The Political Read",
       "kind": "episode",
@@ -697,15 +706,6 @@
       "date": "2026-11-23",
       "url": "https://open.spotify.com/episode/4NUFTuNAcKM2mm8il0ijtd",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795423221948-6537b1bda00b3.jpg"
-    },
-    {
-      "show": "blitz",
-      "show_name": "The Blitz",
-      "kind": "episode",
-      "title": "Purdy Carves Up the Vikings in Mexico City: The 49ers Take the NFC's Top Seed | Sunday, November 22, 2026",
-      "date": "2026-11-23",
-      "url": "https://open.spotify.com/episode/2RA1W4j4j4xvpySZLjx95V",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1795419856410-ecf1c24d1e726.jpg"
     }
   ]
 }
