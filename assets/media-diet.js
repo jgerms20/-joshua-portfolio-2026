@@ -275,6 +275,8 @@
         },
         reading: {
             name: 'Reading', dek: 'Books on the nightstand and articles worth passing on.', source: 'Goodreads', href: GOODREADS,
+            // Shown only while the Goodreads feed returns books; the tab comes back on its own once it does
+            live: function (list) { return list.some(function (i) { return i.kind === 'book'; }); },
             noun: ['read', 'reads'], search: 'Search titles, authors, publications',
             chips: function () { return [['all', 'All'], ['books', 'Books', 1], ['articles', 'Articles', 1], ['now', 'Now reading']]; },
             chip: function (it, c) { return c === 'all' || (c === 'articles' ? it.kind === 'listen' : c === 'books' ? it.kind === 'book' : !!it.now); },
@@ -299,6 +301,10 @@
         }
     };
     var ORDER = ['watching', 'reading', 'listening'];
+    // The shelves that get a tab: a shelf with a live() test needs its feed to answer first
+    function liveShelves(items, loaded) {
+        return ORDER.filter(function (k) { return !SHELVES[k].live || (loaded && SHELVES[k].live(items[k] || [])); });
+    }
     function hasTV(items) { return items.some(function (i) { return i.kind === 'tv'; }); }
     // The chips a shelf shows: [id, label, count]. A chip with nothing behind it is left out,
     // and so is a type chip that would only repeat "All" (a shelf holding one type).
@@ -566,7 +572,8 @@
         var tabs = el('div', 'md-tabs');
         tabs.setAttribute('role', 'tablist');
         tabs.setAttribute('aria-label', 'Media diet shelves');
-        var tabEl = {}, countEl = {};
+        var tabEl = {}, countEl = {}, numEl = {};
+        var shown = liveShelves(items, false);
         ORDER.forEach(function (k, i) {
             var b = el('button', 'md-tab');
             b.type = 'button';
@@ -576,9 +583,9 @@
             b.setAttribute('aria-controls', uid + '-panel');
             b.setAttribute('aria-selected', 'false');
             b.tabIndex = -1;
-            var numEl = el('span', 'md-tab-num', '0' + (i + 1));
-            numEl.setAttribute('aria-hidden', 'true');
-            b.appendChild(numEl);
+            numEl[k] = el('span', 'md-tab-num', '0' + (i + 1));
+            numEl[k].setAttribute('aria-hidden', 'true');
+            b.appendChild(numEl[k]);
             b.appendChild(el('span', 'md-tab-name', SHELVES[k].name));
             countEl[k] = b.appendChild(el('span', 'md-tab-count'));
             tabEl[k] = tabs.appendChild(b);
@@ -645,6 +652,16 @@
         app.appendChild(tabs);
         app.appendChild(panel);
 
+        // Hide the tabs for shelves whose feed is empty and number the rest 01, 02, ...
+        function applyShown() {
+            ORDER.forEach(function (k) {
+                var i = shown.indexOf(k);
+                tabEl[k].hidden = i < 0;
+                if (i >= 0) numEl[k].textContent = '0' + (i + 1);
+            });
+        }
+        applyShown();
+
         // ---- Hash routing (opt-in, prefixed so it never fights the host page) ----
         function hashTab() {
             if (opt.prefix === null) return null;
@@ -652,7 +669,7 @@
             var p = opt.prefix.toLowerCase();
             if (h.slice(0, p.length) !== p) return null;
             h = h.slice(p.length);
-            return SHELVES.hasOwnProperty(h) ? h : null;
+            return SHELVES.hasOwnProperty(h) && (!loaded || shown.indexOf(h) >= 0) ? h : null;
         }
         function writeHash(key, replace) {
             if (opt.prefix === null) return;
@@ -798,11 +815,11 @@
             selectTab(t.dataset.tab);
         });
         tabs.addEventListener('keydown', function (e) {
-            var i = ORDER.indexOf(current), next = null;
-            if (e.key === 'ArrowRight') next = ORDER[(i + 1) % ORDER.length];
-            else if (e.key === 'ArrowLeft') next = ORDER[(i + ORDER.length - 1) % ORDER.length];
-            else if (e.key === 'Home') next = ORDER[0];
-            else if (e.key === 'End') next = ORDER[ORDER.length - 1];
+            var i = shown.indexOf(current), next = null;
+            if (e.key === 'ArrowRight') next = shown[(i + 1) % shown.length];
+            else if (e.key === 'ArrowLeft') next = shown[(i + shown.length - 1) % shown.length];
+            else if (e.key === 'Home') next = shown[0];
+            else if (e.key === 'End') next = shown[shown.length - 1];
             if (!next) return;
             e.preventDefault();
             writeHash(next, true);
@@ -813,7 +830,7 @@
                 var k = hashTab();
                 // Only a page that owns the hash falls back to the first shelf on a bare URL;
                 // #about, #top and friends are someone else's and leave the shelf alone.
-                if (!k && opt.prefix === '' && !location.hash) k = ORDER[0];
+                if (!k && opt.prefix === '' && !location.hash) k = shown[0];
                 if (k && k !== current) selectTab(k);
             };
             window.addEventListener('hashchange', onHash);
@@ -864,7 +881,7 @@
 
         // ---- The newest three covers, fanned (standalone masthead) ----
         function renderStack(box) {
-            var all = items.watching.concat(items.reading, items.listening).filter(function (i) { return i.image; });
+            var all = [].concat.apply([], shown.map(function (k) { return items[k]; })).filter(function (i) { return i.image; });
             all.sort(byRecent);
             var pick = all.slice(0, 3);
             box.textContent = '';
@@ -885,6 +902,9 @@
         load(opt.root).then(function (data) {
             ORDER.forEach(function (k) { items[k] = data[k]; });
             loaded = true;
+            shown = liveShelves(items, true);
+            applyShown();
+            if (shown.indexOf(current) < 0) { current = shown[0]; if (deep) writeHash(current, true); }
             ORDER.forEach(function (k) { countEl[k].textContent = SHELVES[k].count(items[k].length, items[k]); });
             if (opt.synced && data.updated) opt.synced.textContent = 'Synced ' + fmtDate(data.updated);
             if (opt.stack) renderStack(opt.stack);
