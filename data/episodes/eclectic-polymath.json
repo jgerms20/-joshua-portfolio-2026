@@ -1,13 +1,21 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-23T08:20:11Z",
+  "updated": "2026-11-24T00:25:56Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#283 Gianni De Gennaro: How a Missing Red Diary Followed Italy's Police Chief to the End",
+      "date": "2026-11-23",
+      "url": "https://open.spotify.com/episode/4NUFTuNAcKM2mm8il0ijtd",
+      "description": "Gianni De Gennaro, Italy's national police chief from 2000 to 2007, was found dead at his country home in Tuscany on 21 November 2026. Authorities treated the death as an apparent suicide. He was 78, and days earlier Caltanissetta…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795423221948-6537b1bda00b3.jpg",
+      "duration": "58 min"
+    },
+    {
       "title": "#282 The Yalta Conference: How Roosevelt, Churchill, and Stalin Drew the Map of the Postwar World",
       "date": "2026-11-22",
-      "url": "https://open.spotify.com/episode/6i9fUzDJ7sCvJbX4EXBXYM",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/282-The-Yalta-Conference-How-Roosevelt--Churchill--and-Stalin-Drew-the-Map-of-the-Postwar-World-e3srcdf",
       "description": "In February 1945, the war was not over, and the map on the table was military. The Red Army stood on the Oder, about 40 miles from Berlin. The Western Allies had recovered from the Bulge but had not yet crossed the Rhine, and the war…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795386738624-cf6c79150403a.jpg",
       "duration": "1 hr 2 min"
@@ -19,6 +27,14 @@
       "description": "What does converting actually require? This episode follows the published path into The Church of Jesus Christ of Latter-day Saints, the church often called Mormon. Full-time missionaries teach four lessons, a candidate attends several…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795374881623-6339bef23b3a9.jpg",
       "duration": "52 min"
+    },
+    {
+      "title": "#282 The Yalta Conference: How Roosevelt, Churchill, and Stalin Drew the Map of the Postwar World",
+      "date": "2026-11-22",
+      "url": "https://open.spotify.com/episode/6i9fUzDJ7sCvJbX4EXBXYM",
+      "description": "In February 1945, the war was not over, and the map on the table was military. The Red Army stood on the Oder, about 40 miles from Berlin. The Western Allies had recovered from the Bulge but had not yet crossed the Rhine, and the war…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795386738624-cf6c79150403a.jpg",
+      "duration": "1 hr 2 min"
     },
     {
       "title": "#280 Kyivstoner: Why Russia Tried to Kill a Rapper Nobody Knew",
@@ -83,22 +99,6 @@
       "description": "John Ballard was born in Kentucky around 1830, almost certainly enslaved, and first appears in California records in 1859. In Los Angeles he worked as a blacksmith, teamster, and firewood seller, helped found the city's first Black church…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795141107313-e2807ea6a724e.jpg",
       "duration": "58 min"
-    },
-    {
-      "title": "#273 The Video Game Industry: How a Game Is Made, Financed, and Played by Millions",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/273-The-Video-Game-Industry-How-a-Game-Is-Made--Financed--and-Played-by-Millions-e3sn6bl",
-      "description": "A game looks simple from the outside: a studio makes it, and it appears on a screen. This episode follows what actually happens in between: how a game gets made end to end, from pitch and prototype through the vertical slice, full…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795142210678-9abd97ab1114.jpg",
-      "duration": "1 hr 5 min"
-    },
-    {
-      "title": "#272 Rockstar Games: How a Record Label Playbook Created Grand Theft Auto",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/272-Rockstar-Games-How-a-Record-Label-Playbook-Created-Grand-Theft-Auto-e3sn7v4",
-      "description": "Rockstar Games did not start as a game company. It started as an argument: that a game studio should work like a record label. Five men from the British music business, Sam Houser, Dan Houser, Terry Donovan, Jamie King, and Gary Foreman,…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795142615941-c5d7236dc51de.jpg",
-      "duration": "48 min"
     }
   ]
 }
