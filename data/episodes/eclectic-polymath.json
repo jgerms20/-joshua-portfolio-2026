@@ -1,9 +1,17 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-24T00:25:56Z",
+  "updated": "2026-11-25T09:16:31Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#283 Gianni De Gennaro: How a Missing Red Diary Followed Italy's Police Chief to the End",
+      "date": "2026-11-23",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/283-Gianni-De-Gennaro-How-a-Missing-Red-Diary-Followed-Italys-Police-Chief-to-the-End-e3ss07t",
+      "description": "Gianni De Gennaro, Italy's national police chief from 2000 to 2007, was found dead at his country home in Tuscany on 21 November 2026. Authorities treated the death as an apparent suicide. He was 78, and days earlier Caltanissetta…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795423221948-6537b1bda00b3.jpg",
+      "duration": "58 min"
+    },
     {
       "title": "#283 Gianni De Gennaro: How a Missing Red Diary Followed Italy's Police Chief to the End",
       "date": "2026-11-23",
@@ -91,14 +99,6 @@
       "description": "Ask most people what they know about Black Boston and the answer is often a pause — yet Black people were 10 percent of Boston's population in 1752, and roughly one in four Bostonians is Black today. Enslaved Africans arrived in Boston…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795158535554-f356430d188c6.jpg",
       "duration": "54 min"
-    },
-    {
-      "title": "#274 John Ballard: How a Man Born Enslaved Built a Homestead in the Santa Monica Mountains",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/274-John-Ballard-How-a-Man-Born-Enslaved-Built-a-Homestead-in-the-Santa-Monica-Mountains-e3sn8bb",
-      "description": "John Ballard was born in Kentucky around 1830, almost certainly enslaved, and first appears in California records in 1859. In Los Angeles he worked as a blacksmith, teamster, and firewood seller, helped found the city's first Black church…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795141107313-e2807ea6a724e.jpg",
-      "duration": "58 min"
     }
   ]
 }
