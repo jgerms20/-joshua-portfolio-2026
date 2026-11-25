@@ -1,9 +1,33 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-25T09:16:31Z",
+  "updated": "2026-11-25T22:00:21Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
+    {
+      "title": "#286 Junior Bridgeman: How a Sixth Man Built a Billion-Dollar Empire",
+      "date": "2026-11-25",
+      "url": "https://open.spotify.com/episode/5VU1AxXbioH5aIrmLEzs5x",
+      "description": "Junior Bridgeman arrived in Milwaukee as a piece of the Kareem Abdul-Jabbar trade and left basketball with career earnings under three million dollars. Then he built one of the largest restaurant franchise operations in America, more than…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795619942635-cca9381ebc405.jpg",
+      "duration": "49 min"
+    },
+    {
+      "title": "#285 Red Bull: Why Selling the Image Beat Selling the Drink Itself",
+      "date": "2026-11-25",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/285-Red-Bull-Why-Selling-the-Image-Beat-Selling-the-Drink-Itself-e3t0247",
+      "description": "In 2012, Felix Baumgartner stepped out of a capsule 24 miles above the earth, and every rivet of it was paid for by an 8.4-ounce can. This episode traces how: a Thai pharmaceutical tonic built for truck drivers, Krating Daeng, meets an…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795590096117-2391db98f61a3.jpg",
+      "duration": "38 min"
+    },
+    {
+      "title": "#284 Sleep: Why the Eight-Hour Rule Came From a Factory, Not a Brain",
+      "date": "2026-11-25",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/284-Sleep-Why-the-Eight-Hour-Rule-Came-From-a-Factory--Not-a-Brain-e3svhsv",
+      "description": "Sleep is the strangest appointment you keep: a third of your life spent paralyzed and hallucinating, and science still cannot fully say what it is. This is a history and a census of the night: how humans slept in two shifts before…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795569004441-3a8034e9b7573.jpg",
+      "duration": "56 min"
+    },
     {
       "title": "#283 Gianni De Gennaro: How a Missing Red Diary Followed Italy's Police Chief to the End",
       "date": "2026-11-23",
@@ -75,30 +99,6 @@
       "description": "Hunter Schafer entered public life at 17, not as an actor but as the youngest named plaintiff in Carcaño v. McCrory , the challenge to North Carolina's HB2 \"bathroom bill.\" A visual artist raised in Raleigh, trained in UNCSA's high school…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795232539364-cd52a707488d.jpg",
       "duration": "44 min"
-    },
-    {
-      "title": "#280 Kyivstoner: Why Russia Tried to Kill a Rapper Nobody Knew",
-      "date": "2026-11-21",
-      "url": "https://open.spotify.com/episode/5yeNJWqnD3xqnN0fC40YtX",
-      "description": "Five minutes before showtime on September 25, 2026, Danish police stopped a car heading toward a concert venue north of Copenhagen. Inside, prosecutors allege, were two loaded pistols and two knives. The man about to take the stage was…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795287524915-66232b6c9ab78.jpg",
-      "duration": "43 min"
-    },
-    {
-      "title": "#276 Jordan Firstman: How a Decade Behind the Scenes Earned Him the Lead",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/276-Jordan-Firstman-How-a-Decade-Behind-the-Scenes-Earned-Him-the-Lead-e3snjsa",
-      "description": "Jordan Firstman spent a decade as the talented name in other people's credits — a writer on Search Party and Big Mouth , making sharp short films on the side, watching the show he most wanted to make sit in development. Then, in the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795164762613-1c56d93dc279.jpg",
-      "duration": "50 min"
-    },
-    {
-      "title": "#275 Black Boston: The Community That Made Study a Form of Resistance",
-      "date": "2026-11-20",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/275-Black-Boston-The-Community-That-Made-Study-a-Form-of-Resistance-e3snh03",
-      "description": "Ask most people what they know about Black Boston and the answer is often a pause — yet Black people were 10 percent of Boston's population in 1752, and roughly one in four Bostonians is Black today. Enslaved Africans arrived in Boston…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795158535554-f356430d188c6.jpg",
-      "duration": "54 min"
     }
   ]
 }
