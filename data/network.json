@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-26T01:52:34Z",
+  "generated_at": "2026-11-26T20:18:16Z",
   "shows": [
     {
       "key": "ccpod",
@@ -32,8 +32,40 @@
       "about": "Deep, well-researched episodes on whatever's too interesting to ignore: history and power, religion and myth, psychology, science, and Black culture. No lane, no niche.",
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
-      "latest": "2026-11-25",
-      "count": 287
+      "latest": "2026-11-26",
+      "count": 292
+    },
+    {
+      "key": "fastbreak",
+      "name": "The Fast Break",
+      "short": "The Fast Break",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
+      "latest": "2026-11-26",
+      "count": 25
+    },
+    {
+      "key": "blitz",
+      "name": "The Blitz",
+      "short": "The Blitz",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0GRrulRcTaVs3rSqdqJFCQ",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
+      "latest": "2026-11-26",
+      "count": 15
     },
     {
       "key": "dominatedconvo",
@@ -95,7 +127,7 @@
       "tagline": "",
       "about": "",
       "url": "https://open.spotify.com/show/6nwdYn042ClFOjyTc2cA3K",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
       "latest": "2026-11-25",
       "count": 2
     },
@@ -228,22 +260,6 @@
       "count": 28
     },
     {
-      "key": "fastbreak",
-      "name": "The Fast Break",
-      "short": "The Fast Break",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
-      "latest": "2026-11-25",
-      "count": 24
-    },
-    {
       "key": "cfbdaily",
       "name": "College Football Daily",
       "short": "College Football Daily",
@@ -304,22 +320,6 @@
       "about": "",
       "url": "https://open.spotify.com/show/44iglaK8xQPnHHAVpUAgyx",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
-      "latest": "2026-11-24",
-      "count": 14
-    },
-    {
-      "key": "blitz",
-      "name": "The Blitz",
-      "short": "The Blitz",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0GRrulRcTaVs3rSqdqJFCQ",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
       "latest": "2026-11-24",
       "count": 14
     },
@@ -603,9 +603,72 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#292 Shift Economics: Build Your Economics to Support Your Shifts",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/292-Shift-Economics-Build-Your-Economics-to-Support-Your-Shifts-e3t2chg",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795689982771-c89ad8b9db6c4.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#293 Brent Staples: How Whistling Vivaldi Exposed the Fear Around Black Men",
+      "date": "2026-11-26",
+      "url": "https://open.spotify.com/episode/0g98cClBYFrxOXKgR0xlsn",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795687080337-731b899b74a258.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#291 The Insider Economy: How Exclusives Became the Currency of Power",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/291-The-Insider-Economy-How-Exclusives-Became-the-Currency-of-Power-e3t28q6",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795684493449-6cafca212c6b48.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#290 Todd Boehly: How a Sports Owner Became Washington's Buyer for a Russian Oil Major",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/290-Todd-Boehly-How-a-Sports-Owner-Became-Washingtons-Buyer-for-a-Russian-Oil-Major-e3t2713",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795681400074-334c31d3463918.jpg"
+    },
+    {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Wednesday, November 25, 2026",
+      "date": "2026-11-26",
+      "url": "https://open.spotify.com/episode/64yTJahR9MF0FOVlV4vRcn",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1795674914923-028a932830921.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#289 Japan: How Endurance Built Both the Serenity and the Grind",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/289-Japan-How-Endurance-Built-Both-the-Serenity-and-the-Grind-e3t23jf",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795674468420-ddd64da4c125a.jpg"
+    },
+    {
+      "show": "blitz",
+      "show_name": "The Blitz",
+      "kind": "episode",
+      "title": "Corum Runs the Packers Off the Field: The Rams Take the NFC's Last Playoff Spot | Wednesday, November 25, 2026",
+      "date": "2026-11-26",
+      "url": "https://open.spotify.com/episode/3FE5EQHloMdqCX1e7hACA2",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1795669338527-bb394fa6f0aef8.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#288 Carlos Arango: How the 'Basquiat of Mexico' Built His Own Gallery and Reached New York",
       "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/6VzoYkvcVxJ82glISxa0hn",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/288-Carlos-Arango-How-the-Basquiat-of-Mexico-Built-His-Own-Gallery-and-Reached-New-York-e3t17j4",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795631030026-841edc35e8d8e.jpg"
     },
     {
@@ -643,69 +706,6 @@
       "date": "2026-11-25",
       "url": "https://open.spotify.com/episode/6nXF7rc32Fc0RAcAcPqfvX",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1795613901469-54fd422d7e848.jpg"
-    },
-    {
-      "show": "gamecocksdaily",
-      "show_name": "Gamecocks Daily",
-      "kind": "episode",
-      "title": "The Road Team Has Won Six Straight: South Carolina Is 6-5 | Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/14m3ZukTJ9CnZ6ueqVSY2U",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1795613909767-011caaefbc1fa.jpg"
-    },
-    {
-      "show": "cutandsew",
-      "show_name": "Cut & Sew",
-      "kind": "episode",
-      "title": "Armani's First Owners Take Shape as L'Oréal Circles a 10 Percent Stake | Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/7vBJMSR7kWfA0JEuA23k5b",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab3afdc653ec16f5d672308bb"
-    },
-    {
-      "show": "politicalread",
-      "show_name": "The Political Read",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/4Gy6EdbxvXjSy8F95rLQ0e",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47154157/47154157-1795610029438-0dd745e03e3bf.jpg"
-    },
-    {
-      "show": "airead",
-      "show_name": "The Tech Read",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/7aMatfOSlP74CMcGlFzMvg",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1795608697951-7d1a05a8fddb5.jpg"
-    },
-    {
-      "show": "columbiaread",
-      "show_name": "The Columbia Read",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/2zh9MGzXM3XU26H0n1wjk0",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1795608233298-1f198e9e2a2f4.jpg"
-    },
-    {
-      "show": "marketread",
-      "show_name": "The Opening Bell",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/0YH7TJC7EvgdoelOPiBLgI",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795607557401-23a2d4aa3b204.jpg"
-    },
-    {
-      "show": "nyread",
-      "show_name": "The New York Read",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/2bfxYfFPOPo69OBZBnR3Kl",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1795606595437-7654e59a38e7a.jpg"
     }
   ]
 }

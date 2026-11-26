@@ -1,13 +1,53 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-26T08:56:56Z",
+  "updated": "2026-11-26T21:58:35Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
     {
+      "title": "#292 Shift Economics: Build Your Economics to Support Your Shifts",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/292-Shift-Economics-Build-Your-Economics-to-Support-Your-Shifts-e3t2chg",
+      "description": "Most working lives are organized by time: hours, days, calendars. This episode is about a different unit. A shift is a whole commitment, a client, your children, rest itself, and a life holds only a small number of them. Four, in the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795689982771-c89ad8b9db6c4.jpg",
+      "duration": "50 min"
+    },
+    {
+      "title": "#293 Brent Staples: How Whistling Vivaldi Exposed the Fear Around Black Men",
+      "date": "2026-11-26",
+      "url": "https://open.spotify.com/episode/0g98cClBYFrxOXKgR0xlsn",
+      "description": "On a deserted Chicago street in the 1980s, a young Black journalist noticed what his presence did to strangers: women clutched their bags, car doors locked as he passed, and once he was mistaken for a burglar inside the office where he…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795687080337-731b899b74a258.jpg",
+      "duration": "52 min"
+    },
+    {
+      "title": "#291 The Insider Economy: How Exclusives Became the Currency of Power",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/291-The-Insider-Economy-How-Exclusives-Became-the-Currency-of-Power-e3t28q6",
+      "description": "An exclusive is rarely found. It is allocated. This episode maps the insider economy of modern journalism through the career of Matt Belloni, who went from entertainment lawyer to editor of The Hollywood Reporter to founding partner at…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795684493449-6cafca212c6b48.jpg",
+      "duration": "50 min"
+    },
+    {
+      "title": "#290 Todd Boehly: How a Sports Owner Became Washington's Buyer for a Russian Oil Major",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/290-Todd-Boehly-How-a-Sports-Owner-Became-Washingtons-Buyer-for-a-Russian-Oil-Major-e3t2713",
+      "description": "A consortium led by Todd Boehly has signed to buy the international assets of Lukoil, Russia's second-largest oil company: refineries, oil fields, and a global retail network, at three different prices depending on how you count, with the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795681400074-334c31d3463918.jpg",
+      "duration": "54 min"
+    },
+    {
+      "title": "#289 Japan: How Endurance Built Both the Serenity and the Grind",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/289-Japan-How-Endurance-Built-Both-the-Serenity-and-the-Grind-e3t23jf",
+      "description": "Japan rebuilt from rubble into the world's second-largest economy in a generation, and it presents to the world as serene, harmonious, and at peace. It also runs one of the most demanding work cultures on earth. This episode treats that…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795674468420-ddd64da4c125a.jpg",
+      "duration": "57 min"
+    },
+    {
       "title": "#288 Carlos Arango: How the 'Basquiat of Mexico' Built His Own Gallery and Reached New York",
       "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/6VzoYkvcVxJ82glISxa0hn",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/288-Carlos-Arango-How-the-Basquiat-of-Mexico-Built-His-Own-Gallery-and-Reached-New-York-e3t17j4",
       "description": "Carlos Arango, known as CLOS, is a monumental presence in his own city and a ghost in the global art market's ledger. In Oaxaca de Juárez he works at the scale of buildings: seven steel crosses, up to six metres tall, stood in the Alameda…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795631030026-841edc35e8d8e.jpg",
       "duration": "43 min"
@@ -16,9 +56,9 @@
       "title": "#287 The Founder Mafias: Why PayPal, SpaceX, and Facebook Minted So Many Founders",
       "date": "2026-11-25",
       "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/287-The-Founder-Mafias-Why-PayPal--SpaceX--and-Facebook-Minted-So-Many-Founders-e3t15dt",
-      "description": "Most companies produce employees. A few produce founders. This episode is about the second kind, and it starts with the most famous example in modern technology: the group that walked out of PayPal in 2002 and went on to build or fund…",
+      "description": "Most companies produce employees. A few produce founders. This is the long version of that story, and it starts with the most famous example in modern technology: the group that walked out of PayPal in 2002 and went on to build or fund…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795628252362-d2313a82aa5128.jpg",
-      "duration": "31 min"
+      "duration": "58 min"
     },
     {
       "title": "#286 Junior Bridgeman: How a Sixth Man Built a Billion-Dollar Empire",
@@ -45,60 +85,20 @@
       "duration": "56 min"
     },
     {
+      "title": "#288 Carlos Arango: How the 'Basquiat of Mexico' Built His Own Gallery and Reached New York",
+      "date": "2026-11-25",
+      "url": "https://open.spotify.com/episode/6VzoYkvcVxJ82glISxa0hn",
+      "description": "Carlos Arango, known as CLOS, is a monumental presence in his own city and a ghost in the global art market's ledger. In Oaxaca de Juárez he works at the scale of buildings: seven steel crosses, up to six metres tall, stood in the Alameda…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795631030026-841edc35e8d8e.jpg",
+      "duration": "43 min"
+    },
+    {
       "title": "#286 Junior Bridgeman: How a Sixth Man Built a Billion-Dollar Empire",
       "date": "2026-11-25",
       "url": "https://open.spotify.com/episode/5VU1AxXbioH5aIrmLEzs5x",
       "description": "Junior Bridgeman arrived in Milwaukee as a piece of the Kareem Abdul-Jabbar trade and left basketball with career earnings under three million dollars. Then he built one of the largest restaurant franchise operations in America, more than…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795619942635-cca9381ebc405.jpg",
       "duration": "49 min"
-    },
-    {
-      "title": "#283 Gianni De Gennaro: How a Missing Red Diary Followed Italy's Police Chief to the End",
-      "date": "2026-11-23",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/283-Gianni-De-Gennaro-How-a-Missing-Red-Diary-Followed-Italys-Police-Chief-to-the-End-e3ss07t",
-      "description": "Gianni De Gennaro, Italy's national police chief from 2000 to 2007, was found dead at his country home in Tuscany on 21 November 2026. Authorities treated the death as an apparent suicide. He was 78, and days earlier Caltanissetta…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795423221948-6537b1bda00b3.jpg",
-      "duration": "58 min"
-    },
-    {
-      "title": "#283 Gianni De Gennaro: How a Missing Red Diary Followed Italy's Police Chief to the End",
-      "date": "2026-11-23",
-      "url": "https://open.spotify.com/episode/4NUFTuNAcKM2mm8il0ijtd",
-      "description": "Gianni De Gennaro, Italy's national police chief from 2000 to 2007, was found dead at his country home in Tuscany on 21 November 2026. Authorities treated the death as an apparent suicide. He was 78, and days earlier Caltanissetta…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795423221948-6537b1bda00b3.jpg",
-      "duration": "58 min"
-    },
-    {
-      "title": "#282 The Yalta Conference: How Roosevelt, Churchill, and Stalin Drew the Map of the Postwar World",
-      "date": "2026-11-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/282-The-Yalta-Conference-How-Roosevelt--Churchill--and-Stalin-Drew-the-Map-of-the-Postwar-World-e3srcdf",
-      "description": "In February 1945, the war was not over, and the map on the table was military. The Red Army stood on the Oder, about 40 miles from Berlin. The Western Allies had recovered from the Bulge but had not yet crossed the Rhine, and the war…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795386738624-cf6c79150403a.jpg",
-      "duration": "1 hr 2 min"
-    },
-    {
-      "title": "#281 Converting to Mormonism: Why Baptism Is Only the Gate to a Year-Long Path to the Temple",
-      "date": "2026-11-22",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/281-Converting-to-Mormonism-Why-Baptism-Is-Only-the-Gate-to-a-Year-Long-Path-to-the-Temple-e3sr4gd",
-      "description": "What does converting actually require? This episode follows the published path into The Church of Jesus Christ of Latter-day Saints, the church often called Mormon. Full-time missionaries teach four lessons, a candidate attends several…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795374881623-6339bef23b3a9.jpg",
-      "duration": "52 min"
-    },
-    {
-      "title": "#282 The Yalta Conference: How Roosevelt, Churchill, and Stalin Drew the Map of the Postwar World",
-      "date": "2026-11-22",
-      "url": "https://open.spotify.com/episode/6i9fUzDJ7sCvJbX4EXBXYM",
-      "description": "In February 1945, the war was not over, and the map on the table was military. The Red Army stood on the Oder, about 40 miles from Berlin. The Western Allies had recovered from the Bulge but had not yet crossed the Rhine, and the war…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795386738624-cf6c79150403a.jpg",
-      "duration": "1 hr 2 min"
-    },
-    {
-      "title": "#280 Kyivstoner: Why Russia Tried to Kill a Rapper Nobody Knew",
-      "date": "2026-11-21",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/280-Kyivstoner-Why-Russia-Tried-to-Kill-a-Rapper-Nobody-Knew-e3spo8u",
-      "description": "Five minutes before showtime on September 25, 2026, Danish police stopped a car heading toward a concert venue north of Copenhagen. Inside, prosecutors allege, were two loaded pistols and two knives. The man about to take the stage was…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795287524915-66232b6c9ab78.jpg",
-      "duration": "43 min"
     }
   ]
 }
