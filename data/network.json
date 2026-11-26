@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-25T17:27:20Z",
+  "generated_at": "2026-11-26T01:52:34Z",
   "shows": [
     {
       "key": "ccpod",
@@ -33,7 +33,7 @@
       "url": "https://open.spotify.com/show/3dlagzJ0jiWLTB9mF3y069",
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-11-25",
-      "count": 285
+      "count": 287
     },
     {
       "key": "dominatedconvo",
@@ -68,6 +68,22 @@
       "count": 12
     },
     {
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
+      "latest": "2026-11-25",
+      "count": 14
+    },
+    {
       "key": "cutandsew",
       "name": "Cut & Sew",
       "short": "Cut & Sew",
@@ -79,7 +95,7 @@
       "tagline": "",
       "about": "",
       "url": "https://open.spotify.com/show/6nwdYn042ClFOjyTc2cA3K",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a085c9a890f0aad96bade0680",
       "latest": "2026-11-25",
       "count": 2
     },
@@ -100,6 +116,22 @@
       "count": 20
     },
     {
+      "key": "airead",
+      "name": "The Tech Read",
+      "short": "The Tech Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
+      "latest": "2026-11-25",
+      "count": 24
+    },
+    {
       "key": "columbiaread",
       "name": "The Columbia Read",
       "short": "The Columbia Read",
@@ -116,6 +148,22 @@
       "count": 10
     },
     {
+      "key": "marketread",
+      "name": "The Opening Bell",
+      "short": "The Opening Bell",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-25",
+      "count": 25
+    },
+    {
       "key": "nyread",
       "name": "The New York Read",
       "short": "The New York Read",
@@ -130,6 +178,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
       "latest": "2026-11-25",
       "count": 14
+    },
+    {
+      "key": "morningread",
+      "name": "The Morning Read",
+      "short": "The Morning Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
+      "latest": "2026-11-25",
+      "count": 32
     },
     {
       "key": "ladaily",
@@ -244,54 +308,6 @@
       "count": 14
     },
     {
-      "key": "airead",
-      "name": "The Tech Read",
-      "short": "The Tech Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0p46JOERBiE9vjed6Pt68I",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107261/47107261-1793317605923-8dc097373b08a.jpg",
-      "latest": "2026-11-24",
-      "count": 23
-    },
-    {
-      "key": "marketread",
-      "name": "The Opening Bell",
-      "short": "The Opening Bell",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-24",
-      "count": 24
-    },
-    {
-      "key": "morningread",
-      "name": "The Morning Read",
-      "short": "The Morning Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1Dtk8svL8ahjAPtso2lBMp",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47027522/47027522-1793227953461-44e7949a00e56.jpg",
-      "latest": "2026-11-24",
-      "count": 31
-    },
-    {
       "key": "blitz",
       "name": "The Blitz",
       "short": "The Blitz",
@@ -322,22 +338,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
       "latest": "2026-11-23",
       "count": 10
-    },
-    {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-22",
-      "count": 13
     },
     {
       "key": "riff",
@@ -603,9 +603,27 @@
       "show": "polymath",
       "show_name": "Eclectic Polymath",
       "kind": "episode",
+      "title": "#288 Carlos Arango: How the 'Basquiat of Mexico' Built His Own Gallery and Reached New York",
+      "date": "2026-11-25",
+      "url": "https://open.spotify.com/episode/6VzoYkvcVxJ82glISxa0hn",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795631030026-841edc35e8d8e.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
+      "title": "#287 The Founder Mafias: Why PayPal, SpaceX, and Facebook Minted So Many Founders",
+      "date": "2026-11-25",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/287-The-Founder-Mafias-Why-PayPal--SpaceX--and-Facebook-Minted-So-Many-Founders-e3t15dt",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795628252362-d2313a82aa5128.jpg"
+    },
+    {
+      "show": "polymath",
+      "show_name": "Eclectic Polymath",
+      "kind": "episode",
       "title": "#286 Junior Bridgeman: How a Sixth Man Built a Billion-Dollar Empire",
       "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/5VU1AxXbioH5aIrmLEzs5x",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/286-Junior-Bridgeman-How-a-Sixth-Man-Built-a-Billion-Dollar-Empire-e3t0seg",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795619942635-cca9381ebc405.jpg"
     },
     {
@@ -627,13 +645,22 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47136213/47136213-1795613901469-54fd422d7e848.jpg"
     },
     {
+      "show": "gamecocksdaily",
+      "show_name": "Gamecocks Daily",
+      "kind": "episode",
+      "title": "The Road Team Has Won Six Straight: South Carolina Is 6-5 | Wednesday, November 25, 2026",
+      "date": "2026-11-25",
+      "url": "https://open.spotify.com/episode/14m3ZukTJ9CnZ6ueqVSY2U",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1795613909767-011caaefbc1fa.jpg"
+    },
+    {
       "show": "cutandsew",
       "show_name": "Cut & Sew",
       "kind": "episode",
       "title": "Armani's First Owners Take Shape as L'Oréal Circles a 10 Percent Stake | Wednesday, November 25, 2026",
       "date": "2026-11-25",
       "url": "https://open.spotify.com/episode/7vBJMSR7kWfA0JEuA23k5b",
-      "image": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8ab3afdc653ec16f5d672308bb"
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8ab3afdc653ec16f5d672308bb"
     },
     {
       "show": "politicalread",
@@ -645,6 +672,15 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47154157/47154157-1795610029438-0dd745e03e3bf.jpg"
     },
     {
+      "show": "airead",
+      "show_name": "The Tech Read",
+      "kind": "episode",
+      "title": "Wednesday, November 25, 2026",
+      "date": "2026-11-25",
+      "url": "https://open.spotify.com/episode/7aMatfOSlP74CMcGlFzMvg",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1795608697951-7d1a05a8fddb5.jpg"
+    },
+    {
       "show": "columbiaread",
       "show_name": "The Columbia Read",
       "kind": "episode",
@@ -654,6 +690,15 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47120618/47120618-1795608233298-1f198e9e2a2f4.jpg"
     },
     {
+      "show": "marketread",
+      "show_name": "The Opening Bell",
+      "kind": "episode",
+      "title": "Wednesday, November 25, 2026",
+      "date": "2026-11-25",
+      "url": "https://open.spotify.com/episode/0YH7TJC7EvgdoelOPiBLgI",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795607557401-23a2d4aa3b204.jpg"
+    },
+    {
       "show": "nyread",
       "show_name": "The New York Read",
       "kind": "episode",
@@ -661,51 +706,6 @@
       "date": "2026-11-25",
       "url": "https://open.spotify.com/episode/2bfxYfFPOPo69OBZBnR3Kl",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1795606595437-7654e59a38e7a.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/0bxzdgJKCT9fsZ9YP1d1tw",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1795604389652-6a790782318b.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "Houthis Say They Hit Saudi Arabia's Largest Refinery and Riyadh's Financial District | Wednesday, November 25, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/13KNHxpdcFd7BZ9dv34Aci",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1795602993240-e37e08361b8da.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#285 Red Bull: Why Selling the Image Beat Selling the Drink Itself",
-      "date": "2026-11-25",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/285-Red-Bull-Why-Selling-the-Image-Beat-Selling-the-Drink-Itself-e3t0247",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795590096117-2391db98f61a3.jpg"
-    },
-    {
-      "show": "fastbreak",
-      "show_name": "The Fast Break",
-      "kind": "episode",
-      "title": "Tuesday, November 24, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/72m7rI6z9ii1XY7JUAH03i",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1795588136862-a29d67d1cc8b7.jpg"
-    },
-    {
-      "show": "cfbdaily",
-      "show_name": "College Football Daily",
-      "kind": "episode",
-      "title": "Tennessee Finally Passes Alabama, and the Big Ten Falls Out of the Top Five | Tuesday, November 24, 2026",
-      "date": "2026-11-25",
-      "url": "https://open.spotify.com/episode/1AoY6rOn774kGsE4RutsTG",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107287/47107287-1795585060836-05e407acb9a0e.jpg"
     }
   ]
 }
