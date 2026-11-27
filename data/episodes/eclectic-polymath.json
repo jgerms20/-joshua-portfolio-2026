@@ -1,17 +1,9 @@
 {
   "show": "eclectic-polymath",
-  "updated": "2026-11-26T21:58:35Z",
+  "updated": "2026-11-27T09:09:56Z",
   "feed": "https://jgerms20.github.io/curious-and-creative/",
   "spotify_show": "3dlagzJ0jiWLTB9mF3y069",
   "episodes": [
-    {
-      "title": "#292 Shift Economics: Build Your Economics to Support Your Shifts",
-      "date": "2026-11-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/292-Shift-Economics-Build-Your-Economics-to-Support-Your-Shifts-e3t2chg",
-      "description": "Most working lives are organized by time: hours, days, calendars. This episode is about a different unit. A shift is a whole commitment, a client, your children, rest itself, and a life holds only a small number of them. Four, in the…",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795689982771-c89ad8b9db6c4.jpg",
-      "duration": "50 min"
-    },
     {
       "title": "#293 Brent Staples: How Whistling Vivaldi Exposed the Fear Around Black Men",
       "date": "2026-11-26",
@@ -19,6 +11,14 @@
       "description": "On a deserted Chicago street in the 1980s, a young Black journalist noticed what his presence did to strangers: women clutched their bags, car doors locked as he passed, and once he was mistaken for a burglar inside the office where he…",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795687080337-731b899b74a258.jpg",
       "duration": "52 min"
+    },
+    {
+      "title": "#292 Shift Economics: Build Your Economics to Support Your Shifts",
+      "date": "2026-11-26",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/292-Shift-Economics-Build-Your-Economics-to-Support-Your-Shifts-e3t2chg",
+      "description": "Most working lives are organized by time: hours, days, calendars. This episode is about a different unit. A shift is a whole commitment, a client, your children, rest itself, and a life holds only a small number of them. Four, in the…",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795689982771-c89ad8b9db6c4.jpg",
+      "duration": "50 min"
     },
     {
       "title": "#291 The Insider Economy: How Exclusives Became the Currency of Power",
