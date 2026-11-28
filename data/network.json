@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-27T12:47:55Z",
+  "generated_at": "2026-11-28T04:01:10Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,54 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
+    },
+    {
+      "key": "riff",
+      "name": "The Jazz Riff",
+      "short": "The Jazz Riff",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "Jazz only, one combined episode every Friday.",
+      "about": "",
+      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46952241/46952241-1791842086815-d3dc0a841baa5.jpg",
+      "latest": "2026-11-27",
+      "count": 36
+    },
+    {
+      "key": "dominatedconvo",
+      "name": "The Zeitgeist",
+      "short": "The Zeitgeist",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
+      "latest": "2026-11-27",
+      "count": 23
+    },
+    {
+      "key": "gamecocksdaily",
+      "name": "Gamecocks Daily",
+      "short": "Gamecocks Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
+      "latest": "2026-11-27",
+      "count": 15
     },
     {
       "key": "airead",
@@ -52,6 +100,22 @@
       "count": 10
     },
     {
+      "key": "hollywoodinsider",
+      "name": "The Business of Hollywood",
+      "short": "The Business of Hollywood",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
+      "latest": "2026-11-27",
+      "count": 11
+    },
+    {
       "key": "marketread",
       "name": "The Opening Bell",
       "short": "The Opening Bell",
@@ -66,6 +130,22 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
       "latest": "2026-11-27",
       "count": 26
+    },
+    {
+      "key": "nyread",
+      "name": "The New York Read",
+      "short": "The New York Read",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
+      "latest": "2026-11-27",
+      "count": 15
     },
     {
       "key": "globalread",
@@ -180,22 +260,6 @@
       "count": 15
     },
     {
-      "key": "dominatedconvo",
-      "name": "The Zeitgeist",
-      "short": "The Zeitgeist",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/48nwiqvaZCXqEiI1lGhb47",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47123660/47123660-1795113011009-48dac9364263c.jpg",
-      "latest": "2026-11-25",
-      "count": 22
-    },
-    {
       "key": "waiverwire",
       "name": "The Waiver Wire",
       "short": "The Waiver Wire",
@@ -210,22 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47136213/47136213-1793740555236-187e98c457c75.jpg",
       "latest": "2026-11-25",
       "count": 12
-    },
-    {
-      "key": "gamecocksdaily",
-      "name": "Gamecocks Daily",
-      "short": "Gamecocks Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/6A71aYP8TxEEJgOCOyTQs4",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47115663/47115663-1793412241150-3d9dc350fed81.jpg",
-      "latest": "2026-11-25",
-      "count": 14
     },
     {
       "key": "cutandsew",
@@ -258,22 +306,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47120618/47120618-1793473024667-3c58a827bef36.jpg",
       "latest": "2026-11-25",
       "count": 10
-    },
-    {
-      "key": "nyread",
-      "name": "The New York Read",
-      "short": "The New York Read",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4VzGjjkSb5y61OjTVInWA1",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107245/47107245-1793317404312-7d947985276bd.jpg",
-      "latest": "2026-11-25",
-      "count": 14
     },
     {
       "key": "cfbdaily",
@@ -338,38 +370,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107277/47107277-1793317816382-ff0cd43d46ee3.jpg",
       "latest": "2026-11-24",
       "count": 14
-    },
-    {
-      "key": "hollywoodinsider",
-      "name": "The Business of Hollywood",
-      "short": "The Business of Hollywood",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/23w2HgOlsc8OJUyx3z955X",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105424/47105424-1793297689937-ea82964945ec2.jpg",
-      "latest": "2026-11-23",
-      "count": 10
-    },
-    {
-      "key": "riff",
-      "name": "The Jazz Riff",
-      "short": "The Jazz Riff",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "Jazz only, one combined episode every Friday.",
-      "about": "",
-      "url": "https://open.spotify.com/show/79MaSzrv6uJkaHiFoZQrWk",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46952241/46952241-1791842086815-d3dc0a841baa5.jpg",
-      "latest": "2026-11-20",
-      "count": 35
     },
     {
       "key": "followingthemoney",
@@ -575,7 +575,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -600,6 +600,33 @@
   ],
   "latest": [
     {
+      "show": "riff",
+      "show_name": "The Jazz Riff",
+      "kind": "episode",
+      "title": "Billy Strayhorn: The Man Who Wrote the A Train — November 27 – December 3",
+      "date": "2026-11-27",
+      "url": "https://open.spotify.com/episode/0L3po4Uu1X7cOOxZNROfG4",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/46952241/46952241-1795795122767-92554081584df.jpg"
+    },
+    {
+      "show": "dominatedconvo",
+      "show_name": "The Zeitgeist",
+      "kind": "episode",
+      "title": "Black Friday Breaks Records on the Couch While the East Coast Dries Out | Friday, November 27, 2026",
+      "date": "2026-11-27",
+      "url": "https://open.spotify.com/episode/45z8dW3LNilBfG9S9qawPC",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47123660/47123660-1795792515687-098c97b0aa92.jpg"
+    },
+    {
+      "show": "gamecocksdaily",
+      "show_name": "Gamecocks Daily",
+      "kind": "episode",
+      "title": "Favored in Death Valley, One Question Left: South Carolina Is 6-5 | Friday, November 27, 2026",
+      "date": "2026-11-27",
+      "url": "https://open.spotify.com/episode/0zOLmWJ1gK6Itwh8eoXJRA",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47115663/47115663-1795786553685-78e6a4b5c68258.jpg"
+    },
+    {
       "show": "airead",
       "show_name": "The Tech Read",
       "kind": "episode",
@@ -618,6 +645,15 @@
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105371/47105371-1795781934307-a69a2aac97fd78.jpg"
     },
     {
+      "show": "hollywoodinsider",
+      "show_name": "The Business of Hollywood",
+      "kind": "episode",
+      "title": "Disney's $200 Million Hexed and the Fockers Both Miss as Thanksgiving Shrinks to Half Its Record | Friday, November 27, 2026",
+      "date": "2026-11-27",
+      "url": "https://open.spotify.com/episode/2tbyvFT7ozKn9VArCwNOpR",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105424/47105424-1795781591271-f05efac7a651b.jpg"
+    },
+    {
       "show": "marketread",
       "show_name": "The Opening Bell",
       "kind": "episode",
@@ -625,6 +661,15 @@
       "date": "2026-11-27",
       "url": "https://open.spotify.com/episode/07PUOa1GXmUwLBA8l3ZnW2",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795780853470-725acaa6319e08.jpg"
+    },
+    {
+      "show": "nyread",
+      "show_name": "The New York Read",
+      "kind": "episode",
+      "title": "Friday, November 27, 2026",
+      "date": "2026-11-27",
+      "url": "https://open.spotify.com/episode/2HD1AM9gITGcT6Z4q9APt4",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1795779888091-0e63644885b73.jpg"
     },
     {
       "show": "globalread",
@@ -661,51 +706,6 @@
       "date": "2026-11-27",
       "url": "https://open.spotify.com/episode/56xul2YW53rHoKMlLDA2Vo",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1795776068140-4fc0a4bc53753.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#293 Brent Staples: How Whistling Vivaldi Exposed the Fear Around Black Men",
-      "date": "2026-11-26",
-      "url": "https://open.spotify.com/episode/0g98cClBYFrxOXKgR0xlsn",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795687080337-731b899b74a258.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#292 Shift Economics: Build Your Economics to Support Your Shifts",
-      "date": "2026-11-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/292-Shift-Economics-Build-Your-Economics-to-Support-Your-Shifts-e3t2chg",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795689982771-c89ad8b9db6c4.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#291 The Insider Economy: How Exclusives Became the Currency of Power",
-      "date": "2026-11-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/291-The-Insider-Economy-How-Exclusives-Became-the-Currency-of-Power-e3t28q6",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795684493449-6cafca212c6b48.jpg"
-    },
-    {
-      "show": "polymath",
-      "show_name": "Eclectic Polymath",
-      "kind": "episode",
-      "title": "#290 Todd Boehly: How a Sports Owner Became Washington's Buyer for a Russian Oil Major",
-      "date": "2026-11-26",
-      "url": "https://podcasters.spotify.com/pod/show/jgerms20/episodes/290-Todd-Boehly-How-a-Sports-Owner-Became-Washingtons-Buyer-for-a-Russian-Oil-Major-e3t2713",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/45826544/45826544-1795681400074-334c31d3463918.jpg"
-    },
-    {
-      "show": "fastbreak",
-      "show_name": "The Fast Break",
-      "kind": "episode",
-      "title": "Wednesday, November 25, 2026",
-      "date": "2026-11-26",
-      "url": "https://open.spotify.com/episode/64yTJahR9MF0FOVlV4vRcn",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1795674914923-028a932830921.jpg"
     }
   ]
 }
