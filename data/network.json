@@ -1,6 +1,6 @@
 {
   "source": "https://jgerms20.github.io/curious-and-creative/",
-  "generated_at": "2026-11-28T04:01:10Z",
+  "generated_at": "2026-11-28T13:17:38Z",
   "shows": [
     {
       "key": "ccpod",
@@ -18,6 +18,86 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/46174576/46174576-1781590462345-c7fdeed0add65.jpg",
       "latest": "2026-11-04",
       "count": 6
+    },
+    {
+      "key": "marketread",
+      "name": "The Opening Bell",
+      "short": "The Opening Bell",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
+      "latest": "2026-11-28",
+      "count": 27
+    },
+    {
+      "key": "ladaily",
+      "name": "The LA Daily",
+      "short": "The LA Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
+      "latest": "2026-11-28",
+      "count": 32
+    },
+    {
+      "key": "fastbreak",
+      "name": "The Fast Break",
+      "short": "The Fast Break",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
+      "latest": "2026-11-28",
+      "count": 26
+    },
+    {
+      "key": "celticsdaily",
+      "name": "Celtics Daily",
+      "short": "Celtics Daily",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
+      "latest": "2026-11-28",
+      "count": 16
+    },
+    {
+      "key": "blitz",
+      "name": "The Blitz",
+      "short": "The Blitz",
+      "kind": "podcast",
+      "flagship": false,
+      "hosts": [
+        "AI-generated"
+      ],
+      "tagline": "",
+      "about": "",
+      "url": "https://open.spotify.com/show/0GRrulRcTaVs3rSqdqJFCQ",
+      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
+      "latest": "2026-11-27",
+      "count": 16
     },
     {
       "key": "riff",
@@ -116,22 +196,6 @@
       "count": 11
     },
     {
-      "key": "marketread",
-      "name": "The Opening Bell",
-      "short": "The Opening Bell",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/7o0wIklaVB3sYrcTOt9Wnz",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105283/47105283-1793296461432-37636e92ac11e.jpg",
-      "latest": "2026-11-27",
-      "count": 26
-    },
-    {
       "key": "nyread",
       "name": "The New York Read",
       "short": "The New York Read",
@@ -162,22 +226,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47105275/47105275-1793296406617-c215400bda3c9.jpg",
       "latest": "2026-11-27",
       "count": 29
-    },
-    {
-      "key": "ladaily",
-      "name": "The LA Daily",
-      "short": "The LA Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/075sJdyAJA6JNbdZGwnyq0",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107231/47107231-1793317283328-7d63fd8a117bc.jpg",
-      "latest": "2026-11-27",
-      "count": 31
     },
     {
       "key": "politicalread",
@@ -226,38 +274,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/45826544/45826544-1776880694876-d8ab259e2aab7.jpg",
       "latest": "2026-11-26",
       "count": 292
-    },
-    {
-      "key": "fastbreak",
-      "name": "The Fast Break",
-      "short": "The Fast Break",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/1ll5TImMkA9Ys8czUWuv5S",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47099278/47099278-1793471691829-255f764b1ca39.jpg",
-      "latest": "2026-11-26",
-      "count": 25
-    },
-    {
-      "key": "blitz",
-      "name": "The Blitz",
-      "short": "The Blitz",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/0GRrulRcTaVs3rSqdqJFCQ",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114961/47114961-1793415939925-cce7d89e0ed85.jpg",
-      "latest": "2026-11-26",
-      "count": 15
     },
     {
       "key": "waiverwire",
@@ -322,22 +338,6 @@
       "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47107287/47107287-1793485331322-9f8d5fde73df9.jpg",
       "latest": "2026-11-25",
       "count": 20
-    },
-    {
-      "key": "celticsdaily",
-      "name": "Celtics Daily",
-      "short": "Celtics Daily",
-      "kind": "podcast",
-      "flagship": false,
-      "hosts": [
-        "AI-generated"
-      ],
-      "tagline": "",
-      "about": "",
-      "url": "https://open.spotify.com/show/4JSb8qpLtYL7O8eJp8F7qc",
-      "art": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/47114970/47114970-1793402932821-8081e1aec61a6.jpg",
-      "latest": "2026-11-25",
-      "count": 15
     },
     {
       "key": "harlem",
@@ -575,7 +575,7 @@
       "tagline": "The takes too big for a caption.",
       "about": "Politics, culture, and the conversations the internet keeps trying to flatten into a thread.",
       "url": "https://open.spotify.com/show/033G4KctzeuD3Pu4db1AQa",
-      "art": "https://image-cdn-ak.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
+      "art": "https://image-cdn-fa.spotifycdn.com/image/ab6765630000ba8a788c2667b7b49bf441e8c8b7",
       "latest": "2026-07-25",
       "count": 1
     },
@@ -599,6 +599,51 @@
     }
   ],
   "latest": [
+    {
+      "show": "marketread",
+      "show_name": "The Opening Bell",
+      "kind": "episode",
+      "title": "Saturday, November 28, 2026",
+      "date": "2026-11-28",
+      "url": "https://open.spotify.com/episode/3rqOaUY5SX579vzNBCEZia",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795866510013-09bd008ff1e2e.jpg"
+    },
+    {
+      "show": "ladaily",
+      "show_name": "The LA Daily",
+      "kind": "episode",
+      "title": "Saturday, November 28, 2026",
+      "date": "2026-11-28",
+      "url": "https://open.spotify.com/episode/5YbMvpanqBrB67ZvOaj2tX",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1795862399937-cb8b0075da0028.jpg"
+    },
+    {
+      "show": "fastbreak",
+      "show_name": "The Fast Break",
+      "kind": "episode",
+      "title": "Friday, November 27, 2026",
+      "date": "2026-11-28",
+      "url": "https://open.spotify.com/episode/464C1wLyKkMjv97URcdVzc",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47099278/47099278-1795846258689-72b9872e6ab24.jpg"
+    },
+    {
+      "show": "celticsdaily",
+      "show_name": "Celtics Daily",
+      "kind": "episode",
+      "title": "Hawks Beat the Celtics 87-86: 26 Turnovers Waste Queta's 22 Boards and a 17-Point Lead, Boston Is 12-7 | Friday, November 27, 2026",
+      "date": "2026-11-28",
+      "url": "https://open.spotify.com/episode/6iTAERPW3xHM6BfAQdCcTl",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114970/47114970-1795838726763-5942885ab79b9.jpg"
+    },
+    {
+      "show": "blitz",
+      "show_name": "The Blitz",
+      "kind": "episode",
+      "title": "Watt and Ramsey Score on Defense: Pittsburgh Buries Denver on Black Friday | Friday, November 27, 2026",
+      "date": "2026-11-27",
+      "url": "https://open.spotify.com/episode/114dUCNEpg1koJmim1Wzae",
+      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47114961/47114961-1795822594311-b93e1e733917c8.jpg"
+    },
     {
       "show": "riff",
       "show_name": "The Jazz Riff",
@@ -632,7 +677,7 @@
       "kind": "episode",
       "title": "Friday, November 27, 2026",
       "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/7AwIquaKRqX2NvFT2ejwex",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2047/episodes/Friday--November-27--2026-e3t477o",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107261/47107261-1795782041843-206d22ea05c43.jpg"
     },
     {
@@ -659,53 +704,8 @@
       "kind": "episode",
       "title": "Friday, November 27, 2026",
       "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/07PUOa1GXmUwLBA8l3ZnW2",
+      "url": "https://podcasters.spotify.com/pod/show/jgerms2050/episodes/Friday--November-27--2026-e3t46d2",
       "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105283/47105283-1795780853470-725acaa6319e08.jpg"
-    },
-    {
-      "show": "nyread",
-      "show_name": "The New York Read",
-      "kind": "episode",
-      "title": "Friday, November 27, 2026",
-      "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/2HD1AM9gITGcT6Z4q9APt4",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107245/47107245-1795779888091-0e63644885b73.jpg"
-    },
-    {
-      "show": "globalread",
-      "show_name": "The Global Read",
-      "kind": "episode",
-      "title": "China Tests New Taiwan Landing Tactics in Drills | Friday, November 27, 2026",
-      "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/7gdCXD7YszYvmAx1w3HFky",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47105275/47105275-1795776352528-1a329de4165678.jpg"
-    },
-    {
-      "show": "ladaily",
-      "show_name": "The LA Daily",
-      "kind": "episode",
-      "title": "Friday, November 27, 2026",
-      "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/4UVA5BtzscdZVvnuxVlLPu",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47107231/47107231-1795776370765-1d3254d7df8b1.jpg"
-    },
-    {
-      "show": "politicalread",
-      "show_name": "The Political Read",
-      "kind": "episode",
-      "title": "Friday, November 27, 2026",
-      "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/0UJdeKVmfCA81w9FFD2R2b",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47154157/47154157-1795776256277-eff09462e769.jpg"
-    },
-    {
-      "show": "morningread",
-      "show_name": "The Morning Read",
-      "kind": "episode",
-      "title": "Friday, November 27, 2026",
-      "date": "2026-11-27",
-      "url": "https://open.spotify.com/episode/56xul2YW53rHoKMlLDA2Vo",
-      "image": "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/47027522/47027522-1795776068140-4fc0a4bc53753.jpg"
     }
   ]
 }
